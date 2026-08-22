@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-label="Metodo operativo">
+  <rect width="1200" height="280" fill="#050505"/>
+  <rect width="1200" height="3" fill="#f3d437"/>
+  <rect x="1" y="1" width="1198" height="278" fill="none" stroke="#3a3720"/>
+  <text x="36" y="40" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="13" font-weight="700" letter-spacing="3">GB / OPERATING LOOP</text>
+  <text x="1164" y="40" text-anchor="end" fill="#6e6d66" font-family="Consolas, Monaco, monospace" font-size="12" letter-spacing="2">REPEATABLE SYSTEM</text>
+  <line x1="36" y1="56" x2="1164" y2="56" stroke="#2a2924"/>
+
+  <rect x="36" y="80" width="250" height="160" fill="#0e0f0d" stroke="#5a5020"/>
+  <text x="56" y="118" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="14">01</text>
+  <text x="56" y="160" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="30" font-weight="700">ESCUCHAR</text>
+  <text x="56" y="192" fill="#8a897f" font-family="Arial, Helvetica, sans-serif" font-size="14">Cliente + equipo + operacion</text>
+  <text x="56" y="218" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="12" letter-spacing="1">SENAL -&gt;</text>
+
+  <polygon points="300,155 318,160 300,165" fill="#f3d437"/>
+
+  <rect x="330" y="80" width="250" height="160" fill="#0e0f0d" stroke="#2a2924"/>
+  <text x="350" y="118" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="14">02</text>
+  <text x="350" y="160" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="30" font-weight="700">DECIDIR</text>
+  <text x="350" y="192" fill="#8a897f" font-family="Arial, Helvetica, sans-serif" font-size="14">Friccion + dato + prioridad</text>
+  <text x="350" y="218" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="12" letter-spacing="1">CRITERIO -&gt;</text>
+
+  <polygon points="594,155 612,160 594,165" fill="#f3d437"/>
+
+  <rect x="624" y="80" width="250" height="160" fill="#0e0f0d" stroke="#2a2924"/>
+  <text x="644" y="118" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="14">03</text>
+  <text x="644" y="160" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="30" font-weight="700">CONSTRUIR</text>
+  <text x="644" y="192" fill="#8a897f" font-family="Arial, Helvetica, sans-serif" font-size="14">UI + reglas + automatizacion</text>
+  <text x="644" y="218" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="12" letter-spacing="1">SISTEMA -&gt;</text>
+
+  <polygon points="888,155 906,160 888,165" fill="#f3d437"/>
+
+  <rect x="918" y="80" width="246" height="160" fill="#f3d437"/>
+  <text x="938" y="118" fill="#3a3200" font-family="Consolas, Monaco, monospace" font-size="14">04</text>
+  <text x="938" y="160" fill="#080909" font-family="Arial Narrow, Arial, sans-serif" font-size="30" font-weight="700">ACTIVAR</text>
+  <text x="938" y="192" fill="#3a3200" font-family="Arial, Helvetica, sans-serif" font-size="14">Formacion + habito + mejora</text>
+  <text x="938" y="218" fill="#080909" font-family="Consolas, Monaco, monospace" font-size="12" font-weight="700" letter-spacing="1">ADOPCION</text>
+</svg>

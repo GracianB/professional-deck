@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080909">
+  <meta name="author" content="Gracián Baena">
+  <meta name="description" content="16+ años conectando Customer Success, datos, automatización e IA. Portfolio de Gracián Baena.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <title>Gracián Baena — Customer Success Systems & Data Strategy</title>
+  <link rel="canonical" href="https://gracianb.github.io/professional-deck/">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Gracián Baena — Personas, datos y sistemas que mueven negocio">
+  <meta property="og:description" content="Customer Success Systems · Data Strategy · AI Operations. Portfolio ES/EN.">
+  <meta property="og:url" content="https://gracianb.github.io/professional-deck/">
+  <meta property="og:image" content="https://gracianb.github.io/professional-deck/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=deck2">
+  <script src="./i18n.js?v=deck2"></script>
+  <script src="./main.js?v=deck2" defer></script>
+</head>
+<body class="has-os-rail lang-pending">
+  <!-- LANGUAGE GATE -->
+  <div class="lang-gate" id="lang-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="lang-gate-bg" aria-hidden="true"></div>
+    <div class="lang-gate-card">
+      <div class="lang-gate-brand"><span class="brand-mark">GB</span><div><b>GRACIÁN BAENA</b><small data-i18n="gateKicker">PORTFOLIO PROFESIONAL / 2026</small></div></div>
+      <h1 id="gate-title" data-i18n="gateTitle">Elige idioma</h1>
+      <p class="lang-gate-sub" data-i18n="gateSub">Selecciona cómo quieres explorar el portfolio</p>
+      <div class="lang-gate-actions">
+        <button type="button" class="lang-card" data-pick-lang="es" autofocus>
+          <span class="lang-flag">ES</span>
+          <strong data-i18n="gateEs">Español</strong>
+          <small data-i18n="gateEsHint">Versión completa en español</small>
+        </button>
+        <button type="button" class="lang-card" data-pick-lang="en">
+          <span class="lang-flag">EN</span>
+          <strong data-i18n="gateEn">English</strong>
+          <small data-i18n="gateEnHint">Full English version</small>
+        </button>
+      </div>
+      <button type="button" class="lang-continue" id="lang-continue" data-i18n="gateContinue" disabled>
+        Continuar →
+      </button>
+      <p class="lang-gate-note" data-i18n="gateNote">1) Elige idioma · 2) Pulsa Continuar</p>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#deck" data-i18n="skip">Saltar al contenido</a>
+  <div class="top-progress" aria-hidden="true"><i data-progress></i></div>
+
+  <aside class="os-rail" aria-label="Index">
+    <div class="os-rail-brand">
+      <span class="brand-mark">GB</span>
+      <div><b data-i18n="railBrand">PROFILE DECK</b><small data-i18n="railSlides">2026 · 13 slides</small></div>
+    </div>
+    <p class="os-rail-status"><span data-i18n="railActive">ACTIVA</span><strong data-rail-status>00 · Portada</strong></p>
+    <nav class="os-rail-nav" data-slide-rail></nav>
+    <div class="os-rail-meter" aria-hidden="true"><i data-rail-meter></i></div>
+    <p class="os-rail-hint" data-i18n="railHint">↑↓ navegar · Ctrl K buscar</p>
+  </aside>
+
+  <header class="site-header">
+    <button class="brand" type="button" data-go="inicio" aria-label="Home">
+      <span class="brand-mark">GB</span>
+      <span class="brand-lockup"><b>GRACIÁN BAENA</b><small data-i18n="brandSub">CUSTOMER · DATA · AI</small></span>
+    </button>
+    <nav class="main-nav" id="main-nav">
+      <button type="button" data-go="sistemas" data-i18n="navSystems">Sistemas</button>
+      <button type="button" data-go="ruta" data-i18n="navRoute">Ruta</button>
+      <button type="button" data-go="trayectoria" data-i18n="navCareer">Trayectoria</button>
+      <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
+      <button type="button" data-open-command><span data-i18n="navSearch">Navegar</span> <kbd>Ctrl K</kbd></button>
+      <!-- ÚNICO selector de idioma (no hay FAB flotante) -->
+      <div class="lang-switch" role="group" aria-label="Idioma">
+        <button type="button" class="lang-btn" data-set-lang="es" data-lang-btn="es" title="Español">ES</button>
+        <button type="button" class="lang-btn" data-set-lang="en" data-lang-btn="en" title="English">EN</button>
+      </div>
+      <a class="header-cta" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link>CV ↗</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu"><i></i><i></i></button>
+  </header>
+
+  <main class="deck" id="deck" tabindex="-1">
+    <!-- 00 HERO — portada ultra dinámica avanzada -->
+    <section class="slide dark fit gb-hero" id="inicio" data-title="Portada" data-code="00">
+      <div class="gb-hero-ambient" aria-hidden="true">
+        <div class="gb-hero-orb gb-hero-orb-a"></div>
+        <div class="gb-hero-orb gb-hero-orb-b"></div>
+        <div class="gb-hero-orb gb-hero-orb-c"></div>
+        <div class="gb-hero-grain"></div>
+        <div class="gb-hero-grid-fx" aria-hidden="true"></div>
+        <div class="gb-hero-tags-fx" aria-hidden="true">
+          <span style="--tx:8%;--ty:20%;--d:0s">Python</span>
+          <span style="--tx:88%;--ty:15%;--d:.8s">Power BI</span>
+          <span style="--tx:15%;--ty:75%;--d:1.6s">GenAI</span>
+          <span style="--tx:78%;--ty:70%;--d:2.4s">Chatbots</span>
+          <span style="--tx:45%;--ty:10%;--d:3.2s">LLM</span>
+          <span style="--tx:92%;--ty:45%;--d:4s">Zendesk</span>
+          <span style="--tx:5%;--ty:50%;--d:1.2s">Apps Script</span>
+          <span style="--tx:55%;--ty:85%;--d:2s">Pandas</span>
+        </div>
+      </div>
+      <div class="gb-hero-stack">
+        <div class="gb-hero-grid">
+          <div class="gb-hero-copy">
+            <p class="gb-kicker" data-i18n="heroEyebrow">CUSTOMER SUCCESS SYSTEMS · DATA STRATEGY · AI OPERATIONS</p>
+            <p class="gb-status"><i></i> <span data-i18n="heroStatus">España · abierto a roles senior</span></p>
+            <h1 data-i18n-html="heroTitle">Personas.<br>Datos.<br><em>Sistemas</em>.</h1>
+            <p class="gb-lead" data-i18n-html="heroLead">Cliente + operación + datos → herramientas que los equipos <strong>sí usan</strong>.</p>
+            <div class="gb-actions">
+              <button class="button primary" type="button" data-go="sistemas" data-i18n="heroCta1">Explorar sistemas →</button>
+              <button class="button ghost" type="button" data-open-recruiter data-i18n="heroCta2">30 s ▶</button>
+              <button class="button ghost" type="button" data-go="experiencia" data-i18n="heroCtaExp">Ver experiencia →</button>
+            </div>
+            <p class="gb-hero-proof" data-i18n="heroProof">1 caso público live · 3 demos privadas · CS × Data × AI</p>
+          </div>
+          <aside class="gb-card" aria-hidden="true">
+            <header class="gb-card-head">
+              <span data-i18n="heroVisualHead">PROFILE / 2026</span>
+              <b><i></i> <span data-i18n="heroOnline">ONLINE</span></b>
+            </header>
+            <div class="gb-card-body">
+              <p class="gb-card-label" data-i18n="heroCoreSmall">INTERSECTION</p>
+              <p class="gb-card-title" data-i18n-html="heroCoreStrong">CS × DATA × AI</p>
+              <p class="gb-card-sub" data-i18n="heroCoreSpan">Listen · Build · Activate</p>
+              <ul class="gb-card-list">
+                <li><span>01</span><div><b data-i18n="signal1b">SEÑAL</b><small data-i18n="signal1s">Cliente + operación</small></div></li>
+                <li><span>02</span><div><b data-i18n="signal2b">SISTEMA</b><small data-i18n="signal2s">Datos + reglas + IA</small></div></li>
+                <li><span>03</span><div><b data-i18n="signal3b">RESULTADO</b><small data-i18n="signal3s">Valor + adopción</small></div></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+        <div class="gb-metrics">
+          <div><strong data-count="16" data-suffix="+">16+</strong><span data-i18n="m1">años exp.</span></div>
+          <div><strong data-count="10" data-suffix="+">10+</strong><span data-i18n="m2">años cliente</span></div>
+          <div><strong data-count="5" data-suffix="+">5+</strong><span data-i18n="m3">centros ECI</span></div>
+          <div><strong data-count="200" data-suffix="+">200+</strong><span data-i18n="m4">reglas</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 VALUE — cards ARRIBA, titular ABAJO -->
+    <section class="slide light fit gb-valor-slide" id="valor" data-title="Diferencial" data-code="01">
+      <div class="gb-panel gb-panel-light gb-valor-panel">
+        <p class="slide-index gb-valor-index"><span>01</span><i></i><span data-i18n="valorIndex">MI DIFERENCIAL</span></p>
+
+        <div class="gb-loop" data-valor-loop>
+          <article class="gb-loop-card">
+            <span class="gb-loop-num">01</span>
+            <b class="gb-loop-label">SEÑAL</b>
+            <h3 data-i18n="v1t">Escucho donde otros miden</h3>
+            <p data-i18n="v1p">Cliente, equipo y operación en un diagnóstico.</p>
+          </article>
+          <article class="gb-loop-card">
+            <span class="gb-loop-num">02</span>
+            <b class="gb-loop-label">SISTEMA</b>
+            <h3 data-i18n="v2t">Construyo donde otros derivan</h3>
+            <p data-i18n="v2p">Dashboards y automatizaciones que aterrizan la decisión.</p>
+          </article>
+          <article class="gb-loop-card">
+            <span class="gb-loop-num">03</span>
+            <b class="gb-loop-label">DECISIÓN</b>
+            <h3 data-i18n="v3t">Priorizo valor</h3>
+            <p data-i18n="v3p">Retención, pricing y calidad con lógica clara.</p>
+          </article>
+          <article class="gb-loop-card is-end">
+            <span class="gb-loop-num">04</span>
+            <b class="gb-loop-label">HÁBITO</b>
+            <h3 data-i18n="v4t">Activo hasta el final</h3>
+            <p data-i18n="v4p">Formación hasta que el equipo gana autonomía.</p>
+          </article>
+        </div>
+
+        <div class="gb-valor-bottom">
+          <h2 data-i18n-html="valorH2">No entrego análisis.<br><em>Entrego capacidad de actuar.</em></h2>
+          <p class="gb-panel-lead" data-i18n="valorP">Recorro el sistema completo: escuchar, decidir, construir y conseguir adopción.</p>
+        </div>
+
+        <footer class="gb-panel-bar">
+          <span>HUMAN</span><i>×</i><span>SYSTEM</span><i>=</i><strong>ADOPCIÓN REAL</strong>
+        </footer>
+      </div>
+    </section>
+
+    <!-- 02 BODYTONE — estrella: automatización + creación de app -->
+    <section class="slide dark systems-slide fit gb-star-slide" id="sistemas" data-title="Bodytone" data-code="02">
+      <div class="gb-star">
+        <header class="gb-star-head">
+          <p class="slide-index light-index"><span>02</span><i></i><span data-i18n="sysIndex">CASO ESTRELLA</span></p>
+          <p class="eyebrow" data-i18n="sysEyebrow">LIVE · AUTOMATIZACIÓN · APP · CX OPS</p>
+          <h2 data-i18n-html="sysH2">Bodytone Support OS.<br><em>El sistema que se puede verificar.</em></h2>
+          <p class="gb-star-lead" data-i18n="sysP">Help Center público + enrutado + automatización + reporting. Prueba de que construyo sistemas de punta a punta — no solo slides.</p>
+        </header>
+        <div class="gb-star-grid">
+          <article class="gb-star-main">
+            <div class="gb-star-badge"><i></i> <span data-i18n="sysLive">PÚBLICO · LIVE</span></div>
+            <h3 data-i18n="sysBodytoneH">Automatización + creación de app</h3>
+            <p data-i18n="sysBodytoneP">Diseñé y activé el sistema de soporte: intenciones, rutas, Zendesk, datos y dashboards. Del problema del cliente a la operación medible.</p>
+            <ul class="gb-star-points">
+              <li data-i18n="sysPoint1">Help Center live con recorridos por tipo de incidencia</li>
+              <li data-i18n="sysPoint2">Automatización de enrutado y seguimiento en Zendesk</li>
+              <li data-i18n="sysPoint3">Capa de datos / BI para ver fricción y calidad</li>
+              <li data-i18n="sysPoint4">Formación interna (Bodytone Academy) para adopción real</li>
+            </ul>
+            <div class="tag-row">
+              <span>Zendesk</span><span>CX Ops</span><span>Automation</span><span>Power BI</span><span>Python</span><span>GenAI</span>
+            </div>
+            <div class="project-actions gb-star-actions">
+              <a class="button primary" href="./proyecto-bodytone.html" data-i18n="sysExplore">Más info del caso →</a>
+              <a class="button ghost" href="https://bodytonehelp.zendesk.com/hc/es" target="_blank" rel="noreferrer" data-i18n="sysLiveLink">Ver sistema live ↗</a>
+            </div>
+          </article>
+          <aside class="gb-star-ui" aria-hidden="true">
+            <div class="support-ui is-star">
+              <div class="ui-bar"><span>BODYTONE SUPPORT</span><b>LIVE</b></div>
+              <div class="ui-layout">
+                <aside><strong>HELP</strong><i></i><i></i><i></i><i></i></aside>
+                <div>
+                  <h4>?</h4>
+                  <p>Search <b>↵</b></p>
+                  <section><i></i><i></i><i></i><i></i></section>
+                </div>
+              </div>
+              <footer>INTENT <b>→</b> ZENDESK <b>→</b> DATA <b>→</b> ADOPCIÓN</footer>
+            </div>
+            <div class="gb-star-metrics">
+              <div><strong>E2E</strong><span data-i18n="sysMet1">Sistema completo</span></div>
+              <div><strong>8+</strong><span data-i18n="sysMet2">rutas / intents</span></div>
+              <div><strong>AI</strong><span data-i18n="sysMet3">ops + academy</span></div>
+            </div>
+          </aside>
+        </div>
+        <p class="proof-note" data-i18n="proofNote">No publico bases, credenciales ni tarifas. Enseño impacto y protejo la lógica.</p>
+      </div>
+    </section>
+
+    <!-- 03 DEMOS UNIFICADAS — 3 sistemas privados en una diapo -->
+    <section class="slide dark fit gb-demos-slide" id="demos" data-title="Demos" data-code="03">
+      <div class="gb-demos">
+        <header class="gb-demos-head">
+          <p class="slide-index light-index"><span>03</span><i></i><span data-i18n="demosIndex">DEMOS PRIVADAS</span></p>
+          <p class="eyebrow" data-i18n="demosEyebrow">BAJO SOLICITUD · MÁS INFO O DEMO</p>
+          <h2 data-i18n-html="demosH2">Tres sistemas.<br><em>Una sola puerta.</em></h2>
+          <p class="gb-demos-lead" data-i18n="demosP">Apps y motores que construí: pricing, matching y outreach. Explora el caso o agenda una demo — sin exponer datos ni reglas internas en abierto.</p>
+        </header>
+        <div class="gb-demos-grid">
+          <article class="gb-demo-card">
+            <header>
+              <span class="gb-demo-code">01</span>
+              <span class="gb-demo-badge" data-i18n="calcBadge">DEMO PRIVADA</span>
+            </header>
+            <h3 data-i18n-html="calcH2">Calculadora · <em>200+ reglas</em></h3>
+            <p data-i18n="priv2p">Producto, plano, transporte e instalación → propuesta lista para enviar.</p>
+            <div class="tag-row"><span>SKU</span><span>Plano</span><span>Logística</span><span>PDF</span></div>
+            <div class="gb-demo-actions">
+              <a class="button primary" href="./proyecto-calculadora.html" data-i18n="sysExplore">Más info →</a>
+              <a class="button ghost" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="sysDemo">Solicitar demo ↗</a>
+            </div>
+          </article>
+          <article class="gb-demo-card">
+            <header>
+              <span class="gb-demo-code">02</span>
+              <span class="gb-demo-badge" data-i18n="finderBadge">DEMO PRIVADA</span>
+            </header>
+            <h3 data-i18n-html="finderH2">Profile Finder · <em>LinkedIn</em></h3>
+            <p data-i18n="priv3p">Nombre y apellidos → coincidencia profesional probable, con validación humana.</p>
+            <div class="tag-row"><span>Search</span><span>Matching</span><span>HITL</span></div>
+            <div class="gb-demo-actions">
+              <a class="button primary" href="./proyecto-linkedin.html" data-i18n="sysExplore">Más info →</a>
+              <a class="button ghost" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="sysDemo">Solicitar demo ↗</a>
+            </div>
+          </article>
+          <article class="gb-demo-card">
+            <header>
+              <span class="gb-demo-code">03</span>
+              <span class="gb-demo-badge" data-i18n="finderBadge">DEMO PRIVADA</span>
+            </header>
+            <h3 data-i18n-html="outreachH2">Outreach · <em>GenAI + HITL</em></h3>
+            <p data-i18n="priv4p">Segmentación + personalización + revisión humana + reporting.</p>
+            <div class="tag-row"><span>Segment</span><span>GenAI</span><span>Human review</span></div>
+            <div class="gb-demo-actions">
+              <a class="button primary" href="./proyecto-outreach.html" data-i18n="sysExplore">Más info →</a>
+              <a class="button ghost" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="sysDemo">Solicitar demo ↗</a>
+            </div>
+          </article>
+        </div>
+        <footer class="gb-demos-foot">
+          <span data-i18n="demosFoot">1 live público (Bodytone) · 3 demos bajo solicitud · CS × Data × AI</span>
+          <a href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="sysDemo">Agendar demo ↗</a>
+        </footer>
+      </div>
+    </section>
+
+    <!-- 04 RUTA INTERNACIONAL — OPERATING MAP -->
+    <section class="slide dark fit gb-route" id="ruta" data-title="Ruta" data-code="04">
+      <div class="gb-route-top">
+        <div>
+          <p class="eyebrow" data-i18n="routeEyebrow">MOBILITY OS · 6 NODOS · 4 PAÍSES</p>
+          <h2 data-i18n-html="routeH2">Mapa de decisión.<br><em>No solo de viajes.</em></h2>
+        </div>
+        <p class="gb-route-lead" data-i18n="routeP">Murcia es el núcleo. Cada ciudad aporta una capacidad que hoy compone el perfil.</p>
+      </div>
+      <div class="gb-route-body">
+        <div class="gb-route-map" role="group" aria-label="Mapa trayectoria">
+          <div class="gb-route-grid" aria-hidden="true"></div>
+          <div class="gb-route-orbs" aria-hidden="true">
+            <div class="gb-route-orb gb-route-orb-a"></div>
+            <div class="gb-route-orb gb-route-orb-b"></div>
+          </div>
+          <svg class="gb-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <!-- Hub spokes from Murcia (38,72) to all cities -->
+            <line class="gb-route-spoke" x1="38" y1="72" x2="10" y2="82" />
+            <line class="gb-route-spoke" x1="38" y1="72" x2="32" y2="48" />
+            <line class="gb-route-spoke" x1="38" y1="72" x2="78" y2="18" />
+            <line class="gb-route-spoke" x1="38" y1="72" x2="58" y2="36" />
+            <line class="gb-route-spoke" x1="38" y1="72" x2="18" y2="58" />
+            <!-- Primary path: Gran Canaria → Murcia (highlighted) -->
+            <line class="gb-route-primary" x1="10" y1="82" x2="38" y2="72" />
+            <!-- Animated pulse along primary path -->
+            <circle class="gb-route-pulse" r="1.2" fill="var(--yellow)">
+              <animateMotion dur="3s" repeatCount="indefinite" path="M10,82 L38,72" />
+            </circle>
+          </svg>
+          <button class="gb-pin" type="button" data-city="gran-canaria" style="--x:10%;--y:82%"><i>★</i><span>Gran Canaria</span></button>
+          <button class="gb-pin" type="button" data-city="madrid" style="--x:32%;--y:48%"><i>★</i><span>Madrid</span></button>
+          <button class="gb-pin" type="button" data-city="varsovia" style="--x:78%;--y:18%"><i>★</i><span>Varsovia</span></button>
+          <button class="gb-pin is-core active" type="button" data-city="murcia" style="--x:38%;--y:72%"><i>★</i><span>Murcia</span><b data-i18n="routeCore">CORE</b></button>
+          <button class="gb-pin" type="button" data-city="bergamo" style="--x:58%;--y:36%"><i>★</i><span>Bérgamo</span></button>
+          <button class="gb-pin" type="button" data-city="lisboa" style="--x:18%;--y:58%"><i>★</i><span>Lisboa</span></button>
+          <div class="gb-route-legend"><span>ES</span><span>PL</span><span>IT</span><span>PT</span></div>
+        </div>
+        <article class="gb-city-panel" data-city-panel aria-live="polite"></article>
+      </div>
+      <div class="gb-route-strip" data-route-strip aria-hidden="true"></div>
+    </section>
+
+    <!-- 05 MÉTODO — DECISION ENGINE -->
+    <section class="slide dark fit gb-method" id="metodo" data-title="Método" data-code="05">
+      <div class="gb-method-top">
+        <div>
+          <p class="eyebrow" data-i18n="methodEyebrow">OPERATING SYSTEM · HOW I WORK</p>
+          <h2 data-i18n-html="methodH2">Motor de decisión.<br><em>No solo análisis.</em></h2>
+        </div>
+        <p class="gb-method-lead" data-i18n="methodP">Identifico la decisión crítica, construyo el sistema mínimo y cierro con adopción real del equipo.</p>
+      </div>
+      <div class="gb-method-grid" data-method-steps>
+        <article class="gb-step">
+          <span class="gb-step-num">01</span>
+          <h3 data-i18n="mStep1t">ESCUCHAR</h3>
+          <p data-i18n="mStep1p">Cliente + equipo + operación</p>
+          <b data-i18n="mStep1b">SEÑAL →</b>
+        </article>
+        <article class="gb-step">
+          <span class="gb-step-num">02</span>
+          <h3 data-i18n="mStep2t">DECIDIR</h3>
+          <p data-i18n="mStep2p">Fricción + dato + prioridad</p>
+          <b data-i18n="mStep2b">CRITERIO →</b>
+        </article>
+        <article class="gb-step">
+          <span class="gb-step-num">03</span>
+          <h3 data-i18n="mStep3t">CONSTRUIR</h3>
+          <p data-i18n="mStep3p">UI + reglas + automatización</p>
+          <b data-i18n="mStep3b">SISTEMA →</b>
+        </article>
+        <article class="gb-step is-final">
+          <span class="gb-step-num">04</span>
+          <h3 data-i18n="mStep4t">ACTIVAR</h3>
+          <p data-i18n="mStep4p">Formación + hábito + mejora</p>
+          <b data-i18n="mStep4b">ADOPCIÓN ↗</b>
+        </article>
+      </div>
+      <div class="gb-method-formula">
+        <div class="gb-formula-card">
+          <small>HUMAN LAYER</small>
+          <strong>10+</strong>
+          <b data-i18n="compoundH">Años en primera línea</b>
+          <span data-i18n="compoundHsub">Retail · conflicto · equipos · cliente</span>
+        </div>
+        <div class="gb-formula-op">×</div>
+        <div class="gb-formula-card">
+          <small>SYSTEM LAYER</small>
+          <strong>05</strong>
+          <b data-i18n="compoundS">Años construyendo</b>
+          <span data-i18n="compoundSsub">Datos · APIs · automatización · IA</span>
+        </div>
+        <div class="gb-formula-op">=</div>
+        <div class="gb-formula-card result">
+          <small>OUTPUT</small>
+          <b data-i18n="compoundR">Traduzco problema → decisión → sistema → adopción</b>
+          <span data-i18n="compoundRsub">Business · Data · People en el mismo perfil</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 TRAYECTORIA — dual engine denso centrado -->
+    <section class="slide dark fit gb-career-slide" id="trayectoria" data-title="Trayectoria" data-code="06">
+      <div class="gb-panel gb-panel-dark gb-career-panel">
+        <header class="gb-panel-head gb-panel-head-compact">
+          <p class="slide-index light-index"><span>06</span><i></i><span data-i18n="careerIndex">TRAYECTORIA</span></p>
+          <p class="eyebrow" data-i18n="careerEyebrow">CAREER ARCHITECTURE · DUAL ENGINE</p>
+          <h2 data-i18n-html="careerH2">Dos motores.<br><em>Una sola ventaja.</em></h2>
+          <p class="gb-panel-lead" data-i18n="careerP">Track A = sistemas y negocio. Track B = presencia y adopción. Se multiplican.</p>
+        </header>
+        <div class="gb-dual">
+          <section class="gb-engine track-a">
+            <header>
+              <span>TRACK A</span>
+              <strong data-i18n="careerTrackA">CUSTOMER · DATA · LEADERSHIP</strong>
+            </header>
+            <ol class="gb-engine-list" data-track-a>
+              <li>
+                <em>2025—2026</em>
+                <div><b>BODYTONE</b><span>Data & Head of CS</span><i data-i18n="careerA1">Sistemas CS + IA + datos</i></div>
+              </li>
+              <li>
+                <em>2021—2024</em>
+                <div><b>MINDEREST</b><span>Customer Success</span><i data-i18n="careerA2">SaaS global · pricing · Big Data</i></div>
+              </li>
+              <li>
+                <em>2020—2021</em>
+                <div><b>GOOGLE / YOUTUBE</b><span>Senior Content</span><i data-i18n="careerA3">QA a escala · ops globales</i></div>
+              </li>
+              <li>
+                <em>2012—2020</em>
+                <div><b>RETAIL · ECI</b><span>5 centros + dirección</span><i data-i18n="careerA4">P&L · equipos · CX</i></div>
+              </li>
+            </ol>
+          </section>
+          <div class="gb-dual-x" aria-hidden="true">×</div>
+          <section class="gb-engine track-b">
+            <header>
+              <span>TRACK B</span>
+              <strong data-i18n="careerTrackB">YOGA · WELLNESS · ENABLEMENT</strong>
+            </header>
+            <ol class="gb-engine-list" data-track-b>
+              <li>
+                <em>2022—JUN 2026</em>
+                <div><b>MOOD FITNESS</b><span>Yoga instructor</span><i data-i18n="careerB1">Presencia · hábitos · facilitación</i></div>
+              </li>
+              <li>
+                <em>2020—2021</em>
+                <div><b>MAJOREL</b><span>Wellness Ambassador</span><i data-i18n="careerB2">Salud mental IT + ES</i></div>
+              </li>
+              <li>
+                <em>2019—2020</em>
+                <div><b>BODYCARE</b><span>Yoga instructor</span><i data-i18n="careerB3">Clases · talleres · inclusión</i></div>
+              </li>
+              <li>
+                <em>2016—2019</em>
+                <div><b>SHAOLIN TEMPLE</b><span>Kung Fu Shaolin</span><i data-i18n="careerB5">Disciplina · presencia · constancia</i></div>
+              </li>
+              <li>
+                <em>CROSS</em>
+                <div><b>FORMATION</b><span>AI · mindfulness</span><i data-i18n="careerB4">Formación interna · hábitos</i></div>
+              </li>
+            </ol>
+          </section>
+        </div>
+        <div class="gb-timeline-img" aria-label="Timeline horizontal">
+          <img src="./timeline-horizontal.png" alt="Timeline carrera profesional 2011-2026" loading="lazy" />
+        </div>
+        <footer class="gb-panel-bar is-gold">
+          <p data-i18n="careerStmt">Puedo hablar con quien tiene el problema, quien decide la inversión y quien necesita confianza para adoptar el cambio.</p>
+        </footer>
+      </div>
+    </section>
+
+    <!-- 07 EXPERIENCIA I — sistemas, SaaS, yoga (roles recientes) -->
+    <section class="slide dark fit gb-exp-slide" id="experiencia" data-title="Experiencia I" data-code="07">
+      <div class="gb-panel gb-panel-dark gb-exp-panel">
+        <header class="gb-panel-head gb-panel-head-compact">
+          <p class="slide-index light-index"><span>07</span><i></i><span data-i18n="expIndex">EXPERIENCIA · 01/02</span></p>
+          <p class="eyebrow" data-i18n="expEyebrow">CS · DATA · AI · PRESENCIA</p>
+          <h2 data-i18n-html="expH2">Empleo con prueba.<br><em>Sistemas y adopción.</em></h2>
+          <p class="gb-panel-lead" data-i18n="expLead">Pulsa un rol: contexto, impacto y skills. Parte 1 — etapa reciente y SaaS.</p>
+        </header>
+
+        <div class="gb-roles" data-roles-grid>
+          <button type="button" class="gb-role is-featured" data-role-card="bodytone" data-role="bodytone">
+            <span class="gb-role-year">
+              <small class="gb-role-idx">01</small>
+              <span class="gb-role-dates" data-role-period>MAR 2025 — MAR 2026</span>
+            </span>
+            <span class="gb-role-main">
+              <span class="gb-role-topline">
+                <b class="gb-role-co">BODYTONE</b>
+                <span class="gb-role-tag" data-i18n="expTagLead">LEAD</span>
+              </span>
+              <strong class="gb-role-title">Data & Head of CS</strong>
+              <em class="gb-role-sum" data-role-summary>Automatización, Zendesk, Power BI, GenAI y liderazgo CS. Sistema live + Academy.</em>
+            </span>
+            <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
+          </button>
+
+          <button type="button" class="gb-role" data-role-card="minderest" data-role="minderest">
+            <span class="gb-role-year">
+              <small class="gb-role-idx">02</small>
+              <span class="gb-role-dates" data-role-period>MAR 2021 — MAR 2024</span>
+            </span>
+            <span class="gb-role-main">
+              <span class="gb-role-topline">
+                <b class="gb-role-co">MINDEREST</b>
+                <span class="gb-role-tag">SAAS</span>
+              </span>
+              <strong class="gb-role-title">Customer Success</strong>
+              <em class="gb-role-sum" data-role-summary>Cartera global B2B: pricing intelligence, Big Data, adopción y retención multilingüe.</em>
+            </span>
+            <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
+          </button>
+
+          <button type="button" class="gb-role" data-role-card="mood" data-role="mood">
+            <span class="gb-role-year">
+              <small class="gb-role-idx">03</small>
+              <span class="gb-role-dates" data-role-period>ABR 2022 — JUN 2026</span>
+            </span>
+            <span class="gb-role-main">
+              <span class="gb-role-topline">
+                <b class="gb-role-co">MOOD FITNESS</b>
+                <span class="gb-role-tag">YOGA</span>
+              </span>
+              <strong class="gb-role-title">Instructor de yoga</strong>
+              <em class="gb-role-sum" data-role-summary>Facilitación en sala hasta jun 2026: presencia, hábitos y entornos seguros de aprendizaje.</em>
+            </span>
+            <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
+          </button>
+        </div>
+
+        <footer class="gb-panel-bar is-gold">
+          <span>01 / 02</span><i>·</i><span data-i18n="expFoot1">3 roles · sistemas & presencia</span><i>·</i>
+          <button type="button" class="gb-exp-next" data-go="experiencia-2" data-i18n="expNext">Siguiente · primera línea →</button>
+        </footer>
+      </div>
+    </section>
+
+    <!-- 08 EXPERIENCIA II — global ops + retail foundation -->
+    <section class="slide dark fit gb-exp-slide" id="experiencia-2" data-title="Experiencia II" data-code="08">
+      <div class="gb-panel gb-panel-dark gb-exp-panel">
+        <header class="gb-panel-head gb-panel-head-compact">
+          <p class="slide-index light-index"><span>08</span><i></i><span data-i18n="expIndex2">EXPERIENCIA · 02/02</span></p>
+          <p class="eyebrow" data-i18n="expEyebrow2">GLOBAL OPS · RETAIL · P&L</p>
+          <h2 data-i18n-html="expH2b">Primera línea.<br><em>Equipos y P&L.</em></h2>
+          <p class="gb-panel-lead" data-i18n="expLead2">Pulsa un rol: la base de liderazgo, calidad a escala y dirección comercial.</p>
+        </header>
+
+        <div class="gb-roles" data-roles-grid>
+          <button type="button" class="gb-role is-featured" data-role-card="majorel" data-role="majorel">
+            <span class="gb-role-year">
+              <small class="gb-role-idx">04</small>
+              <span class="gb-role-dates" data-role-period>ENE 2020 — FEB 2021</span>
+            </span>
+            <span class="gb-role-main">
+              <span class="gb-role-topline">
+                <b class="gb-role-co">GOOGLE / YOUTUBE</b>
+                <span class="gb-role-tag">GLOBAL</span>
+              </span>
+              <strong class="gb-role-title">Content QA & Wellness</strong>
+              <em class="gb-role-sum" data-role-summary>QA de contenido a escala (Majorel) + Wellness Ambassador IT/ES.</em>
+            </span>
+            <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
+          </button>
+
+          <button type="button" class="gb-role" data-role-card="solaris" data-role="solaris">
+            <span class="gb-role-year">
+              <small class="gb-role-idx">05</small>
+              <span class="gb-role-dates" data-role-period>ENE 2017 — ENE 2020</span>
+            </span>
+            <span class="gb-role-main">
+              <span class="gb-role-topline">
+                <b class="gb-role-co">SOLARIS</b>
+                <span class="gb-role-tag">P&amp;L</span>
+              </span>
+              <strong class="gb-role-title">Director de tienda</strong>
+              <em class="gb-role-sum" data-role-summary>P&L, equipos, ventas y CX en retail óptico · 3 años de dirección.</em>
+            </span>
+            <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
+          </button>
+
+          <button type="button" class="gb-role" data-role-card="eci" data-role="eci">
+            <span class="gb-role-year">
+              <small class="gb-role-idx">06</small>
+              <span class="gb-role-dates" data-role-period>2012 — 2016</span>
+            </span>
+            <span class="gb-role-main">
+              <span class="gb-role-topline">
+                <b class="gb-role-co">EL CORTE INGLÉS</b>
+                <span class="gb-role-tag">5 CENTROS</span>
+              </span>
+              <strong class="gb-role-title">Encargado · multi-centro</strong>
+              <em class="gb-role-sum" data-role-summary>5 centros (Sanchinarro, Libertad, Gran Vía, El Tiro, Serrano). Madrid con 18 años.</em>
+            </span>
+            <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
+          </button>
+        </div>
+
+        <footer class="gb-panel-bar is-gold">
+          <span>02 / 02</span><i>·</i><span data-i18n="expFoot2">3 roles · primera línea</span><i>·</i>
+          <button type="button" class="gb-exp-next" data-go="experiencia" data-i18n="expPrev">← Volver a sistemas & CS</button>
+        </footer>
+      </div>
+    </section>
+
+    <!-- 09 CAPABILITIES -->
+    <section class="slide dark fit gb-caps" id="capacidades" data-title="Capacidades" data-code="09">
+      <div class="gb-caps-top">
+        <div>
+          <p class="eyebrow" data-i18n="capEyebrow">CAPABILITY MAP · COMPOUND PROFILE</p>
+          <h2 data-i18n-html="capH2">Negocio + construcción.<br><em>En un solo perfil.</em></h2>
+        </div>
+        <p class="gb-caps-lead" data-i18n="capP">Cuatro capas que se refuerzan: estrategia, datos, builder y capa humana.</p>
+      </div>
+      <div class="gb-caps-grid" data-caps-board>
+        <article class="gb-cap">
+          <header><span>01</span><b data-i18n="cap1k">STRATEGIC</b><strong>92</strong></header>
+          <h3 data-i18n="cap1t">Customer Success</h3>
+          <p data-i18n="cap1p">SaaS B2B · onboarding · adopción · retención · KPIs</p>
+          <div class="gb-cap-bar"><i style="width:92%"></i></div>
+        </article>
+        <article class="gb-cap">
+          <header><span>02</span><b data-i18n="cap2k">ANALYTICAL</b><strong>88</strong></header>
+          <h3 data-i18n="cap2t">Datos & BI</h3>
+          <p data-i18n="cap2p">Power BI · SQL · Excel · Pandas · storytelling</p>
+          <div class="gb-cap-bar"><i style="width:88%"></i></div>
+        </article>
+        <article class="gb-cap">
+          <header><span>03</span><b data-i18n="cap3k">BUILDER</b><strong>86</strong></header>
+          <h3 data-i18n="cap3t">IA & automatización</h3>
+          <p data-i18n="cap3p">Python · APIs · GenAI · Zendesk · Apps Script</p>
+          <div class="gb-cap-bar"><i style="width:86%"></i></div>
+        </article>
+        <article class="gb-cap is-human">
+          <header><span>04</span><b data-i18n="cap4k">HUMAN</b><strong>94</strong></header>
+          <h3 data-i18n="cap4t">Personas & liderazgo</h3>
+          <p data-i18n="cap4p">Equipos · yoga · facilitación · mindfulness</p>
+          <div class="gb-cap-bar"><i style="width:94%"></i></div>
+        </article>
+      </div>
+      <aside class="gb-academy">
+        <span>AI / 01</span>
+        <div>
+          <p class="eyebrow">BODYTONE ACADEMY</p>
+          <h3 data-i18n="academyH">No solo implanto IA. Enseño al equipo a usarla con criterio.</h3>
+          <p data-i18n="academyP">Primera formación interna de IA aplicada a procesos y decisiones.</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 10 EDUCATION -->
+    <section class="slide light education-slide fit" id="formacion" data-title="Formación" data-code="10">
+      <div class="slide-index"><span>10</span><i></i><span data-i18n="eduIndex">EDUCATION / BUILDER</span></div>
+      <div class="education-layout compact-edu">
+        <article class="builder-note">
+          <span>AUTODIDACT / 05Y</span>
+          <strong data-i18n="eduBuilder">BUILD → TEST → LEARN → SHIP</strong>
+          <h2 data-i18n="eduH2">No esperé al título para empezar a construir.</h2>
+          <p data-i18n="eduP">Aprendí programación y producto resolviendo problemas reales: apps, integraciones, dashboards y sistemas de decisión.</p>
+          <ul><li>Python · Flask · Apps Script</li><li>APIs · data · automation</li><li>Power BI · dashboards</li><li>GenAI · chatbots</li></ul>
+        </article>
+        <article class="education-list">
+          <div>
+            <p class="eyebrow" data-i18n="eduListLabel">FORMACIÓN</p>
+            <ul data-edu-list>
+              <li><b>2025</b><span>AI Visualization · Columbia</span></li>
+              <li><b>2023</b><span>IT Automation · Google</span></li>
+              <li><b>2022</b><span>Data Science · Coursera</span></li>
+              <li><b>2015</b><span>Tripulante de Cabina de Pasajeros · Esatur Formación</span></li>
+              <li><b>2012</b><span>Grado Turismo · Erasmus</span></li>
+              <li><b>2011</b><span>Diplomatura Turismo · Murcia</span></li>
+            </ul>
+          </div>
+          <div class="languages">
+            <span><b>ES</b><span data-i18n="langNative">Nativo</span></span>
+            <span><b>EN</b>C1</span>
+            <span><b>IT</b>C1</span>
+            <span><b>PT/FR</b><span data-i18n="langBasic">Básico</span></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 11 CONTACT — corto -->
+    <section class="slide dark fit gb-contact" id="contacto" data-title="Hablemos" data-code="11">
+      <p class="gb-contact-kicker" data-i18n="contactEyebrow">NEXT STEP</p>
+      <h2 data-i18n-html="contactH2">HABLEMOS.</h2>
+      <p class="gb-contact-sub" data-i18n="contactP">CS Systems · Data · AI Ops</p>
+      <div class="gb-contact-actions">
+        <a class="button primary" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="contactAgenda">Agendar ↗</a>
+        <a class="button ghost" href="mailto:gracianbaenagonzalez@gmail.com" data-i18n="contactMail">Email ↗</a>
+        <a class="button ghost" href="https://www.linkedin.com/in/gracianbaena" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+      <div class="gb-contact-docs">
+        <a class="button ghost" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link data-i18n="contactCv">CV ↗</a>
+        <a class="button ghost" href="./Gracian_Baena_Carta_Presentacion_ES.pdf" target="_blank" rel="noreferrer" data-letter-link data-i18n="contactLetter">Carta ↗</a>
+      </div>
+      <p class="gb-contact-meta">
+        <a href="https://gracianb.github.io/GracianB/" target="_blank" rel="noreferrer">Hub ↗</a>
+        ·
+        <a href="https://github.com/GracianB" target="_blank" rel="noreferrer">GitHub ↗</a>
+        ·
+        <span data-i18n="contactLoc">España · remoto OK</span>
+      </p>
+    </section>
+  </main>
+
+  <nav class="deck-controls" aria-label="Controls">
+    <span><b data-current>01</b><i>/</i><em data-total>12</em></span>
+    <button type="button" data-prev>← <small data-i18n="prev">ANT.</small></button>
+    <button type="button" data-next><small data-i18n="next">SIG.</small> →</button>
+  </nav>
+  <p class="deck-hint" data-i18n="hint">↑↓ navegar · rueda = 1 diapositiva</p>
+
+  <dialog class="recruiter-dialog" id="recruiter-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
+    <header><p class="eyebrow" data-i18n="recruiterEyebrow">RECRUITER MODE / 30 SEGUNDOS</p></header>
+    <h2 data-i18n-html="recruiterH2">Cliente, datos y ejecución.<br><em>En una sola persona.</em></h2>
+    <p class="recruiter-lead" data-i18n="recruiterLead">16+ años de negocio y primera línea + 5 años construyendo sistemas, automatizaciones e IA.</p>
+    <div class="recruiter-grid" data-recruiter-grid></div>
+    <div class="recruiter-metrics"><div><strong>16+</strong><span>yrs</span></div><div><strong>5+</strong><span>ECI</span></div><div><strong>05</strong><span>builder</span></div><div><strong>200+</strong><span>rules</span></div></div>
+    <footer>
+      <a class="button primary" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link data-i18n="contactCv">CV ↗</a>
+      <a class="button ghost" href="./Gracian_Baena_Carta_Presentacion_ES.pdf" target="_blank" rel="noreferrer" data-letter-link data-i18n="contactLetter">Carta ↗</a>
+      <a class="button dark-button" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="contactAgenda">Agendar ↗</a>
+    </footer>
+  </dialog>
+
+  <dialog class="experience-dialog" id="experience-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
+    <header><span data-role-period></span><b data-role-company></b></header>
+    <h2 data-role-title></h2>
+    <p class="role-dialog-meta" data-role-meta></p>
+    <div class="role-dialog-copy" data-role-copy></div>
+    <ul data-role-skills></ul>
+  </dialog>
+
+  <dialog class="command-dialog" id="command-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
+    <header><span>⌕</span><input type="search" data-i18n-placeholder="cmdPlaceholder" placeholder="Buscar…" data-command-search><kbd>ESC</kbd></header>
+    <div><h2 data-i18n="cmdTitle">¿A dónde quieres ir?</h2><span data-command-count></span></div>
+    <nav data-command-list></nav>
+  </dialog>
+</body>
+</html>

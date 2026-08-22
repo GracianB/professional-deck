@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Capability Map">
+  <rect width="1200" height="360" fill="#050505"/>
+  <rect width="1200" height="3" fill="#f3d437"/>
+  <rect x="1" y="1" width="1198" height="358" fill="none" stroke="#3a3720"/>
+  <text x="36" y="38" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="13" font-weight="700" letter-spacing="3">CAPABILITY MAP  //  CS x DATA x AI x HUMAN</text>
+  <text x="1164" y="38" text-anchor="end" fill="#6e6d66" font-family="Consolas, Monaco, monospace" font-size="12" letter-spacing="2">COMPOUND PROFILE</text>
+  <line x1="36" y1="54" x2="1164" y2="54" stroke="#2a2924"/>
+
+  <!-- STRATEGIC -->
+  <rect x="28" y="72" width="270" height="260" fill="#0e0f0d" stroke="#2a2924"/>
+  <rect x="28" y="72" width="270" height="3" fill="#f3d437"/>
+  <text x="48" y="108" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="22" font-weight="700">STRATEGIC</text>
+  <text x="48" y="132" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="12">92</text>
+  <text x="78" y="132" fill="#6e6d66" font-family="Consolas, Monaco, monospace" font-size="11">/ 100</text>
+  <rect x="48" y="148" width="230" height="8" fill="#22231f"/><rect x="48" y="148" width="212" height="8" fill="#f3d437"/>
+  <text x="48" y="180" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">Customer Success</text>
+  <rect x="48" y="190" width="230" height="6" fill="#22231f"/><rect x="48" y="190" width="207" height="6" fill="#f3d437"/>
+  <text x="48" y="220" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">SaaS B2B / Retencion</text>
+  <rect x="48" y="230" width="230" height="6" fill="#22231f"/><rect x="48" y="230" width="202" height="6" fill="#f3d437"/>
+  <text x="48" y="260" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">Onboarding / Adopcion</text>
+  <rect x="48" y="270" width="230" height="6" fill="#22231f"/><rect x="48" y="270" width="198" height="6" fill="#f3d437"/>
+  <text x="48" y="300" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">Pricing advisory</text>
+  <rect x="48" y="310" width="230" height="6" fill="#22231f"/><rect x="48" y="310" width="193" height="6" fill="#f3d437"/>
+
+  <!-- ANALYTICAL -->
+  <rect x="314" y="72" width="270" height="260" fill="#0e0f0d" stroke="#2a2924"/>
+  <rect x="314" y="72" width="270" height="3" fill="#f3d437"/>
+  <text x="334" y="108" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="22" font-weight="700">ANALYTICAL</text>
+  <text x="334" y="132" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="12">88</text>
+  <text x="364" y="132" fill="#6e6d66" font-family="Consolas, Monaco, monospace" font-size="11">/ 100</text>
+  <rect x="334" y="148" width="230" height="8" fill="#22231f"/><rect x="334" y="148" width="202" height="8" fill="#f3d437"/>
+  <text x="334" y="180" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">Power BI / Storytelling</text>
+  <rect x="334" y="190" width="230" height="6" fill="#22231f"/><rect x="334" y="190" width="202" height="6" fill="#f3d437"/>
+  <text x="334" y="220" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">SQL / Excel / Power Query</text>
+  <rect x="334" y="230" width="230" height="6" fill="#22231f"/><rect x="334" y="230" width="198" height="6" fill="#f3d437"/>
+  <text x="334" y="260" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">Python / Pandas</text>
+  <rect x="334" y="270" width="230" height="6" fill="#22231f"/><rect x="334" y="270" width="191" height="6" fill="#f3d437"/>
+  <text x="334" y="300" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">Competitive intel</text>
+  <rect x="334" y="310" width="230" height="6" fill="#22231f"/><rect x="334" y="310" width="193" height="6" fill="#f3d437"/>
+
+  <!-- BUILDER -->
+  <rect x="600" y="72" width="270" height="260" fill="#0e0f0d" stroke="#2a2924"/>
+  <rect x="600" y="72" width="270" height="3" fill="#f3d437"/>
+  <text x="620" y="108" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="22" font-weight="700">BUILDER</text>
+  <text x="620" y="132" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="12">86</text>
+  <text x="650" y="132" fill="#6e6d66" font-family="Consolas, Monaco, monospace" font-size="11">/ 100</text>
+  <rect x="620" y="148" width="230" height="8" fill="#22231f"/><rect x="620" y="148" width="198" height="8" fill="#f3d437"/>
+  <text x="620" y="180" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">Automatizacion / APIs</text>
+  <rect x="620" y="190" width="230" height="6" fill="#22231f"/><rect x="620" y="190" width="198" height="6" fill="#f3d437"/>
+  <text x="620" y="220" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">GenAI / Prompt systems</text>
+  <rect x="620" y="230" width="230" height="6" fill="#22231f"/><rect x="620" y="230" width="193" height="6" fill="#f3d437"/>
+  <text x="620" y="260" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">Zendesk / CX Ops</text>
+  <rect x="620" y="270" width="230" height="6" fill="#22231f"/><rect x="620" y="270" width="202" height="6" fill="#f3d437"/>
+  <text x="620" y="300" fill="#8a897f" font-family="Consolas, Monaco, monospace" font-size="12">Apps Script / Web apps</text>
+  <rect x="620" y="310" width="230" height="6" fill="#22231f"/><rect x="620" y="310" width="186" height="6" fill="#f3d437"/>
+
+  <!-- HUMAN -->
+  <rect x="886" y="72" width="286" height="260" fill="#f3d437"/>
+  <text x="910" y="112" fill="#3a3200" font-family="Consolas, Monaco, monospace" font-size="12" letter-spacing="2">04  HUMAN LAYER</text>
+  <text x="910" y="170" fill="#080909" font-family="Arial Narrow, Arial, sans-serif" font-size="64" font-weight="700">94</text>
+  <text x="1040" y="170" fill="#2a2500" font-family="Arial Narrow, Arial, sans-serif" font-size="20" font-weight="700">/ 100</text>
+  <text x="910" y="210" fill="#2a2500" font-family="Arial Narrow, Arial, sans-serif" font-size="18" font-weight="700">Liderazgo</text>
+  <text x="910" y="238" fill="#2a2500" font-family="Arial Narrow, Arial, sans-serif" font-size="18" font-weight="700">Formacion de equipos</text>
+  <text x="910" y="266" fill="#2a2500" font-family="Arial Narrow, Arial, sans-serif" font-size="18" font-weight="700">Facilitacion · Yoga</text>
+  <text x="910" y="304" fill="#4a4000" font-family="Consolas, Monaco, monospace" font-size="12" letter-spacing="1">FIRST LINE DNA</text>
+</svg>

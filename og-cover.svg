@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow" cx="80%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#f2d23c" stop-opacity=".14"/>
+      <stop offset=".56" stop-color="#f2d23c" stop-opacity=".03"/>
+      <stop offset="1" stop-color="#080909" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="90" height="90" patternUnits="userSpaceOnUse">
+      <path d="M90 0H0V90" fill="none" stroke="#ffffff" stroke-opacity=".045"/>
+    </pattern>
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="#080909"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="8" fill="#f2d23c"/>
+
+  <g transform="translate(72 55)">
+    <rect width="50" height="50" fill="none" stroke="#f2d23c" stroke-opacity=".78"/>
+    <text x="25" y="32" fill="#f2d23c" font-family="DejaVu Sans,sans-serif" font-size="14" font-weight="900" text-anchor="middle">GB</text>
+    <text x="72" y="22" fill="#fffef8" font-family="DejaVu Sans,sans-serif" font-size="15" font-weight="800" letter-spacing="1">GRACIÁN BAENA</text>
+    <text x="72" y="42" fill="#77776f" font-family="DejaVu Sans Mono,monospace" font-size="9" letter-spacing="2">CUSTOMER SUCCESS SYSTEMS · DATA STRATEGY · AI OPERATIONS</text>
+  </g>
+
+  <g transform="translate(72 165)">
+    <text y="0" fill="#77776f" font-family="DejaVu Sans Mono,monospace" font-size="10" font-weight="700" letter-spacing="2">OPERATING PROFILE / 2026</text>
+    <text y="72" fill="#fffef8" font-family="DejaVu Sans,sans-serif" font-size="70" font-weight="800" letter-spacing="-4">Personas. <tspan fill="#f2d23c">Datos.</tspan></text>
+    <text y="142" fill="#fffef8" font-family="DejaVu Sans,sans-serif" font-size="70" font-weight="800" letter-spacing="-4">Sistemas que</text>
+    <text y="212" fill="#fffef8" font-family="DejaVu Sans,sans-serif" font-size="70" font-weight="800" letter-spacing="-4">mueven negocio.</text>
+    <rect y="251" width="500" height="1" fill="#ffffff" fill-opacity=".16"/>
+    <text y="287" fill="#aaa99f" font-family="DejaVu Sans,sans-serif" font-size="17">16+ años conectando clientes, operaciones, datos e IA.</text>
+    <text y="321" fill="#f2d23c" font-family="DejaVu Sans Mono,monospace" font-size="10" font-weight="700" letter-spacing="1.8">PUBLIC PROOF  /  PRIVATE IP  /  RECRUITER MODE</text>
+  </g>
+
+  <g transform="translate(910 284)">
+    <circle r="190" fill="none" stroke="#f2d23c" stroke-opacity=".16"/>
+    <circle r="142" fill="none" stroke="#ffffff" stroke-opacity=".09"/>
+    <circle r="94" fill="none" stroke="#f2d23c" stroke-opacity=".17"/>
+    <circle cx="0" cy="-190" r="5" fill="#f2d23c"/>
+    <circle cx="0" cy="-190" r="16" fill="#f2d23c" fill-opacity=".18" filter="url(#softGlow)"/>
+    <rect x="-78" y="-73" width="156" height="146" fill="#f2d23c"/>
+    <text y="-39" fill="#080909" font-family="DejaVu Sans Mono,monospace" font-size="7" text-anchor="middle" letter-spacing="1">THE INTERSECTION</text>
+    <text y="-5" fill="#080909" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="900" text-anchor="middle">CUSTOMER</text>
+    <text y="23" fill="#080909" font-family="DejaVu Sans,sans-serif" font-size="21" font-weight="900" text-anchor="middle">× DATA × AI</text>
+    <text y="51" fill="#080909" font-family="DejaVu Sans Mono,monospace" font-size="6" text-anchor="middle">LISTEN · DESIGN · BUILD · ACTIVATE</text>
+    <g transform="translate(-210 -72)">
+      <rect width="128" height="44" fill="#0d0e0d" stroke="#ffffff" stroke-opacity=".15"/>
+      <text x="10" y="17" fill="#f2d23c" font-family="DejaVu Sans Mono,monospace" font-size="7">01 / SIGNAL</text>
+      <text x="10" y="31" fill="#77776f" font-family="DejaVu Sans Mono,monospace" font-size="6">CLIENT + OPS</text>
+    </g>
+    <g transform="translate(111 -112)">
+      <rect width="128" height="44" fill="#0d0e0d" stroke="#ffffff" stroke-opacity=".15"/>
+      <text x="10" y="17" fill="#f2d23c" font-family="DejaVu Sans Mono,monospace" font-size="7">02 / SYSTEM</text>
+      <text x="10" y="31" fill="#77776f" font-family="DejaVu Sans Mono,monospace" font-size="6">DATA + RULES</text>
+    </g>
+    <g transform="translate(105 106)">
+      <rect width="128" height="44" fill="#0d0e0d" stroke="#ffffff" stroke-opacity=".15"/>
+      <text x="10" y="17" fill="#f2d23c" font-family="DejaVu Sans Mono,monospace" font-size="7">03 / RESULT</text>
+      <text x="10" y="31" fill="#77776f" font-family="DejaVu Sans Mono,monospace" font-size="6">VALUE + ADOPTION</text>
+    </g>
+  </g>
+
+  <g transform="translate(1015 570)">
+    <circle r="4" fill="#f2d23c"/>
+    <text x="13" y="4" fill="#77776f" font-family="DejaVu Sans Mono,monospace" font-size="8" letter-spacing="1">OPEN TO SENIOR ROLES</text>
+  </g>
+</svg>

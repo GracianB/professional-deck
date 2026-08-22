@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="240" viewBox="0 0 1200 240" role="img" aria-label="Impact Snapshot 2026">
+  <rect width="1200" height="240" fill="#050505"/>
+  <rect width="1200" height="3" fill="#f3d437"/>
+  <rect x="1" y="1" width="1198" height="238" fill="none" stroke="#3a3720" stroke-width="1"/>
+  <text x="36" y="40" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="13" font-weight="700" letter-spacing="3">IMPACT SNAPSHOT  //  2026</text>
+  <text x="1164" y="40" text-anchor="end" fill="#6e6d66" font-family="Consolas, Monaco, monospace" font-size="12" letter-spacing="2">VERIFIED PROFILE</text>
+  <circle cx="1008" cy="36" r="4" fill="#f3d437"/>
+  <line x1="36" y1="56" x2="1164" y2="56" stroke="#2a2924" stroke-width="1"/>
+
+  <rect x="28" y="72" width="274" height="140" fill="#0e0f0d" stroke="#2a2924"/>
+  <rect x="28" y="72" width="274" height="3" fill="#f3d437"/>
+  <text x="48" y="104" fill="#6e6d66" font-family="Consolas, Monaco, monospace" font-size="11" letter-spacing="2">01  EXPERIENCIA</text>
+  <text x="48" y="160" fill="#f3d437" font-family="Arial Narrow, Arial, sans-serif" font-size="56" font-weight="700">16+</text>
+  <text x="160" y="160" fill="#c8c7bc" font-family="Arial Narrow, Arial, sans-serif" font-size="18" font-weight="600">anos</text>
+  <text x="48" y="190" fill="#8a897f" font-family="Arial, Helvetica, sans-serif" font-size="13">Negocio · cliente · operacion</text>
+
+  <rect x="318" y="72" width="274" height="140" fill="#0e0f0d" stroke="#2a2924"/>
+  <rect x="318" y="72" width="274" height="3" fill="#f3d437"/>
+  <text x="338" y="104" fill="#6e6d66" font-family="Consolas, Monaco, monospace" font-size="11" letter-spacing="2">02  SISTEMA</text>
+  <text x="338" y="160" fill="#f3d437" font-family="Arial Narrow, Arial, sans-serif" font-size="56" font-weight="700">200+</text>
+  <text x="490" y="160" fill="#c8c7bc" font-family="Arial Narrow, Arial, sans-serif" font-size="18" font-weight="600">reglas</text>
+  <text x="338" y="190" fill="#8a897f" font-family="Arial, Helvetica, sans-serif" font-size="13">Pricing engine coordinado</text>
+
+  <rect x="608" y="72" width="274" height="140" fill="#0e0f0d" stroke="#2a2924"/>
+  <rect x="608" y="72" width="274" height="3" fill="#f3d437"/>
+  <text x="628" y="104" fill="#6e6d66" font-family="Consolas, Monaco, monospace" font-size="11" letter-spacing="2">03  MOVILIDAD</text>
+  <text x="628" y="160" fill="#f3d437" font-family="Arial Narrow, Arial, sans-serif" font-size="56" font-weight="700">4</text>
+  <text x="680" y="160" fill="#c8c7bc" font-family="Arial Narrow, Arial, sans-serif" font-size="18" font-weight="600">paises</text>
+  <text x="628" y="190" fill="#8a897f" font-family="Arial, Helvetica, sans-serif" font-size="13">ES · PL · IT · PT</text>
+
+  <rect x="898" y="72" width="274" height="140" fill="#f3d437"/>
+  <text x="918" y="104" fill="#3a3200" font-family="Consolas, Monaco, monospace" font-size="11" letter-spacing="2">04  PORTFOLIO</text>
+  <text x="918" y="160" fill="#080909" font-family="Arial Narrow, Arial, sans-serif" font-size="56" font-weight="700">13</text>
+  <text x="1000" y="160" fill="#2a2500" font-family="Arial Narrow, Arial, sans-serif" font-size="18" font-weight="700">slides</text>
+  <text x="918" y="190" fill="#3a3200" font-family="Arial, Helvetica, sans-serif" font-size="13">gracianb.github.io/professional-deck</text>
+</svg>

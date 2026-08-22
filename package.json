@@ -1,0 +1,11 @@
+﻿{
+  "name": "gracian-baena-portfolio-bilingual",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Bilingual ES/EN portfolio for GitHub Pages",
+  "scripts": {
+    "test": "node validate.mjs",
+    "validate": "node validate.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

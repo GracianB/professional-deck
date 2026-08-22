@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-label="Personas Datos Sistemas">
+  <rect width="1200" height="400" fill="#050505"/>
+  <rect width="1200" height="4" fill="#f3d437"/>
+  <circle cx="980" cy="110" r="150" fill="none" stroke="#2a2710" stroke-width="1"/>
+  <circle cx="980" cy="110" r="100" fill="none" stroke="#3a3720" stroke-width="1"/>
+  <circle cx="980" cy="110" r="50" fill="none" stroke="#5a5020" stroke-width="1"/>
+  <circle cx="980" cy="110" r="6" fill="#f3d437"/>
+
+  <rect x="48" y="36" width="48" height="48" fill="none" stroke="#f3d437" stroke-width="1.5"/>
+  <text x="72" y="68" text-anchor="middle" fill="#f3d437" font-family="Arial Narrow, Arial, sans-serif" font-size="18" font-weight="800">GB</text>
+  <text x="112" y="56" fill="#f3d437" font-family="Consolas, Monaco, monospace" font-size="12" letter-spacing="2">CUSTOMER SUCCESS SYSTEMS  ·  DATA  ·  AI OPS</text>
+  <text x="112" y="78" fill="#7d7c74" font-family="Consolas, Monaco, monospace" font-size="11" letter-spacing="2">ESPANA  ·  SENIOR ROLES  ·  2026</text>
+
+  <text x="48" y="165" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="58" font-weight="700">Personas. Datos.</text>
+  <text x="48" y="230" fill="#f3d437" font-family="Arial Narrow, Arial, sans-serif" font-size="58" font-weight="700">Sistemas que mueven negocio.</text>
+  <text x="48" y="272" fill="#a8a79d" font-family="Arial, Helvetica, sans-serif" font-size="17">16+ anos conectando cliente, operacion, datos e IA en herramientas reales.</text>
+
+  <line x1="48" y1="300" x2="1152" y2="300" stroke="#2a2924"/>
+  <text x="48" y="345" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="28" font-weight="700">16+</text>
+  <text x="108" y="345" fill="#7d7c74" font-family="Consolas, Monaco, monospace" font-size="11" letter-spacing="1">ANOS</text>
+  <text x="220" y="345" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="28" font-weight="700">200+</text>
+  <text x="305" y="345" fill="#7d7c74" font-family="Consolas, Monaco, monospace" font-size="11" letter-spacing="1">REGLAS</text>
+  <text x="420" y="345" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="28" font-weight="700">4</text>
+  <text x="450" y="345" fill="#7d7c74" font-family="Consolas, Monaco, monospace" font-size="11" letter-spacing="1">PAISES</text>
+  <text x="560" y="345" fill="#fffef8" font-family="Arial Narrow, Arial, sans-serif" font-size="28" font-weight="700">13</text>
+  <text x="610" y="345" fill="#7d7c74" font-family="Consolas, Monaco, monospace" font-size="11" letter-spacing="1">SLIDES LIVE</text>
+  <text x="780" y="345" fill="#f3d437" font-family="Arial Narrow, Arial, sans-serif" font-size="26" font-weight="700">CS  x  DATA  x  AI</text>
+</svg>
