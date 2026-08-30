@@ -638,8 +638,14 @@ body.has-os-rail .deck {
   flex-shrink: 0;
 }
 .gb-line-head h2 {
-  margin: 6px 0 4px;
-  font: 500 clamp(28px, 4vw, 48px)/1.05 var(--display);
+  margin: 4px 0 2px;
+  font: 500 clamp(22px, 3vw, 36px)/1.05 var(--display);
+}
+.gb-line-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 .gb-line-head p { margin: 0; color: var(--muted-dark); font-size: 14px; }
 .gb-line-frame {
@@ -2140,7 +2146,10 @@ dialog > form {
   min-height: 0 !important;
   height: auto !important;
   display: grid !important;
-  grid-template-columns: 1fr 48px 1fr !important;
+  grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr) !important;
+}
+.gb-career-panel .gb-engine-list {
+  overflow: auto !important;
 }
 
 .gb-career-panel .gb-engine {
