@@ -21,9 +21,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=deck2">
-  <script src="./i18n.js?v=deck2"></script>
-  <script src="./main.js?v=deck2" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=deck3">
+  <script src="./i18n.js?v=deck3"></script>
+  <script src="./main.js?v=deck3" defer></script>
 </head>
 <body class="has-os-rail lang-pending">
   <!-- LANGUAGE GATE -->
@@ -82,6 +82,7 @@
         <button type="button" class="lang-btn" data-set-lang="es" data-lang-btn="es" title="Español">ES</button>
         <button type="button" class="lang-btn" data-set-lang="en" data-lang-btn="en" title="English">EN</button>
       </div>
+      <a class="header-cta" href="https://gracianb.github.io/GracianB/" target="_blank" rel="noreferrer">Hub ↗</a>
       <a class="header-cta" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link>CV ↗</a>
     </nav>
     <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu"><i></i><i></i></button>
@@ -119,7 +120,7 @@
               <button class="button ghost" type="button" data-open-recruiter data-i18n="heroCta2">30 s ▶</button>
               <button class="button ghost" type="button" data-go="experiencia" data-i18n="heroCtaExp">Ver experiencia →</button>
             </div>
-            <p class="gb-hero-proof" data-i18n="heroProof">1 caso público live · 3 demos privadas · CS × Data × AI</p>
+            <p class="gb-hero-proof" data-i18n="heroProof">Help Center live · Ohana · Vórtice · PLAY</p>
           </div>
           <aside class="gb-card" aria-hidden="true">
             <header class="gb-card-head">
@@ -242,59 +243,56 @@
       </div>
     </section>
 
-    <!-- 03 DEMOS UNIFICADAS — 3 sistemas privados en una diapo -->
-    <section class="slide dark fit gb-demos-slide" id="demos" data-title="Demos" data-code="03">
+    <!-- 03 LIVE — lo que se puede pulsar ahora -->
+    <section class="slide dark fit gb-demos-slide" id="demos" data-title="Live" data-code="03">
       <div class="gb-demos">
         <header class="gb-demos-head">
-          <p class="slide-index light-index"><span>03</span><i></i><span data-i18n="demosIndex">DEMOS PRIVADAS</span></p>
-          <p class="eyebrow" data-i18n="demosEyebrow">BAJO SOLICITUD · MÁS INFO O DEMO</p>
-          <h2 data-i18n-html="demosH2">Tres sistemas.<br><em>Una sola puerta.</em></h2>
-          <p class="gb-demos-lead" data-i18n="demosP">Apps y motores que construí: pricing, matching y outreach. Explora el caso o agenda una demo — sin exponer datos ni reglas internas en abierto.</p>
+          <p class="slide-index light-index"><span>03</span><i></i><span data-i18n="demosIndex">SE PUEDE PULSAR</span></p>
+          <p class="eyebrow" data-i18n="demosEyebrow">LIVE · SIN PEDIR ACCESO</p>
+          <h2 data-i18n-html="demosH2">Tres piezas encendidas.<br><em>Ábrelas.</em></h2>
+          <p class="gb-demos-lead" data-i18n="demosP">El Help Center de Bodytone está en la diapo anterior. Estas tres también están en el aire: juego, campo WebGL, y un ejemplo de agente.</p>
         </header>
         <div class="gb-demos-grid">
           <article class="gb-demo-card">
             <header>
               <span class="gb-demo-code">01</span>
-              <span class="gb-demo-badge" data-i18n="calcBadge">DEMO PRIVADA</span>
+              <span class="gb-demo-badge is-live" data-i18n="liveBadge">LIVE</span>
             </header>
-            <h3 data-i18n-html="calcH2">Calculadora · <em>200+ reglas</em></h3>
-            <p data-i18n="priv2p">Producto, plano, transporte e instalación → propuesta lista para enviar.</p>
-            <div class="tag-row"><span>SKU</span><span>Plano</span><span>Logística</span><span>PDF</span></div>
+            <h3 data-i18n-html="ohanaH2">Ohana · <em>juego</em></h3>
+            <p data-i18n="ohanaP">Mundos, evoluciones, habilidades. Entra. No hace falta manual.</p>
+            <div class="tag-row"><span>Game</span><span>Pages</span></div>
             <div class="gb-demo-actions">
-              <a class="button primary" href="./proyecto-calculadora.html" data-i18n="sysExplore">Más info →</a>
-              <a class="button ghost" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="sysDemo">Solicitar demo ↗</a>
+              <a class="button primary" href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noreferrer" data-i18n="sysLiveLink">Jugar ↗</a>
             </div>
           </article>
           <article class="gb-demo-card">
             <header>
               <span class="gb-demo-code">02</span>
-              <span class="gb-demo-badge" data-i18n="finderBadge">DEMO PRIVADA</span>
+              <span class="gb-demo-badge is-live" data-i18n="liveBadge">LIVE</span>
             </header>
-            <h3 data-i18n-html="finderH2">Profile Finder · <em>LinkedIn</em></h3>
-            <p data-i18n="priv3p">Nombre y apellidos → coincidencia profesional probable, con validación humana.</p>
-            <div class="tag-row"><span>Search</span><span>Matching</span><span>HITL</span></div>
+            <h3 data-i18n-html="vortexH2">Vórtice · <em>WebGL</em></h3>
+            <p data-i18n="vortexP">Mueve el cursor. Miles de puntos te siguen. El prototipo, no una captura.</p>
+            <div class="tag-row"><span>WebGL</span><span>Vercel</span></div>
             <div class="gb-demo-actions">
-              <a class="button primary" href="./proyecto-linkedin.html" data-i18n="sysExplore">Más info →</a>
-              <a class="button ghost" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="sysDemo">Solicitar demo ↗</a>
+              <a class="button primary" href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noreferrer" data-i18n="sysLiveLink">Abrir ↗</a>
             </div>
           </article>
           <article class="gb-demo-card">
             <header>
               <span class="gb-demo-code">03</span>
-              <span class="gb-demo-badge" data-i18n="finderBadge">DEMO PRIVADA</span>
+              <span class="gb-demo-badge is-live" data-i18n="liveBadge">LIVE</span>
             </header>
-            <h3 data-i18n-html="outreachH2">Outreach · <em>GenAI + HITL</em></h3>
-            <p data-i18n="priv4p">Segmentación + personalización + revisión humana + reporting.</p>
-            <div class="tag-row"><span>Segment</span><span>GenAI</span><span>Human review</span></div>
+            <h3 data-i18n-html="playH2">PLAY · <em>lab</em></h3>
+            <p data-i18n="playP">El hub de sistemas: juegos, Help Center público y un ejemplo de agente.</p>
+            <div class="tag-row"><span>Hub</span><span>CS</span></div>
             <div class="gb-demo-actions">
-              <a class="button primary" href="./proyecto-outreach.html" data-i18n="sysExplore">Más info →</a>
-              <a class="button ghost" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="sysDemo">Solicitar demo ↗</a>
+              <a class="button primary" href="https://gracianb.github.io/systems-lab/" target="_blank" rel="noreferrer" data-i18n="sysLiveLink">Entrar ↗</a>
             </div>
           </article>
         </div>
         <footer class="gb-demos-foot">
-          <span data-i18n="demosFoot">1 live público (Bodytone) · 3 demos bajo solicitud · CS × Data × AI</span>
-          <a href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="sysDemo">Agendar demo ↗</a>
+          <span data-i18n="demosFoot">Bodytone Help Center + Ohana + Vórtice + PLAY · todo live</span>
+          <a href="https://gracianb.github.io/systems-lab/" target="_blank" rel="noreferrer" data-i18n="playCta">Abrir PLAY ↗</a>
         </footer>
       </div>
     </section>
@@ -701,6 +699,14 @@
       </div>
       <p class="gb-contact-meta">
         <a href="https://gracianb.github.io/GracianB/" target="_blank" rel="noreferrer">Hub ↗</a>
+        ·
+        <a href="https://gracianb.github.io/systems-lab/" target="_blank" rel="noreferrer">PLAY ↗</a>
+        ·
+        <a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noreferrer">Ohana ↗</a>
+        ·
+        <a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noreferrer">Vórtice ↗</a>
+        ·
+        <a href="https://bodytonehelp.zendesk.com/hc/es" target="_blank" rel="noreferrer">Help Center ↗</a>
         ·
         <a href="https://github.com/GracianB" target="_blank" rel="noreferrer">GitHub ↗</a>
         ·

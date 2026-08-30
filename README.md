@@ -47,10 +47,10 @@
 
 <div align="center">
 
-| **16+** | **200+** | **4** | **12** | **1 live** | **3 demos** |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| años experiencia | reglas pricing | países | slides | caso público | bajo solicitud |
-| Negocio · cliente · ops | Calculadora | ES · PL · IT · PT | Portfolio ES/EN | Bodytone | Calculadora · Finder · Outreach |
+| **16+** | **4** | **12** | **4 live** |
+|:---:|:---:|:---:|:---:|
+| años experiencia | países | slides | Help Center · Ohana · Vórtice · PLAY |
+| Negocio · cliente · ops | ES · PL · IT · PT | Portfolio ES/EN | Todo se puede pulsar |
 
 </div>
 
@@ -71,7 +71,7 @@
 | 00 | **Portada** | Personas × Datos × Sistemas | Hero dinámico · orbes ambientales · shimmer en h1 · stats animados |
 | 01 | **Diferencial** | Capacidad de actuar | 4 loop cards: Señal → Sistema → Decisión → Hábito |
 | 02 | **Bodytone** ⭐ | Caso estrella · live | Standalone · "Ver sistema live ↗" (no pide demo) |
-| 03 | **Demos** | 3 sistemas unificados | Calculadora · Finder · Outreach — todos "Solicitar demo ↗" |
+| 03 | **Live** | Ohana · Vórtice · PLAY | Todo se abre ahora |
 | 04 | **Ruta** | Mapa interactivo | Hub-and-spoke desde Murcia · Murcia ↔ Gran Canaria · pulso animado |
 | 05 | **Método** | Motor de decisión | 4 pasos + fórmula HUMAN × SYSTEM = ADOPCIÓN |
 | 06 | **Trayectoria** | Dual engine | Track A (sistemas) × Track B (yoga/wellness) |

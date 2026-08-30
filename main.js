@@ -207,7 +207,13 @@
       id: slide.id,
       title: slide.dataset.title,
       code: pad(index)
-    }));
+    })).concat([
+      { id: "ext-hub", title: "Hub", href: "https://gracianb.github.io/GracianB/", code: "↗" },
+      { id: "ext-play", title: "PLAY", href: "https://gracianb.github.io/systems-lab/", code: "↗" },
+      { id: "ext-ohana", title: "Ohana", href: "https://gracianb.github.io/project-ohana/", code: "↗" },
+      { id: "ext-vortex", title: "Vórtice", href: "https://vortex-gilt-xi.vercel.app/", code: "↗" },
+      { id: "ext-hc", title: "Help Center", href: "https://bodytonehelp.zendesk.com/hc/es", code: "↗" }
+    ]);
 
     // Solo cuando el deck ya está listo (evita errores al elegir idioma)
     if (typeof selectCity === "function") {
@@ -597,7 +603,13 @@
   const commandSearch = document.querySelector("[data-command-search]");
   const commandList = document.querySelector("[data-command-list]");
   const commandCount = document.querySelector("[data-command-count]");
-  commandItems = slides.map((slide, index) => ({ id: slide.id, title: slide.dataset.title, code: pad(index) }));
+  commandItems = slides.map((slide, index) => ({ id: slide.id, title: slide.dataset.title, code: pad(index) })).concat([
+    { id: "ext-hub", title: "Hub", href: "https://gracianb.github.io/GracianB/", code: "↗" },
+    { id: "ext-play", title: "PLAY", href: "https://gracianb.github.io/systems-lab/", code: "↗" },
+    { id: "ext-ohana", title: "Ohana", href: "https://gracianb.github.io/project-ohana/", code: "↗" },
+    { id: "ext-vortex", title: "Vórtice", href: "https://vortex-gilt-xi.vercel.app/", code: "↗" },
+    { id: "ext-hc", title: "Help Center", href: "https://bodytonehelp.zendesk.com/hc/es", code: "↗" }
+  ]);
 
   function renderCommands(query = "") {
     const normalized = query.trim().toLocaleLowerCase(lang === "en" ? "en" : "es");
@@ -605,7 +617,7 @@
     commandCursor = Math.min(commandCursor, Math.max(0, matches.length - 1));
     if (commandList) {
       commandList.innerHTML = matches.map((item, index) =>
-        `<button type="button" class="${index === commandCursor ? "active" : ""}" data-command-target="${item.id}"><small>${item.code}</small><span>${item.title}</span><b>${t.open || "→"}</b></button>`
+        `<button type="button" class="${index === commandCursor ? "active" : ""}" data-command-target="${item.id}" ${item.href ? `data-command-href="${item.href}"` : ""}><small>${item.code}</small><span>${item.title}</span><b>${t.open || "→"}</b></button>`
       ).join("");
     }
     if (commandCount) commandCount.textContent = `${matches.length} ${t.cmdCount || ""}`;
@@ -626,7 +638,11 @@
     const button = event.target.closest("[data-command-target]");
     if (!button) return;
     commandDialog.close();
-    goTo(button.dataset.commandTarget);
+    if (button.dataset.commandHref) {
+      window.open(button.dataset.commandHref, "_blank", "noopener");
+    } else {
+      goTo(button.dataset.commandTarget);
+    }
   });
   commandSearch?.addEventListener("keydown", (event) => {
     const matches = renderCommands(commandSearch.value);
@@ -639,7 +655,9 @@
     if (event.key === "Enter") {
       event.preventDefault();
       commandDialog.close();
-      goTo(matches[commandCursor].id);
+      const item = matches[commandCursor];
+      if (item?.href) window.open(item.href, "_blank", "noopener");
+      else goTo(item.id);
     }
   });
   document.addEventListener("keydown", (event) => {

@@ -3138,6 +3138,11 @@ img, svg, video, canvas {
   font: 800 12px var(--mono);
   letter-spacing: 0.12em;
 }
+.gb-demo-badge.is-live {
+  border-color: #7af3ff;
+  color: #031016;
+  background: #7af3ff;
+}
 .gb-demo-badge {
   padding: 4px 8px;
   border: 1px solid rgba(243, 212, 55, 0.35);
