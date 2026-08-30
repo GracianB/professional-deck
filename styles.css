@@ -895,74 +895,65 @@ body.has-os-rail .deck {
 }
 .gb-route-map {
   position: relative; min-height: 0;
-  border: 1px solid var(--line-dark-2); background: #0c0d0b; overflow: hidden;
+  border: 1px solid var(--line-dark-2); background: #0a0c12; overflow: hidden;
   border-radius: var(--r-lg);
-}
-.gb-route-grid {
-  position: absolute; inset: 0; opacity: .4;
-  background-image:
-    linear-gradient(rgba(244,243,238,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244,243,238,.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 30%, transparent 85%);
-}
-.gb-route-orbs {
-  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
-}
-.gb-route-orb {
-  position: absolute; border-radius: 50%; filter: blur(60px); opacity: .3;
-  animation: drift 20s ease-in-out infinite alternate;
-}
-.gb-route-orb-a {
-  width: 200px; height: 200px; top: 10%; right: 10%;
-  background: radial-gradient(circle, var(--yellow-glow), transparent 68%);
-}
-.gb-route-orb-b {
-  width: 180px; height: 180px; bottom: 15%; left: 15%;
-  background: radial-gradient(circle, var(--sage-glow), transparent 68%);
-  animation-delay: -8s;
+  min-height: 320px;
 }
 .gb-route-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.gb-route-line {
-  fill: none; stroke: rgba(243,212,55,.35); stroke-width: 0.6;
-  stroke-dasharray: 2 1.5;
+.gb-land {
+  fill: rgba(243, 212, 55, 0.08);
+  stroke: rgba(243, 212, 55, 0.22);
+  stroke-width: 0.35;
 }
+.gb-inset {
+  fill: rgba(8, 10, 16, 0.55);
+  stroke: rgba(243, 212, 55, 0.28);
+  stroke-width: 0.35;
+}
+.gb-inset-label {
+  fill: #8a897f;
+  font-size: 2.2px;
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0.12em;
+  text-anchor: middle;
+}
+.gb-isle { fill: var(--yellow); opacity: 0.85; }
 .gb-route-spoke {
-  stroke: rgba(243,212,55,.15); stroke-width: 0.4;
-  stroke-dasharray: 1.5 1;
+  fill: none;
+  stroke: rgba(243, 212, 55, 0.22);
+  stroke-width: 0.35;
 }
 .gb-route-primary {
-  stroke: var(--yellow); stroke-width: 1.2;
-  stroke-dasharray: 3 2;
-  animation: route-dash 4s linear infinite;
+  fill: none;
+  stroke: var(--yellow);
+  stroke-width: 0.7;
+  stroke-dasharray: 2 1.4;
+  animation: route-dash 5s linear infinite;
 }
-@keyframes route-dash {
-  to { stroke-dashoffset: -20; }
-}
-.gb-route-pulse {
-  filter: drop-shadow(0 0 4px var(--yellow));
-}
+.gb-route-pulse { fill: var(--yellow); }
 .gb-pin {
   position: absolute; left: var(--x); top: var(--y);
   transform: translate(-50%, -50%);
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
   color: #c8c7bc; z-index: 2;
-  transition: transform .25s var(--ease);
+  background: none; border: 0; cursor: pointer;
+  transition: transform .2s ease;
 }
-.gb-pin:hover { transform: translate(-50%, -50%) scale(1.1); }
+.gb-pin.pin-n { flex-direction: column-reverse; }
+.gb-pin.pin-e { flex-direction: row; }
+.gb-pin.pin-w { flex-direction: row-reverse; }
+.gb-pin:hover { transform: translate(-50%, -50%) scale(1.06); }
 .gb-pin i {
-  width: 16px; height: 16px; display: grid; place-items: center;
-  border-radius: 50%; border: 1px solid rgba(243,212,55,.5);
-  background: #0d0e0c; color: var(--yellow);
-  font: 9px/1 var(--mono); font-style: normal;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 1px solid var(--yellow);
+  background: #0d0e0c;
   box-shadow: 0 0 0 4px rgba(243,212,55,.08);
-  transition: background .25s, color .25s, border-color .25s, box-shadow .25s;
+  display: block;
 }
 .gb-pin span {
-  padding: 3px 7px; background: rgba(6,7,10,.9);
-  border: 1px solid var(--line-dark-2); border-radius: var(--r-sm);
-  font: 700 9px var(--mono); letter-spacing: .06em; white-space: nowrap;
-  backdrop-filter: blur(8px);
+  padding: 4px 8px; background: rgba(8, 10, 16, .92);
+  border: 1px solid var(--line-dark-2); border-radius: 2px;
+  font: 700 10px var(--mono); letter-spacing: .06em; white-space: nowrap;
 }
 .gb-pin b {
   padding: 2px 6px; background: var(--yellow); color: var(--black);
@@ -970,18 +961,34 @@ body.has-os-rail .deck {
   border-radius: 2px;
 }
 .gb-pin.active i,
-.gb-pin.is-active i,
-.gb-pin.is-core i {
+.gb-pin.is-core.active i {
+  background: var(--yellow);
+  box-shadow: 0 0 0 6px rgba(243,212,55,.16), 0 0 18px var(--yellow-glow);
+}
+.gb-city-nav {
+  display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 12px;
+  border-top: 1px solid var(--line-dark);
+}
+.gb-city-nav button {
+  min-width: 0; flex: 1;
+  height: 30px; padding: 0 6px;
+  border: 1px solid var(--line-dark); color: #8a897f;
+  font: 800 9px var(--mono); letter-spacing: .04em;
+}
+.gb-city-nav button.active {
   background: var(--yellow); color: var(--black); border-color: var(--yellow);
-  box-shadow: 0 0 0 6px rgba(243,212,55,.15), 0 0 16px var(--yellow-glow);
 }
 .gb-route-legend {
-  position: absolute; left: 10px; bottom: 10px;
+  position: absolute; right: 10px; top: 10px;
+  left: auto; bottom: auto;
   display: flex; gap: 6px;
 }
 .gb-route-legend span {
   padding: 3px 6px; border: 1px solid var(--line-dark);
   color: #7d7c74; font: 800 9px var(--mono);
+}
+@keyframes route-dash {
+  to { stroke-dashoffset: -20; }
 }
 
 .gb-city-panel {

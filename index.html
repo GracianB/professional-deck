@@ -21,9 +21,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=deck3">
-  <script src="./i18n.js?v=deck3"></script>
-  <script src="./main.js?v=deck3" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=deck4">
+  <script src="./i18n.js?v=deck4"></script>
+  <script src="./main.js?v=deck4" defer></script>
 </head>
 <body class="has-os-rail lang-pending">
   <!-- LANGUAGE GATE -->
@@ -308,32 +308,35 @@
       </div>
       <div class="gb-route-body">
         <div class="gb-route-map" role="group" aria-label="Mapa trayectoria">
-          <div class="gb-route-grid" aria-hidden="true"></div>
-          <div class="gb-route-orbs" aria-hidden="true">
-            <div class="gb-route-orb gb-route-orb-a"></div>
-            <div class="gb-route-orb gb-route-orb-b"></div>
-          </div>
-          <svg class="gb-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <!-- Hub spokes from Murcia (38,72) to all cities -->
-            <line class="gb-route-spoke" x1="38" y1="72" x2="10" y2="82" />
-            <line class="gb-route-spoke" x1="38" y1="72" x2="32" y2="48" />
-            <line class="gb-route-spoke" x1="38" y1="72" x2="78" y2="18" />
-            <line class="gb-route-spoke" x1="38" y1="72" x2="58" y2="36" />
-            <line class="gb-route-spoke" x1="38" y1="72" x2="18" y2="58" />
-            <!-- Primary path: Gran Canaria → Murcia (highlighted) -->
-            <line class="gb-route-primary" x1="10" y1="82" x2="38" y2="72" />
-            <!-- Animated pulse along primary path -->
-            <circle class="gb-route-pulse" r="1.2" fill="var(--yellow)">
-              <animateMotion dur="3s" repeatCount="indefinite" path="M10,82 L38,72" />
+          <svg class="gb-route-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <path class="gb-land" d="M14 42 C22 34 32 34 38 38 C42 42 40 54 32 58 C22 60 12 54 14 42Z"/>
+            <path class="gb-land" d="M32 38 C40 26 52 24 58 30 C56 38 46 44 38 42 C34 40 32 38 32 38Z"/>
+            <path class="gb-land" d="M56 32 C62 30 66 36 64 48 C62 58 58 62 56 58 C54 48 54 36 56 32Z"/>
+            <path class="gb-land" d="M56 22 C68 14 82 16 86 24 C84 32 72 34 60 32 C56 28 56 22 56 22Z"/>
+            <rect class="gb-inset" x="4" y="74" width="22" height="20" rx="1.2"/>
+            <text class="gb-inset-label" x="15" y="79.2">CANARIAS</text>
+            <circle class="gb-isle" cx="10" cy="86" r="1.1"/>
+            <circle class="gb-isle" cx="14.5" cy="88" r=".9"/>
+            <circle class="gb-isle" cx="18" cy="85.5" r="1"/>
+            <path class="gb-route-spoke" d="M35 56 Q 26 70 15 86"/>
+            <path class="gb-route-spoke" d="M35 56 Q 26 52 20 50"/>
+            <path class="gb-route-spoke" d="M35 56 Q 30 50 28 48"/>
+            <path class="gb-route-spoke" d="M35 56 Q 48 44 56 38"/>
+            <path class="gb-route-spoke" d="M35 56 Q 58 30 74 22"/>
+            <path class="gb-route-primary" d="M15 86 Q 26 70 35 56"/>
+            <circle class="gb-route-pulse" r="1.1">
+              <animateMotion dur="4s" repeatCount="indefinite" path="M15 86 Q 26 70 35 56"/>
             </circle>
           </svg>
-          <button class="gb-pin" type="button" data-city="gran-canaria" style="--x:10%;--y:82%"><i>★</i><span>Gran Canaria</span></button>
-          <button class="gb-pin" type="button" data-city="madrid" style="--x:32%;--y:48%"><i>★</i><span>Madrid</span></button>
-          <button class="gb-pin" type="button" data-city="varsovia" style="--x:78%;--y:18%"><i>★</i><span>Varsovia</span></button>
-          <button class="gb-pin is-core active" type="button" data-city="murcia" style="--x:38%;--y:72%"><i>★</i><span>Murcia</span><b data-i18n="routeCore">CORE</b></button>
-          <button class="gb-pin" type="button" data-city="bergamo" style="--x:58%;--y:36%"><i>★</i><span>Bérgamo</span></button>
-          <button class="gb-pin" type="button" data-city="lisboa" style="--x:18%;--y:58%"><i>★</i><span>Lisboa</span></button>
-          <div class="gb-route-legend"><span>ES</span><span>PL</span><span>IT</span><span>PT</span></div>
+          <button class="gb-pin pin-e" type="button" data-city="gran-canaria" style="--x:15%;--y:86%"><i></i><span>Gran Canaria</span></button>
+          <button class="gb-pin pin-w" type="button" data-city="lisboa" style="--x:20%;--y:50%"><i></i><span>Lisboa</span></button>
+          <button class="gb-pin pin-n" type="button" data-city="madrid" style="--x:28%;--y:48%"><i></i><span>Madrid</span></button>
+          <button class="gb-pin is-core active pin-s" type="button" data-city="murcia" style="--x:35%;--y:56%"><i></i><span>Murcia</span><b data-i18n="routeCore">CORE</b></button>
+          <button class="gb-pin pin-e" type="button" data-city="bergamo" style="--x:56%;--y:38%"><i></i><span>Bérgamo</span></button>
+          <button class="gb-pin pin-s" type="button" data-city="varsovia" style="--x:74%;--y:22%"><i></i><span>Varsovia</span></button>
+          <div class="gb-route-legend">
+            <span>ES</span><span>PT</span><span>IT</span><span>PL</span>
+          </div>
         </div>
         <article class="gb-city-panel" data-city-panel aria-live="polite"></article>
       </div>

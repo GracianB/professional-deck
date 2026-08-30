@@ -217,7 +217,7 @@
 
     // Solo cuando el deck ya está listo (evita errores al elegir idioma)
     if (typeof selectCity === "function") {
-      try { selectCity(document.querySelector(".map-pin.active")?.dataset.city || "murcia"); } catch (_) {}
+      try { selectCity(document.querySelector(".gb-pin.active")?.dataset.city || "murcia"); } catch (_) {}
     }
     if (typeof setActive === "function" && !document.body.classList.contains("lang-pending")) {
       try { setActive(activeIndex, false); } catch (_) {}
@@ -514,6 +514,14 @@
   // Cities — query en cada llamada (evita TDZ si se invoca desde applyI18n al inicio)
   // Murcia primero en el panel: núcleo profesional (CS · Data · AI)
   const cityOrder = ["murcia", "gran-canaria", "madrid", "varsovia", "bergamo", "lisboa"];
+  const cityShort = {
+    murcia: "Murcia",
+    "gran-canaria": "Canarias",
+    madrid: "Madrid",
+    varsovia: "Varsovia",
+    bergamo: "Bérgamo",
+    lisboa: "Lisboa"
+  };
 
   function selectCity(key) {
     const city = t.cities?.[key];
@@ -529,11 +537,11 @@
     void panel.offsetWidth;
     panel.classList.add("is-swapping");
     panel.innerHTML =
-      `<header><span>${city.number} / 06</span><b>${city.place}</b></header>` +
+      `<header><b>${city.place}</b></header>` +
       `<div class="gb-city-body"><p class="eyebrow">${city.eyebrow}</p><h3>${city.title}</h3><p>${city.copy}</p>` +
       `<ul class="gb-city-tags">${(city.tags || []).map((tag) => `<li>${tag}</li>`).join("")}</ul></div>` +
-      `<footer class="gb-city-nav">${cityOrder.map((item, index) =>
-        `<button type="button" class="${item === key ? "active" : ""}" data-city="${item}" aria-label="${item}">${pad(index + 1)}</button>`
+      `<footer class="gb-city-nav">${cityOrder.map((item) =>
+        `<button type="button" class="${item === key ? "active" : ""}" data-city="${item}">${cityShort[item] || item}</button>`
       ).join("")}</footer>`;
 
     // strip under map
