@@ -361,23 +361,18 @@
     }
   }, true);
 
+  // Auto-skip language gate: land on the deck with ES/EN segs like hub/lab/yoga.
   if (urlLang === "en" || urlLang === "es") {
     pendingLang = urlLang;
     setLang(urlLang, true);
-    enterApp();
   } else if (saved === "en" || saved === "es") {
     pendingLang = saved;
     setLang(saved, false);
-    enterApp();
   } else {
-    document.body.classList.add("lang-pending");
+    pendingLang = "es";
     setLang("es", false);
-    const cont = document.querySelector("#lang-continue");
-    if (cont) {
-      cont.disabled = true;
-      cont.classList.remove("is-ready");
-    }
   }
+  enterApp();
 
   function animateCounters(slide) {
     if (reducedMotion.matches || counted.has(slide)) return;
