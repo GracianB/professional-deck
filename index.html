@@ -21,14 +21,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=deck13">
-  <link rel="stylesheet" href="./extra-pass.css?v=deck13">
-  <script src="./i18n.js?v=deck13"></script>
-  <script src="./main.js?v=deck13" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=deck14">
+  <link rel="stylesheet" href="./extra-pass.css?v=deck14">
+  <script src="./i18n.js?v=deck14"></script>
+  <script src="./main.js?v=deck14" defer></script>
 </head>
-<body class="has-os-rail lang-pending">
+<body class="has-os-rail">
   <!-- LANGUAGE GATE -->
-  <div class="lang-gate" id="lang-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="lang-gate" id="lang-gate" hidden role="dialog" aria-modal="true" aria-labelledby="gate-title">
     <div class="lang-gate-bg" aria-hidden="true"></div>
     <div class="lang-gate-card">
       <div class="lang-gate-brand"><span class="brand-mark">GB</span><div class="brand-text"><b>GRACIÁN BAENA</b><small data-i18n="gateKicker">PORTFOLIO PROFESIONAL / 2026</small></div></div>
@@ -58,7 +58,6 @@
 
   <aside class="os-rail" aria-label="Index">
     <div class="os-rail-brand">
-      <span class="brand-mark">GB</span>
       <div><b data-i18n="railBrand">PROFILE DECK</b><small data-i18n="railSlides">2026 · 13 slides</small></div>
     </div>
     <p class="os-rail-status"><span data-i18n="railActive">ACTIVA</span><strong data-rail-status>00 · Portada</strong></p>
@@ -82,14 +81,16 @@
       <button type="button" data-go="trayectoria" data-i18n="navCareer">Trayectoria</button>
       <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
       <button type="button" data-open-command><span data-i18n="navSearch">Navegar</span> <kbd>Ctrl K</kbd></button>
+      <a class="header-cta" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link>CV ↗</a>
+    </nav>
+    <div class="header-actions">
       <!-- ÚNICO selector de idioma (no hay FAB flotante) -->
       <div class="seg lang-switch" role="group" aria-label="Idioma">
         <button type="button" class="seg-btn lang-btn" data-set-lang="es" data-lang-btn="es" title="Español">ES</button>
         <button type="button" class="seg-btn lang-btn" data-set-lang="en" data-lang-btn="en" title="English">EN</button>
       </div>
-      <a class="header-cta" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link>CV ↗</a>
-    </nav>
-    <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu"><i></i><i></i></button>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu"><i></i><i></i></button>
+    </div>
   </header>
 
   <main class="deck" id="deck" tabindex="-1">
@@ -102,14 +103,14 @@
         <div class="gb-hero-grain"></div>
         <div class="gb-hero-grid-fx" aria-hidden="true"></div>
         <div class="gb-hero-tags-fx" aria-hidden="true">
-          <span style="--tx:8%;--ty:20%;--d:0s">Python</span>
-          <span style="--tx:88%;--ty:15%;--d:.8s">Power BI</span>
-          <span style="--tx:15%;--ty:75%;--d:1.6s">GenAI</span>
-          <span style="--tx:78%;--ty:70%;--d:2.4s">Chatbots</span>
-          <span style="--tx:45%;--ty:10%;--d:3.2s">LLM</span>
-          <span style="--tx:92%;--ty:45%;--d:4s">Zendesk</span>
-          <span style="--tx:5%;--ty:50%;--d:1.2s">Apps Script</span>
-          <span style="--tx:55%;--ty:85%;--d:2s">Pandas</span>
+          <span style="--tx:6%;--ty:8%;--d:0s">Python</span>
+          <span style="--tx:78%;--ty:10%;--d:.8s">Power BI</span>
+          <span style="--tx:8%;--ty:90%;--d:1.6s">GenAI</span>
+          <span style="--tx:74%;--ty:88%;--d:2.4s">Chatbots</span>
+          <span style="--tx:52%;--ty:8%;--d:3.2s">LLM</span>
+          <span style="--tx:68%;--ty:76%;--d:4s">Zendesk</span>
+          <span style="--tx:78%;--ty:28%;--d:1.2s">Apps Script</span>
+          <span style="--tx:80%;--ty:56%;--d:2s">Pandas</span>
         </div>
       </div>
       <div class="gb-hero-stack">
