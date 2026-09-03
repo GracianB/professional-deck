@@ -496,6 +496,23 @@
     window.setTimeout(() => { wheelBusy = false; }, reducedMotion.matches ? 150 : 700);
   }, { passive: false });
 
+  /* Swipe — phone/tablet vertical deck */
+  let touchY = 0, touchX = 0, touchT = 0;
+  deck.addEventListener("touchstart", (event) => {
+    if (modalOpen()) return;
+    const t = event.changedTouches[0];
+    touchY = t.clientY; touchX = t.clientX; touchT = Date.now();
+  }, { passive: true });
+  deck.addEventListener("touchend", (event) => {
+    if (modalOpen()) return;
+    const t = event.changedTouches[0];
+    const dy = t.clientY - touchY;
+    const dx = t.clientX - touchX;
+    if (Date.now() - touchT > 720) return;
+    if (Math.abs(dy) < 52 || Math.abs(dy) < Math.abs(dx) * 1.15) return;
+    goTo(activeIndex + (dy < 0 ? 1 : -1));
+  }, { passive: true });
+
   document.addEventListener("keydown", (event) => {
     if (document.body.classList.contains("lang-pending")) return;
     if (modalOpen() && event.key !== "Escape") return;
