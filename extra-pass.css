@@ -1,0 +1,347 @@
+/* ============================================================
+   EXTRA PASS — professional deck chrome + visual
+   Hub family. Gold track. Layer on top of styles.css.
+   Fraunces display · Inter body · JetBrains Mono chrome.
+   ============================================================ */
+
+:root {
+  --bg: #06070a;
+  --bg2: #0b0c0e;
+  --surface: #101218;
+  --surface2: #15171c;
+  --ink-on-dark: #f4f3ee;
+  --muted: #9a9991;
+  --line: rgba(244, 243, 238, 0.11);
+  --line-strong: rgba(244, 243, 238, 0.18);
+  --accent: #f4f3ee;
+  --accent-ink: #06070a;
+  --yellow: #f3d437;
+  --gold: #f3d437;
+  --mark: #f3d437;
+  --yellow-dim: rgba(243, 212, 55, 0.12);
+  --yellow-glow: rgba(243, 212, 55, 0.22);
+  --header: 68px;
+  --r: 4px;
+  --tap: 44px;
+  --display: "Fraunces", "Times New Roman", Georgia, serif;
+  --sans: "Inter", system-ui, "Segoe UI", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+/* —— type hierarchy: real weights, not 760/780 —— */
+.gb-hero-copy h1,
+.slide h2,
+.gb-card-title,
+.gb-metrics strong,
+.lang-gate-card h1,
+.case-hero-copy h1,
+.case-section-heading h2,
+.gb-contact h2 {
+  font-weight: 700;
+  font-variation-settings: "opsz" 96;
+}
+.gb-hero-copy h1 em,
+.slide h2 em,
+.case-hero-copy h1 em {
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: "opsz" 144;
+}
+.gb-lead,
+.gb-panel-lead,
+.slide p {
+  font-family: var(--sans);
+  line-height: 1.55;
+}
+.eyebrow,
+.gb-kicker,
+.slide-index,
+.os-rail-hint,
+.deck-hint {
+  font-family: var(--mono);
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* —— hub chrome: brand is hub, not an in-deck home —— */
+.site-header {
+  min-height: var(--header);
+  height: auto;
+  padding: 0 var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: var(--tap);
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+a.brand { cursor: pointer; }
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  color: var(--accent);
+  background: transparent;
+  font: 800 12px var(--mono) !important;
+  font-style: normal !important;
+  font-variation-settings: normal !important;
+  letter-spacing: .04em;
+  transform: none;
+  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s, box-shadow .2s;
+}
+.brand:hover .brand-mark,
+.brand:focus-visible .brand-mark {
+  background: var(--yellow);
+  color: #06070a;
+  border-color: var(--yellow);
+  box-shadow: 0 0 24px var(--yellow-glow);
+  transform: none;
+}
+.brand-text,
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.brand-text b,
+.brand-lockup b {
+  display: block;
+  font: 800 11px/1.2 var(--mono) !important;
+  letter-spacing: .16em;
+  color: var(--ink-on-dark);
+}
+.brand-text small,
+.brand-lockup small {
+  color: var(--muted);
+  font: 700 9px/1.3 var(--mono) !important;
+  letter-spacing: .14em;
+}
+
+.lang-gate-brand .brand-mark {
+  width: 40px;
+  height: 40px;
+  font: 800 12px var(--mono) !important;
+  font-style: normal !important;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  color: var(--accent);
+}
+.lang-gate-brand b {
+  font: 800 11px/1.2 var(--mono);
+  letter-spacing: .16em;
+}
+.lang-gate-brand small {
+  font: 700 9px/1.3 var(--mono);
+  letter-spacing: .14em;
+  color: var(--muted);
+}
+
+.os-rail-brand .brand-mark {
+  width: 40px;
+  height: 40px;
+  font: 800 12px var(--mono) !important;
+  font-style: normal !important;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.os-rail-brand b {
+  font: 800 11px/1.2 var(--mono);
+  letter-spacing: .16em;
+}
+.os-rail-brand small {
+  font: 700 9px/1.3 var(--mono);
+  letter-spacing: .14em;
+}
+
+/* nav + lang as hub .nav / .seg */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font: 700 11px var(--mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.main-nav > button,
+.main-nav > a.nav-home {
+  min-height: var(--tap);
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  font: 700 11px var(--mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-radius: var(--r);
+}
+.main-nav > button:hover,
+.main-nav > a.nav-home:hover { color: var(--ink-on-dark); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.main-nav kbd {
+  margin-left: 6px;
+  font: 800 10px var(--mono);
+}
+
+.lang-switch,
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.lang-btn,
+.seg-btn {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 12px;
+  color: var(--muted);
+  font: 800 11px var(--mono);
+  background: transparent;
+  transition: background .15s, color .15s;
+}
+.lang-btn:hover,
+.seg-btn:hover { color: var(--ink-on-dark); }
+.lang-btn.is-active,
+.seg-btn.is-active {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.header-cta {
+  min-height: var(--tap);
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--accent-ink);
+  font: 800 11px var(--mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-radius: var(--r);
+  box-shadow: 0 8px 24px var(--yellow-glow);
+}
+.header-cta:hover { background: #ffe452; color: var(--accent-ink); transform: none; }
+.menu-toggle {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  width: var(--tap);
+  height: var(--tap);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+
+/* 44px taps — controls, buttons, dialogs */
+.button,
+.header-cta,
+.dialog-close,
+.deck-controls button,
+.os-rail-item,
+.lang-continue {
+  min-height: var(--tap);
+}
+.deck-controls {
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-radius: var(--r);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+  z-index: 240;
+}
+.deck-controls button {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  height: var(--tap);
+  padding: 0 16px;
+  font: 800 11px var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.deck-controls button:hover { background: var(--gold); color: var(--accent-ink); }
+.deck-controls > span b { color: var(--gold); font: 800 13px var(--mono); }
+.deck-hint {
+  font: 700 9px var(--mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  z-index: 240;
+}
+.top-progress { height: 2px; }
+.top-progress i {
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--yellow-glow);
+}
+
+/* case pages — same hub brand */
+.case-header .brand { min-height: var(--tap); }
+.case-header .brand-mark {
+  width: 40px !important;
+  height: 40px !important;
+  font: 800 12px var(--mono) !important;
+  font-style: normal !important;
+}
+.case-header nav a { min-height: var(--tap); }
+
+/* phone / tablet — keep 40px mark, usable deck nav */
+@media (max-width: 980px) {
+  :root { --header: 64px; }
+  .brand-text,
+  .brand-lockup { display: none; }
+  .site-header .brand-mark,
+  .brand-mark {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .main-nav {
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
+  }
+  .main-nav > button,
+  .main-nav > a,
+  .main-nav .lang-switch,
+  .main-nav .header-cta,
+  .main-nav .seg {
+    min-height: 48px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .deck-hint { display: none; }
+  .deck-controls {
+    left: 12px;
+    right: 12px;
+    bottom: 10px;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 640px) {
+  .deck-controls button small { display: none; }
+}
+@media (pointer: coarse) {
+  .deck-controls button { min-width: 52px; }
+  .button, .header-cta, .lang-btn, .seg-btn, .menu-toggle {
+    min-height: var(--tap);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark, .button, .header-cta { transition: none; }
+}
