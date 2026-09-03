@@ -360,9 +360,9 @@
 
   root.innerHTML = `
     <header class="case-header">
-      <a class="brand" href="${portfolioHref}" aria-label="Portfolio">
+      <a class="brand" href="https://gracianb.github.io/GracianB/" aria-label="Gracián Baena — hub">
         <span class="brand-mark">GB</span>
-        <span class="brand-lockup"><b>GRACIÁN BAENA</b><small>CASE / ${data.index}</small></span>
+        <span class="brand-text"><b>GRACIÁN BAENA</b><small>${lang === "en" ? "EXPERIENCE · CS" : "EXPERIENCIA · CS"}</small></span>
       </a>
       <nav aria-label="Case nav">
         <a href="${portfolioHref}">${ui.back}</a>
