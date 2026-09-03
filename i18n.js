@@ -23,7 +23,8 @@
     navCareer: "Trayectoria",
     navContact: "Hablemos",
     navSearch: "Navegar",
-    brandSub: "CUSTOMER · DATA · AI",
+    navHome: "Inicio",
+    brandSub: "EXPERIENCIA · CS",
     slides: {
       inicio: "Portada",
       valor: "Diferencial",
@@ -386,7 +387,8 @@
     navCareer: "Career",
     navContact: "Let's talk",
     navSearch: "Navigate",
-    brandSub: "CUSTOMER · DATA · AI",
+    navHome: "Cover",
+    brandSub: "EXPERIENCE · CS",
     slides: {
       inicio: "Cover",
       valor: "Edge",
