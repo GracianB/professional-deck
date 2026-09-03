@@ -20,17 +20,18 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=deck12">
-  <script src="./i18n.js?v=deck12"></script>
-  <script src="./main.js?v=deck12" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=deck13">
+  <link rel="stylesheet" href="./extra-pass.css?v=deck13">
+  <script src="./i18n.js?v=deck13"></script>
+  <script src="./main.js?v=deck13" defer></script>
 </head>
 <body class="has-os-rail lang-pending">
   <!-- LANGUAGE GATE -->
   <div class="lang-gate" id="lang-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
     <div class="lang-gate-bg" aria-hidden="true"></div>
     <div class="lang-gate-card">
-      <div class="lang-gate-brand"><span class="brand-mark">GB</span><div><b>GRACIÁN BAENA</b><small data-i18n="gateKicker">PORTFOLIO PROFESIONAL / 2026</small></div></div>
+      <div class="lang-gate-brand"><span class="brand-mark">GB</span><div class="brand-text"><b>GRACIÁN BAENA</b><small data-i18n="gateKicker">PORTFOLIO PROFESIONAL / 2026</small></div></div>
       <h1 id="gate-title" data-i18n="gateTitle">Elige idioma</h1>
       <p class="lang-gate-sub" data-i18n="gateSub">Selecciona cómo quieres explorar el portfolio</p>
       <div class="lang-gate-actions">
@@ -67,22 +68,25 @@
   </aside>
 
   <header class="site-header">
-    <button class="brand" type="button" data-go="inicio" aria-label="Home">
+    <a class="brand" href="https://gracianb.github.io/GracianB/" aria-label="Gracián Baena — hub">
       <span class="brand-mark">GB</span>
-      <span class="brand-lockup"><b>GRACIÁN BAENA</b><small data-i18n="brandSub">CUSTOMER · DATA · AI</small></span>
-    </button>
+      <span class="brand-text">
+        <b>GRACIÁN BAENA</b>
+        <small data-i18n="brandSub">EXPERIENCIA · CS</small>
+      </span>
+    </a>
     <nav class="main-nav" id="main-nav">
+      <button type="button" class="nav-home" data-go="inicio" data-i18n="navHome">Inicio</button>
       <button type="button" data-go="sistemas" data-i18n="navSystems">Sistemas</button>
       <button type="button" data-go="ruta" data-i18n="navRoute">Ruta</button>
       <button type="button" data-go="trayectoria" data-i18n="navCareer">Trayectoria</button>
       <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
       <button type="button" data-open-command><span data-i18n="navSearch">Navegar</span> <kbd>Ctrl K</kbd></button>
       <!-- ÚNICO selector de idioma (no hay FAB flotante) -->
-      <div class="lang-switch" role="group" aria-label="Idioma">
-        <button type="button" class="lang-btn" data-set-lang="es" data-lang-btn="es" title="Español">ES</button>
-        <button type="button" class="lang-btn" data-set-lang="en" data-lang-btn="en" title="English">EN</button>
+      <div class="seg lang-switch" role="group" aria-label="Idioma">
+        <button type="button" class="seg-btn lang-btn" data-set-lang="es" data-lang-btn="es" title="Español">ES</button>
+        <button type="button" class="seg-btn lang-btn" data-set-lang="en" data-lang-btn="en" title="English">EN</button>
       </div>
-      <a class="header-cta header-cta--ghost" href="https://gracianb.github.io/GracianB/" target="_blank" rel="noreferrer">Hub ↗</a>
       <a class="header-cta" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link>CV ↗</a>
     </nav>
     <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu"><i></i><i></i></button>
