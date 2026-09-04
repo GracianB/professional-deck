@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark" data-lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -21,37 +21,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=deck14">
-  <link rel="stylesheet" href="./extra-pass.css?v=deck14">
-  <script src="./i18n.js?v=deck14"></script>
-  <script src="./main.js?v=deck14" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=v2x1">
+  <script src="./i18n.js?v=v2x1"></script>
+  <script src="./main.js?v=v2x1" defer></script>
 </head>
 <body class="has-os-rail">
-  <!-- LANGUAGE GATE -->
-  <div class="lang-gate" id="lang-gate" hidden role="dialog" aria-modal="true" aria-labelledby="gate-title">
-    <div class="lang-gate-bg" aria-hidden="true"></div>
-    <div class="lang-gate-card">
-      <div class="lang-gate-brand"><span class="brand-mark">GB</span><div class="brand-text"><b>GRACIÁN BAENA</b><small data-i18n="gateKicker">PORTFOLIO PROFESIONAL / 2026</small></div></div>
-      <h1 id="gate-title" data-i18n="gateTitle">Elige idioma</h1>
-      <p class="lang-gate-sub" data-i18n="gateSub">Selecciona cómo quieres explorar el portfolio</p>
-      <div class="lang-gate-actions">
-        <button type="button" class="lang-card" data-pick-lang="es" autofocus>
-          <span class="lang-flag">ES</span>
-          <strong data-i18n="gateEs">Español</strong>
-          <small data-i18n="gateEsHint">Versión completa en español</small>
-        </button>
-        <button type="button" class="lang-card" data-pick-lang="en">
-          <span class="lang-flag">EN</span>
-          <strong data-i18n="gateEn">English</strong>
-          <small data-i18n="gateEnHint">Full English version</small>
-        </button>
-      </div>
-      <button type="button" class="lang-continue" id="lang-continue" data-i18n="gateContinue" disabled>
-        Continuar →
-      </button>
-      <p class="lang-gate-note" data-i18n="gateNote">1) Elige idioma · 2) Pulsa Continuar</p>
-    </div>
-  </div>
 
   <a class="skip-link" href="#deck" data-i18n="skip">Saltar al contenido</a>
   <div class="top-progress" aria-hidden="true"><i data-progress></i></div>
@@ -74,22 +48,24 @@
         <small data-i18n="brandSub">EXPERIENCIA · CS</small>
       </span>
     </a>
-    <nav class="main-nav" id="main-nav">
-      <button type="button" class="nav-home" data-go="inicio" data-i18n="navHome">Inicio</button>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
       <button type="button" data-go="sistemas" data-i18n="navSystems">Sistemas</button>
       <button type="button" data-go="ruta" data-i18n="navRoute">Ruta</button>
       <button type="button" data-go="trayectoria" data-i18n="navCareer">Trayectoria</button>
       <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
-      <button type="button" data-open-command><span data-i18n="navSearch">Navegar</span> <kbd>Ctrl K</kbd></button>
-      <a class="header-cta" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link>CV ↗</a>
+      <button type="button" class="nav-cmd" data-open-command title="Ctrl K"><kbd>Ctrl</kbd><kbd>K</kbd></button>
     </nav>
     <div class="header-actions">
-      <!-- ÚNICO selector de idioma (no hay FAB flotante) -->
-      <div class="seg lang-switch" role="group" aria-label="Idioma">
-        <button type="button" class="seg-btn lang-btn" data-set-lang="es" data-lang-btn="es" title="Español">ES</button>
-        <button type="button" class="seg-btn lang-btn" data-set-lang="en" data-lang-btn="en" title="English">EN</button>
+      <div class="seg" role="group" aria-label="Language">
+        <button type="button" class="seg-btn" data-set-lang="es" data-lang-btn="es" aria-pressed="true">ES</button>
+        <button type="button" class="seg-btn" data-set-lang="en" data-lang-btn="en" aria-pressed="false">EN</button>
       </div>
-      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu"><i></i><i></i></button>
+      <div class="seg" role="group" aria-label="Theme">
+        <button type="button" class="seg-btn" data-set-theme="dark" aria-pressed="true" title="Dark">☾</button>
+        <button type="button" class="seg-btn" data-set-theme="light" aria-pressed="false" title="Light">☀</button>
+      </div>
+      <a class="header-cta" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link>CV ↗</a>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu"><i></i><i></i><i></i></button>
     </div>
   </header>
 
@@ -723,7 +699,7 @@
     <button type="button" data-prev>← <small data-i18n="prev">ANT.</small></button>
     <button type="button" data-next><small data-i18n="next">SIG.</small> →</button>
   </nav>
-  <p class="deck-hint" data-i18n="hint">↑↓ navegar · rueda = 1 diapositiva</p>
+  <p class="deck-hint" data-i18n="hint">↑↓ · swipe · Ctrl K</p>
 
   <dialog class="recruiter-dialog" id="recruiter-dialog">
     <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
