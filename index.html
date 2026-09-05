@@ -21,12 +21,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=edge-rail-cover">
-  <link rel="stylesheet" href="./extra-pass.css?v=edge-rail-cover">
-  <link rel="stylesheet" href="./final-v3.css?v=edge-rail-cover">
-  <link rel="stylesheet" href="./final-v4.css?v=edge-rail-cover">
-  <script src="./i18n.js?v=edge-rail-cover"></script>
-  <script src="./main.js?v=edge-rail-cover" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=fix-varsovia-bergamo">
+  <link rel="stylesheet" href="./extra-pass.css?v=fix-varsovia-bergamo">
+  <link rel="stylesheet" href="./final-v3.css?v=fix-varsovia-bergamo">
+  <link rel="stylesheet" href="./final-v4.css?v=fix-varsovia-bergamo">
+  <script src="./i18n.js?v=fix-varsovia-bergamo"></script>
+  <script src="./main.js?v=fix-varsovia-bergamo" defer></script>
 </head>
 <body class="has-os-rail final-deck-v4">
 
@@ -281,35 +281,56 @@
       <div class="gb-route-body">
         <div class="gb-route-map" role="group" aria-label="Mapa trayectoria">
           <div class="gb-route-glow" aria-hidden="true"></div>
+          <div class="gb-route-scan" aria-hidden="true"></div>
           <div class="gb-route-legend" aria-hidden="true">
             <span class="is-gold">CORE</span>
             <span class="is-ice">EU</span>
             <span class="is-sage">ORIGIN</span>
+            <span class="is-flare">LINK</span>
           </div>
           <svg class="gb-route-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
             <defs>
               <radialGradient id="routeHubGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#f3d437" stop-opacity="0.28"/>
-                <stop offset="55%" stop-color="#7af3ff" stop-opacity="0.08"/>
+                <stop offset="0%" stop-color="#f3d437" stop-opacity="0.42"/>
+                <stop offset="35%" stop-color="#ff6b4a" stop-opacity="0.14"/>
+                <stop offset="62%" stop-color="#7af3ff" stop-opacity="0.12"/>
                 <stop offset="100%" stop-color="#06070a" stop-opacity="0"/>
               </radialGradient>
+              <linearGradient id="spokeIce" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f3d437" stop-opacity="0.55"/>
+                <stop offset="55%" stop-color="#7af3ff" stop-opacity="0.75"/>
+                <stop offset="100%" stop-color="#ff6b4a" stop-opacity="0.55"/>
+              </linearGradient>
+              <linearGradient id="spokeSage" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7dcaa5" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#f3d437" stop-opacity="0.45"/>
+              </linearGradient>
+              <filter id="spokeGlow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="0.55" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
             </defs>
-            <circle class="gb-hub-glow" cx="50" cy="54" r="26" fill="url(#routeHubGlow)"/>
+            <g class="gb-route-grid" opacity="0.22">
+              <path d="M5 20 H95 M5 40 H95 M5 60 H95 M5 80 H95 M20 5 V95 M40 5 V95 M60 5 V95 M80 5 V95" fill="none" stroke="rgba(122,243,255,0.35)" stroke-width="0.15"/>
+            </g>
+            <circle class="gb-hub-glow" cx="50" cy="54" r="28" fill="url(#routeHubGlow)"/>
+            <circle class="gb-hub-ring gb-hub-ring-3" cx="50" cy="54" r="40"/>
             <circle class="gb-hub-ring" cx="50" cy="54" r="18"/>
-            <circle class="gb-hub-ring gb-hub-ring-2" cx="50" cy="54" r="32"/>
-            <line class="gb-spoke" x1="50" y1="54" x2="18" y2="86" fill="none"/>
-            <line class="gb-spoke" x1="50" y1="54" x2="14" y2="46" fill="none"/>
-            <line class="gb-spoke" x1="50" y1="54" x2="30" y2="22" fill="none"/>
-            <line class="gb-spoke" x1="50" y1="54" x2="74" y2="24" fill="none"/>
-            <line class="gb-spoke" x1="50" y1="54" x2="82" y2="30" fill="none"/>
-            <line class="gb-spoke is-origin" x1="18" y1="86" x2="50" y2="54" fill="none"/>
+            <circle class="gb-hub-ring gb-hub-ring-2" cx="50" cy="54" r="30"/>
+            <circle class="gb-core-pulse" cx="50" cy="54" r="4.2"/>
+            <line class="gb-spoke" x1="50" y1="54" x2="18" y2="86" fill="none" filter="url(#spokeGlow)" stroke="url(#spokeIce)"/>
+            <line class="gb-spoke" x1="50" y1="54" x2="14" y2="46" fill="none" filter="url(#spokeGlow)" stroke="url(#spokeIce)"/>
+            <line class="gb-spoke" x1="50" y1="54" x2="30" y2="22" fill="none" filter="url(#spokeGlow)" stroke="url(#spokeIce)"/>
+            <line class="gb-spoke" x1="50" y1="54" x2="68" y2="18" fill="none" filter="url(#spokeGlow)" stroke="url(#spokeIce)"/>
+            <line class="gb-spoke gb-spoke-ne" x1="50" y1="54" x2="88" y2="40" fill="none" filter="url(#spokeGlow)" stroke="url(#spokeIce)"/>
+            <line class="gb-spoke is-origin" x1="18" y1="86" x2="50" y2="54" fill="none" stroke="url(#spokeSage)"/>
           </svg>
-          <button class="gb-pin pin-e" type="button" data-city="gran-canaria" style="--x:18%;--y:86%"><i></i><span>Gran Canaria</span></button>
-          <button class="gb-pin pin-w" type="button" data-city="lisboa" style="--x:14%;--y:46%"><i></i><span>Lisboa</span></button>
-          <button class="gb-pin pin-n" type="button" data-city="madrid" style="--x:30%;--y:22%"><i></i><span>Madrid</span></button>
+          <button class="gb-pin pin-e is-origin-pin" type="button" data-city="gran-canaria" style="--x:18%;--y:86%"><i></i><span>Gran Canaria</span></button>
+          <button class="gb-pin pin-w is-eu" type="button" data-city="lisboa" style="--x:14%;--y:46%"><i></i><span>Lisboa</span></button>
+          <button class="gb-pin pin-n is-eu" type="button" data-city="madrid" style="--x:30%;--y:22%"><i></i><span>Madrid</span></button>
           <button class="gb-pin is-core active pin-s" type="button" data-city="murcia" style="--x:50%;--y:54%"><i></i><span>Murcia</span><b data-i18n="routeCore">CORE</b></button>
-          <button class="gb-pin pin-e" type="button" data-city="bergamo" style="--x:74%;--y:24%"><i></i><span>Bérgamo</span></button>
-          <button class="gb-pin pin-e" type="button" data-city="varsovia" style="--x:82%;--y:30%"><i></i><span>Varsovia</span></button>
+          <button class="gb-pin pin-n is-eu" type="button" data-city="bergamo" style="--x:68%;--y:18%"><i></i><span>Bérgamo</span></button>
+          <button class="gb-pin pin-w is-eu is-ne" type="button" data-city="varsovia" style="--x:88%;--y:40%"><i></i><span>Varsovia</span></button>
           <p class="gb-route-caption" data-i18n="routeCaption">Núcleo Murcia. Origen Canarias. El resto, una capacidad.</p>
         </div>
         <article class="gb-city-panel" data-city-panel aria-live="polite"></article>
@@ -456,7 +477,7 @@
         <p class="gb-line-kicker" data-i18n="lineP">Systems y wellness. La imagen completa. 2011 — 2026.</p>
       </header>
       <figure class="gb-line-frame">
-        <img src="./timeline-horizontal.png?v=edge-rail-cover" alt="Timeline completa 2011–2026: línea systems y línea wellness" />
+        <img src="./timeline-horizontal.png?v=fix-varsovia-bergamo" alt="Timeline completa 2011–2026: línea systems y línea wellness" />
       </figure>
     </section>
 
