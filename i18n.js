@@ -40,6 +40,7 @@
       formacion: "Formación",
       contacto: "Hablemos"
     },
+    heroIndex: "PORTADA",
     heroEyebrow: "CUSTOMER SUCCESS · DATA · AI · APPS · CHATBOTS · LLM",
     heroStatus: "España · abierto a roles senior",
     heroTitle: "Personas.<br>Datos.<br><em>Sistemas</em>.",
@@ -337,6 +338,7 @@
     ],
     langNative: "Nativo",
     langBasic: "Básico",
+    contactIndex: "CONTACTO",
     contactEyebrow: "NEXT STEP",
     contactH2: "HABLEMOS.",
     contactP: "CS Systems · Data · AI Ops",
@@ -404,6 +406,7 @@
       formacion: "Education",
       contacto: "Let's talk"
     },
+    heroIndex: "COVER",
     heroEyebrow: "CUSTOMER SUCCESS · DATA · AI · APPS · CHATBOTS · LLM",
     heroStatus: "Spain · open to senior roles",
     heroTitle: "People.<br>Data.<br><em>Systems</em>.",
@@ -701,6 +704,7 @@
     ],
     langNative: "Native",
     langBasic: "Basic",
+    contactIndex: "CONTACT",
     contactEyebrow: "NEXT STEP",
     contactH2: "LET'S TALK.",
     contactP: "CS Systems · Data · AI Ops",
