@@ -269,6 +269,7 @@ a.brand { cursor: pointer; }
 .slide > .gb-route-top,
 .slide > .gb-method-top,
 .slide > .gb-caps-top,
+.slide > .gb-langs-top,
 .slide > .gb-contact-inner,
 .gb-star,
 .gb-demos,
@@ -489,49 +490,51 @@ a.brand { cursor: pointer; }
 .gb-hero-stack { position: relative; z-index: 1; }
 
 /* ============================================================
-   EDGE #valor — title → cards → bar, centered & balanced
-   Light panel restored (overrides dark .gb-panel !important).
+   EDGE #valor — dark gold cinema (no light paper)
    ============================================================ */
 .gb-valor-slide,
 #valor.slide {
   justify-content: center !important;
   align-items: center !important;
   padding-bottom: calc(var(--chrome-bottom) + 4px) !important;
+  background: var(--ink) !important;
+  color: var(--cream) !important;
 }
 .gb-valor-panel {
   width: min(100%, var(--max)) !important;
   max-height: var(--slide-inner) !important;
   height: auto !important;
-  min-height: 0 !important; /* densify — no forced 620px tall empty */
+  min-height: 0 !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
   gap: 0 !important;
   overflow: hidden !important;
-  border: 1px solid var(--line-light) !important;
+  border: 1px solid var(--gold-line) !important;
   border-radius: var(--r) !important;
-  background: #fffef8 !important;
-  box-shadow: 0 24px 60px rgba(17, 18, 14, 0.08) !important;
-  color: #11120e !important;
+  background: var(--grad-panel) !important;
+  box-shadow: var(--shadow-panel) !important;
+  color: var(--cream) !important;
 }
 .gb-valor-head {
   flex: 0 0 auto;
   padding: clamp(10px, 1.6vh, 20px) clamp(14px, 2.2vw, 28px) clamp(8px, 1.2vh, 14px) !important;
   text-align: center !important;
-  border-bottom: 1px solid rgba(17, 18, 14, 0.1) !important;
+  border-bottom: 1px solid var(--line) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: clamp(4px, 0.8vh, 10px);
-  background: #fffef8 !important;
+  background: linear-gradient(180deg, rgba(243, 212, 55, 0.06), transparent) !important;
 }
-.gb-valor-index {
+.gb-valor-index,
+#valor .slide-index.light-index {
   justify-content: center !important;
   padding: 0 !important;
   margin: 0 !important;
   border: 0 !important;
   width: 100%;
-  color: #9a7a00 !important;
+  color: var(--gold) !important;
 }
 .gb-valor-head h2 {
   margin: 0 !important;
@@ -539,11 +542,10 @@ a.brand { cursor: pointer; }
   font-size: clamp(24px, 3.1vw + 0.7vh, 44px) !important;
   line-height: 0.94 !important;
   text-align: center !important;
-  color: #11120e !important;
+  color: var(--cream) !important;
 }
-/* Full-opacity gold with readable contrast on cream */
 .gb-valor-head h2 em {
-  color: #9a7a00 !important;
+  color: var(--gold) !important;
   opacity: 1 !important;
   font-style: italic !important;
 }
@@ -552,16 +554,16 @@ a.brand { cursor: pointer; }
   max-width: 52ch !important;
   font-size: clamp(12px, 1.05vw, 14px) !important;
   line-height: 1.4 !important;
-  color: #5a5952 !important;
+  color: var(--mute-2) !important;
   text-align: center !important;
 }
 .gb-valor-panel .gb-loop,
 .gb-valor-panel [data-valor-loop] {
-  flex: 0 1 auto !important; /* densify — don't inflate empty card height */
+  flex: 0 1 auto !important;
   min-height: 0 !important;
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  border-bottom: 1px solid rgba(17, 18, 14, 0.1);
+  border-bottom: 1px solid var(--line);
   align-content: start;
   background: transparent !important;
 }
@@ -574,14 +576,15 @@ a.brand { cursor: pointer; }
   flex-direction: column !important;
   justify-content: flex-start !important;
   gap: 4px !important;
-  border-right: 1px solid rgba(17, 18, 14, 0.1) !important;
+  border-right: 1px solid var(--line) !important;
   border-bottom: 0 !important;
   border-radius: 0 !important;
   text-align: left;
-  /* Lighten surfaces inside light panel (readable dark ink) */
-  background: #fffef8 !important;
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 50%),
+    rgba(0, 0, 0, 0.22) !important;
   box-shadow: none !important;
-  color: #11120e !important;
+  color: var(--cream) !important;
   backdrop-filter: none !important;
 }
 .gb-valor-panel .gb-loop-card:last-child,
@@ -589,21 +592,25 @@ a.brand { cursor: pointer; }
   border-right: 0 !important;
 }
 .gb-valor-panel .gb-loop-card.is-end {
-  background: rgba(125, 202, 165, 0.14) !important;
+  background:
+    linear-gradient(165deg, rgba(125, 202, 165, 0.12), transparent 50%),
+    rgba(0, 0, 0, 0.22) !important;
 }
 .gb-valor-panel .gb-loop-card:hover,
 .gb-valor-panel [data-valor-loop] article:hover {
-  background: var(--gold) !important;
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.16), transparent 45%),
+    rgba(0, 0, 0, 0.3) !important;
   transform: none !important;
-  box-shadow: none !important;
-  border-color: transparent !important;
+  box-shadow: inset 0 0 0 1px var(--gold-line) !important;
+  border-color: var(--gold-line) !important;
 }
 .gb-valor-panel .gb-loop-num {
-  color: #9a7a00 !important;
+  color: var(--gold) !important;
   font: 800 11px/1 var(--mono) !important;
 }
 .gb-valor-panel .gb-loop-label {
-  color: #6e6d66 !important;
+  color: var(--ice) !important;
   font: 800 9px/1 var(--mono) !important;
 }
 .gb-valor-panel .gb-loop-card h3,
@@ -611,7 +618,7 @@ a.brand { cursor: pointer; }
   font-size: clamp(14px, 1.1vw + 0.35vh, 18px) !important;
   line-height: 1.15 !important;
   margin: 2px 0 0 !important;
-  color: #11120e !important;
+  color: var(--cream) !important;
 }
 .gb-valor-panel .gb-loop-card p,
 .gb-valor-panel [data-valor-loop] p {
@@ -619,23 +626,27 @@ a.brand { cursor: pointer; }
   line-height: 1.35 !important;
   margin: 0 !important;
   flex: 0 1 auto !important;
-  color: #5a5952 !important;
+  color: var(--mute-2) !important;
 }
 .gb-valor-panel .gb-loop-card:hover h3,
 .gb-valor-panel .gb-loop-card:hover p,
 .gb-valor-panel .gb-loop-card:hover .gb-loop-num,
 .gb-valor-panel .gb-loop-card:hover .gb-loop-label {
-  color: #11120e !important;
+  color: inherit !important;
 }
+.gb-valor-panel .gb-loop-card:hover h3 { color: var(--cream) !important; }
+.gb-valor-panel .gb-loop-card:hover p { color: var(--mute-2) !important; }
+.gb-valor-panel .gb-loop-card:hover .gb-loop-num { color: var(--gold) !important; }
+.gb-valor-panel .gb-loop-card:hover .gb-loop-label { color: var(--ice) !important; }
 .gb-valor-panel .gb-panel-bar {
   flex-shrink: 0 !important;
   justify-content: center !important;
   min-height: 40px !important;
   padding: 8px 14px !important;
   margin: 0 !important;
-  background: #11120e !important;
+  background: rgba(243, 212, 55, 0.08) !important;
   color: var(--gold) !important;
-  border-top: 0 !important;
+  border-top: 1px solid var(--gold-line) !important;
   position: relative;
   z-index: 2;
 }
@@ -938,16 +949,12 @@ a.brand { cursor: pointer; }
   margin-bottom: 0 !important;
 }
 
-/* Light theme: keep Edge readable */
-html[data-theme="light"] .gb-valor-panel,
-html[data-theme="light"] .gb-valor-panel .gb-loop-card,
-html[data-theme="light"] .gb-valor-panel [data-valor-loop] article {
-  background: #fffef8 !important;
-  color: #11120e !important;
-}
-html[data-theme="light"] .gb-valor-head h2 em {
-  color: #9a7a00 !important;
-  opacity: 1 !important;
+/* Edge stays dark gold cinema in site light theme too */
+html[data-theme="light"] #valor.slide,
+html[data-theme="light"] #valor .gb-valor-panel,
+html[data-theme="light"] #valor .gb-loop-card {
+  background: var(--grad-panel, #10131b) !important;
+  color: var(--cream, #fffef8) !important;
 }
 
 /* ============================================================
@@ -1548,14 +1555,8 @@ html[data-theme="light"] .gb-valor-head h2 em {
 #formacion .education-list li b {
   color: var(--gold) !important;
 }
-#formacion .languages > span {
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  background: rgba(0, 0, 0, 0.22) !important;
-  color: #a8a79d !important;
-}
-#formacion .languages b {
-  color: #fffef8 !important;
-}
+/* languages moved */
+
 @media (max-width: 900px) {
   #formacion .gb-edu-grid,
   #formacion .education-layout,
@@ -2230,7 +2231,7 @@ html[data-theme="light"] .gb-valor-head h2 em {
 }
 
 /* ============================================================
-   EDGE #valor — FULL BLEED (fix-edge-fullbleed)
+   EDGE #valor — FULL BLEED dark gold cinema
    Panel fills nearly the entire slide; cards expand into void;
    title band matches other slides; bar clear of --chrome-bottom.
    ============================================================ */
@@ -2259,6 +2260,10 @@ html[data-theme="light"] .gb-valor-head h2 em {
   gap: 0 !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
+  background: var(--grad-panel) !important;
+  border: 1px solid var(--gold-line) !important;
+  color: var(--cream) !important;
+  box-shadow: var(--shadow-panel) !important;
 }
 
 #valor .gb-valor-head {
@@ -2270,8 +2275,8 @@ html[data-theme="light"] .gb-valor-head h2 em {
     clamp(14px, 2vh, 22px)
     clamp(16px, 2.2vw, 28px)
     clamp(12px, 1.5vh, 18px) !important;
-  border-bottom: 1px solid rgba(17, 18, 14, 0.1) !important;
-  background: #fffef8 !important;
+  border-bottom: 1px solid var(--line) !important;
+  background: linear-gradient(180deg, rgba(243, 212, 55, 0.06), transparent) !important;
 }
 
 #valor .gb-valor-index,
@@ -2283,7 +2288,7 @@ html[data-theme="light"] .gb-valor-head h2 em {
 
 #valor .gb-valor-head .eyebrow {
   margin: 0 0 var(--title-eyebrow-mb) !important;
-  color: #9a7a00 !important;
+  color: var(--gold) !important;
   font: 800 11px/1.2 var(--mono) !important;
   letter-spacing: 0.14em !important;
 }
@@ -2294,11 +2299,11 @@ html[data-theme="light"] .gb-valor-head h2 em {
   text-align: left !important;
   font-size: clamp(26px, 3.2vw + 0.85vh, 48px) !important;
   line-height: 0.94 !important;
-  color: #11120e !important;
+  color: var(--cream) !important;
 }
 
 #valor .gb-valor-head h2 em {
-  color: #9a7a00 !important;
+  color: var(--gold) !important;
   opacity: 1 !important;
 }
 
@@ -2309,7 +2314,7 @@ html[data-theme="light"] .gb-valor-head h2 em {
   text-align: left !important;
   font-size: clamp(13px, 1.1vw, 16px) !important;
   line-height: 1.45 !important;
-  color: #5a5952 !important;
+  color: var(--mute-2) !important;
 }
 
 #valor .gb-loop,
@@ -2322,7 +2327,7 @@ html[data-theme="light"] .gb-valor-head h2 em {
   grid-template-rows: 1fr !important;
   align-content: stretch !important;
   align-items: stretch !important;
-  border-bottom: 1px solid rgba(17, 18, 14, 0.1) !important;
+  border-bottom: 1px solid var(--line) !important;
   background: transparent !important;
 }
 
@@ -2335,9 +2340,12 @@ html[data-theme="light"] .gb-valor-head h2 em {
   flex-direction: column !important;
   justify-content: flex-start !important;
   gap: clamp(6px, 1vh, 12px) !important;
-  border-right: 1px solid rgba(17, 18, 14, 0.1) !important;
+  border-right: 1px solid var(--line) !important;
   border-bottom: 0 !important;
-  background: #fffef8 !important;
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 50%),
+    rgba(0, 0, 0, 0.22) !important;
+  color: var(--cream) !important;
   box-sizing: border-box !important;
 }
 
@@ -2347,18 +2355,20 @@ html[data-theme="light"] .gb-valor-head h2 em {
 }
 
 #valor .gb-loop-card.is-end {
-  background: rgba(125, 202, 165, 0.14) !important;
+  background:
+    linear-gradient(165deg, rgba(125, 202, 165, 0.12), transparent 50%),
+    rgba(0, 0, 0, 0.22) !important;
 }
 
 #valor .gb-loop-num {
   font: 800 clamp(11px, 1vw, 13px)/1 var(--mono) !important;
-  color: #9a7a00 !important;
+  color: var(--gold) !important;
 }
 
 #valor .gb-loop-label {
   font: 800 clamp(9px, 0.85vw, 11px)/1 var(--mono) !important;
   letter-spacing: 0.12em !important;
-  color: #6e6d66 !important;
+  color: var(--ice) !important;
 }
 
 #valor .gb-loop-card h3,
@@ -2366,7 +2376,7 @@ html[data-theme="light"] .gb-valor-head h2 em {
   margin: 4px 0 0 !important;
   font-size: clamp(15px, 1.3vw + 0.45vh, 22px) !important;
   line-height: 1.15 !important;
-  color: #11120e !important;
+  color: var(--cream) !important;
 }
 
 #valor .gb-loop-card p,
@@ -2375,7 +2385,7 @@ html[data-theme="light"] .gb-valor-head h2 em {
   flex: 1 1 auto !important;
   font-size: clamp(12px, 1.05vw, 15px) !important;
   line-height: 1.4 !important;
-  color: #5a5952 !important;
+  color: var(--mute-2) !important;
   display: block !important;
 }
 
@@ -2386,7 +2396,8 @@ html[data-theme="light"] .gb-valor-head h2 em {
   min-height: 48px !important;
   padding: 12px 18px !important;
   margin: 0 !important;
-  background: #11120e !important;
+  background: rgba(243, 212, 55, 0.08) !important;
+  border-top: 1px solid var(--gold-line) !important;
   color: var(--gold) !important;
   position: relative !important;
   z-index: 3 !important;
@@ -2405,7 +2416,7 @@ html[data-theme="light"] .gb-valor-head h2 em {
     border-right: 0 !important;
   }
   #valor .gb-loop-card:nth-child(-n+2) {
-    border-bottom: 1px solid rgba(17, 18, 14, 0.1) !important;
+    border-bottom: 1px solid var(--line) !important;
   }
   #valor .gb-valor-panel,
   .gb-valor-slide > .gb-valor-panel {

@@ -21,12 +21,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=final4">
-  <link rel="stylesheet" href="./extra-pass.css?v=final4">
-  <link rel="stylesheet" href="./final-v3.css?v=final4">
-  <link rel="stylesheet" href="./final-v4.css?v=final4">
-  <script src="./i18n.js?v=final4"></script>
-  <script src="./main.js?v=final4" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=langslide">
+  <link rel="stylesheet" href="./extra-pass.css?v=langslide">
+  <link rel="stylesheet" href="./final-v3.css?v=langslide">
+  <link rel="stylesheet" href="./final-v4.css?v=langslide">
+  <script src="./i18n.js?v=langslide"></script>
+  <script src="./main.js?v=langslide" defer></script>
 </head>
 <body class="has-os-rail final-deck-v4">
 
@@ -35,7 +35,7 @@
 
   <aside class="os-rail" aria-label="Index">
     <div class="os-rail-brand">
-      <div><b data-i18n="railBrand">PROFILE DECK</b><small data-i18n="railSlides">2026 · 13 slides</small></div>
+      <div><b data-i18n="railBrand">PROFILE DECK</b><small data-i18n="railSlides">2026 · 14 slides</small></div>
     </div>
     <p class="os-rail-status"><span data-i18n="railActive">ACTIVA</span><strong data-rail-status>00 · Portada</strong></p>
     <nav class="os-rail-nav" data-slide-rail></nav>
@@ -134,10 +134,10 @@
     </section>
 
     <!-- 01 VALUE — cards ARRIBA, titular ABAJO -->
-    <section class="slide light fit gb-valor-slide" id="valor" data-title="Diferencial" data-code="01">
-      <div class="gb-panel gb-panel-light gb-valor-panel">
+    <section class="slide dark fit gb-valor-slide" id="valor" data-title="Diferencial" data-code="01">
+      <div class="gb-panel gb-panel-dark gb-valor-panel">
         <header class="gb-valor-head gb-title-band">
-          <p class="slide-index gb-valor-index"><span>01</span><i></i><span data-i18n="valorIndex">MI DIFERENCIAL</span></p>
+          <p class="slide-index light-index"><span>01</span><i></i><span data-i18n="valorIndex">MI DIFERENCIAL</span></p>
           <p class="eyebrow" data-i18n="valorEyebrow">EDGE · SEÑAL → SISTEMA → DECISIÓN → HÁBITO</p>
           <h2 data-i18n-html="valorH2">No entrego análisis.<br><em>Entrego capacidad de actuar.</em></h2>
           <p class="gb-panel-lead" data-i18n="valorP">Recorro el sistema completo: escuchar, decidir, construir y conseguir adopción.</p>
@@ -456,7 +456,7 @@
         <p class="gb-line-kicker" data-i18n="lineP">Systems y wellness. La imagen completa. 2011 — 2026.</p>
       </header>
       <figure class="gb-line-frame">
-        <img src="./timeline-horizontal.png?v=final4" alt="Timeline completa 2011–2026: línea systems y línea wellness" />
+        <img src="./timeline-horizontal.png?v=langslide" alt="Timeline completa 2011–2026: línea systems y línea wellness" />
       </figure>
     </section>
 
@@ -667,23 +667,62 @@
                 <li><b>2011</b><span>Diplomatura Turismo · Murcia</span></li>
               </ul>
             </div>
-            <div class="languages">
-              <span><b>ES</b><span data-i18n="langNative">Nativo</span></span>
-              <span><b>EN</b>C1</span>
-              <span><b>IT</b>C1</span>
-              <span><b>PT/FR</b><span data-i18n="langBasic">Básico</span></span>
-            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 11 CONTACT — corto -->
-    <section class="slide dark fit gb-contact" id="contacto" data-title="Hablemos" data-code="12">
+
+    <!-- 12 LANGUAGES -->
+    <section class="slide dark fit gb-langs" id="idiomas" data-title="Idiomas" data-code="12">
+      <div class="gb-langs-top gb-title-band">
+        <div class="gb-title-block">
+          <p class="slide-index light-index"><span>12</span><i></i><span data-i18n="langIndex">IDIOMAS</span></p>
+          <p class="eyebrow" data-i18n="langEyebrow">MULTILINGUAL · CS × GLOBAL</p>
+          <h2 data-i18n-html="langH2">Hablo donde el cliente<br><em>y el equipo</em> están.</h2>
+        </div>
+        <p class="gb-langs-lead" data-i18n="langP">Seis idiomas en el radar: nativo, alto y básico — más catalán de comprensión.</p>
+      </div>
+      <div class="gb-langs-grid" data-langs-board>
+        <article class="gb-lang-card">
+          <header><span>01</span><b>ES</b></header>
+          <h3 data-i18n="langEsName">Español</h3>
+          <p class="gb-lang-level" data-i18n="langEsLevel">Nativo</p>
+        </article>
+        <article class="gb-lang-card">
+          <header><span>02</span><b>EN</b></header>
+          <h3 data-i18n="langEnName">Inglés</h3>
+          <p class="gb-lang-level" data-i18n="langEnLevel">Alto · C1</p>
+        </article>
+        <article class="gb-lang-card">
+          <header><span>03</span><b>IT</b></header>
+          <h3 data-i18n="langItName">Italiano</h3>
+          <p class="gb-lang-level" data-i18n="langItLevel">Alto · C1</p>
+        </article>
+        <article class="gb-lang-card">
+          <header><span>04</span><b>PT</b></header>
+          <h3 data-i18n="langPtName">Portugués</h3>
+          <p class="gb-lang-level" data-i18n="langPtLevel">Básico</p>
+        </article>
+        <article class="gb-lang-card">
+          <header><span>05</span><b>FR</b></header>
+          <h3 data-i18n="langFrName">Francés</h3>
+          <p class="gb-lang-level" data-i18n="langFrLevel">Básico</p>
+        </article>
+        <article class="gb-lang-card is-understand">
+          <header><span>06</span><b>CA</b></header>
+          <h3 data-i18n="langCaName">Catalán</h3>
+          <p class="gb-lang-level" data-i18n="langCaLevel">Entiendo · no hablo</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 13 CONTACT — corto -->
+    <section class="slide dark fit gb-contact" id="contacto" data-title="Hablemos" data-code="13">
       <div class="gb-contact-inner">
         <div class="gb-contact-top">
           <div class="gb-title-band gb-contact-title-band">
-            <p class="slide-index light-index"><span>12</span><i></i><span data-i18n="contactIndex">CONTACTO</span></p>
+            <p class="slide-index light-index"><span>13</span><i></i><span data-i18n="contactIndex">CONTACTO</span></p>
             <p class="gb-contact-kicker eyebrow" data-i18n="contactEyebrow">NEXT STEP</p>
           </div>
           <div class="gb-contact-rule" aria-hidden="true"></div>
@@ -715,7 +754,7 @@
   </main>
 
   <nav class="deck-controls" aria-label="Controls">
-    <span><b data-current>01</b><i>/</i><em data-total>13</em></span>
+    <span><b data-current>01</b><i>/</i><em data-total>14</em></span>
     <button type="button" data-prev>← <small data-i18n="prev">ANT.</small></button>
     <button type="button" data-next><small data-i18n="next">SIG.</small> →</button>
   </nav>
