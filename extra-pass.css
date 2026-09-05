@@ -497,7 +497,7 @@ a.brand { cursor: pointer; }
   justify-content: center !important;
   align-items: center !important;
   padding-bottom: calc(var(--chrome-bottom) + 4px) !important;
-  background: var(--ink) !important;
+  background: var(--ground, var(--ink)) !important;
   color: var(--cream) !important;
 }
 .gb-valor-panel {
@@ -949,12 +949,15 @@ a.brand { cursor: pointer; }
   margin-bottom: 0 !important;
 }
 
-/* Edge stays dark gold cinema in site light theme too */
-html[data-theme="light"] #valor.slide,
+/* Edge follows theme tokens (light paper / dark cinema) — no hard dark lock */
+html[data-theme="light"] #valor.slide {
+  background: var(--ground, #f3f0e7) !important;
+  color: var(--cream, #11120e) !important;
+}
 html[data-theme="light"] #valor .gb-valor-panel,
 html[data-theme="light"] #valor .gb-loop-card {
-  background: var(--grad-panel, #10131b) !important;
-  color: var(--cream, #fffef8) !important;
+  background: var(--grad-panel) !important;
+  color: var(--cream) !important;
 }
 
 /* ============================================================
