@@ -535,9 +535,14 @@
     const t = event.changedTouches[0];
     const dy = t.clientY - touchY;
     const dx = t.clientX - touchX;
-    if (Date.now() - touchT > 720) return;
-    if (Math.abs(dy) < 40 || Math.abs(dy) < Math.abs(dx) * 1.05) return;
-    goTo(activeIndex + (dy < 0 ? 1 : -1));
+    if (Date.now() - touchT > 800) return;
+    if (Math.abs(dy) >= 40 && Math.abs(dy) > Math.abs(dx) * 1.1) {
+      goTo(activeIndex + (dy < 0 ? 1 : -1));
+      return;
+    }
+    if (Math.abs(dx) >= 56 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      goTo(activeIndex + (dx < 0 ? 1 : -1));
+    }
   }, { passive: true });
 
   document.addEventListener("keydown", (event) => {
