@@ -14,6 +14,9 @@
   --ice-dim: rgba(122, 243, 255, 0.12);
   --sage: #7dcaa5;
   --sage-dim: rgba(125, 202, 165, 0.14);
+  --flare: #ff6b4a;
+  --flare-dim: rgba(255, 107, 74, 0.14);
+  --flare-glow: rgba(255, 107, 74, 0.38);
   --timeline-navy: #010510;
   --marine: #041018;
   --ink: #06070a;
@@ -792,51 +795,250 @@ html[data-theme="light"] {
   position: relative !important;
   min-height: 0 !important;
   border-radius: var(--r-lg) !important;
-  border: 1px solid var(--gold-line) !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--ice) 18%, transparent) !important;
   background:
-    radial-gradient(circle at 50% 54%, rgba(243, 212, 55, 0.1), transparent 42%),
-    radial-gradient(circle at 70% 20%, rgba(122, 243, 255, 0.06), transparent 40%),
+    radial-gradient(circle at 50% 54%, rgba(243, 212, 55, 0.16), transparent 38%),
+    radial-gradient(circle at 68% 18%, rgba(122, 243, 255, 0.1), transparent 34%),
+    radial-gradient(circle at 88% 40%, rgba(255, 107, 74, 0.12), transparent 32%),
+    radial-gradient(circle at 18% 86%, rgba(125, 202, 165, 0.12), transparent 36%),
+    linear-gradient(155deg, rgba(122, 243, 255, 0.04), transparent 42%, rgba(243, 212, 55, 0.04)),
     var(--panel-2) !important;
-  box-shadow: var(--shadow-panel) !important;
+  box-shadow:
+    var(--shadow-panel),
+    inset 0 0 60px rgba(122, 243, 255, 0.04),
+    0 0 40px rgba(243, 212, 55, 0.08) !important;
   overflow: hidden !important;
+  isolation: isolate;
+}
+#ruta .gb-route-glow {
+  position: absolute !important;
+  inset: -28% !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    conic-gradient(from 200deg at 50% 54%,
+      rgba(243, 212, 55, 0.1),
+      rgba(122, 243, 255, 0.08),
+      rgba(255, 107, 74, 0.09),
+      rgba(125, 202, 165, 0.08),
+      rgba(243, 212, 55, 0.1));
+  animation: route-spin 18s linear infinite !important;
+  filter: saturate(1.25) blur(2px);
+  opacity: 0.95 !important;
+  mix-blend-mode: screen;
+}
+#ruta .gb-route-scan {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(122, 243, 255, 0.07) 48%, transparent 52%);
+  background-size: 100% 220%;
+  animation: route-scan 5.5s ease-in-out infinite;
+  opacity: 0.55;
+  mix-blend-mode: soft-light;
+}
+#ruta .gb-route-svg { z-index: 1; }
+#ruta .gb-hub-ring {
+  fill: none !important;
+  stroke: color-mix(in srgb, var(--gold) 48%, transparent) !important;
+  stroke-width: 0.5 !important;
+  animation: route-pulse 3.2s ease-in-out infinite !important;
+}
+#ruta .gb-hub-ring-2 {
+  stroke: color-mix(in srgb, var(--ice) 40%, transparent) !important;
+  stroke-width: 0.35 !important;
+  animation-delay: 0.6s !important;
+}
+#ruta .gb-hub-ring-3 {
+  stroke: color-mix(in srgb, var(--flare) 28%, transparent) !important;
+  stroke-width: 0.25 !important;
+  stroke-dasharray: 1.4 2.2;
+  animation: route-dash 12s linear infinite, route-pulse 4.8s ease-in-out infinite !important;
+}
+#ruta .gb-core-pulse {
+  fill: var(--gold) !important;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 2.5px rgba(243, 212, 55, 0.85));
+  animation: core-pulse 2.1s ease-in-out infinite !important;
+  transform-origin: 50px 54px;
+  transform-box: fill-box;
+}
+#ruta .gb-spoke {
+  fill: none !important;
+  stroke-width: 0.65 !important;
+  stroke-linecap: round !important;
+  stroke-dasharray: 2.4 1.6;
+  animation: route-dash 2s linear infinite !important;
+  opacity: 0.92;
+}
+#ruta .gb-spoke-ne {
+  stroke-width: 0.8 !important;
+  filter: drop-shadow(0 0 1.2px rgba(255, 107, 74, 0.45));
+  animation-duration: 1.6s !important;
+}
+#ruta .gb-spoke.is-origin {
+  stroke-width: 0.95 !important;
+  stroke-dasharray: 1.6 1.1;
+  animation-duration: 2.6s !important;
+  filter: drop-shadow(0 0 1px rgba(125, 202, 165, 0.55));
 }
 #ruta .gb-route-legend {
-  position: absolute; top: 12px; left: 12px; z-index: 2;
-  display: flex; gap: 8px; flex-wrap: wrap;
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  right: auto !important;
+  z-index: 4 !important;
+  display: flex !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+  max-width: 58%;
 }
 #ruta .gb-route-legend span {
-  padding: 4px 10px; border-radius: 999px;
-  font: 800 10px/1 var(--mono); letter-spacing: 0.1em;
-  border: 1px solid transparent; background: rgba(0,0,0,0.35);
-}
-#ruta .gb-route-legend .is-gold { color: var(--gold); border-color: color-mix(in srgb, var(--gold) 45%, transparent); }
-#ruta .gb-route-legend .is-ice { color: var(--ice); border-color: color-mix(in srgb, var(--ice) 45%, transparent); }
-#ruta .gb-route-legend .is-sage { color: var(--sage); border-color: color-mix(in srgb, var(--sage) 45%, transparent); }
-#ruta .gb-pin {
-  min-width: var(--tap) !important;
-  padding: 8px 12px !important;
+  padding: 5px 10px !important;
   border-radius: 999px !important;
-  border: 1px solid var(--line-strong) !important;
-  background: rgba(8, 10, 16, 0.82) !important;
-  backdrop-filter: blur(8px);
+  font: 800 10px/1 var(--mono) !important;
+  letter-spacing: 0.1em !important;
+  border: 1px solid transparent !important;
+  background: rgba(4, 6, 12, 0.72) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+#ruta .gb-route-legend .is-gold {
+  color: var(--gold) !important;
+  border-color: color-mix(in srgb, var(--gold) 55%, transparent) !important;
+  box-shadow: 0 0 16px rgba(243, 212, 55, 0.18);
+}
+#ruta .gb-route-legend .is-ice {
+  color: var(--ice) !important;
+  border-color: color-mix(in srgb, var(--ice) 50%, transparent) !important;
+}
+#ruta .gb-route-legend .is-sage {
+  color: var(--sage) !important;
+  border-color: color-mix(in srgb, var(--sage) 50%, transparent) !important;
+}
+#ruta .gb-route-legend .is-flare {
+  color: var(--flare) !important;
+  border-color: color-mix(in srgb, var(--flare) 55%, transparent) !important;
+  box-shadow: 0 0 14px rgba(255, 107, 74, 0.2);
+}
+#ruta .gb-pin {
+  z-index: 3 !important;
+  min-width: var(--tap) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
   color: var(--cream) !important;
   font: 700 12px/1.1 var(--sans) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  transition: transform 0.22s var(--ease), filter 0.22s;
+}
+#ruta .gb-pin i {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid color-mix(in srgb, var(--ice) 70%, #fff) !important;
+  background: rgba(8, 10, 16, 0.9) !important;
+  box-shadow:
+    0 0 0 4px rgba(122, 243, 255, 0.1),
+    0 0 14px rgba(122, 243, 255, 0.28) !important;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s, background 0.2s;
+}
+#ruta .gb-pin span {
+  padding: 7px 11px !important;
+  border-radius: 999px !important;
+  border: 1px solid color-mix(in srgb, var(--ice) 28%, transparent) !important;
+  background: rgba(6, 8, 14, 0.88) !important;
+  backdrop-filter: blur(10px);
+  color: var(--cream) !important;
+  font: 700 11px/1.1 var(--mono) !important;
+  letter-spacing: 0.06em !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), 0 0 20px rgba(122, 243, 255, 0.06);
+}
+#ruta .gb-pin.is-eu i {
+  border-color: var(--ice) !important;
+  box-shadow: 0 0 0 4px rgba(122, 243, 255, 0.12), 0 0 16px rgba(122, 243, 255, 0.35) !important;
+}
+#ruta .gb-pin.is-eu span {
+  border-color: color-mix(in srgb, var(--ice) 40%, transparent) !important;
+}
+#ruta .gb-pin.is-ne span {
+  border-color: color-mix(in srgb, var(--flare) 45%, transparent) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), 0 0 18px rgba(255, 107, 74, 0.16);
+}
+#ruta .gb-pin.is-ne i {
+  border-color: var(--flare) !important;
+  box-shadow: 0 0 0 4px rgba(255, 107, 74, 0.14), 0 0 16px rgba(255, 107, 74, 0.4) !important;
+}
+#ruta .gb-pin.is-origin-pin i {
+  border-color: var(--sage) !important;
+  box-shadow: 0 0 0 4px rgba(125, 202, 165, 0.14), 0 0 16px rgba(125, 202, 165, 0.35) !important;
+}
+#ruta .gb-pin.is-origin-pin span {
+  border-color: color-mix(in srgb, var(--sage) 45%, transparent) !important;
+}
+#ruta .gb-pin.is-core {
+  z-index: 5 !important;
+  transform: translate(-50%, -50%) scale(1.06);
+}
+#ruta .gb-pin.is-core i {
+  width: 16px !important;
+  height: 16px !important;
+  border-color: var(--gold) !important;
+  background: var(--gold) !important;
+  box-shadow:
+    0 0 0 6px rgba(243, 212, 55, 0.16),
+    0 0 28px rgba(243, 212, 55, 0.55),
+    0 0 48px rgba(255, 107, 74, 0.18) !important;
+  animation: core-pin-pulse 2.1s ease-in-out infinite !important;
+}
+#ruta .gb-pin.is-core span {
+  border-color: color-mix(in srgb, var(--gold) 55%, transparent) !important;
+  color: #fffef8 !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(243, 212, 55, 0.2);
+}
+#ruta .gb-pin.is-core b {
+  display: inline-block !important;
+  margin-top: 2px;
+  padding: 3px 8px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, var(--gold), color-mix(in srgb, var(--flare) 55%, var(--gold))) !important;
+  color: #16140f !important;
+  font: 800 9px/1 var(--mono) !important;
+  letter-spacing: 0.12em !important;
+  box-shadow: 0 0 18px rgba(243, 212, 55, 0.35);
 }
 #ruta .gb-pin.is-core,
 #ruta .gb-pin.active {
-  border-color: color-mix(in srgb, var(--gold) 55%, transparent) !important;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 40%, transparent), 0 10px 28px rgba(243, 212, 55, 0.18) !important;
+  /* keep hierarchy; active non-core still pops */
 }
-#ruta .gb-pin.is-core b { color: var(--gold) !important; }
+#ruta .gb-pin.active:not(.is-core) i {
+  background: var(--ice) !important;
+  transform: scale(1.2);
+  box-shadow: 0 0 0 7px rgba(122, 243, 255, 0.18), 0 0 22px rgba(122, 243, 255, 0.45) !important;
+}
+#ruta .gb-pin.active:not(.is-core) span {
+  border-color: color-mix(in srgb, var(--ice) 55%, transparent) !important;
+  color: var(--ice) !important;
+}
+#ruta .gb-pin:hover { filter: brightness(1.08); }
+#ruta .gb-pin:hover i { transform: scale(1.18); }
+#ruta .gb-route-caption {
+  z-index: 3 !important;
+  color: color-mix(in srgb, var(--mute-2) 80%, var(--ice)) !important;
+  text-shadow: 0 0 18px rgba(0, 0, 0, 0.65);
+}
 #ruta .gb-city-panel {
   min-height: 0 !important;
   overflow: auto !important;
   scrollbar-width: thin;
   border-radius: var(--r-lg) !important;
-  border: 1px solid var(--gold-line) !important;
-  background: var(--panel-2) !important;
-  box-shadow: var(--shadow-card) !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 24%, var(--flare) 10%, transparent) !important;
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 38%),
+    linear-gradient(210deg, rgba(255, 107, 74, 0.05), transparent 45%),
+    var(--panel-2) !important;
+  box-shadow: var(--shadow-card), 0 0 32px rgba(122, 243, 255, 0.05) !important;
   padding: 16px !important;
 }
 #ruta .gb-route-strip {
@@ -848,6 +1050,45 @@ html[data-theme="light"] {
   overflow-x: auto !important;
   padding-bottom: 2px !important;
   scrollbar-width: none;
+}
+#ruta .gb-route-strip .gb-strip-item.is-on {
+  border-color: color-mix(in srgb, var(--gold) 50%, var(--flare) 20%, transparent) !important;
+  background: linear-gradient(135deg, rgba(243, 212, 55, 0.12), rgba(255, 107, 74, 0.08)) !important;
+  box-shadow: 0 0 18px rgba(243, 212, 55, 0.12);
+}
+@keyframes core-pulse {
+  0%, 100% { opacity: 0.55; r: 3.6; }
+  50% { opacity: 1; r: 5.1; }
+}
+@keyframes core-pin-pulse {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(243, 212, 55, 0.14), 0 0 22px rgba(243, 212, 55, 0.45), 0 0 40px rgba(255, 107, 74, 0.12); }
+  50% { box-shadow: 0 0 0 9px rgba(243, 212, 55, 0.22), 0 0 34px rgba(243, 212, 55, 0.7), 0 0 56px rgba(255, 107, 74, 0.22); }
+}
+@keyframes route-scan {
+  0% { background-position: 0 -40%; }
+  100% { background-position: 0 140%; }
+}
+@keyframes route-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes route-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+@keyframes route-dash {
+  to { stroke-dashoffset: -22; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #ruta .gb-route-glow,
+  #ruta .gb-route-scan,
+  #ruta .gb-hub-ring,
+  #ruta .gb-hub-ring-2,
+  #ruta .gb-hub-ring-3,
+  #ruta .gb-spoke,
+  #ruta .gb-core-pulse,
+  #ruta .gb-pin.is-core i {
+    animation: none !important;
+  }
 }
 
 /* ============================================================
@@ -1940,6 +2181,8 @@ html[data-theme="light"] .gb-valor-slide {
   --gold-line: color-mix(in srgb, #f3d437 22%, transparent) !important;
   --ice: #7af3ff !important;
   --sage: #7dcaa5 !important;
+  --flare: #ff6b4a !important;
+  --flare-dim: rgba(255, 107, 74, 0.14) !important;
   --grad-panel:
     linear-gradient(165deg, rgba(243, 212, 55, 0.05), transparent 42%),
     linear-gradient(180deg, #10131b, #0c0e14) !important;
