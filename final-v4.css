@@ -79,7 +79,7 @@ html[data-theme="light"] {
   --flare-dim: rgba(196, 74, 47, 0.14);
   --flare-glow: rgba(196, 74, 47, 0.28);
 
-  /* --ink aligned with styles.css = dark text; --ground = page sheet */
+  /* --ink = dark text; --ground = page sheet */
   --ink: #11120e;
   --ground: #f3f0e7;
   --panel: #fffef8;
@@ -89,8 +89,39 @@ html[data-theme="light"] {
   --mute-2: #3a3934;
   --line: rgba(17, 18, 14, 0.10);
   --line-strong: rgba(17, 18, 14, 0.16);
-  --timeline-navy: #0a1220; /* keep cinematic frame for navy timeline art */
-  --marine: #dfe8f2;
+  /* Line slide page chrome: paper (image keeps its own navy pixels) */
+  --timeline-navy: #f3f0e7;
+  --marine: #e8eef5;
+
+  /* Unify styles.css / extra-pass :root tokens that otherwise stay cinema-dark */
+  --bg: #f3f0e7;
+  --bg2: #e9e5d9;
+  --surface: #fffef8;
+  --surface2: #f7f4ec;
+  --black: #f3f0e7;
+  --black-2: #ebe6d8;
+  --paper: #fffef8;
+  --paper-2: #f7f4ec;
+  --white: #11120e;
+  --accent: #11120e;
+  --accent-ink: #f3f0e7;
+  --mark: #b8921f;
+  --yellow: #b8921f;
+  --yellow-2: #d4a82a;
+  --yellow-dim: rgba(184, 146, 31, 0.12);
+  --yellow-glow: rgba(184, 146, 31, 0.18);
+  --gold-glow: rgba(184, 146, 31, 0.18);
+  --muted-dark: #5c5b54;
+  --muted-light: #5c5b54;
+  --muted: #5c5b54;
+  --ink-on-dark: #11120e;
+  --line-dark: rgba(17, 18, 14, 0.12);
+  --line-dark-2: rgba(17, 18, 14, 0.2);
+  --line-light: rgba(17, 18, 14, 0.12);
+  --line-light-2: rgba(17, 18, 14, 0.2);
+  --shadow: 0 22px 50px rgba(17, 18, 14, 0.1);
+  --shadow-sm: 0 10px 28px rgba(17, 18, 14, 0.08);
+  --shadow-light: 0 22px 50px rgba(17, 18, 14, 0.1);
 
   --shadow-panel: 0 18px 48px rgba(17, 18, 14, 0.10), 0 0 0 1px var(--gold-line);
   --shadow-card: 0 12px 32px rgba(17, 18, 14, 0.08);
@@ -321,7 +352,7 @@ html[data-theme="light"] {
     radial-gradient(ellipse 70% 50% at 18% 20%, rgba(243, 212, 55, 0.12), transparent 55%),
     radial-gradient(ellipse 55% 45% at 82% 70%, rgba(122, 243, 255, 0.08), transparent 50%),
     radial-gradient(ellipse 40% 35% at 60% 10%, rgba(125, 202, 165, 0.06), transparent 45%),
-    var(--ink) !important;
+    var(--ground) !important;
 }
 #inicio .gb-hero-stack {
   justify-content: space-between !important;
@@ -1924,7 +1955,7 @@ html[data-theme="light"] {
   background:
     radial-gradient(ellipse 60% 45% at 50% 0%, rgba(243, 212, 55, 0.12), transparent 55%),
     radial-gradient(ellipse 50% 40% at 80% 80%, rgba(122, 243, 255, 0.06), transparent 50%),
-    var(--ink) !important;
+    var(--ground) !important;
 }
 #contacto .gb-contact-inner {
   height: calc(var(--slide-inner) - 4px) !important;
@@ -2334,11 +2365,23 @@ html[data-theme="light"] #contacto.slide {
   color: var(--cream) !important;
 }
 
-/* Line / timeline — keep navy cinematic frame (intentional) */
+/* Line / timeline — paper page; image keeps own navy pixels */
 html[data-theme="light"] #linea.slide,
 html[data-theme="light"] .gb-line-slide {
-  background: var(--timeline-navy) !important;
-  color: #fffef8 !important;
+  background: var(--ground) !important;
+  color: var(--cream) !important;
+}
+html[data-theme="light"] #linea .gb-line-frame {
+  background: #fffef8 !important;
+  border-color: color-mix(in srgb, var(--gold) 28%, var(--line)) !important;
+  box-shadow: var(--shadow-panel) !important;
+}
+html[data-theme="light"] #linea .gb-line-frame img {
+  background: transparent !important;
+}
+html[data-theme="light"] #linea .gb-line-kicker,
+html[data-theme="light"] #linea .slide-index span:last-child {
+  color: var(--mute-2) !important;
 }
 
 /* —— Edge #valor — paper + gold (both themes via tokens; light polish) —— */
@@ -2674,4 +2717,364 @@ html[data-theme="light"] #inicio .gb-card-list small {
 }
 html[data-theme="light"] #inicio .gb-card-list small {
   color: var(--mute) !important;
+}
+
+/* ============================================================
+   FIX LIGHT SURFACES — paper portfolio under ☀ (post #19)
+   High-specificity remaps. Dark cinema via :root unchanged.
+   ============================================================ */
+
+/* Slide shells: .slide.dark historically = cinema skin; under light = paper */
+html[data-theme="light"] .slide,
+html[data-theme="light"] .slide.dark,
+html[data-theme="light"] .slide.fit,
+html[data-theme="light"] .slide.dark.fit,
+html[data-theme="light"] .gb-hero,
+html[data-theme="light"] .gb-valor-slide,
+html[data-theme="light"] .gb-star-slide,
+html[data-theme="light"] .gb-demos-slide,
+html[data-theme="light"] .gb-route,
+html[data-theme="light"] .gb-method,
+html[data-theme="light"] .gb-career-slide,
+html[data-theme="light"] .gb-line-slide,
+html[data-theme="light"] .gb-exp-slide,
+html[data-theme="light"] .gb-caps,
+html[data-theme="light"] .gb-edu-slide,
+html[data-theme="light"] .gb-langs,
+html[data-theme="light"] .gb-contact,
+html[data-theme="light"] #inicio.slide,
+html[data-theme="light"] #valor.slide,
+html[data-theme="light"] #sistemas.slide,
+html[data-theme="light"] #demos.slide,
+html[data-theme="light"] #ruta.slide,
+html[data-theme="light"] #metodo.slide,
+html[data-theme="light"] #trayectoria.slide,
+html[data-theme="light"] #linea.slide,
+html[data-theme="light"] #experiencia.slide,
+html[data-theme="light"] #experiencia-2.slide,
+html[data-theme="light"] #capacidades.slide,
+html[data-theme="light"] #formacion.slide,
+html[data-theme="light"] #idiomas.slide,
+html[data-theme="light"] #contacto.slide {
+  background-color: #f3f0e7 !important;
+  background-image: none !important;
+  color: #11120e !important;
+}
+
+/* Soft warm wash on cover + contact (not black void) */
+html[data-theme="light"] #inicio.slide,
+html[data-theme="light"] #contacto.slide {
+  background-color: #f3f0e7 !important;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 18% 20%, rgba(184, 146, 31, 0.14), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 82% 70%, rgba(14, 124, 136, 0.08), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 60% 10%, rgba(47, 107, 79, 0.07), transparent 45%) !important;
+}
+
+html[data-theme="light"] #valor.slide,
+html[data-theme="light"] .gb-valor-slide {
+  background-color: #f3f0e7 !important;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(184, 146, 31, 0.10), transparent 55%) !important;
+}
+
+/* Panels / cards / metrics — paper surfaces, dark ink */
+html[data-theme="light"] .gb-panel,
+html[data-theme="light"] .gb-career-panel,
+html[data-theme="light"] .gb-exp-panel,
+html[data-theme="light"] .gb-edu-panel,
+html[data-theme="light"] .gb-valor-panel,
+html[data-theme="light"] .gb-panel.gb-valor-panel,
+html[data-theme="light"] #valor .gb-valor-panel,
+html[data-theme="light"] #valor .gb-panel {
+  background:
+    linear-gradient(165deg, rgba(184, 146, 31, 0.07), transparent 42%),
+    linear-gradient(180deg, #fffef8, #f3f0e7) !important;
+  color: #11120e !important;
+  border-color: color-mix(in srgb, #b8921f 28%, transparent) !important;
+  box-shadow: 0 18px 48px rgba(17, 18, 14, 0.10), 0 0 0 1px color-mix(in srgb, #b8921f 28%, transparent) !important;
+}
+
+html[data-theme="light"] .gb-card,
+html[data-theme="light"] .gb-loop-card,
+html[data-theme="light"] #valor .gb-loop-card,
+html[data-theme="light"] #valor [data-valor-loop] article,
+html[data-theme="light"] .gb-demo-card,
+html[data-theme="light"] .gb-role,
+html[data-theme="light"] .gb-cap,
+html[data-theme="light"] .gb-engine,
+html[data-theme="light"] .gb-step,
+html[data-theme="light"] .gb-formula-card,
+html[data-theme="light"] .gb-lang-card,
+html[data-theme="light"] .gb-star-main,
+html[data-theme="light"] .builder-note,
+html[data-theme="light"] .education-list li,
+html[data-theme="light"] #inicio .gb-metrics > div,
+html[data-theme="light"] #sistemas .gb-star-metrics > div,
+html[data-theme="light"] #capacidades .gb-cap-bar,
+html[data-theme="light"] .gb-city-panel {
+  background:
+    linear-gradient(165deg, rgba(184, 146, 31, 0.06), transparent 48%),
+    #fffef8 !important;
+  color: #11120e !important;
+  border-color: rgba(17, 18, 14, 0.14) !important;
+  box-shadow: 0 12px 32px rgba(17, 18, 14, 0.08);
+}
+
+html[data-theme="light"] #valor .gb-loop-card.is-end,
+html[data-theme="light"] #metodo .gb-step.is-final,
+html[data-theme="light"] #capacidades .gb-cap.is-human {
+  background:
+    linear-gradient(165deg, rgba(47, 107, 79, 0.10), transparent 50%),
+    #f3faf6 !important;
+  border-color: color-mix(in srgb, #2f6b4f 35%, rgba(17, 18, 14, 0.12)) !important;
+}
+
+/* Hard-coded dark glass → paper chips */
+html[data-theme="light"] #sistemas .gb-star-metrics > div,
+html[data-theme="light"] #capacidades .gb-engine,
+html[data-theme="light"] #experiencia .gb-role-year,
+html[data-theme="light"] #experiencia-2 .gb-role-year {
+  background: rgba(17, 18, 14, 0.05) !important;
+  color: #3a3934 !important;
+  border-color: rgba(17, 18, 14, 0.12) !important;
+}
+
+/* Experience roles: kill forced cream-on-dark from extra-pass */
+html[data-theme="light"] #experiencia .gb-role,
+html[data-theme="light"] #experiencia-2 .gb-role {
+  color: #11120e !important;
+  background: transparent !important;
+  border-bottom-color: rgba(17, 18, 14, 0.10) !important;
+}
+html[data-theme="light"] #experiencia .gb-role-title,
+html[data-theme="light"] #experiencia-2 .gb-role-title {
+  color: #11120e !important;
+}
+html[data-theme="light"] #experiencia .gb-role-sum,
+html[data-theme="light"] #experiencia-2 .gb-role-sum {
+  color: #5c5b54 !important;
+}
+html[data-theme="light"] #experiencia .gb-role-co,
+html[data-theme="light"] #experiencia-2 .gb-role-co {
+  color: #b8921f !important;
+}
+
+/* Cover ambient — soft paper, not black void */
+html[data-theme="light"] #inicio .gb-hero-ambient,
+html[data-theme="light"] .gb-hero-ambient {
+  background: transparent !important;
+  opacity: 1 !important;
+}
+html[data-theme="light"] #inicio .gb-hero-orb,
+html[data-theme="light"] .gb-hero-orb {
+  opacity: 0.55 !important;
+  mix-blend-mode: multiply !important;
+  filter: saturate(0.85);
+}
+html[data-theme="light"] #inicio .gb-hero-orb-a {
+  background: radial-gradient(circle, rgba(184, 146, 31, 0.22), transparent 68%) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-orb-b {
+  background: radial-gradient(circle, rgba(184, 146, 31, 0.12), transparent 70%) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-orb-c {
+  background: radial-gradient(circle, rgba(14, 124, 136, 0.14), transparent 70%) !important;
+  opacity: 0.4 !important;
+}
+html[data-theme="light"] #inicio .gb-hero-grid-fx {
+  opacity: 0.35 !important;
+  mix-blend-mode: multiply !important;
+  background-image:
+    linear-gradient(rgba(17, 18, 14, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 18, 14, 0.05) 1px, transparent 1px) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-grain {
+  opacity: 0.03 !important;
+  mix-blend-mode: multiply !important;
+}
+html[data-theme="light"] #inicio .gb-hero-title-band,
+html[data-theme="light"] #inicio .gb-title-band.gb-hero-title-band {
+  background: linear-gradient(
+    90deg,
+    rgba(243, 240, 231, 0.95) 0%,
+    rgba(243, 240, 231, 0.55) 55%,
+    transparent 100%
+  ) !important;
+  text-shadow: none !important;
+}
+
+/* Route map: light ground + visible pins */
+html[data-theme="light"] #ruta .gb-route-map {
+  background:
+    radial-gradient(circle at 50% 54%, rgba(184, 146, 31, 0.14), transparent 38%),
+    radial-gradient(circle at 68% 18%, rgba(14, 124, 136, 0.10), transparent 34%),
+    radial-gradient(circle at 88% 40%, rgba(196, 74, 47, 0.10), transparent 32%),
+    radial-gradient(circle at 18% 86%, rgba(47, 107, 79, 0.10), transparent 36%),
+    linear-gradient(155deg, rgba(14, 124, 136, 0.04), transparent 42%, rgba(184, 146, 31, 0.05)),
+    #fffef8 !important;
+}
+html[data-theme="light"] #ruta .gb-pin span,
+html[data-theme="light"] #ruta .gb-route-legend span {
+  background: rgba(255, 254, 248, 0.94) !important;
+  color: #11120e !important;
+  border-color: rgba(17, 18, 14, 0.16) !important;
+}
+html[data-theme="light"] #ruta .gb-pin b {
+  color: #11120e !important;
+}
+html[data-theme="light"] #ruta .gb-city-panel {
+  background:
+    linear-gradient(165deg, rgba(184, 146, 31, 0.06), transparent 40%),
+    #fffef8 !important;
+  color: #11120e !important;
+}
+
+/* Buttons: primary gold OK; ghosts = dark border on paper, not night fills */
+html[data-theme="light"] .button.primary,
+html[data-theme="light"] .btn.primary,
+html[data-theme="light"] .header-cta {
+  background: #b8921f !important;
+  color: #11120e !important;
+  border-color: #b8921f !important;
+}
+html[data-theme="light"] .button.ghost,
+html[data-theme="light"] .btn.ghost,
+html[data-theme="light"] .dark-button {
+  background: transparent !important;
+  color: #11120e !important;
+  border: 1px solid rgba(17, 18, 14, 0.22) !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] .button.ghost:hover,
+html[data-theme="light"] .btn.ghost:hover,
+html[data-theme="light"] .dark-button:hover {
+  border-color: #b8921f !important;
+  color: #b8921f !important;
+  background: rgba(184, 146, 31, 0.08) !important;
+}
+
+/* Chrome: header / rail / controls / dialogs */
+html[data-theme="light"] .site-header {
+  background: color-mix(in srgb, #f3f0e7 92%, transparent) !important;
+  border-bottom-color: color-mix(in srgb, #b8921f 22%, rgba(17, 18, 14, 0.12)) !important;
+  color: #11120e !important;
+}
+html[data-theme="light"] .os-rail {
+  background: color-mix(in srgb, #fffef8 94%, transparent) !important;
+  border-right-color: rgba(17, 18, 14, 0.10) !important;
+  color: #11120e !important;
+}
+html[data-theme="light"] .os-rail-item {
+  color: #5c5b54 !important;
+  background: transparent !important;
+}
+html[data-theme="light"] .os-rail-item.active,
+html[data-theme="light"] .os-rail-item[aria-current="true"] {
+  color: #11120e !important;
+  background: rgba(184, 146, 31, 0.14) !important;
+  border-color: color-mix(in srgb, #b8921f 40%, transparent) !important;
+}
+html[data-theme="light"] .deck-controls button,
+html[data-theme="light"] .seg-btn {
+  background: #fffef8 !important;
+  color: #11120e !important;
+  border: 1px solid rgba(17, 18, 14, 0.14) !important;
+}
+html[data-theme="light"] .seg-btn[aria-pressed="true"],
+html[data-theme="light"] .deck-controls button:hover,
+html[data-theme="light"] .seg-btn:hover {
+  color: #b8921f !important;
+  border-color: #b8921f !important;
+}
+html[data-theme="light"] .recruiter-dialog,
+html[data-theme="light"] .experience-dialog,
+html[data-theme="light"] .command-dialog {
+  background: #fffef8 !important;
+  color: #11120e !important;
+  border-color: rgba(17, 18, 14, 0.14) !important;
+}
+html[data-theme="light"] body,
+html[data-theme="light"] html {
+  background: #f3f0e7 !important;
+  color: #11120e !important;
+}
+
+/* Soft muted copy that was hard-coded for dark cinema */
+html[data-theme="light"] #sistemas .gb-star-lead {
+  color: #5c5b54 !important;
+}
+html[data-theme="light"] .gb-step h3,
+html[data-theme="light"] .gb-formula-card h3,
+html[data-theme="light"] .gb-cap h3,
+html[data-theme="light"] .gb-engine h3,
+html[data-theme="light"] .gb-lang-card h3,
+html[data-theme="light"] .gb-card-title,
+html[data-theme="light"] .gb-loop-card h3,
+html[data-theme="light"] #valor .gb-loop-card h3,
+html[data-theme="light"] #valor .gb-valor-head h2,
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3 {
+  color: #11120e !important;
+}
+html[data-theme="light"] h2 em,
+html[data-theme="light"] h1 em,
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] .slide-index span:first-child {
+  color: #b8921f !important;
+}
+html[data-theme="light"] .slide-index span:last-child,
+html[data-theme="light"] .gb-lead,
+html[data-theme="light"] .gb-panel-lead,
+html[data-theme="light"] .gb-star-lead,
+html[data-theme="light"] .gb-route-lead,
+html[data-theme="light"] .gb-langs-lead,
+html[data-theme="light"] .gb-demos-lead,
+html[data-theme="light"] .gb-method-lead,
+html[data-theme="light"] .gb-caps-lead {
+  color: #3a3934 !important;
+}
+html[data-theme="light"] .gb-step p,
+html[data-theme="light"] .gb-loop-card p,
+html[data-theme="light"] .gb-cap p,
+html[data-theme="light"] .gb-card-sub,
+html[data-theme="light"] .gb-card-list,
+html[data-theme="light"] .tag-row > span {
+  color: #5c5b54 !important;
+}
+html[data-theme="light"] .tag-row > span {
+  background: transparent !important;
+  border-color: rgba(17, 18, 14, 0.14) !important;
+}
+
+/* Method / career / caps remaining glass */
+html[data-theme="light"] #metodo .gb-formula-card,
+html[data-theme="light"] #metodo .gb-step,
+html[data-theme="light"] #trayectoria .gb-engine,
+html[data-theme="light"] #trayectoria .gb-dual > *,
+html[data-theme="light"] #formacion .builder-note,
+html[data-theme="light"] #formacion .education-list li {
+  background: #fffef8 !important;
+  color: #11120e !important;
+  border-color: rgba(17, 18, 14, 0.12) !important;
+}
+html[data-theme="light"] #metodo .gb-formula-card.result {
+  background: linear-gradient(145deg, rgba(184, 146, 31, 0.12), rgba(14, 124, 136, 0.08)) !important;
+}
+html[data-theme="light"] #metodo .gb-step.is-final {
+  background: #b8921f !important;
+  color: #11120e !important;
+}
+html[data-theme="light"] #metodo .gb-step.is-final h3,
+html[data-theme="light"] #metodo .gb-step.is-final p,
+html[data-theme="light"] #metodo .gb-step.is-final b,
+html[data-theme="light"] #metodo .gb-step.is-final .gb-step-num {
+  color: #11120e !important;
+}
+
+/* Kill leftover black/navy fills that ignore tokens */
+html[data-theme="light"] .os-rail-nav::-webkit-scrollbar-track,
+html[data-theme="light"] .os-rail-nav[data-slide-rail]::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #f3f0e7, #ebe6d8 40%, #f3f0e7) !important;
 }
