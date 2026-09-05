@@ -1503,51 +1503,10 @@
   flex: 1 1 auto !important;
   min-height: 0 !important;
 }
-#formacion .languages {
-  flex-shrink: 0 !important;
-  width: 100% !important;
-  max-width: none !important;
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  justify-items: stretch !important;
-  align-items: stretch !important;
-  margin-top: auto !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-bottom: 0 !important;
-  padding-top: 16px !important;
-  padding-bottom: 8px !important; /* air above panel bottom border */
-  gap: 10px !important;
-  box-sizing: border-box !important;
-}
-#formacion .languages > span {
-  width: 100% !important;
-  min-width: 0 !important;
-  min-height: 52px !important;
-  padding: 10px 12px !important;
-  border: 1px solid color-mix(in srgb, var(--gold) 22%, rgba(255, 255, 255, 0.12)) !important;
-  background:
-    linear-gradient(160deg, rgba(243, 212, 55, 0.07), transparent 55%),
-    rgba(0, 0, 0, 0.28) !important;
-  border-radius: 8px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  gap: 3px !important;
-  box-sizing: border-box !important;
-  text-align: left !important;
-}
-#formacion .languages b {
-  color: #fffef8 !important;
-  font: 760 clamp(15px, 1.3vw, 18px)/1.1 var(--display) !important;
-  letter-spacing: -0.02em !important;
-}
-#formacion .languages > span > span,
-#formacion .languages > span {
-  color: #b6b5ad !important;
-  font-size: 12px !important;
-}
+/* languages moved to #idiomas */
+/* languages moved to #idiomas */
+/* languages moved to #idiomas */
+/* languages moved to #idiomas */
 /* Extra inset so languages never kiss the panel frame */
 #formacion .education-list {
   padding-bottom: clamp(22px, 3vh, 34px) !important;
@@ -1557,20 +1516,12 @@
     height: auto !important;
     max-height: calc(var(--slide-inner) - 4px) !important;
   }
-  #formacion .languages {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 8px !important;
-    padding-bottom: 12px !important;
-  }
-  #formacion .languages > span {
-    min-height: 48px !important;
-  }
+  /* languages moved to #idiomas */
+  /* languages moved to #idiomas */
   #formacion .education-list {
     padding-bottom: 26px !important;
   }
 }
 @media (max-width: 480px) {
-  #formacion .languages {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
+  /* languages moved to #idiomas */
 }

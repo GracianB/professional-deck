@@ -174,6 +174,7 @@ html[data-theme="light"] {
 .gb-route-top,
 .gb-method-top,
 .gb-caps-top,
+.gb-langs-top,
 .gb-valor-head,
 .gb-line-head,
 .gb-hero-title-band,
@@ -192,6 +193,7 @@ html[data-theme="light"] {
 .gb-line-head .slide-index,
 .gb-edu-head .slide-index,
 .gb-caps-top .slide-index,
+.gb-langs-top .slide-index,
 .gb-route-top .slide-index,
 .gb-method-top .slide-index,
 .gb-contact-title-band .slide-index {
@@ -206,6 +208,7 @@ html[data-theme="light"] {
 .gb-valor-head .eyebrow,
 .gb-kicker.eyebrow,
 .gb-caps-top .eyebrow,
+.gb-langs-top .eyebrow,
 .gb-route-top .eyebrow,
 .gb-method-top .eyebrow,
 .gb-contact-kicker.eyebrow {
@@ -239,6 +242,7 @@ html[data-theme="light"] {
 .gb-method-top + .gb-method-grid,
 .gb-method-top + [data-method-steps],
 .gb-caps-top + .gb-caps-grid,
+.gb-langs-top + .gb-langs-grid,
 .gb-line-head + .gb-line-frame,
 .gb-edu-head + .gb-edu-grid,
 .gb-edu-head + .education-layout,
@@ -250,7 +254,8 @@ html[data-theme="light"] {
 
 .gb-route-top.gb-title-band,
 .gb-method-top.gb-title-band,
-.gb-caps-top.gb-title-band {
+.gb-caps-top.gb-title-band,
+.gb-langs-top.gb-title-band {
   margin-bottom: calc(var(--block-gap) - var(--section-gap)) !important;
 }
 
@@ -455,13 +460,27 @@ html[data-theme="light"] {
 /* ============================================================
    01 VALUE — full-bleed loop cards
    ============================================================ */
-#valor.slide { overflow: hidden !important; }
+#valor.slide {
+  overflow: hidden !important;
+  background: var(--ink) !important;
+  color: var(--cream) !important;
+}
 #valor .gb-valor-panel {
   height: calc(var(--slide-inner) - 4px) !important;
   max-height: calc(var(--slide-inner) - 4px) !important;
   padding: 0 !important;
   overflow: hidden !important;
+  background: var(--grad-panel) !important;
+  border: 1px solid var(--gold-line) !important;
+  color: var(--cream) !important;
 }
+#valor .gb-valor-head {
+  background: linear-gradient(180deg, rgba(243, 212, 55, 0.06), transparent) !important;
+  border-bottom-color: var(--line) !important;
+}
+#valor .gb-valor-head h2 { color: var(--cream) !important; }
+#valor .gb-valor-head h2 em { color: var(--gold) !important; }
+#valor .gb-panel-lead { color: var(--mute-2) !important; }
 #valor .gb-valor-head {
   padding: clamp(16px, 2.2vh, 26px) var(--panel-inset) clamp(8px, 1.2vh, 14px) !important;
 }
@@ -1439,7 +1458,7 @@ html[data-theme="light"] {
 }
 
 /* ============================================================
-   11 EDUCATION — languages balanced full-width, not flush bottom
+   11 EDUCATION — builder + list (languages moved to #idiomas)
    ============================================================ */
 #formacion.slide {
   overflow: hidden !important;
@@ -1520,57 +1539,126 @@ html[data-theme="light"] {
 #formacion .education-list li span {
   color: var(--mute-2); font: 500 14px/1.3 var(--sans);
 }
-#formacion .languages {
-  flex-shrink: 0 !important;
-  width: 100% !important;
-  max-width: none !important;
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  justify-items: stretch !important;
-  align-items: stretch !important;
-  margin-top: auto !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-bottom: 0 !important;
-  padding-top: 16px !important;
-  padding-bottom: 10px !important;
-  gap: 10px !important;
-  box-sizing: border-box !important;
-}
-#formacion .languages > span {
-  width: 100% !important;
-  min-width: 0 !important;
-  min-height: 56px !important;
-  padding: 12px 14px !important;
-  border: 1px solid color-mix(in srgb, var(--gold) 22%, rgba(255, 255, 255, 0.12)) !important;
-  background:
-    linear-gradient(160deg, rgba(243, 212, 55, 0.08), transparent 55%),
-    rgba(0, 0, 0, 0.28) !important;
-  border-radius: var(--r-sm) !important;
+#formacion .education-list {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  gap: 4px !important;
-  box-sizing: border-box !important;
-  text-align: left !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  padding: clamp(12px, 1.6vh, 18px) var(--panel-inset) clamp(16px, 2.2vh, 28px) !important;
 }
-#formacion .languages b {
-  color: var(--cream) !important;
-  font: 760 clamp(15px, 1.3vw, 18px)/1.1 var(--display) !important;
-  letter-spacing: -0.02em !important;
+#formacion .education-list > div:first-child {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
 }
-#formacion .languages > span > span {
-  color: var(--mute) !important;
-  font-size: 12px !important;
-}
-#formacion .education-list {
-  padding-bottom: clamp(22px, 3vh, 34px) !important;
+#formacion .education-list ul {
+  flex: 1 1 auto !important;
 }
 
 /* ============================================================
-   12 CONTACT — premium closer
+   12 LANGUAGES — dedicated dark gold cinema cards
    ============================================================ */
+#idiomas.slide {
+  overflow: hidden !important;
+  gap: var(--block-gap) !important;
+  padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+}
+#idiomas .gb-langs-top {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  gap: 12px 24px !important;
+  align-items: end !important;
+}
+#idiomas .gb-langs-top h2 {
+  margin: 0 !important;
+  font-size: clamp(28px, 3.2vw + 0.5vh, 44px) !important;
+  line-height: 1.05 !important;
+  color: var(--cream) !important;
+}
+#idiomas .gb-langs-top h2 em { color: var(--gold) !important; }
+#idiomas .gb-langs-lead {
+  margin: 0 !important;
+  max-width: 42ch !important;
+  color: var(--mute-2) !important;
+  font: 500 clamp(13px, 1.1vw, 15px)/1.4 var(--sans) !important;
+}
+#idiomas .gb-langs-grid {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-auto-rows: 1fr !important;
+  gap: 12px !important;
+}
+#idiomas .gb-lang-card {
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  padding: clamp(16px, 2.2vh, 24px) !important;
+  border-radius: var(--r-md) !important;
+  border: 1px solid var(--line-strong) !important;
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.08), transparent 52%),
+    var(--panel-2) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+#idiomas .gb-lang-card.is-understand {
+  border-color: color-mix(in srgb, var(--ice) 30%, var(--line)) !important;
+  background:
+    linear-gradient(165deg, rgba(122, 243, 255, 0.1), transparent 52%),
+    var(--panel-2) !important;
+}
+#idiomas .gb-lang-card > header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+#idiomas .gb-lang-card > header span {
+  font: 800 11px/1 var(--mono) !important;
+  color: var(--gold) !important;
+  letter-spacing: 0.08em !important;
+}
+#idiomas .gb-lang-card > header b {
+  margin-left: auto !important;
+  font: 800 clamp(18px, 1.6vw, 22px)/1 var(--display) !important;
+  color: var(--cream) !important;
+  letter-spacing: -0.02em !important;
+}
+#idiomas .gb-lang-card h3 {
+  margin: 0 !important;
+  font: 700 clamp(18px, 1.6vw, 24px)/1.15 var(--display) !important;
+  color: var(--cream) !important;
+}
+#idiomas .gb-lang-level {
+  margin: auto 0 0 !important;
+  padding: 8px 12px !important;
+  border-radius: var(--r-xs) !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line)) !important;
+  background: rgba(243, 212, 55, 0.08) !important;
+  color: var(--gold) !important;
+  font: 700 13px/1.2 var(--mono) !important;
+  letter-spacing: 0.04em !important;
+  width: fit-content !important;
+}
+#idiomas .gb-lang-card.is-understand .gb-lang-level {
+  border-color: color-mix(in srgb, var(--ice) 35%, var(--line)) !important;
+  background: rgba(122, 243, 255, 0.08) !important;
+  color: var(--ice) !important;
+}
+
+/* ============================================================
+   13 CONTACT — premium closer
+   ============================================================ */
+
 #contacto.slide {
   overflow: hidden !important;
   justify-content: center !important;
@@ -1683,6 +1771,7 @@ html[data-theme="light"] {
   }
   #metodo .gb-formula-op { display: none !important; }
   #capacidades .gb-caps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  #idiomas .gb-langs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   #formacion .gb-edu-grid,
   #formacion .education-layout,
   #formacion .compact-edu {
@@ -1726,6 +1815,7 @@ html[data-theme="light"] {
   #metodo .gb-method-grid { grid-template-columns: 1fr !important; overflow: auto !important; }
   #capacidades .gb-caps-grid { grid-template-columns: 1fr !important; overflow: auto !important; }
   #capacidades .gb-academy { grid-template-columns: 1fr !important; }
+  #idiomas .gb-langs-grid { grid-template-columns: 1fr !important; overflow: auto !important; }
   #trayectoria .gb-career-panel,
   #experiencia .gb-exp-panel,
   #experiencia-2 .gb-exp-panel,
@@ -1769,12 +1859,6 @@ html[data-theme="light"] {
   }
   #experiencia .gb-role-go,
   #experiencia-2 .gb-role-go { justify-self: start !important; }
-  #formacion .languages {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 8px !important;
-    padding-bottom: 12px !important;
-  }
-  #formacion .languages > span { min-height: 48px !important; }
   #contacto h2 { font-size: clamp(40px, 14vw, 64px) !important; }
   #contacto .gb-contact-bottom { flex-direction: column !important; align-items: stretch !important; }
   #contacto .gb-contact-actions .button,
@@ -1796,7 +1880,6 @@ html[data-theme="light"] {
 }
 
 @media (max-width: 480px) {
-  #formacion .languages { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   #inicio .gb-metrics { gap: 8px !important; }
 }
 
@@ -1810,7 +1893,12 @@ html[data-theme="light"] #contacto.slide {
 html[data-theme="light"] .gb-panel,
 html[data-theme="light"] .gb-career-panel,
 html[data-theme="light"] .gb-exp-panel,
-html[data-theme="light"] .gb-edu-panel,
-html[data-theme="light"] .gb-valor-panel {
+html[data-theme="light"] .gb-edu-panel {
   background: linear-gradient(180deg, #fff, #f7f6f1) !important;
+}
+/* Edge stays dark gold cinema even in site light theme */
+html[data-theme="light"] #valor.slide,
+html[data-theme="light"] #valor .gb-valor-panel {
+  background: var(--grad-panel) !important;
+  color: var(--cream) !important;
 }
