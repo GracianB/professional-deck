@@ -374,6 +374,38 @@
   }
   enterApp();
 
+  /* —— theme (hub family) —— */
+  const THEME_KEY = "gb-portfolio-theme";
+  let theme = "dark";
+  function applyTheme() {
+    document.documentElement.setAttribute("data-theme", theme);
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", theme === "light" ? "#f3f0e7" : "#06070a");
+    document.querySelectorAll("[data-set-theme]").forEach((btn) => {
+      const on = btn.getAttribute("data-set-theme") === theme;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+  }
+  function setTheme(next, persist = true) {
+    theme = next === "light" ? "light" : "dark";
+    if (persist) { try { localStorage.setItem(THEME_KEY, theme); } catch (_) {} }
+    applyTheme();
+  }
+  try {
+    const st = localStorage.getItem(THEME_KEY);
+    if (st === "light" || st === "dark") theme = st;
+  } catch (_) {}
+  try {
+    const tp = new URLSearchParams(location.search).get("theme");
+    if (tp === "light" || tp === "dark") theme = tp;
+  } catch (_) {}
+  setTheme(theme, false);
+  document.addEventListener("click", (e) => {
+    const th = e.target.closest("[data-set-theme]");
+    if (th) { e.preventDefault(); setTheme(th.getAttribute("data-set-theme")); }
+  });
+
   function animateCounters(slide) {
     if (reducedMotion.matches || counted.has(slide)) return;
     const counters = slide.querySelectorAll("[data-count]");
@@ -503,9 +535,14 @@
     const t = event.changedTouches[0];
     const dy = t.clientY - touchY;
     const dx = t.clientX - touchX;
-    if (Date.now() - touchT > 720) return;
-    if (Math.abs(dy) < 52 || Math.abs(dy) < Math.abs(dx) * 1.15) return;
-    goTo(activeIndex + (dy < 0 ? 1 : -1));
+    if (Date.now() - touchT > 800) return;
+    if (Math.abs(dy) >= 40 && Math.abs(dy) > Math.abs(dx) * 1.1) {
+      goTo(activeIndex + (dy < 0 ? 1 : -1));
+      return;
+    }
+    if (Math.abs(dx) >= 56 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      goTo(activeIndex + (dx < 0 ? 1 : -1));
+    }
   }, { passive: true });
 
   document.addEventListener("keydown", (event) => {
