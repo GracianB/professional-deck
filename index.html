@@ -21,7 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=v2x2">
+  <link rel="stylesheet" href="./styles.css?v=v2x3">
+  <link rel="stylesheet" href="./extra-pass.css?v=v2x3">
   <script src="./i18n.js?v=v2x2"></script>
   <script src="./main.js?v=v2x2" defer></script>
 </head>
@@ -79,14 +80,12 @@
         <div class="gb-hero-grain"></div>
         <div class="gb-hero-grid-fx" aria-hidden="true"></div>
         <div class="gb-hero-tags-fx" aria-hidden="true">
-          <span style="--tx:6%;--ty:8%;--d:0s">Python</span>
-          <span style="--tx:78%;--ty:10%;--d:.8s">Power BI</span>
-          <span style="--tx:8%;--ty:90%;--d:1.6s">GenAI</span>
-          <span style="--tx:74%;--ty:88%;--d:2.4s">Chatbots</span>
-          <span style="--tx:52%;--ty:8%;--d:3.2s">LLM</span>
-          <span style="--tx:68%;--ty:76%;--d:4s">Zendesk</span>
-          <span style="--tx:78%;--ty:28%;--d:1.2s">Apps Script</span>
-          <span style="--tx:80%;--ty:56%;--d:2s">Pandas</span>
+          <span style="--tx:2%;--ty:4%;--d:0s">Python</span>
+          <span style="--tx:88%;--ty:5%;--d:.8s">Power BI</span>
+          <span style="--tx:1%;--ty:78%;--d:1.6s">GenAI</span>
+          <span style="--tx:86%;--ty:82%;--d:2.4s">Chatbots</span>
+          <span style="--tx:90%;--ty:42%;--d:3.2s">LLM</span>
+          <span style="--tx:2%;--ty:52%;--d:4s">Zendesk</span>
         </div>
       </div>
       <div class="gb-hero-stack">
@@ -132,7 +131,11 @@
     <!-- 01 VALUE — cards ARRIBA, titular ABAJO -->
     <section class="slide light fit gb-valor-slide" id="valor" data-title="Diferencial" data-code="01">
       <div class="gb-panel gb-panel-light gb-valor-panel">
-        <p class="slide-index gb-valor-index"><span>01</span><i></i><span data-i18n="valorIndex">MI DIFERENCIAL</span></p>
+        <header class="gb-valor-head">
+          <p class="slide-index gb-valor-index"><span>01</span><i></i><span data-i18n="valorIndex">MI DIFERENCIAL</span></p>
+          <h2 data-i18n-html="valorH2">No entrego análisis.<br><em>Entrego capacidad de actuar.</em></h2>
+          <p class="gb-panel-lead" data-i18n="valorP">Recorro el sistema completo: escuchar, decidir, construir y conseguir adopción.</p>
+        </header>
 
         <div class="gb-loop" data-valor-loop>
           <article class="gb-loop-card">
@@ -159,11 +162,6 @@
             <h3 data-i18n="v4t">Activo hasta el final</h3>
             <p data-i18n="v4p">Formación hasta que el equipo gana autonomía.</p>
           </article>
-        </div>
-
-        <div class="gb-valor-bottom">
-          <h2 data-i18n-html="valorH2">No entrego análisis.<br><em>Entrego capacidad de actuar.</em></h2>
-          <p class="gb-panel-lead" data-i18n="valorP">Recorro el sistema completo: escuchar, decidir, construir y conseguir adopción.</p>
         </div>
 
         <footer class="gb-panel-bar">
@@ -664,33 +662,35 @@
 
     <!-- 11 CONTACT — corto -->
     <section class="slide dark fit gb-contact" id="contacto" data-title="Hablemos" data-code="12">
-      <p class="gb-contact-kicker" data-i18n="contactEyebrow">NEXT STEP</p>
-      <h2 data-i18n-html="contactH2">HABLEMOS.</h2>
-      <p class="gb-contact-sub" data-i18n="contactP">CS Systems · Data · AI Ops</p>
-      <div class="gb-contact-actions">
-        <a class="button primary" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="contactAgenda">Agendar ↗</a>
-        <a class="button ghost" href="mailto:gracianbaenagonzalez@gmail.com" data-i18n="contactMail">Email ↗</a>
-        <a class="button ghost" href="https://www.linkedin.com/in/gracianbaena" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      <div class="gb-contact-inner">
+        <p class="gb-contact-kicker" data-i18n="contactEyebrow">NEXT STEP</p>
+        <h2 data-i18n-html="contactH2">HABLEMOS.</h2>
+        <p class="gb-contact-sub" data-i18n="contactP">CS Systems · Data · AI Ops</p>
+        <div class="gb-contact-actions">
+          <a class="button primary" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noreferrer" data-i18n="contactAgenda">Agendar ↗</a>
+          <a class="button ghost" href="mailto:gracianbaenagonzalez@gmail.com" data-i18n="contactMail">Email ↗</a>
+          <a class="button ghost" href="https://www.linkedin.com/in/gracianbaena" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+        <div class="gb-contact-docs">
+          <a class="button ghost" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link data-i18n="contactCv">CV ↗</a>
+          <a class="button ghost" href="./Gracian_Baena_Carta_Presentacion_ES.pdf" target="_blank" rel="noreferrer" data-letter-link data-i18n="contactLetter">Carta ↗</a>
+        </div>
+        <p class="gb-contact-meta">
+          <a href="https://gracianb.github.io/GracianB/" target="_blank" rel="noreferrer">Hub ↗</a>
+          ·
+          <a href="https://gracianb.github.io/systems-lab/" target="_blank" rel="noreferrer">PLAY ↗</a>
+          ·
+          <a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noreferrer">Ohana ↗</a>
+          ·
+          <a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noreferrer">Vórtice ↗</a>
+          ·
+          <a href="https://bodytonehelp.zendesk.com/hc/es" target="_blank" rel="noreferrer">Help Center ↗</a>
+          ·
+          <a href="https://github.com/GracianB" target="_blank" rel="noreferrer">GitHub ↗</a>
+          ·
+          <span data-i18n="contactLoc">España · remoto OK</span>
+        </p>
       </div>
-      <div class="gb-contact-docs">
-        <a class="button ghost" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link data-i18n="contactCv">CV ↗</a>
-        <a class="button ghost" href="./Gracian_Baena_Carta_Presentacion_ES.pdf" target="_blank" rel="noreferrer" data-letter-link data-i18n="contactLetter">Carta ↗</a>
-      </div>
-      <p class="gb-contact-meta">
-        <a href="https://gracianb.github.io/GracianB/" target="_blank" rel="noreferrer">Hub ↗</a>
-        ·
-        <a href="https://gracianb.github.io/systems-lab/" target="_blank" rel="noreferrer">PLAY ↗</a>
-        ·
-        <a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noreferrer">Ohana ↗</a>
-        ·
-        <a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noreferrer">Vórtice ↗</a>
-        ·
-        <a href="https://bodytonehelp.zendesk.com/hc/es" target="_blank" rel="noreferrer">Help Center ↗</a>
-        ·
-        <a href="https://github.com/GracianB" target="_blank" rel="noreferrer">GitHub ↗</a>
-        ·
-        <span data-i18n="contactLoc">España · remoto OK</span>
-      </p>
     </section>
   </main>
 
