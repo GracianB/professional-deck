@@ -4966,11 +4966,11 @@ html[data-theme="light"] .gb-panel {
 }
 
 /* ============================================================
-   V2X3 — ALL-SLIDE VIEWPORT FIT (final override in styles.css)
+   V2X4 — ALL-SLIDE VIEWPORT FIT (final override in styles.css)
    Companion: extra-pass.css. Keeps fit even if extra-pass fails to load.
    ============================================================ */
 :root {
-  --chrome-bottom: 68px;
+  --chrome-bottom: 88px;
   --slide-pad-top: calc(var(--header) + 10px);
   --slide-inner: calc(100svh - var(--slide-pad-top) - var(--chrome-bottom));
 }
@@ -4991,10 +4991,14 @@ html[data-theme="light"] .gb-panel {
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
+  max-width: none !important;
+  width: 100% !important;
 }
 .gb-contact-inner {
   width: min(100%, 720px);
+  max-width: 720px;
   margin: 0 auto;
+  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
