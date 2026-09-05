@@ -2228,3 +2228,239 @@ html[data-theme="light"] .gb-valor-head h2 em {
   #ruta .gb-hub-ring,
   #ruta .gb-spoke { animation: none !important; }
 }
+
+/* ============================================================
+   EDGE #valor — FULL BLEED (fix-edge-fullbleed)
+   Panel fills nearly the entire slide; cards expand into void;
+   title band matches other slides; bar clear of --chrome-bottom.
+   ============================================================ */
+.gb-valor-slide,
+#valor.slide {
+  justify-content: stretch !important;
+  align-items: stretch !important;
+  padding:
+    var(--slide-pad-top)
+    max(var(--pad), 16px)
+    calc(var(--chrome-bottom) + 8px)
+    max(var(--pad), 16px) !important;
+}
+
+#valor .gb-valor-panel,
+.gb-valor-slide > .gb-valor-panel {
+  width: 100% !important;
+  max-width: min(100%, var(--max)) !important;
+  height: calc(var(--slide-inner) - 8px) !important;
+  max-height: calc(var(--slide-inner) - 8px) !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: stretch !important;
+  gap: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+#valor .gb-valor-head {
+  flex: 0 0 auto !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  gap: 0 !important;
+  padding:
+    clamp(14px, 2vh, 22px)
+    clamp(16px, 2.2vw, 28px)
+    clamp(12px, 1.5vh, 18px) !important;
+  border-bottom: 1px solid rgba(17, 18, 14, 0.1) !important;
+  background: #fffef8 !important;
+}
+
+#valor .gb-valor-index,
+#valor .gb-valor-head .slide-index {
+  justify-content: flex-start !important;
+  width: 100% !important;
+  margin: 0 0 var(--title-index-mb) !important;
+}
+
+#valor .gb-valor-head .eyebrow {
+  margin: 0 0 var(--title-eyebrow-mb) !important;
+  color: #9a7a00 !important;
+  font: 800 11px/1.2 var(--mono) !important;
+  letter-spacing: 0.14em !important;
+}
+
+#valor .gb-valor-head h2 {
+  margin: var(--title-h2-mb) 0 0 !important;
+  max-width: 26ch !important;
+  text-align: left !important;
+  font-size: clamp(26px, 3.2vw + 0.85vh, 48px) !important;
+  line-height: 0.94 !important;
+  color: #11120e !important;
+}
+
+#valor .gb-valor-head h2 em {
+  color: #9a7a00 !important;
+  opacity: 1 !important;
+}
+
+#valor .gb-valor-head .gb-panel-lead {
+  margin: var(--title-lead-mt) 0 0 !important;
+  margin-left: 0 !important;
+  max-width: 58ch !important;
+  text-align: left !important;
+  font-size: clamp(13px, 1.1vw, 16px) !important;
+  line-height: 1.45 !important;
+  color: #5a5952 !important;
+}
+
+#valor .gb-loop,
+#valor [data-valor-loop] {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  grid-template-rows: 1fr !important;
+  align-content: stretch !important;
+  align-items: stretch !important;
+  border-bottom: 1px solid rgba(17, 18, 14, 0.1) !important;
+  background: transparent !important;
+}
+
+#valor .gb-loop-card,
+#valor [data-valor-loop] article {
+  min-height: 0 !important;
+  height: 100% !important;
+  padding: clamp(16px, 2.4vh, 28px) clamp(14px, 1.7vw, 24px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: clamp(6px, 1vh, 12px) !important;
+  border-right: 1px solid rgba(17, 18, 14, 0.1) !important;
+  border-bottom: 0 !important;
+  background: #fffef8 !important;
+  box-sizing: border-box !important;
+}
+
+#valor .gb-loop-card:last-child,
+#valor [data-valor-loop] article:last-child {
+  border-right: 0 !important;
+}
+
+#valor .gb-loop-card.is-end {
+  background: rgba(125, 202, 165, 0.14) !important;
+}
+
+#valor .gb-loop-num {
+  font: 800 clamp(11px, 1vw, 13px)/1 var(--mono) !important;
+  color: #9a7a00 !important;
+}
+
+#valor .gb-loop-label {
+  font: 800 clamp(9px, 0.85vw, 11px)/1 var(--mono) !important;
+  letter-spacing: 0.12em !important;
+  color: #6e6d66 !important;
+}
+
+#valor .gb-loop-card h3,
+#valor [data-valor-loop] h3 {
+  margin: 4px 0 0 !important;
+  font-size: clamp(15px, 1.3vw + 0.45vh, 22px) !important;
+  line-height: 1.15 !important;
+  color: #11120e !important;
+}
+
+#valor .gb-loop-card p,
+#valor [data-valor-loop] p {
+  margin: 0 !important;
+  flex: 1 1 auto !important;
+  font-size: clamp(12px, 1.05vw, 15px) !important;
+  line-height: 1.4 !important;
+  color: #5a5952 !important;
+  display: block !important;
+}
+
+#valor .gb-panel-bar {
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  justify-content: center !important;
+  min-height: 48px !important;
+  padding: 12px 18px !important;
+  margin: 0 !important;
+  background: #11120e !important;
+  color: var(--gold) !important;
+  position: relative !important;
+  z-index: 3 !important;
+  font: 800 clamp(11px, 1vw, 13px)/1 var(--mono) !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* Phone / narrow: 2×2 grid still fills remaining height */
+@media (max-width: 980px) {
+  #valor .gb-loop,
+  #valor [data-valor-loop] {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+  }
+  #valor .gb-loop-card:nth-child(2n) {
+    border-right: 0 !important;
+  }
+  #valor .gb-loop-card:nth-child(-n+2) {
+    border-bottom: 1px solid rgba(17, 18, 14, 0.1) !important;
+  }
+  #valor .gb-valor-panel,
+  .gb-valor-slide > .gb-valor-panel {
+    height: calc(var(--slide-inner) - 4px) !important;
+    max-height: calc(var(--slide-inner) - 4px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #valor.slide {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  #valor .gb-valor-head {
+    padding: 12px 14px 10px !important;
+  }
+  #valor .gb-valor-head h2 {
+    font-size: clamp(22px, 6.5vw, 32px) !important;
+    max-width: none !important;
+  }
+  #valor .gb-loop-card,
+  #valor [data-valor-loop] article {
+    padding: 12px 12px !important;
+    gap: 6px !important;
+  }
+  #valor .gb-panel-bar {
+    min-height: 44px !important;
+    padding: 10px 12px !important;
+  }
+}
+
+/* Keep fill quality at 1280×800 — do not densify-to-void */
+@media (max-height: 800px) {
+  #valor .gb-valor-head {
+    padding: clamp(12px, 1.6vh, 18px) clamp(14px, 2vw, 24px) clamp(10px, 1.3vh, 14px) !important;
+  }
+  #valor .gb-valor-head h2 {
+    font-size: clamp(24px, 3vw + 0.6vh, 40px) !important;
+  }
+  #valor .gb-loop-card,
+  #valor [data-valor-loop] article {
+    padding: clamp(12px, 1.8vh, 20px) clamp(12px, 1.4vw, 18px) !important;
+  }
+  #valor .gb-loop-card p,
+  #valor [data-valor-loop] p {
+    display: block !important;
+  }
+}
+
+@media (max-height: 700px) {
+  #valor .gb-valor-head .gb-panel-lead {
+    font-size: 12px !important;
+  }
+  #valor .gb-loop-card p,
+  #valor [data-valor-loop] p {
+    font-size: 11px !important;
+  }
+}
