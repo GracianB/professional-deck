@@ -4964,3 +4964,110 @@ html[data-theme="light"] .gb-panel {
   scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
 }
+
+/* ============================================================
+   V2X3 — ALL-SLIDE VIEWPORT FIT (final override in styles.css)
+   Companion: extra-pass.css. Keeps fit even if extra-pass fails to load.
+   ============================================================ */
+:root {
+  --chrome-bottom: 68px;
+  --slide-pad-top: calc(var(--header) + 10px);
+  --slide-inner: calc(100svh - var(--slide-pad-top) - var(--chrome-bottom));
+}
+.slide,
+.slide.fit {
+  box-sizing: border-box !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+  max-height: 100svh !important;
+  padding: var(--slide-pad-top) var(--pad) var(--chrome-bottom) !important;
+  overflow: hidden !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: clamp(6px, 1.1vh, 12px) !important;
+}
+.gb-contact,
+#contacto.slide {
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+.gb-contact-inner {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.4vh, 16px);
+  text-align: center;
+  max-height: var(--slide-inner);
+}
+.gb-valor-head {
+  text-align: center;
+  padding: clamp(14px, 2.2vh, 28px) clamp(16px, 2.5vw, 32px) clamp(10px, 1.6vh, 18px);
+  border-bottom: 1px solid var(--line-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 1vh, 12px);
+  flex-shrink: 0;
+}
+.gb-valor-head h2 {
+  margin: 0;
+  max-width: 22ch;
+  text-align: center;
+  font-size: clamp(26px, 3.4vw + 0.8vh, 48px);
+  line-height: 0.94;
+}
+.gb-valor-head .gb-panel-lead {
+  margin: 0 auto;
+  max-width: 52ch;
+  text-align: center;
+}
+.gb-valor-bottom { display: none !important; }
+.gb-hero-tags-fx {
+  overflow: hidden !important;
+  inset: 8px !important;
+  z-index: 0 !important;
+}
+@media (max-width: 900px) {
+  html, body {
+    height: 100% !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+  .deck {
+    height: 100svh !important;
+    max-height: 100svh !important;
+    overflow-y: auto !important;
+    scroll-snap-type: y mandatory !important;
+  }
+  .slide,
+  .slide.fit {
+    height: 100svh !important;
+    min-height: 100svh !important;
+    max-height: 100svh !important;
+    overflow: hidden !important;
+    padding: var(--slide-pad-top) var(--pad) var(--chrome-bottom) !important;
+  }
+  .gb-panel,
+  .gb-valor-panel,
+  .gb-career-panel,
+  .gb-exp-panel,
+  .gb-hero-stack {
+    height: auto !important;
+    max-height: var(--slide-inner) !important;
+    overflow: hidden !important;
+  }
+  .deck-controls {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 10px !important;
+    justify-content: space-between !important;
+  }
+  .deck-hint { display: none !important; }
+}
+@media (max-height: 800px) {
+  .gb-hero-tags-fx { display: none !important; }
+}
