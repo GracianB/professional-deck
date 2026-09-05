@@ -1675,3 +1675,556 @@ html[data-theme="light"] .gb-valor-head h2 em {
   min-height: 0 !important;
   overflow: hidden !important;
 }
+
+
+/* ============================================================
+   RHYTHM PASS v2x6 — shared title band · Bodytone CTAs · Live air
+   · Route dynamics · Exp visibility · Cover · Contact bottom CTAs
+   LinkedIn sync blocked (auth wall) — Experience copy unchanged.
+   ============================================================ */
+
+:root {
+  --title-band-pad-top: 0px;
+  --title-index-mb: 8px;
+  --title-eyebrow-mb: 8px;
+  --title-h2-mb: 0px;
+  --title-lead-mt: 12px;
+  --panel-inset: 16px;
+  --chrome-bottom: 96px; /* stronger clearance above deck-controls */
+}
+
+/* —— GLOBAL: shared header band (same vertical rhythm) —— */
+.gb-title-band,
+.gb-star-head,
+.gb-demos-head,
+.gb-panel-head,
+.gb-panel-head-compact,
+.gb-route-top,
+.gb-method-top,
+.gb-caps-top,
+.gb-valor-head {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  flex-shrink: 0 !important;
+  gap: 0 !important;
+  padding-top: var(--title-band-pad-top) !important;
+  min-height: 0 !important;
+}
+
+/* Two-column tops (route/method/caps): keep title block left, lead right */
+.gb-route-top.gb-title-band,
+.gb-method-top.gb-title-band,
+.gb-caps-top.gb-title-band {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.35fr) minmax(200px, 0.85fr) !important;
+  gap: clamp(12px, 2vw, 28px) !important;
+  align-items: end !important;
+}
+
+.gb-title-block {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0 !important;
+  width: 100%;
+}
+
+.slide .slide-index,
+.gb-title-band > .slide-index,
+.gb-title-block > .slide-index,
+.gb-panel-head .slide-index,
+.gb-star-head .slide-index,
+.gb-demos-head .slide-index,
+.gb-valor-head .slide-index {
+  margin: 0 0 var(--title-index-mb) !important;
+  padding: 0 !important;
+  min-height: 18px !important;
+  line-height: 1 !important;
+}
+
+.slide .eyebrow,
+.gb-title-band > .eyebrow,
+.gb-title-block > .eyebrow,
+.gb-panel-head .eyebrow,
+.gb-star-head .eyebrow,
+.gb-demos-head .eyebrow,
+.gb-kicker.eyebrow {
+  margin: 0 0 var(--title-eyebrow-mb) !important;
+  padding: 0 !important;
+  min-height: 16px !important;
+  line-height: 1.2 !important;
+}
+
+.gb-title-band h2,
+.gb-title-block h2,
+.gb-star-head h2,
+.gb-demos-head h2,
+.gb-panel-head h2,
+.gb-route-top h2,
+.gb-method-top h2,
+.gb-caps-top h2,
+.gb-valor-head h2 {
+  margin: var(--title-h2-mb) 0 0 !important;
+  padding-top: 0 !important;
+}
+
+.gb-star-lead,
+.gb-demos-lead,
+.gb-route-lead,
+.gb-method-lead,
+.gb-caps-lead,
+.gb-panel-lead {
+  margin-top: var(--title-lead-mt) !important;
+  margin-bottom: 0 !important;
+}
+
+/* Safe inner padding: never flush to panel/frame edge */
+.gb-star-main,
+.gb-demo-card,
+.gb-exp-panel,
+.gb-panel,
+.gb-contact-inner,
+.gb-city-panel {
+  box-sizing: border-box !important;
+}
+
+.gb-star-main,
+.gb-demo-card,
+.gb-city-panel {
+  padding: var(--panel-inset) !important;
+}
+
+/* —— 00 COVER: title rhythm + metrics clear of chrome —— */
+#inicio.slide {
+  justify-content: center !important;
+  padding-bottom: calc(var(--chrome-bottom) + 8px) !important;
+}
+#inicio .gb-hero-title-band {
+  width: 100%;
+  margin-bottom: clamp(4px, 0.8vh, 10px) !important;
+}
+#inicio .gb-hero-index {
+  color: #c8c7bc !important;
+}
+#inicio .gb-hero-stack {
+  gap: clamp(10px, 1.6vh, 18px) !important;
+  padding-bottom: 8px !important;
+  max-height: calc(var(--slide-inner) - 8px) !important;
+}
+#inicio .gb-metrics {
+  margin-top: clamp(4px, 0.8vh, 10px) !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 2px !important;
+  position: relative;
+  z-index: 3;
+}
+#inicio .gb-metrics > div {
+  padding: clamp(8px, 1.2vh, 14px) 14px !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line-dark)) !important;
+  background:
+    linear-gradient(160deg, rgba(243, 212, 55, 0.07), transparent 50%),
+    rgba(11, 12, 14, 0.85) !important;
+  backdrop-filter: blur(8px);
+}
+#inicio .gb-hero-copy h1 {
+  margin-top: clamp(6px, 1vh, 12px) !important;
+}
+
+/* —— 02 BODYTONE: buttons not flush to frame; clear chrome-bottom —— */
+#sistemas.slide {
+  justify-content: flex-start !important;
+  padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
+}
+#sistemas .gb-star {
+  gap: clamp(12px, 1.8vh, 18px) !important;
+  justify-content: flex-start !important;
+  max-height: calc(var(--slide-inner) - 6px) !important;
+}
+#sistemas .gb-star-head {
+  margin-bottom: 0 !important;
+  gap: 0 !important;
+}
+#sistemas .gb-star-head h2 {
+  margin-top: 0 !important;
+}
+#sistemas .gb-star-lead {
+  margin-top: var(--title-lead-mt) !important;
+}
+#sistemas .gb-star-main {
+  padding: clamp(16px, 2.2vh, 24px) clamp(16px, 2vw, 26px) clamp(18px, 2.4vh, 28px) !important;
+  gap: clamp(10px, 1.5vh, 16px) clamp(18px, 2.4vw, 28px) !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line-dark)) !important;
+  border-radius: 8px !important;
+  background:
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgba(243, 212, 55, 0.07), transparent 55%),
+    var(--black-2) !important;
+}
+#sistemas .gb-star-actions {
+  grid-area: actions !important;
+  align-self: end !important;
+  justify-self: stretch !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin: 4px 0 0 !important;
+  padding: 4px 0 2px !important;
+  min-height: 48px !important;
+}
+#sistemas .gb-star-actions .button {
+  min-height: 44px !important;
+  padding: 0 16px !important;
+}
+#sistemas .tag-row {
+  align-self: end !important;
+  margin: 4px 0 0 !important;
+  padding-bottom: 2px !important;
+}
+#sistemas .proof-note {
+  margin: clamp(8px, 1.2vh, 12px) 0 0 !important;
+  padding: 0 2px !important;
+}
+
+/* —— 03 LIVE / DEMOS: more air + aligned titles —— */
+#demos.slide {
+  justify-content: flex-start !important;
+  padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
+}
+#demos .gb-demos {
+  gap: clamp(14px, 2.2vh, 22px) !important;
+  justify-content: flex-start !important;
+  max-height: calc(var(--slide-inner) - 6px) !important;
+}
+#demos .gb-demos-head {
+  gap: 0 !important;
+  margin-bottom: 0 !important;
+  width: 100%;
+}
+#demos .gb-demos-head h2 {
+  margin-top: 0 !important;
+  max-width: 18ch;
+}
+#demos .gb-demos-lead {
+  margin-top: var(--title-lead-mt) !important;
+  max-width: 62ch !important;
+  color: #b6b5ad !important;
+  font-size: clamp(13px, 1.15vw, 16px) !important;
+  line-height: 1.55 !important;
+}
+#demos .gb-demos-grid {
+  gap: clamp(12px, 1.8vw, 18px) !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+#demos .gb-demo-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  padding: clamp(16px, 2vh, 22px) !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line-dark)) !important;
+  border-radius: 8px !important;
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.06), transparent 42%),
+    var(--black-2) !important;
+  min-height: 0 !important;
+}
+#demos .gb-demo-card h3 {
+  margin: 2px 0 0 !important;
+  font-size: clamp(18px, 1.6vw, 24px) !important;
+}
+#demos .gb-demo-card > p {
+  margin: 0 !important;
+  color: #c8c7bc !important;
+  line-height: 1.45 !important;
+  flex: 1 1 auto;
+}
+#demos .gb-demo-actions {
+  margin-top: auto !important;
+  padding-top: 8px !important;
+}
+#demos .gb-demo-actions .button {
+  min-height: 42px !important;
+}
+#demos .gb-demos-foot {
+  margin-top: clamp(6px, 1vh, 12px) !important;
+  padding: 12px 14px !important;
+  min-height: 44px !important;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--gold) 12%, var(--line-dark)) !important;
+  background: rgba(243, 212, 55, 0.04) !important;
+}
+
+/* —— 04 ROUTE: push color/dynamics without breaking fit —— */
+#ruta.slide {
+  justify-content: flex-start !important;
+  gap: clamp(10px, 1.4vh, 16px) !important;
+  padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
+}
+#ruta .gb-route-top {
+  width: min(100%, var(--max)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+#ruta .gb-route-top h2 {
+  margin-top: 0 !important;
+  line-height: 1.02 !important;
+}
+#ruta .gb-route-lead {
+  margin-top: 0 !important;
+  align-self: end !important;
+  color: #b6b5ad !important;
+  line-height: 1.5 !important;
+}
+#ruta .gb-route-map {
+  border-color: color-mix(in srgb, var(--gold) 26%, var(--line-dark-2)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035),
+    0 0 0 1px color-mix(in srgb, var(--ice) 8%, transparent),
+    0 22px 56px rgba(0, 0, 0, 0.4) !important;
+  background:
+    radial-gradient(ellipse 58% 52% at 50% 54%, rgba(243, 212, 55, 0.14), transparent 62%),
+    radial-gradient(ellipse 42% 36% at 78% 20%, rgba(122, 243, 255, 0.11), transparent 60%),
+    radial-gradient(ellipse 36% 32% at 16% 86%, rgba(125, 202, 165, 0.12), transparent 55%),
+    var(--black-2) !important;
+}
+#ruta .gb-route-glow {
+  opacity: 1 !important;
+  animation: route-spin 22s linear infinite !important;
+  filter: saturate(1.15);
+}
+#ruta .gb-hub-ring {
+  stroke-width: 0.55 !important;
+  animation: route-pulse 3.6s ease-in-out infinite !important;
+}
+#ruta .gb-spoke {
+  stroke-width: 0.55 !important;
+  animation: route-dash 2.2s linear infinite !important;
+}
+#ruta .gb-pin span {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+#ruta .gb-city-panel {
+  padding: var(--panel-inset) !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line-dark)) !important;
+  border-radius: 8px !important;
+  background:
+    linear-gradient(160deg, rgba(122, 243, 255, 0.06), transparent 45%),
+    var(--black-2) !important;
+}
+#ruta .gb-route-strip {
+  padding: 8px 2px 2px !important;
+}
+
+/* —— EXPERIENCIA I/II: layout/visibility only (facts unchanged) —— */
+#experiencia.slide,
+#experiencia-2.slide {
+  justify-content: flex-start !important;
+  padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
+}
+#experiencia .gb-exp-panel,
+#experiencia-2 .gb-exp-panel {
+  padding: 0 !important;
+  border-radius: 8px !important;
+  max-height: calc(var(--slide-inner) - 6px) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+}
+#experiencia .gb-panel-head-compact,
+#experiencia-2 .gb-panel-head-compact {
+  padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 24px) clamp(10px, 1.2vh, 14px) !important;
+  gap: 0 !important;
+  border-bottom: 1px solid rgba(244, 243, 238, 0.08) !important;
+}
+#experiencia .gb-panel-lead,
+#experiencia-2 .gb-panel-lead {
+  margin-top: var(--title-lead-mt) !important;
+  color: #b6b5ad !important;
+}
+#experiencia .gb-roles,
+#experiencia-2 .gb-roles {
+  min-height: 240px !important;
+  padding: 0 !important;
+}
+#experiencia .gb-role,
+#experiencia-2 .gb-role {
+  min-height: 96px !important;
+  padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 22px) !important;
+  transition: background 0.18s var(--ease), box-shadow 0.18s;
+}
+#experiencia .gb-role:hover,
+#experiencia-2 .gb-role:hover {
+  background: rgba(243, 212, 55, 0.05) !important;
+}
+#experiencia .gb-role-year,
+#experiencia-2 .gb-role-year {
+  padding: 10px 12px !important;
+  border-radius: 6px 0 0 6px;
+  min-height: 100%;
+}
+#experiencia .gb-role-dates,
+#experiencia-2 .gb-role-dates {
+  color: #e8e7df !important;
+  font: 800 11px/1.25 var(--mono) !important;
+  letter-spacing: 0.06em !important;
+}
+#experiencia .gb-role-idx,
+#experiencia-2 .gb-role-idx {
+  color: var(--gold) !important;
+  opacity: 0.9;
+}
+#experiencia .gb-role-title,
+#experiencia-2 .gb-role-title {
+  font-size: clamp(16px, 1.5vw, 22px) !important;
+  letter-spacing: -0.01em;
+}
+#experiencia .gb-role-sum,
+#experiencia-2 .gb-role-sum {
+  margin-top: 4px !important;
+  -webkit-line-clamp: 2;
+  color: #d2d1c8 !important;
+}
+#experiencia .gb-role-tag,
+#experiencia-2 .gb-role-tag {
+  border-color: color-mix(in srgb, var(--gold) 35%, transparent) !important;
+  color: var(--gold) !important;
+  background: rgba(243, 212, 55, 0.08) !important;
+}
+#experiencia .gb-panel-bar,
+#experiencia-2 .gb-panel-bar {
+  min-height: 48px !important;
+  padding: 12px 16px !important;
+  margin: 0 !important;
+  border-top: 1px solid rgba(243, 212, 55, 0.16) !important;
+}
+
+/* —— 12 CONTACT: primary CTAs along bottom of content (above chrome) —— */
+#contacto.slide {
+  justify-content: stretch !important;
+  align-items: stretch !important;
+  padding-bottom: calc(var(--chrome-bottom) + 8px) !important;
+}
+#contacto .gb-contact-inner {
+  width: min(100%, 920px) !important;
+  max-width: 920px !important;
+  height: 100% !important;
+  max-height: calc(var(--slide-inner) - 8px) !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: clamp(16px, 3vh, 32px) !important;
+  padding: clamp(20px, 3vh, 36px) clamp(18px, 3vw, 32px) clamp(16px, 2.2vh, 24px) !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line-dark)) !important;
+  border-radius: 10px !important;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(243, 212, 55, 0.11), transparent 58%),
+    radial-gradient(ellipse 45% 40% at 85% 100%, rgba(122, 243, 255, 0.06), transparent 55%),
+    var(--black-2) !important;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+}
+#contacto .gb-contact-top {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: clamp(10px, 1.6vh, 16px) !important;
+  width: 100%;
+  flex: 1 1 auto;
+  justify-content: center !important;
+  text-align: center !important;
+}
+#contacto .gb-contact-title-band {
+  align-items: center !important;
+  width: 100%;
+}
+#contacto .gb-contact-title-band .slide-index {
+  justify-content: center;
+}
+#contacto .gb-contact-rule {
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--ice));
+  border-radius: 999px;
+  margin: 0 auto;
+}
+#contacto h2 {
+  font-size: clamp(52px, 9vw + 1vh, 108px) !important;
+  line-height: 0.86 !important;
+  letter-spacing: -0.045em !important;
+  margin: 0 !important;
+}
+#contacto .gb-contact-sub {
+  margin: 0 !important;
+  color: #c8c7bc !important;
+}
+#contacto .gb-contact-meta {
+  margin-top: clamp(8px, 1.4vh, 16px) !important;
+  max-width: 60ch !important;
+}
+#contacto .gb-contact-bottom {
+  width: 100% !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding-top: clamp(8px, 1.2vh, 14px) !important;
+  border-top: 1px solid rgba(244, 243, 238, 0.1);
+  margin-top: auto !important;
+}
+#contacto .gb-contact-actions,
+#contacto .gb-contact-docs {
+  justify-content: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+#contacto .gb-contact-actions .button {
+  min-height: 48px !important;
+  padding: 0 20px !important;
+  font-weight: 800 !important;
+}
+#contacto .gb-contact-actions .button.primary {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--gold) 40%, transparent),
+    0 12px 32px rgba(243, 212, 55, 0.2);
+}
+#contacto .gb-contact-docs .button {
+  min-height: 42px !important;
+  opacity: 0.95;
+}
+
+@media (max-width: 900px) {
+  .gb-route-top.gb-title-band,
+  .gb-method-top.gb-title-band,
+  .gb-caps-top.gb-title-band {
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+  #ruta .gb-route-lead,
+  #metodo .gb-method-lead,
+  #capacidades .gb-caps-lead {
+    margin-top: var(--title-lead-mt) !important;
+  }
+}
+@media (max-width: 640px) {
+  :root { --chrome-bottom: 100px; --panel-inset: 14px; }
+  #contacto .gb-contact-actions .button,
+  #contacto .gb-contact-docs .button {
+    width: 100%;
+    justify-content: center;
+  }
+  #sistemas .gb-star-actions { min-height: 0 !important; }
+}
+@media (max-height: 760px) {
+  :root {
+    --title-index-mb: 6px;
+    --title-eyebrow-mb: 6px;
+    --title-lead-mt: 8px;
+    --chrome-bottom: 88px;
+  }
+  #demos .gb-demo-card { padding: 14px !important; gap: 8px !important; }
+  #experiencia .gb-role,
+  #experiencia-2 .gb-role { min-height: 78px !important; padding: 12px 14px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #ruta .gb-route-glow,
+  #ruta .gb-hub-ring,
+  #ruta .gb-spoke { animation: none !important; }
+}
