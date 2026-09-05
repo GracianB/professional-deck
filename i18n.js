@@ -59,6 +59,7 @@
     signal3b: "RESULTADO", signal3s: "Valor + adopción",
     m1: "años exp.", m2: "años cliente", m3: "centros ECI", m4: "reglas",
     valorIndex: "MI DIFERENCIAL",
+    valorEyebrow: "EDGE · SEÑAL → SISTEMA → DECISIÓN → HÁBITO",
     valorH2: "No entrego análisis.<br><em>Entrego capacidad de actuar.</em>",
     valorP: "Recorro el sistema completo: escuchar, decidir, construir y conseguir adopción.",
     valorLoop: [
@@ -145,11 +146,11 @@
     careerA1: "Sistemas CS + IA + datos",
     careerA2: "SaaS global · pricing · Big Data",
     careerA3: "QA a escala · ops globales",
-    careerA4: "ECI · Solaris · P&L · CX",
+    careerA4: "ECI 5 centros · P&L · CX",
     careerB1: "Presencia · hábitos · facilitación",
     careerB2: "Salud mental IT + ES",
     careerB3: "Clases · talleres · inclusión",
-    careerB4: "IA · datos · hábitos",
+    careerB4: "Formación interna · hábitos",
     careerB5: "Disciplina · presencia · constancia",
     compoundHsub: "Retail · conflicto · equipos · cliente",
     compoundSsub: "Datos · APIs · apps · chatbots · LLM · automatización · IA",
@@ -160,84 +161,86 @@
         period: "MAR 2025 — MAR 2026",
         company: "BODYTONE",
         title: "Data Analyst & Head of Customer Success",
-        meta: "Jornada completa · Murcia, España · Presencial · 1 año 1 mes",
-        summary: "Lideré CS + Support OS (Zendesk, Power BI, GenAI) y Bodytone Academy.",
+        meta: "Jornada completa · Murcia · Presencial · 1 año 1 mes",
+        summary: "Automatización, Zendesk, Power BI, GenAI, chatbots y liderazgo CS. Sistema live + Academy.",
         copy: [
-          "Lideré Customer Success: adopción, procesos y resultados del cliente de punta a punta.",
-          "Construí el Bodytone Support OS: Help Center, enrutado y automatización Zendesk, seguimiento y reporting en Power BI.",
-          "Apliqué Python, GenAI e integraciones para bajar fricción operativa y acelerar decisiones del equipo.",
-          "Creé e impartí Bodytone Academy: primera formación interna de IA aplicada a procesos y productividad."
+          "El puesto se publicó como Customer Care Data Analyst; el trabajo real cubrió datos, Customer Success y el sistema de soporte de punta a punta.",
+          "Rol híbrido de liderazgo y construcción: conecté Customer Success, datos e IA para bajar fricción operativa y mejorar la decisión del equipo.",
+          "Diseñé y activé el Bodytone Support OS (Help Center live + Zendesk): intenciones, enrutado, automatización, seguimiento y capa de reporting en Power BI.",
+          "Desarrollé apps internas, chatbots con LLM y automatizaciones con Python/GenAI: desde herramientas de productividad hasta integraciones que redujeron carga operativa del equipo.",
+          "Creé e impartí Bodytone Academy: primera formación interna de IA aplicada a procesos y productividad, con criterio de uso y hábito de equipo."
         ],
-        skills: ["Customer Success", "Power BI", "Python", "Zendesk", "GenAI", "Automatización", "Integraciones", "Liderazgo", "Academy"]
+        skills: ["Customer Success", "Power BI", "Python", "Zendesk", "GenAI", "Chatbots", "LLM", "Apps", "Automatización", "Liderazgo", "Academy"]
       },
       minderest: {
         period: "MAR 2021 — MAR 2024",
         company: "MINDEREST",
         title: "Customer Success Specialist",
-        meta: "Jornada completa · Murcia · Remoto · 3 años 1 mes",
-        summary: "Adopción B2B SaaS internacional: onboarding, valor, retención y pricing intelligence.",
+        meta: "Jornada completa · Murcia · Remoto · 3 años 1 mes · cartera global",
+        summary: "Cartera global B2B: pricing intelligence, Big Data, adopción y retención multilingüe.",
         copy: [
-          "Impulsé adopción, valor y retención en una cartera internacional de clientes B2B SaaS.",
-          "Cubrí onboarding, formación y soporte de cuentas en entorno multilingüe.",
-          "Traduje pricing intelligence en decisiones accionables para el cliente.",
-          "Coordiné proyectos multilingües con producto y stakeholders de distintas regiones."
+          "Gestioné una cartera internacional de clientes SaaS (ecommerce / pricing intelligence) con onboarding, formación y seguimiento de valor.",
+          "Traduje datos de mercado y variables competitivas en acciones de pricing y retención, en coordinación con producto y equipos multilingües.",
+          "Acompañé a cuentas en la interpretación de Big Data e IA aplicada al análisis de precios, reforzando adopción y ventaja competitiva del cliente.",
+          "Operé en remoto con estándares altos de comunicación, priorización y reporting — base del perfil CS × datos que desarrollo hoy."
         ],
-        skills: ["SaaS B2B", "Customer Success", "Pricing intelligence", "Adopción", "Retención", "Multilingüe"]
+        skills: ["SaaS B2B", "Customer Success", "Pricing", "Big Data", "Ecommerce", "Retención", "Multilingüe"]
       },
       majorel: {
-        period: "ENE 2020 — MAR 2021",
+        period: "ENE 2020 — FEB 2021",
         company: "MAJOREL PORTUGAL · GOOGLE & YOUTUBE",
         title: "Senior Content Reviewer & Wellness Ambassador",
-        meta: "Jornada completa · Área metropolitana de Lisboa · Remoto · ene 2020 – mar 2021",
-        summary: "Content QA a escala + Wellness Ambassador IT/ES (Majorel Portugal).",
+        meta: "Jornada completa · Lisboa · Remoto · 13 ene 2020 – 20 feb 2021",
+        summary: "QA de contenido a escala (Majorel) + Wellness Ambassador IT/ES.",
         copy: [
-          "Revisé contenido (imagen, vídeo, texto) bajo políticas de Google & YouTube con foco en calidad y throughput a escala.",
-          "Mantuve criterios consistentes y escalado de incidencias en un entorno de alto volumen y SLA.",
-          "Como Wellness Ambassador apoyé salud mental y bienestar de equipos de Italia y España.",
-          "Aporté feedback al cliente con hallazgos y recomendaciones para mejorar el proceso."
+          "Revisé contenido sensible (imagen, vídeo, texto) en redes, web y ads bajo políticas del cliente Google & YouTube, con foco en calidad y throughput.",
+          "Escalé violaciones con herramientas internas y mantuve criterios consistentes en un entorno de alto volumen y presión de SLA.",
+          "Como Wellness Ambassador apoyé salud mental de equipos de Italia y España, uniendo operación exigente y cuidado de personas.",
+          "Participé en feedback a cliente con hallazgos y recomendaciones — puente entre línea de producción y mejora del proceso."
         ],
-        skills: ["Content QA", "Google/YouTube", "Políticas", "Wellness Ambassador", "Global Ops"]
+        skills: ["Content QA", "Google/YouTube", "Políticas", "Escalado", "Wellness", "Global Ops"]
       },
       mood: {
         period: "ABR 2022 — JUN 2026",
         company: "MOOD FITNESS",
         title: "Instructor de yoga",
-        meta: "Provincia de Murcia · Presencial · abr 2022 – jun 2026",
-        summary: "Yoga y bienestar adaptados: asana, respiración, inclusión y skills transferibles a CS.",
+        meta: "Contrato por obra o servicio · Murcia · Presencial · hasta jun 2026 · cierre por cambio de titularidad",
+        summary: "Facilitación en sala hasta jun 2026: presencia, hábitos y entornos seguros de aprendizaje.",
         copy: [
-          "Impartí clases adaptadas de yoga y bienestar para distintos perfiles y niveles.",
-          "Trabajé asana, respiración y atención consciente orientadas a presencia en sala.",
-          "Cuidé ritmo de grupo, inclusión y continuidad para sostener el hábito.",
-          "Skills transferibles a CS: escucha, facilitación, hábitos y adopción."
+          "Facilité clases de yoga para distintos niveles, combinando asana, respiración y atención consciente orientadas a bienestar real en sala.",
+          "La práctica reforzó skills transferibles a equipos corporativos: presencia, escucha, ritmo, contención y entornos seguros para aprender.",
+          "Mantuve continuidad hasta junio 2026; el centro cerró tras cambio de dueño. Etapa consolidada de enseñanza en Murcia.",
+          "Complementa el track de sistemas: misma persona que construye herramientas y sostiene la adopción humana del cambio."
         ],
-        skills: ["Yoga", "Facilitación", "Presencia", "Hábitos", "Inclusión", "Escucha"]
+        skills: ["Yoga", "Facilitación", "Presencia", "Hábitos", "Bienestar", "Escucha"]
       },
       solaris: {
         period: "ENE 2017 — ENE 2020",
-        company: "SOLARIS",
+        company: "SOLARIS / MASVISIÓN",
         title: "Director de tienda",
-        meta: "Jornada completa · Área de Madrid · ene 2017 – ene 2020",
-        summary: "P&L, objetivos comerciales, CX, equipos e inventario · dirección 2017–2020.",
+        meta: "Jornada completa · Madrid · 3 años 1 mes",
+        summary: "P&L, equipos, ventas y CX en retail óptico · 3 años de dirección.",
         copy: [
-          "Responsable de P&L, objetivos comerciales, experiencia de cliente y ventas.",
-          "Recluté, formé y lideré equipo; sostuve estándares de producto y servicio.",
-          "Gestioné inventario, proveedores y surtido.",
-          "Traduje comportamiento de cliente en rentabilidad de tienda."
+          "Dirigí tienda de óptica y gafas de sol con responsabilidad de P&L, servicio y resultado comercial.",
+          "Seleccioné, formé y lideré equipo; implanté acciones de venta y fidelización con seguimiento de indicadores.",
+          "Coordiné inventario, pedidos y proveedores; ajusté oferta según tendencia y comportamiento de cliente.",
+          "Base sólida de liderazgo en primera línea: decidir con dato de tienda, gente y caja — no solo con teoría."
         ],
         skills: ["Dirección de tienda", "P&L", "Equipos", "Ventas", "Inventario", "CX"]
       },
       eci: {
-        period: "JUN 2015 — DIC 2016",
+        period: "2012 — 2016",
         company: "EL CORTE INGLÉS",
-        title: "Encargado de tienda",
-        meta: "Jornada completa · Provincia de Madrid · jun 2015 – dic 2016",
-        summary: "Equipos, formación, ventas y CX en alto volumen · provincia de Madrid.",
+        title: "Encargado · multi-centro",
+        meta: "Entre idas y venidas · 5 centros · Murcia y Madrid · desde 2012",
+        summary: "5 centros ECI (Sanchinarro, Libertad, Gran Vía, El Tiro, Serrano). Primera vez en Madrid con 18 años.",
         copy: [
-          "Lideré equipos, formación y calidad de servicio en retail de alto volumen.",
-          "Impulsé ventas, merchandising y experiencia de cliente.",
-          "Gestioné inventario, pedidos, proveedores y marcas."
+          "Entre idas y venidas trabajé en cinco centros de El Corte Inglés: Sanchinarro, Libertad, Gran Vía, El Tiro y Serrano.",
+          "Serrano fue mi primera vez en Madrid, con 18 años: inmersión temprana en retail de alto estándar y ritmo de capital.",
+          "Me adapté a equipos, públicos y ritmos distintos en Murcia y Madrid sin bajar el nivel de servicio de la marca.",
+          "Supervisé personal, formación, ventas, inventario y pedidos; escuela de multi-contexto y primera línea que aún estructura cómo opero."
         ],
-        skills: ["Encargado", "Equipos", "Formación", "Ventas", "Merchandising", "CX", "Inventario"]
+        skills: ["5 centros", "Serrano · 18 años", "Madrid", "Murcia", "Retail", "Equipos", "Operaciones"]
       },
       shaolin: {
         period: "2016 — 2019",
@@ -266,17 +269,15 @@
       },
       break: {
         period: "MAR 2024 — MAR 2025",
-        company: "DESCANSO PROFESIONAL",
-        title: "Desarrollo profesional / Career break",
-        meta: "Murcia · mar 2024 – mar 2025",
-        summary: "IA aplicada, datos, programación y yoga/mindfulness para un perfil CS × Data × AI más fuerte.",
+        company: "CRECIMIENTO PROFESIONAL",
+        title: "Especialización intensiva",
+        meta: "Murcia · 1 año",
+        summary: "IA, datos, programación, yoga y mindfulness.",
         copy: [
-          "Apliqué IA a procesos y productividad durante el descanso profesional.",
-          "Profundicé en análisis de datos y programación.",
-          "Usé yoga y mindfulness como base de facilitación y enablement.",
-          "Consolidé un perfil más fuerte en CS × Data × AI."
+          "Convertí un descanso profesional en un periodo intensivo de especialización en inteligencia artificial, análisis de datos y desarrollo.",
+          "En paralelo profundicé en yoga y mindfulness, integrando capacidad técnica con hábitos de atención y aprendizaje."
         ],
-        skills: ["IA", "Datos", "Programación", "Mindfulness", "Yoga", "CS × Data × AI"]
+        skills: ["IA", "Datos", "Programación", "Mindfulness", "Yoga"]
       },
       varsovia: {
         period: "JUL 2015 — AGO 2015",
@@ -292,22 +293,21 @@
       },
       primark: {
         period: "ENE 2015 — JUN 2015",
-        company: "PRIMARK TIENDAS SLU",
+        company: "PRIMARK",
         title: "Supervisor",
-        meta: "Área de Madrid · ene 2015 – jun 2015",
-        summary: "Productividad diaria, ritmo de servicio, formación y merchandising/inventario.",
+        meta: "6 meses · Madrid",
+        summary: "Operaciones diarias, equipo y merchandising en alto volumen.",
         copy: [
-          "Sostuve productividad diaria, ritmo de sala y estándar de servicio.",
-          "Formé personal y coordiné merchandising e inventario.",
-          "Gestioné incidencias de planta en un entorno de alto volumen."
+          "Supervisé operaciones diarias de tienda, formación del equipo y estándares de atención al cliente.",
+          "Gestioné inventario y merchandising en un entorno de alta rotación y ritmo exigente."
         ],
-        skills: ["Supervisión", "Retail", "Merchandising", "Inventario", "Equipos"]
+        skills: ["Supervisión", "Retail", "Merchandising", "Equipos"]
       }
     },
     cities: {
       murcia: { number: "01", place: "MURCIA · ESPAÑA", eyebrow: "NÚCLEO · CONEXIÓN GRAN CANARIA", title: "El centro de la trayectoria", copy: "Murcia es el núcleo: Minderest (CS global y pricing), Bodytone (datos + CS + Zendesk live) y Mood Fitness (yoga hasta jun 2026). Conectada con Gran Canaria — el origen — forma el eje del perfil.", tags: ["Minderest", "Bodytone", "Mood 2022–26", "CS × Data × AI", "Murcia ↔ Canarias"] },
       "gran-canaria": { number: "02", place: "GRAN CANARIA", eyebrow: "ORIGEN · CONEXIÓN MURCIA", title: "Donde empezó todo", copy: "Origen académico y base de curiosidad, servicio y adaptación. La conexión con Murcia es el hilo que une el punto de partida con el núcleo profesional actual.", tags: ["Base", "Autonomía", "Murcia ↔ Canarias"] },
-      madrid: { number: "03", place: "MADRID", eyebrow: "RETAIL · P&L · EQUIPOS", title: "Primera línea", copy: "Primark (supervisor), El Corte Inglés (encargado 2015–2016) y Solaris (director 2017–2020): equipos, P&L y CX en área de Madrid.", tags: ["Primark", "ECI 2015–16", "Solaris"] },
+      madrid: { number: "03", place: "MADRID", eyebrow: "RETAIL · PRIMERA VEZ CON 18", title: "Primera línea", copy: "El Corte Inglés desde 2012 (Serrano con 18 años, más Sanchinarro, Libertad, Gran Vía, El Tiro) y después Solaris: equipos, P&L y CX.", tags: ["ECI · 5 centros", "Serrano 18a", "Solaris"] },
       varsovia: { number: "04", place: "VARSOVIA", eyebrow: "ERASMUS+", title: "Inclusión", copy: "Voluntariado deportivo europeo con impacto comunitario.", tags: ["UE", "Comunidad"] },
       bergamo: { number: "05", place: "BÉRGAMO", eyebrow: "ERASMUS", title: "Italia", copy: "Retail a jornada completa en italiano durante Erasmus.", tags: ["IT C1", "Retail"] },
       lisboa: { number: "06", place: "LISBOA", eyebrow: "GOOGLE / YOUTUBE", title: "Calidad global", copy: "Content QA a escala y Wellness Ambassador (IT + ES).", tags: ["Global", "QA"] }
@@ -426,6 +426,7 @@
     signal3b: "OUTCOME", signal3s: "Value + adoption",
     m1: "years exp.", m2: "customer yrs", m3: "ECI sites", m4: "rules",
     valorIndex: "MY EDGE",
+    valorEyebrow: "EDGE · SIGNAL → SYSTEM → DECISION → HABIT",
     valorH2: "I don't deliver analysis.<br><em>I deliver the ability to act.</em>",
     valorP: "I run the full loop: listen, decide, build and get adoption.",
     valorLoop: [
@@ -512,11 +513,11 @@
     careerA1: "CS systems + AI + data",
     careerA2: "Global SaaS · pricing · Big Data",
     careerA3: "QA at scale · global ops",
-    careerA4: "ECI · Solaris · P&L · CX",
+    careerA4: "ECI 5 sites · P&L · CX",
     careerB1: "Presence · habits · facilitation",
     careerB2: "Mental health IT + ES",
     careerB3: "Classes · workshops · inclusion",
-    careerB4: "AI · data · habits",
+    careerB4: "Internal training · habits",
     careerB5: "Discipline · presence · consistency",
     compoundHsub: "Retail · conflict · teams · customer",
     compoundSsub: "Data · APIs · apps · chatbots · LLM · automation · AI",
@@ -527,84 +528,86 @@
         period: "MAR 2025 — MAR 2026",
         company: "BODYTONE",
         title: "Data Analyst & Head of Customer Success",
-        meta: "Full-time · Murcia, Spain · On-site · 1 year 1 month",
-        summary: "Led CS + Support OS (Zendesk, Power BI, GenAI) and Bodytone Academy.",
+        meta: "Full-time · Murcia · On-site · 1 year 1 month",
+        summary: "Automation, Zendesk, Power BI, GenAI, chatbots and CS leadership. Live system + Academy.",
         copy: [
-          "Led Customer Success: adoption, processes and customer outcomes end to end.",
-          "Built Bodytone Support OS: Help Center, Zendesk routing/automation, follow-up and Power BI reporting.",
-          "Applied Python, GenAI and integrations to cut operational friction and speed team decisions.",
-          "Created and delivered Bodytone Academy: first internal AI training for processes and productivity."
+          "Posted as Customer Care Data Analyst; the actual work covered data, Customer Success and the support system end to end.",
+          "Hybrid leadership and build role: I connected Customer Success, data and AI to cut operational friction and improve team decisions.",
+          "I designed and shipped Bodytone Support OS (live Help Center + Zendesk): intents, routing, automation, follow-up and Power BI reporting.",
+          "I built internal apps, LLM-powered chatbots and automations with Python/GenAI: from productivity tools to integrations that reduced the team's operational load.",
+          "I created and delivered Bodytone Academy: first internal AI training for processes and productivity, with usage criteria and team habit."
         ],
-        skills: ["Customer Success", "Power BI", "Python", "Zendesk", "GenAI", "Automation", "Integrations", "Leadership", "Academy"]
+        skills: ["Customer Success", "Power BI", "Python", "Zendesk", "GenAI", "Chatbots", "LLM", "Apps", "Automation", "Leadership", "Academy"]
       },
       minderest: {
         period: "MAR 2021 — MAR 2024",
         company: "MINDEREST",
         title: "Customer Success Specialist",
-        meta: "Full-time · Murcia · Remote · 3 years 1 month",
-        summary: "International B2B SaaS adoption: onboarding, value, retention and pricing intelligence.",
+        meta: "Full-time · Murcia · Remote · 3 years 1 month · global book",
+        summary: "Global B2B book: pricing intelligence, Big Data, adoption and multilingual retention.",
         copy: [
-          "Drove adoption, value and retention across an international B2B SaaS book.",
-          "Owned onboarding, training and account support in a multilingual environment.",
-          "Turned pricing intelligence into actionable customer decisions.",
-          "Coordinated multilingual projects with product and regional stakeholders."
+          "I managed an international SaaS customer book (ecommerce / pricing intelligence) with onboarding, training and value follow-up.",
+          "I translated market data and competitive variables into pricing and retention actions, with product and multilingual teams.",
+          "I helped accounts interpret Big Data and AI-assisted pricing analysis to strengthen adoption and customer advantage.",
+          "I operated remotely with high standards of communication, prioritization and reporting — the base of my CS × data profile today."
         ],
-        skills: ["SaaS B2B", "Customer Success", "Pricing intelligence", "Adoption", "Retention", "Multilingual"]
+        skills: ["SaaS B2B", "Customer Success", "Pricing", "Big Data", "Ecommerce", "Retention", "Multilingual"]
       },
       majorel: {
-        period: "JAN 2020 — MAR 2021",
+        period: "JAN 2020 — FEB 2021",
         company: "MAJOREL PORTUGAL · GOOGLE & YOUTUBE",
         title: "Senior Content Reviewer & Wellness Ambassador",
-        meta: "Full-time · Lisbon metro · Remote · Jan 2020 – Mar 2021",
-        summary: "Content QA at scale + Wellness Ambassador IT/ES (Majorel Portugal).",
+        meta: "Full-time · Lisbon · Remote · 13 Jan 2020 – 20 Feb 2021",
+        summary: "Content QA at scale (Majorel) + Wellness Ambassador IT/ES.",
         copy: [
-          "Reviewed content (image, video, text) under Google & YouTube policies with quality and throughput at scale.",
-          "Kept consistent criteria and escalated issues in a high-volume, SLA-driven environment.",
-          "As Wellness Ambassador I supported mental health and wellbeing for Italy and Spain teams.",
-          "Shared findings and recommendations with the client to improve the process."
+          "I reviewed sensitive content (image, video, text) across social, web and ads under Google & YouTube client policies, with quality and throughput focus.",
+          "I escalated violations with internal tools and kept consistent criteria in a high-volume, SLA-driven environment.",
+          "As Wellness Ambassador I supported mental health for Italy and Spain teams — demanding ops plus care for people.",
+          "I joined client feedback loops with findings and recommendations — bridge between production line and process improvement."
         ],
-        skills: ["Content QA", "Google/YouTube", "Policy", "Wellness Ambassador", "Global Ops"]
+        skills: ["Content QA", "Google/YouTube", "Policy", "Escalation", "Wellness", "Global Ops"]
       },
       mood: {
         period: "APR 2022 — JUN 2026",
         company: "MOOD FITNESS",
-        title: "Yoga Instructor",
-        meta: "Murcia Province · On-site · Apr 2022 – Jun 2026",
-        summary: "Adapted yoga/wellbeing: asana, breath, inclusion and transferable CS skills.",
+        title: "Yoga instructor",
+        meta: "Service contract · Murcia · On-site · through Jun 2026 · closed after ownership change",
+        summary: "Studio facilitation through Jun 2026: presence, habits and safe learning spaces.",
         copy: [
-          "Delivered adapted yoga and wellbeing classes for mixed levels and profiles.",
-          "Worked asana, breathing and attention for in-room presence.",
-          "Held group pacing, inclusion and continuity to sustain habits.",
-          "Transferable CS skills: listening, facilitation, habits and adoption."
+          "I facilitated mixed-level yoga classes combining asana, breath and attention for real in-studio wellbeing.",
+          "The practice strengthened transferable skills for corporate teams: presence, listening, pace, containment and safe learning environments.",
+          "Continued through June 2026; the centre closed after a change of ownership. Solid teaching chapter in Murcia.",
+          "Complements the systems track: the same person who builds tools and holds the human side of change adoption."
         ],
-        skills: ["Yoga", "Facilitation", "Presence", "Habits", "Inclusion", "Listening"]
+        skills: ["Yoga", "Facilitation", "Presence", "Habits", "Wellbeing", "Listening"]
       },
       solaris: {
         period: "JAN 2017 — JAN 2020",
-        company: "SOLARIS",
+        company: "SOLARIS / MASVISIÓN",
         title: "Store Director",
-        meta: "Full-time · Madrid area · Jan 2017 – Jan 2020",
-        summary: "P&L, commercial targets, CX, teams and inventory · store direction 2017–2020.",
+        meta: "Full-time · Madrid · 3 years 1 month",
+        summary: "P&L, teams, sales and CX in optical retail · 3 years of leadership.",
         copy: [
-          "Owned P&L, commercial targets, customer experience and sales.",
-          "Recruited, trained and led the team; held product and service standards.",
-          "Managed inventory, suppliers and assortment.",
-          "Turned customer behaviour into store profitability."
+          "I directed an optical/sunglasses store with P&L ownership, service standards and commercial results.",
+          "I hired, trained and led the team; ran sales and loyalty actions with KPI follow-up.",
+          "I coordinated inventory, orders and suppliers; adjusted assortment from trends and customer behaviour.",
+          "Solid front-line leadership base: decide with store data, people and cash — not theory alone."
         ],
         skills: ["Store leadership", "P&L", "Teams", "Sales", "Inventory", "CX"]
       },
       eci: {
-        period: "JUN 2015 — DEC 2016",
+        period: "2012 — 2016",
         company: "EL CORTE INGLÉS",
-        title: "Store Manager",
-        meta: "Full-time · Madrid Province · Jun 2015 – Dec 2016",
-        summary: "Teams, training, sales and high-volume CX · Madrid Province.",
+        title: "Supervisor · multi-site",
+        meta: "On and off across years · 5 sites · Murcia & Madrid · from 2012",
+        summary: "5 ECI sites (Sanchinarro, Libertad, Gran Vía, El Tiro, Serrano). First time in Madrid at 18.",
         copy: [
-          "Led teams, training and service quality in high-volume retail.",
-          "Drove sales, merchandising and customer experience.",
-          "Managed inventory, orders, suppliers and brands."
+          "Across comings and goings I worked at five El Corte Inglés sites: Sanchinarro, Libertad, Gran Vía, El Tiro and Serrano.",
+          "Serrano was my first time in Madrid, at 18: early immersion in high-standard retail and capital-city pace.",
+          "I adapted to different teams, audiences and rhythms in Murcia and Madrid without dropping brand service standards.",
+          "I supervised people, training, sales, inventory and orders — multi-context front-line school that still shapes how I operate."
         ],
-        skills: ["Store Manager", "Teams", "Training", "Sales", "Merchandising", "CX", "Inventory"]
+        skills: ["5 sites", "Serrano · age 18", "Madrid", "Murcia", "Retail", "Teams", "Operations"]
       },
       shaolin: {
         period: "2016 — 2019",
@@ -633,17 +636,15 @@
       },
       break: {
         period: "MAR 2024 — MAR 2025",
-        company: "PROFESSIONAL DEVELOPMENT",
-        title: "Career break · upskilling",
-        meta: "Murcia · Mar 2024 – Mar 2025",
-        summary: "Applied AI, data, programming and yoga/mindfulness for a stronger CS × Data × AI profile.",
+        company: "PROFESSIONAL GROWTH",
+        title: "Focused upskilling year",
+        meta: "Murcia · 1 year",
+        summary: "AI, data, programming, yoga and mindfulness.",
         copy: [
-          "Applied AI to processes and productivity during the career break.",
-          "Deepened data analysis and programming.",
-          "Used yoga and mindfulness as a base for facilitation and enablement.",
-          "Strengthened a CS × Data × AI compound profile."
+          "I turned a professional break into intensive specialization in AI, data analysis and development.",
+          "In parallel I deepened yoga and mindfulness, combining technical skill with attention and learning habits."
         ],
-        skills: ["AI", "Data", "Programming", "Mindfulness", "Yoga", "CS × Data × AI"]
+        skills: ["AI", "Data", "Programming", "Mindfulness", "Yoga"]
       },
       varsovia: {
         period: "JUL 2015 — AUG 2015",
@@ -659,22 +660,21 @@
       },
       primark: {
         period: "JAN 2015 — JUN 2015",
-        company: "PRIMARK TIENDAS SLU",
+        company: "PRIMARK",
         title: "Supervisor",
-        meta: "Madrid area · Jan 2015 – Jun 2015",
-        summary: "Daily productivity, service pace, training and merchandising/inventory.",
+        meta: "6 months · Madrid",
+        summary: "Daily operations, team and merchandising at high volume.",
         copy: [
-          "Held daily productivity, floor pace and service standards.",
-          "Trained staff and coordinated merchandising and inventory.",
-          "Handled floor incidents in a high-volume environment."
+          "I supervised daily store operations, team training and customer-service standards.",
+          "I managed inventory and merchandising in a high-rotation, high-pace environment."
         ],
-        skills: ["Supervision", "Retail", "Merchandising", "Inventory", "Teams"]
+        skills: ["Supervision", "Retail", "Merchandising", "Teams"]
       }
     },
     cities: {
       murcia: { number: "01", place: "MURCIA · SPAIN", eyebrow: "CORE · GRAN CANARIA CONNECTION", title: "Career hub", copy: "Murcia is the hub: Minderest (global CS & pricing), Bodytone (data + CS + live Zendesk) and Mood Fitness (yoga through Jun 2026). Connected to Gran Canaria — the origin — it forms the axis of the profile.", tags: ["Minderest", "Bodytone", "Mood 2022–26", "CS × Data × AI", "Murcia ↔ Canarias"] },
       "gran-canaria": { number: "02", place: "GRAN CANARIA", eyebrow: "ORIGIN · MURCIA CONNECTION", title: "Where it all started", copy: "Academic origin and base of curiosity, service and adaptation. The connection to Murcia is the thread linking the starting point to the current professional hub.", tags: ["Base", "Autonomy", "Murcia ↔ Canarias"] },
-      madrid: { number: "03", place: "MADRID", eyebrow: "RETAIL · P&L · TEAMS", title: "Front line", copy: "Primark (supervisor), El Corte Inglés (store manager 2015–2016) and Solaris (director 2017–2020): teams, P&L and CX in the Madrid area.", tags: ["Primark", "ECI 2015–16", "Solaris"] },
+      madrid: { number: "03", place: "MADRID", eyebrow: "RETAIL · FIRST TIME AT 18", title: "Front line", copy: "El Corte Inglés from 2012 (Serrano at 18; also Sanchinarro, Libertad, Gran Vía, El Tiro) and later Solaris: teams, P&L and CX.", tags: ["ECI · 5 sites", "Serrano 18", "Solaris"] },
       varsovia: { number: "04", place: "WARSAW", eyebrow: "ERASMUS+", title: "Inclusion", copy: "European sports volunteering with community impact.", tags: ["EU", "Community"] },
       bergamo: { number: "05", place: "BERGAMO", eyebrow: "ERASMUS", title: "Italy", copy: "Full-time retail in Italian during Erasmus.", tags: ["IT C1", "Retail"] },
       lisboa: { number: "06", place: "LISBON", eyebrow: "GOOGLE / YOUTUBE", title: "Global quality", copy: "Content QA at scale and Wellness Ambassador (IT + ES).", tags: ["Global", "QA"] }
