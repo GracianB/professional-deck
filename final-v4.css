@@ -1902,3 +1902,300 @@ html[data-theme="light"] #valor .gb-valor-panel {
   background: var(--grad-panel) !important;
   color: var(--cream) !important;
 }
+
+/* ============================================================
+   HOTFIX — Edge full dark · rail scrollbar · cover index
+   (fix-edge-rail-cover) Loads last; hard-kill light paper on #valor.
+   Root cause: html[data-theme=light] remaps --ink/--panel/--grad-panel
+   to cream/white (#f4f3ee / #fff / #f7f6f1); .gb-loop-card base is #fffef8.
+   ============================================================ */
+
+/* —— 1) EDGE #valor — force cinema dark regardless of site theme —— */
+#valor.slide,
+#valor.slide.dark,
+.gb-valor-slide,
+html[data-theme="light"] #valor.slide,
+html[data-theme="light"] #valor.slide.dark,
+html[data-theme="light"] .gb-valor-slide {
+  /* Local token lock — never inherit light-theme cream paper */
+  --ink: #06070a !important;
+  --bg: #06070a !important;
+  --black: #06070a !important;
+  --black-2: #0c0e14 !important;
+  --panel: #0c0e14 !important;
+  --panel-2: #10131b !important;
+  --surface: #10131b !important;
+  --surface2: #0c0e14 !important;
+  --cream: #fffef8 !important;
+  --white: #fffef8 !important;
+  --mute: #a8a79d !important;
+  --mute-2: #c8c7bc !important;
+  --line: rgba(244, 243, 238, 0.1) !important;
+  --line-strong: rgba(244, 243, 238, 0.16) !important;
+  --line-light: rgba(244, 243, 238, 0.1) !important;
+  --line-dark: rgba(244, 243, 238, 0.1) !important;
+  --line-dark-2: rgba(244, 243, 238, 0.16) !important;
+  --gold: #f3d437 !important;
+  --gold-soft: color-mix(in srgb, #f3d437 55%, #fff8d6) !important;
+  --gold-line: color-mix(in srgb, #f3d437 22%, transparent) !important;
+  --ice: #7af3ff !important;
+  --sage: #7dcaa5 !important;
+  --grad-panel:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.05), transparent 42%),
+    linear-gradient(180deg, #10131b, #0c0e14) !important;
+  --shadow-panel: 0 24px 64px rgba(0, 0, 0, 0.42), 0 0 0 1px color-mix(in srgb, #f3d437 22%, transparent) !important;
+
+  background: #06070a !important;
+  color: #fffef8 !important;
+}
+
+#valor .gb-valor-panel,
+#valor .gb-panel,
+#valor .gb-panel-dark,
+.gb-valor-slide > .gb-valor-panel,
+html[data-theme="light"] #valor .gb-valor-panel,
+html[data-theme="light"] #valor .gb-panel,
+html[data-theme="light"] #valor .gb-panel-dark,
+html[data-theme="light"] .gb-panel.gb-valor-panel {
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.05), transparent 42%),
+    linear-gradient(180deg, #10131b, #0c0e14) !important;
+  color: #fffef8 !important;
+  border-color: color-mix(in srgb, #f3d437 22%, transparent) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.42), 0 0 0 1px color-mix(in srgb, #f3d437 22%, transparent) !important;
+}
+
+#valor .gb-valor-head,
+#valor .gb-loop,
+#valor [data-valor-loop],
+html[data-theme="light"] #valor .gb-valor-head,
+html[data-theme="light"] #valor .gb-loop {
+  background: transparent !important;
+  color: #fffef8 !important;
+}
+
+#valor .gb-loop-card,
+#valor [data-valor-loop] article,
+html[data-theme="light"] #valor .gb-loop-card,
+html[data-theme="light"] #valor [data-valor-loop] article,
+html[data-theme="light"] #valor .gb-loop-card.gb-loop-card {
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 50%),
+    rgba(0, 0, 0, 0.22) !important;
+  color: #fffef8 !important;
+  border-color: rgba(244, 243, 238, 0.1) !important;
+}
+
+#valor .gb-loop-card.is-end,
+html[data-theme="light"] #valor .gb-loop-card.is-end {
+  background:
+    linear-gradient(165deg, rgba(125, 202, 165, 0.12), transparent 50%),
+    rgba(0, 0, 0, 0.22) !important;
+}
+
+#valor .gb-loop-card h3,
+#valor .gb-loop-card p,
+#valor .gb-valor-head h2,
+#valor .gb-panel-lead,
+#valor .slide-index,
+html[data-theme="light"] #valor .gb-loop-card h3,
+html[data-theme="light"] #valor .gb-loop-card p,
+html[data-theme="light"] #valor .gb-valor-head h2,
+html[data-theme="light"] #valor .gb-panel-lead {
+  color: #fffef8 !important;
+}
+#valor .gb-valor-head h2 em,
+#valor .gb-loop-num,
+#valor .gb-valor-head .eyebrow,
+#valor .gb-panel-bar,
+html[data-theme="light"] #valor .gb-valor-head h2 em,
+html[data-theme="light"] #valor .gb-loop-num,
+html[data-theme="light"] #valor .gb-valor-head .eyebrow {
+  color: #f3d437 !important;
+}
+#valor .gb-loop-card p,
+#valor .gb-panel-lead,
+html[data-theme="light"] #valor .gb-loop-card p,
+html[data-theme="light"] #valor .gb-panel-lead {
+  color: #c8c7bc !important;
+}
+#valor .gb-loop-label,
+html[data-theme="light"] #valor .gb-loop-label {
+  color: #7af3ff !important;
+}
+#valor .gb-panel-bar,
+html[data-theme="light"] #valor .gb-panel-bar {
+  background: rgba(243, 212, 55, 0.08) !important;
+  border-top-color: color-mix(in srgb, #f3d437 22%, transparent) !important;
+  color: #f3d437 !important;
+}
+
+/* Paper offenders killed via explicit dark backgrounds below */
+#valor .gb-loop-card,
+#valor .gb-panel,
+#valor .gb-valor-panel,
+html[data-theme="light"] #valor .gb-loop-card,
+html[data-theme="light"] #valor .gb-panel,
+html[data-theme="light"] #valor .gb-valor-panel {
+  /* explicit denial of paper tokens */
+  background-color: transparent !important;
+}
+#valor.slide,
+#valor .gb-valor-panel,
+html[data-theme="light"] #valor.slide,
+html[data-theme="light"] #valor .gb-valor-panel {
+  background-color: #06070a !important;
+}
+#valor .gb-valor-panel,
+html[data-theme="light"] #valor .gb-valor-panel {
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.05), transparent 42%),
+    linear-gradient(180deg, #10131b, #0c0e14) !important;
+  background-color: #0c0e14 !important;
+}
+#valor .gb-loop-card,
+#valor [data-valor-loop] article,
+html[data-theme="light"] #valor .gb-loop-card {
+  background:
+    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 50%),
+    rgba(0, 0, 0, 0.28) !important;
+  background-color: #10131b !important;
+}
+#valor .gb-loop-card.is-end,
+html[data-theme="light"] #valor .gb-loop-card.is-end {
+  background:
+    linear-gradient(165deg, rgba(125, 202, 165, 0.12), transparent 50%),
+    rgba(0, 0, 0, 0.28) !important;
+  background-color: #0f1614 !important;
+}
+
+/* —— 2) OS RAIL NAV — intentional gold/dark scrollbar —— */
+.os-rail-nav[data-slide-rail],
+.os-rail-nav {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, #f3d437 55%, #3a3420) #0a0b0e;
+  /* Fade edges so the rail feels designed, not raw */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 10px,
+    #000 calc(100% - 10px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 10px,
+    #000 calc(100% - 10px),
+    transparent 100%
+  );
+}
+.os-rail-nav[data-slide-rail]::-webkit-scrollbar,
+.os-rail-nav::-webkit-scrollbar {
+  width: 5px;
+}
+.os-rail-nav[data-slide-rail]::-webkit-scrollbar-track,
+.os-rail-nav::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #06070a, #0c0e14 40%, #06070a);
+  border-radius: 999px;
+  margin: 6px 0;
+}
+.os-rail-nav[data-slide-rail]::-webkit-scrollbar-thumb,
+.os-rail-nav::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #f3d437 70%, #fff8d6),
+    color-mix(in srgb, #f3d437 35%, #1a1608)
+  );
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, #f3d437 25%, transparent);
+  box-shadow: 0 0 8px rgba(243, 212, 55, 0.25);
+}
+.os-rail-nav[data-slide-rail]::-webkit-scrollbar-thumb:hover,
+.os-rail-nav::-webkit-scrollbar-thumb:hover {
+  background: #f3d437;
+}
+.os-rail-nav[data-slide-rail]::-webkit-scrollbar-corner,
+.os-rail-nav::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* —— 3) COVER #inicio — index / Portada band always visible —— */
+#inicio .gb-hero-ambient,
+#inicio .gb-hero-orb,
+#inicio .gb-hero-grain,
+#inicio .gb-hero-grid-fx,
+#inicio .gb-hero-tags-fx {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+#inicio .gb-hero-stack,
+#inicio .gb-hero-grid,
+#inicio .gb-hero-copy {
+  position: relative !important;
+  z-index: 3 !important;
+}
+#inicio .gb-hero-title-band,
+#inicio .gb-title-band.gb-hero-title-band {
+  position: relative !important;
+  z-index: 6 !important;
+  isolation: isolate;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  margin-bottom: clamp(8px, 1.2vh, 14px) !important;
+  padding: 6px 10px 8px 0 !important;
+  /* Soft plate so gold orbs cannot wash out the index */
+  background: linear-gradient(
+    90deg,
+    rgba(6, 7, 10, 0.72) 0%,
+    rgba(6, 7, 10, 0.35) 55%,
+    transparent 100%
+  ) !important;
+  border-radius: 0 8px 8px 0;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.65);
+}
+#inicio .gb-hero-index,
+#inicio .slide-index.gb-hero-index,
+#inicio .slide-index.light-index.gb-hero-index {
+  position: relative !important;
+  z-index: 7 !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #fffef8 !important;
+  font: 800 11px/1.2 var(--mono) !important;
+  letter-spacing: 0.14em !important;
+  margin: 0 0 6px !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+#inicio .gb-hero-index span,
+#inicio .gb-hero-index i {
+  color: inherit !important;
+  opacity: 1 !important;
+}
+#inicio .gb-hero-index span:first-child {
+  color: #f3d437 !important;
+}
+#inicio .gb-hero-index i {
+  background: color-mix(in srgb, #f3d437 70%, #fffef8) !important;
+  opacity: 0.9 !important;
+}
+#inicio .gb-hero-index span:last-child,
+#inicio .slide-index.light-index.gb-hero-index span:last-child {
+  color: #fffef8 !important;
+  letter-spacing: 0.16em !important;
+}
+#inicio .gb-hero-title-band .eyebrow,
+#inicio .gb-kicker.eyebrow {
+  position: relative !important;
+  z-index: 7 !important;
+  color: #f3d437 !important;
+  opacity: 1 !important;
+}
