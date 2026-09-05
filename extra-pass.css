@@ -21,7 +21,7 @@
   --yellow-dim: rgba(243, 212, 55, 0.12);
   --yellow-glow: rgba(243, 212, 55, 0.22);
   --header: 64px;
-  --chrome-bottom: 68px;
+  --chrome-bottom: 88px; /* controls + ≥12px clearance */
   --slide-pad-top: calc(var(--header) + 10px);
   --slide-inner: calc(100svh - var(--slide-pad-top) - var(--chrome-bottom));
   --r: 4px;
@@ -444,6 +444,9 @@ a.brand { cursor: pointer; }
 .gb-hero .gb-metrics {
   flex-shrink: 0 !important;
   min-height: 0 !important;
+  margin-bottom: 0 !important;
+  position: relative;
+  z-index: 2;
 }
 .gb-metrics > div {
   min-height: 0 !important;
@@ -451,6 +454,14 @@ a.brand { cursor: pointer; }
 }
 .gb-metrics strong {
   font-size: clamp(20px, 2vw + 0.6vh, 34px) !important;
+}
+/* Extra cover clearance: metrics must clear fixed controls by ≥12px */
+#inicio.slide {
+  padding-bottom: calc(var(--chrome-bottom) + 4px) !important;
+}
+.gb-hero-stack {
+  gap: clamp(6px, 1.1vh, 14px) !important;
+  padding-bottom: 4px !important;
 }
 
 /* Floating tags: contained, low z, never on type */
@@ -474,35 +485,40 @@ a.brand { cursor: pointer; }
 
 /* ============================================================
    EDGE #valor — title → cards → bar, centered & balanced
+   Light panel restored (overrides dark .gb-panel !important).
    ============================================================ */
 .gb-valor-slide,
 #valor.slide {
   justify-content: center !important;
   align-items: center !important;
+  padding-bottom: calc(var(--chrome-bottom) + 4px) !important;
 }
 .gb-valor-panel {
   width: min(100%, var(--max)) !important;
   max-height: var(--slide-inner) !important;
   height: auto !important;
-  min-height: min(var(--slide-inner), 620px) !important;
+  min-height: 0 !important; /* densify — no forced 620px tall empty */
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
   gap: 0 !important;
   overflow: hidden !important;
-  border: 1px solid var(--line-light);
-  background: #fffef8;
-  box-shadow: 0 24px 60px rgba(17, 18, 14, 0.08);
+  border: 1px solid var(--line-light) !important;
+  border-radius: var(--r) !important;
+  background: #fffef8 !important;
+  box-shadow: 0 24px 60px rgba(17, 18, 14, 0.08) !important;
+  color: #11120e !important;
 }
 .gb-valor-head {
   flex: 0 0 auto;
-  padding: clamp(14px, 2.2vh, 28px) clamp(16px, 2.5vw, 32px) clamp(10px, 1.6vh, 18px) !important;
+  padding: clamp(10px, 1.6vh, 20px) clamp(14px, 2.2vw, 28px) clamp(8px, 1.2vh, 14px) !important;
   text-align: center !important;
-  border-bottom: 1px solid var(--line-light);
+  border-bottom: 1px solid rgba(17, 18, 14, 0.1) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(6px, 1vh, 12px);
+  gap: clamp(4px, 0.8vh, 10px);
+  background: #fffef8 !important;
 }
 .gb-valor-index {
   justify-content: center !important;
@@ -510,68 +526,113 @@ a.brand { cursor: pointer; }
   margin: 0 !important;
   border: 0 !important;
   width: 100%;
+  color: #9a7a00 !important;
 }
 .gb-valor-head h2 {
   margin: 0 !important;
   max-width: 22ch !important;
-  font-size: clamp(26px, 3.4vw + 0.8vh, 48px) !important;
+  font-size: clamp(24px, 3.1vw + 0.7vh, 44px) !important;
   line-height: 0.94 !important;
   text-align: center !important;
+  color: #11120e !important;
 }
+/* Full-opacity gold with readable contrast on cream */
 .gb-valor-head h2 em {
-  color: var(--ink) !important;
-  opacity: 0.32 !important;
+  color: #9a7a00 !important;
+  opacity: 1 !important;
   font-style: italic !important;
 }
 .gb-valor-head .gb-panel-lead {
   margin: 0 auto !important;
   max-width: 52ch !important;
-  font-size: clamp(13px, 1.1vw, 15px) !important;
-  line-height: 1.45 !important;
-  color: var(--muted-light) !important;
+  font-size: clamp(12px, 1.05vw, 14px) !important;
+  line-height: 1.4 !important;
+  color: #5a5952 !important;
   text-align: center !important;
 }
 .gb-valor-panel .gb-loop,
 .gb-valor-panel [data-valor-loop] {
-  flex: 1 1 auto !important;
+  flex: 0 1 auto !important; /* densify — don't inflate empty card height */
   min-height: 0 !important;
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  border-bottom: 1px solid var(--line-light);
-  align-content: stretch;
+  border-bottom: 1px solid rgba(17, 18, 14, 0.1);
+  align-content: start;
+  background: transparent !important;
 }
 .gb-valor-panel .gb-loop-card,
 .gb-valor-panel [data-valor-loop] article {
   min-height: 0 !important;
   height: auto !important;
-  padding: clamp(12px, 2vh, 22px) clamp(12px, 1.4vw, 18px) !important;
+  padding: clamp(10px, 1.4vh, 16px) clamp(10px, 1.2vw, 16px) !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-start !important;
-  gap: 6px !important;
-  border-right: 1px solid var(--line-light);
+  gap: 4px !important;
+  border-right: 1px solid rgba(17, 18, 14, 0.1) !important;
+  border-bottom: 0 !important;
+  border-radius: 0 !important;
   text-align: left;
+  /* Lighten surfaces inside light panel (readable dark ink) */
+  background: #fffef8 !important;
+  box-shadow: none !important;
+  color: #11120e !important;
+  backdrop-filter: none !important;
 }
 .gb-valor-panel .gb-loop-card:last-child,
 .gb-valor-panel [data-valor-loop] article:last-child {
-  border-right: 0;
+  border-right: 0 !important;
 }
-.gb-valor-panel .gb-loop-card h3 {
-  font-size: clamp(15px, 1.2vw + 0.4vh, 20px) !important;
+.gb-valor-panel .gb-loop-card.is-end {
+  background: rgba(125, 202, 165, 0.14) !important;
+}
+.gb-valor-panel .gb-loop-card:hover,
+.gb-valor-panel [data-valor-loop] article:hover {
+  background: var(--gold) !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+.gb-valor-panel .gb-loop-num {
+  color: #9a7a00 !important;
+  font: 800 11px/1 var(--mono) !important;
+}
+.gb-valor-panel .gb-loop-label {
+  color: #6e6d66 !important;
+  font: 800 9px/1 var(--mono) !important;
+}
+.gb-valor-panel .gb-loop-card h3,
+.gb-valor-panel [data-valor-loop] h3 {
+  font-size: clamp(14px, 1.1vw + 0.35vh, 18px) !important;
   line-height: 1.15 !important;
-  margin: 0 !important;
+  margin: 2px 0 0 !important;
+  color: #11120e !important;
 }
-.gb-valor-panel .gb-loop-card p {
-  font-size: clamp(12px, 0.95vw, 14px) !important;
-  line-height: 1.4 !important;
+.gb-valor-panel .gb-loop-card p,
+.gb-valor-panel [data-valor-loop] p {
+  font-size: clamp(11px, 0.9vw, 13px) !important;
+  line-height: 1.35 !important;
   margin: 0 !important;
-  color: #5a5952;
+  flex: 0 1 auto !important;
+  color: #5a5952 !important;
+}
+.gb-valor-panel .gb-loop-card:hover h3,
+.gb-valor-panel .gb-loop-card:hover p,
+.gb-valor-panel .gb-loop-card:hover .gb-loop-num,
+.gb-valor-panel .gb-loop-card:hover .gb-loop-label {
+  color: #11120e !important;
 }
 .gb-valor-panel .gb-panel-bar {
   flex-shrink: 0 !important;
   justify-content: center !important;
-  min-height: 44px !important;
-  padding: 10px 16px !important;
+  min-height: 40px !important;
+  padding: 8px 14px !important;
+  margin: 0 !important;
+  background: #11120e !important;
+  color: var(--gold) !important;
+  border-top: 0 !important;
+  position: relative;
+  z-index: 2;
 }
 .gb-valor-bottom { display: none !important; } /* legacy */
 
@@ -583,11 +644,17 @@ a.brand { cursor: pointer; }
   justify-content: center !important;
   align-items: center !important;
   text-align: center !important;
+  max-width: none !important; /* was --max → left-biased empty strip */
+  width: 100% !important;
+  margin: 0 !important;
+  padding-bottom: calc(var(--chrome-bottom) + 4px) !important;
 }
 .gb-contact-inner {
   width: min(100%, 720px) !important;
+  max-width: 720px !important;
   max-height: var(--slide-inner) !important;
   margin: 0 auto !important;
+  align-self: center !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -712,17 +779,25 @@ a.brand { cursor: pointer; }
 
 /* Short viewports — compress globally */
 @media (max-height: 800px) {
-  :root { --chrome-bottom: 60px; --slide-pad-top: calc(var(--header) + 8px); }
-  .gb-hero-copy h1 { font-size: clamp(30px, 4.5vw, 56px) !important; }
+  :root { --chrome-bottom: 84px; --slide-pad-top: calc(var(--header) + 6px); }
+  .gb-hero-copy h1 { font-size: clamp(28px, 4.2vw, 52px) !important; }
+  .gb-hero-stack { gap: 6px !important; }
+  .gb-lead { margin-bottom: 8px !important; }
+  .gb-actions .button { min-height: 36px !important; }
   .gb-contact h2 { font-size: clamp(36px, 7vw, 72px) !important; }
-  .gb-metrics > div { padding: 6px 10px !important; }
+  .gb-metrics > div { padding: 5px 8px !important; }
+  .gb-metrics strong { font-size: clamp(18px, 1.8vw, 28px) !important; }
   .gb-hero-tags-fx { display: none !important; }
   .gb-card-list li:nth-child(n+3) { display: none !important; }
   .gb-valor-panel { min-height: 0 !important; }
-  .gb-valor-head { padding: 10px 14px 8px !important; }
-  .gb-valor-head h2 { font-size: clamp(22px, 3vw, 34px) !important; }
+  .gb-valor-head { padding: 8px 12px 6px !important; }
+  .gb-valor-head h2 { font-size: clamp(20px, 2.8vw, 32px) !important; }
+  .gb-valor-panel .gb-loop-card,
+  .gb-valor-panel [data-valor-loop] article { padding: 8px 10px !important; }
   .slide h2 { font-size: clamp(20px, 2.4vw, 32px) !important; }
-  .gb-panel-bar, .gb-demos-foot { min-height: 36px !important; padding: 8px 12px !important; }
+  .gb-panel-bar, .gb-demos-foot { min-height: 34px !important; padding: 6px 10px !important; }
+  /* Global bottom clearance for all fit slides */
+  .slide.fit { padding-bottom: calc(var(--chrome-bottom) + 2px) !important; }
 }
 @media (max-height: 700px) {
   .gb-hero .gb-card { display: none !important; }
@@ -742,7 +817,7 @@ a.brand { cursor: pointer; }
 @media (max-width: 980px) {
   :root {
     --header: 60px;
-    --chrome-bottom: 64px;
+    --chrome-bottom: 88px; /* full-width controls + ≥12px clearance */
     --pad: clamp(12px, 4vw, 24px);
   }
   .brand-text, .brand-lockup { display: flex !important; visibility: visible !important; opacity: 1 !important; }
@@ -840,4 +915,32 @@ a.brand { cursor: pointer; }
 }
 @media (prefers-reduced-motion: reduce) {
   .brand-mark, .button, .header-cta, .gb-hero-tags-fx span { transition: none; animation: none !important; }
+}
+
+
+/* ============================================================
+   QA REMAINDERS (post PR#5) — metrics/controls, Edge contrast,
+   contact center, global chrome clearance
+   ============================================================ */
+.slide.fit,
+.slide {
+  /* ensure content never sits under fixed deck-controls */
+  padding-bottom: max(var(--chrome-bottom), calc(env(safe-area-inset-bottom, 0px) + 72px)) !important;
+}
+#inicio.slide .gb-metrics,
+#valor.slide .gb-panel-bar,
+#contacto.slide .gb-contact-meta {
+  margin-bottom: 0 !important;
+}
+
+/* Light theme: keep Edge readable */
+html[data-theme="light"] .gb-valor-panel,
+html[data-theme="light"] .gb-valor-panel .gb-loop-card,
+html[data-theme="light"] .gb-valor-panel [data-valor-loop] article {
+  background: #fffef8 !important;
+  color: #11120e !important;
+}
+html[data-theme="light"] .gb-valor-head h2 em {
+  color: #9a7a00 !important;
+  opacity: 1 !important;
 }
