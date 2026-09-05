@@ -1,0 +1,1005 @@
+/* ============================================================
+   FINAL DECK v3 — spacing · scroll · responsive
+   Loads LAST. Tokens over !important wars where possible.
+   Hide fake scroll; allow overflow only when content exceeds.
+   Breakpoints: tablet ~1100 · phone ~760 · tap ≥44px
+   ============================================================ */
+
+:root {
+  /* Spacing scale after title band */
+  --title-gap: 12px;           /* index ↔ eyebrow */
+  --title-lead-gap: 20px;      /* h2 ↔ lead (MORE air) */
+  --block-gap: 24px;           /* title band ↔ body */
+  --section-gap: clamp(14px, 2vh, 22px);
+  --panel-inset: 20px;
+
+  /* Viewport chrome */
+  --header: 64px;
+  --slide-pad-top: calc(var(--header) + 18px);
+  --chrome-bottom: 88px;       /* controls clear of CTAs */
+  --slide-inner: calc(100svh - var(--slide-pad-top) - var(--chrome-bottom));
+
+  /* Title micro-rhythm (compat with prior tokens) */
+  --title-band-pad-top: 4px;
+  --title-index-mb: var(--title-gap);
+  --title-eyebrow-mb: var(--title-gap);
+  --title-h2-mb: 0px;
+  --title-lead-mt: var(--title-lead-gap);
+
+  --tap: 44px;
+  --max: 1240px;
+}
+
+/* —— Deck: snap navigation without permanent scrollbar chrome —— */
+.deck {
+  height: 100svh !important;
+  max-height: 100svh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  scroll-snap-type: y mandatory !important;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none; /* Firefox — hide always-on deck bar */
+  -ms-overflow-style: none;
+}
+.deck::-webkit-scrollbar { width: 0; height: 0; }
+
+/* —— Slides: one viewport; NO inner scrollbar by default —— */
+.slide,
+.slide.fit {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+  max-height: 100svh !important;
+  padding: var(--slide-pad-top) var(--pad) var(--chrome-bottom) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  gap: var(--section-gap) !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important; /* critical: kill fake scroll */
+  scroll-snap-align: start !important;
+  scroll-snap-stop: always !important;
+}
+
+/* Only when JS marks true overflow (or rare tall content) */
+.slide.is-scrollable,
+.slide.fit.is-scrollable {
+  overflow-y: auto !important;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--gold) 45%, transparent) transparent;
+}
+.slide.is-scrollable::-webkit-scrollbar { width: 6px; }
+.slide.is-scrollable::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--gold) 40%, #444);
+  border-radius: 999px;
+}
+
+.slide > * {
+  max-width: 100%;
+  min-height: 0;
+}
+
+/* —— Shared shells: fill remaining space WITHOUT forcing overflow —— */
+.gb-hero-stack,
+.gb-valor-panel,
+.gb-star,
+.gb-demos,
+.gb-career-panel,
+.gb-exp-panel,
+.gb-edu-panel,
+.gb-contact-inner {
+  width: min(100%, var(--max)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+/* —— Title band rhythm: MORE separation after title/lead —— */
+.gb-title-band,
+.gb-star-head,
+.gb-demos-head,
+.gb-panel-head,
+.gb-panel-head-compact,
+.gb-route-top,
+.gb-method-top,
+.gb-caps-top,
+.gb-valor-head,
+.gb-line-head,
+.gb-hero-title-band {
+  flex-shrink: 0 !important;
+  padding-top: var(--title-band-pad-top) !important;
+  margin-bottom: 0 !important;
+}
+
+.gb-title-band .slide-index,
+.gb-title-block .slide-index,
+.gb-panel-head .slide-index,
+.gb-star-head .slide-index,
+.gb-demos-head .slide-index,
+.gb-valor-head .slide-index,
+.gb-line-head .slide-index,
+.gb-edu-head .slide-index,
+.gb-caps-top .slide-index,
+.gb-route-top .slide-index,
+.gb-method-top .slide-index {
+  margin: 0 0 var(--title-index-mb) !important;
+}
+
+.gb-title-band .eyebrow,
+.gb-title-block .eyebrow,
+.gb-panel-head .eyebrow,
+.gb-star-head .eyebrow,
+.gb-demos-head .eyebrow,
+.gb-valor-head .eyebrow,
+.gb-kicker.eyebrow,
+.gb-caps-top .eyebrow,
+.gb-route-top .eyebrow,
+.gb-method-top .eyebrow {
+  margin: 0 0 var(--title-eyebrow-mb) !important;
+}
+
+.gb-panel-lead,
+.gb-star-lead,
+.gb-demos-lead,
+.gb-route-lead,
+.gb-method-lead,
+.gb-caps-lead {
+  margin-top: var(--title-lead-gap) !important;
+  margin-bottom: 0 !important;
+}
+
+/* Body after title band — consistent larger gap */
+.gb-title-band + .gb-loop,
+.gb-title-band + .gb-star-grid,
+.gb-title-band + .gb-demos-grid,
+.gb-panel-head + .gb-dual,
+.gb-panel-head + .gb-roles,
+.gb-panel-head-compact + .gb-dual,
+.gb-panel-head-compact + .gb-roles,
+.gb-star-head + .gb-star-grid,
+.gb-demos-head + .gb-demos-grid,
+.gb-route-top + .gb-route-body,
+.gb-method-top + .gb-method-grid,
+.gb-method-top + [data-method-steps],
+.gb-caps-top + .gb-caps-grid,
+.gb-line-head + .gb-line-frame,
+.gb-edu-head + .gb-edu-grid,
+.gb-edu-head + .education-layout,
+.gb-edu-head + .compact-edu,
+.gb-valor-head + .gb-loop {
+  margin-top: var(--block-gap) !important;
+}
+
+/* Two-column title tops keep grid, with clearer lead separation */
+.gb-route-top.gb-title-band,
+.gb-method-top.gb-title-band,
+.gb-caps-top.gb-title-band {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.35fr) minmax(200px, 0.85fr) !important;
+  gap: clamp(16px, 2.5vw, 32px) !important;
+  align-items: end !important;
+  margin-bottom: 0 !important;
+}
+
+/* ============================================================
+   00 COVER — cinema without fake scroll
+   ============================================================ */
+#inicio.slide {
+  padding-top: calc(var(--header) + 22px) !important;
+  padding-bottom: var(--chrome-bottom) !important;
+  overflow: hidden !important;
+  position: relative;
+}
+#inicio .gb-hero-stack {
+  min-height: 0 !important;
+  max-height: 100% !important;
+  justify-content: space-between !important;
+  gap: var(--block-gap) !important;
+  padding: 4px 0 0 !important;
+}
+#inicio .gb-hero-title-band {
+  margin-bottom: 10px !important;
+}
+#inicio .gb-status {
+  margin: 0 0 12px !important;
+}
+#inicio .gb-hero-copy h1 {
+  margin: 8px 0 var(--title-lead-gap) !important;
+}
+#inicio .gb-lead {
+  margin: 0 0 var(--block-gap) !important;
+  max-width: 38ch !important;
+}
+#inicio .gb-actions {
+  gap: 12px !important;
+  margin-bottom: 12px !important;
+}
+#inicio .gb-actions .button {
+  min-height: var(--tap) !important;
+}
+#inicio .gb-hero-grid {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  gap: clamp(20px, 2.8vw, 40px) !important;
+}
+#inicio .gb-card {
+  min-height: 0 !important;
+  max-height: 100% !important;
+}
+#inicio .gb-metrics {
+  flex-shrink: 0 !important;
+  margin-top: var(--block-gap) !important;
+  gap: 12px !important;
+}
+#inicio .gb-metrics > div {
+  min-height: 68px !important;
+}
+
+/* ============================================================
+   01 VALOR / EDGE
+   ============================================================ */
+#valor.slide { overflow: hidden !important; }
+#valor .gb-valor-panel {
+  min-height: 0 !important;
+  max-height: 100% !important;
+  height: 100% !important;
+  justify-content: space-between !important;
+}
+#valor .gb-valor-head {
+  padding-bottom: 0 !important;
+}
+#valor .gb-valor-head .gb-panel-lead {
+  margin-top: var(--title-lead-gap) !important;
+}
+#valor .gb-loop {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  margin-top: var(--block-gap) !important;
+  gap: clamp(12px, 1.6vw, 18px) !important;
+  align-content: stretch !important;
+}
+#valor .gb-loop-card {
+  min-height: 0 !important;
+  padding: clamp(16px, 2vh, 22px) !important;
+}
+#valor .gb-panel-bar {
+  flex-shrink: 0 !important;
+  margin-top: var(--section-gap) !important;
+}
+
+/* ============================================================
+   02 BODYTONE / SISTEMAS
+   ============================================================ */
+#sistemas.slide { overflow: hidden !important; }
+#sistemas .gb-star {
+  min-height: 0 !important;
+  max-height: 100% !important;
+  gap: var(--block-gap) !important;
+}
+#sistemas .gb-star-lead {
+  margin-top: var(--title-lead-gap) !important;
+  margin-bottom: 0 !important;
+}
+#sistemas .gb-star-grid {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  margin-top: 0 !important;
+}
+#sistemas .gb-star-main {
+  min-height: 0 !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  overflow: auto !important;
+  scrollbar-width: thin;
+}
+#sistemas .gb-star-actions .button,
+#sistemas .project-actions .button {
+  min-height: var(--tap) !important;
+}
+#sistemas .proof-note {
+  flex-shrink: 0 !important;
+  margin-top: 8px !important;
+}
+
+/* ============================================================
+   03 DEMOS / LIVE
+   ============================================================ */
+#demos.slide { overflow: hidden !important; }
+#demos .gb-demos {
+  min-height: 0 !important;
+  max-height: 100% !important;
+  gap: var(--block-gap) !important;
+}
+#demos .gb-demos-lead {
+  margin-top: var(--title-lead-gap) !important;
+}
+#demos .gb-demos-grid {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  margin-top: 0 !important;
+  align-items: stretch !important;
+  gap: clamp(14px, 2vw, 20px) !important;
+}
+#demos .gb-demo-card {
+  min-height: 0 !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: clamp(18px, 2.2vh, 24px) !important;
+}
+#demos .gb-demo-actions .button {
+  min-height: var(--tap) !important;
+}
+#demos .gb-demos-foot {
+  flex-shrink: 0 !important;
+  margin-top: auto !important;
+  min-height: var(--tap) !important;
+}
+
+/* ============================================================
+   04 RUTA
+   ============================================================ */
+#ruta.slide { overflow: hidden !important; gap: var(--block-gap) !important; }
+#ruta .gb-route-top {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex-shrink: 0 !important;
+}
+#ruta .gb-route-lead {
+  margin-top: 0 !important;
+  padding-bottom: 2px !important;
+}
+#ruta .gb-route-body {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  display: grid !important;
+  gap: 14px !important;
+  overflow: hidden !important;
+}
+#ruta .gb-route-map {
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+#ruta .gb-city-panel {
+  min-height: 0 !important;
+  overflow: auto !important;
+  scrollbar-width: thin;
+  padding: var(--panel-inset) !important;
+}
+#ruta .gb-route-strip {
+  flex-shrink: 0 !important;
+}
+#ruta .gb-pin {
+  min-height: var(--tap) !important;
+  min-width: var(--tap) !important;
+}
+
+/* ============================================================
+   05 MÉTODO — fill intentionally, no fake scroll
+   ============================================================ */
+#metodo.slide {
+  overflow: hidden !important;
+  gap: var(--block-gap) !important;
+}
+#metodo .gb-method-top {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex-shrink: 0 !important;
+}
+#metodo .gb-method-lead {
+  margin-top: 0 !important;
+}
+#metodo .gb-method-grid,
+#metodo [data-method-steps] {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+#metodo .gb-step {
+  min-height: 0 !important;
+  height: 100% !important;
+  padding: clamp(16px, 2vh, 24px) clamp(14px, 1.6vw, 20px) !important;
+}
+#metodo .gb-method-formula {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex-shrink: 0 !important;
+  margin-top: 4px !important;
+  gap: 10px !important;
+}
+#metodo .gb-formula-card {
+  min-height: 0 !important;
+  padding: clamp(12px, 1.6vh, 18px) !important;
+}
+
+/* ============================================================
+   06 TRAYECTORIA — fill dual engines
+   ============================================================ */
+#trayectoria.slide { overflow: hidden !important; }
+#trayectoria .gb-career-panel {
+  min-height: 0 !important;
+  max-height: 100% !important;
+  height: 100% !important;
+}
+#trayectoria .gb-panel-head-compact {
+  flex-shrink: 0 !important;
+}
+#trayectoria .gb-panel-lead {
+  margin-top: var(--title-lead-gap) !important;
+}
+#trayectoria .gb-dual {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  margin-top: var(--block-gap) !important;
+  overflow: hidden !important;
+}
+#trayectoria .gb-engine {
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+#trayectoria .gb-engine-list {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: auto !important;
+  scrollbar-width: thin;
+}
+#trayectoria .gb-engine-list li {
+  min-height: 56px !important;
+  flex: 1 1 0 !important;
+}
+#trayectoria .gb-panel-bar {
+  flex-shrink: 0 !important;
+  margin-top: var(--section-gap) !important;
+}
+
+/* ============================================================
+   07 LÍNEA — responsive image, no page scroll
+   ============================================================ */
+#linea.slide {
+  overflow: hidden !important;
+  gap: var(--block-gap) !important;
+}
+#linea .gb-line-head {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex-shrink: 0 !important;
+}
+#linea .gb-line-kicker {
+  margin-top: var(--title-lead-gap) !important;
+  max-width: 40ch !important;
+}
+#linea .gb-line-frame {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  padding: clamp(10px, 1.6vh, 20px) !important;
+}
+#linea .gb-line-frame img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+/* ============================================================
+   08 / 09 EXPERIENCIA — roles flex; scroll only if needed
+   ============================================================ */
+#experiencia.slide,
+#experiencia-2.slide {
+  overflow: hidden !important;
+}
+#experiencia .gb-exp-panel,
+#experiencia-2 .gb-exp-panel {
+  min-height: 0 !important;
+  max-height: 100% !important;
+  height: 100% !important;
+}
+#experiencia .gb-panel-lead,
+#experiencia-2 .gb-panel-lead {
+  margin-top: var(--title-lead-gap) !important;
+}
+#experiencia .gb-roles,
+#experiencia-2 .gb-roles {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  margin-top: var(--block-gap) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important; /* only when roles exceed */
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--gold) 40%, transparent) transparent;
+}
+#experiencia .gb-role,
+#experiencia-2 .gb-role {
+  flex: 1 1 0 !important;
+  min-height: 88px !important;
+  min-width: 0 !important;
+  padding: clamp(14px, 1.8vh, 22px) clamp(14px, 1.8vw, 22px) !important;
+}
+#experiencia .gb-role-go,
+#experiencia-2 .gb-role-go,
+#experiencia .gb-exp-next,
+#experiencia-2 .gb-exp-next {
+  min-height: var(--tap) !important;
+}
+#experiencia .gb-panel-bar,
+#experiencia-2 .gb-panel-bar {
+  flex-shrink: 0 !important;
+  min-height: var(--tap) !important;
+  margin-top: 0 !important;
+}
+
+/* ============================================================
+   10 CAPACIDADES
+   ============================================================ */
+#capacidades.slide {
+  overflow: hidden !important;
+  gap: var(--block-gap) !important;
+}
+#capacidades .gb-caps-top {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex-shrink: 0 !important;
+}
+#capacidades .gb-caps-lead {
+  margin-top: 0 !important;
+}
+#capacidades .gb-caps-grid {
+  width: min(100%, var(--max)) !important;
+  margin: 0 auto !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  gap: clamp(12px, 1.6vw, 18px) !important;
+}
+#capacidades .gb-cap {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: clamp(14px, 1.8vh, 20px) !important;
+}
+#capacidades .gb-academy {
+  width: min(100%, var(--max)) !important;
+  margin: 8px auto 0 !important;
+  flex-shrink: 0 !important;
+  min-height: var(--tap) !important;
+}
+
+/* ============================================================
+   11 FORMACIÓN
+   ============================================================ */
+#formacion.slide { overflow: hidden !important; }
+#formacion .gb-edu-panel {
+  min-height: 0 !important;
+  max-height: 100% !important;
+  height: 100% !important;
+}
+#formacion .gb-edu-head {
+  flex-shrink: 0 !important;
+}
+#formacion .gb-edu-grid,
+#formacion .education-layout,
+#formacion .compact-edu {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  margin-top: var(--block-gap) !important;
+  overflow: auto !important;
+  scrollbar-width: thin;
+}
+#formacion .education-list li {
+  min-height: 44px !important;
+}
+
+/* ============================================================
+   12 CONTACTO — CTAs clear of chrome-bottom
+   ============================================================ */
+#contacto.slide { overflow: hidden !important; }
+#contacto .gb-contact-inner {
+  min-height: 0 !important;
+  max-height: 100% !important;
+  height: 100% !important;
+  justify-content: space-between !important;
+  gap: var(--block-gap) !important;
+  padding-bottom: 4px !important;
+}
+#contacto .gb-contact-actions .button,
+#contacto .button {
+  min-height: var(--tap) !important;
+}
+#contacto .gb-contact-actions {
+  gap: 12px !important;
+  margin-top: var(--block-gap) !important;
+}
+
+/* —— Controls: larger touch targets, clear of content —— */
+.deck-controls {
+  bottom: 14px !important;
+  right: 16px !important;
+  min-height: var(--tap) !important;
+  z-index: 230 !important;
+}
+.deck-controls button {
+  min-height: var(--tap) !important;
+  min-width: var(--tap) !important;
+  padding: 0 14px !important;
+}
+.deck-hint {
+  bottom: 18px !important;
+}
+
+/* —— Thin scrollbars for intentional inner regions only —— */
+.gb-roles::-webkit-scrollbar,
+.gb-engine-list::-webkit-scrollbar,
+.gb-city-panel::-webkit-scrollbar,
+.gb-star-main::-webkit-scrollbar {
+  width: 5px;
+}
+.gb-roles::-webkit-scrollbar-thumb,
+.gb-engine-list::-webkit-scrollbar-thumb,
+.gb-city-panel::-webkit-scrollbar-thumb,
+.gb-star-main::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--gold) 35%, #555);
+  border-radius: 999px;
+}
+
+/* ============================================================
+   TABLET ≤1100
+   ============================================================ */
+@media (max-width: 1100px) {
+  :root {
+    --slide-pad-top: calc(var(--header) + 14px) !important;
+    --chrome-bottom: 92px !important;
+    --title-gap: 10px !important;
+    --title-lead-gap: 16px !important;
+    --block-gap: 18px !important;
+    --title-index-mb: 10px !important;
+    --title-eyebrow-mb: 10px !important;
+    --title-lead-mt: 16px !important;
+    --panel-inset: 16px !important;
+    --pad: clamp(16px, 3.5vw, 40px);
+  }
+
+  .gb-route-top.gb-title-band,
+  .gb-method-top.gb-title-band,
+  .gb-caps-top.gb-title-band {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    align-items: start !important;
+  }
+
+  #inicio .gb-hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  #inicio .gb-card {
+    max-height: 220px !important;
+  }
+  #inicio .gb-metrics {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  #metodo .gb-method-grid,
+  #metodo [data-method-steps] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  #metodo .gb-step {
+    border-bottom: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line-dark)) !important;
+  }
+  #metodo .gb-step:nth-child(2n) { border-right: 0 !important; }
+  #metodo .gb-step:nth-child(n+3) { border-bottom: 0 !important; }
+  #metodo .gb-method-formula {
+    grid-template-columns: 1fr !important;
+  }
+  #metodo .gb-formula-op { display: none !important; }
+
+  #demos .gb-demos-grid {
+    grid-template-columns: 1fr !important;
+  }
+  #demos .gb-demo-card {
+    min-height: 0 !important;
+  }
+
+  #ruta .gb-route-body {
+    grid-template-columns: 1fr !important;
+  }
+
+  #capacidades .gb-caps-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  #trayectoria .gb-dual {
+    grid-template-columns: 1fr !important;
+  }
+  #trayectoria .gb-dual-x {
+    display: none !important;
+  }
+
+  body.has-os-rail .deck { margin-left: 0 !important; width: 100% !important; }
+}
+
+/* ============================================================
+   PHONE ≤760
+   ============================================================ */
+@media (max-width: 760px) {
+  :root {
+    --header: 56px !important;
+    --slide-pad-top: calc(var(--header) + 12px) !important;
+    --chrome-bottom: 96px !important;
+    --title-gap: 8px !important;
+    --title-lead-gap: 14px !important;
+    --block-gap: 16px !important;
+    --title-index-mb: 8px !important;
+    --title-eyebrow-mb: 8px !important;
+    --title-lead-mt: 14px !important;
+    --section-gap: 12px;
+    --panel-inset: 14px !important;
+    --pad: 16px;
+  }
+
+  .slide h2 {
+    font-size: clamp(24px, 7vw, 34px) !important;
+    line-height: 1.02 !important;
+  }
+
+  #inicio .gb-hero-copy h1 {
+    font-size: clamp(34px, 10vw, 52px) !important;
+  }
+  #inicio .gb-metrics {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  #inicio .gb-metrics > div {
+    min-height: 60px !important;
+  }
+  #inicio .gb-card {
+    display: none !important; /* reduce cover height on phone */
+  }
+  #inicio .gb-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  #inicio .gb-actions .button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  #valor .gb-loop {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  #sistemas .gb-star-metrics {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+  #sistemas .gb-star-actions {
+    flex-direction: column !important;
+  }
+  #sistemas .gb-star-actions .button {
+    width: 100% !important;
+  }
+
+  #metodo .gb-method-grid,
+  #metodo [data-method-steps] {
+    grid-template-columns: 1fr !important;
+  }
+  #metodo .gb-step {
+    min-height: 100px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line-dark)) !important;
+  }
+  #metodo .gb-step:last-child { border-bottom: 0 !important; }
+
+  #capacidades .gb-caps-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #experiencia .gb-role,
+  #experiencia-2 .gb-role {
+    min-height: 96px !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  #linea .gb-line-frame {
+    padding: 8px !important;
+  }
+
+  #contacto h2 {
+    font-size: clamp(40px, 14vw, 72px) !important;
+  }
+  #contacto .gb-contact-actions {
+    flex-direction: column !important;
+  }
+  #contacto .gb-contact-actions .button {
+    width: 100% !important;
+  }
+
+  .deck-controls {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 10px !important;
+    justify-content: space-between !important;
+  }
+  .deck-hint { display: none !important; }
+
+  /* Phone: allow natural document flow if content still overflows */
+  .slide.is-scrollable {
+    overflow-y: auto !important;
+  }
+}
+
+/* Short viewports (laptops ~1280×720/800) */
+@media (max-height: 780px) {
+  :root {
+    --slide-pad-top: calc(var(--header) + 12px) !important;
+    --chrome-bottom: 80px !important;
+    --title-lead-gap: 14px !important;
+    --block-gap: 16px !important;
+    --title-lead-mt: 14px !important;
+    --section-gap: 10px;
+  }
+  #inicio .gb-hero-copy h1 {
+    font-size: clamp(32px, 5vw + 1vh, 64px) !important;
+  }
+  #inicio .gb-metrics > div { min-height: 56px !important; }
+  #experiencia .gb-role,
+  #experiencia-2 .gb-role {
+    min-height: 72px !important;
+    padding: 12px 14px !important;
+  }
+  #metodo .gb-step { padding: 12px 14px !important; }
+  #trayectoria .gb-engine-list li { min-height: 48px !important; }
+}
+
+@media (max-height: 680px) {
+  :root {
+    --chrome-bottom: 76px;
+    --block-gap: 12px;
+  }
+  #inicio .gb-card { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #inicio .gb-hero-orb,
+  #ruta .gb-route-glow,
+  #ruta .gb-hub-ring,
+  #ruta .gb-spoke { animation: none !important; }
+}
+
+
+/* ============================================================
+   FINAL CASCADE — tokens + responsive (must load last)
+   ============================================================ */
+
+:root {
+  --slide-pad-top: calc(var(--header) + 18px) !important;
+  --chrome-bottom: 88px !important;
+  --slide-inner: calc(100svh - var(--slide-pad-top) - var(--chrome-bottom)) !important;
+  --title-gap: 12px !important;
+  --title-lead-gap: 20px !important;
+  --block-gap: 24px !important;
+  --title-index-mb: 12px !important;
+  --title-eyebrow-mb: 12px !important;
+  --title-lead-mt: 20px !important;
+  --panel-inset: 20px !important;
+}
+
+.slide,
+.slide.fit,
+#inicio.slide,
+#sistemas.slide,
+#demos.slide,
+#ruta.slide,
+#metodo.slide,
+#trayectoria.slide,
+#linea.slide,
+#experiencia.slide,
+#experiencia-2.slide,
+#capacidades.slide,
+#formacion.slide,
+#contacto.slide,
+#valor.slide {
+  padding-top: var(--slide-pad-top) !important;
+  padding-bottom: var(--chrome-bottom) !important;
+}
+
+#inicio .gb-hero-ambient {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+#inicio .gb-hero-stack {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.slide:not(.is-scrollable),
+.slide.fit:not(.is-scrollable) {
+  overflow-x: hidden !important;
+  overflow-y: clip !important;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --slide-pad-top: calc(var(--header) + 14px) !important;
+    --chrome-bottom: 92px !important;
+    --title-gap: 10px !important;
+    --title-lead-gap: 16px !important;
+    --block-gap: 18px !important;
+    --title-index-mb: 10px !important;
+    --title-eyebrow-mb: 10px !important;
+    --title-lead-mt: 16px !important;
+    --panel-inset: 16px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --header: 56px !important;
+    --slide-pad-top: calc(var(--header) + 12px) !important;
+    --chrome-bottom: 96px !important;
+    --title-gap: 8px !important;
+    --title-lead-gap: 14px !important;
+    --block-gap: 16px !important;
+    --title-index-mb: 8px !important;
+    --title-eyebrow-mb: 8px !important;
+    --title-lead-mt: 14px !important;
+    --panel-inset: 14px !important;
+  }
+}
+
+@media (max-height: 780px) {
+  :root {
+    --slide-pad-top: calc(var(--header) + 12px) !important;
+    --chrome-bottom: 80px !important;
+    --title-lead-gap: 14px !important;
+    --block-gap: 16px !important;
+    --title-lead-mt: 14px !important;
+  }
+}
+
+@media (max-height: 680px) {
+  :root {
+    --chrome-bottom: 76px !important;
+    --block-gap: 12px !important;
+  }
+}
+
+/* Absolute kill of deck chrome scrollbar (snap nav still works) */
+.deck,
+.deck:hover,
+.deck:focus {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+.deck::-webkit-scrollbar,
+.deck::-webkit-scrollbar-thumb,
+.deck::-webkit-scrollbar-track {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  background: transparent !important;
+}

@@ -734,3 +734,60 @@
   setActive(initial >= 0 ? initial : 0, false);
   if (initial > 0) window.setTimeout(() => goTo(initial, true), 0);
 })();
+
+/* FINAL-V3: scroll only when needed */
+(function () {
+  const deckEl = document.querySelector(".deck");
+  if (!deckEl) return;
+  const slides = Array.from(deckEl.querySelectorAll(".slide"));
+  const EPSILON = 3;
+
+  function slideNeedsScroll(slide) {
+    const cs = getComputedStyle(slide);
+    const padT = parseFloat(cs.paddingTop) || 0;
+    const padB = parseFloat(cs.paddingBottom) || 0;
+    const gapRaw = cs.rowGap && cs.rowGap !== "normal" ? cs.rowGap : cs.gap;
+    const gap = parseFloat(gapRaw) || 0;
+    const avail = slide.clientHeight - padT - padB;
+    if (avail <= 0) return false;
+
+    let used = 0;
+    let visible = 0;
+    for (const el of slide.children) {
+      const childCs = getComputedStyle(el);
+      if (childCs.display === "none") continue;
+      if (childCs.position === "absolute" || childCs.position === "fixed") continue;
+      const rect = el.getBoundingClientRect();
+      used += rect.height + (parseFloat(childCs.marginTop) || 0) + (parseFloat(childCs.marginBottom) || 0);
+      visible += 1;
+    }
+    if (visible > 1) used += gap * (visible - 1);
+    return used > avail + EPSILON;
+  }
+
+  function measureSlideOverflow() {
+    slides.forEach((slide) => {
+      slide.classList.toggle("is-scrollable", slideNeedsScroll(slide));
+    });
+  }
+
+  let raf = 0;
+  const schedule = () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      measureSlideOverflow();
+    });
+  };
+
+  window.addEventListener("resize", schedule, { passive: true });
+  window.addEventListener("load", schedule);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(schedule).catch(() => {});
+  }
+  setTimeout(schedule, 50);
+  setTimeout(schedule, 300);
+  setTimeout(schedule, 1000);
+  const mo = new MutationObserver(schedule);
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ["lang", "data-theme"] });
+})();
