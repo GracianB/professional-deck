@@ -1055,7 +1055,6 @@ body.has-os-rail .deck {
   background: var(--mark);
   box-shadow: 0 0 0 6px rgba(125,202,165,.18);
 }
-}
 .gb-city-nav {
   display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 12px;
   border-top: 1px solid var(--line-dark);
@@ -4582,3 +4581,386 @@ html[data-theme="light"] .command-dialog { color: var(--ink); }
 
 /* folded extras (sanitized) */
 /* extra-pass folded intentionally thin — v2 extreme owns chrome */
+
+
+/* ============================================================
+   V2.2 EXTREME — cinematic gold CS×Data×AI
+   Surfaces · type · progress · phone-first · one chrome
+   ============================================================ */
+
+:root, [data-theme="dark"] {
+  --bg: #06070a;
+  --surface: #0e1014;
+  --surface2: #14171d;
+  --gold: #f3d437;
+  --gold-2: #ffe452;
+  --gold-glow: rgba(243, 212, 55, 0.28);
+  --paper: #f3f0e7;
+  --ink: #11120e;
+  --white: #f4f3ee;
+  --r: 6px;
+  --r-lg: 14px;
+}
+
+[data-theme="light"] {
+  --bg: #f3f0e7;
+  --surface: #fffef8;
+  --surface2: #f7f4ec;
+  --gold: #b8921f;
+  --gold-2: #d4a82a;
+  --gold-glow: rgba(184, 146, 31, 0.22);
+  --paper: #fffef8;
+  --ink: #11120e;
+  --white: #11120e;
+}
+
+/* Cinematic progress — film strip feel */
+.top-progress {
+  height: 3px !important;
+  background: color-mix(in srgb, var(--gold) 12%, transparent) !important;
+  z-index: 80;
+}
+.top-progress i {
+  background: linear-gradient(90deg, var(--gold), var(--gold-2), #fff6b0) !important;
+  box-shadow: 0 0 20px var(--gold-glow), 0 0 4px var(--gold) !important;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ONE GB header — hub lockup, always visible on phone */
+.site-header {
+  height: var(--header);
+  min-height: var(--header);
+  padding: 0 clamp(14px, 3vw, 28px);
+  background: color-mix(in srgb, var(--bg) 88%, transparent) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line-dark)) !important;
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+.brand { gap: 12px; min-width: 0; }
+.brand-mark {
+  width: 40px !important; height: 40px !important; flex: 0 0 40px !important;
+  border-radius: 8px !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent) !important;
+  color: var(--gold) !important;
+  font: 800 13px/1 var(--mono) !important;
+  letter-spacing: .06em !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 10%, transparent);
+}
+.brand:hover .brand-mark {
+  background: var(--gold) !important;
+  color: #06070a !important;
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 28px var(--gold-glow) !important;
+}
+.brand-text, .brand-lockup {
+  display: flex !important;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.brand-text b, .brand-lockup b {
+  font: 800 11px/1.15 var(--mono) !important;
+  letter-spacing: .18em !important;
+  color: var(--white);
+}
+.brand-text small, .brand-lockup small {
+  font: 700 9px/1.2 var(--mono) !important;
+  letter-spacing: .16em !important;
+  color: var(--gold) !important;
+  text-transform: uppercase;
+}
+
+/* Seg controls — clean, no overlap */
+.seg {
+  display: inline-flex;
+  border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line-dark));
+  border-radius: 999px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+.seg-btn {
+  min-width: 42px; min-height: 36px;
+  padding: 0 12px;
+  font: 800 11px var(--mono);
+  letter-spacing: .08em;
+  color: var(--muted-dark);
+  background: transparent;
+}
+.seg-btn.is-active, .seg-btn[aria-pressed="true"] {
+  background: var(--gold) !important;
+  color: #06070a !important;
+}
+
+.header-cta {
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--gold) !important;
+  color: #06070a !important;
+  font: 800 11px var(--mono);
+  letter-spacing: .1em;
+  box-shadow: 0 8px 22px var(--gold-glow);
+}
+
+/* Reduce competing nav — rail is index only on desktop */
+.os-rail {
+  background: color-mix(in srgb, var(--bg) 96%, #000) !important;
+  border-right: 1px solid color-mix(in srgb, var(--gold) 10%, var(--line-dark)) !important;
+}
+.os-rail-item[aria-current="true"] {
+  background: color-mix(in srgb, var(--gold) 12%, transparent) !important;
+  border-color: color-mix(in srgb, var(--gold) 35%, transparent) !important;
+}
+.os-rail-item[aria-current="true"] i,
+.os-rail-status strong { color: var(--gold) !important; }
+.os-rail-meter i {
+  background: linear-gradient(180deg, var(--gold), var(--gold-2)) !important;
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+/* TYPE — cinematic Fraunces scale */
+.gb-hero-copy h1,
+.gb-hero h1 {
+  font-family: var(--display) !important;
+  font-weight: 700 !important;
+  font-size: clamp(48px, 9.5vw, 104px) !important;
+  line-height: .92 !important;
+  letter-spacing: -0.035em !important;
+  max-width: 11ch;
+}
+.gb-hero-copy h1 em,
+.gb-hero h1 em {
+  color: var(--gold) !important;
+  font-style: italic !important;
+  font-weight: 560 !important;
+}
+.gb-kicker, .eyebrow, .slide-index span:last-child {
+  font: 800 11px/1.3 var(--mono) !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase;
+  color: var(--gold) !important;
+}
+.gb-lead, .gb-panel-lead, .gb-star-lead {
+  font-size: clamp(16px, 1.6vw, 19px) !important;
+  line-height: 1.55 !important;
+  max-width: 42ch;
+  color: color-mix(in srgb, var(--white) 78%, transparent);
+}
+html[data-theme="light"] .gb-lead,
+html[data-theme="light"] .gb-panel-lead,
+html[data-theme="light"] .gb-star-lead {
+  color: color-mix(in srgb, var(--ink) 78%, transparent);
+}
+
+.slide h2 {
+  font-family: var(--display) !important;
+  font-weight: 650 !important;
+  font-size: clamp(32px, 5.2vw, 64px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.03em !important;
+}
+.slide h2 em { color: var(--gold) !important; font-style: italic; }
+
+/* Surfaces — soft panels with gold edge light */
+.gb-card, .gb-loop-card, .gb-star-main, .support-ui,
+.gb-panel, .gb-role, .edu-card, .cap-card {
+  border-radius: var(--r-lg) !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line-dark)) !important;
+  background:
+    linear-gradient(160deg,
+      color-mix(in srgb, var(--gold) 6%, var(--surface)),
+      var(--surface) 42%,
+      var(--surface2)) !important;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--gold) 10%, transparent) inset,
+    0 24px 60px rgba(0,0,0,.35) !important;
+}
+.gb-loop-card:hover, .gb-role:hover, .cap-card:hover {
+  border-color: color-mix(in srgb, var(--gold) 42%, transparent) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.4), 0 0 30px var(--gold-glow) !important;
+}
+.gb-card-title, .gb-loop-num, .gb-star-badge {
+  color: var(--gold) !important;
+}
+
+/* Metrics — gold numerals */
+.gb-metrics strong, .gb-star-metrics strong,
+[data-count] {
+  font-family: var(--display) !important;
+  font-weight: 700 !important;
+  color: var(--gold) !important;
+  letter-spacing: -0.02em;
+}
+
+/* Buttons */
+.button.primary, .btn.primary {
+  background: var(--gold) !important;
+  color: #06070a !important;
+  border-color: var(--gold) !important;
+  font-weight: 800 !important;
+  letter-spacing: .04em;
+  box-shadow: 0 10px 28px var(--gold-glow);
+  border-radius: 999px !important;
+}
+.button.ghost, .btn.ghost {
+  border-radius: 999px !important;
+  border-color: color-mix(in srgb, var(--gold) 30%, var(--line-dark)) !important;
+}
+.button.ghost:hover, .btn.ghost:hover {
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+/* Status pill — no overlap with actions */
+.gb-status {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+  font: 700 12px var(--mono);
+  letter-spacing: .06em;
+  margin-bottom: 18px;
+  width: fit-content;
+  max-width: 100%;
+}
+.gb-status i {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold-glow);
+  animation: gbPulse 2.4s ease-in-out infinite;
+}
+@keyframes gbPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .55; transform: scale(.85); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gb-status i { animation: none; }
+}
+
+.gb-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin: 22px 0 14px !important;
+  align-items: center;
+}
+.tag-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+.tag-row > span {
+  position: static !important;
+  min-height: 32px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line-dark);
+  font: 700 10px var(--mono);
+  letter-spacing: .08em;
+  background: transparent;
+}
+
+/* Hero ambient — gold cinematic */
+.gb-hero-orb-a {
+  background: radial-gradient(circle, color-mix(in srgb, var(--gold) 35%, transparent), transparent 70%) !important;
+  filter: blur(40px);
+}
+.gb-hero-orb-b {
+  background: radial-gradient(circle, rgba(122,243,255,.18), transparent 70%) !important;
+}
+.gb-hero-grid-fx {
+  opacity: .07 !important;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--gold) 40%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--gold) 40%, transparent) 1px, transparent 1px) !important;
+  background-size: 48px 48px !important;
+}
+
+/* Deck controls — phone friendly */
+.deck-controls {
+  gap: 8px;
+}
+.deck-controls button {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  border-radius: 999px !important;
+  border: 1px solid color-mix(in srgb, var(--gold) 25%, var(--line-dark)) !important;
+  background: color-mix(in srgb, var(--bg) 80%, transparent) !important;
+  backdrop-filter: blur(12px);
+}
+.deck-controls button:hover {
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+/* Light theme surfaces */
+html[data-theme="light"] .site-header {
+  background: color-mix(in srgb, var(--bg) 90%, transparent) !important;
+  border-bottom-color: color-mix(in srgb, var(--gold) 20%, var(--line-light)) !important;
+}
+html[data-theme="light"] .brand-text b { color: var(--ink) !important; }
+html[data-theme="light"] .gb-card,
+html[data-theme="light"] .gb-loop-card,
+html[data-theme="light"] .gb-star-main,
+html[data-theme="light"] .gb-panel {
+  box-shadow: 0 18px 40px rgba(17,18,14,.08) !important;
+}
+
+/* Phone-first — lockup ALWAYS visible, rail gone, nav collapses */
+@media (max-width: 1099px) {
+  .os-rail { display: none !important; }
+  body.has-os-rail .deck { margin-left: 0 !important; }
+}
+@media (max-width: 980px) {
+  .brand-text, .brand-lockup { display: flex !important; visibility: visible !important; opacity: 1 !important; }
+  .brand-mark { width: 40px !important; height: 40px !important; }
+  .main-nav {
+    position: fixed !important;
+    inset: var(--header) 0 auto !important;
+    display: none;
+    flex-direction: column;
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line-dark);
+    z-index: 70;
+    padding: 10px var(--pad) 16px;
+  }
+  .main-nav.open { display: flex !important; }
+  .menu-toggle { display: inline-flex !important; }
+  .header-cta, .nav-cmd { display: none !important; }
+  .gb-hero-copy h1 { font-size: clamp(44px, 12vw, 72px) !important; }
+  .gb-card { display: none; }
+  .gb-hero-tags-fx { display: none !important; }
+  .gb-metrics { grid-template-columns: 1fr 1fr !important; gap: 10px; }
+  .deck-hint { display: none !important; }
+}
+@media (max-width: 640px) {
+  .site-header { --header: 60px; min-height: 60px; padding: 0 12px; gap: 8px; }
+  .header-actions { gap: 6px; flex-wrap: nowrap; }
+  .seg-btn { min-width: 38px; padding: 0 8px; }
+  .brand { gap: 8px; flex: 1 1 auto; overflow: hidden; }
+  .brand-text b { font-size: 10px !important; letter-spacing: .12em !important; }
+  .brand-text small { font-size: 8px !important; letter-spacing: .12em !important; }
+  .gb-actions .button { width: 100%; justify-content: center; }
+  .gb-loop { grid-template-columns: 1fr !important; }
+}
+
+/* Hide lang gate if ever present */
+.lang-gate, .lang-fab { display: none !important; }
+
+/* Slide transition feel */
+.slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.deck {
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
