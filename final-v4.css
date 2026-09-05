@@ -20,6 +20,7 @@
   --timeline-navy: #010510;
   --marine: #041018;
   --ink: #06070a;
+  --ground: #06070a;
   --panel: #0c0e14;
   --panel-2: #10131b;
   --cream: #fffef8;
@@ -65,20 +66,37 @@
 }
 
 html[data-theme="light"] {
+  /* Accents — contrast on warm paper */
   --gold: #b8921f;
+  --gold-soft: color-mix(in srgb, #b8921f 55%, #fff8d6);
+  --gold-dim: rgba(184, 146, 31, 0.14);
+  --gold-line: color-mix(in srgb, #b8921f 28%, transparent);
   --ice: #0e7c88;
+  --ice-dim: rgba(14, 124, 136, 0.12);
   --sage: #2f6b4f;
-  --ink: #f4f3ee;
-  --panel: #ffffff;
-  --panel-2: #f7f6f1;
-  --cream: #14130f;
+  --sage-dim: rgba(47, 107, 79, 0.12);
+  --flare: #c44a2f;
+  --flare-dim: rgba(196, 74, 47, 0.14);
+  --flare-glow: rgba(196, 74, 47, 0.28);
+
+  /* --ink aligned with styles.css = dark text; --ground = page sheet */
+  --ink: #11120e;
+  --ground: #f3f0e7;
+  --panel: #fffef8;
+  --panel-2: #f7f4ec;
+  --cream: #11120e;
   --mute: #5c5b54;
   --mute-2: #3a3934;
-  --line: rgba(20, 19, 15, 0.1);
-  --line-strong: rgba(20, 19, 15, 0.16);
-  --timeline-navy: #e8eef6;
+  --line: rgba(17, 18, 14, 0.10);
+  --line-strong: rgba(17, 18, 14, 0.16);
+  --timeline-navy: #0a1220; /* keep cinematic frame for navy timeline art */
   --marine: #dfe8f2;
-  --shadow-panel: 0 18px 48px rgba(20, 19, 15, 0.1), 0 0 0 1px var(--gold-line);
+
+  --shadow-panel: 0 18px 48px rgba(17, 18, 14, 0.10), 0 0 0 1px var(--gold-line);
+  --shadow-card: 0 12px 32px rgba(17, 18, 14, 0.08);
+  --grad-panel:
+    linear-gradient(165deg, rgba(184, 146, 31, 0.07), transparent 42%),
+    linear-gradient(180deg, #fffef8, #f3f0e7);
 }
 
 /* ============================================================
@@ -465,7 +483,7 @@ html[data-theme="light"] {
    ============================================================ */
 #valor.slide {
   overflow: hidden !important;
-  background: var(--ink) !important;
+  background: var(--ground) !important;
   color: var(--cream) !important;
 }
 #valor .gb-valor-panel {
@@ -2124,193 +2142,29 @@ html[data-theme="light"] {
   #inicio .gb-metrics { gap: 8px !important; }
 }
 
-/* Light theme surfaces */
+/* Light theme surfaces (token-driven; no Edge dark lock) */
 html[data-theme="light"] #inicio.slide,
 html[data-theme="light"] #contacto.slide {
   background:
-    radial-gradient(ellipse 70% 50% at 18% 20%, rgba(184, 146, 31, 0.1), transparent 55%),
-    var(--ink) !important;
+    radial-gradient(ellipse 70% 50% at 18% 20%, rgba(184, 146, 31, 0.12), transparent 55%),
+    var(--ground) !important;
+  color: var(--cream) !important;
 }
 html[data-theme="light"] .gb-panel,
 html[data-theme="light"] .gb-career-panel,
 html[data-theme="light"] .gb-exp-panel,
 html[data-theme="light"] .gb-edu-panel {
-  background: linear-gradient(180deg, #fff, #f7f6f1) !important;
-}
-/* Edge stays dark gold cinema even in site light theme */
-html[data-theme="light"] #valor.slide,
-html[data-theme="light"] #valor .gb-valor-panel {
   background: var(--grad-panel) !important;
   color: var(--cream) !important;
+  border-color: var(--gold-line) !important;
+  box-shadow: var(--shadow-panel) !important;
 }
 
 /* ============================================================
-   HOTFIX — Edge full dark · rail scrollbar · cover index
-   (fix-edge-rail-cover) Loads last; hard-kill light paper on #valor.
-   Root cause: html[data-theme=light] remaps --ink/--panel/--grad-panel
-   to cream/white (#f4f3ee / #fff / #f7f6f1); .gb-loop-card base is #fffef8.
+   HOTFIX leftovers removed — Edge follows theme tokens.
+   Dark cinema: :root --ground/#06070a + --grad-panel.
+   Light paper: html[data-theme=light] tokens (+ COMPLETE LIGHT MODE).
    ============================================================ */
-
-/* —— 1) EDGE #valor — force cinema dark regardless of site theme —— */
-#valor.slide,
-#valor.slide.dark,
-.gb-valor-slide,
-html[data-theme="light"] #valor.slide,
-html[data-theme="light"] #valor.slide.dark,
-html[data-theme="light"] .gb-valor-slide {
-  /* Local token lock — never inherit light-theme cream paper */
-  --ink: #06070a !important;
-  --bg: #06070a !important;
-  --black: #06070a !important;
-  --black-2: #0c0e14 !important;
-  --panel: #0c0e14 !important;
-  --panel-2: #10131b !important;
-  --surface: #10131b !important;
-  --surface2: #0c0e14 !important;
-  --cream: #fffef8 !important;
-  --white: #fffef8 !important;
-  --mute: #a8a79d !important;
-  --mute-2: #c8c7bc !important;
-  --line: rgba(244, 243, 238, 0.1) !important;
-  --line-strong: rgba(244, 243, 238, 0.16) !important;
-  --line-light: rgba(244, 243, 238, 0.1) !important;
-  --line-dark: rgba(244, 243, 238, 0.1) !important;
-  --line-dark-2: rgba(244, 243, 238, 0.16) !important;
-  --gold: #f3d437 !important;
-  --gold-soft: color-mix(in srgb, #f3d437 55%, #fff8d6) !important;
-  --gold-line: color-mix(in srgb, #f3d437 22%, transparent) !important;
-  --ice: #7af3ff !important;
-  --sage: #7dcaa5 !important;
-  --flare: #ff6b4a !important;
-  --flare-dim: rgba(255, 107, 74, 0.14) !important;
-  --grad-panel:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.05), transparent 42%),
-    linear-gradient(180deg, #10131b, #0c0e14) !important;
-  --shadow-panel: 0 24px 64px rgba(0, 0, 0, 0.42), 0 0 0 1px color-mix(in srgb, #f3d437 22%, transparent) !important;
-
-  background: #06070a !important;
-  color: #fffef8 !important;
-}
-
-#valor .gb-valor-panel,
-#valor .gb-panel,
-#valor .gb-panel-dark,
-.gb-valor-slide > .gb-valor-panel,
-html[data-theme="light"] #valor .gb-valor-panel,
-html[data-theme="light"] #valor .gb-panel,
-html[data-theme="light"] #valor .gb-panel-dark,
-html[data-theme="light"] .gb-panel.gb-valor-panel {
-  background:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.05), transparent 42%),
-    linear-gradient(180deg, #10131b, #0c0e14) !important;
-  color: #fffef8 !important;
-  border-color: color-mix(in srgb, #f3d437 22%, transparent) !important;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.42), 0 0 0 1px color-mix(in srgb, #f3d437 22%, transparent) !important;
-}
-
-#valor .gb-valor-head,
-#valor .gb-loop,
-#valor [data-valor-loop],
-html[data-theme="light"] #valor .gb-valor-head,
-html[data-theme="light"] #valor .gb-loop {
-  background: transparent !important;
-  color: #fffef8 !important;
-}
-
-#valor .gb-loop-card,
-#valor [data-valor-loop] article,
-html[data-theme="light"] #valor .gb-loop-card,
-html[data-theme="light"] #valor [data-valor-loop] article,
-html[data-theme="light"] #valor .gb-loop-card.gb-loop-card {
-  background:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 50%),
-    rgba(0, 0, 0, 0.22) !important;
-  color: #fffef8 !important;
-  border-color: rgba(244, 243, 238, 0.1) !important;
-}
-
-#valor .gb-loop-card.is-end,
-html[data-theme="light"] #valor .gb-loop-card.is-end {
-  background:
-    linear-gradient(165deg, rgba(125, 202, 165, 0.12), transparent 50%),
-    rgba(0, 0, 0, 0.22) !important;
-}
-
-#valor .gb-loop-card h3,
-#valor .gb-loop-card p,
-#valor .gb-valor-head h2,
-#valor .gb-panel-lead,
-#valor .slide-index,
-html[data-theme="light"] #valor .gb-loop-card h3,
-html[data-theme="light"] #valor .gb-loop-card p,
-html[data-theme="light"] #valor .gb-valor-head h2,
-html[data-theme="light"] #valor .gb-panel-lead {
-  color: #fffef8 !important;
-}
-#valor .gb-valor-head h2 em,
-#valor .gb-loop-num,
-#valor .gb-valor-head .eyebrow,
-#valor .gb-panel-bar,
-html[data-theme="light"] #valor .gb-valor-head h2 em,
-html[data-theme="light"] #valor .gb-loop-num,
-html[data-theme="light"] #valor .gb-valor-head .eyebrow {
-  color: #f3d437 !important;
-}
-#valor .gb-loop-card p,
-#valor .gb-panel-lead,
-html[data-theme="light"] #valor .gb-loop-card p,
-html[data-theme="light"] #valor .gb-panel-lead {
-  color: #c8c7bc !important;
-}
-#valor .gb-loop-label,
-html[data-theme="light"] #valor .gb-loop-label {
-  color: #7af3ff !important;
-}
-#valor .gb-panel-bar,
-html[data-theme="light"] #valor .gb-panel-bar {
-  background: rgba(243, 212, 55, 0.08) !important;
-  border-top-color: color-mix(in srgb, #f3d437 22%, transparent) !important;
-  color: #f3d437 !important;
-}
-
-/* Paper offenders killed via explicit dark backgrounds below */
-#valor .gb-loop-card,
-#valor .gb-panel,
-#valor .gb-valor-panel,
-html[data-theme="light"] #valor .gb-loop-card,
-html[data-theme="light"] #valor .gb-panel,
-html[data-theme="light"] #valor .gb-valor-panel {
-  /* explicit denial of paper tokens */
-  background-color: transparent !important;
-}
-#valor.slide,
-#valor .gb-valor-panel,
-html[data-theme="light"] #valor.slide,
-html[data-theme="light"] #valor .gb-valor-panel {
-  background-color: #06070a !important;
-}
-#valor .gb-valor-panel,
-html[data-theme="light"] #valor .gb-valor-panel {
-  background:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.05), transparent 42%),
-    linear-gradient(180deg, #10131b, #0c0e14) !important;
-  background-color: #0c0e14 !important;
-}
-#valor .gb-loop-card,
-#valor [data-valor-loop] article,
-html[data-theme="light"] #valor .gb-loop-card {
-  background:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 50%),
-    rgba(0, 0, 0, 0.28) !important;
-  background-color: #10131b !important;
-}
-#valor .gb-loop-card.is-end,
-html[data-theme="light"] #valor .gb-loop-card.is-end {
-  background:
-    linear-gradient(165deg, rgba(125, 202, 165, 0.12), transparent 50%),
-    rgba(0, 0, 0, 0.28) !important;
-  background-color: #0f1614 !important;
-}
 
 /* —— 2) OS RAIL NAV — intentional gold/dark scrollbar —— */
 .os-rail-nav[data-slide-rail],
@@ -2441,4 +2295,383 @@ html[data-theme="light"] #valor .gb-loop-card.is-end {
   z-index: 7 !important;
   color: #f3d437 !important;
   opacity: 1 !important;
+}
+
+/* ============================================================
+   COMPLETE LIGHT MODE — polished paper deck end-to-end
+   Loads last. Tokens drive surfaces; only gaps get overrides.
+   Dark cinema unchanged via :root defaults.
+   ============================================================ */
+
+/* —— Slide shells —— */
+html[data-theme="light"] .slide.dark,
+html[data-theme="light"] .gb-hero,
+html[data-theme="light"] .gb-valor-slide,
+html[data-theme="light"] .gb-star-slide,
+html[data-theme="light"] .gb-demos-slide,
+html[data-theme="light"] .gb-route,
+html[data-theme="light"] .gb-method,
+html[data-theme="light"] .gb-career-slide,
+html[data-theme="light"] .gb-exp-slide,
+html[data-theme="light"] .gb-caps,
+html[data-theme="light"] .gb-edu-slide,
+html[data-theme="light"] .gb-langs,
+html[data-theme="light"] .gb-contact,
+html[data-theme="light"] #inicio.slide,
+html[data-theme="light"] #valor.slide,
+html[data-theme="light"] #sistemas.slide,
+html[data-theme="light"] #demos.slide,
+html[data-theme="light"] #ruta.slide,
+html[data-theme="light"] #metodo.slide,
+html[data-theme="light"] #trayectoria.slide,
+html[data-theme="light"] #experiencia.slide,
+html[data-theme="light"] #experiencia-2.slide,
+html[data-theme="light"] #capacidades.slide,
+html[data-theme="light"] #formacion.slide,
+html[data-theme="light"] #idiomas.slide,
+html[data-theme="light"] #contacto.slide {
+  background: var(--ground) !important;
+  color: var(--cream) !important;
+}
+
+/* Line / timeline — keep navy cinematic frame (intentional) */
+html[data-theme="light"] #linea.slide,
+html[data-theme="light"] .gb-line-slide {
+  background: var(--timeline-navy) !important;
+  color: #fffef8 !important;
+}
+
+/* —— Edge #valor — paper + gold (both themes via tokens; light polish) —— */
+html[data-theme="light"] #valor.slide,
+html[data-theme="light"] .gb-valor-slide {
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(184, 146, 31, 0.10), transparent 55%),
+    var(--ground) !important;
+  color: var(--cream) !important;
+}
+html[data-theme="light"] #valor .gb-valor-panel,
+html[data-theme="light"] #valor .gb-panel,
+html[data-theme="light"] .gb-panel.gb-valor-panel {
+  background: var(--grad-panel) !important;
+  color: var(--cream) !important;
+  border-color: var(--gold-line) !important;
+  box-shadow: var(--shadow-panel) !important;
+}
+html[data-theme="light"] #valor .gb-valor-head {
+  background: linear-gradient(180deg, rgba(184, 146, 31, 0.08), transparent) !important;
+  border-bottom-color: var(--line) !important;
+  color: var(--cream) !important;
+}
+html[data-theme="light"] #valor .gb-loop-card,
+html[data-theme="light"] #valor [data-valor-loop] article {
+  background:
+    linear-gradient(165deg, rgba(184, 146, 31, 0.08), transparent 50%),
+    #fffef8 !important;
+  color: var(--cream) !important;
+  border-color: var(--line-strong) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+html[data-theme="light"] #valor .gb-loop-card.is-end {
+  background:
+    linear-gradient(165deg, rgba(47, 107, 79, 0.10), transparent 50%),
+    #f3faf6 !important;
+  border-color: color-mix(in srgb, var(--sage) 35%, var(--line)) !important;
+}
+html[data-theme="light"] #valor .gb-loop-card h3,
+html[data-theme="light"] #valor .gb-valor-head h2,
+html[data-theme="light"] #valor .slide-index {
+  color: var(--cream) !important;
+}
+html[data-theme="light"] #valor .gb-valor-head h2 em,
+html[data-theme="light"] #valor .gb-loop-num,
+html[data-theme="light"] #valor .gb-valor-head .eyebrow,
+html[data-theme="light"] #valor .gb-panel-bar {
+  color: var(--gold) !important;
+}
+html[data-theme="light"] #valor .gb-loop-card p,
+html[data-theme="light"] #valor .gb-panel-lead {
+  color: var(--mute-2) !important;
+}
+html[data-theme="light"] #valor .gb-loop-label {
+  color: var(--ice) !important;
+}
+html[data-theme="light"] #valor .gb-panel-bar {
+  background: rgba(184, 146, 31, 0.08) !important;
+  border-top-color: var(--gold-line) !important;
+}
+
+/* —— Cover index band (was hard white-on-dark) —— */
+html[data-theme="light"] #inicio .gb-hero-title-band,
+html[data-theme="light"] #inicio .gb-title-band.gb-hero-title-band {
+  background: linear-gradient(
+    90deg,
+    rgba(243, 240, 231, 0.92) 0%,
+    rgba(243, 240, 231, 0.55) 55%,
+    transparent 100%
+  ) !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] #inicio .gb-hero-index,
+html[data-theme="light"] #inicio .slide-index.gb-hero-index,
+html[data-theme="light"] #inicio .slide-index.light-index.gb-hero-index,
+html[data-theme="light"] #inicio .gb-hero-index span:last-child,
+html[data-theme="light"] #inicio .slide-index.light-index.gb-hero-index span:last-child {
+  color: var(--cream) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-index span:first-child,
+html[data-theme="light"] #inicio .gb-hero-title-band .eyebrow,
+html[data-theme="light"] #inicio .gb-kicker.eyebrow {
+  color: var(--gold) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-index i {
+  background: color-mix(in srgb, var(--gold) 70%, #11120e) !important;
+}
+
+/* —— Cards / engines / caps / langs —— */
+html[data-theme="light"] .gb-card,
+html[data-theme="light"] .gb-demo-card,
+html[data-theme="light"] .gb-role,
+html[data-theme="light"] .gb-cap,
+html[data-theme="light"] .gb-engine,
+html[data-theme="light"] .gb-step,
+html[data-theme="light"] .gb-formula-card,
+html[data-theme="light"] .gb-lang-card,
+html[data-theme="light"] .gb-star-main,
+html[data-theme="light"] .builder-note,
+html[data-theme="light"] .education-list li,
+html[data-theme="light"] #formacion .builder-note li {
+  background:
+    linear-gradient(165deg, rgba(184, 146, 31, 0.06), transparent 48%),
+    var(--panel) !important;
+  border-color: var(--line-strong) !important;
+  color: var(--cream) !important;
+  box-shadow: var(--shadow-card);
+}
+html[data-theme="light"] .gb-loop-card {
+  background:
+    linear-gradient(165deg, rgba(184, 146, 31, 0.08), transparent 50%),
+    var(--panel) !important;
+  color: var(--cream) !important;
+  border-color: var(--line-strong) !important;
+}
+
+/* Method / formula dark glass → paper */
+html[data-theme="light"] #metodo .gb-formula-card {
+  background: var(--panel) !important;
+}
+html[data-theme="light"] #metodo .gb-formula-card.result {
+  background: linear-gradient(145deg, rgba(184, 146, 31, 0.12), rgba(14, 124, 136, 0.08)) !important;
+}
+html[data-theme="light"] #metodo .gb-step.is-final,
+html[data-theme="light"] #capacidades .gb-cap.is-human,
+html[data-theme="light"] #valor .gb-loop-card.is-end {
+  border-color: color-mix(in srgb, var(--sage) 35%, var(--line)) !important;
+}
+
+/* Text hierarchy on light */
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] .gb-hero-copy h1,
+html[data-theme="light"] .gb-contact h2,
+html[data-theme="light"] .brand-text b,
+html[data-theme="light"] .os-rail-item.active,
+html[data-theme="light"] .gb-lead,
+html[data-theme="light"] .gb-panel-lead,
+html[data-theme="light"] .gb-star-lead {
+  color: var(--cream) !important;
+}
+html[data-theme="light"] .gb-star-lead,
+html[data-theme="light"] .gb-lead,
+html[data-theme="light"] .gb-panel-lead,
+html[data-theme="light"] .gb-route-lead,
+html[data-theme="light"] .gb-langs-lead {
+  color: var(--mute-2) !important;
+}
+html[data-theme="light"] h2 em,
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] .slide-index span:first-child {
+  color: var(--gold) !important;
+}
+
+/* Soft muted copy that was hardcoded for dark */
+html[data-theme="light"] #sistemas .gb-star-lead {
+  color: var(--mute-2) !important;
+}
+html[data-theme="light"] #capacidades .gb-cap-bar {
+  background: rgba(17, 18, 14, 0.08) !important;
+}
+
+/* —— Route map on paper —— */
+html[data-theme="light"] #ruta .gb-route-map {
+  background:
+    radial-gradient(circle at 50% 54%, rgba(184, 146, 31, 0.14), transparent 38%),
+    radial-gradient(circle at 68% 18%, rgba(14, 124, 136, 0.10), transparent 34%),
+    radial-gradient(circle at 88% 40%, rgba(196, 74, 47, 0.10), transparent 32%),
+    radial-gradient(circle at 18% 86%, rgba(47, 107, 79, 0.10), transparent 36%),
+    linear-gradient(155deg, rgba(14, 124, 136, 0.04), transparent 42%, rgba(184, 146, 31, 0.05)),
+    var(--panel) !important;
+  border-color: color-mix(in srgb, var(--gold) 32%, var(--ice) 16%, transparent) !important;
+  box-shadow: var(--shadow-panel) !important;
+}
+html[data-theme="light"] #ruta .gb-route-glow {
+  mix-blend-mode: multiply !important;
+  opacity: 0.55 !important;
+  filter: saturate(1.15) blur(1px);
+}
+html[data-theme="light"] #ruta .gb-route-scan {
+  mix-blend-mode: multiply !important;
+  opacity: 0.45 !important;
+  background: linear-gradient(180deg, transparent 0%, rgba(14, 124, 136, 0.12) 48%, transparent 52%);
+}
+html[data-theme="light"] #ruta .gb-spoke {
+  opacity: 1 !important;
+  stroke-width: 0.85 !important;
+}
+html[data-theme="light"] #ruta .gb-hub-ring {
+  stroke: color-mix(in srgb, var(--gold) 70%, transparent) !important;
+}
+html[data-theme="light"] #ruta .gb-hub-ring-2 {
+  stroke: color-mix(in srgb, var(--ice) 65%, transparent) !important;
+}
+html[data-theme="light"] #ruta .gb-hub-ring-3 {
+  stroke: color-mix(in srgb, var(--flare) 55%, transparent) !important;
+}
+html[data-theme="light"] #ruta .gb-core-pulse {
+  filter: drop-shadow(0 0 2.5px rgba(184, 146, 31, 0.9)) !important;
+}
+html[data-theme="light"] #ruta .gb-pin b,
+html[data-theme="light"] #ruta .gb-route-caption,
+html[data-theme="light"] #ruta .gb-route-legend span {
+  color: var(--cream) !important;
+}
+html[data-theme="light"] #ruta .gb-route-legend {
+  background: color-mix(in srgb, var(--panel) 92%, transparent) !important;
+  border-color: var(--line-strong) !important;
+  box-shadow: var(--shadow-card);
+}
+html[data-theme="light"] #ruta .gb-route-strip .gb-strip-item {
+  background: var(--panel) !important;
+  border-color: var(--line) !important;
+  color: var(--mute-2) !important;
+}
+html[data-theme="light"] #ruta .gb-route-strip .gb-strip-item.is-on {
+  color: var(--cream) !important;
+  border-color: color-mix(in srgb, var(--gold) 50%, transparent) !important;
+  background: linear-gradient(180deg, rgba(184, 146, 31, 0.12), var(--panel)) !important;
+}
+
+/* —— Chrome: header, rail, controls, dialogs —— */
+html[data-theme="light"] .site-header {
+  background: color-mix(in srgb, var(--ground) 92%, transparent) !important;
+  border-bottom-color: color-mix(in srgb, var(--gold) 22%, var(--line)) !important;
+}
+html[data-theme="light"] .brand-text b,
+html[data-theme="light"] .brand-lockup b {
+  color: var(--cream) !important;
+}
+html[data-theme="light"] .os-rail {
+  background: color-mix(in srgb, var(--panel) 94%, transparent) !important;
+  border-right-color: var(--line) !important;
+}
+html[data-theme="light"] .os-rail-item {
+  color: var(--mute-2) !important;
+}
+html[data-theme="light"] .os-rail-item.active,
+html[data-theme="light"] .os-rail-item[aria-current="true"] {
+  color: var(--cream) !important;
+  background: color-mix(in srgb, var(--gold) 12%, transparent) !important;
+}
+html[data-theme="light"] .os-rail-nav,
+html[data-theme="light"] .os-rail-nav[data-slide-rail] {
+  scrollbar-color: color-mix(in srgb, var(--gold) 55%, #8a7018) #ebe6d8 !important;
+}
+html[data-theme="light"] .os-rail-nav::-webkit-scrollbar-track,
+html[data-theme="light"] .os-rail-nav[data-slide-rail]::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #f3f0e7, #ebe6d8 40%, #f3f0e7) !important;
+}
+html[data-theme="light"] .os-rail-nav::-webkit-scrollbar-thumb,
+html[data-theme="light"] .os-rail-nav[data-slide-rail]::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--gold) 75%, #fff8d6),
+    color-mix(in srgb, var(--gold) 45%, #8a7018)
+  ) !important;
+  border-color: color-mix(in srgb, var(--gold) 30%, transparent) !important;
+  box-shadow: 0 0 8px rgba(184, 146, 31, 0.25) !important;
+}
+html[data-theme="light"] .os-rail-nav::-webkit-scrollbar-thumb:hover,
+html[data-theme="light"] .os-rail-nav[data-slide-rail]::-webkit-scrollbar-thumb:hover {
+  background: var(--gold) !important;
+}
+
+html[data-theme="light"] .deck-controls button {
+  color: var(--cream) !important;
+  background: color-mix(in srgb, var(--panel) 88%, transparent) !important;
+  border-color: color-mix(in srgb, var(--gold) 28%, var(--line)) !important;
+}
+html[data-theme="light"] .deck-controls button:hover {
+  color: var(--gold) !important;
+  border-color: var(--gold) !important;
+}
+html[data-theme="light"] .deck-hint {
+  color: var(--mute) !important;
+}
+
+html[data-theme="light"] .recruiter-dialog,
+html[data-theme="light"] .experience-dialog,
+html[data-theme="light"] .command-dialog {
+  background: var(--panel) !important;
+  color: var(--cream) !important;
+  border-color: var(--line-strong) !important;
+  box-shadow: var(--shadow-panel) !important;
+}
+html[data-theme="light"] .command-dialog input,
+html[data-theme="light"] .command-dialog [role="option"],
+html[data-theme="light"] .recruiter-dialog a,
+html[data-theme="light"] .experience-dialog {
+  color: var(--cream) !important;
+}
+
+html[data-theme="light"] .main-nav {
+  background: color-mix(in srgb, var(--ground) 96%, transparent) !important;
+  border-bottom-color: var(--line) !important;
+}
+html[data-theme="light"] .main-nav > button,
+html[data-theme="light"] .main-nav > a {
+  color: var(--mute-2) !important;
+  border-bottom-color: var(--line) !important;
+}
+html[data-theme="light"] .main-nav > button:hover,
+html[data-theme="light"] .main-nav > a:hover,
+html[data-theme="light"] .seg-btn:hover {
+  color: var(--cream) !important;
+}
+html[data-theme="light"] .menu-toggle i {
+  background: var(--cream) !important;
+}
+html[data-theme="light"] .button.ghost {
+  color: var(--cream) !important;
+  border-color: var(--line-strong) !important;
+}
+
+html[data-theme="light"] body {
+  background: var(--ground);
+  color: var(--cream);
+}
+html[data-theme="light"] .top-progress {
+  background: color-mix(in srgb, var(--gold) 16%, transparent) !important;
+}
+
+/* Contact / metrics readability */
+html[data-theme="light"] #contacto .gb-contact-meta,
+html[data-theme="light"] #inicio .gb-metrics span {
+  color: var(--mute) !important;
+}
+html[data-theme="light"] #inicio .gb-card-list b,
+html[data-theme="light"] #inicio .gb-card-list small {
+  color: var(--cream) !important;
+}
+html[data-theme="light"] #inicio .gb-card-list small {
+  color: var(--mute) !important;
 }
