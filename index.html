@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=v2x4">
-  <link rel="stylesheet" href="./extra-pass.css?v=v2x4">
+  <link rel="stylesheet" href="./styles.css?v=v2x5">
+  <link rel="stylesheet" href="./extra-pass.css?v=v2x5">
   <script src="./i18n.js?v=v2x2"></script>
   <script src="./main.js?v=v2x2" defer></script>
 </head>
@@ -179,7 +179,7 @@
           <h2 data-i18n-html="sysH2">Bodytone Support OS.<br><em>El sistema que se puede verificar.</em></h2>
           <p class="gb-star-lead" data-i18n="sysP">Help Center público + enrutado + automatización + reporting. Prueba de que construyo sistemas de punta a punta — no solo slides.</p>
         </header>
-        <div class="gb-star-grid">
+        <div class="gb-star-grid is-solo">
           <article class="gb-star-main">
             <div class="gb-star-badge"><i></i> <span data-i18n="sysLive">PÚBLICO · LIVE</span></div>
             <h3 data-i18n="sysBodytoneH">Automatización + creación de app</h3>
@@ -190,6 +190,11 @@
               <li data-i18n="sysPoint3">Capa de datos / BI para ver fricción y calidad</li>
               <li data-i18n="sysPoint4">Formación interna (Bodytone Academy) para adopción real</li>
             </ul>
+            <div class="gb-star-metrics">
+              <div><strong>E2E</strong><span data-i18n="sysMet1">Sistema completo</span></div>
+              <div><strong>8+</strong><span data-i18n="sysMet2">rutas / intents</span></div>
+              <div><strong>AI</strong><span data-i18n="sysMet3">ops + academy</span></div>
+            </div>
             <div class="tag-row">
               <span>Zendesk</span><span>CX Ops</span><span>Automation</span><span>Power BI</span><span>Python</span><span>GenAI</span>
             </div>
@@ -198,25 +203,6 @@
               <a class="button ghost" href="https://bodytonehelp.zendesk.com/hc/es" target="_blank" rel="noreferrer" data-i18n="sysLiveLink">Ver sistema live ↗</a>
             </div>
           </article>
-          <aside class="gb-star-ui" aria-hidden="true">
-            <div class="support-ui is-star">
-              <div class="ui-bar"><span>BODYTONE SUPPORT</span><b>LIVE</b></div>
-              <div class="ui-layout">
-                <aside><strong>HELP</strong><i></i><i></i><i></i><i></i></aside>
-                <div>
-                  <h4>?</h4>
-                  <p>Search <b>↵</b></p>
-                  <section><i></i><i></i><i></i><i></i></section>
-                </div>
-              </div>
-              <footer>INTENT <b>→</b> ZENDESK <b>→</b> DATA <b>→</b> ADOPCIÓN</footer>
-            </div>
-            <div class="gb-star-metrics">
-              <div><strong>E2E</strong><span data-i18n="sysMet1">Sistema completo</span></div>
-              <div><strong>8+</strong><span data-i18n="sysMet2">rutas / intents</span></div>
-              <div><strong>AI</strong><span data-i18n="sysMet3">ops + academy</span></div>
-            </div>
-          </aside>
         </div>
         <p class="proof-note" data-i18n="proofNote">No publico bases, credenciales ni tarifas. Enseño impacto y protejo la lógica.</p>
       </div>
@@ -287,7 +273,21 @@
       </div>
       <div class="gb-route-body">
         <div class="gb-route-map" role="group" aria-label="Mapa trayectoria">
+          <div class="gb-route-glow" aria-hidden="true"></div>
+          <div class="gb-route-legend" aria-hidden="true">
+            <span class="is-gold">CORE</span>
+            <span class="is-ice">EU</span>
+            <span class="is-sage">ORIGIN</span>
+          </div>
           <svg class="gb-route-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <radialGradient id="routeHubGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#f3d437" stop-opacity="0.28"/>
+                <stop offset="55%" stop-color="#7af3ff" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="#06070a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle class="gb-hub-glow" cx="50" cy="54" r="26" fill="url(#routeHubGlow)"/>
             <circle class="gb-hub-ring" cx="50" cy="54" r="18"/>
             <circle class="gb-hub-ring gb-hub-ring-2" cx="50" cy="54" r="32"/>
             <line class="gb-spoke" x1="50" y1="54" x2="18" y2="86" fill="none"/>
@@ -628,35 +628,40 @@
     </section>
 
     <!-- 10 EDUCATION -->
-    <section class="slide light education-slide fit" id="formacion" data-title="Formación" data-code="11">
-      <div class="slide-index"><span>11</span><i></i><span data-i18n="eduIndex">EDUCATION / BUILDER</span></div>
-      <div class="education-layout compact-edu">
-        <article class="builder-note">
-          <span>AUTODIDACT / 05Y</span>
-          <strong data-i18n="eduBuilder">BUILD → TEST → LEARN → SHIP</strong>
+    <section class="slide dark fit gb-edu-slide" id="formacion" data-title="Formación" data-code="11">
+      <div class="gb-panel gb-panel-dark gb-edu-panel">
+        <header class="gb-panel-head gb-panel-head-compact gb-edu-head">
+          <p class="slide-index light-index"><span>11</span><i></i><span data-i18n="eduIndex">EDUCATION / BUILDER</span></p>
+          <p class="eyebrow">AUTODIDACT · 05Y · BUILDER</p>
           <h2 data-i18n="eduH2">No esperé al título para empezar a construir.</h2>
-          <p data-i18n="eduP">Aprendí programación y producto resolviendo problemas reales: apps, integraciones, dashboards y sistemas de decisión.</p>
-          <ul><li>Python · Flask · Apps Script</li><li>APIs · data · automation</li><li>Power BI · dashboards</li><li>GenAI · chatbots</li></ul>
-        </article>
-        <article class="education-list">
-          <div>
-            <p class="eyebrow" data-i18n="eduListLabel">FORMACIÓN</p>
-            <ul data-edu-list>
-              <li><b>2025</b><span>AI Visualization · Columbia</span></li>
-              <li><b>2023</b><span>IT Automation · Google</span></li>
-              <li><b>2022</b><span>Data Science · Coursera</span></li>
-              <li><b>2015</b><span>Tripulante de Cabina de Pasajeros · Esatur Formación</span></li>
-              <li><b>2012</b><span>Grado Turismo · Erasmus</span></li>
-              <li><b>2011</b><span>Diplomatura Turismo · Murcia</span></li>
-            </ul>
-          </div>
-          <div class="languages">
-            <span><b>ES</b><span data-i18n="langNative">Nativo</span></span>
-            <span><b>EN</b>C1</span>
-            <span><b>IT</b>C1</span>
-            <span><b>PT/FR</b><span data-i18n="langBasic">Básico</span></span>
-          </div>
-        </article>
+          <p class="gb-panel-lead" data-i18n="eduP">Aprendí programación y producto resolviendo problemas reales: apps, integraciones, dashboards y sistemas de decisión.</p>
+        </header>
+        <div class="gb-edu-grid education-layout compact-edu">
+          <article class="builder-note">
+            <span>LOOP</span>
+            <strong data-i18n="eduBuilder">BUILD → TEST → LEARN → SHIP</strong>
+            <ul><li>Python · Flask · Apps Script</li><li>APIs · data · automation</li><li>Power BI · dashboards</li><li>GenAI · chatbots</li></ul>
+          </article>
+          <article class="education-list">
+            <div>
+              <p class="eyebrow" data-i18n="eduListLabel">FORMACIÓN</p>
+              <ul data-edu-list>
+                <li><b>2025</b><span>AI Visualization · Columbia</span></li>
+                <li><b>2023</b><span>IT Automation · Google</span></li>
+                <li><b>2022</b><span>Data Science · Coursera</span></li>
+                <li><b>2015</b><span>Tripulante de Cabina de Pasajeros · Esatur Formación</span></li>
+                <li><b>2012</b><span>Grado Turismo · Erasmus</span></li>
+                <li><b>2011</b><span>Diplomatura Turismo · Murcia</span></li>
+              </ul>
+            </div>
+            <div class="languages">
+              <span><b>ES</b><span data-i18n="langNative">Nativo</span></span>
+              <span><b>EN</b>C1</span>
+              <span><b>IT</b>C1</span>
+              <span><b>PT/FR</b><span data-i18n="langBasic">Básico</span></span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -664,6 +669,7 @@
     <section class="slide dark fit gb-contact" id="contacto" data-title="Hablemos" data-code="12">
       <div class="gb-contact-inner">
         <p class="gb-contact-kicker" data-i18n="contactEyebrow">NEXT STEP</p>
+        <div class="gb-contact-rule" aria-hidden="true"></div>
         <h2 data-i18n-html="contactH2">HABLEMOS.</h2>
         <p class="gb-contact-sub" data-i18n="contactP">CS Systems · Data · AI Ops</p>
         <div class="gb-contact-actions">
@@ -675,21 +681,15 @@
           <a class="button ghost" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link data-i18n="contactCv">CV ↗</a>
           <a class="button ghost" href="./Gracian_Baena_Carta_Presentacion_ES.pdf" target="_blank" rel="noreferrer" data-letter-link data-i18n="contactLetter">Carta ↗</a>
         </div>
-        <p class="gb-contact-meta">
+        <nav class="gb-contact-meta" aria-label="Links">
           <a href="https://gracianb.github.io/GracianB/" target="_blank" rel="noreferrer">Hub ↗</a>
-          ·
           <a href="https://gracianb.github.io/systems-lab/" target="_blank" rel="noreferrer">PLAY ↗</a>
-          ·
           <a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noreferrer">Ohana ↗</a>
-          ·
           <a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noreferrer">Vórtice ↗</a>
-          ·
           <a href="https://bodytonehelp.zendesk.com/hc/es" target="_blank" rel="noreferrer">Help Center ↗</a>
-          ·
           <a href="https://github.com/GracianB" target="_blank" rel="noreferrer">GitHub ↗</a>
-          ·
           <span data-i18n="contactLoc">España · remoto OK</span>
-        </p>
+        </nav>
       </div>
     </section>
   </main>
