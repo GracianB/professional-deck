@@ -1,14 +1,14 @@
 /* ============================================================
    FINAL DECK v4 — cohesive production visual system
    Loads LAST. One intentional design language across slides 00–12.
-   Fraunces / Inter / JetBrains · gold / ice / sage cinema dark.
+   Fraunces / Inter / JetBrains · nude / champagne soft-gold editorial.
    ============================================================ */
 
 :root {
   /* —— Accents (cinema) —— */
-  --gold: #f3d437;
-  --gold-soft: color-mix(in srgb, var(--gold) 55%, #fff8d6);
-  --gold-dim: rgba(243, 212, 55, 0.14);
+  --gold: #C4A574;
+  --gold-soft: #D4B896;
+  --gold-dim: rgba(196, 165, 116, 0.14);
   --gold-line: color-mix(in srgb, var(--gold) 22%, transparent);
   --ice: #7af3ff;
   --ice-dim: rgba(122, 243, 255, 0.12);
@@ -17,15 +17,15 @@
   --flare: #ff6b4a;
   --flare-dim: rgba(255, 107, 74, 0.14);
   --flare-glow: rgba(255, 107, 74, 0.38);
-  --timeline-navy: #010510;
-  --marine: #041018;
-  --ink: #06070a;
-  --ground: #06070a;
-  --panel: #0c0e14;
-  --panel-2: #10131b;
-  --cream: #fffef8;
-  --mute: #a8a79d;
-  --mute-2: #c8c7bc;
+  --timeline-navy: #0C0A08;
+  --marine: #161210;
+  --ink: #2A2622;
+  --ground: #141210;
+  --panel: #1C1916;
+  --panel-2: #221E1A;
+  --cream: #F7F3EC;
+  --mute: #8A8178;
+  --mute-2: #B8AFA4;
   --line: rgba(244, 243, 238, 0.1);
   --line-strong: rgba(244, 243, 238, 0.16);
 
@@ -60,17 +60,17 @@
   --shadow-panel: 0 24px 64px rgba(0, 0, 0, 0.42), 0 0 0 1px var(--gold-line);
   --shadow-card: 0 14px 40px rgba(0, 0, 0, 0.28);
   --grad-panel:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.05), transparent 42%),
+    linear-gradient(165deg, rgba(196, 165, 116, 0.05), transparent 42%),
     linear-gradient(180deg, var(--panel-2), var(--panel));
   --grad-gold-line: linear-gradient(90deg, transparent, var(--gold), var(--ice), transparent);
 }
 
 html[data-theme="light"] {
   /* Accents — contrast on warm paper */
-  --gold: #b8921f;
-  --gold-soft: color-mix(in srgb, #b8921f 55%, #fff8d6);
-  --gold-dim: rgba(184, 146, 31, 0.14);
-  --gold-line: color-mix(in srgb, #b8921f 28%, transparent);
+  --gold: #C4A574;
+  --gold-soft: color-mix(in srgb, #C4A574 55%, #fff8d6);
+  --gold-dim: rgba(196, 165, 116, 0.14);
+  --gold-line: color-mix(in srgb, #C4A574 28%, transparent);
   --ice: #0e7c88;
   --ice-dim: rgba(14, 124, 136, 0.12);
   --sage: #2f6b4f;
@@ -80,41 +80,41 @@ html[data-theme="light"] {
   --flare-glow: rgba(196, 74, 47, 0.28);
 
   /* --ink = dark text; --ground = page sheet */
-  --ink: #11120e;
-  --ground: #f3f0e7;
-  --panel: #fffef8;
-  --panel-2: #f7f4ec;
-  --cream: #11120e;
-  --mute: #5c5b54;
-  --mute-2: #3a3934;
+  --ink: #2A2622;
+  --ground: #FAF7F2;
+  --panel: #FFFEFB;
+  --panel-2: #F3EDE4;
+  --cream: #2A2622;
+  --mute: #6F675F;
+  --mute-2: #4A443E;
   --line: rgba(17, 18, 14, 0.10);
   --line-strong: rgba(17, 18, 14, 0.16);
   /* Line slide page chrome: paper (image keeps its own navy pixels) */
-  --timeline-navy: #f3f0e7;
+  --timeline-navy: #FAF7F2;
   --marine: #e8eef5;
 
   /* Unify styles.css / extra-pass :root tokens that otherwise stay cinema-dark */
-  --bg: #f3f0e7;
-  --bg2: #e9e5d9;
-  --surface: #fffef8;
-  --surface2: #f7f4ec;
-  --black: #f3f0e7;
-  --black-2: #ebe6d8;
-  --paper: #fffef8;
-  --paper-2: #f7f4ec;
-  --white: #11120e;
-  --accent: #11120e;
-  --accent-ink: #f3f0e7;
-  --mark: #b8921f;
-  --yellow: #b8921f;
-  --yellow-2: #d4a82a;
-  --yellow-dim: rgba(184, 146, 31, 0.12);
-  --yellow-glow: rgba(184, 146, 31, 0.18);
-  --gold-glow: rgba(184, 146, 31, 0.18);
-  --muted-dark: #5c5b54;
-  --muted-light: #5c5b54;
-  --muted: #5c5b54;
-  --ink-on-dark: #11120e;
+  --bg: #FAF7F2;
+  --bg2: #EFE8DE;
+  --surface: #FFFEFB;
+  --surface2: #F3EDE4;
+  --black: #FAF7F2;
+  --black-2: #EFE8DE;
+  --paper: #FFFEFB;
+  --paper-2: #F3EDE4;
+  --white: #2A2622;
+  --accent: #2A2622;
+  --accent-ink: #FAF7F2;
+  --mark: #C4A574;
+  --yellow: #C4A574;
+  --yellow-2: #D4B896;
+  --yellow-dim: rgba(196, 165, 116, 0.12);
+  --yellow-glow: rgba(196, 165, 116, 0.18);
+  --gold-glow: rgba(196, 165, 116, 0.18);
+  --muted-dark: #6F675F;
+  --muted-light: #8A8178;
+  --muted: #6F675F;
+  --ink-on-dark: #2A2622;
   --line-dark: rgba(17, 18, 14, 0.12);
   --line-dark-2: rgba(17, 18, 14, 0.2);
   --line-light: rgba(17, 18, 14, 0.12);
@@ -126,8 +126,8 @@ html[data-theme="light"] {
   --shadow-panel: 0 18px 48px rgba(17, 18, 14, 0.10), 0 0 0 1px var(--gold-line);
   --shadow-card: 0 12px 32px rgba(17, 18, 14, 0.08);
   --grad-panel:
-    linear-gradient(165deg, rgba(184, 146, 31, 0.07), transparent 42%),
-    linear-gradient(180deg, #fffef8, #f3f0e7);
+    linear-gradient(165deg, rgba(196, 165, 116, 0.07), transparent 42%),
+    linear-gradient(180deg, #FFFEFB, #FAF7F2);
 }
 
 /* ============================================================
@@ -349,7 +349,7 @@ html[data-theme="light"] {
   justify-content: center !important;
   padding-bottom: var(--chrome-bottom) !important;
   background:
-    radial-gradient(ellipse 70% 50% at 18% 20%, rgba(243, 212, 55, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 18% 20%, rgba(196, 165, 116, 0.12), transparent 55%),
     radial-gradient(ellipse 55% 45% at 82% 70%, rgba(122, 243, 255, 0.08), transparent 50%),
     radial-gradient(ellipse 40% 35% at 60% 10%, rgba(125, 202, 165, 0.06), transparent 45%),
     var(--ground) !important;
@@ -376,7 +376,7 @@ html[data-theme="light"] {
   padding: 6px 12px !important;
   border-radius: 999px !important;
   border: 1px solid var(--gold-line) !important;
-  background: rgba(243, 212, 55, 0.06) !important;
+  background: rgba(196, 165, 116, 0.06) !important;
   color: var(--gold-soft) !important;
   font: 600 12px/1.2 var(--sans) !important;
 }
@@ -413,7 +413,7 @@ html[data-theme="light"] {
   gap: 10px !important;
 }
 #inicio .gb-actions .button.primary {
-  box-shadow: 0 10px 28px rgba(243, 212, 55, 0.22) !important;
+  box-shadow: 0 10px 28px rgba(196, 165, 116, 0.22) !important;
 }
 #inicio .gb-hero-proof {
   margin-top: 14px !important;
@@ -425,10 +425,10 @@ html[data-theme="light"] {
   border-radius: var(--r-xl) !important;
   border: 1px solid var(--gold-line) !important;
   background:
-    linear-gradient(160deg, rgba(243, 212, 55, 0.1), transparent 40%),
-    linear-gradient(200deg, rgba(122, 243, 255, 0.06), transparent 50%),
-    rgba(8, 10, 16, 0.88) !important;
-  box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255,255,255,0.04) !important;
+    linear-gradient(160deg, rgba(196, 165, 116, 0.14), transparent 42%),
+    linear-gradient(200deg, rgba(196, 165, 116, 0.05), transparent 55%),
+    #1C1916 !important;
+  box-shadow: var(--shadow-card), inset 0 1px 0 rgba(247,243,236,0.06) !important;
   backdrop-filter: blur(12px);
   overflow: hidden !important;
 }
@@ -527,7 +527,7 @@ html[data-theme="light"] {
   color: var(--cream) !important;
 }
 #valor .gb-valor-head {
-  background: linear-gradient(180deg, rgba(243, 212, 55, 0.06), transparent) !important;
+  background: linear-gradient(180deg, rgba(196, 165, 116, 0.06), transparent) !important;
   border-bottom-color: var(--line) !important;
 }
 #valor .gb-valor-head h2 { color: var(--cream) !important; }
@@ -559,7 +559,7 @@ html[data-theme="light"] {
   border-radius: var(--r-md) !important;
   border: 1px solid var(--line-strong) !important;
   background:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.08), transparent 50%),
+    linear-gradient(165deg, rgba(196, 165, 116, 0.08), transparent 50%),
     rgba(0, 0, 0, 0.2) !important;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
   transition: border-color 0.2s ease, transform 0.2s ease;
@@ -603,7 +603,7 @@ html[data-theme="light"] {
   justify-content: center !important;
   gap: 10px !important;
   border-top: 1px solid var(--gold-line) !important;
-  background: rgba(243, 212, 55, 0.05) !important;
+  background: rgba(196, 165, 116, 0.05) !important;
   font: 700 12px/1 var(--mono) !important;
   letter-spacing: 0.12em !important;
 }
@@ -635,7 +635,7 @@ html[data-theme="light"] {
   border-radius: var(--r-lg) !important;
   border: 1px solid var(--gold-line) !important;
   background:
-    linear-gradient(145deg, rgba(243, 212, 55, 0.1), transparent 40%),
+    linear-gradient(145deg, rgba(196, 165, 116, 0.1), transparent 40%),
     linear-gradient(200deg, rgba(122, 243, 255, 0.05), transparent 55%),
     var(--panel-2) !important;
   box-shadow: var(--shadow-panel) !important;
@@ -846,16 +846,16 @@ html[data-theme="light"] {
   border-radius: var(--r-lg) !important;
   border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--ice) 18%, transparent) !important;
   background:
-    radial-gradient(circle at 50% 54%, rgba(243, 212, 55, 0.16), transparent 38%),
+    radial-gradient(circle at 50% 54%, rgba(196, 165, 116, 0.16), transparent 38%),
     radial-gradient(circle at 68% 18%, rgba(122, 243, 255, 0.1), transparent 34%),
     radial-gradient(circle at 88% 40%, rgba(255, 107, 74, 0.12), transparent 32%),
     radial-gradient(circle at 18% 86%, rgba(125, 202, 165, 0.12), transparent 36%),
-    linear-gradient(155deg, rgba(122, 243, 255, 0.04), transparent 42%, rgba(243, 212, 55, 0.04)),
+    linear-gradient(155deg, rgba(122, 243, 255, 0.04), transparent 42%, rgba(196, 165, 116, 0.04)),
     var(--panel-2) !important;
   box-shadow:
     var(--shadow-panel),
     inset 0 0 60px rgba(122, 243, 255, 0.04),
-    0 0 40px rgba(243, 212, 55, 0.08) !important;
+    0 0 40px rgba(196, 165, 116, 0.08) !important;
   overflow: hidden !important;
   isolation: isolate;
 }
@@ -866,11 +866,11 @@ html[data-theme="light"] {
   pointer-events: none !important;
   background:
     conic-gradient(from 200deg at 50% 54%,
-      rgba(243, 212, 55, 0.1),
+      rgba(196, 165, 116, 0.1),
       rgba(122, 243, 255, 0.08),
       rgba(255, 107, 74, 0.09),
       rgba(125, 202, 165, 0.08),
-      rgba(243, 212, 55, 0.1));
+      rgba(196, 165, 116, 0.1));
   animation: route-spin 18s linear infinite !important;
   filter: saturate(1.25) blur(2px);
   opacity: 0.95 !important;
@@ -908,7 +908,7 @@ html[data-theme="light"] {
 #ruta .gb-core-pulse {
   fill: var(--gold) !important;
   opacity: 0.9;
-  filter: drop-shadow(0 0 2.5px rgba(243, 212, 55, 0.85));
+  filter: drop-shadow(0 0 2.5px rgba(196, 165, 116, 0.85));
   animation: core-pulse 2.1s ease-in-out infinite !important;
   transform-origin: 50px 54px;
   transform-box: fill-box;
@@ -956,7 +956,7 @@ html[data-theme="light"] {
 #ruta .gb-route-legend .is-gold {
   color: var(--gold) !important;
   border-color: color-mix(in srgb, var(--gold) 55%, transparent) !important;
-  box-shadow: 0 0 16px rgba(243, 212, 55, 0.18);
+  box-shadow: 0 0 16px rgba(196, 165, 116, 0.18);
 }
 #ruta .gb-route-legend .is-ice {
   color: var(--ice) !important;
@@ -1036,15 +1036,15 @@ html[data-theme="light"] {
   border-color: var(--gold) !important;
   background: var(--gold) !important;
   box-shadow:
-    0 0 0 6px rgba(243, 212, 55, 0.16),
-    0 0 28px rgba(243, 212, 55, 0.55),
+    0 0 0 6px rgba(196, 165, 116, 0.16),
+    0 0 28px rgba(196, 165, 116, 0.55),
     0 0 48px rgba(255, 107, 74, 0.18) !important;
   animation: core-pin-pulse 2.1s ease-in-out infinite !important;
 }
 #ruta .gb-pin.is-core span {
   border-color: color-mix(in srgb, var(--gold) 55%, transparent) !important;
-  color: #fffef8 !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(243, 212, 55, 0.2);
+  color: #FFFEFB !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(196, 165, 116, 0.2);
 }
 #ruta .gb-pin.is-core b {
   display: inline-block !important;
@@ -1052,10 +1052,10 @@ html[data-theme="light"] {
   padding: 3px 8px !important;
   border-radius: 999px !important;
   background: linear-gradient(135deg, var(--gold), color-mix(in srgb, var(--flare) 55%, var(--gold))) !important;
-  color: #16140f !important;
+  color: #2A2622 !important;
   font: 800 9px/1 var(--mono) !important;
   letter-spacing: 0.12em !important;
-  box-shadow: 0 0 18px rgba(243, 212, 55, 0.35);
+  box-shadow: 0 0 18px rgba(196, 165, 116, 0.35);
 }
 #ruta .gb-pin.is-core,
 #ruta .gb-pin.active {
@@ -1084,7 +1084,7 @@ html[data-theme="light"] {
   border-radius: var(--r-lg) !important;
   border: 1px solid color-mix(in srgb, var(--gold) 24%, var(--flare) 10%, transparent) !important;
   background:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 38%),
+    linear-gradient(165deg, rgba(196, 165, 116, 0.07), transparent 38%),
     linear-gradient(210deg, rgba(255, 107, 74, 0.05), transparent 45%),
     var(--panel-2) !important;
   box-shadow: var(--shadow-card), 0 0 32px rgba(122, 243, 255, 0.05) !important;
@@ -1102,16 +1102,16 @@ html[data-theme="light"] {
 }
 #ruta .gb-route-strip .gb-strip-item.is-on {
   border-color: color-mix(in srgb, var(--gold) 50%, var(--flare) 20%, transparent) !important;
-  background: linear-gradient(135deg, rgba(243, 212, 55, 0.12), rgba(255, 107, 74, 0.08)) !important;
-  box-shadow: 0 0 18px rgba(243, 212, 55, 0.12);
+  background: linear-gradient(135deg, rgba(196, 165, 116, 0.12), rgba(255, 107, 74, 0.08)) !important;
+  box-shadow: 0 0 18px rgba(196, 165, 116, 0.12);
 }
 @keyframes core-pulse {
   0%, 100% { opacity: 0.55; r: 3.6; }
   50% { opacity: 1; r: 5.1; }
 }
 @keyframes core-pin-pulse {
-  0%, 100% { box-shadow: 0 0 0 6px rgba(243, 212, 55, 0.14), 0 0 22px rgba(243, 212, 55, 0.45), 0 0 40px rgba(255, 107, 74, 0.12); }
-  50% { box-shadow: 0 0 0 9px rgba(243, 212, 55, 0.22), 0 0 34px rgba(243, 212, 55, 0.7), 0 0 56px rgba(255, 107, 74, 0.22); }
+  0%, 100% { box-shadow: 0 0 0 6px rgba(196, 165, 116, 0.14), 0 0 22px rgba(196, 165, 116, 0.45), 0 0 40px rgba(255, 107, 74, 0.12); }
+  50% { box-shadow: 0 0 0 9px rgba(196, 165, 116, 0.22), 0 0 34px rgba(196, 165, 116, 0.7), 0 0 56px rgba(255, 107, 74, 0.22); }
 }
 @keyframes route-scan {
   0% { background-position: 0 -40%; }
@@ -1176,7 +1176,7 @@ html[data-theme="light"] {
   border-radius: var(--r-md) !important;
   border: 1px solid var(--line-strong) !important;
   background:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 50%),
+    linear-gradient(165deg, rgba(196, 165, 116, 0.07), transparent 50%),
     var(--panel-2) !important;
   box-shadow: var(--shadow-card) !important;
 }
@@ -1226,7 +1226,7 @@ html[data-theme="light"] {
 }
 #metodo .gb-formula-card.result {
   border-color: var(--gold-line) !important;
-  background: linear-gradient(145deg, rgba(243, 212, 55, 0.1), rgba(122, 243, 255, 0.05)) !important;
+  background: linear-gradient(145deg, rgba(196, 165, 116, 0.1), rgba(122, 243, 255, 0.05)) !important;
 }
 #metodo .gb-formula-card small {
   font: 800 10px/1 var(--mono); letter-spacing: 0.12em; color: var(--mute);
@@ -1259,7 +1259,7 @@ html[data-theme="light"] {
 }
 #trayectoria .gb-panel-head-compact {
   padding: clamp(14px, 2vh, 22px) var(--panel-inset) clamp(10px, 1.3vh, 14px) !important;
-  background: linear-gradient(180deg, rgba(243, 212, 55, 0.06), transparent) !important;
+  background: linear-gradient(180deg, rgba(196, 165, 116, 0.06), transparent) !important;
 }
 #trayectoria .gb-panel-head-compact h2 {
   font-size: clamp(28px, 3.2vw + 0.6vh, 46px) !important;
@@ -1280,7 +1280,7 @@ html[data-theme="light"] {
   place-items: center !important;
   font-size: clamp(26px, 2.8vw, 38px) !important;
   color: var(--gold) !important;
-  background: linear-gradient(180deg, rgba(243, 212, 55, 0.12), rgba(125, 202, 165, 0.1)) !important;
+  background: linear-gradient(180deg, rgba(196, 165, 116, 0.12), rgba(125, 202, 165, 0.1)) !important;
   border-left: 1px solid var(--line);
   border-right: 1px solid var(--line);
 }
@@ -1363,7 +1363,7 @@ html[data-theme="light"] {
   min-height: 0 !important;
   border-radius: var(--r-sm) !important;
   border: 1px solid color-mix(in srgb, var(--sage) 28%, transparent) !important;
-  background: linear-gradient(90deg, rgba(125, 202, 165, 0.12), rgba(243, 212, 55, 0.06)) !important;
+  background: linear-gradient(90deg, rgba(125, 202, 165, 0.12), rgba(196, 165, 116, 0.06)) !important;
 }
 #trayectoria .gb-career-break em {
   font: 800 9px/1.2 var(--mono) !important;
@@ -1398,8 +1398,8 @@ html[data-theme="light"] {
   min-height: var(--tap) !important;
   margin: 0 !important;
   padding: 10px 16px !important;
-  border-top: 1px solid rgba(243, 212, 55, 0.22) !important;
-  background: rgba(243, 212, 55, 0.05) !important;
+  border-top: 1px solid rgba(196, 165, 116, 0.22) !important;
+  background: rgba(196, 165, 116, 0.05) !important;
 }
 
 /* ============================================================
@@ -1464,7 +1464,7 @@ html[data-theme="light"] {
 #experiencia .gb-panel-head-compact,
 #experiencia-2 .gb-panel-head-compact {
   padding: clamp(12px, 1.6vh, 18px) var(--panel-inset) clamp(8px, 1.1vh, 12px) !important;
-  background: linear-gradient(180deg, rgba(243, 212, 55, 0.05), transparent) !important;
+  background: linear-gradient(180deg, rgba(196, 165, 116, 0.05), transparent) !important;
 }
 #experiencia .gb-panel-head-compact h2,
 #experiencia-2 .gb-panel-head-compact h2 {
@@ -1508,7 +1508,7 @@ html[data-theme="light"] {
 #experiencia-2 .gb-role:hover,
 #experiencia .gb-role.is-featured,
 #experiencia-2 .gb-role.is-featured {
-  background: rgba(243, 212, 55, 0.04) !important;
+  background: rgba(196, 165, 116, 0.04) !important;
 }
 #experiencia .gb-role.is-featured {
   box-shadow: inset 3px 0 0 var(--gold) !important;
@@ -1623,8 +1623,8 @@ html[data-theme="light"] {
   flex-wrap: wrap !important;
   align-items: center !important;
   gap: 8px 10px !important;
-  border-top: 1px solid rgba(243, 212, 55, 0.22) !important;
-  background: rgba(243, 212, 55, 0.04) !important;
+  border-top: 1px solid rgba(196, 165, 116, 0.22) !important;
+  background: rgba(196, 165, 116, 0.04) !important;
 }
 #experiencia .gb-exp-next,
 #experiencia-2 .gb-exp-next {
@@ -1673,7 +1673,7 @@ html[data-theme="light"] {
   border-radius: var(--r-md) !important;
   border: 1px solid var(--line-strong) !important;
   background:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.07), transparent 50%),
+    linear-gradient(165deg, rgba(196, 165, 116, 0.07), transparent 50%),
     var(--panel-2) !important;
   box-shadow: var(--shadow-card) !important;
 }
@@ -1731,7 +1731,7 @@ html[data-theme="light"] {
   padding: 14px 18px !important;
   border-radius: var(--r-md) !important;
   border: 1px solid var(--gold-line) !important;
-  background: linear-gradient(90deg, rgba(243, 212, 55, 0.1), rgba(122, 243, 255, 0.05)) !important;
+  background: linear-gradient(90deg, rgba(196, 165, 116, 0.1), rgba(122, 243, 255, 0.05)) !important;
 }
 #capacidades .gb-academy > span {
   font: 800 12px/1 var(--mono); color: var(--gold); letter-spacing: 0.1em;
@@ -1761,7 +1761,7 @@ html[data-theme="light"] {
 }
 #formacion .gb-edu-head {
   padding: clamp(14px, 1.8vh, 20px) var(--panel-inset) clamp(10px, 1.3vh, 14px) !important;
-  background: linear-gradient(180deg, rgba(243, 212, 55, 0.06), transparent) !important;
+  background: linear-gradient(180deg, rgba(196, 165, 116, 0.06), transparent) !important;
 }
 #formacion .gb-edu-head h2 {
   margin: 4px 0 0 !important;
@@ -1897,7 +1897,7 @@ html[data-theme="light"] {
   border-radius: var(--r-md) !important;
   border: 1px solid var(--line-strong) !important;
   background:
-    linear-gradient(165deg, rgba(243, 212, 55, 0.08), transparent 52%),
+    linear-gradient(165deg, rgba(196, 165, 116, 0.08), transparent 52%),
     var(--panel-2) !important;
   box-shadow: var(--shadow-card) !important;
 }
@@ -1933,7 +1933,7 @@ html[data-theme="light"] {
   padding: 8px 12px !important;
   border-radius: var(--r-xs) !important;
   border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line)) !important;
-  background: rgba(243, 212, 55, 0.08) !important;
+  background: rgba(196, 165, 116, 0.08) !important;
   color: var(--gold) !important;
   font: 700 13px/1.2 var(--mono) !important;
   letter-spacing: 0.04em !important;
@@ -1953,7 +1953,7 @@ html[data-theme="light"] {
   overflow: hidden !important;
   justify-content: center !important;
   background:
-    radial-gradient(ellipse 60% 45% at 50% 0%, rgba(243, 212, 55, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 50% 0%, rgba(196, 165, 116, 0.12), transparent 55%),
     radial-gradient(ellipse 50% 40% at 80% 80%, rgba(122, 243, 255, 0.06), transparent 50%),
     var(--ground) !important;
 }
@@ -2024,7 +2024,7 @@ html[data-theme="light"] {
   border-radius: var(--r-lg) !important;
   border: 1px solid var(--gold-line) !important;
   background:
-    linear-gradient(120deg, rgba(243, 212, 55, 0.08), transparent 50%),
+    linear-gradient(120deg, rgba(196, 165, 116, 0.08), transparent 50%),
     rgba(255,255,255,0.02) !important;
   box-shadow: var(--shadow-card) !important;
 }
@@ -2035,7 +2035,7 @@ html[data-theme="light"] {
   gap: 10px !important;
 }
 #contacto .gb-contact-actions .button.primary {
-  box-shadow: 0 10px 28px rgba(243, 212, 55, 0.22) !important;
+  box-shadow: 0 10px 28px rgba(196, 165, 116, 0.22) !important;
 }
 
 /* ============================================================
@@ -2177,7 +2177,7 @@ html[data-theme="light"] {
 html[data-theme="light"] #inicio.slide,
 html[data-theme="light"] #contacto.slide {
   background:
-    radial-gradient(ellipse 70% 50% at 18% 20%, rgba(184, 146, 31, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 18% 20%, rgba(196, 165, 116, 0.12), transparent 55%),
     var(--ground) !important;
   color: var(--cream) !important;
 }
@@ -2193,7 +2193,7 @@ html[data-theme="light"] .gb-edu-panel {
 
 /* ============================================================
    HOTFIX leftovers removed — Edge follows theme tokens.
-   Dark cinema: :root --ground/#06070a + --grad-panel.
+   Dark cinema: :root --ground/#141210 + --grad-panel.
    Light paper: html[data-theme=light] tokens (+ COMPLETE LIGHT MODE).
    ============================================================ */
 
@@ -2205,7 +2205,7 @@ html[data-theme="light"] .gb-edu-panel {
   overscroll-behavior: contain;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, #f3d437 55%, #3a3420) #0a0b0e;
+  scrollbar-color: color-mix(in srgb, #C4A574 55%, #3a3420) #0a0b0e;
   /* Fade edges so the rail feels designed, not raw */
   -webkit-mask-image: linear-gradient(
     to bottom,
@@ -2228,7 +2228,7 @@ html[data-theme="light"] .gb-edu-panel {
 }
 .os-rail-nav[data-slide-rail]::-webkit-scrollbar-track,
 .os-rail-nav::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, #06070a, #0c0e14 40%, #06070a);
+  background: linear-gradient(180deg, #141210, #1C1916 40%, #141210);
   border-radius: 999px;
   margin: 6px 0;
 }
@@ -2236,16 +2236,16 @@ html[data-theme="light"] .gb-edu-panel {
 .os-rail-nav::-webkit-scrollbar-thumb {
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, #f3d437 70%, #fff8d6),
-    color-mix(in srgb, #f3d437 35%, #1a1608)
+    color-mix(in srgb, #C4A574 70%, #fff8d6),
+    color-mix(in srgb, #C4A574 35%, #1a1608)
   );
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, #f3d437 25%, transparent);
-  box-shadow: 0 0 8px rgba(243, 212, 55, 0.25);
+  border: 1px solid color-mix(in srgb, #C4A574 25%, transparent);
+  box-shadow: 0 0 8px rgba(196, 165, 116, 0.25);
 }
 .os-rail-nav[data-slide-rail]::-webkit-scrollbar-thumb:hover,
 .os-rail-nav::-webkit-scrollbar-thumb:hover {
-  background: #f3d437;
+  background: #C4A574;
 }
 .os-rail-nav[data-slide-rail]::-webkit-scrollbar-corner,
 .os-rail-nav::-webkit-scrollbar-corner {
@@ -2296,7 +2296,7 @@ html[data-theme="light"] .gb-edu-panel {
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
-  color: #fffef8 !important;
+  color: #FFFEFB !important;
   font: 800 11px/1.2 var(--mono) !important;
   letter-spacing: 0.14em !important;
   margin: 0 0 6px !important;
@@ -2309,22 +2309,22 @@ html[data-theme="light"] .gb-edu-panel {
   opacity: 1 !important;
 }
 #inicio .gb-hero-index span:first-child {
-  color: #f3d437 !important;
+  color: #C4A574 !important;
 }
 #inicio .gb-hero-index i {
-  background: color-mix(in srgb, #f3d437 70%, #fffef8) !important;
+  background: color-mix(in srgb, #C4A574 70%, #FFFEFB) !important;
   opacity: 0.9 !important;
 }
 #inicio .gb-hero-index span:last-child,
 #inicio .slide-index.light-index.gb-hero-index span:last-child {
-  color: #fffef8 !important;
+  color: #FFFEFB !important;
   letter-spacing: 0.16em !important;
 }
 #inicio .gb-hero-title-band .eyebrow,
 #inicio .gb-kicker.eyebrow {
   position: relative !important;
   z-index: 7 !important;
-  color: #f3d437 !important;
+  color: #C4A574 !important;
   opacity: 1 !important;
 }
 
@@ -2372,7 +2372,7 @@ html[data-theme="light"] .gb-line-slide {
   color: var(--cream) !important;
 }
 html[data-theme="light"] #linea .gb-line-frame {
-  background: #fffef8 !important;
+  background: #FFFEFB !important;
   border-color: color-mix(in srgb, var(--gold) 28%, var(--line)) !important;
   box-shadow: var(--shadow-panel) !important;
 }
@@ -2388,7 +2388,7 @@ html[data-theme="light"] #linea .slide-index span:last-child {
 html[data-theme="light"] #valor.slide,
 html[data-theme="light"] .gb-valor-slide {
   background:
-    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(184, 146, 31, 0.10), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(196, 165, 116, 0.10), transparent 55%),
     var(--ground) !important;
   color: var(--cream) !important;
 }
@@ -2401,15 +2401,15 @@ html[data-theme="light"] .gb-panel.gb-valor-panel {
   box-shadow: var(--shadow-panel) !important;
 }
 html[data-theme="light"] #valor .gb-valor-head {
-  background: linear-gradient(180deg, rgba(184, 146, 31, 0.08), transparent) !important;
+  background: linear-gradient(180deg, rgba(196, 165, 116, 0.08), transparent) !important;
   border-bottom-color: var(--line) !important;
   color: var(--cream) !important;
 }
 html[data-theme="light"] #valor .gb-loop-card,
 html[data-theme="light"] #valor [data-valor-loop] article {
   background:
-    linear-gradient(165deg, rgba(184, 146, 31, 0.08), transparent 50%),
-    #fffef8 !important;
+    linear-gradient(165deg, rgba(196, 165, 116, 0.08), transparent 50%),
+    #FFFEFB !important;
   color: var(--cream) !important;
   border-color: var(--line-strong) !important;
   box-shadow: var(--shadow-card) !important;
@@ -2439,7 +2439,7 @@ html[data-theme="light"] #valor .gb-loop-label {
   color: var(--ice) !important;
 }
 html[data-theme="light"] #valor .gb-panel-bar {
-  background: rgba(184, 146, 31, 0.08) !important;
+  background: rgba(196, 165, 116, 0.08) !important;
   border-top-color: var(--gold-line) !important;
 }
 
@@ -2467,7 +2467,7 @@ html[data-theme="light"] #inicio .gb-kicker.eyebrow {
   color: var(--gold) !important;
 }
 html[data-theme="light"] #inicio .gb-hero-index i {
-  background: color-mix(in srgb, var(--gold) 70%, #11120e) !important;
+  background: color-mix(in srgb, var(--gold) 70%, #2A2622) !important;
 }
 
 /* —— Cards / engines / caps / langs —— */
@@ -2484,7 +2484,7 @@ html[data-theme="light"] .builder-note,
 html[data-theme="light"] .education-list li,
 html[data-theme="light"] #formacion .builder-note li {
   background:
-    linear-gradient(165deg, rgba(184, 146, 31, 0.06), transparent 48%),
+    linear-gradient(165deg, rgba(196, 165, 116, 0.06), transparent 48%),
     var(--panel) !important;
   border-color: var(--line-strong) !important;
   color: var(--cream) !important;
@@ -2492,7 +2492,7 @@ html[data-theme="light"] #formacion .builder-note li {
 }
 html[data-theme="light"] .gb-loop-card {
   background:
-    linear-gradient(165deg, rgba(184, 146, 31, 0.08), transparent 50%),
+    linear-gradient(165deg, rgba(196, 165, 116, 0.08), transparent 50%),
     var(--panel) !important;
   color: var(--cream) !important;
   border-color: var(--line-strong) !important;
@@ -2503,7 +2503,7 @@ html[data-theme="light"] #metodo .gb-formula-card {
   background: var(--panel) !important;
 }
 html[data-theme="light"] #metodo .gb-formula-card.result {
-  background: linear-gradient(145deg, rgba(184, 146, 31, 0.12), rgba(14, 124, 136, 0.08)) !important;
+  background: linear-gradient(145deg, rgba(196, 165, 116, 0.12), rgba(14, 124, 136, 0.08)) !important;
 }
 html[data-theme="light"] #metodo .gb-step.is-final,
 html[data-theme="light"] #capacidades .gb-cap.is-human,
@@ -2548,11 +2548,11 @@ html[data-theme="light"] #capacidades .gb-cap-bar {
 /* —— Route map on paper —— */
 html[data-theme="light"] #ruta .gb-route-map {
   background:
-    radial-gradient(circle at 50% 54%, rgba(184, 146, 31, 0.14), transparent 38%),
+    radial-gradient(circle at 50% 54%, rgba(196, 165, 116, 0.14), transparent 38%),
     radial-gradient(circle at 68% 18%, rgba(14, 124, 136, 0.10), transparent 34%),
     radial-gradient(circle at 88% 40%, rgba(196, 74, 47, 0.10), transparent 32%),
     radial-gradient(circle at 18% 86%, rgba(47, 107, 79, 0.10), transparent 36%),
-    linear-gradient(155deg, rgba(14, 124, 136, 0.04), transparent 42%, rgba(184, 146, 31, 0.05)),
+    linear-gradient(155deg, rgba(14, 124, 136, 0.04), transparent 42%, rgba(196, 165, 116, 0.05)),
     var(--panel) !important;
   border-color: color-mix(in srgb, var(--gold) 32%, var(--ice) 16%, transparent) !important;
   box-shadow: var(--shadow-panel) !important;
@@ -2581,7 +2581,7 @@ html[data-theme="light"] #ruta .gb-hub-ring-3 {
   stroke: color-mix(in srgb, var(--flare) 55%, transparent) !important;
 }
 html[data-theme="light"] #ruta .gb-core-pulse {
-  filter: drop-shadow(0 0 2.5px rgba(184, 146, 31, 0.9)) !important;
+  filter: drop-shadow(0 0 2.5px rgba(196, 165, 116, 0.9)) !important;
 }
 html[data-theme="light"] #ruta .gb-pin b,
 html[data-theme="light"] #ruta .gb-route-caption,
@@ -2601,7 +2601,7 @@ html[data-theme="light"] #ruta .gb-route-strip .gb-strip-item {
 html[data-theme="light"] #ruta .gb-route-strip .gb-strip-item.is-on {
   color: var(--cream) !important;
   border-color: color-mix(in srgb, var(--gold) 50%, transparent) !important;
-  background: linear-gradient(180deg, rgba(184, 146, 31, 0.12), var(--panel)) !important;
+  background: linear-gradient(180deg, rgba(196, 165, 116, 0.12), var(--panel)) !important;
 }
 
 /* —— Chrome: header, rail, controls, dialogs —— */
@@ -2627,11 +2627,11 @@ html[data-theme="light"] .os-rail-item[aria-current="true"] {
 }
 html[data-theme="light"] .os-rail-nav,
 html[data-theme="light"] .os-rail-nav[data-slide-rail] {
-  scrollbar-color: color-mix(in srgb, var(--gold) 55%, #8a7018) #ebe6d8 !important;
+  scrollbar-color: color-mix(in srgb, var(--gold) 55%, #8a7018) #EFE8DE !important;
 }
 html[data-theme="light"] .os-rail-nav::-webkit-scrollbar-track,
 html[data-theme="light"] .os-rail-nav[data-slide-rail]::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, #f3f0e7, #ebe6d8 40%, #f3f0e7) !important;
+  background: linear-gradient(180deg, #FAF7F2, #EFE8DE 40%, #FAF7F2) !important;
 }
 html[data-theme="light"] .os-rail-nav::-webkit-scrollbar-thumb,
 html[data-theme="light"] .os-rail-nav[data-slide-rail]::-webkit-scrollbar-thumb {
@@ -2641,7 +2641,7 @@ html[data-theme="light"] .os-rail-nav[data-slide-rail]::-webkit-scrollbar-thumb 
     color-mix(in srgb, var(--gold) 45%, #8a7018)
   ) !important;
   border-color: color-mix(in srgb, var(--gold) 30%, transparent) !important;
-  box-shadow: 0 0 8px rgba(184, 146, 31, 0.25) !important;
+  box-shadow: 0 0 8px rgba(196, 165, 116, 0.25) !important;
 }
 html[data-theme="light"] .os-rail-nav::-webkit-scrollbar-thumb:hover,
 html[data-theme="light"] .os-rail-nav[data-slide-rail]::-webkit-scrollbar-thumb:hover {
@@ -2756,26 +2756,26 @@ html[data-theme="light"] #capacidades.slide,
 html[data-theme="light"] #formacion.slide,
 html[data-theme="light"] #idiomas.slide,
 html[data-theme="light"] #contacto.slide {
-  background-color: #f3f0e7 !important;
+  background-color: #FAF7F2 !important;
   background-image: none !important;
-  color: #11120e !important;
+  color: #2A2622 !important;
 }
 
 /* Soft warm wash on cover + contact (not black void) */
 html[data-theme="light"] #inicio.slide,
 html[data-theme="light"] #contacto.slide {
-  background-color: #f3f0e7 !important;
+  background-color: #FAF7F2 !important;
   background-image:
-    radial-gradient(ellipse 70% 50% at 18% 20%, rgba(184, 146, 31, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 18% 20%, rgba(196, 165, 116, 0.14), transparent 55%),
     radial-gradient(ellipse 55% 45% at 82% 70%, rgba(14, 124, 136, 0.08), transparent 50%),
     radial-gradient(ellipse 40% 35% at 60% 10%, rgba(47, 107, 79, 0.07), transparent 45%) !important;
 }
 
 html[data-theme="light"] #valor.slide,
 html[data-theme="light"] .gb-valor-slide {
-  background-color: #f3f0e7 !important;
+  background-color: #FAF7F2 !important;
   background-image:
-    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(184, 146, 31, 0.10), transparent 55%) !important;
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(196, 165, 116, 0.10), transparent 55%) !important;
 }
 
 /* Panels / cards / metrics — paper surfaces, dark ink */
@@ -2788,11 +2788,11 @@ html[data-theme="light"] .gb-panel.gb-valor-panel,
 html[data-theme="light"] #valor .gb-valor-panel,
 html[data-theme="light"] #valor .gb-panel {
   background:
-    linear-gradient(165deg, rgba(184, 146, 31, 0.07), transparent 42%),
-    linear-gradient(180deg, #fffef8, #f3f0e7) !important;
-  color: #11120e !important;
-  border-color: color-mix(in srgb, #b8921f 28%, transparent) !important;
-  box-shadow: 0 18px 48px rgba(17, 18, 14, 0.10), 0 0 0 1px color-mix(in srgb, #b8921f 28%, transparent) !important;
+    linear-gradient(165deg, rgba(196, 165, 116, 0.07), transparent 42%),
+    linear-gradient(180deg, #FFFEFB, #FAF7F2) !important;
+  color: #2A2622 !important;
+  border-color: color-mix(in srgb, #C4A574 28%, transparent) !important;
+  box-shadow: 0 18px 48px rgba(17, 18, 14, 0.10), 0 0 0 1px color-mix(in srgb, #C4A574 28%, transparent) !important;
 }
 
 html[data-theme="light"] .gb-card,
@@ -2814,9 +2814,9 @@ html[data-theme="light"] #sistemas .gb-star-metrics > div,
 html[data-theme="light"] #capacidades .gb-cap-bar,
 html[data-theme="light"] .gb-city-panel {
   background:
-    linear-gradient(165deg, rgba(184, 146, 31, 0.06), transparent 48%),
-    #fffef8 !important;
-  color: #11120e !important;
+    linear-gradient(165deg, rgba(196, 165, 116, 0.06), transparent 48%),
+    #FFFEFB !important;
+  color: #2A2622 !important;
   border-color: rgba(17, 18, 14, 0.14) !important;
   box-shadow: 0 12px 32px rgba(17, 18, 14, 0.08);
 }
@@ -2843,21 +2843,21 @@ html[data-theme="light"] #experiencia-2 .gb-role-year {
 /* Experience roles: kill forced cream-on-dark from extra-pass */
 html[data-theme="light"] #experiencia .gb-role,
 html[data-theme="light"] #experiencia-2 .gb-role {
-  color: #11120e !important;
+  color: #2A2622 !important;
   background: transparent !important;
   border-bottom-color: rgba(17, 18, 14, 0.10) !important;
 }
 html[data-theme="light"] #experiencia .gb-role-title,
 html[data-theme="light"] #experiencia-2 .gb-role-title {
-  color: #11120e !important;
+  color: #2A2622 !important;
 }
 html[data-theme="light"] #experiencia .gb-role-sum,
 html[data-theme="light"] #experiencia-2 .gb-role-sum {
-  color: #5c5b54 !important;
+  color: #6F675F !important;
 }
 html[data-theme="light"] #experiencia .gb-role-co,
 html[data-theme="light"] #experiencia-2 .gb-role-co {
-  color: #b8921f !important;
+  color: #C4A574 !important;
 }
 
 /* Cover ambient — soft paper, not black void */
@@ -2873,10 +2873,10 @@ html[data-theme="light"] .gb-hero-orb {
   filter: saturate(0.85);
 }
 html[data-theme="light"] #inicio .gb-hero-orb-a {
-  background: radial-gradient(circle, rgba(184, 146, 31, 0.22), transparent 68%) !important;
+  background: radial-gradient(circle, rgba(196, 165, 116, 0.22), transparent 68%) !important;
 }
 html[data-theme="light"] #inicio .gb-hero-orb-b {
-  background: radial-gradient(circle, rgba(184, 146, 31, 0.12), transparent 70%) !important;
+  background: radial-gradient(circle, rgba(196, 165, 116, 0.12), transparent 70%) !important;
 }
 html[data-theme="light"] #inicio .gb-hero-orb-c {
   background: radial-gradient(circle, rgba(14, 124, 136, 0.14), transparent 70%) !important;
@@ -2907,102 +2907,102 @@ html[data-theme="light"] #inicio .gb-title-band.gb-hero-title-band {
 /* Route map: light ground + visible pins */
 html[data-theme="light"] #ruta .gb-route-map {
   background:
-    radial-gradient(circle at 50% 54%, rgba(184, 146, 31, 0.14), transparent 38%),
+    radial-gradient(circle at 50% 54%, rgba(196, 165, 116, 0.14), transparent 38%),
     radial-gradient(circle at 68% 18%, rgba(14, 124, 136, 0.10), transparent 34%),
     radial-gradient(circle at 88% 40%, rgba(196, 74, 47, 0.10), transparent 32%),
     radial-gradient(circle at 18% 86%, rgba(47, 107, 79, 0.10), transparent 36%),
-    linear-gradient(155deg, rgba(14, 124, 136, 0.04), transparent 42%, rgba(184, 146, 31, 0.05)),
-    #fffef8 !important;
+    linear-gradient(155deg, rgba(14, 124, 136, 0.04), transparent 42%, rgba(196, 165, 116, 0.05)),
+    #FFFEFB !important;
 }
 html[data-theme="light"] #ruta .gb-pin span,
 html[data-theme="light"] #ruta .gb-route-legend span {
   background: rgba(255, 254, 248, 0.94) !important;
-  color: #11120e !important;
+  color: #2A2622 !important;
   border-color: rgba(17, 18, 14, 0.16) !important;
 }
 html[data-theme="light"] #ruta .gb-pin b {
-  color: #11120e !important;
+  color: #2A2622 !important;
 }
 html[data-theme="light"] #ruta .gb-city-panel {
   background:
-    linear-gradient(165deg, rgba(184, 146, 31, 0.06), transparent 40%),
-    #fffef8 !important;
-  color: #11120e !important;
+    linear-gradient(165deg, rgba(196, 165, 116, 0.06), transparent 40%),
+    #FFFEFB !important;
+  color: #2A2622 !important;
 }
 
 /* Buttons: primary gold OK; ghosts = dark border on paper, not night fills */
 html[data-theme="light"] .button.primary,
 html[data-theme="light"] .btn.primary,
 html[data-theme="light"] .header-cta {
-  background: #b8921f !important;
-  color: #11120e !important;
-  border-color: #b8921f !important;
+  background: #C4A574 !important;
+  color: #2A2622 !important;
+  border-color: #C4A574 !important;
 }
 html[data-theme="light"] .button.ghost,
 html[data-theme="light"] .btn.ghost,
 html[data-theme="light"] .dark-button {
   background: transparent !important;
-  color: #11120e !important;
+  color: #2A2622 !important;
   border: 1px solid rgba(17, 18, 14, 0.22) !important;
   box-shadow: none !important;
 }
 html[data-theme="light"] .button.ghost:hover,
 html[data-theme="light"] .btn.ghost:hover,
 html[data-theme="light"] .dark-button:hover {
-  border-color: #b8921f !important;
-  color: #b8921f !important;
-  background: rgba(184, 146, 31, 0.08) !important;
+  border-color: #C4A574 !important;
+  color: #C4A574 !important;
+  background: rgba(196, 165, 116, 0.08) !important;
 }
 
 /* Chrome: header / rail / controls / dialogs */
 html[data-theme="light"] .site-header {
-  background: color-mix(in srgb, #f3f0e7 92%, transparent) !important;
-  border-bottom-color: color-mix(in srgb, #b8921f 22%, rgba(17, 18, 14, 0.12)) !important;
-  color: #11120e !important;
+  background: color-mix(in srgb, #FAF7F2 92%, transparent) !important;
+  border-bottom-color: color-mix(in srgb, #C4A574 22%, rgba(17, 18, 14, 0.12)) !important;
+  color: #2A2622 !important;
 }
 html[data-theme="light"] .os-rail {
-  background: color-mix(in srgb, #fffef8 94%, transparent) !important;
+  background: color-mix(in srgb, #FFFEFB 94%, transparent) !important;
   border-right-color: rgba(17, 18, 14, 0.10) !important;
-  color: #11120e !important;
+  color: #2A2622 !important;
 }
 html[data-theme="light"] .os-rail-item {
-  color: #5c5b54 !important;
+  color: #6F675F !important;
   background: transparent !important;
 }
 html[data-theme="light"] .os-rail-item.active,
 html[data-theme="light"] .os-rail-item[aria-current="true"] {
-  color: #11120e !important;
-  background: rgba(184, 146, 31, 0.14) !important;
-  border-color: color-mix(in srgb, #b8921f 40%, transparent) !important;
+  color: #2A2622 !important;
+  background: rgba(196, 165, 116, 0.14) !important;
+  border-color: color-mix(in srgb, #C4A574 40%, transparent) !important;
 }
 html[data-theme="light"] .deck-controls button,
 html[data-theme="light"] .seg-btn {
-  background: #fffef8 !important;
-  color: #11120e !important;
+  background: #FFFEFB !important;
+  color: #2A2622 !important;
   border: 1px solid rgba(17, 18, 14, 0.14) !important;
 }
 html[data-theme="light"] .seg-btn[aria-pressed="true"],
 html[data-theme="light"] .deck-controls button:hover,
 html[data-theme="light"] .seg-btn:hover {
-  color: #b8921f !important;
-  border-color: #b8921f !important;
+  color: #C4A574 !important;
+  border-color: #C4A574 !important;
 }
 html[data-theme="light"] .recruiter-dialog,
 html[data-theme="light"] .experience-dialog,
 html[data-theme="light"] .command-dialog {
-  background: #fffef8 !important;
-  color: #11120e !important;
+  background: #FFFEFB !important;
+  color: #2A2622 !important;
   border-color: rgba(17, 18, 14, 0.14) !important;
 }
 html[data-theme="light"] body,
 html[data-theme="light"] html {
-  background: #f3f0e7 !important;
-  color: #11120e !important;
+  background: #FAF7F2 !important;
+  color: #2A2622 !important;
 }
 
 /* Soft muted copy that was hard-coded for dark cinema */
 html[data-theme="light"] #sistemas .gb-star-lead {
-  color: #5c5b54 !important;
+  color: #6F675F !important;
 }
 html[data-theme="light"] .gb-step h3,
 html[data-theme="light"] .gb-formula-card h3,
@@ -3016,13 +3016,13 @@ html[data-theme="light"] #valor .gb-valor-head h2,
 html[data-theme="light"] h1,
 html[data-theme="light"] h2,
 html[data-theme="light"] h3 {
-  color: #11120e !important;
+  color: #2A2622 !important;
 }
 html[data-theme="light"] h2 em,
 html[data-theme="light"] h1 em,
 html[data-theme="light"] .eyebrow,
 html[data-theme="light"] .slide-index span:first-child {
-  color: #b8921f !important;
+  color: #C4A574 !important;
 }
 html[data-theme="light"] .slide-index span:last-child,
 html[data-theme="light"] .gb-lead,
@@ -3041,7 +3041,7 @@ html[data-theme="light"] .gb-cap p,
 html[data-theme="light"] .gb-card-sub,
 html[data-theme="light"] .gb-card-list,
 html[data-theme="light"] .tag-row > span {
-  color: #5c5b54 !important;
+  color: #6F675F !important;
 }
 html[data-theme="light"] .tag-row > span {
   background: transparent !important;
@@ -3055,26 +3055,100 @@ html[data-theme="light"] #trayectoria .gb-engine,
 html[data-theme="light"] #trayectoria .gb-dual > *,
 html[data-theme="light"] #formacion .builder-note,
 html[data-theme="light"] #formacion .education-list li {
-  background: #fffef8 !important;
-  color: #11120e !important;
+  background: #FFFEFB !important;
+  color: #2A2622 !important;
   border-color: rgba(17, 18, 14, 0.12) !important;
 }
 html[data-theme="light"] #metodo .gb-formula-card.result {
-  background: linear-gradient(145deg, rgba(184, 146, 31, 0.12), rgba(14, 124, 136, 0.08)) !important;
+  background: linear-gradient(145deg, rgba(196, 165, 116, 0.12), rgba(14, 124, 136, 0.08)) !important;
 }
 html[data-theme="light"] #metodo .gb-step.is-final {
-  background: #b8921f !important;
-  color: #11120e !important;
+  background: #C4A574 !important;
+  color: #2A2622 !important;
 }
 html[data-theme="light"] #metodo .gb-step.is-final h3,
 html[data-theme="light"] #metodo .gb-step.is-final p,
 html[data-theme="light"] #metodo .gb-step.is-final b,
 html[data-theme="light"] #metodo .gb-step.is-final .gb-step-num {
-  color: #11120e !important;
+  color: #2A2622 !important;
 }
 
 /* Kill leftover black/navy fills that ignore tokens */
 html[data-theme="light"] .os-rail-nav::-webkit-scrollbar-track,
 html[data-theme="light"] .os-rail-nav[data-slide-rail]::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, #f3f0e7, #ebe6d8 40%, #f3f0e7) !important;
+  background: linear-gradient(180deg, #FAF7F2, #EFE8DE 40%, #FAF7F2) !important;
+}
+
+/* —— Nude/beige marketing palette overrides (cover + chrome) —— */
+
+html[data-theme="light"] #inicio .gb-card {
+  background:
+    linear-gradient(160deg, rgba(196, 165, 116, 0.12), transparent 42%),
+    linear-gradient(200deg, rgba(196, 165, 116, 0.04), transparent 55%),
+    #F3EDE4 !important;
+  border-color: color-mix(in srgb, #C4A574 32%, rgba(42, 38, 34, 0.12)) !important;
+  color: #2A2622 !important;
+  box-shadow: 0 16px 40px rgba(42, 38, 34, 0.08), inset 0 1px 0 rgba(255,255,255,0.55) !important;
+}
+html[data-theme="light"] #inicio .gb-card-title,
+html[data-theme="light"] #inicio .gb-card-list b {
+  color: #2A2622 !important;
+}
+html[data-theme="light"] #inicio .gb-card-label,
+html[data-theme="light"] #inicio .gb-card-sub,
+html[data-theme="light"] #inicio .gb-card-list small {
+  color: #6F675F !important;
+}
+html[data-theme="light"] #inicio .gb-card-list li {
+  background: color-mix(in srgb, #FFFEFB 80%, #EFE8DE) !important;
+  border-color: rgba(42, 38, 34, 0.10) !important;
+}
+
+/* Seg / theme toggles — nude inactive, champagne active, never accidental gray */
+html[data-theme="light"] .seg,
+html[data-theme="light"] .lang-switch {
+  background: #F3EDE4 !important;
+  border-color: rgba(42, 38, 34, 0.14) !important;
+}
+html[data-theme="light"] .seg-btn,
+html[data-theme="light"] .lang-btn {
+  color: #6F675F !important;
+  background: transparent !important;
+}
+html[data-theme="light"] .seg-btn.is-active,
+html[data-theme="light"] .lang-btn.is-active,
+html[data-theme="light"] .seg-btn[aria-pressed="true"],
+html[data-theme="light"] .lang-btn[aria-pressed="true"] {
+  background: #C4A574 !important;
+  color: #2A2622 !important;
+}
+html[data-theme="dark"] .seg,
+html[data-theme="dark"] .lang-switch {
+  background: color-mix(in srgb, #1C1916 80%, transparent) !important;
+  border-color: rgba(247, 243, 236, 0.14) !important;
+}
+html[data-theme="dark"] .seg-btn,
+html[data-theme="dark"] .lang-btn {
+  color: #8A8178 !important;
+}
+html[data-theme="dark"] .seg-btn.is-active,
+html[data-theme="dark"] .lang-btn.is-active,
+html[data-theme="dark"] .seg-btn[aria-pressed="true"],
+html[data-theme="dark"] .lang-btn[aria-pressed="true"] {
+  background: #C4A574 !important;
+  color: #2A2622 !important;
+}
+
+/* Primary buttons — soft gold + dark ink */
+.button.primary,
+.gb-actions .button.primary,
+.header-cta {
+  background: #C4A574 !important;
+  color: #2A2622 !important;
+}
+.button.primary:hover,
+.gb-actions .button.primary:hover,
+.header-cta:hover {
+  background: #D4B896 !important;
+  color: #2A2622 !important;
 }
