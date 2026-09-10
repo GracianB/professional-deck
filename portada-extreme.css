@@ -1,0 +1,494 @@
+/* ============================================================
+   PORTADA EXTREME — cinematic first impression
+   EXPERIENCIA world · nude/beige/white + soft gold #C4A574
+   paper #FAF7F2 · ink #2A2622 · Fraunces / Inter / JetBrains
+   Loads LAST. Does not touch PDF assets.
+   ============================================================ */
+
+:root {
+  --px-gold: #C4A574;
+  --px-gold-soft: #D4B896;
+  --px-paper: #FAF7F2;
+  --px-ink: #2A2622;
+  --px-ground: #141210;
+  --px-panel: #1C1916;
+  --px-cream: #F7F3EC;
+}
+
+/* —— First-impression chrome: GB → hub —— */
+.site-header {
+  background: color-mix(in srgb, var(--ground, var(--px-ground)) 78%, transparent) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--px-gold) 22%, transparent) !important;
+  backdrop-filter: blur(18px) saturate(130%) !important;
+}
+.brand-mark {
+  width: 42px !important;
+  height: 42px !important;
+  border: 1px solid var(--px-gold) !important;
+  color: var(--px-gold) !important;
+  background:
+    linear-gradient(145deg, rgba(196,165,116,.12), transparent 55%),
+    transparent !important;
+  font: italic 800 13px/1 Fraunces, var(--display), serif !important;
+  letter-spacing: 0.02em !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 0 1px rgba(196,165,116,.08), 0 8px 24px rgba(0,0,0,.18) !important;
+}
+.brand:hover .brand-mark {
+  background: var(--px-gold) !important;
+  color: var(--px-ink) !important;
+  border-color: var(--px-gold) !important;
+  box-shadow: 0 0 28px rgba(196,165,116,.35) !important;
+}
+.brand-text b {
+  font: 800 11px/1.2 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: 0.16em !important;
+}
+.brand-text small {
+  color: color-mix(in srgb, var(--px-gold) 70%, var(--mute, #8A8178)) !important;
+  letter-spacing: 0.16em !important;
+}
+.top-progress i {
+  background: linear-gradient(90deg, var(--px-gold), var(--px-gold-soft), #E8D5B5) !important;
+  box-shadow: 0 0 14px rgba(196,165,116,.45) !important;
+}
+
+html[data-theme="light"] .site-header {
+  background: color-mix(in srgb, var(--px-paper) 88%, transparent) !important;
+  border-bottom-color: rgba(42,38,34,.1) !important;
+  color: var(--px-ink) !important;
+}
+html[data-theme="light"] .brand-mark {
+  background: linear-gradient(145deg, rgba(196,165,116,.16), #FFFEFB) !important;
+  color: var(--px-ink) !important;
+  border-color: color-mix(in srgb, var(--px-gold) 55%, var(--px-ink)) !important;
+}
+html[data-theme="light"] .brand-text b { color: var(--px-ink) !important; }
+html[data-theme="light"] .main-nav button { color: #6F675F !important; }
+html[data-theme="light"] .main-nav button:hover { color: var(--px-ink) !important; }
+
+/* —— Cover shell —— */
+#inicio.slide.gb-hero-extreme,
+#inicio.gb-hero-extreme {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(ellipse 75% 55% at 12% 18%, rgba(196,165,116,.16), transparent 58%),
+    radial-gradient(ellipse 50% 42% at 88% 72%, rgba(196,165,116,.08), transparent 52%),
+    radial-gradient(ellipse 40% 30% at 55% 8%, rgba(247,243,236,.04), transparent 50%),
+    linear-gradient(180deg, #161310 0%, var(--px-ground) 42%, #10100e 100%) !important;
+  color: var(--px-cream) !important;
+}
+
+#inicio .gb-hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 85% 75% at 50% 45%, transparent 35%, rgba(0,0,0,.45) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.28), transparent 18%, transparent 82%, rgba(0,0,0,.22));
+}
+#inicio .gb-hero-sweep {
+  position: absolute;
+  inset: -20% -10%;
+  z-index: 1;
+  pointer-events: none;
+  background: conic-gradient(from 210deg at 30% 40%, transparent 0deg, rgba(196,165,116,.07) 40deg, transparent 90deg, transparent 360deg);
+  animation: pxSweep 28s linear infinite;
+  opacity: .85;
+}
+@keyframes pxSweep {
+  0% { transform: rotate(0deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1.05); }
+}
+#inicio .gb-hero-orb-d {
+  width: min(360px, 42vw);
+  height: min(360px, 42vw);
+  top: 55%;
+  left: 55%;
+  background: radial-gradient(circle, rgba(196,165,116,.18), transparent 70%);
+  opacity: .35;
+  animation-delay: -18s;
+  filter: blur(70px);
+}
+#inicio .gb-hero-film {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+  opacity: .35;
+}
+#inicio .gb-hero-film i {
+  display: block;
+  height: 1px;
+  margin: 0 4%;
+  background: linear-gradient(90deg, transparent, rgba(196,165,116,.55), transparent);
+}
+#inicio .gb-hero-grain {
+  z-index: 2 !important;
+  opacity: .045 !important;
+}
+#inicio .gb-hero-grid-fx {
+  z-index: 1 !important;
+  opacity: .055 !important;
+  background-image:
+    linear-gradient(rgba(196,165,116,.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,165,116,.28) 1px, transparent 1px) !important;
+  background-size: 72px 72px !important;
+  mask-image: radial-gradient(ellipse 70% 60% at 40% 35%, #000 15%, transparent 75%) !important;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 40% 35%, #000 15%, transparent 75%) !important;
+}
+#inicio .gb-hero-tags-fx span {
+  border-color: color-mix(in srgb, var(--px-gold) 35%, transparent) !important;
+  background: rgba(196,165,116,.07) !important;
+  color: color-mix(in srgb, var(--px-gold) 75%, #fff) !important;
+  font: 600 9px/1 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: .1em !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2) !important;
+}
+
+#inicio .gb-hero-stack {
+  position: relative !important;
+  z-index: 4 !important;
+  gap: clamp(16px, 2.6vh, 28px) !important;
+}
+
+/* Title plate — readable, not sparse */
+#inicio .gb-hero-title-band {
+  background: linear-gradient(
+    90deg,
+    rgba(20,18,16,.78) 0%,
+    rgba(20,18,16,.35) 55%,
+    transparent 100%
+  ) !important;
+  border-left: 2px solid var(--px-gold) !important;
+  padding: 8px 14px 10px 12px !important;
+  border-radius: 0 12px 12px 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+#inicio .gb-hero-index span:first-child { color: var(--px-gold) !important; }
+#inicio .gb-hero-index span:last-child {
+  color: color-mix(in srgb, var(--px-cream) 82%, var(--px-gold)) !important;
+  letter-spacing: .18em !important;
+}
+#inicio .gb-kicker.eyebrow {
+  color: var(--px-gold-soft) !important;
+  font: 700 11px/1.45 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: .18em !important;
+}
+
+#inicio .gb-hero-world {
+  margin: 0 0 12px !important;
+  font: italic 500 13px/1.3 Fraunces, var(--display), serif !important;
+  letter-spacing: .08em !important;
+  color: color-mix(in srgb, var(--px-gold) 80%, var(--px-cream)) !important;
+  text-transform: uppercase;
+}
+
+#inicio .gb-status {
+  border-color: color-mix(in srgb, var(--px-gold) 40%, transparent) !important;
+  background: rgba(196,165,116,.08) !important;
+  color: var(--px-gold-soft) !important;
+  border-radius: 999px !important;
+  backdrop-filter: blur(8px);
+}
+#inicio .gb-status i {
+  background: var(--px-gold) !important;
+  box-shadow: 0 0 0 4px rgba(196,165,116,.22) !important;
+}
+
+/* Display lockup — cinematic Fraunces */
+#inicio .gb-hero-copy h1 {
+  margin: 0 !important;
+  font-family: Fraunces, var(--display), serif !important;
+  font-weight: 560 !important;
+  font-size: clamp(48px, 7vw + 1.2vh, 96px) !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.045em !important;
+  color: var(--px-cream) !important;
+  font-variation-settings: "opsz" 144, "SOFT" 50 !important;
+  text-wrap: balance;
+}
+#inicio .gb-hero-copy h1 em {
+  color: var(--px-gold) !important;
+  font-style: italic !important;
+  font-weight: 450 !important;
+  background: linear-gradient(120deg, #C4A574 0%, #E8D5B5 45%, #C4A574 90%) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: pxShimmer 7s ease-in-out infinite alternate !important;
+}
+@keyframes pxShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+#inicio .gb-hero-goldline {
+  width: min(220px, 42%);
+  height: 2px;
+  margin: clamp(14px, 2vh, 20px) 0 clamp(12px, 1.6vh, 18px);
+  background: linear-gradient(90deg, var(--px-gold), transparent);
+  border-radius: 2px;
+  box-shadow: 0 0 18px rgba(196,165,116,.35);
+}
+
+#inicio .gb-lead {
+  max-width: 38ch !important;
+  font: 500 clamp(15px, 1.4vw, 19px)/1.55 Inter, var(--sans), system-ui, sans-serif !important;
+  color: #C8BFB4 !important;
+}
+#inicio .gb-lead strong {
+  color: var(--px-cream) !important;
+  font-weight: 700 !important;
+}
+
+#inicio .gb-actions .button.primary {
+  background: var(--px-gold) !important;
+  color: var(--px-ink) !important;
+  border-color: transparent !important;
+  box-shadow: 0 12px 32px rgba(196,165,116,.28) !important;
+  font-weight: 700 !important;
+}
+#inicio .gb-actions .button.primary:hover {
+  background: var(--px-gold-soft) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(196,165,116,.38) !important;
+}
+#inicio .gb-actions .button.ghost {
+  border: 1px solid color-mix(in srgb, var(--px-gold) 35%, transparent) !important;
+  color: var(--px-cream) !important;
+  background: rgba(255,255,255,.03) !important;
+  backdrop-filter: blur(8px);
+}
+#inicio .gb-actions .button.ghost:hover {
+  border-color: var(--px-gold) !important;
+  color: var(--px-gold-soft) !important;
+  background: rgba(196,165,116,.08) !important;
+}
+
+#inicio .gb-hero-proof {
+  color: #8A8178 !important;
+  font: 600 11px/1.4 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+}
+
+/* Cinema profile card */
+#inicio .gb-card-cinema {
+  border-radius: 22px !important;
+  border: 1px solid color-mix(in srgb, var(--px-gold) 28%, transparent) !important;
+  background:
+    linear-gradient(155deg, rgba(196,165,116,.18), transparent 40%),
+    linear-gradient(200deg, rgba(247,243,236,.04), transparent 55%),
+    linear-gradient(180deg, #242018, var(--px-panel)) !important;
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(247,243,236,.08),
+    0 0 0 1px rgba(196,165,116,.06) !important;
+  position: relative;
+  overflow: hidden !important;
+}
+#inicio .gb-card-cinema::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--px-gold), transparent 85%);
+  z-index: 3;
+}
+#inicio .gb-card-cinema .gb-card-title {
+  font-family: Fraunces, var(--display), serif !important;
+  font-weight: 600 !important;
+  font-size: clamp(28px, 2.8vw, 40px) !important;
+  letter-spacing: -0.03em !important;
+  color: var(--px-cream) !important;
+}
+#inicio .gb-card-rule {
+  height: 1px;
+  margin: 8px 0 4px;
+  background: linear-gradient(90deg, var(--px-gold), transparent);
+  opacity: .7;
+}
+#inicio .gb-card-list li span {
+  color: var(--px-gold) !important;
+  font: 800 11px JetBrains Mono, var(--mono), monospace !important;
+}
+#inicio .gb-card-foot {
+  margin: 14px 0 0 !important;
+  padding-top: 12px;
+  border-top: 1px solid rgba(244,243,238,.08);
+  font: 700 10px/1.3 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: .12em !important;
+  color: var(--px-gold-soft) !important;
+  text-transform: uppercase;
+}
+
+/* Metrics strip — editorial, gold hairlines */
+#inicio .gb-metrics-cinema {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  border: 1px solid color-mix(in srgb, var(--px-gold) 22%, transparent) !important;
+  border-radius: 16px !important;
+  background:
+    linear-gradient(180deg, rgba(196,165,116,.07), transparent 60%),
+    rgba(20,18,16,.55) !important;
+  backdrop-filter: blur(12px);
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+#inicio .gb-metrics-cinema > div {
+  padding: 14px 16px !important;
+  border-right: 1px solid color-mix(in srgb, var(--px-gold) 16%, transparent) !important;
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+#inicio .gb-metrics-cinema > div:last-child { border-right: 0 !important; }
+#inicio .gb-metrics-cinema strong {
+  font-family: Fraunces, var(--display), serif !important;
+  font-weight: 650 !important;
+  font-size: clamp(26px, 2.4vw, 34px) !important;
+  color: var(--px-gold) !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1 !important;
+}
+#inicio .gb-metrics-cinema span {
+  font: 600 10px/1.3 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+  color: #9A9188 !important;
+}
+
+/* ========== LIGHT MODE — paper world, never stuck navy ========== */
+html[data-theme="light"] #inicio.slide.gb-hero-extreme,
+html[data-theme="light"] #inicio.gb-hero-extreme,
+html[data-theme="light"] .gb-hero-extreme {
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(196,165,116,.18), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 85% 75%, rgba(196,165,116,.1), transparent 50%),
+    linear-gradient(180deg, #FFFEFB 0%, var(--px-paper) 50%, #F3EDE4 100%) !important;
+  color: var(--px-ink) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-vignette {
+  background:
+    radial-gradient(ellipse 90% 80% at 50% 40%, transparent 40%, rgba(42,38,34,.06) 100%),
+    linear-gradient(90deg, rgba(250,247,242,.4), transparent 20%, transparent 80%, rgba(243,237,228,.35)) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-sweep { opacity: .4; }
+html[data-theme="light"] #inicio .gb-hero-film { opacity: .55; }
+html[data-theme="light"] #inicio .gb-hero-film i {
+  background: linear-gradient(90deg, transparent, rgba(196,165,116,.7), transparent) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-title-band {
+  background: linear-gradient(
+    90deg,
+    rgba(250,247,242,.96) 0%,
+    rgba(250,247,242,.6) 55%,
+    transparent 100%
+  ) !important;
+  border-left-color: var(--px-gold) !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] #inicio .gb-hero-index span:last-child,
+html[data-theme="light"] #inicio .gb-hero-copy h1 {
+  color: var(--px-ink) !important;
+  -webkit-text-fill-color: unset;
+}
+html[data-theme="light"] #inicio .gb-hero-copy h1 {
+  color: var(--px-ink) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-copy h1 em {
+  /* keep gold shimmer */
+  -webkit-text-fill-color: transparent !important;
+}
+html[data-theme="light"] #inicio .gb-hero-world {
+  color: color-mix(in srgb, var(--px-gold) 65%, var(--px-ink)) !important;
+}
+html[data-theme="light"] #inicio .gb-lead { color: #6F675F !important; }
+html[data-theme="light"] #inicio .gb-lead strong { color: var(--px-ink) !important; }
+html[data-theme="light"] #inicio .gb-hero-proof { color: #8A8178 !important; }
+html[data-theme="light"] #inicio .gb-actions .button.ghost {
+  color: var(--px-ink) !important;
+  border-color: rgba(42,38,34,.16) !important;
+  background: rgba(255,255,255,.55) !important;
+}
+html[data-theme="light"] #inicio .gb-card-cinema {
+  background:
+    linear-gradient(155deg, rgba(196,165,116,.12), transparent 42%),
+    linear-gradient(180deg, #FFFEFB, #F3EDE4) !important;
+  border-color: rgba(42,38,34,.12) !important;
+  box-shadow: 0 20px 48px rgba(42,38,34,.1), inset 0 1px 0 #fff !important;
+  color: var(--px-ink) !important;
+}
+html[data-theme="light"] #inicio .gb-card-cinema .gb-card-title,
+html[data-theme="light"] #inicio .gb-card-head,
+html[data-theme="light"] #inicio .gb-card-sub,
+html[data-theme="light"] #inicio .gb-card-list b {
+  color: var(--px-ink) !important;
+}
+html[data-theme="light"] #inicio .gb-card-list small { color: #6F675F !important; }
+html[data-theme="light"] #inicio .gb-card-foot {
+  border-top-color: rgba(42,38,34,.1) !important;
+  color: color-mix(in srgb, var(--px-gold) 55%, var(--px-ink)) !important;
+}
+html[data-theme="light"] #inicio .gb-metrics-cinema {
+  background: rgba(255,254,251,.85) !important;
+  border-color: rgba(42,38,34,.12) !important;
+}
+html[data-theme="light"] #inicio .gb-metrics-cinema > div {
+  border-right-color: rgba(42,38,34,.1) !important;
+}
+html[data-theme="light"] #inicio .gb-metrics-cinema span { color: #6F675F !important; }
+html[data-theme="light"] #inicio .gb-hero-tags-fx span {
+  color: color-mix(in srgb, var(--px-gold) 45%, var(--px-ink)) !important;
+  background: rgba(196,165,116,.1) !important;
+  border-color: rgba(196,165,116,.35) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-orb {
+  mix-blend-mode: multiply !important;
+  opacity: .5 !important;
+}
+
+/* Scroll only when needed — cover stays clipped */
+#inicio.slide.fit:not(.is-scrollable) {
+  overflow: hidden !important;
+}
+
+/* Responsive densify */
+@media (max-width: 980px) {
+  #inicio .gb-card-cinema { display: none !important; }
+  #inicio .gb-hero-copy h1 {
+    font-size: clamp(44px, 12vw, 72px) !important;
+  }
+  #inicio .gb-metrics-cinema {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  #inicio .gb-metrics-cinema > div:nth-child(2) { border-right: 0 !important; }
+  #inicio .gb-metrics-cinema > div:nth-child(1),
+  #inicio .gb-metrics-cinema > div:nth-child(2) {
+    border-bottom: 1px solid color-mix(in srgb, var(--px-gold) 16%, transparent) !important;
+  }
+  html[data-theme="light"] #inicio .gb-metrics-cinema > div:nth-child(1),
+  html[data-theme="light"] #inicio .gb-metrics-cinema > div:nth-child(2) {
+    border-bottom-color: rgba(42,38,34,.1) !important;
+  }
+  #inicio .gb-hero-tags-fx { display: none !important; }
+  #inicio .gb-hero-film { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #inicio .gb-hero-sweep,
+  #inicio .gb-hero-copy h1 em,
+  #inicio .gb-hero-orb,
+  #inicio .gb-hero-tags-fx span { animation: none !important; }
+}
