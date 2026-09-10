@@ -113,3 +113,46 @@
 html[data-theme="light"] #contacto .gb-contact-metrics > div {
   background: color-mix(in srgb, var(--gold, #C4A574) 10%, #fff);
 }
+
+#contacto .gb-contact-metrics {
+  margin: 16px 0 0 !important;
+}
+#contacto .gb-contact-metrics > div {
+  padding: 10px 10px !important;
+}
+#contacto .gb-contact-bottom {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  align-items: stretch !important;
+  justify-content: stretch !important;
+  padding: 10px !important;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
+}
+#contacto .gb-contact-bottom .button,
+#contacto .gb-contact-actions .button,
+#contacto .gb-contact-docs .button {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  min-height: 44px !important;
+  padding: 0 8px !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+}
+@media (max-width: 1100px) {
+  #contacto .gb-contact-bottom {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  #contacto .gb-contact-bottom .button.primary {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 640px) {
+  #contacto .gb-contact-bottom {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
