@@ -3152,3 +3152,253 @@ html[data-theme="dark"] .lang-btn[aria-pressed="true"] {
   background: #D4B896 !important;
   color: #2A2622 !important;
 }
+
+/* ============================================================
+   CAREER06 SCROLL FIX + METHOD is-final CONTRAST (2026-09-10)
+   Loads last. Internal track scroll + readable ACTIVAR step.
+   ============================================================ */
+
+/* —— Track A/B: natural row height → overflow → internal scroll —— */
+#trayectoria .gb-engine {
+  min-height: 0 !important;
+  overflow: hidden !important; /* header + list + chip stay framed */
+}
+#trayectoria .gb-engine-list,
+#trayectoria .gb-engine .gb-engine-list {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: thin !important;
+  scrollbar-color: #C4A574 rgba(196, 165, 116, 0.14) !important;
+}
+#trayectoria .gb-engine-list::-webkit-scrollbar {
+  width: 7px !important;
+  height: 7px !important;
+}
+#trayectoria .gb-engine-list::-webkit-scrollbar-track {
+  background: rgba(196, 165, 116, 0.10) !important;
+  border-radius: 999px !important;
+}
+#trayectoria .gb-engine-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D4B896, #C4A574) !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(250, 247, 242, 0.25) !important;
+}
+#trayectoria .gb-engine-list li {
+  flex: 0 0 auto !important; /* CRITICAL: don't compress rows — enable scroll */
+  min-height: 56px !important;
+  height: auto !important;
+}
+#trayectoria .gb-career-break {
+  flex-shrink: 0 !important; /* descanso chip always visible under Track B list */
+}
+#trayectoria .gb-panel-bar {
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+html[data-theme="light"] #trayectoria .gb-engine-list {
+  scrollbar-color: #C4A574 rgba(196, 165, 116, 0.18) !important;
+}
+html[data-theme="light"] #trayectoria .gb-engine-list::-webkit-scrollbar-track {
+  background: rgba(196, 165, 116, 0.12) !important;
+}
+html[data-theme="light"] #trayectoria .gb-engine-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D4B896, #C4A574) !important;
+}
+
+@media (max-width: 980px) {
+  #trayectoria .gb-engine {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  #trayectoria .gb-engine-list {
+    max-height: min(42vh, 360px) !important;
+    overflow-y: auto !important;
+  }
+  #trayectoria .gb-engine-list li {
+    flex: 0 0 auto !important;
+    min-height: 52px !important;
+  }
+}
+@media (max-width: 640px) {
+  #trayectoria .gb-engine-list {
+    max-height: min(38vh, 320px) !important;
+  }
+  #trayectoria .gb-engine-list li {
+    min-height: 48px !important;
+  }
+}
+
+/* —— Method steps: dark theme readable; is-final champagne accents —— */
+#metodo .gb-step {
+  background:
+    linear-gradient(165deg, rgba(196, 165, 116, 0.10), transparent 52%),
+    var(--panel-2, #221E1A) !important;
+  border: 1px solid color-mix(in srgb, #C4A574 28%, transparent) !important;
+  color: #F7F3EC !important;
+}
+#metodo .gb-step-num {
+  color: #C4A574 !important;
+}
+#metodo .gb-step h3 {
+  color: #FFFEFB !important;
+}
+#metodo .gb-step p {
+  color: #B8AFA4 !important;
+}
+#metodo .gb-step b {
+  color: #D4B896 !important;
+}
+
+/* Step 04 ACTIVAR — was dark-ink on dark after nude palette */
+#metodo .gb-step.is-final {
+  background:
+    linear-gradient(165deg, rgba(196, 165, 116, 0.18), transparent 48%),
+    #1C1916 !important;
+  border-color: color-mix(in srgb, #C4A574 55%, transparent) !important;
+  box-shadow:
+    0 0 0 1px rgba(196, 165, 116, 0.22),
+    0 18px 40px rgba(0, 0, 0, 0.35) !important;
+  color: #FFFEFB !important;
+}
+#metodo .gb-step.is-final .gb-step-num {
+  color: #D4B896 !important;
+}
+#metodo .gb-step.is-final h3 {
+  color: #FFFEFB !important;
+}
+#metodo .gb-step.is-final p {
+  color: #E8DFD2 !important;
+}
+#metodo .gb-step.is-final b {
+  color: #C4A574 !important;
+}
+
+/* Light theme: paper/gold cards keep dark ink (i18n untouched) */
+html[data-theme="light"] #metodo .gb-step {
+  background:
+    linear-gradient(165deg, rgba(196, 165, 116, 0.08), transparent 48%),
+    #FFFEFB !important;
+  border-color: rgba(17, 18, 14, 0.14) !important;
+  color: #2A2622 !important;
+}
+html[data-theme="light"] #metodo .gb-step-num {
+  color: #C4A574 !important;
+}
+html[data-theme="light"] #metodo .gb-step h3 {
+  color: #2A2622 !important;
+}
+html[data-theme="light"] #metodo .gb-step p {
+  color: #4A443E !important;
+}
+html[data-theme="light"] #metodo .gb-step b {
+  color: #8A6F3E !important;
+}
+html[data-theme="light"] #metodo .gb-step.is-final {
+  background:
+    linear-gradient(165deg, rgba(196, 165, 116, 0.22), transparent 45%),
+    #F3EDE4 !important;
+  border-color: color-mix(in srgb, #C4A574 50%, rgba(17, 18, 14, 0.12)) !important;
+  box-shadow: 0 14px 32px rgba(17, 18, 14, 0.10) !important;
+  color: #2A2622 !important;
+}
+html[data-theme="light"] #metodo .gb-step.is-final .gb-step-num,
+html[data-theme="light"] #metodo .gb-step.is-final b {
+  color: #8A6F3E !important;
+}
+html[data-theme="light"] #metodo .gb-step.is-final h3 {
+  color: #2A2622 !important;
+}
+html[data-theme="light"] #metodo .gb-step.is-final p {
+  color: #3a3934 !important;
+}
+
+/* ============================================================
+   LÍNEA 07 — frame bg MUST match timeline image navy (both themes)
+   Sampled from timeline-horizontal.png edges ≈ #000410 / #010510
+   ============================================================ */
+:root {
+  --timeline-navy-locked: #000410;
+}
+#linea.slide,
+#linea.gb-line-slide,
+.gb-line-slide#linea {
+  background: #000410 !important;
+  background-color: #000410 !important;
+  background-image: none !important;
+  color: #F7F3EC !important;
+}
+#linea .gb-line-frame {
+  background: #000410 !important;
+  background-color: #000410 !important;
+  border-color: color-mix(in srgb, #C4A574 22%, #0a1220) !important;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.55) !important;
+}
+#linea .gb-line-frame img {
+  background: #000410 !important;
+  background-color: #000410 !important;
+}
+
+/* Title band readable on navy (dark + light) */
+#linea .gb-line-head,
+#linea .gb-title-band {
+  color: #F7F3EC !important;
+}
+#linea .gb-line-head h2,
+#linea .gb-line-head .eyebrow,
+#linea .slide-index span:first-child {
+  color: #FFFEFB !important;
+}
+#linea .gb-line-head h2 em,
+#linea .eyebrow {
+  color: #C4A574 !important;
+}
+#linea .gb-line-kicker,
+#linea .slide-index span:last-child {
+  color: #B8AFA4 !important;
+}
+#linea .slide-index i {
+  background: color-mix(in srgb, #C4A574 55%, transparent) !important;
+}
+
+/* Kill light-theme paper overrides that made the image float */
+html[data-theme="light"] #linea.slide,
+html[data-theme="light"] #linea.gb-line-slide,
+html[data-theme="light"] .gb-line-slide#linea {
+  background: #000410 !important;
+  background-color: #000410 !important;
+  background-image: none !important;
+  color: #F7F3EC !important;
+}
+html[data-theme="light"] #linea .gb-line-frame {
+  background: #000410 !important;
+  background-color: #000410 !important;
+  border-color: color-mix(in srgb, #C4A574 22%, #0a1220) !important;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.55) !important;
+}
+html[data-theme="light"] #linea .gb-line-frame img {
+  background: #000410 !important;
+  background-color: #000410 !important;
+}
+html[data-theme="light"] #linea .gb-line-head,
+html[data-theme="light"] #linea .gb-title-band {
+  color: #F7F3EC !important;
+}
+html[data-theme="light"] #linea .gb-line-head h2,
+html[data-theme="light"] #linea .slide-index span:first-child {
+  color: #FFFEFB !important;
+}
+html[data-theme="light"] #linea .gb-line-head h2 em,
+html[data-theme="light"] #linea .eyebrow {
+  color: #C4A574 !important;
+}
+html[data-theme="light"] #linea .gb-line-kicker,
+html[data-theme="light"] #linea .slide-index span:last-child {
+  color: #B8AFA4 !important;
+}
