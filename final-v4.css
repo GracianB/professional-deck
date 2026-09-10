@@ -1406,7 +1406,7 @@ html[data-theme="light"] {
    07 LÍNEA — navy/marine matching timeline image
    ============================================================ */
 #linea.slide {
-  background: var(--timeline-navy) !important;
+  background: var(--ground, var(--bg)) !important;
   overflow: hidden !important;
   padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
 }
@@ -1432,7 +1432,7 @@ html[data-theme="light"] {
   overflow: hidden !important;
   border-radius: var(--r-lg) !important;
   border: 1px solid color-mix(in srgb, var(--gold) 18%, #0a1220) !important;
-  background: var(--timeline-navy) !important;
+  background: #000410 !important;
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.45);
   padding: clamp(10px, 1.6vh, 18px) !important;
 }
@@ -1444,7 +1444,7 @@ html[data-theme="light"] {
   object-fit: contain !important;
   object-position: center !important;
   display: block !important;
-  background: var(--timeline-navy) !important;
+  background: #000410 !important;
 }
 
 /* ============================================================
@@ -2372,12 +2372,12 @@ html[data-theme="light"] .gb-line-slide {
   color: var(--cream) !important;
 }
 html[data-theme="light"] #linea .gb-line-frame {
-  background: #FFFEFB !important;
-  border-color: color-mix(in srgb, var(--gold) 28%, var(--line)) !important;
-  box-shadow: var(--shadow-panel) !important;
+  background: #000410 !important;
+  border-color: color-mix(in srgb, var(--gold) 22%, #0a1220) !important;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.35) !important;
 }
 html[data-theme="light"] #linea .gb-line-frame img {
-  background: transparent !important;
+  background: #000410 !important;
 }
 html[data-theme="light"] #linea .gb-line-kicker,
 html[data-theme="light"] #linea .slide-index span:last-child {
@@ -3320,20 +3320,25 @@ html[data-theme="light"] #metodo .gb-step.is-final p {
 }
 
 /* ============================================================
-   LÍNEA 07 — frame bg MUST match timeline image navy (both themes)
+   LÍNEA 07 — navy FRAME only; slide uses normal theme background
    Sampled from timeline-horizontal.png edges ≈ #000410 / #010510
+   Undo prior full-slide #000410 lock (both themes).
    ============================================================ */
 :root {
   --timeline-navy-locked: #000410;
 }
+
+/* Slide shell: themed (cinema dark / paper light) — NOT full-slide navy */
 #linea.slide,
 #linea.gb-line-slide,
 .gb-line-slide#linea {
-  background: #000410 !important;
-  background-color: #000410 !important;
+  background: var(--ground, var(--bg)) !important;
+  background-color: var(--ground, var(--bg)) !important;
   background-image: none !important;
-  color: #F7F3EC !important;
+  color: var(--cream) !important;
 }
+
+/* Frame + img letterbox: always match timeline navy */
 #linea .gb-line-frame {
   background: #000410 !important;
   background-color: #000410 !important;
@@ -3345,60 +3350,63 @@ html[data-theme="light"] #metodo .gb-step.is-final p {
   background-color: #000410 !important;
 }
 
-/* Title band readable on navy (dark + light) */
+/* Title band: theme-readable (not forced light-on-navy for whole slide) */
 #linea .gb-line-head,
 #linea .gb-title-band {
-  color: #F7F3EC !important;
+  color: var(--cream) !important;
 }
 #linea .gb-line-head h2,
 #linea .gb-line-head .eyebrow,
 #linea .slide-index span:first-child {
-  color: #FFFEFB !important;
+  color: var(--cream) !important;
 }
 #linea .gb-line-head h2 em,
 #linea .eyebrow {
-  color: #C4A574 !important;
+  color: var(--gold, #C4A574) !important;
 }
 #linea .gb-line-kicker,
 #linea .slide-index span:last-child {
-  color: #B8AFA4 !important;
+  color: var(--mute-2) !important;
 }
 #linea .slide-index i {
-  background: color-mix(in srgb, #C4A574 55%, transparent) !important;
+  background: color-mix(in srgb, var(--gold, #C4A574) 55%, transparent) !important;
 }
 
-/* Kill light-theme paper overrides that made the image float */
 html[data-theme="light"] #linea.slide,
 html[data-theme="light"] #linea.gb-line-slide,
 html[data-theme="light"] .gb-line-slide#linea {
-  background: #000410 !important;
-  background-color: #000410 !important;
+  background: var(--ground, var(--bg)) !important;
+  background-color: var(--ground, var(--bg)) !important;
   background-image: none !important;
-  color: #F7F3EC !important;
+  color: var(--cream) !important;
 }
+
+/* Frame stays navy in light (image letterbox match) */
 html[data-theme="light"] #linea .gb-line-frame {
   background: #000410 !important;
   background-color: #000410 !important;
   border-color: color-mix(in srgb, #C4A574 22%, #0a1220) !important;
-  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.35) !important;
 }
 html[data-theme="light"] #linea .gb-line-frame img {
   background: #000410 !important;
   background-color: #000410 !important;
 }
+
+/* Light title band: ink on paper */
 html[data-theme="light"] #linea .gb-line-head,
 html[data-theme="light"] #linea .gb-title-band {
-  color: #F7F3EC !important;
+  color: var(--cream) !important;
 }
 html[data-theme="light"] #linea .gb-line-head h2,
 html[data-theme="light"] #linea .slide-index span:first-child {
-  color: #FFFEFB !important;
+  color: var(--cream) !important;
 }
 html[data-theme="light"] #linea .gb-line-head h2 em,
 html[data-theme="light"] #linea .eyebrow {
-  color: #C4A574 !important;
+  color: var(--gold, #C4A574) !important;
 }
 html[data-theme="light"] #linea .gb-line-kicker,
 html[data-theme="light"] #linea .slide-index span:last-child {
-  color: #B8AFA4 !important;
+  color: var(--mute-2) !important;
 }

@@ -1225,9 +1225,9 @@
   }
 }
 
-/* —— 07 LÍNEA: navy frame matches timeline image —— */
+/* —— 07 LÍNEA: navy FRAME only; slide uses theme ground —— */
 #linea.slide {
-  background: var(--timeline-navy) !important;
+  background: var(--ground, var(--bg, #141210)) !important;
   overflow: hidden !important;
   justify-content: flex-start !important;
   align-items: stretch !important;
@@ -1250,7 +1250,7 @@
   overflow: hidden !important;
   border-radius: 12px !important;
   border: 1px solid color-mix(in srgb, var(--gold) 18%, #0a1220) !important;
-  background: var(--timeline-navy) !important;
+  background: #000410 !important;
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.45);
   padding: clamp(10px, 1.6vh, 18px) !important;
 }
@@ -1262,7 +1262,7 @@
   object-fit: contain !important;
   object-position: center !important;
   display: block !important;
-  background: var(--timeline-navy) !important;
+  background: #000410 !important;
 }
 
 /* —— 08 / 09 EXPERIENCIA: content fits inside role cards —— */
