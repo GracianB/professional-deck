@@ -1064,7 +1064,7 @@
   font-size: clamp(26px, 2.8vw, 38px) !important;
   color: var(--gold) !important;
   background:
-    linear-gradient(180deg, rgba(243, 212, 55, 0.12), rgba(125, 202, 165, 0.1)) !important;
+    linear-gradient(180deg, rgba(196, 165, 116, 0.12), rgba(125, 202, 165, 0.1)) !important;
   border-left: 1px solid rgba(255,255,255,0.06);
   border-right: 1px solid rgba(255,255,255,0.06);
 }
@@ -1126,7 +1126,7 @@
 #trayectoria .gb-engine-list b {
   font-size: clamp(14px, 1.2vw, 17px) !important;
   line-height: 1.15 !important;
-  color: #fffef8 !important;
+  color: #FFFEFB !important;
 }
 #trayectoria .gb-engine-list span {
   font-size: clamp(12px, 1.05vw, 14px) !important;
@@ -1151,7 +1151,7 @@
   border-radius: 8px !important;
   border: 1px solid color-mix(in srgb, var(--sage) 28%, transparent) !important;
   background:
-    linear-gradient(90deg, rgba(125, 202, 165, 0.12), rgba(243, 212, 55, 0.06)) !important;
+    linear-gradient(90deg, rgba(125, 202, 165, 0.12), rgba(196, 165, 116, 0.06)) !important;
 }
 #trayectoria .gb-career-break em {
   font: 800 9px/1.2 var(--mono) !important;
@@ -1169,7 +1169,7 @@
 #trayectoria .gb-career-break b {
   font: 760 12px/1.2 var(--display) !important;
   letter-spacing: -0.01em !important;
-  color: #fffef8 !important;
+  color: #FFFEFB !important;
 }
 #trayectoria .gb-career-break span {
   font: 700 11px/1.2 var(--sans) !important;
@@ -1188,7 +1188,7 @@
   min-height: 44px !important;
   margin: 0 !important;
   padding: 10px 16px !important;
-  border-top: 1px solid rgba(243, 212, 55, 0.22) !important;
+  border-top: 1px solid rgba(196, 165, 116, 0.22) !important;
 }
 /* Track lists never paint under the gold footer bar */
 #trayectoria .gb-dual,
@@ -1480,7 +1480,7 @@
 #formacion .gb-edu-head {
   flex-shrink: 0 !important;
   padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 24px) clamp(10px, 1.3vh, 14px) !important;
-  background: linear-gradient(180deg, rgba(243, 212, 55, 0.06), transparent) !important;
+  background: linear-gradient(180deg, rgba(196, 165, 116, 0.06), transparent) !important;
 }
 #formacion .gb-edu-grid,
 #formacion .education-layout,
