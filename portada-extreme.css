@@ -1,24 +1,31 @@
 /* ============================================================
-   PORTADA EXTREME — cinematic first impression
-   EXPERIENCIA world · nude/beige/white + soft gold #C4A574
-   paper #FAF7F2 · ink #2A2622 · Fraunces / Inter / JetBrains
-   Loads LAST. Does not touch PDF assets.
+   PORTADA EXTREMA — luxury marketing cinema (slide 00)
+   EXPERIENCIA · CS · nude/champagne · Fraunces / Inter / Mono
+   paper #FAF7F2 · nude #F3EDE4/#EFE8DE · ink #141210/#2A2622
+   champagne #C4A574 / soft #D4B896 — NEVER highlighter #f3d437
+   Loads LAST (after final-v4). PDFs untouched.
    ============================================================ */
 
 :root {
   --px-gold: #C4A574;
   --px-gold-soft: #D4B896;
+  --px-gold-pale: #E8D5B5;
   --px-paper: #FAF7F2;
+  --px-nude: #F3EDE4;
+  --px-nude-2: #EFE8DE;
   --px-ink: #2A2622;
+  --px-ink-deep: #141210;
   --px-ground: #141210;
   --px-panel: #1C1916;
   --px-cream: #F7F3EC;
+  --px-mute: #8A8178;
+  --px-mute-2: #6F675F;
 }
 
-/* —— First-impression chrome: GB → hub —— */
+/* —— Shared GB chrome (hub-aligned) —— */
 .site-header {
   background: color-mix(in srgb, var(--ground, var(--px-ground)) 78%, transparent) !important;
-  border-bottom: 1px solid color-mix(in srgb, var(--px-gold) 22%, transparent) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--px-gold) 24%, transparent) !important;
   backdrop-filter: blur(18px) saturate(130%) !important;
 }
 .brand-mark {
@@ -27,90 +34,156 @@
   border: 1px solid var(--px-gold) !important;
   color: var(--px-gold) !important;
   background:
-    linear-gradient(145deg, rgba(196,165,116,.12), transparent 55%),
+    linear-gradient(145deg, rgba(196,165,116,.14), transparent 55%),
     transparent !important;
   font: italic 800 13px/1 Fraunces, var(--display), serif !important;
   letter-spacing: 0.02em !important;
   border-radius: 10px !important;
-  box-shadow: 0 0 0 1px rgba(196,165,116,.08), 0 8px 24px rgba(0,0,0,.18) !important;
+  box-shadow: 0 0 0 1px rgba(196,165,116,.1), 0 8px 24px rgba(0,0,0,.2) !important;
 }
 .brand:hover .brand-mark {
   background: var(--px-gold) !important;
-  color: var(--px-ink) !important;
+  color: var(--px-ink-deep) !important;
   border-color: var(--px-gold) !important;
-  box-shadow: 0 0 28px rgba(196,165,116,.35) !important;
+  box-shadow: 0 0 32px rgba(196,165,116,.4) !important;
 }
 .brand-text b {
   font: 800 11px/1.2 JetBrains Mono, var(--mono), monospace !important;
   letter-spacing: 0.16em !important;
 }
 .brand-text small {
-  color: color-mix(in srgb, var(--px-gold) 70%, var(--mute, #8A8178)) !important;
+  color: color-mix(in srgb, var(--px-gold) 72%, var(--px-mute)) !important;
   letter-spacing: 0.16em !important;
 }
 .top-progress i {
-  background: linear-gradient(90deg, var(--px-gold), var(--px-gold-soft), #E8D5B5) !important;
-  box-shadow: 0 0 14px rgba(196,165,116,.45) !important;
+  background: linear-gradient(90deg, var(--px-gold), var(--px-gold-soft), var(--px-gold-pale)) !important;
+  box-shadow: 0 0 16px rgba(196,165,116,.5) !important;
 }
 
 html[data-theme="light"] .site-header {
-  background: color-mix(in srgb, var(--px-paper) 88%, transparent) !important;
+  background: color-mix(in srgb, var(--px-paper) 90%, transparent) !important;
   border-bottom-color: rgba(42,38,34,.1) !important;
   color: var(--px-ink) !important;
 }
 html[data-theme="light"] .brand-mark {
-  background: linear-gradient(145deg, rgba(196,165,116,.16), #FFFEFB) !important;
-  color: var(--px-ink) !important;
+  background: linear-gradient(145deg, rgba(196,165,116,.18), #FFFEFB) !important;
+  color: var(--px-ink-deep) !important;
   border-color: color-mix(in srgb, var(--px-gold) 55%, var(--px-ink)) !important;
 }
 html[data-theme="light"] .brand-text b { color: var(--px-ink) !important; }
-html[data-theme="light"] .main-nav button { color: #6F675F !important; }
+html[data-theme="light"] .main-nav button { color: var(--px-mute-2) !important; }
 html[data-theme="light"] .main-nav button:hover { color: var(--px-ink) !important; }
 
-/* —— Cover shell —— */
+/* ============================================================
+   COVER SHELL — dark cinema ground
+   ============================================================ */
 #inicio.slide.gb-hero-extreme,
-#inicio.gb-hero-extreme {
+#inicio.gb-hero-extreme,
+#inicio.slide.gb-hero {
   position: relative !important;
   overflow: hidden !important;
   background:
-    radial-gradient(ellipse 75% 55% at 12% 18%, rgba(196,165,116,.16), transparent 58%),
-    radial-gradient(ellipse 50% 42% at 88% 72%, rgba(196,165,116,.08), transparent 52%),
-    radial-gradient(ellipse 40% 30% at 55% 8%, rgba(247,243,236,.04), transparent 50%),
-    linear-gradient(180deg, #161310 0%, var(--px-ground) 42%, #10100e 100%) !important;
+    radial-gradient(ellipse 80% 58% at 10% 16%, rgba(196,165,116,.22), transparent 56%),
+    radial-gradient(ellipse 55% 48% at 92% 78%, rgba(196,165,116,.12), transparent 52%),
+    radial-gradient(ellipse 42% 36% at 62% 8%, rgba(247,243,236,.05), transparent 48%),
+    radial-gradient(ellipse 35% 30% at 48% 88%, rgba(196,165,116,.07), transparent 55%),
+    linear-gradient(180deg, #18140f 0%, var(--px-ground) 40%, #0e0d0b 100%) !important;
   color: var(--px-cream) !important;
 }
 
+/* —— Ambient layer: vignette / sweep / orbs / grain / grid / film —— */
+#inicio .gb-hero-ambient {
+  opacity: 1 !important;
+  z-index: 0 !important;
+}
 #inicio .gb-hero-vignette {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 85% 75% at 50% 45%, transparent 35%, rgba(0,0,0,.45) 100%),
-    linear-gradient(90deg, rgba(0,0,0,.28), transparent 18%, transparent 82%, rgba(0,0,0,.22));
+    radial-gradient(ellipse 88% 78% at 42% 42%, transparent 28%, rgba(0,0,0,.55) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.32), transparent 16%, transparent 84%, rgba(0,0,0,.28));
 }
 #inicio .gb-hero-sweep {
   position: absolute;
-  inset: -20% -10%;
+  inset: -25% -15%;
   z-index: 1;
   pointer-events: none;
-  background: conic-gradient(from 210deg at 30% 40%, transparent 0deg, rgba(196,165,116,.07) 40deg, transparent 90deg, transparent 360deg);
-  animation: pxSweep 28s linear infinite;
-  opacity: .85;
+  background: conic-gradient(
+    from 200deg at 28% 38%,
+    transparent 0deg,
+    rgba(196,165,116,.1) 38deg,
+    transparent 95deg,
+    rgba(196,165,116,.045) 180deg,
+    transparent 260deg,
+    transparent 360deg
+  );
+  animation: pxSweep 32s linear infinite;
+  opacity: .95;
 }
 @keyframes pxSweep {
-  0% { transform: rotate(0deg) scale(1.05); }
-  100% { transform: rotate(360deg) scale(1.05); }
+  0% { transform: rotate(0deg) scale(1.08); }
+  100% { transform: rotate(360deg) scale(1.08); }
+}
+
+#inicio .gb-hero-orb {
+  filter: blur(88px) saturate(1.25) !important;
+  opacity: .62 !important;
+  mix-blend-mode: screen;
+}
+#inicio .gb-hero-orb-a {
+  width: min(560px, 68vw) !important;
+  height: min(560px, 68vw) !important;
+  top: -18% !important;
+  left: -12% !important;
+  background: radial-gradient(circle, rgba(196,165,116,.55), transparent 68%) !important;
+  opacity: .7 !important;
+}
+#inicio .gb-hero-orb-b {
+  width: min(480px, 55vw) !important;
+  height: min(480px, 55vw) !important;
+  bottom: -14% !important;
+  right: -8% !important;
+  background: radial-gradient(circle, rgba(212,184,150,.42), transparent 70%) !important;
+  opacity: .55 !important;
+  animation-delay: -8s;
+}
+#inicio .gb-hero-orb-c {
+  width: min(340px, 42vw) !important;
+  height: min(340px, 42vw) !important;
+  top: 28% !important;
+  left: 42% !important;
+  background: radial-gradient(circle, rgba(196,165,116,.28), transparent 70%) !important;
+  opacity: .38 !important;
+  animation-delay: -14s;
 }
 #inicio .gb-hero-orb-d {
-  width: min(360px, 42vw);
-  height: min(360px, 42vw);
-  top: 55%;
-  left: 55%;
-  background: radial-gradient(circle, rgba(196,165,116,.18), transparent 70%);
-  opacity: .35;
+  width: min(420px, 48vw) !important;
+  height: min(420px, 48vw) !important;
+  top: 48% !important;
+  left: 58% !important;
+  background: radial-gradient(circle, rgba(196,165,116,.32), transparent 68%) !important;
+  opacity: .48 !important;
   animation-delay: -18s;
-  filter: blur(70px);
+  filter: blur(72px) !important;
+}
+
+#inicio .gb-hero-grain {
+  z-index: 2 !important;
+  opacity: .07 !important;
+  mix-blend-mode: overlay !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E") !important;
+}
+#inicio .gb-hero-grid-fx {
+  z-index: 1 !important;
+  opacity: .09 !important;
+  background-image:
+    linear-gradient(rgba(196,165,116,.42) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,165,116,.32) 1px, transparent 1px) !important;
+  background-size: 64px 64px !important;
+  mask-image: radial-gradient(ellipse 75% 65% at 38% 32%, #000 12%, transparent 78%) !important;
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 38% 32%, #000 12%, transparent 78%) !important;
 }
 #inicio .gb-hero-film {
   position: absolute;
@@ -120,129 +193,163 @@ html[data-theme="light"] .main-nav button:hover { color: var(--px-ink) !importan
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 0;
-  opacity: .35;
+  padding: 14px 0;
+  opacity: .42;
 }
 #inicio .gb-hero-film i {
   display: block;
   height: 1px;
-  margin: 0 4%;
-  background: linear-gradient(90deg, transparent, rgba(196,165,116,.55), transparent);
+  margin: 0 3%;
+  background: linear-gradient(90deg, transparent, rgba(196,165,116,.65), transparent);
+  box-shadow: 0 0 12px rgba(196,165,116,.25);
 }
-#inicio .gb-hero-grain {
-  z-index: 2 !important;
-  opacity: .045 !important;
-}
-#inicio .gb-hero-grid-fx {
+#inicio .gb-hero-tags-fx {
   z-index: 1 !important;
-  opacity: .055 !important;
-  background-image:
-    linear-gradient(rgba(196,165,116,.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196,165,116,.28) 1px, transparent 1px) !important;
-  background-size: 72px 72px !important;
-  mask-image: radial-gradient(ellipse 70% 60% at 40% 35%, #000 15%, transparent 75%) !important;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 40% 35%, #000 15%, transparent 75%) !important;
 }
 #inicio .gb-hero-tags-fx span {
-  border-color: color-mix(in srgb, var(--px-gold) 35%, transparent) !important;
-  background: rgba(196,165,116,.07) !important;
-  color: color-mix(in srgb, var(--px-gold) 75%, #fff) !important;
+  border-color: color-mix(in srgb, var(--px-gold) 40%, transparent) !important;
+  background: rgba(196,165,116,.09) !important;
+  color: color-mix(in srgb, var(--px-gold) 80%, #fff) !important;
   font: 600 9px/1 JetBrains Mono, var(--mono), monospace !important;
   letter-spacing: .1em !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,.2) !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.28) !important;
+  opacity: .55 !important;
 }
 
+/* Stack / grid */
 #inicio .gb-hero-stack {
   position: relative !important;
   z-index: 4 !important;
-  gap: clamp(16px, 2.6vh, 28px) !important;
+  gap: clamp(18px, 3vh, 34px) !important;
+  justify-content: space-between !important;
+}
+#inicio .gb-hero-grid {
+  align-items: center !important;
+  gap: clamp(24px, 3.5vw, 48px) !important;
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr) !important;
 }
 
-/* Title plate — readable, not sparse */
+/* Title plate */
 #inicio .gb-hero-title-band {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  margin-bottom: clamp(10px, 1.4vh, 16px) !important;
+  padding: 8px 16px 10px 14px !important;
   background: linear-gradient(
     90deg,
-    rgba(20,18,16,.78) 0%,
-    rgba(20,18,16,.35) 55%,
+    rgba(20,18,16,.82) 0%,
+    rgba(20,18,16,.4) 58%,
     transparent 100%
   ) !important;
   border-left: 2px solid var(--px-gold) !important;
-  padding: 8px 14px 10px 12px !important;
-  border-radius: 0 12px 12px 0 !important;
-  box-shadow: none !important;
+  border-radius: 0 14px 14px 0 !important;
   text-shadow: none !important;
+  isolation: isolate;
+  z-index: 6 !important;
+}
+#inicio .gb-hero-index {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font: 800 11px/1.2 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: .16em !important;
+  margin: 0 !important;
 }
 #inicio .gb-hero-index span:first-child { color: var(--px-gold) !important; }
+#inicio .gb-hero-index i {
+  background: color-mix(in srgb, var(--px-gold) 75%, #FFFEFB) !important;
+  opacity: .9 !important;
+}
 #inicio .gb-hero-index span:last-child {
-  color: color-mix(in srgb, var(--px-cream) 82%, var(--px-gold)) !important;
-  letter-spacing: .18em !important;
+  color: color-mix(in srgb, var(--px-cream) 85%, var(--px-gold)) !important;
+  letter-spacing: .2em !important;
 }
 #inicio .gb-kicker.eyebrow {
   color: var(--px-gold-soft) !important;
-  font: 700 11px/1.45 JetBrains Mono, var(--mono), monospace !important;
-  letter-spacing: .18em !important;
+  font: 700 10px/1.45 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: .2em !important;
+  margin: 0 !important;
 }
 
+/* World line — EXPERIENCIA */
 #inicio .gb-hero-world {
-  margin: 0 0 12px !important;
-  font: italic 500 13px/1.3 Fraunces, var(--display), serif !important;
-  letter-spacing: .08em !important;
-  color: color-mix(in srgb, var(--px-gold) 80%, var(--px-cream)) !important;
+  display: block !important;
+  margin: 0 0 clamp(10px, 1.4vh, 14px) !important;
+  font: italic 550 13px/1.35 Fraunces, var(--display), serif !important;
+  letter-spacing: .12em !important;
+  color: color-mix(in srgb, var(--px-gold) 82%, var(--px-cream)) !important;
   text-transform: uppercase;
 }
 
 #inicio .gb-status {
-  border-color: color-mix(in srgb, var(--px-gold) 40%, transparent) !important;
-  background: rgba(196,165,116,.08) !important;
+  margin: 0 0 clamp(12px, 1.8vh, 18px) !important;
+  border-color: color-mix(in srgb, var(--px-gold) 42%, transparent) !important;
+  background: rgba(196,165,116,.1) !important;
   color: var(--px-gold-soft) !important;
   border-radius: 999px !important;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  font: 600 12px/1.2 Inter, var(--sans), system-ui, sans-serif !important;
 }
 #inicio .gb-status i {
   background: var(--px-gold) !important;
-  box-shadow: 0 0 0 4px rgba(196,165,116,.22) !important;
+  box-shadow: 0 0 0 4px rgba(196,165,116,.25), 0 0 12px rgba(196,165,116,.45) !important;
 }
 
-/* Display lockup — cinematic Fraunces */
+/* ========== CAMPAIGN TITLE ========== */
 #inicio .gb-hero-copy h1 {
   margin: 0 !important;
+  padding: 0 !important;
   font-family: Fraunces, var(--display), serif !important;
-  font-weight: 560 !important;
-  font-size: clamp(48px, 7vw + 1.2vh, 96px) !important;
-  line-height: 0.92 !important;
-  letter-spacing: -0.045em !important;
+  font-weight: 620 !important;
+  font-size: clamp(52px, 7.4vw + 1.4vh, 104px) !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.048em !important;
   color: var(--px-cream) !important;
-  font-variation-settings: "opsz" 144, "SOFT" 50 !important;
+  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0.4 !important;
   text-wrap: balance;
+  text-shadow:
+    0 2px 0 rgba(0,0,0,.15),
+    0 24px 60px rgba(0,0,0,.35),
+    0 0 80px rgba(196,165,116,.08);
 }
 #inicio .gb-hero-copy h1 em {
   color: var(--px-gold) !important;
   font-style: italic !important;
-  font-weight: 450 !important;
-  background: linear-gradient(120deg, #C4A574 0%, #E8D5B5 45%, #C4A574 90%) !important;
-  background-size: 200% auto !important;
+  font-weight: 480 !important;
+  background: linear-gradient(
+    115deg,
+    #C4A574 0%,
+    #E8D5B5 38%,
+    #D4B896 62%,
+    #C4A574 100%
+  ) !important;
+  background-size: 220% auto !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-  animation: pxShimmer 7s ease-in-out infinite alternate !important;
+  animation: pxShimmer 6.5s ease-in-out infinite alternate !important;
+  filter: drop-shadow(0 0 28px rgba(196,165,116,.28));
 }
 @keyframes pxShimmer {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
 
+/* Air after title + gold rule */
 #inicio .gb-hero-goldline {
-  width: min(220px, 42%);
+  width: min(240px, 48%);
   height: 2px;
-  margin: clamp(14px, 2vh, 20px) 0 clamp(12px, 1.6vh, 18px);
-  background: linear-gradient(90deg, var(--px-gold), transparent);
+  margin: clamp(18px, 2.6vh, 28px) 0 clamp(14px, 2vh, 22px);
+  background: linear-gradient(90deg, var(--px-gold), var(--px-gold-soft), transparent);
   border-radius: 2px;
-  box-shadow: 0 0 18px rgba(196,165,116,.35);
+  box-shadow: 0 0 22px rgba(196,165,116,.45);
 }
 
 #inicio .gb-lead {
-  max-width: 38ch !important;
-  font: 500 clamp(15px, 1.4vw, 19px)/1.55 Inter, var(--sans), system-ui, sans-serif !important;
+  margin: 0 !important;
+  max-width: 40ch !important;
+  font: 500 clamp(15px, 1.45vw, 20px)/1.55 Inter, var(--sans), system-ui, sans-serif !important;
   color: #C8BFB4 !important;
 }
 #inicio .gb-lead strong {
@@ -250,240 +357,479 @@ html[data-theme="light"] .main-nav button:hover { color: var(--px-ink) !importan
   font-weight: 700 !important;
 }
 
-#inicio .gb-actions .button.primary {
-  background: var(--px-gold) !important;
-  color: var(--px-ink) !important;
-  border-color: transparent !important;
-  box-shadow: 0 12px 32px rgba(196,165,116,.28) !important;
+/* Soft-gold CTAs */
+#inicio .gb-actions {
+  margin-top: clamp(20px, 2.8vh, 32px) !important;
+  gap: 12px !important;
+}
+#inicio .gb-actions .button {
+  min-height: 48px !important;
+  padding: 0 20px !important;
+  border-radius: 999px !important;
   font-weight: 700 !important;
+  letter-spacing: .01em !important;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease !important;
+}
+#inicio .gb-actions .button.primary {
+  background: linear-gradient(135deg, var(--px-gold-soft), var(--px-gold) 55%, #B8955F) !important;
+  color: var(--px-ink-deep) !important;
+  border: 1px solid transparent !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.25) inset,
+    0 14px 36px rgba(196,165,116,.32) !important;
 }
 #inicio .gb-actions .button.primary:hover {
-  background: var(--px-gold-soft) !important;
+  background: linear-gradient(135deg, var(--px-gold-pale), var(--px-gold-soft) 50%, var(--px-gold)) !important;
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(196,165,116,.38) !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.3) inset,
+    0 18px 44px rgba(196,165,116,.42) !important;
 }
 #inicio .gb-actions .button.ghost {
-  border: 1px solid color-mix(in srgb, var(--px-gold) 35%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--px-gold) 38%, transparent) !important;
   color: var(--px-cream) !important;
-  background: rgba(255,255,255,.03) !important;
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,.035) !important;
+  backdrop-filter: blur(10px);
 }
 #inicio .gb-actions .button.ghost:hover {
   border-color: var(--px-gold) !important;
   color: var(--px-gold-soft) !important;
-  background: rgba(196,165,116,.08) !important;
+  background: rgba(196,165,116,.1) !important;
+  transform: translateY(-1px);
 }
 
 #inicio .gb-hero-proof {
-  color: #8A8178 !important;
+  margin-top: clamp(12px, 1.6vh, 18px) !important;
+  color: var(--px-mute) !important;
   font: 600 11px/1.4 JetBrains Mono, var(--mono), monospace !important;
-  letter-spacing: .1em !important;
+  letter-spacing: .12em !important;
   text-transform: uppercase !important;
 }
 
-/* Cinema profile card */
+/* ========== EDITORIAL RIGHT CARD ========== */
+#inicio .gb-card,
 #inicio .gb-card-cinema {
-  border-radius: 22px !important;
-  border: 1px solid color-mix(in srgb, var(--px-gold) 28%, transparent) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  border-radius: 24px !important;
+  border: 1px solid color-mix(in srgb, var(--px-gold) 32%, transparent) !important;
   background:
-    linear-gradient(155deg, rgba(196,165,116,.18), transparent 40%),
-    linear-gradient(200deg, rgba(247,243,236,.04), transparent 55%),
-    linear-gradient(180deg, #242018, var(--px-panel)) !important;
+    linear-gradient(155deg, rgba(196,165,116,.22), transparent 38%),
+    linear-gradient(210deg, rgba(247,243,236,.05), transparent 52%),
+    linear-gradient(180deg, #2A241c, var(--px-panel) 55%, #161310) !important;
   box-shadow:
-    0 28px 70px rgba(0,0,0,.45),
-    inset 0 1px 0 rgba(247,243,236,.08),
-    0 0 0 1px rgba(196,165,116,.06) !important;
+    0 32px 80px rgba(0,0,0,.5),
+    inset 0 1px 0 rgba(247,243,236,.1),
+    0 0 0 1px rgba(196,165,116,.08) !important;
   position: relative;
   overflow: hidden !important;
+  min-height: 0 !important;
+  backdrop-filter: blur(14px);
 }
 #inicio .gb-card-cinema::before {
   content: "";
   position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 3px;
-  background: linear-gradient(180deg, var(--px-gold), transparent 85%);
+  background: linear-gradient(180deg, var(--px-gold), var(--px-gold-soft) 40%, transparent 90%);
   z-index: 3;
 }
-#inicio .gb-card-cinema .gb-card-title {
+#inicio .gb-card-cinema::after {
+  content: "";
+  position: absolute;
+  right: -20%;
+  top: -15%;
+  width: 55%;
+  height: 45%;
+  background: radial-gradient(circle, rgba(196,165,116,.2), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+#inicio .gb-card-head {
+  position: relative;
+  z-index: 2;
+  padding: 15px 20px !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--px-gold) 22%, transparent) !important;
+  background: rgba(196,165,116,.07) !important;
+  font: 700 11px/1 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: .14em !important;
+  color: var(--px-mute) !important;
+}
+#inicio .gb-card-body {
+  position: relative;
+  z-index: 2;
+  padding: clamp(20px, 2.8vh, 30px) 20px !important;
+}
+#inicio .gb-card-label {
+  font: 700 11px/1 JetBrains Mono, var(--mono), monospace !important;
+  letter-spacing: .18em !important;
+  color: var(--px-gold-soft) !important;
+}
+#inicio .gb-card-cinema .gb-card-title,
+#inicio .gb-card-title {
   font-family: Fraunces, var(--display), serif !important;
-  font-weight: 600 !important;
-  font-size: clamp(28px, 2.8vw, 40px) !important;
-  letter-spacing: -0.03em !important;
+  font-weight: 620 !important;
+  font-size: clamp(30px, 3.1vw, 44px) !important;
+  letter-spacing: -0.035em !important;
   color: var(--px-cream) !important;
+  line-height: 1.05 !important;
+}
+#inicio .gb-card-sub {
+  color: var(--px-mute) !important;
+  font: 500 13px/1.35 Inter, var(--sans), system-ui, sans-serif !important;
 }
 #inicio .gb-card-rule {
   height: 1px;
-  margin: 8px 0 4px;
+  margin: 10px 0 6px;
   background: linear-gradient(90deg, var(--px-gold), transparent);
-  opacity: .7;
+  opacity: .75;
+}
+#inicio .gb-card-list li {
+  border-color: color-mix(in srgb, var(--px-gold) 14%, transparent) !important;
+  background: rgba(255,255,255,.025) !important;
+  border-radius: 10px !important;
+  padding: 11px 12px !important;
 }
 #inicio .gb-card-list li span {
   color: var(--px-gold) !important;
   font: 800 11px JetBrains Mono, var(--mono), monospace !important;
 }
+#inicio .gb-card-list b {
+  color: var(--px-cream) !important;
+  font: 700 13px/1.25 Inter, var(--sans), system-ui, sans-serif !important;
+}
+#inicio .gb-card-list small {
+  color: var(--px-mute) !important;
+}
 #inicio .gb-card-foot {
-  margin: 14px 0 0 !important;
-  padding-top: 12px;
-  border-top: 1px solid rgba(244,243,238,.08);
+  margin: 16px 0 0 !important;
+  padding-top: 14px;
+  border-top: 1px solid rgba(244,243,238,.1);
   font: 700 10px/1.3 JetBrains Mono, var(--mono), monospace !important;
-  letter-spacing: .12em !important;
+  letter-spacing: .14em !important;
   color: var(--px-gold-soft) !important;
   text-transform: uppercase;
 }
 
-/* Metrics strip — editorial, gold hairlines */
+/* ========== METRICS — editorial strip ========== */
+#inicio .gb-metrics,
 #inicio .gb-metrics-cinema {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   gap: 0 !important;
-  border: 1px solid color-mix(in srgb, var(--px-gold) 22%, transparent) !important;
-  border-radius: 16px !important;
+  border: 1px solid color-mix(in srgb, var(--px-gold) 28%, transparent) !important;
+  border-radius: 18px !important;
   background:
-    linear-gradient(180deg, rgba(196,165,116,.07), transparent 60%),
-    rgba(20,18,16,.55) !important;
-  backdrop-filter: blur(12px);
+    linear-gradient(180deg, rgba(196,165,116,.12), transparent 55%),
+    rgba(18,16,14,.72) !important;
+  backdrop-filter: blur(14px);
   overflow: hidden !important;
   flex-shrink: 0 !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.28), inset 0 1px 0 rgba(247,243,236,.06) !important;
 }
+#inicio .gb-metrics > div,
 #inicio .gb-metrics-cinema > div {
-  padding: 14px 16px !important;
-  border-right: 1px solid color-mix(in srgb, var(--px-gold) 16%, transparent) !important;
+  padding: clamp(14px, 2vh, 20px) 16px !important;
+  border-right: 1px solid color-mix(in srgb, var(--px-gold) 18%, transparent) !important;
+  border-radius: 0 !important;
   background: transparent !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 4px !important;
+  gap: 6px !important;
+  text-align: left !important;
+  min-height: 76px !important;
 }
+#inicio .gb-metrics > div:last-child,
 #inicio .gb-metrics-cinema > div:last-child { border-right: 0 !important; }
+#inicio .gb-metrics strong,
 #inicio .gb-metrics-cinema strong {
   font-family: Fraunces, var(--display), serif !important;
-  font-weight: 650 !important;
-  font-size: clamp(26px, 2.4vw, 34px) !important;
+  font-weight: 680 !important;
+  font-size: clamp(28px, 2.6vw + .4vh, 38px) !important;
   color: var(--px-gold) !important;
-  letter-spacing: -0.03em !important;
+  letter-spacing: -0.035em !important;
   line-height: 1 !important;
 }
+#inicio .gb-metrics span,
 #inicio .gb-metrics-cinema span {
   font: 600 10px/1.3 JetBrains Mono, var(--mono), monospace !important;
-  letter-spacing: .1em !important;
+  letter-spacing: .12em !important;
   text-transform: uppercase !important;
-  color: #9A9188 !important;
+  color: #A89F94 !important;
 }
 
-/* ========== LIGHT MODE — paper world, never stuck navy ========== */
+/* Keep card visible through mid desktop (override final-v4 @1100) */
+@media (min-width: 900px) {
+  #inicio .gb-card,
+  #inicio .gb-card-cinema {
+    display: flex !important;
+  }
+  #inicio .gb-hero-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr) !important;
+  }
+}
+
+/* ============================================================
+   LIGHT MODE — paper luxury (fix sparse right + weak metrics)
+   ============================================================ */
 html[data-theme="light"] #inicio.slide.gb-hero-extreme,
 html[data-theme="light"] #inicio.gb-hero-extreme,
-html[data-theme="light"] .gb-hero-extreme {
-  background:
-    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(196,165,116,.18), transparent 55%),
-    radial-gradient(ellipse 45% 40% at 85% 75%, rgba(196,165,116,.1), transparent 50%),
-    linear-gradient(180deg, #FFFEFB 0%, var(--px-paper) 50%, #F3EDE4 100%) !important;
+html[data-theme="light"] #inicio.slide.gb-hero,
+html[data-theme="light"] #inicio.slide {
+  background-color: var(--px-paper) !important;
+  background-image:
+    radial-gradient(ellipse 72% 52% at 12% 18%, rgba(196,165,116,.28), transparent 55%),
+    radial-gradient(ellipse 55% 48% at 92% 22%, rgba(196,165,116,.2), transparent 52%),
+    radial-gradient(ellipse 48% 42% at 88% 78%, rgba(196,165,116,.16), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 48% 92%, rgba(239,232,222,.9), transparent 55%),
+    linear-gradient(180deg, #FFFEFB 0%, var(--px-paper) 42%, var(--px-nude) 100%) !important;
   color: var(--px-ink) !important;
 }
+
 html[data-theme="light"] #inicio .gb-hero-vignette {
   background:
-    radial-gradient(ellipse 90% 80% at 50% 40%, transparent 40%, rgba(42,38,34,.06) 100%),
-    linear-gradient(90deg, rgba(250,247,242,.4), transparent 20%, transparent 80%, rgba(243,237,228,.35)) !important;
+    radial-gradient(ellipse 92% 82% at 45% 38%, transparent 35%, rgba(42,38,34,.07) 100%),
+    linear-gradient(90deg, rgba(250,247,242,.55), transparent 18%, transparent 78%, rgba(243,237,228,.5)) !important;
 }
-html[data-theme="light"] #inicio .gb-hero-sweep { opacity: .4; }
-html[data-theme="light"] #inicio .gb-hero-film { opacity: .55; }
-html[data-theme="light"] #inicio .gb-hero-film i {
-  background: linear-gradient(90deg, transparent, rgba(196,165,116,.7), transparent) !important;
-}
-html[data-theme="light"] #inicio .gb-hero-title-band {
-  background: linear-gradient(
-    90deg,
-    rgba(250,247,242,.96) 0%,
-    rgba(250,247,242,.6) 55%,
-    transparent 100%
-  ) !important;
-  border-left-color: var(--px-gold) !important;
-  text-shadow: none !important;
-}
-html[data-theme="light"] #inicio .gb-hero-index span:last-child,
-html[data-theme="light"] #inicio .gb-hero-copy h1 {
-  color: var(--px-ink) !important;
-  -webkit-text-fill-color: unset;
-}
-html[data-theme="light"] #inicio .gb-hero-copy h1 {
-  color: var(--px-ink) !important;
-}
-html[data-theme="light"] #inicio .gb-hero-copy h1 em {
-  /* keep gold shimmer */
-  -webkit-text-fill-color: transparent !important;
-}
-html[data-theme="light"] #inicio .gb-hero-world {
-  color: color-mix(in srgb, var(--px-gold) 65%, var(--px-ink)) !important;
-}
-html[data-theme="light"] #inicio .gb-lead { color: #6F675F !important; }
-html[data-theme="light"] #inicio .gb-lead strong { color: var(--px-ink) !important; }
-html[data-theme="light"] #inicio .gb-hero-proof { color: #8A8178 !important; }
-html[data-theme="light"] #inicio .gb-actions .button.ghost {
-  color: var(--px-ink) !important;
-  border-color: rgba(42,38,34,.16) !important;
-  background: rgba(255,255,255,.55) !important;
-}
-html[data-theme="light"] #inicio .gb-card-cinema {
-  background:
-    linear-gradient(155deg, rgba(196,165,116,.12), transparent 42%),
-    linear-gradient(180deg, #FFFEFB, #F3EDE4) !important;
-  border-color: rgba(42,38,34,.12) !important;
-  box-shadow: 0 20px 48px rgba(42,38,34,.1), inset 0 1px 0 #fff !important;
-  color: var(--px-ink) !important;
-}
-html[data-theme="light"] #inicio .gb-card-cinema .gb-card-title,
-html[data-theme="light"] #inicio .gb-card-head,
-html[data-theme="light"] #inicio .gb-card-sub,
-html[data-theme="light"] #inicio .gb-card-list b {
-  color: var(--px-ink) !important;
-}
-html[data-theme="light"] #inicio .gb-card-list small { color: #6F675F !important; }
-html[data-theme="light"] #inicio .gb-card-foot {
-  border-top-color: rgba(42,38,34,.1) !important;
-  color: color-mix(in srgb, var(--px-gold) 55%, var(--px-ink)) !important;
-}
-html[data-theme="light"] #inicio .gb-metrics-cinema {
-  background: rgba(255,254,251,.85) !important;
-  border-color: rgba(42,38,34,.12) !important;
-}
-html[data-theme="light"] #inicio .gb-metrics-cinema > div {
-  border-right-color: rgba(42,38,34,.1) !important;
-}
-html[data-theme="light"] #inicio .gb-metrics-cinema span { color: #6F675F !important; }
-html[data-theme="light"] #inicio .gb-hero-tags-fx span {
-  color: color-mix(in srgb, var(--px-gold) 45%, var(--px-ink)) !important;
-  background: rgba(196,165,116,.1) !important;
-  border-color: rgba(196,165,116,.35) !important;
+html[data-theme="light"] #inicio .gb-hero-sweep {
+  opacity: .72 !important;
+  mix-blend-mode: multiply;
 }
 html[data-theme="light"] #inicio .gb-hero-orb {
   mix-blend-mode: multiply !important;
-  opacity: .5 !important;
+  filter: blur(80px) saturate(1.05) !important;
+  opacity: .72 !important;
+}
+html[data-theme="light"] #inicio .gb-hero-orb-a {
+  background: radial-gradient(circle, rgba(196,165,116,.42), transparent 68%) !important;
+  opacity: .85 !important;
+}
+html[data-theme="light"] #inicio .gb-hero-orb-b {
+  background: radial-gradient(circle, rgba(212,184,150,.36), transparent 70%) !important;
+  opacity: .7 !important;
+}
+html[data-theme="light"] #inicio .gb-hero-orb-c {
+  background: radial-gradient(circle, rgba(196,165,116,.26), transparent 70%) !important;
+  opacity: .55 !important;
+}
+html[data-theme="light"] #inicio .gb-hero-orb-d {
+  background: radial-gradient(circle, rgba(196,165,116,.38), transparent 68%) !important;
+  opacity: .75 !important;
+  /* fills sparse right/lower quadrant */
+  top: 42% !important;
+  left: 62% !important;
+  width: min(520px, 58vw) !important;
+  height: min(520px, 58vw) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-grain {
+  opacity: .085 !important;
+  mix-blend-mode: multiply !important;
+}
+html[data-theme="light"] #inicio .gb-hero-grid-fx {
+  opacity: .14 !important;
+  mix-blend-mode: multiply !important;
+  background-image:
+    linear-gradient(rgba(42,38,34,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42,38,34,.07) 1px, transparent 1px) !important;
+  background-size: 56px 56px !important;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 18%, transparent 82%) !important;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 18%, transparent 82%) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-film {
+  opacity: .7 !important;
+}
+html[data-theme="light"] #inicio .gb-hero-film i {
+  background: linear-gradient(90deg, transparent, rgba(196,165,116,.75), transparent) !important;
 }
 
-/* Scroll only when needed — cover stays clipped */
+html[data-theme="light"] #inicio .gb-hero-title-band {
+  background: linear-gradient(
+    90deg,
+    rgba(250,247,242,.98) 0%,
+    rgba(243,237,228,.85) 50%,
+    transparent 100%
+  ) !important;
+  border-left-color: var(--px-gold) !important;
+  box-shadow: 0 8px 24px rgba(42,38,34,.04) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-index span:last-child {
+  color: var(--px-ink) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-copy h1 {
+  color: var(--px-ink-deep) !important;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.6),
+    0 18px 40px rgba(42,38,34,.08) !important;
+}
+html[data-theme="light"] #inicio .gb-hero-copy h1 em {
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 0 18px rgba(196,165,116,.22));
+}
+html[data-theme="light"] #inicio .gb-hero-world {
+  color: color-mix(in srgb, var(--px-gold) 55%, var(--px-ink)) !important;
+}
+html[data-theme="light"] #inicio .gb-status {
+  background: rgba(196,165,116,.12) !important;
+  border-color: color-mix(in srgb, var(--px-gold) 45%, transparent) !important;
+  color: color-mix(in srgb, var(--px-gold) 40%, var(--px-ink)) !important;
+}
+html[data-theme="light"] #inicio .gb-lead { color: var(--px-mute-2) !important; }
+html[data-theme="light"] #inicio .gb-lead strong { color: var(--px-ink) !important; }
+html[data-theme="light"] #inicio .gb-hero-proof { color: var(--px-mute) !important; }
+
+html[data-theme="light"] #inicio .gb-actions .button.primary {
+  background: linear-gradient(135deg, var(--px-gold-soft), var(--px-gold) 55%, #B8955F) !important;
+  color: var(--px-ink-deep) !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.45) inset,
+    0 12px 28px rgba(196,165,116,.28) !important;
+}
+html[data-theme="light"] #inicio .gb-actions .button.ghost {
+  color: var(--px-ink) !important;
+  border-color: color-mix(in srgb, var(--px-gold) 35%, rgba(42,38,34,.18)) !important;
+  background: rgba(255,254,251,.72) !important;
+}
+html[data-theme="light"] #inicio .gb-actions .button.ghost:hover {
+  border-color: var(--px-gold) !important;
+  color: color-mix(in srgb, var(--px-gold) 35%, var(--px-ink)) !important;
+  background: var(--px-nude) !important;
+}
+
+/* Light editorial card — nude weight on the right */
+html[data-theme="light"] #inicio .gb-card,
+html[data-theme="light"] #inicio .gb-card-cinema {
+  background:
+    linear-gradient(155deg, rgba(196,165,116,.2), transparent 40%),
+    linear-gradient(200deg, #FFFEFB 0%, var(--px-nude) 55%, var(--px-nude-2) 100%) !important;
+  border-color: color-mix(in srgb, var(--px-gold) 38%, rgba(42,38,34,.14)) !important;
+  box-shadow:
+    0 24px 56px rgba(42,38,34,.12),
+    inset 0 1px 0 #fff,
+    0 0 0 1px rgba(196,165,116,.08) !important;
+  color: var(--px-ink) !important;
+}
+html[data-theme="light"] #inicio .gb-card-head {
+  background: rgba(196,165,116,.1) !important;
+  border-bottom-color: rgba(42,38,34,.1) !important;
+  color: var(--px-mute-2) !important;
+}
+html[data-theme="light"] #inicio .gb-card-cinema .gb-card-title,
+html[data-theme="light"] #inicio .gb-card-title,
+html[data-theme="light"] #inicio .gb-card-list b {
+  color: var(--px-ink-deep) !important;
+}
+html[data-theme="light"] #inicio .gb-card-label {
+  color: color-mix(in srgb, var(--px-gold) 50%, var(--px-ink)) !important;
+}
+html[data-theme="light"] #inicio .gb-card-sub,
+html[data-theme="light"] #inicio .gb-card-list small {
+  color: var(--px-mute-2) !important;
+}
+html[data-theme="light"] #inicio .gb-card-list li {
+  background: color-mix(in srgb, #FFFEFB 78%, var(--px-nude)) !important;
+  border-color: rgba(42,38,34,.1) !important;
+}
+html[data-theme="light"] #inicio .gb-card-foot {
+  border-top-color: rgba(42,38,34,.1) !important;
+  color: color-mix(in srgb, var(--px-gold) 50%, var(--px-ink)) !important;
+}
+
+/* Light metrics — solid nude plate, not ghost white */
+html[data-theme="light"] #inicio .gb-metrics,
+html[data-theme="light"] #inicio .gb-metrics-cinema {
+  background:
+    linear-gradient(180deg, rgba(196,165,116,.14), transparent 50%),
+    var(--px-nude) !important;
+  border-color: color-mix(in srgb, var(--px-gold) 40%, rgba(42,38,34,.16)) !important;
+  box-shadow:
+    0 18px 40px rgba(42,38,34,.1),
+    inset 0 1px 0 rgba(255,255,255,.7) !important;
+}
+html[data-theme="light"] #inicio .gb-metrics > div,
+html[data-theme="light"] #inicio .gb-metrics-cinema > div {
+  border-right-color: color-mix(in srgb, var(--px-gold) 28%, rgba(42,38,34,.12)) !important;
+  background: transparent !important;
+}
+html[data-theme="light"] #inicio .gb-metrics strong,
+html[data-theme="light"] #inicio .gb-metrics-cinema strong {
+  color: color-mix(in srgb, var(--px-gold) 70%, var(--px-ink-deep)) !important;
+}
+html[data-theme="light"] #inicio .gb-metrics span,
+html[data-theme="light"] #inicio .gb-metrics-cinema span {
+  color: var(--px-mute-2) !important;
+}
+
+html[data-theme="light"] #inicio .gb-hero-tags-fx span {
+  color: color-mix(in srgb, var(--px-gold) 40%, var(--px-ink)) !important;
+  background: rgba(196,165,116,.14) !important;
+  border-color: rgba(196,165,116,.42) !important;
+  box-shadow: 0 8px 20px rgba(42,38,34,.08) !important;
+  opacity: .7 !important;
+}
+
+/* When card is hidden (<900), fill the right void in light */
+@media (max-width: 899px) {
+  html[data-theme="light"] #inicio.slide.gb-hero-extreme,
+  html[data-theme="light"] #inicio.slide.gb-hero {
+    background-image:
+      radial-gradient(ellipse 70% 50% at 14% 18%, rgba(196,165,116,.26), transparent 55%),
+      radial-gradient(ellipse 60% 55% at 95% 30%, rgba(196,165,116,.22), transparent 50%),
+      radial-gradient(ellipse 55% 50% at 90% 85%, rgba(196,165,116,.18), transparent 48%),
+      linear-gradient(180deg, #FFFEFB 0%, var(--px-paper) 40%, var(--px-nude-2) 100%) !important;
+  }
+  html[data-theme="light"] #inicio .gb-hero-orb-d {
+    opacity: .9 !important;
+    left: 55% !important;
+    top: 35% !important;
+  }
+}
+
+/* Scroll only when needed */
 #inicio.slide.fit:not(.is-scrollable) {
   overflow: hidden !important;
 }
 
 /* Responsive densify */
-@media (max-width: 980px) {
+@media (max-width: 899px) {
+  #inicio .gb-card,
   #inicio .gb-card-cinema { display: none !important; }
-  #inicio .gb-hero-copy h1 {
-    font-size: clamp(44px, 12vw, 72px) !important;
+  #inicio .gb-hero-grid {
+    grid-template-columns: 1fr !important;
   }
+  #inicio .gb-hero-copy h1 {
+    font-size: clamp(44px, 11vw, 76px) !important;
+  }
+  #inicio .gb-metrics,
   #inicio .gb-metrics-cinema {
     grid-template-columns: 1fr 1fr !important;
   }
+  #inicio .gb-metrics > div:nth-child(2),
   #inicio .gb-metrics-cinema > div:nth-child(2) { border-right: 0 !important; }
+  #inicio .gb-metrics > div:nth-child(1),
+  #inicio .gb-metrics > div:nth-child(2),
   #inicio .gb-metrics-cinema > div:nth-child(1),
   #inicio .gb-metrics-cinema > div:nth-child(2) {
-    border-bottom: 1px solid color-mix(in srgb, var(--px-gold) 16%, transparent) !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--px-gold) 18%, transparent) !important;
   }
+  html[data-theme="light"] #inicio .gb-metrics > div:nth-child(1),
+  html[data-theme="light"] #inicio .gb-metrics > div:nth-child(2),
   html[data-theme="light"] #inicio .gb-metrics-cinema > div:nth-child(1),
   html[data-theme="light"] #inicio .gb-metrics-cinema > div:nth-child(2) {
-    border-bottom-color: rgba(42,38,34,.1) !important;
+    border-bottom-color: color-mix(in srgb, var(--px-gold) 30%, rgba(42,38,34,.12)) !important;
   }
   #inicio .gb-hero-tags-fx { display: none !important; }
   #inicio .gb-hero-film { display: none !important; }
+}
+
+@media (max-width: 760px) {
+  #inicio .gb-hero-copy h1 {
+    font-size: clamp(38px, 11vw, 56px) !important;
+  }
+  #inicio .gb-actions .button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  #inicio .gb-hero-world { font-size: 12px !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
