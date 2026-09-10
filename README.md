@@ -18,7 +18,7 @@
 [![Live](https://img.shields.io/badge/%F0%9F%9A%80_LIVE-professional--deck-C4A574?style=for-the-badge&labelColor=2A2622)](https://gracianb.github.io/professional-deck/)
 [![Hub](https://img.shields.io/badge/HUB-GracianB-FAF7F2?style=for-the-badge&labelColor=2A2622)](https://gracianb.github.io/GracianB/)
 [![Yoga](https://img.shields.io/badge/YOGA-instructor-7dcaa5?style=for-the-badge&labelColor=2A2622)](https://gracianb.github.io/yoga-instructor/)
-[![Systems](https://img.shields.io/badge/PLAY-systems--lab-C4A574?style=for-the-badge&labelColor=2A2622)](https://gracianb.github.io/systems-lab/)
+[![Systems](https://img.shields.io/badge/PLAY-systems--lab-7af3ff?style=for-the-badge&labelColor=2A2622)](https://gracianb.github.io/systems-lab/)
 [![GitHub](https://img.shields.io/badge/GitHub-GracianB-FAF7F2?style=for-the-badge&labelColor=2A2622&logo=github)](https://github.com/GracianB)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-gracianbaena-0A66C2?style=for-the-badge&labelColor=2A2622&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gracianbaena)
 [![Agenda](https://img.shields.io/badge/Agenda-30_min-FAF7F2?style=for-the-badge&labelColor=2A2622)](https://calendar.app.google/n99psBFktwYyoAWi9)
