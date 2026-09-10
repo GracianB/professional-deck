@@ -424,10 +424,13 @@ html[data-theme="light"] #inicio .gb-actions .button.ghost {
 }
 html[data-theme="light"] #inicio .gb-card-cinema {
   background:
-    linear-gradient(155deg, rgba(196,165,116,.12), transparent 42%),
+    linear-gradient(155deg, rgba(196,165,116,.16), transparent 42%),
     linear-gradient(180deg, #FFFEFB, #F3EDE4) !important;
-  border-color: rgba(42,38,34,.12) !important;
-  box-shadow: 0 20px 48px rgba(42,38,34,.1), inset 0 1px 0 #fff !important;
+  border-color: color-mix(in srgb, var(--px-gold) 42%, rgba(42,38,34,.22)) !important;
+  box-shadow:
+    0 22px 52px rgba(42,38,34,.12),
+    0 0 0 1px rgba(196,165,116,.14),
+    inset 0 1px 0 #fff !important;
   color: var(--px-ink) !important;
 }
 html[data-theme="light"] #inicio .gb-card-cinema .gb-card-title,
@@ -438,17 +441,28 @@ html[data-theme="light"] #inicio .gb-card-list b {
 }
 html[data-theme="light"] #inicio .gb-card-list small { color: #6F675F !important; }
 html[data-theme="light"] #inicio .gb-card-foot {
-  border-top-color: rgba(42,38,34,.1) !important;
-  color: color-mix(in srgb, var(--px-gold) 55%, var(--px-ink)) !important;
+  border-top-color: rgba(42,38,34,.12) !important;
+  color: color-mix(in srgb, var(--px-gold) 62%, var(--px-ink)) !important;
 }
+/* Solid nude plate vs paper #FAF7F2 — metrics were washing out on near-white glass */
 html[data-theme="light"] #inicio .gb-metrics-cinema {
-  background: rgba(255,254,251,.85) !important;
-  border-color: rgba(42,38,34,.12) !important;
+  background: #F3EDE4 !important;
+  border-color: color-mix(in srgb, var(--px-gold) 38%, rgba(42,38,34,.18)) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65), 0 10px 28px rgba(42,38,34,.06) !important;
+  backdrop-filter: none;
 }
 html[data-theme="light"] #inicio .gb-metrics-cinema > div {
-  border-right-color: rgba(42,38,34,.1) !important;
+  border-right-color: color-mix(in srgb, var(--px-gold) 28%, rgba(42,38,34,.12)) !important;
 }
-html[data-theme="light"] #inicio .gb-metrics-cinema span { color: #6F675F !important; }
+html[data-theme="light"] #inicio .gb-metrics-cinema strong {
+  color: var(--px-gold) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.55);
+}
+html[data-theme="light"] #inicio .gb-metrics-cinema span {
+  color: #5C554E !important;
+  font-weight: 650 !important;
+}
 html[data-theme="light"] #inicio .gb-hero-tags-fx span {
   color: color-mix(in srgb, var(--px-gold) 45%, var(--px-ink)) !important;
   background: rgba(196,165,116,.1) !important;
@@ -480,7 +494,7 @@ html[data-theme="light"] #inicio .gb-hero-orb {
   }
   html[data-theme="light"] #inicio .gb-metrics-cinema > div:nth-child(1),
   html[data-theme="light"] #inicio .gb-metrics-cinema > div:nth-child(2) {
-    border-bottom-color: rgba(42,38,34,.1) !important;
+    border-bottom-color: color-mix(in srgb, var(--px-gold) 28%, rgba(42,38,34,.12)) !important;
   }
   #inicio .gb-hero-tags-fx { display: none !important; }
   #inicio .gb-hero-film { display: none !important; }
