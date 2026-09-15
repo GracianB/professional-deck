@@ -791,3 +791,130 @@
   const mo = new MutationObserver(schedule);
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ["lang", "data-theme"] });
 })();
+
+/* ══════════════════════════════════════════════════════════════
+   PRO MAX PASS · v=pro-max-1 — additive, self-contained.
+   Does not touch the deck engine above.
+   ══════════════════════════════════════════════════════════════ */
+(() => {
+  "use strict";
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const root = document.documentElement;
+  const rAF = window.requestAnimationFrame || ((f) => setTimeout(f, 16));
+
+  /* —— 1 · cinematic boot —— */
+  (function intro() {
+    if (!root.classList.contains("intro-on")) return;
+    try { sessionStorage.setItem("gb-deck-intro-seen", "1"); } catch (_) {}
+    let done = false;
+    const finish = () => { if (done) return; done = true; root.classList.add("intro-done"); };
+    const timer = setTimeout(finish, 2100);
+    const skip = () => { clearTimeout(timer); finish(); };
+    ["pointerdown", "keydown", "wheel", "touchstart"].forEach((ev) =>
+      window.addEventListener(ev, skip, { once: true, passive: true }));
+  })();
+
+  /* —— 2 · magnetic hero CTAs (translate property, no conflict with hover transform) —— */
+  (function magnetic() {
+    if (reduce || !fine) return;
+    document.querySelectorAll("#inicio .gb-actions .button").forEach((btn) => {
+      btn.addEventListener("pointermove", (e) => {
+        const r = btn.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width / 2)) * 0.25;
+        const dy = (e.clientY - (r.top + r.height / 2)) * 0.32;
+        btn.style.translate = dx.toFixed(1) + "px " + dy.toFixed(1) + "px";
+      });
+      btn.addEventListener("pointerleave", () => { btn.style.translate = "0px 0px"; });
+    });
+  })();
+
+  /* —— 3 · hero particle constellation (animates only while hero is on screen) —— */
+  (function net() {
+    const canvas = document.querySelector(".gb-hero-net");
+    if (!canvas || reduce) return;
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
+    const hero = document.getElementById("inicio");
+    const PAL = [[196,165,116],[122,243,255],[125,202,165],[247,243,236]];
+    let w = 0, h = 0, dpr = 1, parts = [], visible = true, running = false;
+    const mouse = { x: -9999, y: -9999, active: false };
+
+    function resize() {
+      const r = (hero || canvas).getBoundingClientRect();
+      w = Math.max(1, r.width); h = Math.max(1, r.height);
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      canvas.style.width = w + "px"; canvas.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.max(24, Math.min(80, Math.round(w * h / 24000)));
+      parts = [];
+      for (let i = 0; i < count; i++) {
+        parts.push({
+          x: Math.random() * w, y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 1.5 + 0.7, c: PAL[(Math.random() * PAL.length) | 0]
+        });
+      }
+    }
+
+    const LINK = 120, MLINK = 160;
+    function frame() {
+      running = true;
+      if (document.hidden || !visible) { running = false; return; }
+      ctx.clearRect(0, 0, w, h);
+      for (const p of parts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -20) p.x = w + 20; else if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20; else if (p.y > h + 20) p.y = -20;
+        if (mouse.active) {
+          const dx = mouse.x - p.x, dy = mouse.y - p.y, d = Math.hypot(dx, dy);
+          if (d < MLINK && d > 0.1) { p.vx += (dx / d) * 0.006; p.vy += (dy / d) * 0.006; }
+        }
+        p.vx = Math.max(-0.65, Math.min(0.65, p.vx));
+        p.vy = Math.max(-0.65, Math.min(0.65, p.vy));
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+        ctx.fillStyle = `rgba(${p.c[0]},${p.c[1]},${p.c[2]},0.9)`; ctx.fill();
+        if (mouse.active) {
+          const dx = mouse.x - p.x, dy = mouse.y - p.y, d = Math.hypot(dx, dy);
+          if (d < MLINK) {
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(${p.c[0]},${p.c[1]},${p.c[2]},${(1 - d / MLINK) * 0.45})`;
+            ctx.lineWidth = 0.8; ctx.stroke();
+          }
+        }
+      }
+      for (let i = 0; i < parts.length; i++) {
+        for (let j = i + 1; j < parts.length; j++) {
+          const a = parts[i], b = parts[j];
+          const dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
+          if (d < LINK) {
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(${a.c[0]},${a.c[1]},${a.c[2]},${(1 - d / LINK) * 0.26})`;
+            ctx.lineWidth = 0.7; ctx.stroke();
+          }
+        }
+      }
+      rAF(frame);
+    }
+    const kick = () => { if (!running && visible && !document.hidden) rAF(frame); };
+
+    window.addEventListener("pointermove", (e) => {
+      if (!hero) return;
+      const r = hero.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+      mouse.active = e.clientY >= r.top && e.clientY <= r.bottom;
+    }, { passive: true });
+    document.addEventListener("visibilitychange", kick);
+
+    if (hero && "IntersectionObserver" in window) {
+      new IntersectionObserver((ents) => {
+        visible = ents[0].isIntersecting;
+        kick();
+      }, { threshold: 0.02 }).observe(hero);
+    }
+    let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { resize(); kick(); }, 180); }, { passive: true });
+    resize();
+    rAF(frame);
+  })();
+})();

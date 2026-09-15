@@ -21,16 +21,42 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=pro-cta-fix-20260910">
-  <link rel="stylesheet" href="./extra-pass.css?v=pro-cta-fix-20260910">
-  <link rel="stylesheet" href="./final-v3.css?v=pro-cta-fix-20260910">
-  <link rel="stylesheet" href="./final-v4.css?v=pro-cta-fix-20260910">
+  <link rel="stylesheet" href="./styles.css?v=pro-max-1">
+  <link rel="stylesheet" href="./extra-pass.css?v=pro-max-1">
+  <link rel="stylesheet" href="./final-v3.css?v=pro-max-1">
+  <link rel="stylesheet" href="./final-v4.css?v=pro-max-1">
   <link rel="stylesheet" href="./portada-extreme.css?v=deck-light-delta-20260910">
   <link rel="stylesheet" href="./deck-fix.css?v=deck-fix-2">
-  <script src="./i18n.js?v=pro-cta-fix-20260910"></script>
-  <script src="./main.js?v=pro-cta-fix-20260910" defer></script>
+  <script>
+    /* deck intro boot — decide before first paint, with failsafe */
+    (function () {
+      try {
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var seen = false;
+        try { seen = sessionStorage.getItem("gb-deck-intro-seen") === "1"; } catch (e) {}
+        if (!reduce && !seen) {
+          document.documentElement.classList.add("intro-on");
+          setTimeout(function () { document.documentElement.classList.add("intro-done"); }, 3000);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <script src="./i18n.js?v=pro-max-1"></script>
+  <script src="./main.js?v=pro-max-1" defer></script>
 </head>
 <body class="has-os-rail final-deck-v4">
+
+  <div class="deck-intro" id="deck-intro" aria-hidden="true">
+    <div class="di-core">
+      <svg class="di-mark" viewBox="0 0 120 120" width="120" height="120" fill="none">
+        <circle class="di-ring" cx="60" cy="60" r="52" stroke-width="1.4"/>
+        <circle class="di-ring di-ring-2" cx="60" cy="60" r="38" stroke-width="1"/>
+      </svg>
+      <span class="di-gb">GB</span>
+    </div>
+    <p class="di-world">EXPERIENCIA · CS × DATA × AI</p>
+    <div class="di-bar"><i></i></div>
+  </div>
 
   <a class="skip-link" href="#deck" data-i18n="skip">Saltar al contenido</a>
   <div class="top-progress" aria-hidden="true"><i data-progress></i></div>
@@ -78,6 +104,7 @@
     <!-- 00 HERO — portada cinematic extreme · EXPERIENCIA world -->
     <section class="slide dark fit gb-hero gb-hero-extreme" id="inicio" data-title="Portada" data-code="00">
       <div class="gb-hero-ambient" aria-hidden="true">
+        <canvas class="gb-hero-net"></canvas>
         <div class="gb-hero-vignette"></div>
         <div class="gb-hero-sweep"></div>
         <div class="gb-hero-orb gb-hero-orb-a"></div>
@@ -481,7 +508,7 @@
         <p class="gb-line-kicker" data-i18n="lineP">Systems y wellness. La imagen completa. 2011 — 2026.</p>
       </header>
       <figure class="gb-line-frame">
-        <img src="./timeline-horizontal.png?v=pro-cta-fix-20260910" alt="Timeline completa 2011–2026: línea systems y línea wellness" />
+        <img src="./timeline-horizontal.png?v=pro-max-1" alt="Timeline completa 2011–2026: línea systems y línea wellness" />
       </figure>
     </section>
 
