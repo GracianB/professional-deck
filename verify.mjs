@@ -21,7 +21,7 @@ const checks = [
   ["manifest exists", fs.existsSync(manifestPath)],
   ["noscript exists", /<noscript\b/i.test(html)],
   ["JSON-LD exists", /<script[^>]+type=["']application\/ld\+json["']/i.test(html)],
-  ["language gate exists", /lang-gate/i.test(html)],
+  ["language control exists", /data-language-gate=/i.test(html) && (html.match(/data-set-lang=/gi) || []).length >= 2],
   ["data-set-lang exists", /data-set-lang/i.test(html)],
   ["manifest linked", /<link[^>]+rel=["']manifest["']/i.test(html)],
   ["canonical exists", /<link[^>]+rel=["']canonical["']/i.test(html)],
