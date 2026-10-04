@@ -187,16 +187,6 @@ body.has-os-rail .deck {
 }
 
 /* ---------- deck / slides ---------- */
-.deck {
-  width: 100%; height: 100svh;
-  overflow-x: hidden; overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  overscroll-behavior-y: contain;
-  scrollbar-width: thin;
-  scrollbar-color: var(--yellow) var(--black);
-}
-.deck:focus { outline: none; }
-
 .slide {
   position: relative;
   width: 100%;
