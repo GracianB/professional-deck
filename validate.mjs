@@ -28,7 +28,8 @@ const main = await readFile(join(root, "main.js"), "utf8");
 const i18n = await readFile(join(root, "i18n.js"), "utf8");
 const slideCount = (index.match(/<section class="slide\b/g) || []).length;
 if (slideCount < 8 || slideCount > 15) errors.push(`Expected 8-15 slides, found ${slideCount}`);
-if (!index.includes("lang-gate") || !index.includes("data-set-lang")) errors.push("Language gate missing");
+const languageControls = (index.match(/data-set-lang=/g) || []).length;
+if (!index.includes("data-language-gate") || languageControls < 2) errors.push("Language control missing");
 if (!i18n.includes("GB_I18N") || !i18n.includes("en:") || !i18n.includes("es:")) errors.push("i18n dictionary incomplete");
 if (!/scroll-snap-type:\s*y mandatory/.test(css)) errors.push("Missing scroll snap");
 if (!/addEventListener\("wheel"/.test(main)) errors.push("Missing wheel navigation");
@@ -46,4 +47,4 @@ if (errors.length) {
   console.error(`\nValidation failed (${errors.length})\n- ${errors.join("\n- ")}\n`);
   process.exit(1);
 }
-console.log(`OK ${required.length} files · ${slideCount} slides · ES/EN gate · ready for GitHub Pages`);
+console.log(`OK ${required.length} files · ${slideCount} slides · ES/EN controls · ready for GitHub Pages`);

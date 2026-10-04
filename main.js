@@ -22,19 +22,19 @@
   const nextButton = document.querySelector("[data-next]");
   const menu = document.querySelector(".main-nav");
   const menuToggle = document.querySelector(".menu-toggle");
-  const langGate = document.querySelector("#lang-gate");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const wheelMode = window.matchMedia("(min-width: 981px) and (min-height: 620px) and (pointer: fine)");
   let activeIndex = 0;
+  let activeSlide = null;
   let wheelBusy = false;
   let wheelAccumulator = 0;
-  let scrollFrame = 0;
   const counted = new WeakSet();
+  let railButtons = [];
   let commandItems = [];
   let commandCursor = 0;
 
   const pad = (n) => String(n).padStart(2, "0");
-  const modalOpen = () => Boolean(document.querySelector("dialog[open]")) || document.body.classList.contains("lang-pending");
+  const modalOpen = () => Boolean(document.querySelector("dialog[open]"));
 
   function getByPath(obj, path) {
     return path.split(".").reduce((acc, key) => (acc && acc[key] != null ? acc[key] : null), obj);
@@ -219,7 +219,7 @@
     if (typeof selectCity === "function") {
       try { selectCity(document.querySelector(".gb-pin.active")?.dataset.city || "murcia"); } catch (_) {}
     }
-    if (typeof setActive === "function" && !document.body.classList.contains("lang-pending")) {
+    if (typeof setActive === "function") {
       try { setActive(activeIndex, false); } catch (_) {}
     }
   }
@@ -260,18 +260,6 @@
   }
 
   function enterApp() {
-    document.body.classList.remove("lang-pending");
-    if (langGate) {
-      langGate.classList.add("is-done");
-      langGate.setAttribute("hidden", "hidden");
-      langGate.style.display = "none";
-      langGate.setAttribute("aria-hidden", "true");
-    }
-    // Asegura que el deck se vea
-    document.querySelectorAll(".deck, .os-rail, .site-header, .deck-controls, .top-progress").forEach((el) => {
-      el.style.visibility = "";
-      el.style.pointerEvents = "";
-    });
     try {
       if (typeof setActive === "function") setActive(activeIndex, false);
       if (typeof selectCity === "function") selectCity("murcia");
@@ -280,43 +268,7 @@
     deck?.focus?.({ preventScroll: true });
   }
 
-  let pendingLang = null; // idioma seleccionado en el gate, pendiente de confirmar
-
-  function updateGateSelection(next) {
-    pendingLang = next === "en" ? "en" : "es";
-    lang = pendingLang;
-    document.body.dataset.lang = pendingLang;
-    try { applyI18n(); } catch (_) {}
-    syncDocLinks();
-    document.querySelectorAll("[data-pick-lang]").forEach((card) => {
-      const active = card.getAttribute("data-pick-lang") === pendingLang;
-      card.classList.toggle("is-selected", active);
-      card.setAttribute("aria-pressed", String(active));
-    });
-    const cont = document.querySelector("#lang-continue");
-    if (cont) {
-      cont.disabled = false;
-      cont.classList.add("is-ready");
-      cont.textContent = pendingLang === "en"
-        ? (I18N.en?.gateContinue || "Continue →")
-        : (I18N.es?.gateContinue || "Continuar →");
-    }
-    syncLangButtons();
-  }
-
-  function confirmLanguageAndEnter() {
-    if (!pendingLang) return;
-    setLang(pendingLang, true);
-    enterApp();
-    try {
-      if (history.replaceState) {
-        history.replaceState(null, "", `?lang=${pendingLang}${location.hash || ""}`);
-      }
-    } catch (_) {}
-  }
-
   function chooseLanguage(next) {
-    // Header / FAB cuando ya estás dentro del portfolio
     const chosen = next === "en" ? "en" : "es";
     setLang(chosen, true);
     enterApp();
@@ -327,7 +279,6 @@
     } catch (_) {}
   }
 
-  // Language gate
   const params = new URLSearchParams(window.location.search);
   if (params.get("reset") === "1") {
     try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
@@ -337,41 +288,20 @@
   try { saved = localStorage.getItem(STORAGE_KEY); } catch (_) {}
 
   document.addEventListener("click", (event) => {
-    // 1) Elegir idioma (solo selecciona)
-    const pick = event.target.closest("[data-pick-lang]");
-    if (pick && document.body.classList.contains("lang-pending")) {
-      event.preventDefault();
-      event.stopPropagation();
-      updateGateSelection(pick.getAttribute("data-pick-lang"));
-      return;
-    }
-    // 2) Continuar (confirma y entra)
-    const cont = event.target.closest("#lang-continue");
-    if (cont && document.body.classList.contains("lang-pending")) {
-      event.preventDefault();
-      event.stopPropagation();
-      if (!cont.disabled && pendingLang) confirmLanguageAndEnter();
-      return;
-    }
-    // 3) ES/EN del header o FAB (ya dentro)
     const btn = event.target.closest("[data-set-lang]");
-    if (btn && !document.body.classList.contains("lang-pending")) {
-      event.preventDefault();
-      chooseLanguage(btn.getAttribute("data-set-lang") || btn.dataset.setLang);
-    }
+    if (!btn) return;
+    event.preventDefault();
+    chooseLanguage(btn.getAttribute("data-set-lang") || btn.dataset.setLang);
   }, true);
 
-  // Auto-skip language gate: land on the deck with ES/EN segs like hub/lab/yoga.
-  if (urlLang === "en" || urlLang === "es") {
-    pendingLang = urlLang;
-    setLang(urlLang, true);
-  } else if (saved === "en" || saved === "es") {
-    pendingLang = saved;
-    setLang(saved, false);
-  } else {
-    pendingLang = "es";
-    setLang("es", false);
-  }
+  const initialLang =
+    urlLang === "en" || urlLang === "es"
+      ? urlLang
+      : saved === "en" || saved === "es"
+        ? saved
+        : "es";
+
+  setLang(initialLang, urlLang === "en" || urlLang === "es");
   enterApp();
 
   /* —— theme (hub family) —— */
@@ -428,16 +358,14 @@
 
   function setActive(index, updateHash = true) {
     const next = Math.max(0, Math.min(slides.length - 1, index));
+    if (next !== activeIndex || !activeSlide) {
+      activeSlide?.classList.remove("is-active");
+      activeSlide = slides[next] || null;
+      activeSlide?.classList.add("is-active", "has-entered");
+      if (activeSlide) animateCounters(activeSlide);
+    }
     activeIndex = next;
-    slides.forEach((slide, position) => {
-      const active = position === next;
-      slide.classList.toggle("is-active", active);
-      if (active) {
-        slide.classList.add("has-entered");
-        animateCounters(slide);
-      }
-    });
-    rail?.querySelectorAll("button").forEach((button, position) => {
+    railButtons.forEach((button, position) => {
       const active = position === next;
       button.classList.toggle("active", active);
       button.setAttribute("aria-current", active ? "true" : "false");
@@ -479,6 +407,7 @@
       frag.append(button);
     });
     rail.append(frag);
+    railButtons = [...rail.querySelectorAll("button")];
   }
 
   document.querySelectorAll("[data-go]").forEach((el) => {
@@ -486,27 +415,75 @@
   });
   prevButton?.addEventListener("click", () => goTo(activeIndex - 1));
   nextButton?.addEventListener("click", () => goTo(activeIndex + 1));
-  menuToggle?.addEventListener("click", () => {
-    const open = !menu?.classList.contains("open");
-    menu?.classList.toggle("open", open);
+  function setMenuOpen(open, returnFocus = false) {
+    if (!menu || !menuToggle) return;
+    menu.classList.toggle("open", open);
     menuToggle.setAttribute("aria-expanded", String(open));
+    if (open && window.matchMedia("(max-width: 980px)").matches) {
+      window.setTimeout(() => menu.querySelector("button, a")?.focus(), 0);
+    } else if (returnFocus) {
+      menuToggle.focus({ preventScroll: true });
+    }
+  }
+
+  menuToggle?.addEventListener("click", () => {
+    setMenuOpen(!menu.classList.contains("open"));
   });
 
-  deck.addEventListener("scroll", () => {
-    if (scrollFrame) return;
-    scrollFrame = requestAnimationFrame(() => {
-      const center = deck.scrollTop + deck.clientHeight / 2;
-      let closest = 0;
-      let distance = Infinity;
-      slides.forEach((slide, index) => {
-        const c = slide.offsetTop + slide.offsetHeight / 2;
-        const d = Math.abs(center - c);
-        if (d < distance) { distance = d; closest = index; }
-      });
-      if (closest !== activeIndex) setActive(closest);
-      scrollFrame = 0;
-    });
+  menu?.addEventListener("click", (event) => {
+    if (event.target.closest("[data-go]")) setMenuOpen(false);
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!menu?.classList.contains("open")) return;
+    if (menu.contains(event.target) || menuToggle?.contains(event.target)) return;
+    setMenuOpen(false);
   }, { passive: true });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menu?.classList.contains("open")) {
+      event.preventDefault();
+      setMenuOpen(false, true);
+    }
+  });
+
+  // Active slide tracking: let the browser determine visibility instead of
+  // scanning every slide on every scroll event.
+  if ("IntersectionObserver" in window) {
+    const visibility = new Map();
+    const slideObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => visibility.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0));
+      let best = activeIndex;
+      let ratio = visibility.get(slides[activeIndex]) || 0;
+      slides.forEach((slide, index) => {
+        const current = visibility.get(slide) || 0;
+        if (current > ratio + 0.05) {
+          ratio = current;
+          best = index;
+        }
+      });
+      if (best !== activeIndex && ratio >= 0.55) setActive(best);
+    }, { root: deck, threshold: [0, 0.55, 0.8, 1] });
+
+    slides.forEach((slide) => slideObserver.observe(slide));
+  } else {
+    let scrollFrame = 0;
+    deck.addEventListener("scroll", () => {
+      if (scrollFrame) return;
+      scrollFrame = requestAnimationFrame(() => {
+        const center = deck.scrollTop + deck.clientHeight / 2;
+        let closest = 0;
+        let distance = Infinity;
+        slides.forEach((slide, index) => {
+          const c = slide.offsetTop + slide.offsetHeight / 2;
+          const d = Math.abs(center - c);
+          if (d < distance) { distance = d; closest = index; }
+        });
+        if (closest !== activeIndex) setActive(closest);
+        scrollFrame = 0;
+      });
+    }, { passive: true });
+  }
 
   deck.addEventListener("wheel", (event) => {
     if (!wheelMode.matches || modalOpen() || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
@@ -520,7 +497,14 @@
     if (target === activeIndex) return;
     wheelBusy = true;
     goTo(target);
-    window.setTimeout(() => { wheelBusy = false; }, reducedMotion.matches ? 150 : 700);
+
+    const releaseWheel = () => { wheelBusy = false; };
+    if ("onscrollend" in deck) {
+      deck.addEventListener("scrollend", releaseWheel, { once: true, passive: true });
+      window.setTimeout(releaseWheel, reducedMotion.matches ? 240 : 900);
+    } else {
+      window.setTimeout(releaseWheel, reducedMotion.matches ? 150 : 700);
+    }
   }, { passive: false });
 
   /* Swipe — phone/tablet vertical deck */
@@ -546,7 +530,6 @@
   }, { passive: true });
 
   document.addEventListener("keydown", (event) => {
-    if (document.body.classList.contains("lang-pending")) return;
     if (modalOpen() && event.key !== "Escape") return;
     const tag = event.target?.tagName?.toLowerCase();
     if (["input", "textarea", "select"].includes(tag) || event.target?.isContentEditable) return;
@@ -682,7 +665,7 @@
   }
 
   function openCommand() {
-    if (!commandDialog || document.body.classList.contains("lang-pending")) return;
+    if (!commandDialog) return;
     commandCursor = activeIndex;
     renderCommands("");
     commandDialog.showModal();
@@ -771,25 +754,33 @@
     });
   }
 
-  let raf = 0;
+  let measureRaf = 0;
   const schedule = () => {
-    if (raf) return;
-    raf = requestAnimationFrame(() => {
-      raf = 0;
+    if (measureRaf) return;
+    measureRaf = requestAnimationFrame(() => {
+      measureRaf = 0;
       measureSlideOverflow();
     });
   };
 
   window.addEventListener("resize", schedule, { passive: true });
-  window.addEventListener("load", schedule);
-  if (document.fonts && document.fonts.ready) {
+  window.addEventListener("load", schedule, { once: true, passive: true });
+
+  if (document.fonts?.ready) {
     document.fonts.ready.then(schedule).catch(() => {});
   }
-  setTimeout(schedule, 50);
-  setTimeout(schedule, 300);
-  setTimeout(schedule, 1000);
+
+  if ("ResizeObserver" in window) {
+    const ro = new ResizeObserver(schedule);
+    slides.forEach((slide) => ro.observe(slide));
+  } else {
+    schedule();
+  }
+
   const mo = new MutationObserver(schedule);
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ["lang", "data-theme"] });
+
+  schedule();
 })();
 
 /* ══════════════════════════════════════════════════════════════
@@ -859,39 +850,78 @@
     }
 
     const LINK = 120, MLINK = 160;
+    const LINK2 = LINK * LINK;
+    const MLINK2 = MLINK * MLINK;
+
+    function rgba(c, alpha) {
+      return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + alpha + ")";
+    }
+
     function frame() {
       running = true;
       if (document.hidden || !visible) { running = false; return; }
       ctx.clearRect(0, 0, w, h);
+
+      // Update + draw particles. Squared-distance checks avoid unnecessary square roots.
       for (const p of parts) {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < -20) p.x = w + 20; else if (p.x > w + 20) p.x = -20;
-        if (p.y < -20) p.y = h + 20; else if (p.y > h + 20) p.y = -20;
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -20) p.x = w + 20;
+        else if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        else if (p.y > h + 20) p.y = -20;
+
         if (mouse.active) {
-          const dx = mouse.x - p.x, dy = mouse.y - p.y, d = Math.hypot(dx, dy);
-          if (d < MLINK && d > 0.1) { p.vx += (dx / d) * 0.006; p.vy += (dy / d) * 0.006; }
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < MLINK2 && d2 > 0.01) {
+            const d = Math.sqrt(d2);
+            p.vx += (dx / d) * 0.006;
+            p.vy += (dy / d) * 0.006;
+          }
         }
+
         p.vx = Math.max(-0.65, Math.min(0.65, p.vx));
         p.vy = Math.max(-0.65, Math.min(0.65, p.vy));
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832);
-        ctx.fillStyle = `rgba(${p.c[0]},${p.c[1]},${p.c[2]},0.9)`; ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+        ctx.fillStyle = rgba(p.c, 0.9);
+        ctx.fill();
+
         if (mouse.active) {
-          const dx = mouse.x - p.x, dy = mouse.y - p.y, d = Math.hypot(dx, dy);
-          if (d < MLINK) {
-            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(${p.c[0]},${p.c[1]},${p.c[2]},${(1 - d / MLINK) * 0.45})`;
-            ctx.lineWidth = 0.8; ctx.stroke();
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < MLINK2) {
+            const d = Math.sqrt(d2);
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = rgba(p.c, (1 - d / MLINK) * 0.45);
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
           }
         }
       }
+
+      // Pairwise constellation links: cheap squared-distance rejection first.
       for (let i = 0; i < parts.length; i++) {
+        const a = parts[i];
         for (let j = i + 1; j < parts.length; j++) {
-          const a = parts[i], b = parts[j];
-          const dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
-          if (d < LINK) {
-            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(${a.c[0]},${a.c[1]},${a.c[2]},${(1 - d / LINK) * 0.26})`;
-            ctx.lineWidth = 0.7; ctx.stroke();
+          const b = parts[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < LINK2) {
+            const d = Math.sqrt(d2);
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = rgba(a.c, (1 - d / LINK) * 0.26);
+            ctx.lineWidth = 0.7;
+            ctx.stroke();
           }
         }
       }
