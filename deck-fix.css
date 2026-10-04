@@ -6,11 +6,9 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
-  margin: 22px 0 4px;
   max-width: 720px;
 }
 #contacto .gb-contact-metrics > div {
-  padding: 14px 12px;
   border: 1px solid color-mix(in srgb, var(--gold, #C4A574) 28%, transparent);
   border-radius: 12px;
   background: color-mix(in srgb, var(--gold, #C4A574) 7%, transparent);
