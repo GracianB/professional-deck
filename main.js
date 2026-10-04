@@ -218,7 +218,7 @@
     if (typeof selectCity === "function") {
       try { selectCity(document.querySelector(".gb-pin.active")?.dataset.city || "murcia"); } catch (_) {}
     }
-    if (typeof setActive === "function" && !document.body.classList.contains("lang-pending")) {
+    if (typeof setActive === "function") {
       try { setActive(activeIndex, false); } catch (_) {}
     }
   }
