@@ -39,7 +39,6 @@
 .slide h2,
 .gb-card-title,
 .gb-metrics strong,
-.lang-gate-card h1,
 .case-hero-copy h1,
 .case-section-heading h2,
 .gb-contact h2 {
@@ -161,7 +160,6 @@ a.brand { cursor: pointer; }
   color: var(--ink-on-dark);
   background: color-mix(in srgb, var(--accent) 6%, transparent);
 }
-.lang-switch,
 .seg {
   display: inline-flex;
   border: 1px solid var(--line);
@@ -169,7 +167,6 @@ a.brand { cursor: pointer; }
   overflow: hidden;
   background: color-mix(in srgb, var(--surface) 65%, transparent);
 }
-.lang-btn,
 .seg-btn {
   min-width: var(--tap);
   min-height: var(--tap);
@@ -179,7 +176,6 @@ a.brand { cursor: pointer; }
   background: transparent;
   transition: background .2s, color .2s;
 }
-.lang-btn:hover:not(.is-active),
 .seg-btn:hover:not(.is-active) {
   color: var(--ink-on-dark);
   background: color-mix(in srgb, var(--gold) 14%, transparent);
