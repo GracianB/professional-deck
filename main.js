@@ -27,8 +27,8 @@
   let activeIndex = 0;
   let wheelBusy = false;
   let wheelAccumulator = 0;
-  let scrollFrame = 0;
   const counted = new WeakSet();
+  let railButtons = [];
   let commandItems = [];
   let commandCursor = 0;
 
@@ -366,7 +366,7 @@
         animateCounters(slide);
       }
     });
-    rail?.querySelectorAll("button").forEach((button, position) => {
+    railButtons.forEach((button, position) => {
       const active = position === next;
       button.classList.toggle("active", active);
       button.setAttribute("aria-current", active ? "true" : "false");
@@ -408,6 +408,7 @@
       frag.append(button);
     });
     rail.append(frag);
+    railButtons = [...rail.querySelectorAll("button")];
   }
 
   document.querySelectorAll("[data-go]").forEach((el) => {
@@ -447,21 +448,43 @@
     }
   });
 
-  deck.addEventListener("scroll", () => {
-    if (scrollFrame) return;
-    scrollFrame = requestAnimationFrame(() => {
-      const center = deck.scrollTop + deck.clientHeight / 2;
-      let closest = 0;
-      let distance = Infinity;
+  // Active slide tracking: let the browser determine visibility instead of
+  // scanning every slide on every scroll event.
+  if ("IntersectionObserver" in window) {
+    const visibility = new Map();
+    const slideObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => visibility.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0));
+      let best = activeIndex;
+      let ratio = visibility.get(slides[activeIndex]) || 0;
       slides.forEach((slide, index) => {
-        const c = slide.offsetTop + slide.offsetHeight / 2;
-        const d = Math.abs(center - c);
-        if (d < distance) { distance = d; closest = index; }
+        const current = visibility.get(slide) || 0;
+        if (current > ratio + 0.05) {
+          ratio = current;
+          best = index;
+        }
       });
-      if (closest !== activeIndex) setActive(closest);
-      scrollFrame = 0;
-    });
-  }, { passive: true });
+      if (best !== activeIndex && ratio >= 0.55) setActive(best);
+    }, { root: deck, threshold: [0, 0.55, 0.8, 1] });
+
+    slides.forEach((slide) => slideObserver.observe(slide));
+  } else {
+    let scrollFrame = 0;
+    deck.addEventListener("scroll", () => {
+      if (scrollFrame) return;
+      scrollFrame = requestAnimationFrame(() => {
+        const center = deck.scrollTop + deck.clientHeight / 2;
+        let closest = 0;
+        let distance = Infinity;
+        slides.forEach((slide, index) => {
+          const c = slide.offsetTop + slide.offsetHeight / 2;
+          const d = Math.abs(center - c);
+          if (d < distance) { distance = d; closest = index; }
+        });
+        if (closest !== activeIndex) setActive(closest);
+        scrollFrame = 0;
+      });
+    }, { passive: true });
+  }
 
   deck.addEventListener("wheel", (event) => {
     if (!wheelMode.matches || modalOpen() || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
