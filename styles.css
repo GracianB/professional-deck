@@ -2167,7 +2167,7 @@ img, svg, video, canvas {
     overflow: visible !important;
     padding: 0 12px !important;
     gap: 10px !important; place-items: center; flex-shrink: 0; }
-  .lang-btn, .seg-btn { min-width: 36px; }
+  .seg-btn { min-width: 36px; }
 
   .main-nav {
     position: fixed !important;
@@ -3168,8 +3168,6 @@ body {
   color: var(--accent-ink);
   border-color: var(--gold);
 }
-.lang-btn { min-width: 44px; min-height: 36px; border-radius: 0; }
-.lang-btn.is-active { background: var(--gold); color: var(--accent-ink); }
 .menu-toggle { width: 44px; height: 44px; min-width: 44px; }
 
 .os-rail {
