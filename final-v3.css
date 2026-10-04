@@ -77,11 +77,6 @@
   border-radius: 999px;
 }
 
-.slide > * {
-  max-width: 100%;
-  min-height: 0;
-}
-
 /* —— Shared shells: fill remaining space WITHOUT forcing overflow —— */
 .gb-hero-stack,
 .gb-valor-panel,
@@ -349,11 +344,6 @@
    04 RUTA
    ============================================================ */
 #ruta.slide { overflow: hidden !important; gap: var(--block-gap) !important; }
-#ruta .gb-route-top {
-  width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex-shrink: 0 !important;
-}
 #ruta .gb-route-lead {
   margin-top: 0 !important;
   padding-bottom: 2px !important;
@@ -879,22 +869,7 @@
   #inicio .gb-card { display: none !important; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  #inicio .gb-hero-orb,
-  #ruta .gb-route-glow,
-  #ruta .gb-hub-ring,
-  #ruta .gb-spoke { animation: none !important; }
-}
-
-
-/* ============================================================
-   FINAL CASCADE — tokens + responsive (must load last)
-   ============================================================ */
-
-:root {
-  --slide-pad-top: calc(var(--header) + 18px) !important;
-  --chrome-bottom: 88px !important;
-  --slide-inner: calc(100svh - var(--slide-pad-top) - var(--chrome-bottom)) !important;
+@media (prefers-reduced-motion: reduce) {e-bottom)) !important;
   --title-gap: 12px !important;
   --title-lead-gap: 20px !important;
   --block-gap: 24px !important;
@@ -1197,11 +1172,6 @@
 }
 
 @media (max-width: 980px) {
-  #trayectoria .gb-dual {
-    grid-template-columns: 1fr !important;
-    overflow: auto !important;
-  }
-  #trayectoria .gb-dual-x { display: none !important; }
   #trayectoria .gb-engine-list li {
     flex: 0 0 auto !important;
     min-height: 52px !important;
@@ -1232,11 +1202,6 @@
   justify-content: flex-start !important;
   align-items: stretch !important;
   padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
-}
-#linea .gb-line-head {
-  width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex-shrink: 0 !important;
 }
 #linea .gb-line-frame {
   width: min(100%, var(--max)) !important;
@@ -1317,13 +1282,7 @@
   align-items: center !important;
   overflow: hidden !important;
   border-bottom: 1px solid rgba(244, 243, 238, 0.1) !important;
-}
-#experiencia .gb-role:last-child,
-#experiencia-2 .gb-role:last-child { border-bottom: 0 !important; }
-#experiencia .gb-role-year,
-#experiencia-2 .gb-role-year {
-  min-width: 0 !important;
-  min-height: 0 !important;
+} !important;
   height: auto !important;
   align-self: stretch !important;
   display: flex !important;
