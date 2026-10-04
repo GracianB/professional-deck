@@ -439,7 +439,6 @@ html[data-theme="light"] #inicio .gb-card-sub,
 html[data-theme="light"] #inicio .gb-card-list b {
   color: var(--px-ink) !important;
 }
-html[data-theme="light"] #inicio .gb-card-list small { color: #6F675F !important; }
 html[data-theme="light"] #inicio .gb-card-foot {
   border-top-color: rgba(42,38,34,.12) !important;
   color: color-mix(in srgb, var(--px-gold) 62%, var(--px-ink)) !important;
@@ -501,10 +500,6 @@ html[data-theme="light"] #inicio .gb-hero-orb {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #inicio .gb-hero-sweep,
-  #inicio .gb-hero-copy h1 em,
-  #inicio .gb-hero-orb,
-  #inicio .gb-hero-tags-fx span { animation: none !important; }
 }
 
 /* ========== PRIORITY FIX: CTA collision + card foot ========== */
