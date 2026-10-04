@@ -81,6 +81,16 @@ flowchart LR
 
 La capa humana es Customer Success, contexto y adopción. La capa de sistema es datos, automatización, IA y el código. Juntas, o no hay adopción. Construir tecnología sin entender a las personas también es una forma cara de construir problemas.
 
+### Systems proof
+
+La experiencia profesional y la construcción técnica se conectan en proyectos públicos verificables.
+
+| Proyecto | Qué demuestra | |
+| --- | --- | --- |
+| **RevOps Studio** | Revenue Operations, calidad de datos, scoring, forecasting, explainability y human-in-the-loop | [Live](https://gracianb.github.io/revops-studio/) · [GitHub](https://github.com/GracianB/revops-studio) |
+| **Project OHANA** | JavaScript, simulación determinista, comportamiento, testing, CI y browser E2E | [Live](https://gracianb.github.io/project-ohana/) · [GitHub](https://github.com/GracianB/project-ohana) |
+| **Vórtice** | TypeScript, WebGL, interacción y simulación de partículas | [Live](https://vortex-gilt-xi.vercel.app/) · [GitHub](https://github.com/GracianB/vortex) |
+
 ### Bodytone
 
 El caso que se puede comprobar no es un pantallazo. Es el Help Center público.
