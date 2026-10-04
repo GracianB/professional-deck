@@ -1117,9 +1117,6 @@ body.has-os-rail .deck {
   border: 1px solid var(--line-dark); color: #8a897f;
   font: 800 10px var(--mono);
 }
-.gb-city-nav button.active {
-  background: var(--yellow); color: var(--black); border-color: var(--yellow);
-}
 
 .gb-route-strip {
   width: 100%; max-width: var(--max); margin: 0 auto;
@@ -2169,15 +2166,6 @@ dialog > form {
 
 .gb-valor-panel .gb-panel-bar {
   flex-shrink: 0 !important;
-}
-
-/* --- 08 + 09 panels fill viewport --- */
-.gb-career-slide,
-.gb-exp-slide,
-#trayectoria.slide,
-#experiencia.slide {
-  justify-content: center !important;
-  align-items: center !important;
 }
 
 .gb-career-panel,
@@ -3337,26 +3325,7 @@ img, svg, video, canvas {
 @media (max-width: 560px) {
   .gb-star-metrics { grid-template-columns: 1fr; }
   .gb-demos-foot { flex-direction: column; align-items: flex-start; }
-}
-
-/* ============================================================
-   EXPERIENCIA — fechas centradas + cards premium
-   ============================================================ */
-.gb-exp-slide,
-#experiencia {
-  justify-content: center !important;
-  align-items: center !important;
-}
-.gb-exp-panel {
-  width: min(100%, var(--max)) !important;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-}
-.gb-exp-panel .gb-panel-head-compact {
-  padding: 16px 20px 14px !important;
-  gap: 6px !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}, 255, 255, 0.1) !important;
   background: linear-gradient(180deg, rgba(255,255,255,.03), transparent);
 }
 .gb-exp-panel .gb-panel-head-compact h2 {
@@ -3509,7 +3478,6 @@ img, svg, video, canvas {
   padding-left: 4px;
   justify-self: end;
 }
-.gb-role:hover .gb-role-go { opacity: 1; }
 
 /* —— Tablet: sigue en fila, fechas centradas —— */
 @media (max-width: 1100px) and (min-width: 761px) {
@@ -3714,7 +3682,6 @@ body {
 }
 
 .slide.dark { background: var(--bg); color: var(--white); }
-.slide.light { background: var(--paper); color: var(--ink); }
 .dark .eyebrow,
 .slide-index.light-index span:last-child { color: var(--gold); }
 .slide h2 em { color: var(--gold); }
@@ -4204,8 +4171,6 @@ html[data-theme="light"] .main-nav > a:hover { color: var(--ink); }
   font: 800 10px var(--mono); padding: 2px 5px;
   border: 1px solid var(--line-dark); border-radius: 3px;
 }
-
-.header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .seg {
   display: inline-flex; border: 1px solid var(--line-dark);
   border-radius: var(--r); overflow: hidden;
@@ -4428,7 +4393,6 @@ html[data-theme="light"] .button.ghost { color: var(--ink) !important; }
   font-size: clamp(64px, 14vw, 148px) !important;
   color: var(--white);
 }
-.gb-contact h2 em, .gb-contact .gb-contact-kicker { color: var(--gold); }
 
 /* Bottom controls — phone-first 44px */
 .deck-controls {
@@ -4469,7 +4433,6 @@ html[data-theme="light"] .deck-controls button { color: var(--ink); }
 
 /* Kill lang gate forever */
 .lang-gate, #lang-gate { display: none !important; visibility: hidden !important; pointer-events: none !important; }
-body.lang-pending { overflow: hidden; }
 body:not(.lang-pending) .lang-gate { display: none !important; }
 
 /* Light theme slide surfaces */
@@ -4515,7 +4478,6 @@ html[data-theme="light"] .gb-engine {
     border-bottom: 1px solid var(--line-dark);
     backdrop-filter: blur(20px);
   }
-  .main-nav.open { display: flex; }
   .main-nav > button, .main-nav > a {
     min-height: var(--tap); justify-content: flex-start; padding: 0 4px;
     border-bottom: 1px solid var(--line-dark); border-radius: 0;
@@ -4530,8 +4492,6 @@ html[data-theme="light"] .gb-engine {
   .gb-dual { grid-template-columns: 1fr !important; }
   .gb-dual-x { display: none; }
   .gb-hero-copy h1 { font-size: clamp(44px, 13vw, 72px) !important; }
-  .gb-hero-tags-fx { display: none; }
-  .deck-hint { display: none; }
   .header-cta { display: none; } /* CV lives in contact + command; reduce header fight */
 }
 @media (max-width: 720px) {
@@ -4808,10 +4768,6 @@ html[data-theme="light"] .gb-star-lead {
   border-radius: 999px !important;
   border-color: color-mix(in srgb, var(--gold) 30%, var(--line-dark)) !important;
 }
-.button.ghost:hover, .btn.ghost:hover {
-  border-color: var(--gold) !important;
-  color: var(--gold) !important;
-}
 
 /* Status pill — no overlap with actions */
 .gb-status {
@@ -4906,18 +4862,11 @@ html[data-theme="light"] .site-header {
   background: color-mix(in srgb, var(--bg) 90%, transparent) !important;
   border-bottom-color: color-mix(in srgb, var(--gold) 20%, var(--line-light)) !important;
 }
-html[data-theme="light"] .brand-text b { color: var(--ink) !important; }
 html[data-theme="light"] .gb-card,
 html[data-theme="light"] .gb-loop-card,
 html[data-theme="light"] .gb-star-main,
 html[data-theme="light"] .gb-panel {
   box-shadow: 0 18px 40px rgba(17,18,14,.08) !important;
-}
-
-/* Phone-first — lockup ALWAYS visible, rail gone, nav collapses */
-@media (max-width: 1099px) {
-  .os-rail { display: none !important; }
-  body.has-os-rail .deck { margin-left: 0 !important; }
 }
 @media (max-width: 980px) {
   .brand-text, .brand-lockup { display: flex !important; visibility: visible !important; opacity: 1 !important; }
@@ -4937,7 +4886,6 @@ html[data-theme="light"] .gb-panel {
   .menu-toggle { display: inline-flex !important; }
   .header-cta, .nav-cmd { display: none !important; }
   .gb-hero-copy h1 { font-size: clamp(44px, 12vw, 72px) !important; }
-  .gb-card { display: none; }
   .gb-hero-tags-fx { display: none !important; }
   .gb-metrics { grid-template-columns: 1fr 1fr !important; gap: 10px; }
   .deck-hint { display: none !important; }
@@ -4950,11 +4898,7 @@ html[data-theme="light"] .gb-panel {
   .brand-text b { font-size: 10px !important; letter-spacing: .12em !important; }
   .brand-text small { font-size: 8px !important; letter-spacing: .12em !important; }
   .gb-actions .button { width: 100%; justify-content: center; }
-  .gb-loop { grid-template-columns: 1fr !important; }
 }
-
-/* Hide lang gate if ever present */
-.lang-gate, .lang-fab { display: none !important; }
 
 /* Slide transition feel */
 .slide {
