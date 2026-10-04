@@ -411,38 +411,27 @@ body.has-os-rail .deck {
   gap: clamp(20px, 3vw, 40px);
   align-items: center;
 }
-.gb-kicker {
-  margin: 0 0 10px; color: var(--mark);
-  font: 800 10px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+.gb-kicker { text-transform: uppercase;
 }
 .gb-status {
-  margin: 0 0 12px;
   color: #9a9991; font: 800 10px var(--mono); letter-spacing: .1em; text-transform: uppercase;
 }
 .gb-status i { background: var(--mark);
   box-shadow: 0 0 0 4px rgba(125, 202, 165, .18);
 }
 .gb-hero-copy h1 {
-  margin: 0 0 14px;
   font: 780 clamp(44px, 6vw, 80px)/.88 var(--display);
-  letter-spacing: -.05em;
 }
-.gb-hero-copy h1 em { color: var(--accent); font-style: normal; }
+.gb-hero-copy h1 em { font-style: normal; }
 .gb-lead {
-  margin: 0 0 18px; max-width: 42ch;
-  color: #aaa99f; font-size: clamp(14px, 1.2vw, 17px); line-height: 1.5;
 }
 .gb-lead strong { color: var(--white); }
 .gb-actions { gap: 10px; }
 
 .gb-card {
-  border: 1px solid var(--line-dark-2);
-  box-shadow: 0 24px 70px rgba(0,0,0,.45);
-  min-height: 280px;
   display: flex; flex-direction: column;
 }
 .gb-card-head {
-  min-height: 42px; padding: 0 14px;
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid var(--line-dark);
   color: #7d7c74; font: 800 10px var(--mono); letter-spacing: .1em;
@@ -453,17 +442,15 @@ body.has-os-rail .deck {
 .gb-card-head b i {
   width: 6px; height: 6px; border-radius: 50%; background: var(--mark);
 }
-.gb-card-body { flex: 1; padding: 20px 16px; display: flex; flex-direction: column; gap: 8px; }
+.gb-card-body { flex: 1; display: flex; flex-direction: column; }
 .gb-card-label { margin: 0; color: #7d7c74; font: 800 10px var(--mono); letter-spacing: .12em; }
-.gb-card-title {
-  margin: 0; color: var(--accent);
+.gb-card-title { color: var(--accent);
   font: 760 clamp(28px, 2.8vw, 40px)/1 var(--display); letter-spacing: -.03em;
 }
 .gb-card-sub { margin: 0 0 8px; color: #a8a79d; font: 12px/1.4 var(--sans); }
-.gb-card-list { list-style: none; margin: auto 0 0; padding: 0; display: grid; gap: 8px; }
+.gb-card-list { list-style: none; margin: auto 0 0; padding: 0; display: grid; }
 .gb-card-list li {
-  display: flex; align-items: center; gap: 12px;
-  padding: 8px 0; border-top: 1px solid var(--line-dark);
+  display: flex; border-top: 1px solid var(--line-dark);
   color: #c8c7bc; font: 760 14px var(--display);
 }
 .gb-card-list span { color: var(--mark); font: 800 11px var(--mono); }
@@ -472,8 +459,7 @@ body.has-os-rail .deck {
   flex-shrink: 0; width: 100%; max-width: var(--max); margin: 0 auto;
 }
 .gb-metrics > div {
-  min-height: 58px; padding: 10px 14px;
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center;
   border-right: 1px solid var(--line-dark);
 }
 .gb-metrics > div:last-child { border-right: 0; }
@@ -957,7 +943,7 @@ body.has-os-rail .deck {
   display: grid; grid-template-columns: 1.15fr .85fr; gap: 12px;
 }
 .gb-route-map {
-  position: relative; min-height: 0;
+  position: relative;
   border: 1px solid var(--line-dark-2); background: var(--black-2); overflow: hidden;
   border-radius: var(--r-lg);
   min-height: 340px;
@@ -1020,9 +1006,7 @@ body.has-os-rail .deck {
 .gb-city-nav { flex-wrap: wrap;
 }
 .gb-city-nav button {
-  min-width: 0; flex: 1;
-  height: 30px; padding: 0 6px;
-  font: 800 9px var(--mono); letter-spacing: .04em;
+  min-width: 0; flex: 1; padding: 0 6px; letter-spacing: .04em;
 }
 .gb-city-nav button.active {
   background: var(--yellow); color: var(--black); border-color: var(--yellow);
@@ -1747,12 +1731,7 @@ dialog > form {
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1180px) {
   :root { --rail-w: 0px; }
-  .os-rail { display: none; }
   body.has-os-rail .deck { margin-left: 0; width: 100%; }
-  body.has-os-rail .site-header,
-  body.has-os-rail .top-progress,
-  body.has-os-rail .deck-controls,
-  body.has-os-rail .deck-hint { left: 0; }
   .deck-hint { left: 16px; display: none; }
 }
 
@@ -1904,16 +1883,12 @@ dialog > form {
 }
 
 .gb-hero-stack {
-  gap: 14px;
   max-height: calc(100svh - var(--header) - 48px);
 }
 
 .gb-hero .gb-hero-grid {
-  min-height: min(52vh, 480px);
   width: 100%;
   margin: 0;
-  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.85fr) !important;
-  gap: clamp(16px, 2.5vw, 32px) !important;
 }
 
 .gb-hero-copy {
@@ -1921,9 +1896,6 @@ dialog > form {
 }
 
 .gb-hero-copy h1 {
-  font-size: clamp(44px, 6.2vw, 84px) !important;
-  line-height: 0.86 !important;
-  margin: 8px 0 14px !important;
 }
 
 .gb-hero .gb-card {
@@ -2042,7 +2014,6 @@ dialog > form {
   grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr) !important;
 }
 .gb-career-panel .gb-engine-list {
-  overflow: auto !important;
 }
 
 .gb-career-panel .gb-engine {
@@ -2196,49 +2167,15 @@ img, svg, video, canvas {
 
 /* —— MÓVIL / TABLET: scroll de documento, no snap rígido —— */
 @media (max-width: 900px) {
-  html, body {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: 100% !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-  }
-
-  body {
-    overflow: auto !important;
-  }
-
-  .deck {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: 100svh !important;
     margin-left: 0 !important;
     overflow-x: hidden !important;
-    overflow-y: visible !important;
     scroll-snap-type: none !important;
-  }
-
-  .slide,
-  .slide.fit {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    padding: calc(var(--header) + 18px) var(--pad) 56px !important;
-    gap: 16px !important;
-    justify-content: flex-start !important;
     scroll-snap-align: none !important;
     scroll-snap-stop: normal !important;
   }
 
   .slide::after {
     font-size: clamp(80px, 28vw, 140px) !important;
-    right: 4vw !important;
-    bottom: -2vw !important;
     opacity: .5;
   }
 
@@ -2249,113 +2186,20 @@ img, svg, video, canvas {
   .gb-exp-panel,
   .gb-hero-stack {
     width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
-    min-height: 0 !important;
     overflow: visible !important;
-  }
-
-  .gb-hero,
-  .gb-valor-slide,
-  .gb-career-slide,
-  .gb-exp-slide,
-  #inicio, #valor, #trayectoria, #experiencia,
-  #metodo, #capacidades, #ruta, #contacto {
-    justify-content: flex-start !important;
-    align-items: stretch !important;
-  }
-
-  /* Header móvil */
-  .site-header {
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
     padding: 0 12px !important;
-    gap: 10px !important;
-  }
-  .brand { overflow: hidden; min-width: 0; }
-  .brand-text, .brand-lockup { display: flex !important; }
-  .brand-mark { width: 40px !important; height: 40px !important; }
-  .menu-toggle { display: grid !important; place-items: center; flex-shrink: 0; }
-  .header-actions { gap: 6px; }
-  .lang-btn, .seg-btn { min-width: 36px; padding: 0 8px; }
+    gap: 10px !important; place-items: center; flex-shrink: 0; }
+  .lang-btn, .seg-btn { min-width: 36px; }
 
   .main-nav {
     position: fixed !important;
     top: calc(var(--header) + 3px) !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 8px 16px 20px !important;
-    display: none !important;
     flex-direction: column !important;
     align-items: stretch !important;
-    gap: 0 !important;
     background: rgba(8,9,9,.98) !important;
-    border-bottom: 1px solid var(--line-dark) !important;
     z-index: 350 !important;
-    max-height: calc(100svh - var(--header)) !important;
     overflow-y: auto !important;
-  }
-  .main-nav.open { display: flex !important; }
-  .main-nav button,
-  .main-nav .lang-switch,
-  .main-nav .header-cta,
-  .main-nav a {
-    width: 100% !important;
-    min-height: 48px !important;
-    justify-content: flex-start !important;
-    border-bottom: 1px solid var(--line-dark) !important;
-    padding: 12px 0 !important;
-    font-size: 12px !important;
-  }
-  .main-nav .lang-switch { display: flex !important; }
-  .main-nav .lang-btn { flex: 1 !important; min-height: 44px !important; }
-
-  /* Grids → 1 columna */
-  .gb-hero-grid,
-  .gb-hero .gb-hero-grid,
-  .gb-case-layout,
-  .outreach-layout,
-  .gb-route-body,
-  .gb-career-engines,
-  .gb-dual,
-  .education-layout,
-  .compact-edu,
-  .feature-project,
-  .compact-feature,
-  .gb-method-top,
-  .gb-route-top,
-  .gb-caps-top,
-  .gb-career-top,
-  .gb-exp-top,
-  .systems-head,
-  .compact-head,
-  .gb-head,
-  .gb-valor-head {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-
-  .gb-hero .gb-hero-grid { min-height: 0 !important; }
-  .gb-hero-copy h1 {
-    font-size: clamp(34px, 10vw, 48px) !important;
-    line-height: .9 !important;
-  }
-  .gb-lead { max-width: none !important; font-size: 14px !important; }
-  .gb-card { min-height: 200px !important; width: 100% !important; }
-  .gb-metrics {
-    grid-template-columns: 1fr 1fr !important;
-    width: 100% !important;
-  }
-  .gb-metrics > div {
-    min-height: 52px !important;
-    padding: 10px !important;
-  }
-  .gb-metrics > div:nth-child(2n) { border-right: 0 !important; }
+    line-height: .9 !important; }
   .gb-metrics > div:nth-child(-n+2) { border-bottom: 1px solid var(--line-dark) !important; }
 
   /* Valor: cards apiladas */
@@ -2367,134 +2211,24 @@ img, svg, video, canvas {
   .gb-caps-grid,
   [data-caps-board] {
     grid-template-columns: 1fr !important;
-    min-height: 0 !important;
-    height: auto !important;
-  }
-  .gb-loop-card,
-  .gb-valor-panel .gb-loop-card,
-  [data-valor-loop] article,
-  .gb-step,
-  .gb-cap {
-    min-height: 0 !important;
-    height: auto !important;
-    border-right: 0 !important;
-    border-bottom: 1px solid var(--line-light) !important;
-    padding: 16px !important;
   }
   .gb-step { border-bottom-color: var(--line-dark) !important; }
   .gb-loop-card:last-child,
   .gb-step:last-child,
-  .gb-cap:last-child { border-bottom: 0 !important; }
-
-  .gb-valor-bottom {
-    padding: 18px 16px !important;
-  }
-  .gb-valor-bottom h2,
-  .gb-panel-head h2 {
-    max-width: none !important;
-    font-size: clamp(24px, 7vw, 34px) !important;
-  }
-
-  /* Método fórmula */
-  .gb-method-formula {
-    grid-template-columns: 1fr !important;
-    gap: 8px !important;
-  }
-  .gb-formula-op { display: none !important; }
-
-  /* Career dual */
-  .gb-dual {
-    grid-template-columns: 1fr !important;
-    min-height: 0 !important;
-    height: auto !important;
-  }
-  .gb-dual-x {
-    min-height: 40px !important;
+  .gb-cap:last-child { border-bottom: 0 !important;
     border-left: 0 !important;
-    border-right: 0 !important;
     border-top: 1px solid var(--line-dark) !important;
-    border-bottom: 1px solid var(--line-dark) !important;
-  }
-  .gb-engine-list { overflow: visible !important; }
-  .gb-engine-list li {
-    flex: none !important;
-    min-height: 0 !important;
-    grid-template-columns: 72px 1fr !important;
-    padding: 12px !important;
-  }
-
-  /* Exp roles */
-  .gb-roles {
-    min-height: 0 !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-  .gb-role {
-    flex: none !important;
-    grid-template-columns: 1fr !important;
-    gap: 6px !important;
-    padding: 14px 12px !important;
-    min-height: 0 !important;
-    height: auto !important;
-  }
-  .gb-role-year { white-space: normal !important; }
+    gap: 6px !important; }
   .gb-role-sum {
     white-space: normal !important;
     overflow: visible !important;
-    text-overflow: unset !important;
-  }
-  .gb-role-go { display: none !important; }
+    text-overflow: unset !important; }
   .gb-role-tag { justify-self: start !important; }
 
-  /* Route */
-  .gb-route-map { min-height: 260px !important; width: 100% !important; }
-  .gb-route-strip {
-    grid-template-columns: repeat(3, 1fr) !important;
-    width: 100% !important;
-  }
-  .gb-pin span { font-size: 8px !important; padding: 2px 4px !important; }
-
   /* Cases */
-  .gb-case-ui { min-height: 180px !important; width: 100% !important; }
-  .project-number { display: none !important; }
-  .feature-project { width: 100% !important; }
-
-  /* Caps */
-  .gb-academy {
-    grid-template-columns: 1fr !important;
-  }
-  .gb-academy > span {
-    border-right: 0 !important;
-    border-bottom: 1px solid rgba(125,202,165,.25) !important;
-    min-height: 40px;
-  }
-
-  /* Contact */
-  .gb-contact {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .gb-contact h2 {
-    font-size: clamp(42px, 14vw, 64px) !important;
+  .gb-case-ui { min-height: 180px !important;
     word-break: break-word;
-  }
-  .gb-contact-actions,
-  .gb-contact-docs {
-    width: 100% !important;
-  }
-  .gb-contact-actions .button,
-  .gb-contact-docs .button {
-    width: 100% !important;
-    justify-content: center !important;
-  }
-
-  /* Education */
-  .education-layout,
-  .compact-edu {
-    grid-template-columns: 1fr !important;
-  }
-  .builder-note { border-right: 0 !important; border-bottom: 1px solid var(--line-light) !important; }
-  .languages { grid-template-columns: 1fr 1fr !important; }
+    justify-content: center !important; }
 
   /* Gate */
 
@@ -2503,8 +2237,6 @@ img, svg, video, canvas {
     right: 10px !important;
     bottom: 10px !important;
     left: auto !important;
-    max-width: calc(100% - 20px) !important;
-    min-height: 40px !important;
   }
   .deck-hint { display: none !important; }
 
@@ -2522,28 +2254,10 @@ img, svg, video, canvas {
   .recruiter-metrics {
     grid-template-columns: 1fr !important;
   }
-  .recruiter-metrics > div { border-right: 0 !important; border-bottom: 1px solid var(--line-light) !important; }
-
-  /* Buttons touch */
-  .button {
-    min-height: 44px !important;
+  .recruiter-metrics > div { border-right: 0 !important; border-bottom: 1px solid var(--line-light) !important;
     font-size: 11px !important;
-  }
-
-  /* NEXT7 height overrides — cancel on mobile */
-  .gb-hero .gb-hero-grid {
-    height: auto !important;
-    min-height: 0 !important;
-  }
-  .gb-valor-panel .gb-loop,
-  .gb-career-panel .gb-dual,
-  .gb-exp-panel .gb-roles {
-    flex: none !important;
     min-height: 0 !important;
     height: auto !important;
-  }
-  .gb-career-panel .gb-engine-list li {
-    flex: none !important;
   }
   .gb-exp-panel .gb-role {
     flex: none !important;
@@ -2556,14 +2270,8 @@ img, svg, video, canvas {
     --pad: 12px !important;
     --header: 54px !important;
   }
-  .gb-hero-copy h1 {
-    font-size: clamp(30px, 11vw, 40px) !important;
-  }
   .gb-contact h2 {
     font-size: clamp(36px, 13vw, 52px) !important;
-  }
-  .gb-metrics {
-    grid-template-columns: 1fr !important;
   }
   .gb-metrics > div {
     border-right: 0 !important;
