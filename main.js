@@ -850,39 +850,78 @@
     }
 
     const LINK = 120, MLINK = 160;
+    const LINK2 = LINK * LINK;
+    const MLINK2 = MLINK * MLINK;
+
+    function rgba(c, alpha) {
+      return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + alpha + ")";
+    }
+
     function frame() {
       running = true;
       if (document.hidden || !visible) { running = false; return; }
       ctx.clearRect(0, 0, w, h);
+
+      // Update + draw particles. Squared-distance checks avoid unnecessary square roots.
       for (const p of parts) {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < -20) p.x = w + 20; else if (p.x > w + 20) p.x = -20;
-        if (p.y < -20) p.y = h + 20; else if (p.y > h + 20) p.y = -20;
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -20) p.x = w + 20;
+        else if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        else if (p.y > h + 20) p.y = -20;
+
         if (mouse.active) {
-          const dx = mouse.x - p.x, dy = mouse.y - p.y, d = Math.hypot(dx, dy);
-          if (d < MLINK && d > 0.1) { p.vx += (dx / d) * 0.006; p.vy += (dy / d) * 0.006; }
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < MLINK2 && d2 > 0.01) {
+            const d = Math.sqrt(d2);
+            p.vx += (dx / d) * 0.006;
+            p.vy += (dy / d) * 0.006;
+          }
         }
+
         p.vx = Math.max(-0.65, Math.min(0.65, p.vx));
         p.vy = Math.max(-0.65, Math.min(0.65, p.vy));
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832);
-        ctx.fillStyle = `rgba(${p.c[0]},${p.c[1]},${p.c[2]},0.9)`; ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+        ctx.fillStyle = rgba(p.c, 0.9);
+        ctx.fill();
+
         if (mouse.active) {
-          const dx = mouse.x - p.x, dy = mouse.y - p.y, d = Math.hypot(dx, dy);
-          if (d < MLINK) {
-            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(${p.c[0]},${p.c[1]},${p.c[2]},${(1 - d / MLINK) * 0.45})`;
-            ctx.lineWidth = 0.8; ctx.stroke();
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < MLINK2) {
+            const d = Math.sqrt(d2);
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = rgba(p.c, (1 - d / MLINK) * 0.45);
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
           }
         }
       }
+
+      // Pairwise constellation links: cheap squared-distance rejection first.
       for (let i = 0; i < parts.length; i++) {
+        const a = parts[i];
         for (let j = i + 1; j < parts.length; j++) {
-          const a = parts[i], b = parts[j];
-          const dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
-          if (d < LINK) {
-            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(${a.c[0]},${a.c[1]},${a.c[2]},${(1 - d / LINK) * 0.26})`;
-            ctx.lineWidth = 0.7; ctx.stroke();
+          const b = parts[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < LINK2) {
+            const d = Math.sqrt(d2);
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = rgba(a.c, (1 - d / LINK) * 0.26);
+            ctx.lineWidth = 0.7;
+            ctx.stroke();
           }
         }
       }
