@@ -380,8 +380,11 @@ html[data-theme="light"] #contacto .gb-contact-metrics > div {
   scroll-behavior: smooth;
   overscroll-behavior-y: contain;
   scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--bg);
   -webkit-overflow-scrolling: touch;
 }
+.deck:focus { outline: none; }
 
 .slide {
   position: relative;
