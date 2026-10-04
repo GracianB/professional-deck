@@ -2131,7 +2131,6 @@ html[data-theme="light"] #valor .gb-loop-card {
   flex: 0 0 auto !important;
   align-items: flex-start !important;
   text-align: left !important;
-  gap: 0 !important;
   padding:
     clamp(14px, 2vh, 22px)
     clamp(16px, 2.2vw, 28px)
@@ -2157,7 +2156,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 #valor .gb-valor-head h2 {
   margin: var(--title-h2-mb) 0 0 !important;
   max-width: 26ch !important;
-  text-align: left !important;
   font-size: clamp(26px, 3.2vw + 0.85vh, 48px) !important;
   line-height: 0.94 !important;
   color: var(--cream) !important;
@@ -2172,7 +2170,6 @@ html[data-theme="light"] #valor .gb-loop-card {
   margin: var(--title-lead-mt) 0 0 !important;
   margin-left: 0 !important;
   max-width: 58ch !important;
-  text-align: left !important;
   font-size: clamp(13px, 1.1vw, 16px) !important;
   line-height: 1.45 !important;
   color: var(--mute-2) !important;
@@ -2181,14 +2178,12 @@ html[data-theme="light"] #valor .gb-loop-card {
 #valor .gb-loop,
 #valor [data-valor-loop] {
   flex: 1 1 auto !important;
-  min-height: 0 !important;
   height: auto !important;
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   grid-template-rows: 1fr !important;
   align-content: stretch !important;
   align-items: stretch !important;
-  border-bottom: 1px solid var(--line) !important;
   background: transparent !important;
 }
 
@@ -2198,7 +2193,6 @@ html[data-theme="light"] #valor .gb-loop-card {
   height: 100% !important;
   padding: clamp(16px, 2.4vh, 28px) clamp(14px, 1.7vw, 24px) !important;
   display: flex !important;
-  flex-direction: column !important;
   justify-content: flex-start !important;
   gap: clamp(6px, 1vh, 12px) !important;
   border-right: 1px solid var(--line) !important;
@@ -2207,7 +2201,6 @@ html[data-theme="light"] #valor .gb-loop-card {
     linear-gradient(165deg, rgba(196, 165, 116, 0.07), transparent 50%),
     rgba(0, 0, 0, 0.22) !important;
   color: var(--cream) !important;
-  box-sizing: border-box !important;
 }
 
 #valor .gb-loop-card:last-child,
@@ -2359,7 +2352,6 @@ html[data-theme="light"] #valor .gb-loop-card {
   padding-top: var(--slide-pad-top) !important;
   padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
   justify-content: flex-start !important;
-  align-items: stretch !important;
   gap: clamp(12px, 1.8vh, 20px) !important;
   overflow-x: hidden !important;
   overflow-y: auto !important; /* scroll only if content truly needs it */
@@ -2406,11 +2398,9 @@ html[data-theme="light"] #valor .gb-loop-card {
    ============================================================ */
 #inicio.slide {
   justify-content: flex-start !important;
-  align-items: stretch !important;
   padding-top: calc(var(--header) + 32px) !important;
   padding-bottom: calc(var(--chrome-bottom) + 10px) !important;
-  position: relative;
-  overflow: hidden !important; /* ambient contained */
+  position: relative; /* ambient contained */
 }
 #inicio .gb-hero-ambient {
   opacity: 1 !important;
@@ -2434,17 +2424,14 @@ html[data-theme="light"] #valor .gb-loop-card {
   min-height: calc(var(--slide-inner) - 12px) !important;
   height: auto !important;
   display: flex !important;
-  flex-direction: column !important;
   justify-content: space-between !important;
   gap: clamp(16px, 2.4vh, 28px) !important;
   padding: clamp(8px, 1.2vh, 16px) 0 clamp(6px, 1vh, 12px) !important;
-  position: relative;
   z-index: 2;
 }
 #inicio .gb-hero-grid {
   flex: 1 1 auto !important;
   min-height: 0 !important;
-  align-items: stretch !important;
   gap: clamp(18px, 2.5vw, 36px) !important;
 }
 #inicio .gb-hero-title-band {
@@ -2500,9 +2487,6 @@ html[data-theme="light"] #valor .gb-loop-card {
     inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
   backdrop-filter: blur(12px);
   min-height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  overflow: hidden !important;
 }
 #inicio .gb-card-head {
   padding: 14px 16px !important;
@@ -2513,8 +2497,6 @@ html[data-theme="light"] #valor .gb-loop-card {
   flex: 1 1 auto !important;
   padding: clamp(16px, 2.2vh, 24px) 16px !important;
   gap: 10px !important;
-  display: flex !important;
-  flex-direction: column !important;
 }
 #inicio .gb-card-title {
   font-size: clamp(28px, 3vw, 40px) !important;
@@ -2523,8 +2505,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 }
 #inicio .gb-card-list {
   margin-top: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
   gap: 0 !important;
 }
 #inicio .gb-card-list li {
@@ -2541,9 +2521,7 @@ html[data-theme="light"] #valor .gb-loop-card {
 }
 #inicio .gb-metrics {
   flex-shrink: 0 !important;
-  display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 10px !important;
   margin-top: auto !important;
 }
 #inicio .gb-metrics > div {
@@ -2555,13 +2533,11 @@ html[data-theme="light"] #valor .gb-loop-card {
     linear-gradient(165deg, rgba(196, 165, 116, 0.1), transparent 55%),
     rgba(11, 12, 14, 0.88) !important;
   display: flex !important;
-  flex-direction: column !important;
   justify-content: center !important;
   gap: 4px !important;
 }
 #inicio .gb-metrics strong {
   font-size: clamp(26px, 2.6vw + 0.8vh, 40px) !important;
-  color: var(--gold) !important;
   line-height: 1 !important;
 }
 #inicio .gb-metrics span {
@@ -2584,7 +2560,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 #valor .gb-valor-panel {
   min-height: calc(var(--slide-inner) - 10px) !important;
   height: calc(var(--slide-inner) - 10px) !important;
-  max-height: none !important;
 }
 
 /* ============================================================
@@ -2598,9 +2573,6 @@ html[data-theme="light"] #valor .gb-loop-card {
   width: min(100%, var(--max)) !important;
   min-height: calc(var(--slide-inner) - 8px) !important;
   height: auto !important;
-  max-height: none !important;
-  display: flex !important;
-  flex-direction: column !important;
   gap: clamp(14px, 2vh, 22px) !important;
   justify-content: flex-start !important;
 }
@@ -2621,7 +2593,6 @@ html[data-theme="light"] #valor .gb-loop-card {
   min-height: 100% !important;
   padding: clamp(20px, 2.6vh, 32px) clamp(18px, 2.2vw, 30px) !important;
   border-radius: 10px !important;
-  border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line-dark)) !important;
   background:
     radial-gradient(ellipse 70% 55% at 0% 0%, rgba(196, 165, 116, 0.1), transparent 58%),
     radial-gradient(ellipse 40% 40% at 100% 100%, rgba(122, 243, 255, 0.06), transparent 50%),
@@ -2644,9 +2615,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 #demos .gb-demos {
   width: min(100%, var(--max)) !important;
   min-height: calc(var(--slide-inner) - 8px) !important;
-  max-height: none !important;
-  display: flex !important;
-  flex-direction: column !important;
   gap: clamp(16px, 2.2vh, 24px) !important;
 }
 #demos .gb-demos-head h2 {
@@ -2661,7 +2629,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 #demos .gb-demo-card {
   min-height: 100% !important;
   padding: clamp(18px, 2.4vh, 26px) !important;
-  border-radius: 10px !important;
   border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line-dark)) !important;
   background:
     linear-gradient(165deg, rgba(196, 165, 116, 0.08), transparent 45%),
@@ -2690,15 +2657,12 @@ html[data-theme="light"] #valor .gb-loop-card {
 #ruta .gb-route-top {
   width: min(100%, var(--max)) !important;
   margin: 0 auto !important;
-  flex-shrink: 0 !important;
 }
 #ruta .gb-route-top h2 {
   font-size: clamp(28px, 3.4vw + 0.8vh, 50px) !important;
 }
 #ruta .gb-route-body {
   width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex: 1 1 auto !important;
   min-height: min(420px, calc(var(--slide-inner) - 180px)) !important;
   display: grid !important;
   gap: 12px !important;
@@ -2723,7 +2687,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 #metodo.slide,
 .gb-method {
   justify-content: flex-start !important;
-  align-items: stretch !important;
   gap: clamp(14px, 2vh, 20px) !important;
   background:
     radial-gradient(ellipse 60% 40% at 50% 0%, rgba(196, 165, 116, 0.06), transparent 55%),
@@ -2731,8 +2694,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 }
 #metodo .gb-method-top {
   width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex-shrink: 0 !important;
   gap: 0 !important;
   padding: clamp(4px, 0.8vh, 10px) 0 clamp(4px, 0.8vh, 8px) !important;
   border: 0 !important;
@@ -2752,21 +2713,14 @@ html[data-theme="light"] #valor .gb-loop-card {
 #metodo .gb-method-lead {
   color: #c8c7bc !important;
   font-size: clamp(14px, 1.2vw, 17px) !important;
-  line-height: 1.5 !important;
   max-width: 42ch !important;
 }
 #metodo .gb-method-grid,
 #metodo [data-method-steps] {
   width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex: 1 1 auto !important;
   min-height: 200px !important;
-  display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line-dark)) !important;
   border-radius: 10px !important;
-  overflow: hidden !important;
-  background: transparent !important;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 #metodo .gb-step {
@@ -2774,7 +2728,6 @@ html[data-theme="light"] #valor .gb-loop-card {
   height: 100% !important;
   padding: clamp(16px, 2.2vh, 26px) clamp(14px, 1.6vw, 20px) !important;
   display: flex !important;
-  flex-direction: column !important;
   gap: 8px !important;
   border-right: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line-dark)) !important;
   background:
@@ -2808,7 +2761,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 #metodo .gb-step.is-final h3 { color: #2A2622 !important; }
 #metodo .gb-step p {
   margin: 0 !important;
-  flex: 1 1 auto !important;
   color: #8A8178 !important;
   font-size: clamp(13px, 1.1vw, 15px) !important;
   line-height: 1.45 !important;
@@ -2818,29 +2770,23 @@ html[data-theme="light"] #valor .gb-loop-card {
   font: 800 11px var(--mono) !important;
   letter-spacing: 0.1em !important;
   color: var(--gold) !important;
-  margin-top: auto !important;
 }
 #metodo .gb-step.is-final b { color: #2A2622 !important; }
 
 #metodo .gb-method-formula {
   width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex-shrink: 0 !important;
   display: grid !important;
   grid-template-columns: 1fr auto 1fr auto 1.3fr !important;
   gap: 10px !important;
-  align-items: stretch !important;
 }
 #metodo .gb-formula-card {
   min-height: 96px !important;
   padding: clamp(14px, 1.8vh, 20px) 16px !important;
-  border-radius: 10px !important;
   border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line-dark)) !important;
   background:
     linear-gradient(160deg, rgba(196, 165, 116, 0.08), transparent 50%),
     var(--black-2) !important;
   display: flex !important;
-  flex-direction: column !important;
   gap: 4px !important;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
 }
@@ -2878,18 +2824,12 @@ html[data-theme="light"] #valor .gb-loop-card {
    ============================================================ */
 #trayectoria.slide {
   justify-content: flex-start !important;
-  align-items: stretch !important;
 }
 #trayectoria .gb-career-panel {
   width: min(100%, var(--max)) !important;
   min-height: calc(var(--slide-inner) - 8px) !important;
   height: auto !important;
-  max-height: none !important;
-  display: flex !important;
-  flex-direction: column !important;
-  border-radius: 10px !important;
   border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line-dark)) !important;
-  overflow: hidden !important;
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.36);
 }
 #trayectoria .gb-panel-head-compact h2 {
@@ -2913,13 +2853,10 @@ html[data-theme="light"] #valor .gb-loop-card {
    ============================================================ */
 #linea.slide {
   justify-content: flex-start !important;
-  align-items: stretch !important;
   gap: clamp(12px, 1.8vh, 18px) !important;
 }
 #linea .gb-line-head {
   width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex-shrink: 0 !important;
   padding-top: var(--title-band-pad-top) !important;
 }
 #linea .gb-line-head .slide-index {
@@ -2934,10 +2871,7 @@ html[data-theme="light"] #valor .gb-loop-card {
 }
 #linea .gb-line-frame {
   width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex: 1 1 auto !important;
   min-height: min(420px, calc(var(--slide-inner) - 120px)) !important;
-  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   border-radius: 12px !important;
@@ -2947,11 +2881,9 @@ html[data-theme="light"] #valor .gb-loop-card {
     var(--black-2) !important;
   padding: clamp(12px, 2vh, 24px) !important;
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.38);
-  overflow: hidden !important;
 }
 #linea .gb-line-frame img {
   width: 100% !important;
-  height: auto !important;
   max-height: 100% !important;
   object-fit: contain !important;
 }
@@ -2968,12 +2900,8 @@ html[data-theme="light"] #valor .gb-loop-card {
 #experiencia-2 .gb-exp-panel {
   width: min(100%, var(--max)) !important;
   min-height: calc(var(--slide-inner) - 8px) !important;
-  height: auto !important;
   max-height: none !important;
-  display: flex !important;
-  flex-direction: column !important;
   border-radius: 10px !important;
-  overflow: hidden !important;
   border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line-dark)) !important;
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.36);
 }
@@ -2985,8 +2913,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 #experiencia-2 .gb-roles {
   flex: 1 1 auto !important;
   min-height: 260px !important;
-  display: flex !important;
-  flex-direction: column !important;
   overflow: auto !important; /* OK if truly needed */
   gap: 0 !important;
 }
@@ -3024,15 +2950,12 @@ html[data-theme="light"] #valor .gb-loop-card {
 }
 #capacidades .gb-caps-top {
   width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
 }
 #capacidades .gb-caps-top h2 {
   font-size: clamp(28px, 3.4vw + 0.8vh, 50px) !important;
 }
 #capacidades .gb-caps-grid {
   width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex: 1 1 auto !important;
   min-height: 280px !important;
   gap: 12px !important;
   align-items: stretch !important;
@@ -3040,10 +2963,7 @@ html[data-theme="light"] #valor .gb-loop-card {
 #capacidades .gb-cap {
   min-height: 100% !important;
   padding: clamp(16px, 2.2vh, 24px) !important;
-  border-radius: 10px !important;
-  border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line-dark)) !important;
   display: flex !important;
-  flex-direction: column !important;
   gap: 10px !important;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
@@ -3058,7 +2978,6 @@ html[data-theme="light"] #valor .gb-loop-card {
 }
 #capacidades .gb-academy {
   width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
   min-height: 56px !important;
   padding: 14px 18px !important;
   border-radius: 8px !important;
@@ -3069,16 +2988,11 @@ html[data-theme="light"] #valor .gb-loop-card {
    ============================================================ */
 #formacion.slide {
   justify-content: flex-start !important;
-  align-items: stretch !important;
 }
 #formacion .gb-edu-panel {
   width: min(100%, var(--max)) !important;
   min-height: calc(var(--slide-inner) - 8px) !important;
-  height: auto !important;
-  max-height: none !important;
   border-radius: 10px !important;
-  display: flex !important;
-  flex-direction: column !important;
   overflow: hidden !important;
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.36);
 }
@@ -3106,14 +3020,11 @@ html[data-theme="light"] #valor .gb-loop-card {
    ============================================================ */
 #contacto.slide {
   justify-content: flex-start !important;
-  align-items: stretch !important;
   padding-top: var(--slide-pad-top) !important;
 }
 #contacto .gb-contact-inner {
   width: min(100%, 960px) !important;
   min-height: calc(var(--slide-inner) - 10px) !important;
-  max-height: none !important;
-  margin: 0 auto !important;
   justify-content: space-between !important;
 }
 #contacto h2 {
