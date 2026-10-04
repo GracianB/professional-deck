@@ -438,22 +438,14 @@
   margin-top: var(--block-gap) !important;
   overflow: hidden !important;
 }
-#trayectoria .gb-engine {
-  min-height: 0 !important;
-  overflow: hidden !important;
-  display: flex !important;
-  flex-direction: column !important;
-}
+
 #trayectoria .gb-engine-list {
   flex: 1 1 auto !important;
   min-height: 0 !important;
   overflow: auto !important;
   scrollbar-width: thin;
 }
-#trayectoria .gb-engine-list li {
-  min-height: 56px !important;
-  flex: 1 1 0 !important;
-}
+
 #trayectoria .gb-panel-bar {
   flex-shrink: 0 !important;
   margin-top: var(--section-gap) !important;
@@ -487,15 +479,7 @@
   overflow: hidden !important;
   padding: clamp(10px, 1.6vh, 20px) !important;
 }
-#linea .gb-line-frame img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  display: block !important;
-}
+
 
 /* ============================================================
    08 / 09 EXPERIENCIA — roles flex; scroll only if needed
@@ -588,9 +572,7 @@
   max-height: 100% !important;
   height: 100% !important;
 }
-#formacion .gb-edu-head {
-  flex-shrink: 0 !important;
-}
+
 #formacion .gb-edu-grid,
 #formacion .education-layout,
 #formacion .compact-edu {
