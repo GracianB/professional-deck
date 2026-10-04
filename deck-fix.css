@@ -154,3 +154,399 @@ html[data-theme="light"] #contacto .gb-contact-metrics > div {
     grid-template-columns: 1fr 1fr !important;
   }
 }
+
+
+/* ============================================================
+   V5 FINAL CONTRACT — last stylesheet wins
+   One deterministic surface contract for chrome + deck shell.
+   ============================================================ */
+
+:root {
+  --ui-focus: 0 0 0 3px color-mix(in srgb, var(--gold) 28%, transparent);
+  --ui-header-blur: blur(18px) saturate(1.2);
+  --ui-panel-blur: blur(14px) saturate(1.15);
+}
+
+/* Chrome */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 300;
+  height: var(--header);
+  min-height: var(--header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-inline: max(var(--pad), env(safe-area-inset-left, 0px)) max(var(--pad), env(safe-area-inset-right, 0px));
+  color: var(--white);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line-dark));
+  backdrop-filter: var(--ui-header-blur);
+  -webkit-backdrop-filter: var(--ui-header-blur);
+  isolation: isolate;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: var(--tap);
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  border-radius: 8px;
+  color: var(--gold);
+  font: 800 13px/1 var(--mono);
+  letter-spacing: .06em;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 10%, transparent);
+  transition: background .2s var(--ease), color .2s, border-color .2s, box-shadow .2s;
+}
+
+.brand:hover .brand-mark,
+.brand:focus-visible .brand-mark {
+  background: var(--gold);
+  color: var(--accent-ink);
+  border-color: var(--gold);
+  box-shadow: 0 0 28px var(--gold-glow);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.brand-text b {
+  display: block;
+  color: var(--white);
+  font: 800 11px/1.15 var(--mono);
+  letter-spacing: .18em;
+  white-space: nowrap;
+}
+
+.brand-text small {
+  display: block;
+  color: var(--gold);
+  font: 700 9px/1.2 var(--mono);
+  letter-spacing: .16em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  font: 700 11px var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.main-nav > button,
+.main-nav > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 12px;
+  color: var(--muted-dark);
+  border-radius: var(--r);
+  transition: color .15s, background .15s;
+}
+
+.main-nav > button:hover,
+.main-nav > a:hover,
+.main-nav > button:focus-visible,
+.main-nav > a:focus-visible {
+  color: var(--white);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.seg {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line-dark));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+
+.seg-btn {
+  min-width: 42px;
+  min-height: 36px;
+  padding: 0 10px;
+  color: var(--muted-dark);
+  background: transparent;
+  font: 800 11px var(--mono);
+  letter-spacing: .08em;
+  transition: background .15s, color .15s;
+}
+
+.seg-btn:hover,
+.seg-btn:focus-visible {
+  color: var(--white);
+}
+
+.seg-btn.is-active,
+.seg-btn[aria-pressed="true"] {
+  background: var(--gold);
+  color: var(--accent-ink);
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  padding: 0 14px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--accent-ink);
+  font: 800 11px var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 22px var(--gold-glow);
+  transition: background .2s, color .2s, transform .2s, box-shadow .2s;
+}
+
+.header-cta:hover,
+.header-cta:focus-visible {
+  background: var(--gold-2, #D4B896);
+  color: var(--accent-ink);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px var(--gold-glow);
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  padding: 0;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--r);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+}
+
+.menu-toggle i {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  margin: 0;
+  background: var(--white);
+  transition: transform .2s var(--ease), opacity .15s;
+}
+
+/* Deck shell */
+.deck {
+  width: 100%;
+  height: 100svh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slide {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100svh;
+  height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  isolation: isolate;
+}
+
+.slide h1,
+.slide h2,
+.slide h3 {
+  text-wrap: balance;
+}
+
+/* Bottom controls */
+.deck-controls {
+  position: fixed;
+  z-index: 280;
+  left: 50%;
+  right: auto;
+  bottom: max(10px, env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid color-mix(in srgb, var(--gold) 24%, var(--line-dark));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: var(--ui-panel-blur);
+  -webkit-backdrop-filter: var(--ui-panel-blur);
+  box-shadow: var(--shadow-sm);
+}
+
+.deck-controls button {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  border: 0;
+  border-radius: 999px;
+  color: var(--white);
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  box-shadow: var(--ui-focus);
+}
+
+html[data-theme="light"] .site-header {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--gold) 20%, var(--line-light));
+}
+
+html[data-theme="light"] .brand-text b,
+html[data-theme="light"] .main-nav > button,
+html[data-theme="light"] .main-nav > a {
+  color: var(--ink);
+}
+
+html[data-theme="light"] .menu-toggle i {
+  background: var(--ink);
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    padding-inline: max(12px, env(safe-area-inset-left, 0px)) max(12px, env(safe-area-inset-right, 0px));
+  }
+
+  .main-nav {
+    position: fixed;
+    inset: var(--header) 0 auto;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: calc(100svh - var(--header) - env(safe-area-inset-top, 0px));
+    overflow: auto;
+    padding: 10px var(--pad) 16px;
+    border-bottom: 1px solid var(--line-dark);
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
+    backdrop-filter: var(--ui-panel-blur);
+    -webkit-backdrop-filter: var(--ui-panel-blur);
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav > button,
+  .main-nav > a {
+    width: 100%;
+    min-height: 48px;
+    justify-content: flex-start;
+    padding: 0 6px;
+    border-bottom: 1px solid var(--line-dark);
+    border-radius: 0;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .header-cta,
+  .nav-cmd {
+    display: none;
+  }
+
+  .deck-controls {
+    left: 12px;
+    right: 12px;
+    bottom: max(10px, env(safe-area-inset-bottom, 0px));
+    justify-content: space-between;
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    --header: 60px;
+    min-height: 60px;
+    gap: 8px;
+  }
+
+  .header-actions {
+    gap: 5px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  .brand-text b {
+    font-size: 10px;
+    letter-spacing: .12em;
+  }
+
+  .brand-text small {
+    font-size: 8px;
+    letter-spacing: .12em;
+  }
+
+  .seg-btn {
+    min-width: 38px;
+    padding-inline: 7px;
+  }
+
+  .deck-controls button small {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck {
+    scroll-behavior: auto;
+  }
+
+  .brand-mark,
+  .header-cta,
+  .main-nav > button,
+  .main-nav > a,
+  .menu-toggle i {
+    transition: none;
+  }
+}
