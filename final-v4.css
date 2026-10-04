@@ -1936,36 +1936,28 @@ html[data-theme="light"] #inicio .gb-card-list li {
 }
 
 /* Seg / theme toggles — nude inactive, champagne active, never accidental gray */
-html[data-theme="light"] .seg,
-html[data-theme="light"] .lang-switch {
+html[data-theme="light"] .seg {
   background: #F3EDE4 !important;
   border-color: rgba(42, 38, 34, 0.14) !important;
 }
-html[data-theme="light"] .seg-btn,
-html[data-theme="light"] .lang-btn {
+html[data-theme="light"] .seg-btn {
   color: #6F675F !important;
   background: transparent !important;
 }
 html[data-theme="light"] .seg-btn.is-active,
-html[data-theme="light"] .lang-btn.is-active,
-html[data-theme="light"] .seg-btn[aria-pressed="true"],
-html[data-theme="light"] .lang-btn[aria-pressed="true"] {
+html[data-theme="light"] .seg-btn[aria-pressed="true"] {
   background: #C4A574 !important;
   color: #2A2622 !important;
 }
-html[data-theme="dark"] .seg,
-html[data-theme="dark"] .lang-switch {
+html[data-theme="dark"] .seg {
   background: color-mix(in srgb, #1C1916 80%, transparent) !important;
   border-color: rgba(247, 243, 236, 0.14) !important;
 }
-html[data-theme="dark"] .seg-btn,
-html[data-theme="dark"] .lang-btn {
+html[data-theme="dark"] .seg-btn {
   color: #8A8178 !important;
 }
 html[data-theme="dark"] .seg-btn.is-active,
-html[data-theme="dark"] .lang-btn.is-active,
-html[data-theme="dark"] .seg-btn[aria-pressed="true"],
-html[data-theme="dark"] .lang-btn[aria-pressed="true"] {
+html[data-theme="dark"] .seg-btn[aria-pressed="true"] {
   background: #C4A574 !important;
   color: #2A2622 !important;
 }
