@@ -30,53 +30,6 @@
   --max: 1240px;
 }
 
-/* —— Deck: snap navigation without permanent scrollbar chrome —— */
-.deck {
-  height: 100svh !important;
-  max-height: 100svh !important;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  scroll-snap-type: y mandatory !important;
-  overscroll-behavior-y: contain;
-  scrollbar-width: none; /* Firefox — hide always-on deck bar */
-  -ms-overflow-style: none;
-}
-.deck::-webkit-scrollbar { width: 0; height: 0; }
-
-/* —— Slides: one viewport; NO inner scrollbar by default —— */
-.slide,
-.slide.fit {
-  box-sizing: border-box !important;
-  width: 100% !important;
-  height: 100svh !important;
-  min-height: 100svh !important;
-  max-height: 100svh !important;
-  padding: var(--slide-pad-top) var(--pad) var(--chrome-bottom) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  align-items: stretch !important;
-  gap: var(--section-gap) !important;
-  overflow-x: hidden !important;
-  overflow-y: hidden !important; /* critical: kill fake scroll */
-  scroll-snap-align: start !important;
-  scroll-snap-stop: always !important;
-}
-
-/* Only when JS marks true overflow (or rare tall content) */
-.slide.is-scrollable,
-.slide.fit.is-scrollable {
-  overflow-y: auto !important;
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--gold) 45%, transparent) transparent;
-}
-.slide.is-scrollable::-webkit-scrollbar { width: 6px; }
-.slide.is-scrollable::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--gold) 40%, #444);
-  border-radius: 999px;
-}
-
 /* —— Shared shells: fill remaining space WITHOUT forcing overflow —— */
 .gb-hero-stack,
 .gb-valor-panel,
