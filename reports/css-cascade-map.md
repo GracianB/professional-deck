@@ -161,3 +161,24 @@ Current branch CSS snapshot (post-pass):
 - deck-fix.css: 3,970 chars / 48 !important / 27 parsed regex blocks
 
 This pass is intentionally narrower than a visual redesign: it removes declarations that were already fully superseded later in the cascade while preserving the existing stylesheet order and component behavior.
+
+
+## Phase 3 — same-value cascade elimination
+
+Applied a stricter safe pass: for single-selector rules in the same cascade context, an earlier declaration was removed only when the exact same property/value pair appeared later for the same selector/context. This does not alter the winning computed value and does not touch fallbacks with different values, multi-selector rules, keyframes, or cross-context rules.
+
+Removed declarations:
+- styles.css: 141
+- extra-pass.css: 15
+- final-v3.css: 18
+- Total: 174 declarations
+
+Current branch snapshot:
+- styles.css: 144,402 chars / 758 !important
+- extra-pass.css: 96,324 chars / 1,399 !important
+- final-v3.css: 41,723 chars / 669 !important
+- final-v4.css: 77,180 chars / 863 !important
+- portada-extreme.css: 21,307 chars / 258 !important
+- deck-fix.css: 3,970 chars / 48 !important
+
+The pass intentionally leaves the remaining conflicting values intact because different-value declarations can be deliberate responsive/theme fallbacks or cascade overrides.
