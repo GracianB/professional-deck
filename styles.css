@@ -4354,13 +4354,6 @@ html[data-theme="light"] .deck-controls button { color: var(--ink); }
   opacity: .7; pointer-events: none;
 }
 
-/* Language control — active in the header; the full-screen gate is optional legacy markup. */
-.lang-gate {
-  display: inline-flex !important;
-  visibility: visible;
-  pointer-events: auto;
-}
-
 /* V5 STABILITY LAYER — final canonical interaction contract */
 :root {
   --focus-ring: 0 0 0 3px color-mix(in srgb, var(--gold) 30%, transparent);
