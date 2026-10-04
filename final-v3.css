@@ -422,7 +422,6 @@
    ============================================================ */
 #trayectoria.slide { overflow: hidden !important; }
 #trayectoria .gb-career-panel {
-  min-height: 0 !important;
   max-height: 100% !important;
   height: 100% !important;
 }
@@ -433,21 +432,14 @@
   margin-top: var(--title-lead-gap) !important;
 }
 #trayectoria .gb-dual {
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
   margin-top: var(--block-gap) !important;
-  overflow: hidden !important;
 }
 
 #trayectoria .gb-engine-list {
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
   overflow: auto !important;
-  scrollbar-width: thin;
 }
 
 #trayectoria .gb-panel-bar {
-  flex-shrink: 0 !important;
   margin-top: var(--section-gap) !important;
 }
 
@@ -468,15 +460,6 @@
   max-width: 40ch !important;
 }
 #linea .gb-line-frame {
-  width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  overflow: hidden !important;
   padding: clamp(10px, 1.6vh, 20px) !important;
 }
 
@@ -568,7 +551,6 @@
    ============================================================ */
 #formacion.slide { overflow: hidden !important; }
 #formacion .gb-edu-panel {
-  min-height: 0 !important;
   max-height: 100% !important;
   height: 100% !important;
 }
