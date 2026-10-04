@@ -423,8 +423,6 @@ body.has-os-rail .deck {
   font: 780 clamp(44px, 6vw, 80px)/.88 var(--display);
 }
 .gb-hero-copy h1 em { font-style: normal; }
-.gb-lead {
-}
 .gb-lead strong { color: var(--white); }
 .gb-actions { gap: 10px; }
 
@@ -1895,9 +1893,6 @@ dialog > form {
   min-height: 0;
 }
 
-.gb-hero-copy h1 {
-}
-
 .gb-hero .gb-card {
   min-height: 100% !important;
   height: 100%;
@@ -2012,8 +2007,6 @@ dialog > form {
   height: auto !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr) !important;
-}
-.gb-career-panel .gb-engine-list {
 }
 
 .gb-career-panel .gb-engine {
