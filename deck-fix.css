@@ -282,6 +282,15 @@ html[data-theme="light"] #contacto .gb-contact-metrics > div {
   background: color-mix(in srgb, var(--accent) 7%, transparent);
 }
 
+.main-nav kbd {
+  margin-left: 4px;
+  padding: 2px 5px;
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+  color: color-mix(in srgb, var(--white) 52%, var(--gold));
+  font: 800 8px/1 var(--mono);
+  letter-spacing: .04em;
+}
+
 .seg {
   display: inline-flex;
   overflow: hidden;
