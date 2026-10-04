@@ -25,6 +25,7 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const wheelMode = window.matchMedia("(min-width: 981px) and (min-height: 620px) and (pointer: fine)");
   let activeIndex = 0;
+  let activeSlide = null;
   let wheelBusy = false;
   let wheelAccumulator = 0;
   const counted = new WeakSet();
@@ -357,15 +358,13 @@
 
   function setActive(index, updateHash = true) {
     const next = Math.max(0, Math.min(slides.length - 1, index));
+    if (next !== activeIndex || !activeSlide) {
+      activeSlide?.classList.remove("is-active");
+      activeSlide = slides[next] || null;
+      activeSlide?.classList.add("is-active", "has-entered");
+      if (activeSlide) animateCounters(activeSlide);
+    }
     activeIndex = next;
-    slides.forEach((slide, position) => {
-      const active = position === next;
-      slide.classList.toggle("is-active", active);
-      if (active) {
-        slide.classList.add("has-entered");
-        animateCounters(slide);
-      }
-    });
     railButtons.forEach((button, position) => {
       const active = position === next;
       button.classList.toggle("active", active);
@@ -498,7 +497,14 @@
     if (target === activeIndex) return;
     wheelBusy = true;
     goTo(target);
-    window.setTimeout(() => { wheelBusy = false; }, reducedMotion.matches ? 150 : 700);
+
+    const releaseWheel = () => { wheelBusy = false; };
+    if ("onscrollend" in deck) {
+      deck.addEventListener("scrollend", releaseWheel, { once: true, passive: true });
+      window.setTimeout(releaseWheel, reducedMotion.matches ? 240 : 900);
+    } else {
+      window.setTimeout(releaseWheel, reducedMotion.matches ? 150 : 700);
+    }
   }, { passive: false });
 
   /* Swipe — phone/tablet vertical deck */
