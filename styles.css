@@ -1467,31 +1467,7 @@ body.has-os-rail .deck {
 .gb-contact-meta a:hover { color: var(--yellow); }
 
 /* ---------- CONTROLS ---------- */
-.deck-controls {
-  position: fixed; z-index: 220; right: 24px; bottom: 16px;
-  min-height: 36px; display: flex; align-items: center;
-  border: 1px solid var(--line-dark); background: rgba(8,9,9,.9);
-  color: var(--white); backdrop-filter: blur(12px);
-}
-.deck-controls > span {
-  padding: 0 12px; display: flex; align-items: baseline; gap: 4px;
-}
-.deck-controls > span b {
-  color: var(--accent); font: 760 15px var(--display);
-}
-.deck-controls > span i,
-.deck-controls > span em {
-  color: #6c6b64; font: normal 10px var(--mono);
-}
-.deck-controls button {
-  height: 36px; padding: 0 12px;
-  border-left: 1px solid var(--line-dark); color: #aaa99f;
-  font: 12px var(--display);
-}
-.deck-controls button:hover { background: var(--yellow); color: var(--black); }
-.deck-controls button:disabled { opacity: .35; cursor: not-allowed; }
-.deck-controls button:disabled:hover { background: none; color: #aaa99f; }
-.deck-controls small { font: 9px var(--mono); letter-spacing: .08em; }
+.deck-hint { z-index: 220; left: calc(var(--rail-w) + 24px); bottom: 20px; color: #77766e; font: 9px var(--mono); letter-spacing: .08em;
 .deck-hint { z-index: 220; left: calc(var(--rail-w) + 24px); bottom: 20px; color: #77766e; font: 9px var(--mono); letter-spacing: .08em;
 }
 .deck-hint kbd {
