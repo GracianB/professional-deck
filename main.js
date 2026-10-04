@@ -22,7 +22,6 @@
   const nextButton = document.querySelector("[data-next]");
   const menu = document.querySelector(".main-nav");
   const menuToggle = document.querySelector(".menu-toggle");
-  const langGate = document.querySelector("#lang-gate");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const wheelMode = window.matchMedia("(min-width: 981px) and (min-height: 620px) and (pointer: fine)");
   let activeIndex = 0;
@@ -34,7 +33,7 @@
   let commandCursor = 0;
 
   const pad = (n) => String(n).padStart(2, "0");
-  const modalOpen = () => Boolean(document.querySelector("dialog[open]")) || document.body.classList.contains("lang-pending");
+  const modalOpen = () => Boolean(document.querySelector("dialog[open]"));
 
   function getByPath(obj, path) {
     return path.split(".").reduce((acc, key) => (acc && acc[key] != null ? acc[key] : null), obj);
@@ -260,18 +259,6 @@
   }
 
   function enterApp() {
-    document.body.classList.remove("lang-pending");
-    if (langGate) {
-      langGate.classList.add("is-done");
-      langGate.setAttribute("hidden", "hidden");
-      langGate.style.display = "none";
-      langGate.setAttribute("aria-hidden", "true");
-    }
-    // Asegura que el deck se vea
-    document.querySelectorAll(".deck, .os-rail, .site-header, .deck-controls, .top-progress").forEach((el) => {
-      el.style.visibility = "";
-      el.style.pointerEvents = "";
-    });
     try {
       if (typeof setActive === "function") setActive(activeIndex, false);
       if (typeof selectCity === "function") selectCity("murcia");
@@ -280,43 +267,7 @@
     deck?.focus?.({ preventScroll: true });
   }
 
-  let pendingLang = null; // idioma seleccionado en el gate, pendiente de confirmar
-
-  function updateGateSelection(next) {
-    pendingLang = next === "en" ? "en" : "es";
-    lang = pendingLang;
-    document.body.dataset.lang = pendingLang;
-    try { applyI18n(); } catch (_) {}
-    syncDocLinks();
-    document.querySelectorAll("[data-pick-lang]").forEach((card) => {
-      const active = card.getAttribute("data-pick-lang") === pendingLang;
-      card.classList.toggle("is-selected", active);
-      card.setAttribute("aria-pressed", String(active));
-    });
-    const cont = document.querySelector("#lang-continue");
-    if (cont) {
-      cont.disabled = false;
-      cont.classList.add("is-ready");
-      cont.textContent = pendingLang === "en"
-        ? (I18N.en?.gateContinue || "Continue →")
-        : (I18N.es?.gateContinue || "Continuar →");
-    }
-    syncLangButtons();
-  }
-
-  function confirmLanguageAndEnter() {
-    if (!pendingLang) return;
-    setLang(pendingLang, true);
-    enterApp();
-    try {
-      if (history.replaceState) {
-        history.replaceState(null, "", `?lang=${pendingLang}${location.hash || ""}`);
-      }
-    } catch (_) {}
-  }
-
   function chooseLanguage(next) {
-    // Header / FAB cuando ya estás dentro del portfolio
     const chosen = next === "en" ? "en" : "es";
     setLang(chosen, true);
     enterApp();
@@ -327,7 +278,6 @@
     } catch (_) {}
   }
 
-  // Language gate
   const params = new URLSearchParams(window.location.search);
   if (params.get("reset") === "1") {
     try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
@@ -337,41 +287,20 @@
   try { saved = localStorage.getItem(STORAGE_KEY); } catch (_) {}
 
   document.addEventListener("click", (event) => {
-    // 1) Elegir idioma (solo selecciona)
-    const pick = event.target.closest("[data-pick-lang]");
-    if (pick && document.body.classList.contains("lang-pending")) {
-      event.preventDefault();
-      event.stopPropagation();
-      updateGateSelection(pick.getAttribute("data-pick-lang"));
-      return;
-    }
-    // 2) Continuar (confirma y entra)
-    const cont = event.target.closest("#lang-continue");
-    if (cont && document.body.classList.contains("lang-pending")) {
-      event.preventDefault();
-      event.stopPropagation();
-      if (!cont.disabled && pendingLang) confirmLanguageAndEnter();
-      return;
-    }
-    // 3) ES/EN del header o FAB (ya dentro)
     const btn = event.target.closest("[data-set-lang]");
-    if (btn && !document.body.classList.contains("lang-pending")) {
-      event.preventDefault();
-      chooseLanguage(btn.getAttribute("data-set-lang") || btn.dataset.setLang);
-    }
+    if (!btn) return;
+    event.preventDefault();
+    chooseLanguage(btn.getAttribute("data-set-lang") || btn.dataset.setLang);
   }, true);
 
-  // Auto-skip language gate: land on the deck with ES/EN segs like hub/lab/yoga.
-  if (urlLang === "en" || urlLang === "es") {
-    pendingLang = urlLang;
-    setLang(urlLang, true);
-  } else if (saved === "en" || saved === "es") {
-    pendingLang = saved;
-    setLang(saved, false);
-  } else {
-    pendingLang = "es";
-    setLang("es", false);
-  }
+  const initialLang =
+    urlLang === "en" || urlLang === "es"
+      ? urlLang
+      : saved === "en" || saved === "es"
+        ? saved
+        : "es";
+
+  setLang(initialLang, urlLang === "en" || urlLang === "es");
   enterApp();
 
   /* —— theme (hub family) —— */
@@ -486,10 +415,36 @@
   });
   prevButton?.addEventListener("click", () => goTo(activeIndex - 1));
   nextButton?.addEventListener("click", () => goTo(activeIndex + 1));
-  menuToggle?.addEventListener("click", () => {
-    const open = !menu?.classList.contains("open");
-    menu?.classList.toggle("open", open);
+  function setMenuOpen(open, returnFocus = false) {
+    if (!menu || !menuToggle) return;
+    menu.classList.toggle("open", open);
     menuToggle.setAttribute("aria-expanded", String(open));
+    if (open && window.matchMedia("(max-width: 980px)").matches) {
+      window.setTimeout(() => menu.querySelector("button, a")?.focus(), 0);
+    } else if (returnFocus) {
+      menuToggle.focus({ preventScroll: true });
+    }
+  }
+
+  menuToggle?.addEventListener("click", () => {
+    setMenuOpen(!menu.classList.contains("open"));
+  });
+
+  menu?.addEventListener("click", (event) => {
+    if (event.target.closest("[data-go]")) setMenuOpen(false);
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!menu?.classList.contains("open")) return;
+    if (menu.contains(event.target) || menuToggle?.contains(event.target)) return;
+    setMenuOpen(false);
+  }, { passive: true });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menu?.classList.contains("open")) {
+      event.preventDefault();
+      setMenuOpen(false, true);
+    }
   });
 
   deck.addEventListener("scroll", () => {
@@ -546,7 +501,6 @@
   }, { passive: true });
 
   document.addEventListener("keydown", (event) => {
-    if (document.body.classList.contains("lang-pending")) return;
     if (modalOpen() && event.key !== "Escape") return;
     const tag = event.target?.tagName?.toLowerCase();
     if (["input", "textarea", "select"].includes(tag) || event.target?.isContentEditable) return;
@@ -682,7 +636,7 @@
   }
 
   function openCommand() {
-    if (!commandDialog || document.body.classList.contains("lang-pending")) return;
+    if (!commandDialog) return;
     commandCursor = activeIndex;
     renderCommands("");
     commandDialog.showModal();
