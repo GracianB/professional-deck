@@ -1,0 +1,31 @@
+name: Professional Deck Quality
+
+on:
+  push:
+    branches: ["main", "refactor/css-cascade-v1"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate
+        run: npm run validate
+
+      - name: Regression
+        run: npm test
+
+      - name: CSS cascade map
+        run: node tools/css-cascade-map.mjs
