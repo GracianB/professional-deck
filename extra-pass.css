@@ -123,21 +123,7 @@ a.brand { cursor: pointer; }
   border-color: var(--yellow);
   box-shadow: 0 0 24px var(--yellow-glow);
   transform: none;
-}
-.brand-text,
-.brand-lockup {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-  overflow: hidden;
-}
-.brand-text b,
-.brand-lockup b {
-  display: block;
-  font: 800 11px/1.2 var(--mono) !important;
-  letter-spacing: .16em;
-  color: var(--ink-on-dark);
+}  color: var(--ink-on-dark);
   white-space: nowrap;
 }
 .brand-text small,
@@ -148,12 +134,6 @@ a.brand { cursor: pointer; }
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
 }
 .os-rail-brand .brand-mark { display: none !important; }
 .main-nav {
@@ -198,11 +178,6 @@ a.brand { cursor: pointer; }
   font: 800 11px var(--mono);
   background: transparent;
   transition: background .2s, color .2s;
-}
-.lang-btn.is-active,
-.seg-btn.is-active {
-  background: var(--gold);
-  color: #2A2622;
 }
 .lang-btn:hover:not(.is-active),
 .seg-btn:hover:not(.is-active) {
@@ -381,7 +356,6 @@ a.brand { cursor: pointer; }
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-.deck-controls button:hover { background: var(--gold); color: var(--accent-ink); }
 .deck-controls > span b { color: var(--gold); font: 800 13px var(--mono); }
 
 .deck-hint {
@@ -403,29 +377,7 @@ a.brand { cursor: pointer; }
 .top-progress i {
   background: var(--gold);
   box-shadow: 0 0 12px var(--yellow-glow);
-}
-.lang-gate, .lang-fab { display: none !important; }
-
-/* ============================================================
-   COVER #inicio — fit one viewport
-   ============================================================ */
-.gb-hero,
-#inicio.slide {
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 0 !important;
-}
-.gb-hero-stack {
-  gap: clamp(8px, 1.4vh, 16px) !important;
-  max-height: var(--slide-inner) !important;
-}
-.gb-hero .gb-hero-grid {
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
-  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr) !important;
-  gap: clamp(12px, 2vw, 28px) !important;
-  align-items: stretch !important;
+}lign-items: stretch !important;
 }
 .gb-hero-copy {
   min-height: 0 !important;
@@ -656,8 +608,7 @@ a.brand { cursor: pointer; }
   border-top: 1px solid var(--gold-line) !important;
   position: relative;
   z-index: 2;
-}
-.gb-valor-bottom { display: none !important; } /* legacy */
+} /* legacy */
 
 /* ============================================================
    CONTACT #contacto — centered block, no empty strip
@@ -720,7 +671,6 @@ a.brand { cursor: pointer; }
   font: 11px/1.65 var(--mono) !important;
   text-align: center !important;
 }
-.gb-contact-meta a { color: #c8c7bc; }
 .gb-contact-meta a:hover { color: var(--gold); }
 
 /* ============================================================
@@ -842,24 +792,11 @@ a.brand { cursor: pointer; }
     --header: 60px;
     --chrome-bottom: 88px; /* full-width controls + ≥12px clearance */
     --pad: clamp(12px, 4vw, 24px);
-  }
-  .brand-text, .brand-lockup { display: flex !important; visibility: visible !important; opacity: 1 !important; }
-  .brand-mark { width: 40px !important; height: 40px !important; }
-  .gb-hero-tags-fx { display: none !important; }
-  .gb-hero .gb-card { display: none !important; }
-  .gb-hero .gb-hero-grid { grid-template-columns: 1fr !important; }
-  .gb-hero-copy h1 { font-size: clamp(36px, 10vw, 56px) !important; }
+  }ant; }
   .gb-metrics { grid-template-columns: 1fr 1fr !important; }
-  .gb-valor-panel { min-height: 0 !important; }
-  .gb-valor-panel .gb-loop,
-  .gb-valor-panel [data-valor-loop] {
-    grid-template-columns: 1fr 1fr !important;
-  }
-  .gb-valor-panel .gb-loop-card:nth-child(2n) { border-right: 0 !important; }
-  .gb-valor-panel .gb-loop-card:nth-child(-n+2) {
+  .gb-valor-panel { min-height: 0 !important; }ild(-n+2) {
     border-bottom: 1px solid var(--line-light);
   }
-  .deck-hint { display: none !important; }
   .deck-controls {
     left: 12px !important;
     right: 12px !important;
@@ -878,12 +815,7 @@ a.brand { cursor: pointer; }
     border-bottom: 1px solid var(--line);
     z-index: 70;
     padding: 10px var(--pad) 16px;
-  }
-  .main-nav.open { display: flex !important; }
-  .menu-toggle { display: inline-flex !important; }
-  .header-cta, .nav-cmd { display: none !important; }
-
-  /* Keep one-viewport fit on phone — override old auto-height stack */
+  }uto-height stack */
   html, body {
     height: 100% !important;
     overflow: hidden !important;
@@ -921,7 +853,6 @@ a.brand { cursor: pointer; }
   .gb-contact h2 { font-size: clamp(40px, 14vw, 64px) !important; }
 }
 @media (max-width: 640px) {
-  .deck-controls button small { display: none; }
   .gb-valor-panel .gb-loop,
   .gb-valor-panel [data-valor-loop] {
     grid-template-columns: 1fr 1fr !important;
@@ -934,7 +865,6 @@ a.brand { cursor: pointer; }
   .brand-text small { font-size: 8px !important; }
 }
 @media (pointer: coarse) {
-  .deck-controls button { min-width: 52px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .brand-mark, .button, .header-cta, .gb-hero-tags-fx span { transition: none; animation: none !important; }
@@ -1202,12 +1132,6 @@ html[data-theme="light"] #valor .gb-loop-card {
   #ruta .gb-hub-ring,
   #ruta .gb-spoke { animation: none !important; }
 }
-
-/* —— 06 CAREER: fill the slide —— */
-#trayectoria.slide {
-  justify-content: center !important;
-  align-items: stretch !important;
-}
 #trayectoria .gb-career-panel {
   width: min(100%, var(--max)) !important;
   height: var(--slide-inner) !important;
@@ -1289,20 +1213,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   }
   #trayectoria .gb-dual-x { display: none !important; }
   #trayectoria .gb-engine-list li { min-height: 44px !important; flex: 0 0 auto !important; }
-}
-
-/* —— 08 / 09 EXPERIENCE: roles must stay visible —— */
-#experiencia.slide,
-#experiencia-2.slide {
-  justify-content: center !important;
-  align-items: stretch !important;
-}
-#experiencia .gb-exp-panel,
-#experiencia-2 .gb-exp-panel {
-  width: min(100%, var(--max)) !important;
-  height: auto !important;
-  max-height: var(--slide-inner) !important;
-  display: flex !important;
+}  display: flex !important;
   flex-direction: column !important;
   overflow: hidden !important;
   background: var(--black-2) !important;
@@ -2215,18 +2126,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   }
 }
 @media (max-width: 640px) {
-  :root { --chrome-bottom: 100px; --panel-inset: 14px; }
-  #contacto .gb-contact-actions .button,
-  #contacto .gb-contact-docs .button {
-    width: 100%;
-    justify-content: center;
-  }
-  #sistemas .gb-star-actions { min-height: 0 !important; }
-}
-@media (max-height: 760px) {
-  :root {
-    --title-index-mb: 6px;
-    --title-eyebrow-mb: 6px;
+  :root { --chrome-bottom: 100px; --panel-inset: 14px; }  --title-eyebrow-mb: 6px;
     --title-lead-mt: 8px;
     --chrome-bottom: 88px;
   }
@@ -2234,16 +2134,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   #experiencia .gb-role,
   #experiencia-2 .gb-role { min-height: 78px !important; padding: 12px 14px !important; }
 }
-@media (prefers-reduced-motion: reduce) {
-  #ruta .gb-route-glow,
-  #ruta .gb-hub-ring,
-  #ruta .gb-spoke { animation: none !important; }
-}
-
-/* ============================================================
-   EDGE #valor — FULL BLEED dark gold cinema
-   Panel fills nearly the entire slide; cards expand into void;
-   title band matches other slides; bar clear of --chrome-bottom.
+@media (prefers-reduced-motion: reduce) {atches other slides; bar clear of --chrome-bottom.
    ============================================================ */
 .gb-valor-slide,
 #valor.slide {
@@ -3336,8 +3227,3 @@ html[data-theme="light"] #valor .gb-loop-card {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #inicio .gb-hero-orb,
-  #ruta .gb-route-glow,
-  #ruta .gb-hub-ring,
-  #ruta .gb-spoke { animation: none !important; }
-}
