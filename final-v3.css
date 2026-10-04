@@ -422,8 +422,6 @@
    ============================================================ */
 #trayectoria.slide { overflow: hidden !important; }
 #trayectoria .gb-career-panel {
-  max-height: 100% !important;
-  height: 100% !important;
 }
 #trayectoria .gb-panel-head-compact {
   flex-shrink: 0 !important;
@@ -460,7 +458,6 @@
   max-width: 40ch !important;
 }
 #linea .gb-line-frame {
-  padding: clamp(10px, 1.6vh, 20px) !important;
 }
 
 
@@ -473,9 +470,6 @@
 }
 #experiencia .gb-exp-panel,
 #experiencia-2 .gb-exp-panel {
-  min-height: 0 !important;
-  max-height: 100% !important;
-  height: 100% !important;
 }
 #experiencia .gb-panel-lead,
 #experiencia-2 .gb-panel-lead {
@@ -483,8 +477,6 @@
 }
 #experiencia .gb-roles,
 #experiencia-2 .gb-roles {
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
   margin-top: var(--block-gap) !important;
   overflow-x: hidden !important;
   overflow-y: auto !important; /* only when roles exceed */
@@ -493,10 +485,6 @@
 }
 #experiencia .gb-role,
 #experiencia-2 .gb-role {
-  flex: 1 1 0 !important;
-  min-height: 88px !important;
-  min-width: 0 !important;
-  padding: clamp(14px, 1.8vh, 22px) clamp(14px, 1.8vw, 22px) !important;
 }
 #experiencia .gb-role-go,
 #experiencia-2 .gb-role-go,
@@ -635,53 +623,18 @@
     --title-lead-mt: 16px !important;
     --panel-inset: 16px !important;
     --pad: clamp(16px, 3.5vw, 40px);
-  }
-
-  .gb-route-top.gb-title-band,
-  .gb-method-top.gb-title-band,
-  .gb-caps-top.gb-title-band {
-    grid-template-columns: 1fr !important;
     gap: 12px !important;
     align-items: start !important;
-  }
-
-  #inicio .gb-hero-grid {
-    grid-template-columns: 1fr !important;
   }
   #inicio .gb-card {
     max-height: 220px !important;
   }
-  #inicio .gb-metrics {
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  }
-
-  #metodo .gb-method-grid,
-  #metodo [data-method-steps] {
-    grid-template-columns: 1fr 1fr !important;
-  }
   #metodo .gb-step {
-    border-bottom: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line-dark)) !important;
-  }
-  #metodo .gb-step:nth-child(2n) { border-right: 0 !important; }
-  #metodo .gb-step:nth-child(n+3) { border-bottom: 0 !important; }
-  #metodo .gb-method-formula {
-    grid-template-columns: 1fr !important;
-  }
-  #metodo .gb-formula-op { display: none !important; }
-
-  #demos .gb-demos-grid {
-    grid-template-columns: 1fr !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line-dark)) !important; }
+  #metodo .gb-step:nth-child(n+3) { border-bottom: 0 !important;
   }
   #demos .gb-demo-card {
     min-height: 0 !important;
-  }
-
-  #ruta .gb-route-body {
-    grid-template-columns: 1fr !important;
-  }
-
-  #capacidades .gb-caps-grid {
-    grid-template-columns: 1fr 1fr !important;
   }
 
   #trayectoria .gb-dual {
@@ -711,61 +664,12 @@
     --section-gap: 12px;
     --panel-inset: 14px !important;
     --pad: 16px;
-  }
-
-  .slide h2 {
-    font-size: clamp(24px, 7vw, 34px) !important;
     line-height: 1.02 !important;
-  }
-
-  #inicio .gb-hero-copy h1 {
-    font-size: clamp(34px, 10vw, 52px) !important;
-  }
-  #inicio .gb-metrics {
-    grid-template-columns: 1fr 1fr !important;
-  }
-  #inicio .gb-metrics > div {
-    min-height: 60px !important;
-  }
-  #inicio .gb-card {
-    display: none !important; /* reduce cover height on phone */
-  }
-  #inicio .gb-actions {
-    flex-direction: column !important;
     align-items: stretch !important;
-  }
-  #inicio .gb-actions .button {
-    width: 100% !important;
-    justify-content: center !important;
-  }
-
-  #valor .gb-loop {
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  #sistemas .gb-star-metrics {
-    grid-template-columns: 1fr 1fr 1fr !important;
-  }
-  #sistemas .gb-star-actions {
-    flex-direction: column !important;
-  }
-  #sistemas .gb-star-actions .button {
-    width: 100% !important;
-  }
-
-  #metodo .gb-method-grid,
-  #metodo [data-method-steps] {
-    grid-template-columns: 1fr !important;
-  }
-  #metodo .gb-step {
-    min-height: 100px !important;
     border-right: 0 !important;
     border-bottom: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line-dark)) !important;
   }
-  #metodo .gb-step:last-child { border-bottom: 0 !important; }
-
-  #capacidades .gb-caps-grid {
-    grid-template-columns: 1fr !important;
+  #metodo .gb-step:last-child { border-bottom: 0 !important;
   }
 
   #experiencia .gb-role,
@@ -815,20 +719,12 @@
   #inicio .gb-hero-copy h1 {
     font-size: clamp(32px, 5vw + 1vh, 64px) !important;
   }
-  #inicio .gb-metrics > div { min-height: 56px !important; }
-  #experiencia .gb-role,
-  #experiencia-2 .gb-role {
-    min-height: 72px !important;
-    padding: 12px 14px !important;
-  }
   #metodo .gb-step { padding: 12px 14px !important; }
   #trayectoria .gb-engine-list li { min-height: 48px !important; }
 }
 
 @media (max-height: 680px) {
   :root {
-    --chrome-bottom: 76px;
-    --block-gap: 12px;
   }
   #inicio .gb-card { display: none !important; }
 }
