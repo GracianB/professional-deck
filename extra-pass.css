@@ -122,7 +122,21 @@ a.brand { cursor: pointer; }
   border-color: var(--yellow);
   box-shadow: 0 0 24px var(--yellow-glow);
   transform: none;
-}  color: var(--ink-on-dark);
+}
+.brand-text,
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+.brand-text b,
+.brand-lockup b {
+  display: block;
+  font: 800 11px/1.2 var(--mono) !important;
+  letter-spacing: .16em;
+  color: var(--ink-on-dark);
   white-space: nowrap;
 }
 .brand-text small,
