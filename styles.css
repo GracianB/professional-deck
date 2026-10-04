@@ -180,20 +180,6 @@ body.has-os-rail .deck-hint { left: var(--rail-w); }
   box-shadow: none;
 }
 
-.lang-switch {
-  display: inline-flex; border: 1px solid var(--line-dark-2); overflow: hidden;
-  border-radius: var(--r-sm);
-  background: color-mix(in srgb, var(--surface) 70%, transparent);
-}
-.lang-btn {
-  min-width: 40px; min-height: 34px; padding: 0 10px;
-  color: var(--muted-dark); font: 700 10px var(--mono); letter-spacing: .08em;
-  background: transparent;
-  transition: background .2s, color .2s;
-}
-.lang-btn.is-active { color: #2A2622; }
-.lang-btn:hover:not(.is-active) { color: var(--white); background: color-mix(in srgb, var(--gold) 12%, transparent); }
-
 .menu-toggle { width: 42px; height: 42px;
 }
 .menu-toggle i { height: 1px; margin: 5px auto;
@@ -1741,7 +1727,6 @@ dialog > form {
   }
   .main-nav.open { display: flex; }
   .main-nav button,
-  .main-nav .lang-switch,
   .main-nav .header-cta {
     min-height: 44px; width: 100%; justify-content: flex-start;
     border-bottom: 1px solid var(--line-dark); padding: 12px 0;
@@ -3547,7 +3532,6 @@ body.case-body {
     overflow: auto;
   }
   .main-nav button,
-  .main-nav .lang-switch,
   .main-nav .header-cta,
   .main-nav a {
     min-height: 48px;
