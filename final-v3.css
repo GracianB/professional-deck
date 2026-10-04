@@ -421,8 +421,6 @@
    06 TRAYECTORIA — fill dual engines
    ============================================================ */
 #trayectoria.slide { overflow: hidden !important; }
-#trayectoria .gb-career-panel {
-}
 #trayectoria .gb-panel-head-compact {
   flex-shrink: 0 !important;
 }
@@ -457,8 +455,6 @@
   margin-top: var(--title-lead-gap) !important;
   max-width: 40ch !important;
 }
-#linea .gb-line-frame {
-}
 
 
 /* ============================================================
@@ -467,9 +463,6 @@
 #experiencia.slide,
 #experiencia-2.slide {
   overflow: hidden !important;
-}
-#experiencia .gb-exp-panel,
-#experiencia-2 .gb-exp-panel {
 }
 #experiencia .gb-panel-lead,
 #experiencia-2 .gb-panel-lead {
@@ -482,9 +475,6 @@
   overflow-y: auto !important; /* only when roles exceed */
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--gold) 40%, transparent) transparent;
-}
-#experiencia .gb-role,
-#experiencia-2 .gb-role {
 }
 #experiencia .gb-role-go,
 #experiencia-2 .gb-role-go,
