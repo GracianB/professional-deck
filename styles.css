@@ -4354,9 +4354,137 @@ html[data-theme="light"] .deck-controls button { color: var(--ink); }
   opacity: .7; pointer-events: none;
 }
 
-/* Kill lang gate forever */
-.lang-gate, #lang-gate { display: none !important; visibility: hidden !important; pointer-events: none !important; }
-body:not(.lang-pending) .lang-gate { display: none !important; }
+/* Language control — active in the header; the full-screen gate is optional legacy markup. */
+.lang-gate {
+  display: inline-flex !important;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* V5 STABILITY LAYER — final canonical interaction contract */
+:root {
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--gold) 30%, transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  box-shadow: var(--focus-ring);
+}
+
+.site-header {
+  isolation: isolate;
+  padding-inline-start: max(var(--pad), env(safe-area-inset-left, 0px));
+  padding-inline-end: max(var(--pad), env(safe-area-inset-right, 0px));
+}
+
+.header-actions {
+  min-width: 0;
+}
+
+.brand {
+  min-width: 0;
+}
+
+.brand-text {
+  min-width: 0;
+}
+
+.main-nav {
+  min-width: 0;
+}
+
+.deck {
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+}
+
+.slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow-wrap: anywhere;
+}
+
+.slide h1,
+.slide h2,
+.slide h3 {
+  text-wrap: balance;
+}
+
+.deck-controls {
+  padding-bottom: max(6px, env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    padding-inline-start: max(12px, env(safe-area-inset-left, 0px));
+    padding-inline-end: max(12px, env(safe-area-inset-right, 0px));
+  }
+
+  .main-nav {
+    max-height: calc(100svh - var(--header) - env(safe-area-inset-top, 0px));
+    overscroll-behavior: contain;
+  }
+
+  .main-nav > button,
+  .main-nav > a {
+    min-height: 48px;
+  }
+
+  .seg-btn,
+  .menu-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .site-header,
+  .deck-controls,
+  .seg,
+  .menu-toggle {
+    border: 1px solid CanvasText !important;
+    background: Canvas !important;
+    color: CanvasText !important;
+  }
+
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid Highlight !important;
+    box-shadow: none !important;
+  }
+}
 
 /* Light theme slide surfaces */
 html[data-theme="light"] .slide.dark,
