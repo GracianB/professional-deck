@@ -771,25 +771,33 @@
     });
   }
 
-  let raf = 0;
+  let measureRaf = 0;
   const schedule = () => {
-    if (raf) return;
-    raf = requestAnimationFrame(() => {
-      raf = 0;
+    if (measureRaf) return;
+    measureRaf = requestAnimationFrame(() => {
+      measureRaf = 0;
       measureSlideOverflow();
     });
   };
 
   window.addEventListener("resize", schedule, { passive: true });
-  window.addEventListener("load", schedule);
-  if (document.fonts && document.fonts.ready) {
+  window.addEventListener("load", schedule, { once: true, passive: true });
+
+  if (document.fonts?.ready) {
     document.fonts.ready.then(schedule).catch(() => {});
   }
-  setTimeout(schedule, 50);
-  setTimeout(schedule, 300);
-  setTimeout(schedule, 1000);
+
+  if ("ResizeObserver" in window) {
+    const ro = new ResizeObserver(schedule);
+    slides.forEach((slide) => ro.observe(slide));
+  } else {
+    schedule();
+  }
+
   const mo = new MutationObserver(schedule);
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ["lang", "data-theme"] });
+
+  schedule();
 })();
 
 /* ══════════════════════════════════════════════════════════════
