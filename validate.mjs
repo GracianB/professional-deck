@@ -47,4 +47,4 @@ if (errors.length) {
   console.error(`\nValidation failed (${errors.length})\n- ${errors.join("\n- ")}\n`);
   process.exit(1);
 }
-console.log(`OK ${required.length} files · ${slideCount} slides · ES/EN gate · ready for GitHub Pages`);
+console.log(`OK ${required.length} files · ${slideCount} slides · ES/EN controls · ready for GitHub Pages`);
