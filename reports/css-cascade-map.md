@@ -141,3 +141,23 @@ This file is small and should not be removed just because it is named a "fix".
 **Do not delete `extra-pass.css`, `final-v3.css`, `final-v4.css`, `portada-extreme.css` or `deck-fix.css` yet.**
 
 The architecture is clearly override-heavy, but the safe solution is a controlled canonicalization, not a mass deletion. The branch therefore adds the mapping tooling and repairs the missing PWA/HTML contract without changing production CSS behavior.
+
+
+## Phase 2 — superseded declaration consolidation
+
+Applied a second conservative pass after the exact-rule deduplication. The pass removed only single-selector rules whose complete declaration set was demonstrably reproduced later by the same selector in the same cascade context. No multi-selector rule was split, no media/container context was crossed, no keyframe rule was touched, and no stylesheet was removed.
+
+Removed:
+- styles.css: 6 superseded rules
+- extra-pass.css: 8 superseded rules
+- final-v3.css: 4 superseded rules
+
+Current branch CSS snapshot (post-pass):
+- styles.css: 147,831 chars / 764 !important / 1,116 parsed regex blocks
+- extra-pass.css: 96,916 chars / 1,409 !important / 529 parsed regex blocks
+- final-v3.css: 42,269 chars / 686 !important / 229 parsed regex blocks
+- final-v4.css: 77,180 chars / 863 !important / 338 parsed regex blocks
+- portada-extreme.css: 21,307 chars / 258 !important / 100 parsed regex blocks
+- deck-fix.css: 3,970 chars / 48 !important / 27 parsed regex blocks
+
+This pass is intentionally narrower than a visual redesign: it removes declarations that were already fully superseded later in the cascade while preserving the existing stylesheet order and component behavior.
