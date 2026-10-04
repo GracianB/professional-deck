@@ -67,6 +67,57 @@ for (const ref of new Set(localRefs)) {
 if (missingRefs.length) fail(`broken local references: ${missingRefs.join(", ")}`);
 else pass(`local asset references resolve (${new Set(localRefs).size})`);
 
+const stylesheetRefs = [...html.matchAll(/<link[^>]+rel=["']stylesheet["'][^>]+href=["']\.\/([^"'?#]+)(?:[?#][^"']*)?["'][^>]*>/gi)]
+  .map(match => match[1]);
+
+const cssFiles = [...new Set(stylesheetRefs)];
+const expectedCssOrder = [
+  "styles.css",
+  "extra-pass.css",
+  "final-v3.css",
+  "final-v4.css",
+  "portada-extreme.css",
+  "deck-fix.css"
+];
+
+if (cssFiles.join("\n") === expectedCssOrder.join("\n")) {
+  pass("CSS load order canonical");
+} else {
+  fail(`CSS load order drift: ${cssFiles.join(" → ")}`);
+}
+
+const cssContents = [];
+for (const cssFile of cssFiles) {
+  const full = path.join(root, cssFile);
+  if (!fs.existsSync(full)) {
+    fail(`stylesheet missing: ${cssFile}`);
+    continue;
+  }
+  cssContents.push([cssFile, fs.readFileSync(full, "utf8")]);
+}
+
+const finalCss = cssContents.find(([name]) => name === "deck-fix.css")?.[1] || "";
+for (const selector of [
+  ".site-header",
+  ".deck",
+  ".slide",
+  ".deck-controls",
+  ".seg",
+  ".seg-btn",
+  ".header-cta"
+]) {
+  if (finalCss.includes(selector)) pass(`final CSS contract: ${selector}`);
+  else fail(`final CSS contract missing: ${selector}`);
+}
+
+for (const legacyToken of ["lang-switch", "lang-btn", "lang-gate-card"]) {
+  const found = cssContents
+    .filter(([, content]) => content.includes(legacyToken))
+    .map(([name]) => name);
+  if (found.length) fail(`legacy CSS token ${legacyToken}: ${found.join(", ")}`);
+  else pass(`legacy CSS token removed: ${legacyToken}`);
+}
+
 const scriptRefs = [...html.matchAll(/<script[^>]+src=["']\.\/([^"'?#]+)(?:[?#][^"']*)?["'][^>]*>/gi)]
   .map(match => match[1]);
 for (const script of new Set(scriptRefs)) {
