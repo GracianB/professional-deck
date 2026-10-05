@@ -1009,7 +1009,6 @@
   exitButton.className = "presentation-exit";
   exitButton.setAttribute("data-present-exit", "");
   exitButton.innerHTML = "<span>ESC</span><b></b>";
-  exitButton.hidden = true;
   body.appendChild(exitButton);
 
   let returnFocus = null;
@@ -1047,7 +1046,7 @@
     const next = Boolean(on);
     body.classList.toggle("presentation-mode", next);
     headerPresent?.setAttribute("aria-pressed", String(next));
-    exitButton.hidden = !next;
+    exitButton.setAttribute("aria-hidden", String(!next));
     if (updateUrl) writePresentationUrl(next);
 
     if (next && focusExit) {
