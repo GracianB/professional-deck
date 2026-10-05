@@ -583,9 +583,6 @@
   #trayectoria .gb-dual {
     grid-template-columns: 1fr !important;
   }
-  #trayectoria .gb-dual-x {
-    display: none !important;
-  }
 
   body.has-os-rail .deck { margin-left: 0 !important; width: 100% !important; }
 }
