@@ -45,6 +45,8 @@ ok(/<nav\b[^>]+aria-label=/i.test(html), "navigation landmark labels");
 ok(/<dialog\b[^>]*aria-labelledby=/i.test(html), "dialog accessible naming");
 ok(!/<script(?![^>]+type=["']application\/ld\+json["'])[^>]+src=["']http:/i.test(html), "no insecure script source");
 ok(!/javascript:/i.test(html), "no javascript: URLs");
+ok(!/<(?:a|link|script|img|source)\b[^>]+(?:href|src)=["']http:\/\//i.test(html), "no insecure external http resources");
+ok(!/\bon[a-z]+\s*=/i.test(html), "no inline event handlers");
 ok(!/<form\b(?![^>]*method=["']dialog["'])/i.test(html), "no unexpected forms");
 
 const localTargets=[...html.matchAll(/(?:href|src)=["']\.\/([^"'?#]+)(?:[?#][^"']*)?/gi)].map(m=>m[1]);
