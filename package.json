@@ -10,7 +10,8 @@
     "test:browser": "playwright test --config=playwright.config.mjs",
     "audit:production": "node tools/production-audit.mjs",
     "audit:performance": "node tools/performance-budget.mjs",
-    "audit:css": "node tools/css-cascade-guard.mjs"
+    "audit:css": "node tools/css-cascade-guard.mjs",
+    "quality": "npm run validate && npm run verify && npm run audit:css && npm run test:browser && npm run audit:production && npm run audit:performance"
   },
   "engines": {
     "node": ">=20"
