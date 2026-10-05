@@ -207,7 +207,7 @@ El repo no depende solo de revisión manual.
 
 - `npm run validate` — contrato estructural.
 - `npm test` — regresión.
-- `npm run test:browser` — 23 pruebas Playwright de navegación, responsive, accesibilidad, diálogos, idioma, assets y reduced motion.
+- `npm run test:browser` — 24 pruebas Playwright de navegación, responsive, accesibilidad, diálogos, idioma, assets y reduced motion.
 - `npm run audit:production` — auditoría estática de SEO, accesibilidad, seguridad, recursos locales y contratos de producción.
 - `npm run audit:performance` — presupuesto de HTML, CSS, JS e imágenes (incluidas referencias desde CSS) para evitar regresión de peso.
 - `npm run audit:css` — guardia de regresión de la cascada CSS.
