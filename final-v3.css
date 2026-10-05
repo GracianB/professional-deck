@@ -492,17 +492,9 @@
   margin-top: var(--block-gap) !important;
 }
 
-/* —— Controls: larger touch targets, clear of content —— */
+/* —— Controls: minimum rail height —— */
 .deck-controls {
-  bottom: 14px !important;
-  right: 16px !important;
   min-height: var(--tap) !important;
-  z-index: 230 !important;
-}
-.deck-controls button {
-  min-height: var(--tap) !important;
-  min-width: var(--tap) !important;
-  padding: 0 14px !important;
 }
 .deck-hint {
   bottom: 18px !important;
@@ -600,12 +592,7 @@
     width: 100% !important;
   }
 
-  .deck-controls {
-    left: 12px !important;
-    right: 12px !important;
-    bottom: 10px !important;
-    justify-content: space-between !important;
-  }
+
   .deck-hint { display: none !important; }
 
   /* Phone: allow natural document flow if content still overflows */
