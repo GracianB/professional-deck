@@ -294,6 +294,10 @@
   let saved = null;
   try { saved = localStorage.getItem(STORAGE_KEY); } catch (_) {}
 
+  document.querySelector(".skip-link")?.addEventListener("click", () => {
+    window.setTimeout(() => deck.focus({ preventScroll: true }), 0);
+  });
+
   document.addEventListener("click", (event) => {
     const btn = event.target.closest("[data-set-lang]");
     if (!btn) return;
