@@ -755,14 +755,18 @@
     prev: "PREV",
     next: "NEXT",
     hint: "↑↓ · swipe · Ctrl K",
+    metricYears: "years",
+    metricCustomer: "customer-facing",
+    metricCountries: "countries",
+    metricRules: "rules",
     recruiterEyebrow: "RECRUITER / 30 s",
     recruiterH2: "Customer, data and execution.<br><em>In one person.</em>",
     recruiterLead: "16+ years connecting business, customers and technical build. Support OS in production.",
     recruiterCards: [
-      ["01", "CS Systems & Data", "Customer + ops + AI → adoption."],
-      ["02", "Proof", "Help Center + Ohana + Vortex + PLAY, live."],
-      ["03", "Fit", "Senior cross-functional roles."],
-      ["04", "Edge", "Translate, build, facilitate."]
+      ["01", "Customer → system", "Listen, prioritize and turn needs into a way of working."],
+      ["02", "Production", "Support OS live: Zendesk, data, Power BI and Academy."],
+      ["03", "Build", "AI, automation, APIs and a builder mindset grounded in business."],
+      ["04", "Adoption", "Coordinate people, explain the why and close the loop with real usage."]
     ],
     cmdTitle: "Where to?",
     cmdPlaceholder: "Search…",
