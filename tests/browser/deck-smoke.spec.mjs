@@ -39,7 +39,10 @@ test.describe("Professional Deck smoke", () => {
     await page.locator('[data-open-recruiter]').click();
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();
-    await expect(recruiter.locator("[data-recruiter-grid]")).toHaveCount(1);
+    await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Customer Success/i);
+    await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Projects/i);
+    await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Data/i);
+    await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Consult/i);
     await expect(recruiter.locator(".recruiter-metrics strong")).toHaveCount(4);
     await recruiter.locator(".dialog-close").click();
     await expect(recruiter).not.toBeVisible();
