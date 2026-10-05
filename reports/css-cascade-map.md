@@ -189,10 +189,10 @@ Current baseline after the conflict cleanup and the latest dead-layer pass:
 
 | Metric | V1-era baseline | Current | Guard limit |
 |---|---:|---:|---:|
-| CSS rules | 2,354 | 2,271 | 2,300 |
-| `!important` occurrences | 3,623 | 3,274 | 3,320 |
-| Duplicate selector/property groups | 512 | 299 | 305 |
-| Conflicting selector/property groups | 928 | 864 | 890 |
-| CSS bytes | 368,539 | 341,425 | 512,000 |
+| CSS rules | 2,354 | 2,299 | 2,300 |
+| `!important` occurrences | 3,623 | 3,311 | 3,320 |
+| Duplicate selector/property groups | 512 | 302 | 305 |
+| Conflicting selector/property groups | 928 | 880 | 890 |
+| CSS bytes | 368,539 | 344,831 | 512,000 |
 
-The latest pass removed superseded light-theme blocks and obsolete global brand typography layers that were losing to the later canonical contract. Responsive, theme, accessibility and section-specific contexts were preserved.
+The latest visual repair restores the desktop header as a horizontal chrome layer, re-centers the cover composition, strengthens the hero hierarchy, and removes superseded/dead cascade entries. Responsive, theme, accessibility and section-specific contexts remain isolated.
