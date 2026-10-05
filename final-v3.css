@@ -21,13 +21,13 @@
 
   /* Title micro-rhythm (compat with prior tokens) */
   --title-band-pad-top: 4px;
-  --title-index-mb: var(--title-gap);
-  --title-eyebrow-mb: var(--title-gap);
-  --title-h2-mb: 0px;
-  --title-lead-mt: var(--title-lead-gap);
+  
+  
+  
+  
 
-  --tap: 44px;
-  --max: 1240px;
+  
+  
 }
 
 /* —— Shared shells: fill remaining space WITHOUT forcing overflow —— */
@@ -165,7 +165,7 @@
 }
 #inicio .gb-lead {
   margin: 0 0 var(--block-gap) !important;
-  max-width: 38ch !important;
+  
 }
 #inicio .gb-actions {
   gap: 12px !important;
@@ -354,7 +354,7 @@
   max-height: none !important;
 }
 #metodo .gb-step {
-  min-height: 0 !important;
+  
   height: 100% !important;
   padding: clamp(16px, 2vh, 24px) clamp(14px, 1.6vw, 20px) !important;
 }
@@ -373,7 +373,7 @@
 /* ============================================================
    06 TRAYECTORIA — fill dual engines
    ============================================================ */
-#trayectoria.slide { overflow: hidden !important; }
+#trayectoria.slide {  }
 #trayectoria .gb-panel-head-compact {
   flex-shrink: 0 !important;
 }
@@ -396,7 +396,7 @@
    07 LÍNEA — responsive image, no page scroll
    ============================================================ */
 #linea.slide {
-  overflow: hidden !important;
+  
   gap: var(--block-gap) !important;
 }
 #linea .gb-line-head {
@@ -450,37 +450,37 @@
   gap: var(--block-gap) !important;
 }
 #capacidades .gb-caps-top {
-  width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
+  
+  
   flex-shrink: 0 !important;
 }
 #capacidades .gb-caps-lead {
   margin-top: 0 !important;
 }
 #capacidades .gb-caps-grid {
-  width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
+  
+  
+  
+  
   overflow: hidden !important;
   gap: clamp(12px, 1.6vw, 18px) !important;
 }
 #capacidades .gb-cap {
-  min-height: 0 !important;
+  
   height: auto !important;
   padding: clamp(14px, 1.8vh, 20px) !important;
 }
 #capacidades .gb-academy {
-  width: min(100%, var(--max)) !important;
+  
   margin: 8px auto 0 !important;
-  flex-shrink: 0 !important;
+  
   min-height: var(--tap) !important;
 }
 
 /* ============================================================
    11 FORMACIÓN
    ============================================================ */
-#formacion.slide { overflow: hidden !important; }
+#formacion.slide {  }
 #formacion .gb-edu-panel {
   max-height: 100% !important;
   height: 100% !important;
@@ -502,12 +502,12 @@
 /* ============================================================
    12 CONTACTO — CTAs clear of chrome-bottom
    ============================================================ */
-#contacto.slide { overflow: hidden !important; }
+#contacto.slide {  }
 #contacto .gb-contact-inner {
   min-height: 0 !important;
   max-height: 100% !important;
   height: 100% !important;
-  justify-content: space-between !important;
+  
   gap: var(--block-gap) !important;
   padding-bottom: 4px !important;
 }
@@ -556,15 +556,15 @@
    ============================================================ */
 @media (max-width: 1100px) {
   :root {
-    --slide-pad-top: calc(var(--header) + 14px) !important;
-    --chrome-bottom: 92px !important;
-    --title-gap: 10px !important;
-    --title-lead-gap: 16px !important;
-    --block-gap: 18px !important;
-    --title-index-mb: 10px !important;
-    --title-eyebrow-mb: 10px !important;
-    --title-lead-mt: 16px !important;
-    --panel-inset: 16px !important;
+    
+    
+    
+    
+    
+    
+    
+    
+    
     --pad: clamp(16px, 3.5vw, 40px);
     gap: 12px !important;
     align-items: start !important;
@@ -581,7 +581,7 @@
   }
 
   #trayectoria .gb-dual {
-    grid-template-columns: 1fr !important;
+    
   }
 
   body.has-os-rail .deck { margin-left: 0 !important; width: 100% !important; }
@@ -592,17 +592,17 @@
    ============================================================ */
 @media (max-width: 760px) {
   :root {
-    --header: 56px !important;
-    --slide-pad-top: calc(var(--header) + 12px) !important;
-    --chrome-bottom: 96px !important;
-    --title-gap: 8px !important;
-    --title-lead-gap: 14px !important;
-    --block-gap: 16px !important;
-    --title-index-mb: 8px !important;
-    --title-eyebrow-mb: 8px !important;
-    --title-lead-mt: 14px !important;
+    
+    
+    
+    
+    
+    
+    
+    
+    
     --section-gap: 12px;
-    --panel-inset: 14px !important;
+    
     --pad: 16px;
     line-height: 1.02 !important;
     align-items: stretch !important;
@@ -649,11 +649,11 @@
 /* Short viewports (laptops ~1280×720/800) */
 @media (max-height: 780px) {
   :root {
-    --slide-pad-top: calc(var(--header) + 12px) !important;
-    --chrome-bottom: 80px !important;
-    --title-lead-gap: 14px !important;
-    --block-gap: 16px !important;
-    --title-lead-mt: 14px !important;
+    
+    
+    
+    
+    
     --section-gap: 10px;
   }
   #inicio .gb-hero-copy h1 {
@@ -707,7 +707,7 @@
   z-index: 0 !important;
 }
 #inicio .gb-hero-stack {
-  position: relative !important;
+  
   z-index: 2 !important;
 }
 
@@ -792,18 +792,18 @@
 #trayectoria.slide {
   justify-content: flex-start !important;
   align-items: stretch !important;
-  overflow: hidden !important;
-  padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
+  
+  
 }
 #trayectoria .gb-career-panel {
   width: min(100%, var(--max)) !important;
   margin: 0 auto !important;
-  height: calc(var(--slide-inner) - 8px) !important;
-  max-height: calc(var(--slide-inner) - 8px) !important;
+  
+  
   min-height: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  overflow: hidden !important;
+  
   border-radius: 10px !important;
   border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line-dark)) !important;
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.36);
@@ -817,38 +817,37 @@
 }
 #trayectoria .gb-panel-head-compact h2 {
   font-size: clamp(28px, 3.2vw + 0.7vh, 46px) !important;
-  line-height: 1.02 !important;
-  margin: clamp(4px, 0.8vh, 8px) 0 0 !important;
+  
+  
 }
 #trayectoria .gb-panel-lead {
   margin: clamp(6px, 1vh, 10px) 0 0 !important;
   max-width: 62ch !important;
 }
 #trayectoria .gb-dual {
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr) !important;
-  overflow: hidden !important;
+  
+  
+  
+  
+  
+  
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 #trayectoria .gb-dual-x {
-  display: grid !important;
-  place-items: center !important;
-  font-size: clamp(26px, 2.8vw, 38px) !important;
-  color: var(--gold) !important;
-  background:
-    linear-gradient(180deg, rgba(196, 165, 116, 0.12), rgba(125, 202, 165, 0.1)) !important;
+  
+  
+  
+  
+  
   border-left: 1px solid rgba(255,255,255,0.06);
   border-right: 1px solid rgba(255,255,255,0.06);
 }
 #trayectoria .gb-engine {
-  min-height: 0 !important;
-  height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  overflow: hidden !important;
+  
+  
+  
+  
+  
   background: transparent !important;
 }
 #trayectoria .gb-engine.track-a {
@@ -858,11 +857,11 @@
   border-color: color-mix(in srgb, var(--sage) 32%, var(--line-dark)) !important;
 }
 #trayectoria .gb-engine > header {
-  flex-shrink: 0 !important;
-  padding: 12px 16px !important;
+  
+  
   gap: 6px 12px !important;
   border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-  background: rgba(255,255,255,0.02) !important;
+  
 }
 #trayectoria .gb-engine.track-a > header span,
 #trayectoria .gb-engine.track-a > header strong {
@@ -892,41 +891,40 @@
 }
 #trayectoria .gb-engine-list li:last-child { border-bottom: 0 !important; }
 #trayectoria .gb-engine-list em {
-  font: 800 10px/1.3 var(--mono) !important;
-  letter-spacing: 0.04em !important;
+  
+  
   color: #8a897f !important;
 }
 #trayectoria .track-a .gb-engine-list em { color: color-mix(in srgb, var(--gold) 55%, #8a897f) !important; }
 #trayectoria .track-b .gb-engine-list em { color: color-mix(in srgb, var(--sage) 55%, #8a897f) !important; }
 #trayectoria .gb-engine-list b {
-  font-size: clamp(14px, 1.2vw, 17px) !important;
-  line-height: 1.15 !important;
+  
+  
   color: #FFFEFB !important;
 }
 #trayectoria .gb-engine-list span {
-  font-size: clamp(12px, 1.05vw, 14px) !important;
+  
   color: #d2d1c8 !important;
 }
 #trayectoria .gb-engine-list i {
-  font-size: clamp(11px, 0.95vw, 13px) !important;
+  
   color: #a8a79d !important;
-  font-style: normal !important;
+  
 }
 
 /* Compact career-break chip — clears panel-bar */
 #trayectoria .gb-career-break {
-  flex-shrink: 0 !important;
-  display: grid !important;
-  grid-template-columns: 88px minmax(0, 1fr) !important;
-  gap: 8px 12px !important;
-  align-items: center !important;
-  margin: 0 10px 10px !important;
-  padding: 8px 12px !important;
-  min-height: 0 !important;
+  
+  
+  
+  
+  
+  
+  
+  
   border-radius: 8px !important;
-  border: 1px solid color-mix(in srgb, var(--sage) 28%, transparent) !important;
-  background:
-    linear-gradient(90deg, rgba(125, 202, 165, 0.12), rgba(196, 165, 116, 0.06)) !important;
+  
+  
 }
 #trayectoria .gb-career-break em {
   font: 800 9px/1.2 var(--mono) !important;
@@ -942,28 +940,28 @@
   min-width: 0 !important;
 }
 #trayectoria .gb-career-break b {
-  font: 760 12px/1.2 var(--display) !important;
+  
   letter-spacing: -0.01em !important;
   color: #FFFEFB !important;
 }
 #trayectoria .gb-career-break span {
-  font: 700 11px/1.2 var(--sans) !important;
+  
   color: #d2d1c8 !important;
 }
 #trayectoria .gb-career-break i {
-  font: 11px/1.2 var(--sans) !important;
-  font-style: normal !important;
+  
+  
   color: #a8a79d !important;
 }
 
 #trayectoria .gb-panel-bar {
-  flex-shrink: 0 !important;
-  position: relative !important;
-  z-index: 2 !important;
+  
+  
+  
   min-height: 44px !important;
-  margin: 0 !important;
-  padding: 10px 16px !important;
-  border-top: 1px solid rgba(196, 165, 116, 0.22) !important;
+  
+  
+  
 }
 /* Track lists never paint under the gold footer bar */
 #trayectoria .gb-dual,
@@ -998,26 +996,26 @@
 /* —— 07 LÍNEA: navy FRAME only; slide uses theme ground —— */
 #linea.slide {
   background: var(--ground, var(--bg, #141210)) !important;
-  overflow: hidden !important;
+  
   justify-content: flex-start !important;
   align-items: stretch !important;
-  padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
+  
 }
 #linea .gb-line-frame {
-  width: min(100%, var(--max)) !important;
-  margin: 0 auto !important;
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
-  max-height: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  overflow: hidden !important;
+  
+  
+  
+  
+  
+  
+  
+  
+  
   border-radius: 12px !important;
-  border: 1px solid color-mix(in srgb, var(--gold) 18%, #0a1220) !important;
-  background: #000410 !important;
-  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.45);
-  padding: clamp(10px, 1.6vh, 18px) !important;
+  
+  
+  
+  
 }
 #linea .gb-line-frame img {
   width: 100% !important;
@@ -1217,20 +1215,20 @@
 
 /* —— 11 FORMACIÓN: languages clear of panel bottom border —— */
 #formacion.slide {
-  overflow: hidden !important;
+  
   justify-content: flex-start !important;
   align-items: stretch !important;
-  padding-bottom: calc(var(--chrome-bottom) + 6px) !important;
+  
 }
 #formacion .gb-edu-panel {
   width: min(100%, var(--max)) !important;
   margin: 0 auto !important;
-  height: calc(var(--slide-inner) - 8px) !important;
-  max-height: calc(var(--slide-inner) - 8px) !important;
+  
+  
   min-height: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  overflow: hidden !important;
+  
   border-radius: 10px !important;
   border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line-dark)) !important;
   background: var(--black-2) !important;
@@ -1239,7 +1237,7 @@
 #formacion .gb-edu-head {
   flex-shrink: 0 !important;
   padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 24px) clamp(10px, 1.3vh, 14px) !important;
-  background: linear-gradient(180deg, rgba(196, 165, 116, 0.06), transparent) !important;
+  
 }
 #formacion .gb-edu-grid,
 #formacion .education-layout,
@@ -1259,8 +1257,8 @@
   box-sizing: border-box !important;
 }
 #formacion .education-list > div:first-child {
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
+  
+  
 }
 /* languages moved to #idiomas */
 /* languages moved to #idiomas */
