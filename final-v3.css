@@ -160,20 +160,13 @@
 #inicio .gb-status {
   margin: 0 0 12px !important;
 }
-#inicio .gb-hero-copy h1 {
-  margin: 8px 0 var(--title-lead-gap) !important;
-}
+
 #inicio .gb-lead {
   margin: 0 0 var(--block-gap) !important;
   
 }
-#inicio .gb-actions {
-  gap: 12px !important;
-  margin-bottom: 12px !important;
-}
-#inicio .gb-actions .button {
-  min-height: var(--tap) !important;
-}
+
+
 #inicio .gb-hero-grid {
   flex: 1 1 auto !important;
   min-height: 0 !important;
@@ -399,10 +392,7 @@
   margin: 0 auto !important;
   flex-shrink: 0 !important;
 }
-#linea .gb-line-kicker {
-  margin-top: var(--title-lead-gap) !important;
-  max-width: 40ch !important;
-}
+
 
 
 /* ============================================================
@@ -471,10 +461,7 @@
   
   min-height: var(--tap) !important;
 }
-#formacion .gb-edu-panel {
-  max-height: 100% !important;
-  height: 100% !important;
-}
+
 
 #formacion .gb-edu-grid,
 #formacion .education-layout,
