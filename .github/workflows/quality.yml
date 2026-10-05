@@ -35,6 +35,9 @@ jobs:
       - name: Regression
         run: npm test
 
+      - name: Max Verification
+        run: npm run verify
+
       - name: CSS cascade map
         run: node tools/css-cascade-map.mjs
 
