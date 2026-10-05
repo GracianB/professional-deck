@@ -40,3 +40,6 @@ jobs:
 
       - name: Browser E2E
         run: npm run test:browser
+
+      - name: Production Audit
+        run: npm run audit:production
