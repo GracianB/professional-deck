@@ -6,9 +6,13 @@
   "scripts": {
     "test": "node validate.mjs",
     "validate": "node validate.mjs",
-    "verify": "node verify.mjs"
+    "verify": "node verify.mjs",
+    "test:browser": "playwright test --config=playwright.config.mjs"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
   }
 }
