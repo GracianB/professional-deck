@@ -17,6 +17,10 @@
     menuOpen: "Abrir menú",
     menuClose: "Cerrar menú",
     dialogClose: "Cerrar diálogo",
+    languageGroup: "Idioma",
+    themeGroup: "Tema",
+    themeDark: "Oscuro",
+    themeLight: "Claro",
     brandSub: "EXPERIENCIA · CS",
     slides: {
       inicio: "Portada",
@@ -396,6 +400,10 @@
     menuOpen: "Open menu",
     menuClose: "Close menu",
     dialogClose: "Close dialog",
+    languageGroup: "Language",
+    themeGroup: "Theme",
+    themeDark: "Dark",
+    themeLight: "Light",
     brandSub: "EXPERIENCIA · CS",
     slides: {
       inicio: "Cover",
