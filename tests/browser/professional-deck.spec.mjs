@@ -259,3 +259,92 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
 });
+
+
+import { test, expect } from "@playwright/test";
+
+test.describe("Professional Deck production hardening", () => {
+  test("SEO and document contract are present", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    await expect(page).toHaveTitle(/Gracián Baena/i);
+    await expect(page.locator('meta[name="description"]')).toHaveCount(1);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      "https://gracianb.github.io/professional-deck/"
+    );
+    await expect(page.locator('meta[property="og:title"]')).toHaveCount(1);
+    await expect(page.locator('meta[property="og:description"]')).toHaveCount(1);
+    await expect(page.locator('meta[property="og:image"]')).toHaveCount(1);
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+      "content",
+      "summary_large_image"
+    );
+    await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
+    await expect(page.locator('link[rel="manifest"]')).toHaveCount(1);
+
+    const blankLinks = page.locator('a[target="_blank"]');
+    const count = await blankLinks.count();
+    for (let i = 0; i < count; i++) {
+      await expect(blankLinks.nth(i)).toHaveAttribute("rel", /noopener/);
+    }
+  });
+
+  test("reduced motion disables the intro animation path", async ({ browser }) => {
+    const context = await browser.newContext({
+      reducedMotion: "reduce",
+      viewport: { width: 1440, height: 900 }
+    });
+    const page = await context.newPage();
+
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const state = await page.evaluate(() => ({
+      introOn: document.documentElement.classList.contains("intro-on"),
+      reduce: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    }));
+
+    expect(state.reduce).toBe(true);
+    expect(state.introOn).toBe(false);
+
+    await context.close();
+  });
+
+  test("language switch updates document language and CV target", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    await page.locator("[data-set-lang='en']").click();
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator("[data-cv-link]").first()).toHaveAttribute(
+      "href",
+      "./Gracian_Baena_CV_2026_EN.pdf"
+    );
+
+    await page.locator("[data-set-lang='es']").click();
+    await expect(page.locator("html")).toHaveAttribute("lang", "es");
+    await expect(page.locator("[data-cv-link]").first()).toHaveAttribute(
+      "href",
+      "./Gracian_Baena_CV_2026_ES.pdf"
+    );
+  });
+
+  test("main nav closes after selection on mobile", async ({ browser }) => {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      isMobile: true,
+      hasTouch: true
+    });
+    const page = await context.newPage();
+
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    await page.locator(".menu-toggle").click();
+    await expect(page.locator(".main-nav")).toHaveClass(/open/);
+
+    await page.locator(".main-nav [data-go='contacto']").click();
+    await expect(page.locator(".main-nav")).not.toHaveClass(/open/);
+    await expect(page.locator("#contacto")).toBeInViewport();
+
+    await context.close();
+  });
+});
