@@ -41,6 +41,9 @@ jobs:
       - name: CSS cascade map
         run: node tools/css-cascade-map.mjs
 
+      - name: CSS Cascade Guard
+        run: npm run audit:css
+
       - name: Browser E2E
         run: npm run test:browser
 
