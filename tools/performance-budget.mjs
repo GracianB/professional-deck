@@ -56,13 +56,16 @@ ok(htmlBytes <= LIMITS.htmlBytes, `HTML budget <= ${kb(LIMITS.htmlBytes)} (actua
 const refs = collectHtmlReferences(html);
 const cssRefs = refs.filter((ref) => /\.css$/i.test(ref));
 const jsRefs = refs.filter((ref) => /\.m?js$/i.test(ref));
-const imageRefs = refs.filter((ref) => /\.(?:png|jpe?g|webp|gif|avif)$/i.test(ref));
+const imageRefs = new Set(
+  refs.filter((ref) => /\.(?:png|jpe?g|webp|gif|avif)$/i.test(ref))
+);
 
 let cssTotal = 0;
 let jsTotal = 0;
 let imageTotal = 0;
 let largestCss = { ref: "", bytes: 0 };
 let largestImage = { ref: "", bytes: 0 };
+const allCssUrlRefs = new Set();
 
 for (const ref of cssRefs) {
   const bytes = statIfFile(ref);
@@ -70,6 +73,12 @@ for (const ref of cssRefs) {
   if (bytes === null) continue;
   cssTotal += bytes;
   if (bytes > largestCss.bytes) largestCss = { ref, bytes };
+
+  const css = fs.readFileSync(path.join(root, ref), "utf8");
+  for (const asset of collectCssUrlReferences(css)) {
+    allCssUrlRefs.add(asset);
+    if (/\.(?:png|jpe?g|webp|gif|avif)$/i.test(asset)) imageRefs.add(asset);
+  }
 }
 
 for (const ref of jsRefs) {
@@ -98,13 +107,6 @@ if (largestImage.ref) {
 const stylesheetRefs = cssRefs.map((ref) => ref.toLowerCase());
 ok(stylesheetRefs.length > 0, "at least one local stylesheet is loaded");
 
-const allCssUrlRefs = new Set();
-for (const ref of cssRefs) {
-  const file = path.join(root, ref);
-  if (!fs.existsSync(file)) continue;
-  const css = fs.readFileSync(file, "utf8");
-  for (const asset of collectCssUrlReferences(css)) allCssUrlRefs.add(asset);
-}
 for (const asset of allCssUrlRefs) {
   ok(statIfFile(asset) !== null, `CSS local asset exists: ${asset}`);
 }
