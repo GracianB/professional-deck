@@ -31,7 +31,7 @@ function kb(bytes) {
 
 function collectHtmlReferences(html) {
   const refs = new Set();
-  for (const match of html.matchAll(/(?:src|href)=["']\.\/([^"'?#]+)["']/gi)) refs.add(match[1]);
+  for (const match of html.matchAll(/(?:src|href)=["']\.\/([^"'?#]+)(?:[?#][^"']*)?["']/gi)) refs.add(match[1]);
   return [...refs];
 }
 
