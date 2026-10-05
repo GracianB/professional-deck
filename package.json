@@ -9,7 +9,8 @@
     "verify": "node verify.mjs",
     "test:browser": "playwright test --config=playwright.config.mjs",
     "audit:production": "node tools/production-audit.mjs",
-    "audit:performance": "node tools/performance-budget.mjs"
+    "audit:performance": "node tools/performance-budget.mjs",
+    "audit:css": "node tools/css-cascade-guard.mjs"
   },
   "engines": {
     "node": ">=20"
