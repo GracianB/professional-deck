@@ -112,6 +112,137 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(dialog).not.toBeVisible();
   });
 
+  test("no emite errores de consola ni page errors en carga", async ({ page }) => {
+    const consoleErrors = [];
+    const pageErrors = [];
+
+    page.on("console", (message) => {
+      if (message.type() === "error") consoleErrors.push(message.text());
+    });
+    page.on("pageerror", (error) => pageErrors.push(error.message));
+
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(250);
+
+    expect(consoleErrors, "Errores de consola: " + consoleErrors.join(" | ")).toEqual([]);
+    expect(pageErrors, "Page errors: " + pageErrors.join(" | ")).toEqual([]);
+  });
+
+  test("responsive móvil mantiene el viewport y el menú funciona", async ({ browser }) => {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      isMobile: true,
+      hasTouch: true
+    });
+    const page = await context.newPage();
+
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const viewport = await page.evaluate(() => ({
+      innerWidth: window.innerWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+      bodyScrollWidth: document.body.scrollWidth
+    }));
+
+    expect(viewport.scrollWidth, "No debe existir overflow horizontal").toBeLessThanOrEqual(viewport.innerWidth + 1);
+    expect(viewport.bodyScrollWidth, "El body no debe desbordar horizontalmente").toBeLessThanOrEqual(viewport.innerWidth + 1);
+
+    const menuToggle = page.locator(".menu-toggle");
+    await expect(menuToggle).toBeVisible();
+    await expect(menuToggle).toHaveAttribute("aria-expanded", "false");
+
+    await menuToggle.click();
+    await expect(menuToggle).toHaveAttribute("aria-expanded", "true");
+    await expect(page.locator(".main-nav")).toHaveClass(/open/);
+
+    await page.keyboard.press("Escape");
+    await expect(menuToggle).toHaveAttribute("aria-expanded", "false");
+    await expect(page.locator(".main-nav")).not.toHaveClass(/open/);
+
+    await context.close();
+  });
+
+  test("controles táctiles y keyboard mantienen tamaño mínimo", async ({ browser }) => {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      isMobile: true,
+      hasTouch: true
+    });
+    const page = await context.newPage();
+
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const selectors = [
+      ".menu-toggle",
+      "[data-set-lang='es']",
+      "[data-set-lang='en']",
+      "[data-set-theme='dark']",
+      "[data-set-theme='light']",
+      ".deck-controls button"
+    ];
+
+    for (const selector of selectors) {
+      const sizes = await page.locator(selector).evaluateAll((elements) =>
+        elements.map((el) => {
+          const rect = el.getBoundingClientRect();
+          return { width: rect.width, height: rect.height };
+        })
+      );
+
+      for (const size of sizes) {
+        expect(size.width, selector + " debe medir al menos 40px de ancho").toBeGreaterThanOrEqual(40);
+        expect(size.height, selector + " debe medir al menos 40px de alto").toBeGreaterThanOrEqual(40);
+      }
+    }
+
+    await context.close();
+  });
+
+  test("diálogos tienen nombre accesible y gestión de foco", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const recruiter = page.locator("#recruiter-dialog");
+    await expect(recruiter).toHaveAttribute("aria-labelledby", "recruiter-title");
+    await expect(recruiter).toHaveAttribute("aria-describedby", "recruiter-lead");
+    await expect(page.locator("#recruiter-title")).toHaveCount(1);
+    await expect(page.locator("#recruiter-lead")).toHaveCount(1);
+
+    await page.locator("[data-open-recruiter]").first().click();
+    await expect(recruiter).toBeVisible();
+    await expect(recruiter.locator(".dialog-close")).toBeVisible();
+    await recruiter.locator(".dialog-close").press("Enter");
+    await expect(recruiter).not.toBeVisible();
+
+    const command = page.locator("#command-dialog");
+    await expect(command).toHaveAttribute("aria-labelledby", "command-title");
+
+    await page.keyboard.press("Control+KeyK");
+    await expect(command).toBeVisible();
+    await expect(page.locator("#command-search")).toBeFocused();
+
+    await page.keyboard.press("Escape");
+    await expect(command).not.toBeVisible();
+  });
+
+  test("navegación móvil puede alcanzar portada y contacto", async ({ browser }) => {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      isMobile: true,
+      hasTouch: true
+    });
+    const page = await context.newPage();
+
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    await page.keyboard.press("End");
+    await expect(page.locator("#contacto")).toBeInViewport();
+
+    await page.keyboard.press("Home");
+    await expect(page.locator("#inicio")).toBeInViewport();
+
+    await context.close();
+  });
+
   test("assets críticos responden", async ({ request }) => {
     const critical = [
       "/manifest.webmanifest",
