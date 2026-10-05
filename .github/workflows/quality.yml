@@ -12,6 +12,7 @@ permissions:
 jobs:
   quality:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,6 +21,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
 
       - name: Validate
         run: npm run validate
@@ -29,3 +37,6 @@ jobs:
 
       - name: CSS cascade map
         run: node tools/css-cascade-map.mjs
+
+      - name: Browser E2E
+        run: npm run test:browser
