@@ -3212,8 +3212,6 @@ body {
 /* Controls — 44px tap, gold hover */
 
 .deck-controls button {
-  min-height: 44px;
-  min-width: 44px;
   height: 44px;
 }
 
@@ -3705,12 +3703,7 @@ html[data-theme="light"] .button.ghost { color: var(--ink) !important; }
   font: 800 12px var(--mono); color: var(--muted-dark);
 }
 .deck-controls span b { color: var(--gold); }
-.deck-controls button {
-   
-   font: 800 11px var(--mono);
-  
-  transition: background .15s, color .15s;
-}
+
 html[data-theme="light"] .deck-controls button { color: var(--ink); }
 .deck-hint {
   position: fixed; z-index: 270;
