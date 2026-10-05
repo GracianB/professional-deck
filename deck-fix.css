@@ -657,63 +657,63 @@ html[data-theme="light"] .menu-toggle i {
 
 @media (min-width: 981px) {
   .site-header {
-    height: 64px !important;
-    min-height: 64px !important;
-    padding-inline: 24px 28px !important;
-    display: grid !important;
-    grid-template-columns: minmax(220px, 1fr) auto minmax(300px, 1fr) !important;
-    align-items: center !important;
-    gap: 16px !important;
+    height: 64px;
+    min-height: 64px;
+    padding-inline: 24px 28px;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto minmax(300px, 1fr);
+    align-items: center;
+    gap: 16px;
   }
 
   .brand {
-    flex: 0 0 auto !important;
-    min-height: 44px !important;
-    gap: 12px !important;
-    justify-self: start !important;
+    flex: 0 0 auto;
+    min-height: 44px;
+    gap: 12px;
+    justify-self: start;
   }
 
   .brand-mark {
-    width: 44px !important;
-    height: 44px !important;
-    flex-basis: 44px !important;
-    font-size: 13px !important;
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+    font-size: 13px;
   }
 
   .brand-text {
-    justify-content: center !important;
-    gap: 3px !important;
+    justify-content: center;
+    gap: 3px;
   }
 
   .brand-text b {
-    font-size: 12px !important;
-    line-height: 1.1 !important;
-    letter-spacing: .18em !important;
+    font-size: 12px;
+    line-height: 1.1;
+    letter-spacing: .18em;
   }
 
   .brand-text small {
-    font-size: 9px !important;
-    line-height: 1.15 !important;
-    letter-spacing: .16em !important;
+    font-size: 9px;
+    line-height: 1.15;
+    letter-spacing: .16em;
   }
 
   .main-nav {
-    position: static !important;
-    inset: auto !important;
-    transform: none !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    justify-self: center !important;
-    width: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: transparent !important;
-    border: 0 !important;
-    z-index: auto !important;
+    position: static;
+    inset: auto;
+    transform: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    z-index: auto;
   }
 
   .main-nav > button,
@@ -725,7 +725,7 @@ html[data-theme="light"] .menu-toggle i {
   }
 
   .header-actions {
-    justify-self: end !important;
+    justify-self: end;
   }
 }
 #inicio.slide,
