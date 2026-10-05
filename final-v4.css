@@ -1426,13 +1426,8 @@ html[data-theme="light"] #ruta .gb-route-strip .gb-strip-item.is-on {
 
 /* —— Chrome: header, rail, controls, dialogs —— */
 
-html[data-theme="light"] .os-rail {
-  background: color-mix(in srgb, var(--panel) 94%, transparent) !important;
-  border-right-color: var(--line) !important;
-}
-html[data-theme="light"] .os-rail-item {
-  color: var(--mute-2) !important;
-}
+
+
 html[data-theme="light"] .os-rail-item.active,
 html[data-theme="light"] .os-rail-item[aria-current="true"] {
   color: var(--cream) !important;
@@ -1477,9 +1472,6 @@ html[data-theme="light"] .deck-hint {
 html[data-theme="light"] .recruiter-dialog,
 html[data-theme="light"] .experience-dialog,
 html[data-theme="light"] .command-dialog {
-  background: var(--panel) !important;
-  color: var(--cream) !important;
-  border-color: var(--line-strong) !important;
   box-shadow: var(--shadow-panel) !important;
 }
 html[data-theme="light"] .command-dialog input,
@@ -1500,9 +1492,7 @@ html[data-theme="light"] .main-nav > a {
 }
 html[data-theme="light"] .main-nav > button:hover,
 html[data-theme="light"] .main-nav > a:hover,
-html[data-theme="light"] .seg-btn:hover {
-  color: var(--cream) !important;
-}
+
 html[data-theme="light"] .menu-toggle i {
   background: var(--cream) !important;
 }
