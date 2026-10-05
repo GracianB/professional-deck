@@ -24,7 +24,7 @@ test.describe("Professional Deck smoke", () => {
 
     await expect(page.locator("section.slide")).toHaveCount(14);
     await expect(page.locator(".site-header")).toBeVisible();
-    await expect(page.locator('[data-go="sistemas"]')).toBeVisible();
+    await expect(page.locator('.main-nav [data-go="sistemas"]')).toBeVisible();
     await expect(page.locator('[data-open-recruiter]')).toBeVisible();
 
     await page.locator('[data-set-lang="en"]').click();
@@ -56,7 +56,7 @@ test.describe("Professional Deck smoke", () => {
     await command.locator(".dialog-close").click();
     await expect(command).not.toBeVisible();
 
-    await page.locator('[data-go="sistemas"]').click();
+    await page.locator('#inicio [data-go="sistemas"]').click();
     await expect(page.locator('[data-rail-status]')).toContainText(/Bodytone/i);
 
     expect(pageErrors, pageErrors.join("\n")).toEqual([]);
