@@ -41,7 +41,7 @@ ok(!/<script(?![^>]+type=["']application\/ld\+json["'])[^>]+src=["']http:/i.test
 ok(!/javascript:/i.test(html), "no javascript: URLs");
 ok(!/<form\b(?![^>]*method=["']dialog["'])/i.test(html), "no unexpected forms");
 
-const localTargets=[...html.matchAll(/(?:href|src)=["']\.\/([^"'?#]+)/gi)].map(m=>m[1]);
+const localTargets=[...html.matchAll(/(?:href|src)=["']\.\/([^"'?#]+)(?:[?#][^"']*)?/gi)].map(m=>m[1]);
 for (const rel of [...new Set(localTargets)]) {
   ok(fs.existsSync(path.join(root, rel)), `local asset exists: ${rel}`);
 }
