@@ -1011,8 +1011,27 @@ html[data-theme="light"] {
   #metodo .gb-method-grid { grid-template-columns: 1fr !important; overflow: auto !important; }
   #capacidades .gb-caps-grid { grid-template-columns: 1fr !important; overflow: auto !important; }
   #capacidades .gb-academy { grid-template-columns: 1fr !important; }
-  #idiomas .gb-langs-grid { grid-template-columns: 1fr !important; overflow: auto !important; }    padding: 10px 12px !important;
-  }important;
+  #idiomas .gb-langs-grid { grid-template-columns: 1fr !important; overflow: auto !important; }
+  #trayectoria .gb-career-panel,
+  #experiencia .gb-exp-panel,
+  #experiencia-2 .gb-exp-panel,
+  #formacion .gb-edu-panel {
+    height: auto !important;
+    max-height: calc(var(--slide-inner) - 4px) !important;
+  }
+  #trayectoria .gb-career-break {
+    grid-template-columns: 72px minmax(0, 1fr) !important;
+    padding: 8px 10px !important;
+  }
+  #trayectoria .gb-engine-list li {
+    grid-template-columns: 72px 1fr !important;
+    padding: 10px 12px !important;
+  }
+  #experiencia .gb-roles,
+  #experiencia-2 .gb-roles { overflow-y: auto !important; }
+  #experiencia .gb-role,
+  #experiencia-2 .gb-role {
+    grid-template-columns: 1fr !important;
     flex: 0 0 auto !important;
     gap: 6px !important;
     padding: 12px 14px !important;
@@ -1025,7 +1044,9 @@ html[data-theme="light"] {
     padding: 0 0 6px !important;
     background: transparent !important;
     border: 0 !important;
-  }t"] #contacto.slide {
+  }
+}
+html[data-theme="light"] #contacto.slide {
   background:
     radial-gradient(ellipse 70% 50% at 18% 20%, rgba(196, 165, 116, 0.12), transparent 55%),
     var(--ground) !important;
