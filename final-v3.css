@@ -565,10 +565,6 @@
     min-height: 0 !important;
   }
 
-  #trayectoria .gb-dual {
-    
-  }
-
   body.has-os-rail .deck { margin-left: 0 !important; width: 100% !important; }
 }
 
@@ -649,8 +645,6 @@
 }
 
 @media (max-height: 680px) {
-  :root {
-  }
   #inicio .gb-card { display: none !important; }
 }
 
