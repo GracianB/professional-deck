@@ -387,11 +387,11 @@ html[data-theme="light"] #contacto .gb-contact-metrics > div {
 .deck:focus { outline: none; }
 
 .slide {
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 100svh;
-  height: 100svh;
+  
+  
+  
+  
+  
   max-height: 100svh;
   padding: var(--slide-pad-top) var(--pad) var(--chrome-bottom);
   display: flex;
@@ -401,10 +401,10 @@ html[data-theme="light"] #contacto .gb-contact-metrics > div {
   gap: var(--section-gap);
   overflow-x: hidden;
   overflow-y: hidden;
-  overflow-wrap: anywhere;
-  isolation: isolate;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  
+  
+  
+  
 }
 
 .slide.is-scrollable,
