@@ -216,7 +216,7 @@ El repo no depende solo de revisión manual.
 
 El CSS conserva el orden de producción y se limpia mediante análisis de cascada conservador. No se eliminan overrides a ciegas.
 
-**Estado CSS (05/10/2026):** 344.7 KB · 2.299 reglas · 3.308 `!important` · 302 grupos duplicados · 890 grupos conflictivos medidos por el mapper contextual.
+**Estado CSS (05/10/2026):** ≈344 KB · 2.275 reglas · 3.033 `!important` · 303 grupos duplicados · 848 grupos conflictivos medidos por el mapper contextual.
  
 ## English
 
