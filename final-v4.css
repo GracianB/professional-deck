@@ -1185,36 +1185,6 @@ html[data-theme="light"] .gb-edu-panel {
    ============================================================ */
 
 /* —— Slide shells —— */
-html[data-theme="light"] .slide.dark,
-html[data-theme="light"] .gb-hero,
-html[data-theme="light"] .gb-valor-slide,
-html[data-theme="light"] .gb-star-slide,
-html[data-theme="light"] .gb-demos-slide,
-html[data-theme="light"] .gb-route,
-html[data-theme="light"] .gb-method,
-html[data-theme="light"] .gb-career-slide,
-html[data-theme="light"] .gb-exp-slide,
-html[data-theme="light"] .gb-caps,
-html[data-theme="light"] .gb-edu-slide,
-html[data-theme="light"] .gb-langs,
-html[data-theme="light"] .gb-contact,
-html[data-theme="light"] #inicio.slide,
-html[data-theme="light"] #valor.slide,
-html[data-theme="light"] #sistemas.slide,
-html[data-theme="light"] #demos.slide,
-html[data-theme="light"] #ruta.slide,
-html[data-theme="light"] #metodo.slide,
-html[data-theme="light"] #trayectoria.slide,
-html[data-theme="light"] #experiencia.slide,
-html[data-theme="light"] #experiencia-2.slide,
-html[data-theme="light"] #capacidades.slide,
-html[data-theme="light"] #formacion.slide,
-html[data-theme="light"] #idiomas.slide,
-html[data-theme="light"] #contacto.slide {
-  background: var(--ground) !important;
-  color: var(--cream) !important;
-}
-
 /* Line / timeline — paper page; image keeps own navy pixels */
 html[data-theme="light"] #linea.slide,
 html[data-theme="light"] .gb-line-slide {
@@ -1554,8 +1524,7 @@ html[data-theme="light"] #contacto .gb-contact-meta,
 html[data-theme="light"] #inicio .gb-metrics span {
   color: var(--mute) !important;
 }
-html[data-theme="light"] #inicio .gb-card-list b,
-html[data-theme="light"] #inicio .gb-card-list small {
+html[data-theme="light"] #inicio .gb-card-list b {
   color: var(--cream) !important;
 }
 html[data-theme="light"] #inicio .gb-card-list small {
