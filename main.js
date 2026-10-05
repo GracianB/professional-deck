@@ -612,6 +612,7 @@
     const paragraphs = Array.isArray(role.copy) ? role.copy : [role.copy || role.summary || ""];
     experienceDialog.querySelector("[data-role-copy]").innerHTML = paragraphs.filter(Boolean).map((p) => `<p>${p}</p>`).join("");
     experienceDialog.querySelector("[data-role-skills]").innerHTML = (role.skills || []).map((s) => `<li>${s}</li>`).join("");
+    experienceDialog._returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     experienceDialog.showModal();
     document.body.classList.add("dialog-open");
   }
@@ -632,13 +633,22 @@
   const recruiterDialog = document.querySelector("#recruiter-dialog");
   document.querySelectorAll("[data-open-recruiter]").forEach((button) => {
     button.addEventListener("click", () => {
-      recruiterDialog?.showModal();
+      if (!recruiterDialog) return;
+      recruiterDialog._returnFocus = button;
+      recruiterDialog.showModal();
       document.body.classList.add("dialog-open");
     });
   });
 
   document.querySelectorAll("dialog").forEach((dialog) => {
-    dialog.addEventListener("close", () => document.body.classList.toggle("dialog-open", Boolean(document.querySelector("dialog[open]"))));
+    dialog.addEventListener("close", () => {
+      document.body.classList.toggle("dialog-open", Boolean(document.querySelector("dialog[open]")));
+      const opener = dialog._returnFocus;
+      dialog._returnFocus = null;
+      if (opener instanceof HTMLElement && document.contains(opener)) {
+        window.setTimeout(() => opener.focus({ preventScroll: true }), 0);
+      }
+    });
     dialog.addEventListener("click", (event) => {
       const rect = dialog.getBoundingClientRect();
       const outside = event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
