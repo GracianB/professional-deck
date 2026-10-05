@@ -179,6 +179,16 @@
       ).join("");
     }
 
+    const recruiterRoute = document.querySelector("[data-recruiter-route]");
+    if (recruiterRoute && t.recruiterRoute) {
+      recruiterRoute.innerHTML = t.recruiterRoute.map((item) =>
+        `<button type="button" class="recruiter-route-item" data-recruiter-go="${item[0]}">` +
+        `<span>${item[1]}</span><b>${item[2]}</b><small>${item[3]}</small>` +
+        `</button>`
+      ).join("");
+      recruiterRoute.setAttribute("aria-label", t.recruiterRouteTitle || "Recruiter route");
+    }
+
     // update slide titles for rail
     slides.forEach((slide) => {
       const key = slide.id;
@@ -659,13 +669,45 @@
   });
 
   const recruiterDialog = document.querySelector("#recruiter-dialog");
+  const recruiterRoute = document.querySelector("[data-recruiter-route]");
+  const recruiterStart = document.querySelector("[data-recruiter-start]");
+
+  function openRecruiter(opener = null) {
+    if (!recruiterDialog || recruiterDialog.open) return;
+    recruiterDialog._returnFocus = opener instanceof HTMLElement ? opener : null;
+    recruiterDialog.showModal();
+    document.body.classList.add("dialog-open");
+  }
+
   document.querySelectorAll("[data-open-recruiter]").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (!recruiterDialog) return;
-      recruiterDialog._returnFocus = button;
-      recruiterDialog.showModal();
-      document.body.classList.add("dialog-open");
-    });
+    button.addEventListener("click", () => openRecruiter(button));
+  });
+
+  recruiterRoute?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-recruiter-go]");
+    if (!button) return;
+    const target = button.dataset.recruiterGo;
+    if (!target) return;
+    recruiterDialog?.close();
+    goTo(target);
+  });
+
+  recruiterStart?.addEventListener("click", () => {
+    const target = t.recruiterRoute?.[0]?.[0] || "valor";
+    if (recruiterDialog?.open) recruiterDialog.close();
+    goTo(target, true);
+    window.dispatchEvent(new CustomEvent("gb:recruiter-start", {
+      detail: { slideId: target }
+    }));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const tag = event.target?.tagName?.toLowerCase();
+    const typing = ["input", "textarea", "select"].includes(tag) || event.target?.isContentEditable;
+    if (event.key.toLowerCase() === "r" && !event.ctrlKey && !event.metaKey && !event.altKey && !event.shiftKey && !typing && !modalOpen()) {
+      event.preventDefault();
+      openRecruiter();
+    }
   });
 
   document.querySelectorAll("dialog").forEach((dialog) => {
@@ -762,6 +804,11 @@
   const initial = slides.findIndex((slide) => slide.id === hashId);
   setActive(initial >= 0 ? initial : 0, false);
   if (initial > 0) window.setTimeout(() => goTo(initial, true), 0);
+
+  const recruiterParam = new URLSearchParams(window.location.search).get("recruiter");
+  if (recruiterParam === "1" && new URLSearchParams(window.location.search).get("present") !== "1") {
+    window.setTimeout(() => openRecruiter(), 80);
+  }
 })();
 
 /* FINAL-V3: scroll only when needed */
@@ -1088,6 +1135,9 @@
   });
 
   syncLabels();
+  window.addEventListener("gb:recruiter-start", () => {
+    setPresentation(true, true, true);
+  });
   setPresentation(new URLSearchParams(window.location.search).get("present") === "1", false, false);
 
   new MutationObserver(syncLabels).observe(document.documentElement, {
