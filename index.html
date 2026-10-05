@@ -21,6 +21,11 @@
   <meta property="og:image" content="https://gracianb.github.io/professional-deck/og-cover.png">
   <meta property="og:image:alt" content="Gracián Baena · Customer Success Systems · Data Strategy · AI Operations">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://gracianb.github.io/professional-deck/">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="application-name" content="Gracián Baena · Professional Deck">
   <meta name="twitter:title" content="Gracián Baena — Customer Success Systems & Data Strategy">
   <meta name="twitter:description" content="Customer Success Systems · Data Strategy · AI Operations. Portfolio ES/EN.">
   <meta name="twitter:image" content="https://gracianb.github.io/professional-deck/og-cover.png">
@@ -41,28 +46,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=deck-v13">
-  <link rel="stylesheet" href="./extra-pass.css?v=deck-v13">
-  <link rel="stylesheet" href="./final-v3.css?v=deck-v13">
-  <link rel="stylesheet" href="./final-v4.css?v=deck-v13">
-  <link rel="stylesheet" href="./portada-extreme.css?v=deck-v13">
-  <link rel="stylesheet" href="./deck-fix.css?v=deck-v13">
+  <link rel="stylesheet" href="./styles.css?v=deck-v14">
+  <link rel="stylesheet" href="./extra-pass.css?v=deck-v14">
+  <link rel="stylesheet" href="./final-v3.css?v=deck-v14">
+  <link rel="stylesheet" href="./final-v4.css?v=deck-v14">
+  <link rel="stylesheet" href="./portada-extreme.css?v=deck-v14">
+  <link rel="stylesheet" href="./deck-fix.css?v=deck-v14">
   <script>
     /* deck intro boot — decide before first paint, with failsafe */
     (function () {
       try {
         var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var present = false;
+        try { present = new URLSearchParams(window.location.search).get("present") === "1"; } catch (e) {}
         var seen = false;
         try { seen = sessionStorage.getItem("gb-deck-intro-seen") === "1"; } catch (e) {}
-        if (!reduce && !seen) {
+        if (!reduce && !present && !seen) {
           document.documentElement.classList.add("intro-on");
           setTimeout(function () { document.documentElement.classList.add("intro-done"); }, 3000);
         }
       } catch (e) {}
     })();
   </script>
-  <script src="./i18n.js?v=deck-v13" defer></script>
-  <script src="./main.js?v=deck-v13" defer></script>
+  <script src="./i18n.js?v=deck-v14" defer></script>
+  <script src="./main.js?v=deck-v14" defer></script>
 </head>
 <body class="has-os-rail final-deck-v4">
   <noscript><div style="padding:1rem;font-family:system-ui,sans-serif">Este portfolio necesita JavaScript para la navegación interactiva. Puedes consultar el CV desde el enlace de la cabecera.</div></noscript>
@@ -105,6 +112,7 @@
       <button type="button" data-go="ruta" data-i18n="navRoute">Ruta</button>
       <button type="button" data-go="trayectoria" data-i18n="navCareer">Trayectoria</button>
       <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
+      <button type="button" class="nav-present" data-present data-i18n="navPresent" data-i18n-title="presentToggle" aria-pressed="false" title="Modo presentación">PRESENTAR</button>
       <button type="button" class="nav-cmd" data-open-command title="Ctrl K" aria-label="Abrir buscador (Ctrl K)" aria-haspopup="dialog"><kbd>Ctrl</kbd><kbd>K</kbd></button>
     </nav>
     <div class="header-actions">
@@ -122,7 +130,7 @@
   </header>
 
   <main class="deck" id="deck" tabindex="-1">
-    <!-- 00 HERO — V9 executive editorial cover / senior profile -->
+    <!-- 00 HERO — V10 executive experience-max cover / senior profile -->
     <section class="slide dark fit gb-hero gb-hero-extreme" id="inicio" data-title="Portada" data-code="00">
       <div class="gb-cover-field" aria-hidden="true">
         <canvas class="gb-hero-net"></canvas>
@@ -539,7 +547,7 @@
         <p class="gb-line-kicker" data-i18n="lineP">Systems y wellness. La imagen completa. 2011 — 2026.</p>
       </header>
       <figure class="gb-line-frame">
-        <img src="./timeline-horizontal.png?v=deck-v13" alt="Timeline completa 2011–2026: línea systems y línea wellness" loading="lazy" decoding="async" />
+        <img src="./timeline-horizontal.png?v=deck-v14" alt="Timeline completa 2011–2026: línea systems y línea wellness" loading="lazy" decoding="async" />
       </figure>
     </section>
 
@@ -850,7 +858,9 @@
     <button type="button" data-prev>← <small data-i18n="prev">ANT.</small></button>
     <button type="button" data-next><small data-i18n="next">SIG.</small> →</button>
   </nav>
-  <p class="deck-hint" data-i18n="hint">↑↓ · swipe · Ctrl K</p>
+  <p class="deck-hint" data-i18n="hint">↑↓ · swipe · Ctrl K · P</p>
+
+  <p class="sr-only slide-live-region" data-slide-live aria-live="polite" aria-atomic="true"></p>
 
   <dialog class="recruiter-dialog" id="recruiter-dialog" aria-labelledby="recruiter-title" aria-describedby="recruiter-lead">
     <form method="dialog"><button class="dialog-close" data-i18n-aria="dialogClose" aria-label="Cerrar diálogo">×</button></form>

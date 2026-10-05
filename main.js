@@ -18,6 +18,7 @@
   const currentLabel = document.querySelector("[data-current]");
   const totalLabel = document.querySelector("[data-total]");
   const progress = document.querySelector("[data-progress]");
+  const slideLive = document.querySelector("[data-slide-live]");
   const prevButton = document.querySelector("[data-prev]");
   const nextButton = document.querySelector("[data-next]");
   const menu = document.querySelector(".main-nav");
@@ -285,7 +286,9 @@
     enterApp();
     try {
       if (history.replaceState) {
-        history.replaceState(null, "", `?lang=${chosen}${location.hash || ""}`);
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", chosen);
+        history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
       }
     } catch (_) {}
   }
@@ -336,6 +339,15 @@
     theme = next === "light" ? "light" : "dark";
     if (persist) { try { localStorage.setItem(THEME_KEY, theme); } catch (_) {} }
     applyTheme();
+    if (persist) {
+      try {
+        if (history.replaceState) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("theme", theme);
+          history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+        }
+      } catch (_) {}
+    }
   }
   try {
     const st = localStorage.getItem(THEME_KEY);
@@ -390,11 +402,19 @@
     if (railStatus) railStatus.textContent = `${pad(next)} · ${slide.dataset.title || ""}`;
     if (progress) progress.style.transform = `scaleX(${(next + 1) / slides.length})`;
     if (railMeter) railMeter.style.transform = `scaleX(${(next + 1) / slides.length})`;
+    if (slideLive) {
+      const prefix = t.slideAnnouncement || (lang === "en" ? "Slide" : "Diapositiva");
+      const relation = lang === "en" ? "of" : "de";
+      const title = slide?.dataset.title || slide?.id || "";
+      slideLive.textContent = `${prefix} ${pad(next + 1)} ${relation} ${slides.length}: ${title}`;
+    }
+    if (slide) document.body.dataset.activeSlide = slide.id;
     if (prevButton) prevButton.disabled = next === 0;
     if (nextButton) nextButton.disabled = next === slides.length - 1;
     if (updateHash && history.replaceState) {
-      const base = `?lang=${lang}`;
-      history.replaceState(null, "", `${base}#${slide.id}`);
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      history.replaceState(null, "", `${url.pathname}${url.search}#${slide.id}`);
     }
   }
 
@@ -973,4 +993,105 @@
     resize();
     rAF(frame);
   })();
+})();
+
+
+/* ══════════════════════════════════════════════════════════════
+   PRO MAX PASS · V10 EXPERIENCE MAX
+   Presentation mode + durable URL state + live navigation status.
+   ══════════════════════════════════════════════════════════════ */
+(() => {
+  "use strict";
+
+  const body = document.body;
+  if (!body) return;
+
+  const headerPresent = document.querySelector("[data-present]");
+  const exitButton = document.createElement("button");
+  exitButton.type = "button";
+  exitButton.className = "presentation-exit";
+  exitButton.setAttribute("data-present-exit", "");
+  exitButton.innerHTML = "<span>ESC</span><b></b>";
+  body.appendChild(exitButton);
+
+  let returnFocus = null;
+
+  function labels() {
+    const en = document.documentElement.lang === "en";
+    return {
+      button: en ? "PRESENT" : "PRESENTAR",
+      openTitle: en ? "Open presentation mode" : "Abrir modo presentación",
+      exit: en ? "EXIT" : "SALIR",
+      exitLabel: en ? "Exit presentation mode" : "Salir del modo presentación"
+    };
+  }
+
+  function syncLabels() {
+    const l = labels();
+    if (headerPresent) {
+      headerPresent.textContent = l.button;
+      headerPresent.title = l.openTitle;
+    }
+    exitButton.querySelector("b").textContent = l.exit;
+    exitButton.setAttribute("aria-label", l.exitLabel);
+  }
+
+  function writePresentationUrl(on) {
+    try {
+      const url = new URL(window.location.href);
+      if (on) url.searchParams.set("present", "1");
+      else url.searchParams.delete("present");
+      history.replaceState(null, "", url.pathname + url.search + url.hash);
+    } catch (_) {}
+  }
+
+  function setPresentation(on, updateUrl = true, focusExit = false) {
+    const next = Boolean(on);
+    body.classList.toggle("presentation-mode", next);
+    headerPresent?.setAttribute("aria-pressed", String(next));
+    exitButton.setAttribute("aria-hidden", String(!next));
+    if (updateUrl) writePresentationUrl(next);
+
+    if (next && focusExit) {
+      returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      window.setTimeout(() => exitButton.focus({ preventScroll: true }), 0);
+    }
+    if (!next && returnFocus instanceof HTMLElement && document.contains(returnFocus)) {
+      const target = returnFocus;
+      returnFocus = null;
+      window.setTimeout(() => target.focus({ preventScroll: true }), 0);
+    }
+    syncLabels();
+  }
+
+  const toggle = () => setPresentation(!body.classList.contains("presentation-mode"), true, true);
+  headerPresent?.addEventListener("click", (event) => {
+    event.preventDefault();
+    toggle();
+  });
+  exitButton.addEventListener("click", () => setPresentation(false, true, false));
+
+  document.addEventListener("keydown", (event) => {
+    const tag = event.target?.tagName?.toLowerCase();
+    const typing = ["input", "textarea", "select"].includes(tag) || event.target?.isContentEditable;
+    const dialogOpen = Boolean(document.querySelector("dialog[open]"));
+
+    if (event.key.toLowerCase() === "p" && !event.ctrlKey && !event.metaKey && !event.altKey && !event.shiftKey && !typing && !dialogOpen) {
+      event.preventDefault();
+      toggle();
+      return;
+    }
+    if (event.key === "Escape" && body.classList.contains("presentation-mode") && !dialogOpen) {
+      event.preventDefault();
+      setPresentation(false, true, false);
+    }
+  });
+
+  syncLabels();
+  setPresentation(new URLSearchParams(window.location.search).get("present") === "1", false, false);
+
+  new MutationObserver(syncLabels).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["lang"]
+  });
 })();
