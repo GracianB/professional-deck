@@ -53,7 +53,7 @@ test.describe("Professional Deck smoke", () => {
     );
     expect(coverTitleFont).toMatch(/Fraunces/i);
 
-    await page.locator('[data-open-recruiter]').click();
+    await page.locator('.nav-recruiter').click();
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();
     await expect(recruiter.locator("[data-recruiter-route] .recruiter-route-item")).toHaveCount(7);
