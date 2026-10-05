@@ -149,14 +149,7 @@ a.brand { cursor: pointer; }
   text-overflow: ellipsis;
 }
 .os-rail-brand .brand-mark { display: none !important; }
-.main-nav {
-  
-  
-  gap: 4px;
-  
-  letter-spacing: .12em;
-  
-}
+
 .main-nav > button,
 .main-nav > a.nav-home {
   min-height: var(--tap);
@@ -174,48 +167,14 @@ a.brand { cursor: pointer; }
   color: var(--ink-on-dark);
   background: color-mix(in srgb, var(--accent) 6%, transparent);
 }
-.seg {
-  
-  border: 1px solid var(--line);
-  border-radius: var(--r);
-  
-  background: color-mix(in srgb, var(--surface) 65%, transparent);
-}
-.seg-btn {
-  min-width: var(--tap);
-  min-height: var(--tap);
-  padding: 0 12px;
-  color: var(--muted);
-  
-  
-  transition: background .2s, color .2s;
-}
+
+
 .seg-btn:hover:not(.is-active) {
   color: var(--ink-on-dark);
   background: color-mix(in srgb, var(--gold) 14%, transparent);
 }
-.header-cta {
-  
-  
-  
-  
-  
-  
-  color: #2A2622;
-  
-  letter-spacing: .12em;
-  
-  border-radius: var(--r);
-  box-shadow: 0 8px 24px var(--yellow-glow);
-}
-.menu-toggle {
-  min-width: var(--tap);
-  min-height: var(--tap);
-  width: var(--tap);
-  height: var(--tap);
-  border: 1px solid var(--line);
-  
-}
+
+
 
 /* ============================================================
    ALL SLIDES — one viewport, chrome-safe padding
