@@ -261,8 +261,6 @@ test.describe("Professional Deck browser E2E", () => {
 });
 
 
-import { test, expect } from "@playwright/test";
-
 test.describe("Professional Deck production hardening", () => {
   test("SEO and document contract are present", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
