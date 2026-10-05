@@ -224,6 +224,28 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(command).not.toBeVisible();
   });
 
+  test("los diálogos restauran el foco al control que los abrió", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const recruiterTrigger = page.locator("[data-open-recruiter]").first();
+    await recruiterTrigger.focus();
+    await recruiterTrigger.click();
+    await expect(page.locator("#recruiter-dialog")).toBeVisible();
+
+    await page.keyboard.press("Escape");
+    await expect(page.locator("#recruiter-dialog")).not.toBeVisible();
+    await expect(recruiterTrigger).toBeFocused();
+
+    const roleTrigger = page.locator("[data-role]").first();
+    await roleTrigger.focus();
+    await roleTrigger.press("Enter");
+    await expect(page.locator("#experience-dialog")).toBeVisible();
+
+    await page.keyboard.press("Escape");
+    await expect(page.locator("#experience-dialog")).not.toBeVisible();
+    await expect(roleTrigger).toBeFocused();
+  });
+
   test("navegación móvil puede alcanzar portada y contacto", async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 390, height: 844 },
