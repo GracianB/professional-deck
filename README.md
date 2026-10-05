@@ -210,6 +210,7 @@ El repo no depende solo de revisión manual.
 - `npm run test:browser` — 17 pruebas Playwright de navegación, responsive, accesibilidad, diálogos, idioma, assets y reduced motion.
 - `npm run audit:production` — auditoría estática de 55 checks.
 - `npm run audit:performance` — presupuesto de HTML, CSS, JS e imágenes para evitar regresión de peso.
+- `npm run audit:css` — guardia de regresión de la cascada CSS.
 - GitHub Actions ejecuta el pipeline con Node 24 y publica en GitHub Pages tras pasar la calidad.
 
 El CSS conserva el orden de producción y se limpia mediante análisis de cascada conservador. No se eliminan overrides a ciegas.
