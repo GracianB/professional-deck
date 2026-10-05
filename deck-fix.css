@@ -739,8 +739,3 @@ html[data-theme="light"] .menu-toggle i {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  #inicio .gb-cover-title em {
-    animation: none;
-  }
-}
