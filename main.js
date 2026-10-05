@@ -59,6 +59,13 @@
       const val = getByPath(t, el.dataset.i18nPlaceholder);
       if (val != null) el.setAttribute("placeholder", val);
     });
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      const val = getByPath(t, el.dataset.i18nAria);
+      if (val != null) el.setAttribute("aria-label", val);
+    });
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-label", menu?.classList.contains("open") ? (t.menuClose || "Close menu") : (t.menuOpen || "Open menu"));
+    }
 
     // Valor loop: actualizar cards (formato nuevo gb-loop-card o legacy)
     const loop = document.querySelector("[data-valor-loop]");
