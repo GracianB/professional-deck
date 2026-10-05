@@ -182,3 +182,16 @@ Current branch snapshot:
 - deck-fix.css: 3,970 chars / 48 !important
 
 The pass intentionally leaves the remaining conflicting values intact because different-value declarations can be deliberate responsive/theme fallbacks or cascade overrides.
+
+## Current guard baseline · 2026-10-05
+
+The current six-file production cascade measures:
+
+| Metric | Current | Guard limit |
+|---|---:|---:|
+| CSS rules | 2,148 | 2,200 |
+| `!important` occurrences | 3,623 | 3,800 |
+| Duplicate selector/property groups | 512 | 550 |
+| Conflicting selector/property groups | 928 | 980 |
+
+The guard is intentionally a regression barrier, not a claim that the cascade is finished. The existing architecture still contains deliberate overrides across responsive, theme, accessibility and section-specific layers.
