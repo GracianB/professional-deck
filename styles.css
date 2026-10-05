@@ -3509,14 +3509,7 @@ html[data-theme="light"] .seg-btn:hover { color: var(--ink); }
 .seg-btn.is-active, .seg-btn[aria-pressed="true"] {
   background: var(--accent); color: var(--accent-ink);
 }
-.header-cta {
-    
-  
-   
-  color: var(--gold);
-  
-  transition: background .2s, color .2s, box-shadow .2s;
-}
+
 .header-cta:hover {
   background: var(--gold); color: #2A2622;
   box-shadow: 0 0 24px var(--gold-glow);
@@ -4010,16 +4003,7 @@ html[data-theme="light"] .command-dialog { color: var(--ink); }
   color: #2A2622 !important;
 }
 
-.header-cta {
-  min-height: 36px;
-  
-  
-  background: var(--gold) !important;
-  color: #2A2622 !important;
-  
-  
-  
-}
+
 
 /* Reduce competing nav — rail is index only on desktop */
 .os-rail {
