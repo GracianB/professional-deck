@@ -63,6 +63,10 @@
       const val = getByPath(t, el.dataset.i18nAria);
       if (val != null) el.setAttribute("aria-label", val);
     });
+    document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+      const val = getByPath(t, el.dataset.i18nTitle);
+      if (val != null) el.setAttribute("title", val);
+    });
     if (menuToggle) {
       menuToggle.setAttribute("aria-label", menu?.classList.contains("open") ? (t.menuClose || "Close menu") : (t.menuOpen || "Open menu"));
     }
