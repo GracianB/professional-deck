@@ -325,7 +325,7 @@
   function applyTheme() {
     document.documentElement.setAttribute("data-theme", theme);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "light" ? "#f3f0e7" : "#06070a");
+    if (meta) meta.setAttribute("content", theme === "light" ? "#FAF7F2" : "#141210");
     document.querySelectorAll("[data-set-theme]").forEach((btn) => {
       const on = btn.getAttribute("data-set-theme") === theme;
       btn.classList.toggle("is-active", on);
