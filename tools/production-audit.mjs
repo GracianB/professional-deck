@@ -31,6 +31,12 @@ ok(/<meta[^>]+name=["']description["'][^>]+content="[^"]{50,}/i.test(html), "des
 ok(/<link[^>]+rel=["']canonical["'][^>]+href=/i.test(html), "canonical");
 ok(/property=["']og:title["']/i.test(html) && /property=["']og:description["']/i.test(html) && /property=["']og:image["']/i.test(html), "Open Graph");
 ok(/name=["']twitter:card["'][^>]+content=["']summary_large_image["']/i.test(html), "Twitter card");
+ok(/name=["']twitter:title["'][^>]+content=/i.test(html), "Twitter title");
+ok(/name=["']twitter:description["'][^>]+content=/i.test(html), "Twitter description");
+ok(/name=["']twitter:image["'][^>]+content=/i.test(html), "Twitter image");
+ok(/property=["']og:image:alt["'][^>]+content=/i.test(html), "Open Graph image alt");
+ok(/name=["']color-scheme["'][^>]+content=/i.test(html), "color-scheme meta");
+ok(/name=["']referrer["'][^>]+content=["']strict-origin-when-cross-origin["']/i.test(html), "referrer policy meta");
 ok(/application\/ld\+json/i.test(html), "JSON-LD");
 ok(/rel=["']manifest["']/i.test(html), "manifest link");
 ok(/rel=["']icon["']/i.test(html), "favicon");
