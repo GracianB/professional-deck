@@ -89,7 +89,6 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body { width: 100%; height: 100%; }
-html {   }
 body {
   margin: 0;
   overflow: hidden;
@@ -340,7 +339,6 @@ body.has-os-rail .deck {
 }
 .gb-hero-copy h1 em { font-style: normal; }
 .gb-lead strong { color: var(--white); }
-.gb-actions {  }
 
 .gb-card {
   display: flex; flex-direction: column;
@@ -3074,7 +3072,6 @@ body {
   color: var(--accent-ink);
   border-color: var(--gold);
 }
-.menu-toggle {    }
 
 .os-rail {
   background: var(--bg);
@@ -3222,9 +3219,6 @@ body {
 /* Method / caps bars */
 .gb-cap-bar i { background: var(--gold) !important; }
 .gb-cap.is-human .gb-cap-bar i { background: var(--sage) !important; }
-
-/* Contact */
-.gb-contact h2 {  }
 .gb-contact h2 em { color: var(--gold); }
 .gb-contact-kicker { color: var(--gold); }
 
@@ -3525,11 +3519,6 @@ html[data-theme="light"] body { color: var(--ink); }
     
 }
 html[data-theme="light"] .brand-text b { color: var(--ink); }
-
-.main-nav {
-    
-    
-}
 .main-nav > button, .main-nav > a {
   display: inline-flex; align-items: center;
   min-height: var(--tap); padding: 0 12px;
@@ -3552,10 +3541,6 @@ html[data-theme="light"] .main-nav > a:hover { color: var(--ink); }
    border: 1px solid var(--line-dark);
    
 }
-.seg-btn {
-   
-  
-}
 .seg-btn:hover { color: var(--white); }
 html[data-theme="light"] .seg-btn:hover { color: var(--ink); }
 .seg-btn.is-active, .seg-btn[aria-pressed="true"] {
@@ -3572,11 +3557,6 @@ html[data-theme="light"] .seg-btn:hover { color: var(--ink); }
 .header-cta:hover {
   background: var(--gold); color: #2A2622;
   box-shadow: 0 0 24px var(--gold-glow);
-}
-.menu-toggle {
-     
-    
-   
 }
 .menu-toggle i {
      margin: 0 auto;
@@ -3837,33 +3817,6 @@ button,
   padding-inline-end: max(var(--pad), env(safe-area-inset-right, 0px));
 }
 
-.header-actions {
-  
-}
-
-.brand {
-  
-}
-
-.brand-text {
-  
-}
-
-.main-nav {
-  
-}
-
-.deck {
-  
-  
-}
-
-.slide {
-  
-  
-  
-}
-
 .deck-controls {
   padding-bottom: max(6px, env(safe-area-inset-bottom, 0px));
 }
@@ -4107,23 +4060,6 @@ html[data-theme="light"] .command-dialog { color: var(--ink); }
   color: var(--gold) !important;
   text-transform: uppercase;
 }
-
-/* Seg controls — clean, no overlap */
-.seg {
-  
-  
-  
-  
-  
-}
-.seg-btn {
-   
-  
-  
-  
-  
-  
-}
 .seg-btn.is-active, .seg-btn[aria-pressed="true"] {
   background: var(--gold) !important;
   color: #2A2622 !important;
@@ -4316,11 +4252,6 @@ html[data-theme="light"] .gb-star-lead {
     linear-gradient(90deg, color-mix(in srgb, var(--gold) 40%, transparent) 1px, transparent 1px) !important;
   background-size: 48px 48px !important;
 }
-
-/* Deck controls — phone friendly */
-.deck-controls {
-  
-}
 .deck-controls button {
   
   
@@ -4375,16 +4306,6 @@ html[data-theme="light"] .gb-panel {
   .brand-text b { font-size: 10px !important; letter-spacing: .12em !important; }
   .brand-text small { font-size: 8px !important; letter-spacing: .12em !important; }
   .gb-actions .button { width: 100%; justify-content: center; }
-}
-
-/* Slide transition feel */
-.slide {
-  
-  
-}
-.deck {
-  
-  
 }
 
 /* ============================================================
@@ -4493,8 +4414,6 @@ html[data-theme="light"] .gb-panel {
     justify-content: space-between !important;
   }
   .deck-hint { display: none !important; }
-}
-@media (max-height: 800px) {
 }
 
 /* ══════════════════════════════════════════════════════════════
