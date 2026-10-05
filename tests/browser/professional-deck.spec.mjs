@@ -93,6 +93,29 @@ test.describe("Professional Deck browser E2E", () => {
     }
   });
 
+  test("skip link lleva el foco al contenido principal", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const skip = page.locator(".skip-link");
+    await skip.focus();
+    await expect(skip).toBeFocused();
+    await skip.press("Enter");
+
+    await expect(page.locator("#deck")).toBeFocused();
+  });
+
+  test("el rail refleja la slide activa", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const railItems = page.locator(".os-rail-item");
+    await expect(railItems).toHaveCount(14);
+    await expect(railItems.nth(0)).toHaveAttribute("aria-current", "true");
+
+    await page.keyboard.press("End");
+    await expect(railItems.nth(13)).toHaveAttribute("aria-current", "true");
+    await expect(railItems.nth(0)).toHaveAttribute("aria-current", "false");
+  });
+
   test("command palette abre con Ctrl+K", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
