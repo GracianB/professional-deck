@@ -648,3 +648,198 @@ html[data-theme="light"] .menu-toggle i {
     transition: none;
   }
 }
+
+
+/* ============================================================
+   FINAL VISUAL CONTRACT · HEADER + COVER REPAIR · 2026-10-05
+   Desktop chrome must stay horizontal; cover must read as a
+   deliberate editorial composition, not a stacked legacy shell.
+   ============================================================ */
+
+@media (min-width: 981px) {
+  .site-header {
+    height: 68px;
+    min-height: 68px;
+    padding-inline: 24px 28px;
+  }
+
+  .brand {
+    flex: 0 0 auto;
+    min-height: 44px;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+    font-size: 13px;
+  }
+
+  .brand-text {
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .brand-text b {
+    font-size: 12px;
+    line-height: 1.1;
+    letter-spacing: .18em;
+  }
+
+  .brand-text small {
+    font-size: 9px;
+    line-height: 1.15;
+    letter-spacing: .16em;
+  }
+
+  .main-nav {
+    position: static !important;
+    inset: auto !important;
+    display: flex !important;
+    flex: 0 1 auto;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center;
+    gap: 2px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 auto;
+    border: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+  }
+
+  .main-nav > button,
+  .main-nav > a {
+    width: auto !important;
+    min-height: 44px;
+    min-width: auto;
+    padding-inline: 10px;
+    white-space: nowrap;
+  }
+
+  .header-actions {
+    gap: 7px;
+  }
+}
+
+#inicio.slide,
+#inicio.slide.fit {
+  justify-content: flex-start !important;
+  padding-top: calc(var(--header) + 18px) !important;
+  padding-bottom: max(var(--chrome-bottom), 76px) !important;
+}
+
+#inicio .gb-hero-stack {
+  width: min(100%, 1240px) !important;
+  height: 100% !important;
+  max-height: none !important;
+  margin-inline: auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 0 !important;
+}
+
+#inicio .gb-hero-grid {
+  width: 100% !important;
+  max-width: 1240px !important;
+  flex: 0 1 auto !important;
+  min-height: 0 !important;
+  margin: auto !important;
+  grid-template-columns: minmax(0, 1.12fr) minmax(330px, .78fr) !important;
+  gap: clamp(28px, 4vw, 64px) !important;
+  align-items: center !important;
+}
+
+#inicio .gb-hero-copy {
+  max-width: 700px !important;
+  padding: 0 !important;
+  justify-self: start;
+}
+
+#inicio .gb-hero-title-band,
+#inicio .gb-title-band.gb-hero-title-band {
+  margin-bottom: 12px !important;
+  padding: 4px 14px 7px 0 !important;
+  background: linear-gradient(90deg, rgba(20,18,16,.82), rgba(20,18,16,.26) 58%, transparent) !important;
+  border-left-width: 2px !important;
+}
+
+#inicio .gb-hero-world {
+  margin: 0 0 10px !important;
+}
+
+#inicio .gb-status {
+  margin: 0 0 14px !important;
+  display: inline-flex !important;
+  width: fit-content;
+  max-width: 100%;
+  padding: 5px 10px !important;
+}
+
+#inicio .gb-hero-copy h1 {
+  margin: 0 !important;
+  max-width: 10ch !important;
+  font-size: clamp(58px, 6.4vw, 104px) !important;
+  line-height: .84 !important;
+  letter-spacing: -.055em !important;
+  font-weight: 560 !important;
+  color: var(--px-cream) !important;
+  text-shadow: 0 18px 50px rgba(0,0,0,.24);
+}
+
+#inicio .gb-hero-goldline {
+  width: min(260px, 46%) !important;
+  margin: 16px 0 14px !important;
+}
+
+#inicio .gb-lead {
+  max-width: 46ch !important;
+  margin: 0 0 16px !important;
+  font-size: clamp(15px, 1.2vw, 18px) !important;
+}
+
+#inicio .gb-actions {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+#inicio .gb-hero-proof {
+  margin-top: 4px !important;
+}
+
+#inicio .gb-card-cinema {
+  width: 100% !important;
+  max-width: 500px !important;
+  justify-self: end;
+  min-height: 0 !important;
+  max-height: min(68vh, 540px) !important;
+}
+
+#inicio .gb-card-cinema .gb-card-title {
+  font-size: clamp(30px, 2.7vw, 42px) !important;
+}
+
+@media (max-width: 1180px) and (min-width: 981px) {
+  #inicio .gb-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(290px, .72fr) !important;
+    gap: 28px !important;
+  }
+
+  #inicio .gb-hero-copy h1 {
+    font-size: clamp(54px, 6.8vw, 82px) !important;
+  }
+
+  #inicio .gb-card-cinema {
+    max-width: 420px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #inicio .gb-hero-copy h1 em {
+    animation: none !important;
+  }
+}
