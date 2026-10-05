@@ -508,13 +508,8 @@ html[data-theme="light"] #inicio .gb-cover-system-body {
 }
 
 html[data-theme="light"] #inicio .gb-cover-system-head,
-html[data-theme="light"] #inicio .gb-cover-system-foot,
-html[data-theme="light"] #inicio .gb-cover-system-head {
+html[data-theme="light"] #inicio .gb-cover-system-foot {
   border-color: rgba(42,38,34,.1);
-}
-
-html[data-theme="light"] #inicio .gb-cover-system-title {
-  color: #2A2622;
 }
 
 html[data-theme="light"] #inicio .gb-cover-flow li {
