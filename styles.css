@@ -3210,19 +3210,13 @@ body {
 .gb-contact-kicker { color: var(--gold); }
 
 /* Controls — 44px tap, gold hover */
-.deck-controls {
-  border-radius: var(--r);
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  
-  
-  min-height: 44px;
-}
+
 .deck-controls button {
   min-height: 44px;
   min-width: 44px;
   height: 44px;
 }
-.deck-controls button:hover { background: var(--gold); color: var(--accent-ink); }
+
 
 
 
@@ -3705,18 +3699,7 @@ html[data-theme="light"] .button.ghost { color: var(--ink) !important; }
 }
 
 /* Bottom controls — phone-first 44px */
-.deck-controls {
-   
-   bottom: max(14px, env(safe-area-inset-bottom));
-  
-    
-  
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
-  border: 1px solid var(--line-dark);
-  
-  backdrop-filter: blur(16px);
-  
-}
+
 .deck-controls span {
   min-width: 64px; text-align: center;
   font: 800 12px var(--mono); color: var(--muted-dark);
