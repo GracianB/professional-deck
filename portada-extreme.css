@@ -200,7 +200,7 @@ html[data-theme="light"] .main-nav button:hover { color: var(--px-ink) !importan
   margin: 0 !important;
   font-family: Fraunces, var(--display), serif !important;
   font-weight: 560 !important;
-  font-size: clamp(58px, 6.4vw, 104px) !important;
+  font-size: clamp(48px, 5.2vw, 76px) !important;
   line-height: 0.92 !important;
   letter-spacing: -0.045em !important;
   color: var(--px-cream) !important;
