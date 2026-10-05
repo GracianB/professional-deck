@@ -41,7 +41,7 @@
   inset:0;
   z-index:1;
   pointer-events:none;
-  background:linear-gradient(90deg,transparent 0 57%,rgba(183,255,60,.06) 57.05%,transparent 57.15%);
+  background:linear-gradient(90deg,transparent 0 54%,rgba(183,255,60,.075) 54.05%,transparent 54.16%);
 }
 
 #inicio .gb-cover-field{
@@ -161,8 +161,8 @@
 #inicio .gb-cover-main{
   min-height:0;
   display:grid;
-  grid-template-columns:minmax(0,1.55fr) minmax(300px,.45fr);
-  gap:clamp(30px,6vw,100px);
+  grid-template-columns:minmax(0,1.72fr) minmax(320px,.58fr);
+  gap:clamp(34px,5vw,84px);
   align-items:stretch;
 }
 
@@ -211,8 +211,8 @@
   margin:0;
   max-width:none;
   color:var(--cover-ink);
-  font:800 clamp(70px,10.2vw,158px)/.76 Inter,system-ui,sans-serif;
-  letter-spacing:-.075em;
+  font:800 clamp(74px,9.6vw,154px)/.73 Inter,system-ui,sans-serif;
+  letter-spacing:-.082em;
   text-transform:uppercase;
   text-wrap:balance;
 }
@@ -228,15 +228,15 @@
 
 #inicio .gb-cover-lead{
   max-width:56ch;
-  margin:25px 0 0;
+  margin:22px 0 0;
   color:#aeb3ad;
-  font:500 clamp(15px,1.25vw,19px)/1.5 Inter,system-ui,sans-serif;
+  font:500 clamp(15px,1.15vw,18px)/1.48 Inter,system-ui,sans-serif;
 }
 
 #inicio .gb-cover-lead strong{color:var(--cover-ink);font-weight:800}
 
 #inicio .gb-cover-actions{
-  margin:27px 0 0!important;
+  margin:24px 0 0!important;
   padding:0!important;
   display:flex!important;
   flex-wrap:wrap;
@@ -255,7 +255,7 @@
   color:#080909;
   background:var(--cover-accent);
   border-color:var(--cover-accent);
-  box-shadow:0 0 0 1px rgba(183,255,60,.15),0 16px 45px rgba(183,255,60,.13);
+  box-shadow:0 0 0 1px rgba(183,255,60,.2),0 18px 52px rgba(183,255,60,.16);
 }
 
 #inicio .gb-cover-actions .button.ghost{
@@ -292,7 +292,7 @@
   border:1px solid rgba(244,242,234,.15);
   border-left:2px solid var(--cover-accent);
   background:rgba(255,255,255,.025);
-  box-shadow:24px 0 80px rgba(0,0,0,.24);
+  box-shadow:24px 0 90px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.05);
 }
 
 #inicio .gb-cover-system-head,
@@ -324,7 +324,7 @@
 
 #inicio .gb-cover-system-body{
   min-height:0;
-  padding:clamp(18px,3vh,34px) clamp(16px,2vw,25px);
+  padding:clamp(20px,3.4vh,38px) clamp(18px,2.2vw,28px);
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
@@ -339,7 +339,7 @@
 #inicio .gb-cover-system-title{
   margin-top:9px;
   color:var(--cover-ink);
-  font:800 clamp(28px,3.4vw,50px)/.9 Inter,system-ui,sans-serif;
+  font:800 clamp(30px,3.6vw,54px)/.88 Inter,system-ui,sans-serif;
   letter-spacing:-.07em;
 }
 
@@ -352,7 +352,7 @@
 #inicio .gb-cover-system-rule{
   height:1px;
   width:100%;
-  margin:26px 0 7px;
+  margin:30px 0 8px;
   background:linear-gradient(90deg,var(--cover-accent),transparent);
 }
 
@@ -361,7 +361,7 @@
   display:grid;
   grid-template-columns:30px 1fr;
   gap:8px;
-  padding:13px 0;
+  padding:14px 0;
   border-bottom:1px solid rgba(244,242,234,.09);
 }
 #inicio .gb-cover-flow li:last-child{border-bottom:0}
@@ -372,12 +372,12 @@
 #inicio .gb-cover-flow li div{display:flex;flex-direction:column;gap:4px}
 #inicio .gb-cover-flow li b{
   color:var(--cover-ink);
-  font:800 14px/1 var(--mono,monospace);
+  font:800 13px/1.05 var(--mono,monospace);
   letter-spacing:.08em;
 }
 #inicio .gb-cover-flow li small{
   color:#707770;
-  font:500 9px/1.3 Inter,system-ui,sans-serif;
+  font:500 10px/1.35 Inter,system-ui,sans-serif;
 }
 
 #inicio .gb-cover-system-foot{
