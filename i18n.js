@@ -14,6 +14,9 @@
     navContact: "Hablemos",
     navSearch: "Navegar",
     navHome: "Inicio",
+    menuOpen: "Abrir menú",
+    menuClose: "Cerrar menú",
+    dialogClose: "Cerrar diálogo",
     brandSub: "EXPERIENCIA · CS",
     slides: {
       inicio: "Portada",
@@ -390,6 +393,9 @@
     navContact: "Let's talk",
     navSearch: "Navigate",
     navHome: "Cover",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
+    dialogClose: "Close dialog",
     brandSub: "EXPERIENCIA · CS",
     slides: {
       inicio: "Cover",
