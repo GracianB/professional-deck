@@ -43,3 +43,6 @@ jobs:
 
       - name: Production Audit
         run: npm run audit:production
+
+      - name: Performance Budget
+        run: npm run audit:performance
