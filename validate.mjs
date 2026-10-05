@@ -60,6 +60,9 @@ if (!await fileExists(join(root, "playwright.config.mjs"))) errors.push("Missing
 if (!await fileExists(join(root, "tools", "production-audit.mjs"))) errors.push("Missing production audit tool");
 if (!await fileExists(join(root, "tools", "performance-budget.mjs"))) errors.push("Missing performance budget tool");
 if (!await fileExists(join(root, "tools", "css-cascade-guard.mjs"))) errors.push("Missing CSS cascade guard");
+for (const phrase of ["Customer Success", "Account Management", "Proyectos / Operaciones", "Data / IA", "Consultoría"]) {
+  if (!index.includes(phrase) && !i18n.includes(phrase)) errors.push(`Missing recruiter fit: ${phrase}`);
+}
 for (const phrase of ["BODYTONE", "MINDEREST", "MOOD FITNESS", "EL CORTE INGL"]) {
   if (!index.toUpperCase().includes(phrase.toUpperCase()) && !i18n.toUpperCase().includes(phrase.toUpperCase())) {
     errors.push(`Missing career milestone: ${phrase}`);
