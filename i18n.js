@@ -704,7 +704,7 @@
     capIndex: "CAPABILITIES",
     capEyebrow: "COMPOUND PROFILE",
     capH2: "Business.<br><em>Building.</em>",
-    capP: "For challenges that don't fit one department.",
+    capP: "Client + project + data + builder + people, in one profile.",
     caps: [
       ["01", "STRATEGIC", "Customer Success", "Stakeholders · coordination · onboarding · adoption · retention · KPIs", "92"],
       ["02", "ANALYTICAL", "Data & BI", "Power BI · SQL · Excel · Pandas · storytelling", "88"],
