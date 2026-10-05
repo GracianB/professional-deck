@@ -189,7 +189,7 @@ The current six-file production cascade, after the declaration and empty-rule cl
 
 | Metric | Before cleanup | Current | Guard limit |
 |---|---:|---:|---:|
-| CSS rules | 2,354 | 2,320 | 2,340 |
+| CSS rules | 2,354 | 2,317 | 2,340 |
 | `!important` occurrences | 3,623 | 3,352 | 3,400 |
 | Duplicate selector/property groups | 512 | 298 | 320 |
 | Conflicting selector/property groups | 928 | 928 | 950 |
