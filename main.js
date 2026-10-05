@@ -339,13 +339,15 @@
     theme = next === "light" ? "light" : "dark";
     if (persist) { try { localStorage.setItem(THEME_KEY, theme); } catch (_) {} }
     applyTheme();
-    try {
-      if (history.replaceState) {
-        const url = new URL(window.location.href);
-        url.searchParams.set("theme", theme);
-        history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
-      }
-    } catch (_) {}
+    if (persist) {
+      try {
+        if (history.replaceState) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("theme", theme);
+          history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+        }
+      } catch (_) {}
+    }
   }
   try {
     const st = localStorage.getItem(THEME_KEY);
@@ -402,8 +404,9 @@
     if (railMeter) railMeter.style.transform = `scaleX(${(next + 1) / slides.length})`;
     if (slideLive) {
       const prefix = t.slideAnnouncement || (lang === "en" ? "Slide" : "Diapositiva");
+      const relation = lang === "en" ? "of" : "de";
       const title = slide?.dataset.title || slide?.id || "";
-      slideLive.textContent = `${prefix} ${pad(next + 1)} de ${slides.length}: ${title}`;
+      slideLive.textContent = `${prefix} ${pad(next + 1)} ${relation} ${slides.length}: ${title}`;
     }
     if (slide) document.body.dataset.activeSlide = slide.id;
     if (prevButton) prevButton.disabled = next === 0;
