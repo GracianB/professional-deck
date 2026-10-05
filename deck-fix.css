@@ -949,3 +949,80 @@ html[data-theme="light"] .presentation-exit b {
     page-break-after: auto;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   V11 RECRUITER CONVERSION MAX · 60-SECOND DECISION ROUTE
+   Strict cascade budget: 10 added parsed selectors.
+   ══════════════════════════════════════════════════════════════ */
+
+.nav-recruiter {
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid rgba(196,165,116,.34);
+  border-radius: 999px;
+  color: #e8d5b0;
+  background: rgba(196,165,116,.05);
+  font: 800 9px/1 var(--mono, ui-monospace, monospace);
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+.nav-recruiter:hover {
+  color: #fff5e5;
+  background: rgba(196,165,116,.12);
+  border-color: rgba(196,165,116,.66);
+}
+
+.recruiter-dialog {
+  width: min(1080px, calc(100vw - 32px));
+  max-width: min(1080px, calc(100vw - 32px));
+  max-height: min(900px, calc(100svh - 32px));
+  overflow: auto;
+}
+
+.recruiter-route-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 22px 0 9px;
+  padding-top: 13px;
+  border-top: 1px solid color-mix(in srgb, var(--gold, #c4a574) 16%, transparent);
+}
+.recruiter-route-head > span {
+  color: var(--gold, #c4a574);
+  font: 800 10px/1 var(--mono, ui-monospace, monospace);
+  letter-spacing: .16em;
+}
+.recruiter-route-head > small {
+  color: var(--muted-dark, #aaa49c);
+  font: 600 10px/1.3 var(--mono, ui-monospace, monospace);
+}
+
+.recruiter-route {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 7px;
+  margin: 0 0 22px;
+}
+.recruiter-route-item {
+  min-width: 0;
+  min-height: 92px;
+  padding: 11px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  text-align: left;
+  border: 1px solid color-mix(in srgb, var(--gold, #c4a574) 18%, var(--line-dark, #3b352e));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface, #201c18) 72%, transparent);
+}
+.recruiter-route-item:hover {
+  border-color: color-mix(in srgb, var(--gold, #c4a574) 56%, transparent);
+  background: color-mix(in srgb, var(--gold, #c4a574) 8%, var(--surface, #201c18));
+}
+.recruiter-route-item > span {
+  color: var(--gold, #c4a574);
+  font: 800 9px/1 var(--mono, ui-monospace, monospace);
+  letter-spacing: .12em;
+}

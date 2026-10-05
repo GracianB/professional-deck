@@ -25,7 +25,8 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("section.slide")).toHaveCount(14);
     await expect(page.locator(".site-header")).toBeVisible();
     await expect(page.locator('.main-nav [data-go="sistemas"]')).toBeVisible();
-    await expect(page.locator('[data-open-recruiter]')).toBeVisible();
+    await expect(page.locator('.nav-recruiter')).toBeVisible();
+    await expect(page.locator('.nav-recruiter')).toBeVisible();
     await expect(page.locator('[data-present]')).toBeVisible();
     await expect(page.locator('[data-slide-live]')).toBeAttached();
 
@@ -52,16 +53,22 @@ test.describe("Professional Deck smoke", () => {
     );
     expect(coverTitleFont).toMatch(/Fraunces/i);
 
-    await page.locator('[data-open-recruiter]').click();
+    await page.locator('.nav-recruiter').click();
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();
+    await expect(recruiter.locator("[data-recruiter-route] .recruiter-route-item")).toHaveCount(7);
+    await expect(recruiter.locator("[data-recruiter-route]")).toContainText(/Bodytone|Proof/i);
     await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Customer Success/i);
     await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Projects/i);
     await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Data/i);
     await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Consult/i);
     await expect(recruiter.locator(".recruiter-metrics strong")).toHaveCount(4);
-    await recruiter.locator(".dialog-close").click();
-    await expect(recruiter).not.toBeVisible();
+    await recruiter.locator("[data-recruiter-start]").click();
+    await expect(page.locator("#recruiter-dialog")).not.toBeVisible();
+    await expect(page.locator("body")).toHaveClass(/presentation-mode/);
+    await expect(page).toHaveURL(/#valor$/);
+    await page.keyboard.press("Escape");
+    await expect(page.locator("body")).not.toHaveClass(/presentation-mode/);
 
     await page.locator('[data-open-command]').click();
     const command = page.locator("#command-dialog");
@@ -87,5 +94,21 @@ test.describe("Professional Deck smoke", () => {
     expect(pageErrors, pageErrors.join("\n")).toEqual([]);
     expect(consoleErrors, consoleErrors.join("\n")).toEqual([]);
     expect(localFailures, localFailures.join("\n")).toEqual([]);
+    await page.goto("/?recruiter=1", { waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(180);
+    await expect(page.locator("#recruiter-dialog")).toBeVisible();
+    await expect(page.locator("[data-recruiter-route] .recruiter-route-item")).toHaveCount(7);
+    await page.locator("#recruiter-dialog .dialog-close").click();
+    await expect(page.locator("#recruiter-dialog")).not.toBeVisible();
+  });
+
+  test("exposes the recruiter route in English", async ({ page }) => {
+    await page.goto("/?lang=en&recruiter=1", { waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(180);
+    const recruiter = page.locator("#recruiter-dialog");
+    await expect(recruiter).toBeVisible();
+    await expect(recruiter.locator('[data-i18n="recruiterRouteTitle"]')).toContainText(/IN 60 SECONDS/i);
+    await expect(recruiter.locator("[data-recruiter-start]")).toContainText(/START 60 SEC ROUTE/i);
+    await recruiter.locator(".dialog-close").click();
   });
 });

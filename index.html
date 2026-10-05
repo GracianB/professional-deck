@@ -46,12 +46,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=deck-v14">
-  <link rel="stylesheet" href="./extra-pass.css?v=deck-v14">
-  <link rel="stylesheet" href="./final-v3.css?v=deck-v14">
-  <link rel="stylesheet" href="./final-v4.css?v=deck-v14">
-  <link rel="stylesheet" href="./portada-extreme.css?v=deck-v14">
-  <link rel="stylesheet" href="./deck-fix.css?v=deck-v14">
+  <link rel="stylesheet" href="./styles.css?v=deck-v15">
+  <link rel="stylesheet" href="./extra-pass.css?v=deck-v15">
+  <link rel="stylesheet" href="./final-v3.css?v=deck-v15">
+  <link rel="stylesheet" href="./final-v4.css?v=deck-v15">
+  <link rel="stylesheet" href="./portada-extreme.css?v=deck-v15">
+  <link rel="stylesheet" href="./deck-fix.css?v=deck-v15">
   <script>
     /* deck intro boot — decide before first paint, with failsafe */
     (function () {
@@ -68,8 +68,8 @@
       } catch (e) {}
     })();
   </script>
-  <script src="./i18n.js?v=deck-v14" defer></script>
-  <script src="./main.js?v=deck-v14" defer></script>
+  <script src="./i18n.js?v=deck-v15" defer></script>
+  <script src="./main.js?v=deck-v15" defer></script>
 </head>
 <body class="has-os-rail final-deck-v4">
   <noscript><div style="padding:1rem;font-family:system-ui,sans-serif">Este portfolio necesita JavaScript para la navegación interactiva. Puedes consultar el CV desde el enlace de la cabecera.</div></noscript>
@@ -112,6 +112,7 @@
       <button type="button" data-go="ruta" data-i18n="navRoute">Ruta</button>
       <button type="button" data-go="trayectoria" data-i18n="navCareer">Trayectoria</button>
       <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
+      <button type="button" class="nav-recruiter" data-open-recruiter aria-haspopup="dialog" data-i18n="navRecruiter">60 S</button>
       <button type="button" class="nav-present" data-present data-i18n="navPresent" data-i18n-title="presentToggle" aria-pressed="false" title="Modo presentación">PRESENTAR</button>
       <button type="button" class="nav-cmd" data-open-command title="Ctrl K" aria-label="Abrir buscador (Ctrl K)" aria-haspopup="dialog"><kbd>Ctrl</kbd><kbd>K</kbd></button>
     </nav>
@@ -161,7 +162,7 @@
 
             <div class="gb-actions gb-cover-actions">
               <button class="button primary" type="button" data-go="sistemas" data-i18n="heroCta1">Explorar sistemas →</button>
-              <button class="button ghost" type="button" data-open-recruiter aria-haspopup="dialog" data-i18n="heroCta2">30 s ▶</button>
+              <button class="button ghost" type="button" data-open-recruiter aria-haspopup="dialog" data-i18n="heroCta2">60 s ▶</button>
               <button class="button ghost" type="button" data-go="experiencia" data-i18n="heroCtaExp">Ver experiencia →</button>
             </div>
 
@@ -547,7 +548,7 @@
         <p class="gb-line-kicker" data-i18n="lineP">Systems y wellness. La imagen completa. 2011 — 2026.</p>
       </header>
       <figure class="gb-line-frame">
-        <img src="./timeline-horizontal.png?v=deck-v14" alt="Timeline completa 2011–2026: línea systems y línea wellness" loading="lazy" decoding="async" />
+        <img src="./timeline-horizontal.png?v=deck-v15" alt="Timeline completa 2011–2026: línea systems y línea wellness" loading="lazy" decoding="async" />
       </figure>
     </section>
 
@@ -866,10 +867,13 @@
     <form method="dialog"><button class="dialog-close" data-i18n-aria="dialogClose" aria-label="Cerrar diálogo">×</button></form>
     <header><p class="eyebrow" data-i18n="recruiterEyebrow">RECRUITER MODE / 30 SEGUNDOS</p></header>
     <h2 id="recruiter-title" data-i18n-html="recruiterH2">Cliente, datos y ejecución.<br><em>En una sola persona.</em></h2>
-    <p id="recruiter-lead" class="recruiter-lead" data-i18n="recruiterLead">16+ años conectando negocio, cliente y construcción técnica. Support OS en producción.</p>
+    <p id="recruiter-lead" class="recruiter-lead" data-i18n="recruiterLead">16+ años conectando negocio, cliente y construcción técnica. En 60 segundos: encaje, prueba y siguiente paso.</p>
+    <div class="recruiter-route-head"><span data-i18n="recruiterRouteTitle">EN 60 SEGUNDOS</span><small data-i18n="recruiterRouteHint">Cada parada abre la prueba correspondiente.</small></div>
+    <nav class="recruiter-route" data-recruiter-route aria-label="Recorrido recruiter"></nav>
     <div class="recruiter-grid" data-recruiter-grid></div>
     <div class="recruiter-metrics"><div><strong>16+</strong><span data-i18n="metricYears">años</span></div><div><strong>10+</strong><span data-i18n="metricCustomer">cara al cliente</span></div><div><strong>4</strong><span data-i18n="metricCountries">países</span></div><div><strong>200+</strong><span data-i18n="metricRules">reglas</span></div></div>
     <footer>
+      <button type="button" class="button primary recruiter-start" data-recruiter-start data-i18n="recruiterStart">RECORRIDO 60 S →</button>
       <a class="button primary" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noopener noreferrer" data-cv-link data-i18n="contactCv">CV ↗</a>
       <a class="button ghost" href="./Gracian_Baena_Carta_Presentacion_ES.pdf" target="_blank" rel="noopener noreferrer" data-letter-link data-i18n="contactLetter">Carta ↗</a>
       <a class="button dark-button" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noopener noreferrer" data-i18n="contactAgenda">Agendar ↗</a>
