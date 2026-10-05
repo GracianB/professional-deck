@@ -770,6 +770,7 @@ html[data-theme="light"] .menu-toggle i {
 }
 
 .presentation-exit {
+  display: none;
   position: fixed;
   z-index: 1200;
   top: max(14px, env(safe-area-inset-top));
