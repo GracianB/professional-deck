@@ -3906,7 +3906,6 @@ html[data-theme="light"] .gb-engine {
 
 /* Phone-first — lockup ALWAYS visible, dense chrome reduced */
 @media (max-width: 1099px) {
-  body.has-os-rail .deck {  }
 }
 @media (max-width: 980px) {
   .main-nav {
