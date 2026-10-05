@@ -144,7 +144,7 @@ test.describe("Professional Deck browser E2E", () => {
       bodyScrollWidth: document.body.scrollWidth
     }));
 
-    expect(viewport.scrollWidth, "No debe existir overflow horizontal").toBeLessThanOrEqual(viewport.innerWidth + 1);
+    expect(viewport.scrollWidth, "No debe existir overflow horiontal").toBeLessThanOrEqual(viewport.innerWidth + 1);
     expect(viewport.bodyScrollWidth, "El body no debe desbordar horizontalmente").toBeLessThanOrEqual(viewport.innerWidth + 1);
 
     const menuToggle = page.locator(".menu-toggle");
@@ -345,4 +345,25 @@ test.describe("Professional Deck production hardening", () => {
 
     await context.close();
   });
+
+  test("ARIA labels follow the selected language", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const menuToggle = page.locator(".menu-toggle");
+    const closeButtons = page.locator(".dialog-close");
+
+    await expect(menuToggle).toHaveAttribute("aria-label", "Abrir menú");
+    await expect(closeButtons.first()).toHaveAttribute("aria-label", "Cerrar diálogo");
+
+    await page.locator("[data-set-lang='en']").click();
+    await expect(menuToggle).toHaveAttribute("aria-label", "Open menu");
+    await expect(closeButtons.first()).toHaveAttribute("aria-label", "Close dialog");
+
+    await menuToggle.click();
+    await expect(menuToggle).toHaveAttribute("aria-label", "Close menu");
+
+    await page.keyboard.press("Escape");
+    await expect(menuToggle).toHaveAttribute("aria-label", "Open menu");
+  });
+
 });
