@@ -150,8 +150,8 @@
 #inicio .gb-hero-stack {
   min-height: 0 !important;
   max-height: 100% !important;
-  justify-content: space-between !important;
-  gap: var(--block-gap) !important;
+  justify-content: center !important;
+  gap: 0 !important;
   padding: 4px 0 0 !important;
 }
 #inicio .gb-hero-title-band {
