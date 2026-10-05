@@ -195,4 +195,4 @@ Current baseline after the conflict cleanup and the latest dead-layer pass:
 | Conflicting selector/property groups | 928 | 880 | 890 |
 | CSS bytes | 368,539 | 344,831 | 512,000 |
 
-The latest visual repair restores the desktop header as a horizontal chrome layer, re-centers the cover composition, strengthens the hero hierarchy, and removes superseded/dead cascade entries. Responsive, theme, accessibility and section-specific contexts remain isolated.
+The latest visual repair restores the desktop header as a horizontal chrome layer, re-centers the cover composition, strengthens the hero hierarchy, and canonicalizes the three remaining cover cascade conflicts. Responsive, theme, accessibility and section-specific contexts remain isolated.
