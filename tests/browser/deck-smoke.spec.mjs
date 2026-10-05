@@ -26,6 +26,8 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator(".site-header")).toBeVisible();
     await expect(page.locator('.main-nav [data-go="sistemas"]')).toBeVisible();
     await expect(page.locator('[data-open-recruiter]')).toBeVisible();
+    await expect(page.locator('[data-present]')).toBeVisible();
+    await expect(page.locator('[data-slide-live]')).toBeAttached();
 
     await page.locator('[data-set-lang="en"]').click();
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
@@ -35,6 +37,10 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
     await page.locator('[data-set-theme="dark"]').click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await page.locator('#inicio [data-go="sistemas"]').click();
+    await expect(page).toHaveURL(/theme=dark/);
+    await expect(page).toHaveURL(/#sistemas$/);
+    await expect(page.locator('[data-slide-live]')).toContainText(/Diapositiva 03.*Bodytone/i);
 
     const coverAccent = await page.locator("#inicio").evaluate(el =>
       getComputedStyle(el).getPropertyValue("--cover-accent").trim()
@@ -68,6 +74,15 @@ test.describe("Professional Deck smoke", () => {
 
     await page.locator('#inicio [data-go="sistemas"]').click();
     await expect(page.locator('[data-rail-status]')).toContainText(/Bodytone/i);
+
+    await page.keyboard.press("p");
+    await expect(page.locator("body")).toHaveClass(/presentation-mode/);
+    await expect(page.locator("[data-present]")).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator(".presentation-exit")).toBeVisible();
+    await expect(page.locator(".site-header")).toBeHidden();
+    await page.keyboard.press("Escape");
+    await expect(page.locator("body")).not.toHaveClass(/presentation-mode/);
+    await expect(page.locator("[data-present]")).toHaveAttribute("aria-pressed", "false");
 
     expect(pageErrors, pageErrors.join("\n")).toEqual([]);
     expect(consoleErrors, consoleErrors.join("\n")).toEqual([]);
