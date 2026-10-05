@@ -36,6 +36,16 @@ test.describe("Professional Deck smoke", () => {
     await page.locator('[data-set-theme="dark"]').click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 
+    const coverAccent = await page.locator("#inicio").evaluate(el =>
+      getComputedStyle(el).getPropertyValue("--cover-accent").trim()
+    );
+    expect(coverAccent).toBe("#c4a574");
+
+    const coverTitleFont = await page.locator(".gb-cover-title").evaluate(el =>
+      getComputedStyle(el).fontFamily
+    );
+    expect(coverTitleFont).toMatch(/Fraunces/i);
+
     await page.locator('[data-open-recruiter]').click();
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();
