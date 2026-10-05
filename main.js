@@ -419,6 +419,7 @@
     if (!menu || !menuToggle) return;
     menu.classList.toggle("open", open);
     menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? (t.menuClose || "Close menu") : (t.menuOpen || "Open menu"));
     if (open && window.matchMedia("(max-width: 980px)").matches) {
       window.setTimeout(() => menu.querySelector("button, a")?.focus(), 0);
     } else if (returnFocus) {
