@@ -19,7 +19,8 @@ test.describe("Professional Deck smoke", () => {
       }
     });
 
-    await page.goto("/", { waitUntil: "networkidle" });
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(250);
 
     await expect(page.locator("section.slide")).toHaveCount(14);
     await expect(page.locator(".site-header")).toBeVisible();
@@ -28,7 +29,7 @@ test.describe("Professional Deck smoke", () => {
 
     await page.locator('[data-set-lang="en"]').click();
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
-    await expect(page.locator('[data-i18n="heroEyebrow"]')).toContainText("CUSTOMER SUCCESS SYSTEMS");
+    await expect(page.locator('[data-i18n="heroStatus"]')).toContainText("open to senior roles");
 
     await page.locator('[data-set-theme="light"]').click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
