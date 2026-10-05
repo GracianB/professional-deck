@@ -7,7 +7,8 @@
     "test": "node validate.mjs",
     "validate": "node validate.mjs",
     "verify": "node verify.mjs",
-    "test:browser": "playwright test --config=playwright.config.mjs"
+    "test:browser": "playwright test --config=playwright.config.mjs",
+    "audit:production": "node tools/production-audit.mjs"
   },
   "engines": {
     "node": ">=20"
