@@ -94,12 +94,12 @@
         <small data-i18n="brandSub">EXPERIENCIA · CS</small>
       </span>
     </a>
-    <nav class="main-nav" id="main-nav" aria-label="Primary">
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
       <button type="button" data-go="sistemas" data-i18n="navSystems">Sistemas</button>
       <button type="button" data-go="ruta" data-i18n="navRoute">Ruta</button>
       <button type="button" data-go="trayectoria" data-i18n="navCareer">Trayectoria</button>
       <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
-      <button type="button" class="nav-cmd" data-open-command title="Ctrl K"><kbd>Ctrl</kbd><kbd>K</kbd></button>
+      <button type="button" class="nav-cmd" data-open-command title="Ctrl K" aria-label="Abrir buscador (Ctrl K)" aria-haspopup="dialog"><kbd>Ctrl</kbd><kbd>K</kbd></button>
     </nav>
     <div class="header-actions">
       <div class="seg" data-language-gate="header" role="group" aria-label="Language">
@@ -111,7 +111,7 @@
         <button type="button" class="seg-btn" data-set-theme="light" aria-pressed="false" title="Light">☀</button>
       </div>
       <a class="header-cta" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noreferrer" data-cv-link>CV ↗</a>
-      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu"><i></i><i></i><i></i></button>
+      <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú"><i></i><i></i><i></i></button>
     </div>
   </header>
 
@@ -152,7 +152,7 @@
             <p class="gb-lead" data-i18n-html="heroLead">Cliente + operación + datos → herramientas que los equipos <strong>sí usan</strong>.</p>
             <div class="gb-actions">
               <button class="button primary" type="button" data-go="sistemas" data-i18n="heroCta1">Explorar sistemas →</button>
-              <button class="button ghost" type="button" data-open-recruiter data-i18n="heroCta2">30 s ▶</button>
+              <button class="button ghost" type="button" data-open-recruiter aria-haspopup="dialog" data-i18n="heroCta2">30 s ▶</button>
               <button class="button ghost" type="button" data-go="experiencia" data-i18n="heroCtaExp">Ver experiencia →</button>
             </div>
             <p class="gb-hero-proof" data-i18n="heroProof">Help Center live · Ohana · Vórtice · PLAY</p>
@@ -829,11 +829,11 @@
   </nav>
   <p class="deck-hint" data-i18n="hint">↑↓ · swipe · Ctrl K</p>
 
-  <dialog class="recruiter-dialog" id="recruiter-dialog">
-    <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
+  <dialog class="recruiter-dialog" id="recruiter-dialog" aria-labelledby="recruiter-title" aria-describedby="recruiter-lead">
+    <form method="dialog"><button class="dialog-close" aria-label="Cerrar">×</button></form>
     <header><p class="eyebrow" data-i18n="recruiterEyebrow">RECRUITER MODE / 30 SEGUNDOS</p></header>
-    <h2 data-i18n-html="recruiterH2">Cliente, datos y ejecución.<br><em>En una sola persona.</em></h2>
-    <p class="recruiter-lead" data-i18n="recruiterLead">16+ años de negocio y primera línea + 5 años construyendo sistemas, automatizaciones e IA.</p>
+    <h2 id="recruiter-title" data-i18n-html="recruiterH2">Cliente, datos y ejecución.<br><em>En una sola persona.</em></h2>
+    <p id="recruiter-lead" class="recruiter-lead" data-i18n="recruiterLead">16+ años de negocio y primera línea + 5 años construyendo sistemas, automatizaciones e IA.</p>
     <div class="recruiter-grid" data-recruiter-grid></div>
     <div class="recruiter-metrics"><div><strong>16+</strong><span>yrs</span></div><div><strong>5+</strong><span>ECI</span></div><div><strong>05</strong><span>builder</span></div><div><strong>200+</strong><span>rules</span></div></div>
     <footer>
@@ -843,19 +843,19 @@
     </footer>
   </dialog>
 
-  <dialog class="experience-dialog" id="experience-dialog">
+  <dialog class="experience-dialog" id="experience-dialog" aria-labelledby="experience-title">
     <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
     <header><span data-role-period></span><b data-role-company></b></header>
-    <h2 data-role-title></h2>
+    <h2 id="experience-title" data-role-title></h2>
     <p class="role-dialog-meta" data-role-meta></p>
     <div class="role-dialog-copy" data-role-copy></div>
     <ul data-role-skills></ul>
   </dialog>
 
-  <dialog class="command-dialog" id="command-dialog">
+  <dialog class="command-dialog" id="command-dialog" aria-labelledby="command-title">
     <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
-    <header><span>⌕</span><input type="search" data-i18n-placeholder="cmdPlaceholder" placeholder="Buscar…" data-command-search><kbd>ESC</kbd></header>
-    <div><h2 data-i18n="cmdTitle">¿A dónde quieres ir?</h2><span data-command-count></span></div>
+    <header><span>⌕</span><input id="command-search" type="search" data-i18n-placeholder="cmdPlaceholder" placeholder="Buscar…" data-command-search aria-label="Buscar en el deck"><kbd>ESC</kbd></header>
+    <div><h2 id="command-title" data-i18n="cmdTitle">¿A dónde quieres ir?</h2><span data-command-count></span></div>
     <nav data-command-list></nav>
   </dialog>
 </body>
