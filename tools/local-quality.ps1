@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$ExpectedBranch = "main"
+    [string]$ExpectedBranch = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -30,7 +30,7 @@ if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($branch)) {
 
 Write-Host "BRANCH : $branch" -ForegroundColor Gray
 
-if ($branch -ne $ExpectedBranch) {
+if (-not [string]::IsNullOrWhiteSpace($ExpectedBranch) -and $branch -ne $ExpectedBranch) {
     Fail "Rama inesperada. Esperada: $ExpectedBranch · Actual: $branch"
 }
 
