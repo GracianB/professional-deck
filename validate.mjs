@@ -7,7 +7,7 @@ const root = dirname(fileURLToPath(import.meta.url));
 const required = [
   "index.html", "styles.css", "main.js", "i18n.js", "case.js", "favicon.svg", "og-cover.png",
   "Gracian_Baena_CV_2026_ES.pdf", "Gracian_Baena_CV_2026_EN.pdf", "Gracian_Baena_Carta_Presentacion_ES.pdf", "Gracian_Baena_Cover_Letter_EN.pdf",
-  "CV_Gracian_Baena_2026_ES.pdf", "CV_Gracian_Baena_2026_EN.pdf", "Carta_Gracian_Baena_ES.pdf", "Cover_Letter_Gracian_Baena_EN.pdf",
+  "CV_Gracian_Baena_2026_ES.pdf", "CV_Gracian_Baena_2026_EN.pdf",
   "proyecto-bodytone.html", "proyecto-calculadora.html",
   "proyecto-linkedin.html", "proyecto-outreach.html", "404.html", "robots.txt", "sitemap.xml"
 ];
