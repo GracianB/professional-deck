@@ -147,7 +147,7 @@ html[data-theme="light"] .main-nav button:hover { color: var(--px-ink) !importan
 #inicio .gb-hero-stack {
   position: relative !important;
   z-index: 4 !important;
-  gap: clamp(16px, 2.6vh, 28px) !important;
+  gap: 0 !important;
 }
 
 /* Title plate — readable, not sparse */
@@ -200,7 +200,7 @@ html[data-theme="light"] .main-nav button:hover { color: var(--px-ink) !importan
   margin: 0 !important;
   font-family: Fraunces, var(--display), serif !important;
   font-weight: 560 !important;
-  font-size: clamp(48px, 7vw + 1.2vh, 96px) !important;
+  font-size: clamp(58px, 6.4vw, 104px) !important;
   line-height: 0.92 !important;
   letter-spacing: -0.045em !important;
   color: var(--px-cream) !important;
