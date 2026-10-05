@@ -25,7 +25,7 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("section.slide")).toHaveCount(14);
     await expect(page.locator(".site-header")).toBeVisible();
     await expect(page.locator('.main-nav [data-go="sistemas"]')).toBeVisible();
-    await expect(page.locator('[data-open-recruiter]')).toBeVisible();
+    await expect(page.locator('.nav-recruiter')).toBeVisible();
     await expect(page.locator('.nav-recruiter')).toBeVisible();
     await expect(page.locator('[data-present]')).toBeVisible();
     await expect(page.locator('[data-slide-live]')).toBeAttached();
@@ -107,7 +107,7 @@ test.describe("Professional Deck smoke", () => {
     await page.waitForTimeout(180);
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();
-    await expect(recruiter.locator("[data-recruiter-route]")).toContainText(/IN 60 SECONDS/i);
+    await expect(recruiter.locator('[data-i18n="recruiterRouteTitle"]')).toContainText(/IN 60 SECONDS/i);
     await expect(recruiter.locator("[data-recruiter-start]")).toContainText(/START 60 SEC ROUTE/i);
     await recruiter.locator(".dialog-close").click();
   });
