@@ -40,14 +40,6 @@
   border-color: var(--px-gold) !important;
   box-shadow: 0 0 28px rgba(196,165,116,.35) !important;
 }
-.brand-text b {
-  font: 800 11px/1.2 JetBrains Mono, var(--mono), monospace !important;
-  letter-spacing: 0.16em !important;
-}
-.brand-text small {
-  color: color-mix(in srgb, var(--px-gold) 70%, var(--mute, #8A8178)) !important;
-  letter-spacing: 0.16em !important;
-}
 .top-progress i {
   background: linear-gradient(90deg, var(--px-gold), var(--px-gold-soft), #E8D5B5) !important;
   box-shadow: 0 0 14px rgba(196,165,116,.45) !important;
