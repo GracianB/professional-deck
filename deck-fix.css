@@ -625,8 +625,9 @@ html[data-theme="light"] .menu-toggle i {
   }
 
   .seg-btn {
-    min-width: 38px;
-    padding-inline: 7px;
+    min-width: 44px;
+    min-height: 44px;
+    padding-inline: 5px;
   }
 
   .deck-controls button small {
