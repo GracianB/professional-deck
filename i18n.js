@@ -317,9 +317,9 @@
     capIndex: "CAPACIDADES",
     capEyebrow: "PERFIL COMPUESTO",
     capH2: "Negocio.<br><em>Construcción.</em>",
-    capP: "Para retos que no caben en un solo departamento.",
+    capP: "Cliente + proyecto + datos + builder + personas, en un solo perfil.",
     caps: [
-      ["01", "STRATEGIC", "Customer Success", "SaaS B2B · onboarding · adopción · retención · KPIs", "92"],
+      ["01", "STRATEGIC", "Customer Success", "Stakeholders · coordinación · onboarding · adopción · retención · KPIs", "92"],
       ["02", "ANALYTICAL", "Datos & BI", "Power BI · SQL · Excel · Pandas · storytelling", "88"],
       ["03", "BUILDER", "IA & automatización", "Python · APIs · GenAI · Chatbots · LLM · Zendesk · Apps Script", "86"],
       ["04", "HUMAN", "Personas & liderazgo", "Equipos · yoga · facilitación · mindfulness", "94"]
@@ -364,18 +364,22 @@
     contactGh: "GitHub ↗",
     contactCv: "CV (ES) ↗",
     contactLetter: "Carta ↗",
-    contactLoc: "España · remoto OK",
+    contactLoc: "Murcia · presencial · híbrido · remoto",
     prev: "ANT.",
     next: "SIG.",
     hint: "↑↓ · swipe · Ctrl K",
+    metricYears: "años",
+    metricCustomer: "cara al cliente",
+    metricCountries: "países",
+    metricRules: "reglas",
     recruiterEyebrow: "RECRUITER / 30 s",
     recruiterH2: "Cliente, datos y ejecución.<br><em>En una persona.</em>",
     recruiterLead: "16+ años conectando negocio, cliente y construcción técnica. Support OS en producción.",
     recruiterCards: [
-      ["01", "CS Systems & Data", "Cliente + ops + IA → adopción."],
-      ["02", "Prueba", "Help Center + Ohana + Vórtice + PLAY, live."],
-      ["03", "Encaje", "Roles senior transversales."],
-      ["04", "Diferencial", "Traduce, construye y facilita."]
+      ["01", "Cliente → sistema", "Escucha, prioriza y convierte necesidades en una forma de trabajar."],
+      ["02", "Producción", "Support OS live: Zendesk, datos, Power BI y Academy."],
+      ["03", "Construcción", "IA, automatización, APIs y builder mindset con criterio de negocio."],
+      ["04", "Adopción", "Coordino personas, explico el porqué y cierro el ciclo con uso real."]
     ],
     cmdTitle: "¿A dónde vas?",
     cmdPlaceholder: "Buscar…",
@@ -702,7 +706,7 @@
     capH2: "Business.<br><em>Building.</em>",
     capP: "For challenges that don't fit one department.",
     caps: [
-      ["01", "STRATEGIC", "Customer Success", "B2B SaaS · onboarding · adoption · retention · KPIs", "92"],
+      ["01", "STRATEGIC", "Customer Success", "Stakeholders · coordination · onboarding · adoption · retention · KPIs", "92"],
       ["02", "ANALYTICAL", "Data & BI", "Power BI · SQL · Excel · Pandas · storytelling", "88"],
       ["03", "BUILDER", "AI & automation", "Python · APIs · GenAI · Chatbots · LLM · Zendesk · Apps Script", "86"],
       ["04", "HUMAN", "People & leadership", "Teams · yoga · facilitation · mindfulness", "94"]
@@ -747,7 +751,7 @@
     contactGh: "GitHub ↗",
     contactCv: "CV (EN) ↗",
     contactLetter: "Cover letter ↗",
-    contactLoc: "Spain · remote OK",
+    contactLoc: "Murcia · onsite · hybrid · remote",
     prev: "PREV",
     next: "NEXT",
     hint: "↑↓ · swipe · Ctrl K",
