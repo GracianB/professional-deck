@@ -346,12 +346,20 @@ test.describe("Professional Deck production hardening", () => {
     await context.close();
   });
 
-  test("ARIA labels follow the selected language", async ({ page }) => {
+  test("ARIA labels follow the selected language", async ({ browser }) => {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      isMobile: true,
+      hasTouch: true
+    });
+    const page = await context.newPage();
+
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
     const menuToggle = page.locator(".menu-toggle");
     const closeButtons = page.locator(".dialog-close");
 
+    await expect(menuToggle).toBeVisible();
     await expect(menuToggle).toHaveAttribute("aria-label", "Abrir menú");
     await expect(closeButtons.first()).toHaveAttribute("aria-label", "Cerrar diálogo");
 
@@ -364,6 +372,8 @@ test.describe("Professional Deck production hardening", () => {
 
     await page.keyboard.press("Escape");
     await expect(menuToggle).toHaveAttribute("aria-label", "Open menu");
+
+    await context.close();
   });
 
 });
