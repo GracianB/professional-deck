@@ -1,10 +1,10 @@
 import { execFileSync } from "node:child_process";
 
 const LIMITS = {
-  totalRules: 2340,
-  important: 3400,
-  duplicateSelectorPropertyGroups: 320,
-  conflictingSelectorPropertyGroups: 950,
+  totalRules: 2310,
+  important: 3350,
+  duplicateSelectorPropertyGroups: 305,
+  conflictingSelectorPropertyGroups: 910,
 };
 
 function fail(message) {
