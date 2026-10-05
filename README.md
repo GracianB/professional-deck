@@ -201,6 +201,19 @@ Ohana y Vórtice viven en Play, no aquí. Este repo es la evidencia profesional.
 
 <a id="english"></a>
 
+## Quality / ingeniería
+
+El repo no depende solo de revisión manual.
+
+- `npm run validate` — contrato estructural.
+- `npm test` — regresión.
+- `npm run test:browser` — 17 pruebas Playwright de navegación, responsive, accesibilidad, diálogos, idioma, assets y reduced motion.
+- `npm run audit:production` — auditoría estática de 55 checks.
+- `npm run audit:performance` — presupuesto de HTML, CSS, JS e imágenes para evitar regresión de peso.
+- GitHub Actions ejecuta el pipeline con Node 24 y publica en GitHub Pages tras pasar la calidad.
+
+El CSS conserva el orden de producción y se limpia mediante análisis de cascada conservador. No se eliminan overrides a ciegas.
+ 
 ## English
 
 I do not split customer work, data and the system that turns them into a decision.
