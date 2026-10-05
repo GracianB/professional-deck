@@ -40,7 +40,7 @@ test.describe("Professional Deck smoke", () => {
     await page.locator('#inicio [data-go="sistemas"]').click();
     await expect(page).toHaveURL(/theme=dark/);
     await expect(page).toHaveURL(/#sistemas$/);
-    await expect(page.locator('[data-slide-live]')).toContainText(/Diapositiva 03.*Bodytone/i);
+    await expect(page.locator('[data-slide-live]')).toContainText(/Slide 03.*Bodytone/i);
 
     const coverAccent = await page.locator("#inicio").evaluate(el =>
       getComputedStyle(el).getPropertyValue("--cover-accent").trim()
