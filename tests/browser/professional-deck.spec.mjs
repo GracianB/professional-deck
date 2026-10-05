@@ -247,6 +247,24 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(command).not.toBeVisible();
   });
 
+  test("los grupos de idioma y tema y sus títulos se localizan", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    const languageGroup = page.locator("[data-language-gate='header']");
+    const themeGroup = page.locator(".header-actions .seg").nth(1);
+
+    await expect(languageGroup).toHaveAttribute("aria-label", "Idioma");
+    await expect(themeGroup).toHaveAttribute("aria-label", "Tema");
+    await expect(page.locator("[data-set-theme='dark']")).toHaveAttribute("title", "Oscuro");
+    await expect(page.locator("[data-set-theme='light']")).toHaveAttribute("title", "Claro");
+
+    await page.locator("[data-set-lang='en']").click();
+    await expect(languageGroup).toHaveAttribute("aria-label", "Language");
+    await expect(themeGroup).toHaveAttribute("aria-label", "Theme");
+    await expect(page.locator("[data-set-theme='dark']")).toHaveAttribute("title", "Dark");
+    await expect(page.locator("[data-set-theme='light']")).toHaveAttribute("title", "Light");
+  });
+
   test("los diálogos restauran el foco al control que los abrió", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
