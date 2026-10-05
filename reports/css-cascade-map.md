@@ -185,13 +185,14 @@ The pass intentionally leaves the remaining conflicting values intact because di
 
 ## Current guard baseline · 2026-10-05
 
-The current six-file production cascade measures:
+The current six-file production cascade, after the declaration and empty-rule cleanup, measures:
 
-| Metric | Current | Guard limit |
-|---|---:|---:|
-| CSS rules | 2,148 | 2,200 |
-| `!important` occurrences | 3,623 | 3,800 |
-| Duplicate selector/property groups | 512 | 550 |
-| Conflicting selector/property groups | 928 | 980 |
+| Metric | Before cleanup | Current | Guard limit |
+|---|---:|---:|---:|
+| CSS rules | 2,354 | 2,320 | 2,340 |
+| `!important` occurrences | 3,623 | 3,352 | 3,400 |
+| Duplicate selector/property groups | 512 | 298 | 320 |
+| Conflicting selector/property groups | 928 | 928 | 950 |
+| CSS bytes | 368,539 | 351,504 | 512,000 |
 
-The guard is intentionally a regression barrier, not a claim that the cascade is finished. The existing architecture still contains deliberate overrides across responsive, theme, accessibility and section-specific layers.
+The cleanup removed 8 exact duplicate rule blocks, 544 redundant declarations, and 29 empty-rule blocks. The 928 conflicting groups are intentionally left alone because differing values can represent responsive, theme, accessibility or section-specific contracts.
