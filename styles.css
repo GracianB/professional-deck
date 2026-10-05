@@ -3043,10 +3043,7 @@ body {
   box-shadow: 0 0 16px var(--gold-glow);
 }
 
-.site-header {
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(18px) saturate(1.25);
-}
+
 .brand-mark {
   border-color: color-mix(in srgb, var(--gold) 45%, var(--line-dark-2));
   
@@ -3482,16 +3479,7 @@ html[data-theme="light"] body { color: var(--ink); }
   transition: width .45s var(--ease);
 }
 
-.site-header {
-    
-  
-  
-     
-  background: color-mix(in srgb, var(--bg) 78%, transparent);
-  border-bottom: 1px solid var(--line-dark);
-  backdrop-filter: blur(22px) saturate(1.35);
-  -webkit-backdrop-filter: blur(22px) saturate(1.35);
-}
+
 .brand {
     
     flex-shrink: 0;
@@ -3905,8 +3893,7 @@ html[data-theme="light"] .gb-engine {
 }
 
 /* Phone-first — lockup ALWAYS visible, dense chrome reduced */
-@media (max-width: 1099px) {
-}
+
 @media (max-width: 980px) {
   .main-nav {
       
