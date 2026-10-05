@@ -779,14 +779,14 @@ html[data-theme="light"] .menu-toggle i {
   border-color: var(--ui-border);
 }
 
-:is(.gb-star-main,.gb-demo-card,.gb-loop-card,.gb-formula-card,.gb-lang-card,.gb-career-break) {
+:is(.gb-star-main,.gb-demo-card,.gb-formula-card,.gb-lang-card,.gb-career-break) {
   border-color: var(--ui-border);
   border-radius: var(--ui-radius);
   background: color-mix(in srgb, var(--surface, #1C1916) 82%, transparent);
   box-shadow: 0 18px 50px rgba(0,0,0,.12);
 }
 
-:is(.gb-star-main,.gb-demo-card,.gb-loop-card,.gb-formula-card,.gb-lang-card,.gb-career-break):hover {
+:is(.gb-star-main,.gb-demo-card,.gb-formula-card,.gb-lang-card,.gb-career-break):hover {
   border-color: var(--ui-border-strong);
   box-shadow: 0 22px 60px rgba(0,0,0,.18);
 }
