@@ -694,35 +694,32 @@ html[data-theme="light"] .menu-toggle i {
   }
 
   .main-nav {
-    position: static !important;
-    inset: auto !important;
-    display: flex !important;
+
+
+
     flex: 0 1 auto;
-    flex-direction: row !important;
-    align-items: center !important;
+
+
     justify-content: center;
-    gap: 2px !important;
-    max-height: none !important;
-    overflow: visible !important;
-    padding: 0 !important;
+
+
+
+
     margin: 0 auto;
-    border: 0 !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
+
+
+
   }
 
   .main-nav > button,
   .main-nav > a {
-    width: auto !important;
+
     min-height: 44px;
     min-width: auto;
     padding-inline: 10px;
     white-space: nowrap;
   }
 
-  .header-actions {
-    gap: 7px;
-  }
 }
 
 #inicio.slide,
@@ -733,22 +730,22 @@ html[data-theme="light"] .menu-toggle i {
 }
 
 #inicio .gb-hero-stack {
-  width: min(100%, 1240px) !important;
-  height: 100% !important;
-  max-height: none !important;
-  margin-inline: auto !important;
-  padding: 0 !important;
-  display: flex !important;
+
+
+
+
+
+
   justify-content: center !important;
   gap: 0 !important;
 }
 
 #inicio .gb-hero-grid {
-  width: 100% !important;
-  max-width: 1240px !important;
+
+
   flex: 0 1 auto !important;
-  min-height: 0 !important;
-  margin: auto !important;
+
+
   grid-template-columns: minmax(0, 1.12fr) minmax(330px, .78fr) !important;
   gap: clamp(28px, 4vw, 64px) !important;
   align-items: center !important;
@@ -756,7 +753,7 @@ html[data-theme="light"] .menu-toggle i {
 
 #inicio .gb-hero-copy {
   max-width: 700px !important;
-  padding: 0 !important;
+
   justify-self: start;
 }
 
@@ -774,10 +771,10 @@ html[data-theme="light"] .menu-toggle i {
 
 #inicio .gb-status {
   margin: 0 0 14px !important;
-  display: inline-flex !important;
+
   width: fit-content;
   max-width: 100%;
-  padding: 5px 10px !important;
+
 }
 
 #inicio .gb-hero-copy h1 {
@@ -792,8 +789,8 @@ html[data-theme="light"] .menu-toggle i {
 }
 
 #inicio .gb-hero-goldline {
-  width: min(260px, 46%) !important;
-  margin: 16px 0 14px !important;
+
+
 }
 
 #inicio .gb-lead {
@@ -812,8 +809,8 @@ html[data-theme="light"] .menu-toggle i {
 }
 
 #inicio .gb-card-cinema {
-  width: 100% !important;
-  max-width: 500px !important;
+
+
   justify-self: end;
   min-height: 0 !important;
   max-height: min(68vh, 540px) !important;
