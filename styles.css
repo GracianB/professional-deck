@@ -1624,7 +1624,7 @@ dialog > form {
 }
 
 @media (max-width: 980px) {
-  .menu-toggle { display: block; }
+  
   .main-nav { top: calc(var(--header) + 3px); left: 0; right: 0;
     padding: 16px 20px;
     background: rgba(8,9,9,.98);
@@ -2071,7 +2071,7 @@ img, svg, video, canvas {
     
     padding: 0 12px !important;
     gap: 10px !important; place-items: center; flex-shrink: 0; }
-  .seg-btn { min-width: 36px; }
+  
 
   .main-nav {
     position: fixed !important;
@@ -3044,19 +3044,9 @@ body {
 }
 
 
-.brand-mark {
-  border-color: color-mix(in srgb, var(--gold) 45%, var(--line-dark-2));
-  
-}
-.brand:hover .brand-mark {
-  color: var(--accent-ink);
-}
-.header-cta {
-  min-height: 44px;
-  
-  
-  box-shadow: 0 8px 24px var(--gold-glow);
-}
+
+.brand:hover 
+
 .header-cta:hover { background: #D4B896; }
 .header-cta--ghost {
   background: transparent;
@@ -3484,20 +3474,8 @@ html[data-theme="light"] body { color: var(--ink); }
     
     flex-shrink: 0;
 }
-.brand-mark {
-    
-   
-  
-  
-  
-  font: 800 12px var(--mono);
-  
-  
-}
-.brand:hover .brand-mark {
-  background: var(--gold); color: #2A2622; border-color: var(--gold);
-  box-shadow: 0 0 28px var(--gold-glow);
-}
+
+
 .brand-text b {
    font: 800 11px/1.2 var(--mono); letter-spacing: .16em;
    
@@ -3525,10 +3503,7 @@ html[data-theme="light"] .main-nav > a:hover { color: var(--ink); }
   font: 800 10px var(--mono); padding: 2px 5px;
   border: 1px solid var(--line-dark); border-radius: 3px;
 }
-.seg {
-   border: 1px solid var(--line-dark);
-   
-}
+
 .seg-btn:hover { color: var(--white); }
 html[data-theme="light"] .seg-btn:hover { color: var(--ink); }
 .seg-btn.is-active, .seg-btn[aria-pressed="true"] {
@@ -3826,10 +3801,7 @@ button,
   }
 
   .seg-btn,
-  .menu-toggle {
-    min-width: 44px;
-    min-height: 44px;
-  }
+  
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3915,7 +3887,7 @@ html[data-theme="light"] .gb-engine {
   .header-cta { display: none; } /* CV lives in contact + command; reduce header fight */
 }
 @media (max-width: 720px) {
-  .seg-btn { min-width: 40px; padding: 0 8px; }
+  
   .brand-text b { font-size: 10px; letter-spacing: .12em; }
   .brand-text small { font-size: 8px; }
   .gb-star-grid, .gb-route-body, .gb-method-formula,
@@ -4014,21 +3986,8 @@ html[data-theme="light"] .command-dialog { color: var(--ink); }
   -webkit-backdrop-filter: blur(18px) saturate(1.2);
 }
 
-.brand-mark {
-  width: 40px !important; height: 40px !important; flex: 0 0 40px !important;
-  border-radius: 8px !important;
-  border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent) !important;
-  color: var(--gold) !important;
-  font: 800 13px/1 var(--mono) !important;
-  letter-spacing: .06em !important;
-  
-}
-.brand:hover .brand-mark {
-  background: var(--gold) !important;
-  color: #2A2622 !important;
-  border-color: var(--gold) !important;
-  box-shadow: 0 0 28px var(--gold-glow) !important;
-}
+
+
 .brand-text, .brand-lockup {
   display: flex !important;
   flex-direction: column;
@@ -4264,7 +4223,7 @@ html[data-theme="light"] .gb-panel {
 }
 @media (max-width: 980px) {
   .brand-text, .brand-lockup { display: flex !important; visibility: visible !important; opacity: 1 !important; }
-  .brand-mark { width: 40px !important; height: 40px !important; }
+  
   .main-nav {
     position: fixed !important;
     inset: var(--header) 0 auto !important;
@@ -4287,7 +4246,7 @@ html[data-theme="light"] .gb-panel {
 @media (max-width: 640px) {
   .site-header {   padding: 0 12px;  }
   .header-actions { gap: 6px; flex-wrap: nowrap; }
-  .seg-btn { min-width: 38px; padding: 0 8px; }
+  
   .brand {  flex: 1 1 auto; overflow: hidden; }
   .brand-text b { font-size: 10px !important; letter-spacing: .12em !important; }
   .brand-text small { font-size: 8px !important; letter-spacing: .12em !important; }
