@@ -369,11 +369,6 @@
   min-height: 0 !important;
   padding: clamp(12px, 1.6vh, 18px) !important;
 }
-
-/* ============================================================
-   06 TRAYECTORIA — fill dual engines
-   ============================================================ */
-#trayectoria.slide {  }
 #trayectoria .gb-panel-head-compact {
   flex-shrink: 0 !important;
 }
@@ -476,11 +471,6 @@
   
   min-height: var(--tap) !important;
 }
-
-/* ============================================================
-   11 FORMACIÓN
-   ============================================================ */
-#formacion.slide {  }
 #formacion .gb-edu-panel {
   max-height: 100% !important;
   height: 100% !important;
@@ -498,11 +488,6 @@
 #formacion .education-list li {
   min-height: 44px !important;
 }
-
-/* ============================================================
-   12 CONTACTO — CTAs clear of chrome-bottom
-   ============================================================ */
-#contacto.slide {  }
 #contacto .gb-contact-inner {
   min-height: 0 !important;
   max-height: 100% !important;
@@ -1255,10 +1240,6 @@
   min-height: 0 !important;
   padding: clamp(16px, 2.2vh, 26px) !important;
   box-sizing: border-box !important;
-}
-#formacion .education-list > div:first-child {
-  
-  
 }
 /* languages moved to #idiomas */
 /* languages moved to #idiomas */
