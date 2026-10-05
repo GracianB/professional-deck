@@ -13,6 +13,15 @@ const required = [
 ];
 const errors = [];
 
+async function fileExists(file) {
+  try {
+    await access(file);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 for (const file of required) {
   try {
     await access(join(root, file));
@@ -26,6 +35,7 @@ const index = await readFile(join(root, "index.html"), "utf8");
 const css = await readFile(join(root, "styles.css"), "utf8");
 const main = await readFile(join(root, "main.js"), "utf8");
 const i18n = await readFile(join(root, "i18n.js"), "utf8");
+const packageJson = JSON.parse(await readFile(join(root, "package.json"), "utf8"));
 const slideCount = (index.match(/<section class="slide\b/g) || []).length;
 if (slideCount < 8 || slideCount > 15) errors.push(`Expected 8-15 slides, found ${slideCount}`);
 const languageControls = (index.match(/data-set-lang=/g) || []).length;
@@ -33,6 +43,23 @@ if (!index.includes("data-language-gate") || languageControls < 2) errors.push("
 if (!i18n.includes("GB_I18N") || !i18n.includes("en:") || !i18n.includes("es:")) errors.push("i18n dictionary incomplete");
 if (!/scroll-snap-type:\s*y mandatory/.test(css)) errors.push("Missing scroll snap");
 if (!/addEventListener\("wheel"/.test(main)) errors.push("Missing wheel navigation");
+
+const requiredScripts = [
+  "validate",
+  "verify",
+  "test:browser",
+  "audit:production",
+  "audit:performance",
+  "audit:css",
+  "quality"
+];
+for (const script of requiredScripts) {
+  if (!packageJson.scripts?.[script]) errors.push(`Missing npm script: ${script}`);
+}
+if (!await fileExists(join(root, "playwright.config.mjs"))) errors.push("Missing Playwright config");
+if (!await fileExists(join(root, "tools", "production-audit.mjs"))) errors.push("Missing production audit tool");
+if (!await fileExists(join(root, "tools", "performance-budget.mjs"))) errors.push("Missing performance budget tool");
+if (!await fileExists(join(root, "tools", "css-cascade-guard.mjs"))) errors.push("Missing CSS cascade guard");
 for (const phrase of ["BODYTONE", "MINDEREST", "MOOD FITNESS", "EL CORTE INGL"]) {
   if (!index.toUpperCase().includes(phrase.toUpperCase()) && !i18n.toUpperCase().includes(phrase.toUpperCase())) {
     errors.push(`Missing career milestone: ${phrase}`);
