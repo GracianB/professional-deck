@@ -381,10 +381,10 @@
     recruiterH2: "Cliente, datos y ejecución.<br><em>En una persona.</em>",
     recruiterLead: "16+ años conectando negocio, cliente y construcción técnica. Support OS en producción.",
     recruiterCards: [
-      ["01", "Cliente → sistema", "Escucha, prioriza y convierte necesidades en una forma de trabajar."],
-      ["02", "Producción", "Support OS live: Zendesk, datos, Power BI y Academy."],
-      ["03", "Construcción", "IA, automatización, APIs y builder mindset con criterio de negocio."],
-      ["04", "Adopción", "Coordino personas, explico el porqué y cierro el ciclo con uso real."]
+      ["01", "Customer Success / Account", "Adopción, retención, stakeholders y lectura de la cuenta con lógica de negocio."],
+      ["02", "Projects / Operations", "Coordinación, procesos, prioridades y ejecución hasta que el sistema funciona."],
+      ["03", "Data / AI", "Power BI, automatización, APIs, Python y GenAI aplicados a problemas reales."],
+      ["04", "Consultoría / Solutions", "Descubro la necesidad, traduzco el problema y conecto cliente, negocio y tecnología."]
     ],
     cmdTitle: "¿A dónde vas?",
     cmdPlaceholder: "Buscar…",
@@ -773,10 +773,10 @@
     recruiterH2: "Customer, data and execution.<br><em>In one person.</em>",
     recruiterLead: "16+ years connecting business, customers and technical build. Support OS in production.",
     recruiterCards: [
-      ["01", "Customer → system", "Listen, prioritize and turn needs into a way of working."],
-      ["02", "Production", "Support OS live: Zendesk, data, Power BI and Academy."],
-      ["03", "Build", "AI, automation, APIs and a builder mindset grounded in business."],
-      ["04", "Adoption", "Coordinate people, explain the why and close the loop with real usage."]
+      ["01", "Customer Success / Account", "Adoption, retention, stakeholders and account reading with business logic."],
+      ["02", "Projects / Operations", "Coordination, process, priorities and execution until the system works."],
+      ["03", "Data / AI", "Power BI, automation, APIs, Python and GenAI applied to real problems."],
+      ["04", "Consulting / Solutions", "Discover the need, translate the problem and connect customer, business and technology."]
     ],
     cmdTitle: "Where to?",
     cmdPlaceholder: "Search…",
