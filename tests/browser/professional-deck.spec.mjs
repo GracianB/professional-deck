@@ -310,6 +310,42 @@ test.describe("Professional Deck production hardening", () => {
     }
   });
 
+  test("deep link por hash aterriza en la slide correcta", async ({ page }) => {
+    await page.goto("/#contacto", { waitUntil: "domcontentloaded" });
+    await expect(page.locator("#contacto")).toBeInViewport();
+  });
+
+  test("el tema persiste tras recargar la página", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    await page.locator("[data-set-theme='light']").click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+    await expect(page.locator("[data-set-theme='light']")).toHaveAttribute("aria-pressed", "true");
+
+    await page.locator("[data-set-theme='dark']").click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  });
+
+  test("el idioma persiste tras recargar la página", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+
+    await page.locator("[data-set-lang='en']").click();
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator("[data-set-lang='en']")).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("[data-cv-link]").first()).toHaveAttribute(
+      "href",
+      "./Gracian_Baena_CV_2026_EN.pdf"
+    );
+
+    await page.locator("[data-set-lang='es']").click();
+  });
+
   test("reduced motion disables the intro animation path", async ({ browser }) => {
     const context = await browser.newContext({
       reducedMotion: "reduce",
