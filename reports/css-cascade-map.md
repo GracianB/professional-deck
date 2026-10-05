@@ -185,14 +185,14 @@ The pass intentionally leaves the remaining conflicting values intact because di
 
 ## Current guard baseline · 2026-10-05
 
-Final baseline after the conflict cleanup:
+Current baseline after the conflict cleanup and the latest dead-layer pass:
 
 | Metric | V1-era baseline | Current | Guard limit |
 |---|---:|---:|---:|
-| CSS rules | 2,354 | 2,279 | 2,300 |
-| `!important` occurrences | 3,623 | 3,298 | 3,320 |
+| CSS rules | 2,354 | 2,271 | 2,300 |
+| `!important` occurrences | 3,623 | 3,278 | 3,320 |
 | Duplicate selector/property groups | 512 | 299 | 305 |
-| Conflicting selector/property groups | 928 | 876 | 890 |
-| CSS bytes | 368,539 | 344,015 | 512,000 |
+| Conflicting selector/property groups | 928 | 864 | 890 |
+| CSS bytes | 368,539 | 341,631 | 512,000 |
 
-The cleanup removed superseded header/control/theme layers, redundant declarations, empty rules, duplicate theme rules, and other provably losing cascade entries while preserving responsive, theme, accessibility and section-specific behavior.
+The latest pass removed superseded light-theme blocks and obsolete global brand typography layers that were losing to the later canonical contract. Responsive, theme, accessibility and section-specific contexts were preserved.
