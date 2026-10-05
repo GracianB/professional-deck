@@ -182,8 +182,6 @@ html[data-theme="light"] {
   0% { background-position: 0 -40%; }
   100% { background-position: 0 140%; }
 }
-@keyframes route-spin {
-}
 @keyframes route-pulse {
   0%, 100% { opacity: 0.45; }
 }
