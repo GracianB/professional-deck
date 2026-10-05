@@ -208,9 +208,10 @@ El repo no depende solo de revisión manual.
 - `npm run validate` — contrato estructural.
 - `npm test` — regresión.
 - `npm run test:browser` — 21 pruebas Playwright de navegación, responsive, accesibilidad, diálogos, idioma, assets y reduced motion.
-- `npm run audit:production` — auditoría estática de 55 checks.
+- `npm run audit:production` — auditoría estática de SEO, accesibilidad, seguridad, recursos locales y contratos de producción.
 - `npm run audit:performance` — presupuesto de HTML, CSS, JS e imágenes (incluidas referencias desde CSS) para evitar regresión de peso.
 - `npm run audit:css` — guardia de regresión de la cascada CSS.
+- `npm run quality` — ejecuta toda la batería local en un solo comando.
 - GitHub Actions ejecuta el pipeline con Node 24 y publica en GitHub Pages tras pasar la calidad.
 
 El CSS conserva el orden de producción y se limpia mediante análisis de cascada conservador. No se eliminan overrides a ciegas.
