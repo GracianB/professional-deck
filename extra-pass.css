@@ -86,31 +86,8 @@
   cursor: pointer;
 }
 a.brand { cursor: pointer; }
-.brand-mark {
-  
-  
-  
-  
-  
-  border: 1px solid var(--accent);
-  border-radius: var(--r);
-  color: var(--accent);
-  background: transparent;
-  font: 800 12px var(--mono) !important;
-  font-style: normal !important;
-  font-variation-settings: normal !important;
-  letter-spacing: .04em;
-  transform: none;
-  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s, box-shadow .2s;
-}
-.brand:hover .brand-mark,
-.brand:focus-visible .brand-mark {
-  background: var(--yellow);
-  color: #2A2622;
-  border-color: var(--yellow);
-  box-shadow: 0 0 24px var(--yellow-glow);
-  transform: none;
-}
+
+
 .brand-text,
 .brand-lockup {
   display: flex;
@@ -138,18 +115,7 @@ a.brand { cursor: pointer; }
 }
 .os-rail-brand .brand-mark { display: none !important; }
 
-.main-nav > button,
-.main-nav > a.nav-home {
-  min-height: var(--tap);
-  padding: 0 12px;
-  display: inline-flex;
-  align-items: center;
-  color: var(--muted);
-  font: 700 11px var(--mono);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  border-radius: var(--r);
-}
+
 .main-nav > button:hover,
 .main-nav > a.nav-home:hover {
   color: var(--ink-on-dark);
