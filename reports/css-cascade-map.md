@@ -185,14 +185,14 @@ The pass intentionally leaves the remaining conflicting values intact because di
 
 ## Current guard baseline · 2026-10-05
 
-The current six-file production cascade after the header, bottom-control and redundant-rule cleanup measures:
+Final baseline after the conflict cleanup:
 
-| Metric | Before cleanup | Current | Guard limit |
+| Metric | V1-era baseline | Current | Guard limit |
 |---|---:|---:|---:|
-| CSS rules | 2,354 | 2,289 | 2,310 |
-| `!important` occurrences | 3,623 | 3,328 | 3,350 |
-| Duplicate selector/property groups | 512 | 298 | 305 |
-| Conflicting selector/property groups | 928 | 890 | 910 |
-| CSS bytes | 368,539 | 347,827 | 512,000 |
+| CSS rules | 2,354 | 2,279 | 2,300 |
+| `!important` occurrences | 3,623 | 3,298 | 3,320 |
+| Duplicate selector/property groups | 512 | 299 | 305 |
+| Conflicting selector/property groups | 928 | 876 | 890 |
+| CSS bytes | 368,539 | 344,015 | 512,000 |
 
-The cleanup preserved the deliberate responsive, theme, accessibility and section-specific conflicts while removing superseded header/control layers and unused rules.
+The cleanup removed superseded header/control/theme layers, redundant declarations, empty rules, duplicate theme rules, and other provably losing cascade entries while preserving responsive, theme, accessibility and section-specific behavior.
