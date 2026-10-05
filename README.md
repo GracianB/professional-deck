@@ -215,6 +215,8 @@ El repo no depende solo de revisión manual.
 - GitHub Actions ejecuta el pipeline con Node 24 y publica en GitHub Pages tras pasar la calidad.
 
 El CSS conserva el orden de producción y se limpia mediante análisis de cascada conservador. No se eliminan overrides a ciegas.
+
+**Estado CSS (05/10/2026):** 341.6 KB · 2.271 reglas · 3.278 `!important` · 299 grupos duplicados · 864 grupos conflictivos medidos por el mapper contextual.
  
 ## English
 
