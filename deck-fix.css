@@ -736,8 +736,6 @@ html[data-theme="light"] .menu-toggle i {
 
 
 
-  justify-content: center !important;
-  gap: 0 !important;
 }
 
 #inicio .gb-hero-grid {
@@ -780,7 +778,6 @@ html[data-theme="light"] .menu-toggle i {
 #inicio .gb-hero-copy h1 {
   margin: 0 !important;
   max-width: 10ch !important;
-  font-size: clamp(58px, 6.4vw, 104px) !important;
   line-height: .84 !important;
   letter-spacing: -.055em !important;
   font-weight: 560 !important;
