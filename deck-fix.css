@@ -1026,3 +1026,15 @@ html[data-theme="light"] .presentation-exit b {
   font: 800 9px/1 var(--mono, ui-monospace, monospace);
   letter-spacing: .12em;
 }
+
+
+/* FINAL ALIGNMENT — center bottom controls inside the usable deck viewport.
+   The desktop rail removes --rail-w from the deck width, so 50vw is
+   visually off-center by half the rail width. */
+@media (min-width: 981px) {
+  body.has-os-rail .deck-controls {
+    left: calc(var(--rail-w) + ((100vw - var(--rail-w)) / 2)) !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+}
