@@ -173,3 +173,14 @@ html[data-theme="light"] .pd18-evo-message span {color:#81583e}
   #ruta.pd18-atlas .pd17-atlas-stops button {min-height:46px;}
   #ruta.pd18-atlas .pd17-atlas-side {gap:.4rem;}
 }
+
+/* On mobile, city-selector controls come before the detail panel to avoid
+   collision with the fixed previous/next deck controls at the viewport foot. */
+@media(max-width:640px){
+ #ruta.pd18-atlas .pd17-atlas-side {display:flex!important;flex-direction:column-reverse!important;gap:.4rem!important}
+ #ruta.pd18-atlas .pd17-atlas-stops {flex:0 0 auto;position:relative;z-index:4;margin:0 0 .35rem;}
+ #ruta.pd18-atlas .pd17-atlas-stops button {min-height:45px;padding:.5rem}
+ #ruta.pd18-atlas .pd17-atlas-stage {min-height:178px!important;flex:0 0 auto}
+ #ruta.pd18-atlas .pd17-atlas-map {min-height:225px!important}
+ body[data-active-slide="ruta"] .deck-controls {right:8px!important;left:auto!important;transform:none!important}
+}
