@@ -199,3 +199,19 @@ html[data-theme="light"] .pd18-evo-message span {color:#81583e}
  #ruta.pd18-atlas .pd18-map-caption {max-width:60%;font-size:.48rem!important}
  #ruta.pd18-atlas .pd18-city-nodes button[data-atlas-step="1"] span {left:50%;transform:translateX(0)!important}
 }
+
+/* Small screens: legible atlas heading and a real, reachable menu button. */
+@media(max-width:640px){
+  #ruta.pd18-atlas .pd17-atlas-head h2 {
+    font-size:clamp(1.95rem,7.7vw,2.55rem)!important;
+    line-height:1.1!important;letter-spacing:-.018em!important;
+  }
+  #ruta.pd18-atlas .pd17-atlas-head h2 em {letter-spacing:0!important}
+  .site-header {padding-inline:8px!important;gap:5px!important}
+  .site-header>.brand {flex:1 1 auto!important;max-width:150px!important;min-width:0!important}
+  .site-header>.header-actions {flex:0 0 auto!important;margin-left:auto!important;gap:4px!important}
+  .header-actions .seg {min-width:0!important}
+  .header-actions .seg-btn {min-width:30px!important;width:30px!important;padding:0 4px!important}
+  .site-header .menu-toggle {flex:0 0 42px!important;min-width:42px!important;width:42px!important;height:42px!important;margin:0!important}
+  .site-header .brand-mark {flex-shrink:0!important}
+}
