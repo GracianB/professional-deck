@@ -6,7 +6,7 @@ test.describe("Professional Deck browser E2E", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
     await expect(page).toHaveTitle(/Gracián Baena/i);
-    await expect(page.locator(".deck .slide")).toHaveCount(10);
+    await expect(page.locator(".deck .slide")).toHaveCount(12);
 
     await expect(page.locator(".site-header")).toBeVisible();
     await expect(page.locator(".deck-controls")).toBeVisible();
@@ -26,12 +26,12 @@ test.describe("Professional Deck browser E2E", () => {
     await page.locator('.main-nav [data-go="ruta"]').click();
     await expect(page.locator('#ruta')).toBeInViewport();
     const stops=page.locator("[data-atlas-stops] button");
-    await expect(stops).toHaveCount(5);
+    await expect(stops).toHaveCount(6);
     await stops.nth(2).click();
     await expect(stops.nth(2)).toHaveAttribute("aria-pressed", "true");
-    await expect(page.locator("[data-atlas-title]")).toContainText("Escuchar");
+    await expect(page.locator("[data-atlas-title]")).toContainText("Madrid");
     await page.locator("[data-atlas-go]").click();
-    await expect(page).toHaveURL(/#experiencia$/);
+    await expect(page).toHaveURL(/#trayectoria$/);
 
     await page.locator("[data-open-recruiter]").first().click();
     const dialog=page.locator("#recruiter-dialog");
@@ -52,6 +52,37 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(page).toHaveURL(/#sistemas$/);
   });
 
+  test("V18 tiene seis ciudades reales y evidencia visual en experiencia", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await expect(page.locator("#modelo .pd18-model-track li")).toHaveCount(7);
+    await expect(page.locator("#metodo [data-method-steps] .gb-step")).toHaveCount(5);
+    await expect(page.locator("#trayectoria .pd18-evo-rail li")).toHaveCount(5);
+    await expect(page.locator("#capacidades .pd18-cap-grid article")).toHaveCount(5);
+    await expect(page.locator("#experiencia .pd18-brand-art")).toHaveCount(3);
+    await expect(page.locator("#experiencia-2 .pd18-brand-art")).toHaveCount(3);
+    const cities = await page.locator("#ruta .pd18-city-nodes button").evaluateAll(nodes =>
+      nodes.map(node => ({lat:Number(node.dataset.lat),lon:Number(node.dataset.lon)}))
+    );
+    expect(cities.length).toBe(6);
+    expect(cities.every(city => Number.isFinite(city.lat) && Number.isFinite(city.lon))).toBe(true);
+    await page.locator("#ruta [data-atlas-stops] [data-atlas-step='5']").click();
+    await expect(page.locator("[data-atlas-title]")).toContainText("Varsovia");
+    await page.locator("[data-set-lang='en']").click();
+    await expect(page.locator("[data-atlas-title]")).toContainText("Warsaw");
+  });
+
+  test("header separates navigation and utilities on desktop", async ({ page }) => {
+    await page.setViewportSize({width:1440,height:900});
+    await page.goto("/", { waitUntil:"domcontentloaded" });
+    const rects=await page.evaluate(() => {
+      const nav=document.querySelector(".site-header .main-nav").getBoundingClientRect();
+      const tools=document.querySelector(".site-header .header-actions").getBoundingClientRect();
+      return {nav:{left:nav.left,top:nav.top,right:nav.right,bottom:nav.bottom},tools:{left:tools.left,top:tools.top,right:tools.right,bottom:tools.bottom}};
+    });
+    expect(rects.nav.top).toBeGreaterThanOrEqual(rects.tools.bottom - 2);
+    expect(rects.nav.right).toBeLessThanOrEqual(1440);
+  });
+
   test("navegación entre slides funciona", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
@@ -63,7 +94,7 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(slides.nth(1)).toBeInViewport();
 
     await page.keyboard.press("End");
-    await expect(slides.nth(9)).toBeInViewport();
+    await expect(slides.nth(11)).toBeInViewport();
 
     await page.keyboard.press("Home");
     await expect(slides.nth(0)).toBeInViewport();
@@ -140,11 +171,11 @@ test.describe("Professional Deck browser E2E", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
     const railItems = page.locator(".os-rail-item");
-    await expect(railItems).toHaveCount(10);
+    await expect(railItems).toHaveCount(12);
     await expect(railItems.nth(0)).toHaveAttribute("aria-current", "true");
 
     await page.keyboard.press("End");
-    await expect(railItems.nth(9)).toHaveAttribute("aria-current", "true");
+    await expect(railItems.nth(11)).toHaveAttribute("aria-current", "true");
     await expect(railItems.nth(0)).toHaveAttribute("aria-current", "false");
   });
 

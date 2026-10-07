@@ -24,7 +24,7 @@ test.describe("Professional Deck smoke", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(250);
 
-    await expect(page.locator("section.slide")).toHaveCount(10);
+    await expect(page.locator("section.slide")).toHaveCount(12);
     await expect(page.locator(".site-header")).toBeVisible();
     await expect(page.locator('.main-nav [data-go="sistemas"]')).toBeVisible();
     await expect(page.locator('.nav-recruiter')).toBeVisible();
@@ -46,7 +46,7 @@ test.describe("Professional Deck smoke", () => {
     await page.locator('#inicio [data-go="sistemas"]').click();
     await expect(page).toHaveURL(/theme=dark/);
     await expect(page).toHaveURL(/#sistemas$/);
-    await expect(page.locator('[data-slide-live]')).toContainText(/Slide 02.*Bodytone/i);
+    await expect(page.locator('[data-slide-live]')).toContainText(/Slide 03.*Bodytone/i);
 
     const coverTitleFont = await page.locator(".pd16-name span").evaluate(el =>
       getComputedStyle(el).fontFamily
@@ -63,11 +63,14 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("#demos")).toContainText(/OHANA/i);
     await expect(page.locator("#demos")).toContainText(/VØRTICE/i);
     await expect(page.locator("#ruta .pd17-atlas-map svg")).toHaveCount(1);
+    await expect(page.locator("#modelo .pd18-model-track li")).toHaveCount(7);
+    await expect(page.locator("#metodo .pd18-method-flow .gb-step")).toHaveCount(5);
+    await expect(page.locator("#capacidades .pd18-cap-grid article")).toHaveCount(5);
     await page.locator('.main-nav [data-go="ruta"]').click();
     await expect(page.locator("#ruta")).toBeInViewport();
-    await expect(page.locator("[data-atlas-stops] button")).toHaveCount(5);
+    await expect(page.locator("[data-atlas-stops] button")).toHaveCount(6);
     await page.locator('[data-atlas-stops] [data-atlas-step="3"]').click();
-    await expect(page.locator("[data-atlas-title]")).toContainText(/Convertir|product/i);
+    await expect(page.locator("[data-atlas-title]")).toContainText(/Lisboa|Lisbon/i);
     await page.waitForTimeout(220);
     await page.screenshot({ path: "artifacts/v16/operating-model.png", fullPage: false });
 
@@ -131,7 +134,7 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("#ruta")).toBeInViewport();
     await page.locator("#ruta").evaluate(el => el.scrollIntoView({ block: "start", behavior: "instant" }));
     await page.waitForTimeout(180);
-    await expect(page.locator("[data-atlas-stops] button")).toHaveCount(5);
+    await expect(page.locator("[data-atlas-stops] button")).toHaveCount(6);
     await page.screenshot({ path: "artifacts/v16/atlas-mobile.png", fullPage: false });
     await page.locator("[data-atlas-stops] [data-atlas-step='4']").click();
     await expect(page.locator("[data-atlas-title]")).toBeVisible();

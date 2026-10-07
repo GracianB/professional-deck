@@ -56,6 +56,7 @@
   <link rel="stylesheet" href="./deck-fix.css?v=deck-v16">
   <link rel="stylesheet" href="./v16-final.css?v=deck-v16">
   <link rel="stylesheet" href="./v17-atlas.css?v=deck-v17">
+  <link rel="stylesheet" href="./v18-story.css?v=deck-v18">
   <script src="./i18n.js?v=deck-v16" defer></script>
   <script src="./main.js?v=deck-v16" defer></script>
 </head>
@@ -67,7 +68,7 @@
 
   <aside class="os-rail" aria-label="Index">
     <div class="os-rail-brand">
-      <div><b data-i18n="railBrand">PROFILE DECK</b><small data-i18n="railSlides">2026 · 10 slides</small></div>
+      <div><b data-i18n="railBrand">PROFILE DECK</b><small data-i18n="railSlides">2026 · 12 slides</small></div>
     </div>
     <p class="os-rail-status"><span data-i18n="railActive">ACTIVA</span><strong data-rail-status>00 · Portada</strong></p>
     <nav class="os-rail-nav" data-slide-rail></nav>
@@ -85,8 +86,8 @@
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
       <button type="button" data-go="sistemas" data-i18n="navSystems">Sistemas</button>
-      <button type="button" data-go="ruta" data-i18n="navRoute">Mapa</button>
-      <button type="button" data-go="trayectoria" data-i18n="navCareer">Trayectoria</button>
+      <button type="button" data-go="ruta" data-i18n="navRoute">Atlas</button>
+      <button type="button" data-go="trayectoria" data-i18n="navCareer">Evolución</button>
       <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
       <button type="button" class="nav-recruiter" data-open-recruiter aria-haspopup="dialog" data-i18n="navRecruiter">60 SEG</button>
       <button type="button" class="nav-present" data-present data-i18n="navPresent" data-i18n-title="presentToggle" aria-pressed="false" title="Modo presentación">PRESENTAR</button>
@@ -173,6 +174,30 @@
 
     <!-- 01 VALUE — cards ARRIBA, titular ABAJO -->
     
+
+    <!-- 01 MODELO -->
+    <section class="slide dark fit pd18-model" id="modelo" data-title="Modelo" data-code="01">
+      <div class="pd18-shell">
+        <header class="pd18-heading"><p class="slide-index light-index"><span>01</span><i></i><span data-i18n="modelIndex">MODELO</span></p><p class="eyebrow" data-i18n="modelEyebrow">CLIENTE → DECISIÓN → SISTEMA</p><h2 data-i18n-html="modelTitle">Entender primero.<br><em>Construir lo que falta.</em></h2><p data-i18n="modelLead">No conecto habilidades al azar: convierto la fricción real en soluciones que la gente puede usar.</p></header>
+        <div class="pd18-model-layout">
+          <ol class="pd18-model-track" aria-label="Modelo operativo">
+            <li><span>01</span><strong data-i18n="modelA">CLIENTE</strong><small data-i18n="modelAs">Necesidad y contexto</small></li>
+            <li><span>02</span><strong data-i18n="modelB">OPERACIÓN</strong><small data-i18n="modelBs">Proceso y fricción</small></li>
+            <li><span>03</span><strong data-i18n="modelC">SEÑAL</strong><small data-i18n="modelCs">Dato y excepción</small></li>
+            <li><span>04</span><strong data-i18n="modelD">DECISIÓN</strong><small data-i18n="modelDs">Criterio y prioridad</small></li>
+            <li><span>05</span><strong data-i18n="modelE">SISTEMA</strong><small data-i18n="modelEs">Interfaz y automatización</small></li>
+            <li><span>06</span><strong data-i18n="modelF">ADOPCIÓN</strong><small data-i18n="modelFs">Equipo y hábito</small></li>
+            <li><span>07</span><strong data-i18n="modelG">RESULTADO</strong><small data-i18n="modelGs">Uso y mejora</small></li>
+          </ol>
+          <aside class="pd18-model-proof"><small data-i18n="modelProof">PRUEBA EL MODELO EN ACCIÓN</small>
+            <a href="./proyecto-bodytone.html"><b>BODYTONE</b><span data-i18n="modelProof1">Soporte, Zendesk y formación</span><em>↗</em></a>
+            <a href="https://gracianb.github.io/revops-studio/" target="_blank" rel="noopener noreferrer"><b>REVOPS STUDIO</b><span data-i18n="modelProof2">Decisión trazable y scoring</span><em>↗</em></a>
+            <a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noopener noreferrer"><b>OHANA</b><span data-i18n="modelProof3">Estados, juego y simulación</span><em>↗</em></a>
+            <a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noopener noreferrer"><b>VØRTICE</b><span data-i18n="modelProof4">WebGL, sonido y visuales</span><em>↗</em></a>
+          </aside>
+        </div>
+      </div>
+    </section>
 
     <!-- 02 BODYTONE — estrella: automatización + creación de app -->
     <section class="slide dark systems-slide fit gb-star-slide" id="sistemas" data-title="Bodytone" data-code="02">
@@ -265,160 +290,86 @@
     </section>
 
     <!-- 03 ATLAS — geographic context + interactive professional journey -->
-    <section class="slide dark fit pd17-atlas-slide" id="ruta" data-title="Mapa" data-code="03">
-      <div class="pd17-atlas-shell">
-        <header class="pd17-atlas-head">
-          <div>
-            <p class="slide-index light-index"><span>03</span><i></i><span data-i18n="atlasIndex">ATLAS PROFESIONAL</span></p>
-            <p class="eyebrow" data-i18n="atlasEyebrow">GEOGRAFÍA · EXPERIENCIA · EVOLUCIÓN</p>
-            <h2 data-i18n-html="atlasTitle">No fue una línea recta.<br><em>Fue conectar mundos.</em></h2>
-          </div>
-          <p data-i18n="atlasLead">De la primera línea a los sistemas que hoy construyo. Explora cada etapa del recorrido.</p>
-        </header>
-        <div class="pd17-atlas-layout">
-          <div class="pd17-atlas-map">
-            <div class="pd17-atlas-map-label"><span>GB / ATLAS</span><b>2014 — 2026</b></div>
-            <svg viewBox="0 0 760 480" role="img" aria-labelledby="atlas-svg-title atlas-svg-desc" preserveAspectRatio="xMidYMid meet">
-              <title id="atlas-svg-title">Atlas esquemático de la península ibérica</title>
-              <desc id="atlas-svg-desc">Portugal y Murcia como referencias geográficas; las estaciones numeradas representan etapas profesionales, no ubicaciones de empresas.</desc>
-              <defs>
-                <pattern id="atlas-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#d3b68a" stroke-opacity=".08" stroke-width=".7"/></pattern>
-                <linearGradient id="atlas-land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4c4535"/><stop offset="1" stop-color="#172c2e"/></linearGradient>
-                <linearGradient id="atlas-line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#c9a56c"/><stop offset=".52" stop-color="#75dddf"/><stop offset="1" stop-color="#e2bb7b"/></linearGradient>
-                <radialGradient id="atlas-halo"><stop stop-color="#55d1d9" stop-opacity=".18"/><stop offset="1" stop-color="#55d1d9" stop-opacity="0"/></radialGradient>
-              </defs>
-              <rect width="760" height="480" fill="url(#atlas-grid)"/>
-              <circle cx="492" cy="264" r="230" fill="url(#atlas-halo)"/>
-              <path class="pd17-land" d="M192 118 L283 104 L352 79 L443 91 L506 110 L580 102 L631 137 L639 172 L617 206 L647 238 L621 272 L604 324 L561 337 L540 377 L475 391 L417 376 L363 395 L331 376 L269 380 L232 352 L195 330 L189 281 L168 262 L184 211 L166 172 Z" fill="url(#atlas-land)" stroke="#d8c39d" stroke-opacity=".42" stroke-width="2"/>
-              <path d="M267 117 C255 155 242 172 252 205 S250 262 228 290 S250 339 235 357" fill="none" stroke="#d8c39d" stroke-opacity=".35" stroke-dasharray="5 8" stroke-width="2"/>
-              <path d="M228 290 Q372 160 517 294" fill="none" stroke="url(#atlas-line)" stroke-opacity=".8" stroke-width="2.5" stroke-dasharray="7 10" class="pd17-atlas-arc"/>
-              <path d="M518 294 Q604 185 649 100" fill="none" stroke="#8ce7e4" stroke-opacity=".4" stroke-width="1.5" stroke-dasharray="4 10"/>
-              <circle cx="228" cy="290" r="13" fill="#c9a56c" fill-opacity=".15"/><circle cx="228" cy="290" r="4" fill="#d7b277"/>
-              <circle cx="518" cy="294" r="16" fill="#7de2e6" fill-opacity=".13"/><circle cx="518" cy="294" r="5" fill="#7de2e6"/>
-              <text x="158" y="314" class="pd17-map-name">PORTUGAL</text>
-              <text x="531" y="300" class="pd17-map-name">MURCIA</text>
-              <text x="350" y="232" class="pd17-map-watermark">IBERIA</text>
-
-            </svg>
-            <div class="pd17-atlas-nodes" aria-label="Etapas seleccionables sobre el mapa">
-              <button type="button" data-atlas-step="0" aria-pressed="true" style="--node-x:26%;--node-y:51%">01</button>
-              <button type="button" data-atlas-step="1" aria-pressed="false" style="--node-x:38%;--node-y:38%">02</button>
-              <button type="button" data-atlas-step="2" aria-pressed="false" style="--node-x:50%;--node-y:32%">03</button>
-              <button type="button" data-atlas-step="3" aria-pressed="false" style="--node-x:60%;--node-y:44%">04</button>
-              <button type="button" data-atlas-step="4" aria-pressed="false" style="--node-x:72%;--node-y:56%">05</button>
-            </div>
-            <div class="pd17-map-note"><span class="pd17-live-dot"></span><span data-i18n="atlasMapNote">Geografía real como contexto. Estaciones como evolución profesional.</span></div>
-            <div class="pd17-atlas-key"><span>MURCIA</span><span>PORTUGAL</span><span data-i18n="atlasKey">CONTEXTO INTERNACIONAL / REMOTO</span></div>
-          </div>
-          <div class="pd17-atlas-side">
-            <div class="pd17-atlas-stage" data-atlas-stage aria-live="polite" aria-atomic="true">
-              <div class="pd17-stage-top"><small data-atlas-count>01 / 05</small><span data-atlas-year>2014—2016</span></div>
-              <div class="pd17-stage-symbol" aria-hidden="true" data-atlas-symbol>01</div>
-              <p class="pd17-stage-kicker" data-atlas-kicker>PEOPLE</p>
-              <h3 data-atlas-title>El origen: personas.</h3>
-              <p data-atlas-copy>Primera línea, servicio, retail y tecnología. Aprender qué necesita alguien antes de diseñar un sistema.</p>
-              <strong data-atlas-proof>Mooby · Primark · El Corte Inglés</strong>
-              <button type="button" class="pd17-stage-link" data-atlas-go="experiencia-2" data-i18n="atlasOpen">EXPLORAR EXPERIENCIA ↗</button>
-            </div>
-            <nav class="pd17-atlas-stops" data-atlas-stops aria-label="Etapas profesionales">
-              <button type="button" data-atlas-step="0" aria-pressed="true">01 <span>PEOPLE</span></button>
-              <button type="button" data-atlas-step="1" aria-pressed="false">02 <span>OPS</span></button>
-              <button type="button" data-atlas-step="2" aria-pressed="false">03 <span>SAAS</span></button>
-              <button type="button" data-atlas-step="3" aria-pressed="false">04 <span>DATA</span></button>
-              <button type="button" data-atlas-step="4" aria-pressed="false">05 <span>BUILD</span></button>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- 05 MÉTODO — DECISION ENGINE -->
-    <section class="slide dark fit gb-method" id="metodo" data-title="Método" data-code="05">
-      <div class="gb-method-top gb-title-band">
-        <div class="gb-title-block">
-          <p class="slide-index light-index"><span>05</span><i></i><span data-i18n="methodIndex">MÉTODO</span></p>
-          <p class="eyebrow" data-i18n="methodEyebrow">OPERATING SYSTEM · HOW I WORK</p>
-          <h2 data-i18n-html="methodH2">Motor de decisión.<br><em>No solo análisis.</em></h2>
-        </div>
-        <p class="gb-method-lead" data-i18n="methodP">Identifico la decisión crítica, construyo el sistema mínimo y cierro con adopción real del equipo.</p>
-      </div>
-      <div class="gb-method-grid" data-method-steps>
-        <article class="gb-step">
-          <span class="gb-step-num">01</span>
-          <h3 data-i18n="mStep1t">ESCUCHAR</h3>
-          <p data-i18n="mStep1p">Cliente + equipo + operación</p>
-          <b data-i18n="mStep1b">SEÑAL →</b>
-        </article>
-        <article class="gb-step">
-          <span class="gb-step-num">02</span>
-          <h3 data-i18n="mStep2t">DECIDIR</h3>
-          <p data-i18n="mStep2p">Fricción + dato + prioridad</p>
-          <b data-i18n="mStep2b">CRITERIO →</b>
-        </article>
-        <article class="gb-step">
-          <span class="gb-step-num">03</span>
-          <h3 data-i18n="mStep3t">CONSTRUIR</h3>
-          <p data-i18n="mStep3p">UI + reglas + automatización</p>
-          <b data-i18n="mStep3b">SISTEMA →</b>
-        </article>
-        <article class="gb-step is-final">
-          <span class="gb-step-num">04</span>
-          <h3 data-i18n="mStep4t">ACTIVAR</h3>
-          <p data-i18n="mStep4p">Formación + hábito + mejora</p>
-          <b data-i18n="mStep4b">ADOPCIÓN ↗</b>
-        </article>
-      </div>
-      <div class="gb-method-formula">
-        <div class="gb-formula-card">
-          <small>HUMAN LAYER</small>
-          <strong>10+</strong>
-          <b data-i18n="compoundH">Años en primera línea</b>
-          <span data-i18n="compoundHsub">Retail · conflicto · equipos · cliente</span>
-        </div>
-        <div class="gb-formula-op">×</div>
-        <div class="gb-formula-card">
-          <small>SYSTEM LAYER</small>
-          <strong>05</strong>
-          <b data-i18n="compoundS">Años construyendo</b>
-          <span data-i18n="compoundSsub">Datos · APIs · automatización · IA</span>
-        </div>
-        <div class="gb-formula-op">=</div>
-        <div class="gb-formula-card result">
-          <small>OUTPUT</small>
-          <b data-i18n="compoundR">Traduzco problema → decisión → sistema → adopción</b>
-          <span data-i18n="compoundRsub">Business · Data · People en el mismo perfil</span>
-        </div>
-      </div>
-    </section>
+    <section class="slide dark fit pd18-method" id="metodo" data-title="Método" data-code="04">
+  <div class="pd18-shell">
+    <header class="pd18-heading"><p class="slide-index light-index"><span>04</span><i></i><span data-i18n="methodIndex">MÉTODO</span></p><p class="eyebrow" data-i18n="methodEyebrow">A REAL WAY OF BUILDING</p><h2 data-i18n-html="methodH2">No solo recomiendo.<br><em>Dejo algo funcionando.</em></h2><p data-i18n="methodP">Cinco movimientos. Del problema humano a la evidencia que cualquiera puede revisar.</p></header>
+    <div class="pd18-method-flow" data-method-steps>
+      <article class="gb-step"><span class="gb-step-num">01</span><h3>ESCUCHAR</h3><p>Cliente + equipo + operación</p><b>CONTEXTO</b></article>
+      <article class="gb-step"><span class="gb-step-num">02</span><h3>TRADUCIR</h3><p>Necesidad → lógica → prioridad</p><b>CRITERIO</b></article>
+      <article class="gb-step"><span class="gb-step-num">03</span><h3>CONSTRUIR</h3><p>Proceso, API, automatización o app</p><b>SISTEMA</b></article>
+      <article class="gb-step"><span class="gb-step-num">04</span><h3>ACTIVAR</h3><p>Formación, uso y feedback</p><b>ADOPCIÓN</b></article>
+      <article class="gb-step is-final"><span class="gb-step-num">05</span><h3>DEMOSTRAR</h3><p>Señal, evaluación y mejora</p><b>EVIDENCIA</b></article>
+    </div>
+    <aside class="pd18-method-case"><div><small>CASE STUDY / BODYTONE</small><h3 data-i18n="methodCaseTitle">El método puesto a trabajar.</h3><p data-i18n="methodCaseText">Conocimiento, Zendesk, enrutado, reporting y formación. Un sistema tiene valor cuando el equipo realmente puede utilizarlo.</p></div><div class="pd18-case-tags"><span>HELP CENTER</span><span>ZENDESK</span><span>DATA / BI</span><span>ACADEMY</span></div><a href="./proyecto-bodytone.html" data-i18n="methodCaseLink">ABRIR CASO ↗</a></aside>
+  </div>
+</section>
+    <section class="slide dark fit pd17-atlas-slide pd18-atlas" id="ruta" data-title="Atlas" data-code="05">
+ <div class="pd17-atlas-shell">
+  <header class="pd17-atlas-head"><div><p class="slide-index light-index"><span>05</span><i></i><span data-i18n="atlasIndex">ATLAS · 6 CIUDADES</span></p><p class="eyebrow" data-i18n="atlasEyebrow">ESPAÑA · PORTUGAL · ITALIA · POLONIA</p><h2 data-i18n-html="atlasTitle">Seis ciudades.<br><em>Una mirada más amplia.</em></h2></div><p data-i18n="atlasLead">Murcia, Gran Canaria, Madrid, Lisboa, Bérgamo y Varsovia: referencias reales de mi recorrido y conexiones.</p></header>
+  <div class="pd17-atlas-layout">
+   <div class="pd17-atlas-map pd18-geo-map">
+    <div class="pd17-atlas-map-label"><span>GB / EUROPEAN NETWORK</span><b>ES · PT · IT · PL</b></div>
+    <svg viewBox="0 0 1000 620" role="img" aria-labelledby="atlas-svg-title atlas-svg-desc" preserveAspectRatio="none">
+     <title id="atlas-svg-title">Europa y Canarias, seis referencias geográficas</title><desc id="atlas-svg-desc">Puntos ubicados por latitud y longitud: Murcia, Gran Canaria, Madrid, Lisboa, Bérgamo y Varsovia. El contorno del mapa es una simplificación artística, no un mapa topográfico.</desc>
+     <defs><pattern id="pd18-map-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#69d9e1" stroke-opacity=".10"/></pattern><radialGradient id="pd18-map-glow"><stop stop-color="#69d9e1" stop-opacity=".22"/><stop offset="1" stop-color="#69d9e1" stop-opacity="0"/></radialGradient></defs>
+     <rect width="1000" height="620" fill="url(#pd18-map-grid)"/><circle cx="440" cy="330" r="340" fill="url(#pd18-map-glow)"/>
+     <g class="pd18-map-land" fill="#28444a" fill-opacity=".83" stroke="#79a6aa" stroke-opacity=".42" stroke-width="2">
+      <path d="M172 243 L210 206 269 202 313 230 339 270 342 322 367 364 355 424 305 443 260 426 225 448 181 423 163 363 145 348Z"/>
+      <path d="M294 99 L384 72 449 107 498 118 553 89 622 106 671 94 723 114 779 125 825 134 884 107 932 149 960 215 943 264 910 286 896 327 849 336 822 372 779 356 732 382 690 363 654 393 624 360 575 384 546 343 502 363 465 332 420 352 388 325 347 344 335 284 306 231Z"/>
+      <path d="M585 359 L610 376 624 403 660 436 668 471 684 500 654 520 632 498 620 453 602 424Z"/>
+      <path d="M467 85 L491 64 508 39 529 46 544 84 526 112 501 118Z"/>
+      <path d="M147 544 L155 537 163 546 157 552Z"/><path d="M178 540 L186 536 190 544 183 551Z"/>
+     </g>
+     <g fill="#d4e6e0" fill-opacity=".26" font-family="monospace" font-size="16" letter-spacing="4"><text x="263" y="308">IBERIA</text><text x="490" y="265">EUROPE</text><text x="622" y="475">ITALIA</text><text x="821" y="242">POLSKA</text><text x="35" y="597">CANARIAS</text></g>
+     <g fill="none" stroke="#7bdde4" stroke-opacity=".52" stroke-width="2" stroke-dasharray="6 10"><path d="M415 372 L356 321 L228 357"/><path d="M415 372 Q550 170 667 213 T930 83"/><path d="M415 372 Q262 450 83 575"/></g>
+    </svg>
+    <div class="pd17-atlas-nodes pd18-city-nodes" aria-label="Puntos geográficos">
+     <button type="button" data-atlas-step="0" data-lat="37.9922" data-lon="-1.1307" aria-pressed="true" style="--node-x:41.56%;--node-y:60.03%">01<span>MURCIA</span></button>
+     <button type="button" data-atlas-step="1" data-lat="28.1235" data-lon="-15.4363" aria-pressed="false" style="--node-x:8.29%;--node-y:92.92%">02<span>GRAN CANARIA</span></button>
+     <button type="button" data-atlas-step="2" data-lat="40.4168" data-lon="-3.7038" aria-pressed="false" style="--node-x:35.57%;--node-y:51.94%">03<span>MADRID</span></button>
+     <button type="button" data-atlas-step="3" data-lat="38.7223" data-lon="-9.1393" aria-pressed="false" style="--node-x:22.93%;--node-y:57.59%">04<span>LISBOA</span></button>
+     <button type="button" data-atlas-step="4" data-lat="45.6983" data-lon="9.6773" aria-pressed="false" style="--node-x:66.69%;--node-y:34.34%">05<span>BÉRGAMO</span></button>
+     <button type="button" data-atlas-step="5" data-lat="52.2297" data-lon="21.0122" aria-pressed="false" style="--node-x:93.05%;--node-y:12.57%">06<span>VARSOVIA</span></button>
+    </div>
+    <div class="pd18-map-caption"><span class="pd17-live-dot"></span><span data-i18n="atlasMapNote">Coordenadas reales · cartografía esquemática · líneas narrativas, no rutas</span></div>
+   </div>
+   <div class="pd17-atlas-side">
+    <div class="pd17-atlas-stage" data-atlas-stage aria-live="polite" aria-atomic="true"><div class="pd17-stage-top"><small data-atlas-count>01 / 06</small><span data-atlas-year>ESPAÑA</span></div><div class="pd17-stage-symbol" data-atlas-symbol aria-hidden="true">01</div><p class="pd17-stage-kicker" data-atlas-kicker>BASE</p><h3 data-atlas-title>Murcia. La base.</h3><p data-atlas-copy>Desde Murcia conecto proyectos, experiencia de cliente y tecnología.</p><strong data-atlas-proof>MURCIA · ES</strong><button type="button" class="pd17-stage-link" data-atlas-go="trayectoria" data-i18n="atlasOpen">VER EVOLUCIÓN ↗</button></div>
+    <nav class="pd17-atlas-stops" data-atlas-stops aria-label="Seis ciudades">
+     <button type="button" data-atlas-step="0" aria-pressed="true">MUR <span>ES</span></button>
+     <button type="button" data-atlas-step="1" aria-pressed="false">LPA <span>ES</span></button>
+     <button type="button" data-atlas-step="2" aria-pressed="false">MAD <span>ES</span></button>
+     <button type="button" data-atlas-step="3" aria-pressed="false">LIS <span>PT</span></button>
+     <button type="button" data-atlas-step="4" aria-pressed="false">BGY <span>IT</span></button>
+     <button type="button" data-atlas-step="5" aria-pressed="false">WAW <span>PL</span></button>
+    </nav>
+   </div>
+  </div>
+ </div>
+</section>
 
     <!-- 06 TRAYECTORIA — dual engine denso centrado -->
-    <section class="slide dark fit pd16-career" id="trayectoria" data-title="Trayectoria" data-code="06">
-      <div class="pd16-career-shell">
-        <header class="gb-title-band pd16-career-head">
-          <p class="slide-index light-index"><span>06</span><i></i><span data-i18n="careerIndex">TRAYECTORIA</span></p>
-          <p class="eyebrow" data-i18n="careerEyebrow">SERVICE → OPERATIONS → CS → DATA → SYSTEMS</p>
-          <h2 data-i18n-html="careerH2">La progresión<br><em>explica el perfil.</em></h2>
-          <p data-i18n="careerP">No empecé por el código. Empecé por clientes, equipos y operación. La capa técnica llegó para resolver esos problemas mejor.</p>
-        </header>
-
-        <div class="pd16-career-steps">
-          <article><span>01</span><small>2014—2016</small><h3 data-i18n="careerStage1">Servicio & retail</h3><p data-i18n="careerStage1P">Primera línea, ventas, cliente, inventario y equipos.</p></article>
-          <article><span>02</span><small>2017—2021</small><h3 data-i18n="careerStage2">Operaciones & training</h3><p data-i18n="careerStage2P">Dirección de tienda, P&L, formación y calidad en entornos de escala.</p></article>
-          <article><span>03</span><small>2021—2024</small><h3 data-i18n="careerStage3">B2B SaaS · Customer Success</h3><p data-i18n="careerStage3P">Adopción, cuentas internacionales, pricing intelligence y señales de cliente.</p></article>
-          <article><span>04</span><small>2024—2025</small><h3 data-i18n="careerStage4">Especialización</h3><p data-i18n="careerStage4P">IA aplicada, datos, desarrollo, automatización y práctica de yoga/mindfulness.</p></article>
-          <article class="is-current"><span>05</span><small>2025—2026</small><h3 data-i18n="careerStage5">Customer Operations · Data</h3><p data-i18n="careerStage5P">Customer Success, analítica, conocimiento, automatización y tooling interno.</p></article>
-        </div>
-
-        <footer class="gb-panel-bar is-gold">
-          <p data-i18n="careerStmt">La misma lógica se repite: entender a la persona, ordenar la operación, hacer visible la señal y construir lo que falta.</p>
-        </footer>
-      </div>
-    </section>
+    <section class="slide dark fit pd18-evolution" id="trayectoria" data-title="Evolución" data-code="06">
+ <div class="pd18-shell">
+  <header class="pd18-heading"><p class="slide-index light-index"><span>06</span><i></i><span data-i18n="careerIndex">EVOLUCIÓN</span></p><p class="eyebrow" data-i18n="careerEyebrow">2014 → 2026 · PEOPLE → SYSTEMS</p><h2 data-i18n-html="careerH2">No cambié de dirección.<br><em>Fui añadiendo herramientas.</em></h2><p data-i18n="careerP">Una misma historia: entender a las personas, liderar operaciones y construir las soluciones necesarias.</p></header>
+  <ol class="pd18-evo-rail">
+    <li><small>2014—16</small><span>01</span><strong data-i18n="careerStage1">SERVICIO</strong><p data-i18n="careerStage1P">Cliente, ventas y operación desde primera línea.</p><em>MOOBY · PRIMARK · ECI</em></li>
+    <li><small>2017—21</small><span>02</span><strong data-i18n="careerStage2">OPERACIONES</strong><p data-i18n="careerStage2P">Liderazgo, P&amp;L, formación y calidad a escala.</p><em>SOLARIS · MAJOREL</em></li>
+    <li><small>2021—24</small><span>03</span><strong data-i18n="careerStage3">B2B SAAS</strong><p data-i18n="careerStage3P">Customer Success, adopción y lectura del negocio.</p><em>MINDEREST</em></li>
+    <li><small>2024—25</small><span>04</span><strong data-i18n="careerStage4">ESPECIALIZACIÓN</strong><p data-i18n="careerStage4P">Datos, desarrollo, automatización e IA.</p><em>LEARN · BUILD · TEST</em></li>
+    <li class="is-current"><small>2025—26</small><span>05</span><strong data-i18n="careerStage5">SYSTEMS &amp; DATA</strong><p data-i18n="careerStage5P">Customer Operations, software y adopción.</p><em>BODYTONE · REVOPS · OHANA · VØRTICE</em></li>
+  </ol>
+  <footer class="pd18-evo-message"><span>PEOPLE × DATA × BUILD</span><strong data-i18n="careerStmt">La tecnología no sustituyó la capa humana. La hizo más útil.</strong></footer>
+ </div>
+</section>
 
     
 
     <!-- 07 EXPERIENCIA I — sistemas, SaaS, yoga (roles recientes) -->
-    <section class="slide dark fit gb-exp-slide pd16-exp" id="experiencia" data-title="Experiencia I" data-code="08">
+    <section class="slide dark fit gb-exp-slide pd16-exp pd18-experience" id="experiencia" data-title="Experiencia I" data-code="08">
       <div class="gb-panel gb-panel-dark gb-exp-panel">
         <header class="gb-panel-head gb-panel-head-compact gb-title-band">
           <p class="slide-index light-index"><span>08</span><i></i><span data-i18n="expIndex">EXPERIENCIA · 01/02</span></p>
@@ -428,19 +379,19 @@
         </header>
 
         <div class="gb-roles" data-roles-grid>
-          <button type="button" class="gb-role is-featured" data-role-card="bodytone" data-role="bodytone">
+          <button type="button" class="gb-role is-featured" data-role-card="bodytone" data-role="bodytone"><span class="pd18-brand-art" style="--brand-color:#59d9df" aria-hidden="true"><svg viewBox="0 0 150 90" focusable="false"><rect width="150" height="90" rx="15" fill="#15252c"/><circle cx="36" cy="32" r="29" fill="#59d9df" fill-opacity=".22"/><path d="M0 79 Q52 0 149 37" fill="none" stroke="#59d9df" stroke-opacity=".78" stroke-width="2"/><text x="75" y="60" text-anchor="middle" fill="#effaff" font-family="Arial,sans-serif" font-size="43" font-weight="800">BT</text></svg></span>
             <span class="gb-role-year"><small class="gb-role-idx">01</small><span class="gb-role-dates" data-role-period>MAR 2025 — MAR 2026</span></span>
             <span class="gb-role-main"><span class="gb-role-topline"><b class="gb-role-co">BODYTONE</b><span class="gb-role-tag">LEAD</span></span><strong class="gb-role-title">Data Analyst & Head of Customer Success</strong><em class="gb-role-sum" data-role-summary>Customer Success, analítica, Zendesk, conocimiento, automatización y tooling interno.</em></span>
             <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
           </button>
 
-          <button type="button" class="gb-role" data-role-card="minderest" data-role="minderest">
+          <button type="button" class="gb-role" data-role-card="minderest" data-role="minderest"><span class="pd18-brand-art" style="--brand-color:#b5a0f0" aria-hidden="true"><svg viewBox="0 0 150 90" focusable="false"><rect width="150" height="90" rx="15" fill="#15252c"/><circle cx="36" cy="32" r="29" fill="#b5a0f0" fill-opacity=".22"/><path d="M0 79 Q52 0 149 37" fill="none" stroke="#b5a0f0" stroke-opacity=".78" stroke-width="2"/><text x="75" y="60" text-anchor="middle" fill="#effaff" font-family="Arial,sans-serif" font-size="43" font-weight="800">M.</text></svg></span>
             <span class="gb-role-year"><small class="gb-role-idx">02</small><span class="gb-role-dates" data-role-period>MAR 2021 — MAR 2024</span></span>
             <span class="gb-role-main"><span class="gb-role-topline"><b class="gb-role-co">MINDEREST</b><span class="gb-role-tag">SAAS</span></span><strong class="gb-role-title">Customer Success Specialist</strong><em class="gb-role-sum" data-role-summary>Adopción B2B SaaS, cuentas internacionales y pricing intelligence.</em></span>
             <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
           </button>
 
-          <button type="button" class="gb-role" data-role-card="majorel" data-role="majorel">
+          <button type="button" class="gb-role" data-role-card="majorel" data-role="majorel"><span class="pd18-brand-art" style="--brand-color:#e58ac3" aria-hidden="true"><svg viewBox="0 0 150 90" focusable="false"><rect width="150" height="90" rx="15" fill="#15252c"/><circle cx="36" cy="32" r="29" fill="#e58ac3" fill-opacity=".22"/><path d="M0 79 Q52 0 149 37" fill="none" stroke="#e58ac3" stroke-opacity=".78" stroke-width="2"/><text x="75" y="60" text-anchor="middle" fill="#effaff" font-family="Arial,sans-serif" font-size="43" font-weight="800">M</text></svg></span>
             <span class="gb-role-year"><small class="gb-role-idx">03</small><span class="gb-role-dates" data-role-period>ENE 2020 — MAR 2021</span></span>
             <span class="gb-role-main"><span class="gb-role-topline"><b class="gb-role-co">MAJOREL · GOOGLE / YOUTUBE</b><span class="gb-role-tag">GLOBAL</span></span><strong class="gb-role-title">Content Operations</strong><em class="gb-role-sum" data-role-summary>Content QA, política y consistencia en una operación internacional de alto volumen.</em></span>
             <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
@@ -458,7 +409,7 @@
     </section>
 
     <!-- 08 EXPERIENCIA II — global ops + retail foundation -->
-    <section class="slide dark fit gb-exp-slide pd16-exp" id="experiencia-2" data-title="Experiencia II" data-code="09">
+    <section class="slide dark fit gb-exp-slide pd16-exp pd18-experience" id="experiencia-2" data-title="Experiencia II" data-code="09">
       <div class="gb-panel gb-panel-dark gb-exp-panel">
         <header class="gb-panel-head gb-panel-head-compact gb-title-band">
           <p class="slide-index light-index"><span>09</span><i></i><span data-i18n="expIndex2">EXPERIENCIA · 02/02</span></p>
@@ -468,19 +419,19 @@
         </header>
 
         <div class="gb-roles" data-roles-grid>
-          <button type="button" class="gb-role is-featured" data-role-card="solaris" data-role="solaris">
+          <button type="button" class="gb-role is-featured" data-role-card="solaris" data-role="solaris"><span class="pd18-brand-art" style="--brand-color:#f6c070" aria-hidden="true"><svg viewBox="0 0 150 90" focusable="false"><rect width="150" height="90" rx="15" fill="#15252c"/><circle cx="36" cy="32" r="29" fill="#f6c070" fill-opacity=".22"/><path d="M0 79 Q52 0 149 37" fill="none" stroke="#f6c070" stroke-opacity=".78" stroke-width="2"/><text x="75" y="60" text-anchor="middle" fill="#effaff" font-family="Arial,sans-serif" font-size="43" font-weight="800">S</text></svg></span>
             <span class="gb-role-year"><small class="gb-role-idx">04</small><span class="gb-role-dates" data-role-period>ENE 2017 — ENE 2020</span></span>
             <span class="gb-role-main"><span class="gb-role-topline"><b class="gb-role-co">SOLARIS</b><span class="gb-role-tag">OPS</span></span><strong class="gb-role-title">Store Management & Training</strong><em class="gb-role-sum" data-role-summary>P&L, equipo, ventas, experiencia de cliente, inventario y formación.</em></span>
             <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
           </button>
 
-          <button type="button" class="gb-role" data-role-card="eci" data-role="eci">
+          <button type="button" class="gb-role" data-role-card="eci" data-role="eci"><span class="pd18-brand-art" style="--brand-color:#9bda7d" aria-hidden="true"><svg viewBox="0 0 150 90" focusable="false"><rect width="150" height="90" rx="15" fill="#15252c"/><circle cx="36" cy="32" r="29" fill="#9bda7d" fill-opacity=".22"/><path d="M0 79 Q52 0 149 37" fill="none" stroke="#9bda7d" stroke-opacity=".78" stroke-width="2"/><text x="75" y="60" text-anchor="middle" fill="#effaff" font-family="Arial,sans-serif" font-size="29" font-weight="800">ECI</text></svg></span>
             <span class="gb-role-year"><small class="gb-role-idx">05</small><span class="gb-role-dates" data-role-period>JUN 2015 — DIC 2016</span></span>
             <span class="gb-role-main"><span class="gb-role-topline"><b class="gb-role-co">EL CORTE INGLÉS</b><span class="gb-role-tag">RETAIL</span></span><strong class="gb-role-title">Retail Operations</strong><em class="gb-role-sum" data-role-summary>Servicio, ventas, formación y operación diaria en primera línea.</em></span>
             <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
           </button>
 
-          <button type="button" class="gb-role" data-role-card="primark" data-role="primark">
+          <button type="button" class="gb-role" data-role-card="primark" data-role="primark"><span class="pd18-brand-art" style="--brand-color:#92c0ea" aria-hidden="true"><svg viewBox="0 0 150 90" focusable="false"><rect width="150" height="90" rx="15" fill="#15252c"/><circle cx="36" cy="32" r="29" fill="#92c0ea" fill-opacity=".22"/><path d="M0 79 Q52 0 149 37" fill="none" stroke="#92c0ea" stroke-opacity=".78" stroke-width="2"/><text x="75" y="60" text-anchor="middle" fill="#effaff" font-family="Arial,sans-serif" font-size="43" font-weight="800">P</text></svg></span>
             <span class="gb-role-year"><small class="gb-role-idx">06</small><span class="gb-role-dates" data-role-period>ENE 2015 — JUN 2015</span></span>
             <span class="gb-role-main"><span class="gb-role-topline"><b class="gb-role-co">PRIMARK</b><span class="gb-role-tag">SCALE</span></span><strong class="gb-role-title">Retail Operations</strong><em class="gb-role-sum" data-role-summary>Alto volumen, merchandising, equipo y estándares de atención.</em></span>
             <span class="gb-role-go" data-i18n="expDetail">Abrir →</span>
@@ -493,6 +444,19 @@
 
     <!-- 09 CAPABILITIES -->
     
+
+    <!-- 09 CAPACIDADES -->
+    <section class="slide dark fit pd18-capabilities" id="capacidades" data-title="Capacidades" data-code="09">
+      <div class="pd18-shell"><header class="pd18-heading"><p class="slide-index light-index"><span>09</span><i></i><span data-i18n="capIndex">CAPACIDADES</span></p><p class="eyebrow" data-i18n="capEyebrow">PRUEBAS, NO PORCENTAJES INVENTADOS</p><h2 data-i18n-html="capH2">Lo que sé hacer.<br><em>Lo que puedes abrir.</em></h2><p data-i18n="capP">Del negocio al software: cada especialidad enlaza con una prueba real.</p></header>
+        <div class="pd18-cap-grid">
+          <article><small>01 / CUSTOMER SYSTEMS</small><h3 data-i18n="cap18Title1">OPERACIONES Y ADOPCIÓN</h3><p data-i18n="cap18Text1">CS · Zendesk · documentación · procesos · formación · KPIs</p><a href="https://bodytonehelp.zendesk.com/hc/es" target="_blank" rel="noopener noreferrer">BODYTONE SUPPORT OS ↗</a></article>
+          <article><small>02 / DATA &amp; AUTOMATION</small><h3 data-i18n="cap18Title2">DATOS Y AUTOMATIZACIÓN</h3><p data-i18n="cap18Text2">Python · Power BI · APIs · Apps Script · scoring · trazabilidad</p><a href="https://gracianb.github.io/revops-studio/" target="_blank" rel="noopener noreferrer">REVOPS STUDIO ↗</a></article>
+          <article><small>03 / GAME SYSTEMS</small><h3 data-i18n="cap18Title3">JUEGOS E INTERACTIVIDAD</h3><p data-i18n="cap18Text3">OHANA: personajes, simulación, habilidades, estados, CI y E2E</p><a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noopener noreferrer">PROJECT OHANA ↗</a></article>
+          <article><small>04 / CREATIVE CODE</small><h3 data-i18n="cap18Title4">SONIDO Y VISUALES</h3><p data-i18n="cap18Text4">VØRTICE: audio-reactividad, WebGL, gráficos y rendimiento</p><a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noopener noreferrer">VØRTICE ↗</a></article>
+          <article><small>05 / AI SYSTEMS</small><h3 data-i18n="cap18Title5">CHATBOTS Y GENAI</h3><p data-i18n="cap18Text5">LLMs · asistentes · interfaces conversacionales · automatizaciones</p><a href="https://gracianb.github.io/systems-lab/" target="_blank" rel="noopener noreferrer">SYSTEMS LAB ↗</a></article>
+        </div>
+      </div>
+    </section>
 
     <!-- 10 EDUCATION -->
     <section class="slide dark fit gb-edu-slide" id="formacion" data-title="Formación" data-code="11">
@@ -548,6 +512,7 @@
             <span data-i18n="fitDataAi">Data / AI</span>
             <span data-i18n="fitConsulting">Consultoría</span>
           </div>
+          <div class="pd18-contact-languages" aria-label="Idiomas de trabajo"><span><b>ES</b><small data-i18n="langEsLevel">Nativo</small></span><span><b>EN</b><small data-i18n="langEnLevel">Profesional</small></span><span><b>IT</b><small data-i18n="langItLevel">Profesional</small></span></div>
           <div class="gb-contact-metrics">
             <div><strong>16+</strong><span data-i18n="m1">años exp.</span></div>
             <div><strong>B2B</strong><span data-i18n="m2">SaaS · CS</span></div>
@@ -577,7 +542,7 @@
   </main>
 
   <nav class="deck-controls" aria-label="Controls">
-    <span><b data-current>01</b><i>/</i><em data-total>10</em></span>
+    <span><b data-current>01</b><i>/</i><em data-total>12</em></span>
     <button type="button" data-prev>← <small data-i18n="prev">ANT.</small></button>
     <button type="button" data-next><small data-i18n="next">SIG.</small> →</button>
   </nav>

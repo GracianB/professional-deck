@@ -5,7 +5,7 @@ import { spawnSync } from "node:child_process";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const required = [
-  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "main.js", "i18n.js", "case.js",
+  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "v18-story.css", "main.js", "i18n.js", "case.js",
   "README.md", "favicon.svg", "og-cover.png", "manifest.webmanifest",
   "Gracian_Baena_CV_2026_ES.pdf", "Gracian_Baena_CV_2026_EN.pdf",
   "Gracian_Baena_Carta_Presentacion_ES.pdf", "Gracian_Baena_Cover_Letter_EN.pdf",
@@ -47,6 +47,7 @@ const index = await readFile(join(root, "index.html"), "utf8");
 const css = await readFile(join(root, "styles.css"), "utf8");
 const v16 = await readFile(join(root, "v16-final.css"), "utf8");
 const v17 = await readFile(join(root, "v17-atlas.css"), "utf8");
+const v18 = await readFile(join(root, "v18-story.css"), "utf8");
 const main = await readFile(join(root, "main.js"), "utf8");
 const i18n = await readFile(join(root, "i18n.js"), "utf8");
 const readme = await readFile(join(root, "README.md"), "utf8");
@@ -54,7 +55,7 @@ const packageJson = JSON.parse(await readFile(join(root, "package.json"), "utf8"
 const publicText = [index, i18n, readme].join("\n");
 
 const slideCount = (index.match(/<section class="slide\b/g) || []).length;
-if (slideCount !== 10) errors.push(`V17 requires exactly 10 curated slides, found ${slideCount}`);
+if (slideCount !== 12) errors.push(`V18 requires exactly 12 curated slides, found ${slideCount}`);
 
 const ids = [...index.matchAll(/\bid=["']([^"']+)["']/g)].map((match) => match[1]);
 const duplicates = [...new Set(ids.filter((id, pos) => ids.indexOf(id) !== pos))];
@@ -70,6 +71,7 @@ for (const token of [
   'class="slide dark fit pd16-cover"',
   'class="pd16-name"',
   'class="pd16-os"',
+  'id="modelo"',
   'id="sistemas"',
   'id="demos"',
   'id="ruta"',
@@ -79,9 +81,12 @@ for (const token of [
   'data-brief-chapters',
   'data-brief-play',
   'id="trayectoria"',
-  'class="pd16-career-steps"',
+  'class="pd18-evo-rail"',
+  'class="pd18-method-flow"',
+  'class="pd18-cap-grid"',
   'id="experiencia"',
   'id="experiencia-2"',
+  'id="capacidades"',
   'id="formacion"',
   'id="contacto"',
 ]) {
@@ -126,7 +131,10 @@ if (!/\.pd16-model-flow\s*\{/.test(v16)) errors.push("V16 operating model CSS mi
 if (!/\.pd16-career-steps\s*\{/.test(v16)) errors.push("V16 career CSS missing");
 if (!/\.pd17-atlas-map\s*\{/.test(v17)) errors.push("V17 atlas CSS missing");
 if (!/function tickBrief\(/.test(main)) errors.push("V17 briefing timer missing");
-for (const retired of ["valor", "linea", "capacidades", "idiomas"]) {
+if (!/\.pd18-model-track\s*\{/.test(v18)) errors.push("V18 model CSS missing");
+if ((index.match(/data-lat=/g)||[]).length !== 6) errors.push("V18 requires six city markers");
+for (const city of ["MURCIA", "GRAN CANARIA", "MADRID", "LISBOA", "BÉRGAMO", "VARSOVIA"]) requireText(index, city, `city marker ${city}`);
+for (const retired of ["valor", "linea", "idiomas"]) {
  if (new RegExp(`<section[^>]+id="${retired}"`).test(index)) errors.push(`Retired filler slide still present: ${retired}`);
 }
 
@@ -158,4 +166,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`OK · V17 ATLAS · ${required.length} files · ${slideCount} slides · ES/EN · evidence-first · ready for browser gates`);
+console.log(`OK · V18 STORY · ${required.length} files · ${slideCount} slides · ES/EN · evidence-first · ready for browser gates`);
