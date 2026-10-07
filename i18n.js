@@ -406,7 +406,7 @@
       ["2026", "BUILD", "La evidencia se puede abrir.", "RevOps Studio, Project OHANA y VØRTICE muestran decisiones trazables, ingeniería y experiencias interactivas.", "REVOPS · OHANA · VØRTICE", "demos"]
     ],
     briefEyebrow: "60 SEGUNDOS / 4 CAPÍTULOS",
-    briefTitle: "Mi recorrido. <em>Sin relleno.</em>",
+    briefTitle: "Mi recorrido.<br><em>Sin relleno.</em>",
     briefLead: "De operar con personas a diseñar sistemas que resuelven problemas reales.",
     briefNav1: "PERSONAS",
     briefNav2: "SAAS",
@@ -837,7 +837,7 @@
       ["2026", "BUILD", "Proof you can open.", "RevOps Studio, Project OHANA and VØRTICE demonstrate traceable decisions, engineering and interactive experiences.", "REVOPS · OHANA · VØRTICE", "demos"]
     ],
     briefEyebrow: "60 SECONDS / 4 CHAPTERS",
-    briefTitle: "My story. <em>No filler.</em>",
+    briefTitle: "My story.<br><em>No filler.</em>",
     briefLead: "From working with people to building systems that solve real problems.",
     briefNav1: "PEOPLE",
     briefNav2: "SAAS",
