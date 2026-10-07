@@ -6,7 +6,7 @@ test.describe("Professional Deck browser E2E", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
     await expect(page).toHaveTitle(/Gracián Baena/i);
-    await expect(page.locator(".deck .slide")).toHaveCount(14);
+    await expect(page.locator(".deck .slide")).toHaveCount(10);
 
     await expect(page.locator(".site-header")).toBeVisible();
     await expect(page.locator(".deck-controls")).toBeVisible();
@@ -20,6 +20,38 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(page.locator("#command-dialog")).toHaveCount(1);
   });
 
+
+  test("atlas interactivo y resumen de 60 segundos sin scroll interminable", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.locator('.main-nav [data-go="ruta"]').click();
+    await expect(page.locator('#ruta')).toBeInViewport();
+    const stops=page.locator("[data-atlas-stops] button");
+    await expect(stops).toHaveCount(5);
+    await stops.nth(2).click();
+    await expect(stops.nth(2)).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("[data-atlas-title]")).toContainText("Escuchar");
+    await page.locator("[data-atlas-go]").click();
+    await expect(page).toHaveURL(/#experiencia$/);
+
+    await page.locator("[data-open-recruiter]").first().click();
+    const dialog=page.locator("#recruiter-dialog");
+    await expect(dialog).toBeVisible();
+    await expect(dialog.locator("[data-brief-chapter]")).toHaveCount(4);
+    await expect(dialog.locator("[data-brief-clock]")).toHaveText("00:00");
+    await dialog.locator("[data-brief-play]").click();
+    await expect(dialog.locator("[data-brief-play]")).toHaveAttribute("aria-pressed", "true");
+    await page.waitForTimeout(1100);
+    await expect(dialog.locator("[data-brief-clock]")).not.toHaveText("00:00");
+    await dialog.locator("[data-brief-play]").click();
+    await expect(dialog.locator("[data-brief-play]")).toHaveAttribute("aria-pressed", "false");
+    await dialog.locator('[data-brief-chapter="2"]').click();
+    await expect(dialog.locator("[data-brief-clock]")).toHaveText("00:30");
+    await expect(dialog.locator("[data-brief-title]")).toContainText("construir");
+    await dialog.locator("[data-brief-explore]").click();
+    await expect(dialog).not.toBeVisible();
+    await expect(page).toHaveURL(/#sistemas$/);
+  });
+
   test("navegación entre slides funciona", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
@@ -31,7 +63,7 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(slides.nth(1)).toBeInViewport();
 
     await page.keyboard.press("End");
-    await expect(slides.nth(13)).toBeInViewport();
+    await expect(slides.nth(9)).toBeInViewport();
 
     await page.keyboard.press("Home");
     await expect(slides.nth(0)).toBeInViewport();
@@ -108,11 +140,11 @@ test.describe("Professional Deck browser E2E", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
     const railItems = page.locator(".os-rail-item");
-    await expect(railItems).toHaveCount(14);
+    await expect(railItems).toHaveCount(10);
     await expect(railItems.nth(0)).toHaveAttribute("aria-current", "true");
 
     await page.keyboard.press("End");
-    await expect(railItems.nth(13)).toHaveAttribute("aria-current", "true");
+    await expect(railItems.nth(9)).toHaveAttribute("aria-current", "true");
     await expect(railItems.nth(0)).toHaveAttribute("aria-current", "false");
   });
 
