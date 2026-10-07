@@ -611,6 +611,59 @@
   // Career atlas: each stop updates one readable evidence panel; no invented job locations.
   const atlasStops = document.querySelector("[data-atlas-stops]");
   const atlasExplore = document.querySelector("[data-atlas-go]");
+  const atlasRoutes = document.querySelector("[data-atlas-routes]");
+  const atlasTour = document.querySelector("[data-atlas-tour]");
+  const atlasMode = document.querySelector("[data-atlas-mode]");
+  const atlasNext = document.querySelector("[data-atlas-next]");
+  const atlasPrev = document.querySelector("[data-atlas-prev]");
+  let atlasTourTimer = null;
+  let atlasFullNetwork = false;
+  const atlasPoints = Array.from(document.querySelectorAll(".pd18-city-nodes [data-atlas-step]")).map((button) => ({
+    x: Number.parseFloat(button.style.getPropertyValue("--node-x")) * 10,
+    y: Number.parseFloat(button.style.getPropertyValue("--node-y")) * 6.2
+  }));
+  const atlasSvgNS = "http://www.w3.org/2000/svg";
+
+  function updateAtlasLines() {
+    if (!atlasRoutes || atlasPoints.length !== 6) return;
+    atlasRoutes.replaceChildren();
+    for (let a = 0; a < atlasPoints.length; a += 1) {
+      for (let b = a + 1; b < atlasPoints.length; b += 1) {
+        if (!atlasFullNetwork && a !== atlasStep && b !== atlasStep) continue;
+        const start = atlasPoints[a];
+        const end = atlasPoints[b];
+        const dx = end.x - start.x;
+        const dy = end.y - start.y;
+        const length = Math.hypot(dx, dy) || 1;
+        const lift = Math.min(85, length * 0.22);
+        const midx = (start.x + end.x) / 2 + (dy / length) * lift;
+        const midy = (start.y + end.y) / 2 - (dx / length) * lift;
+        const path = document.createElementNS(atlasSvgNS, "path");
+        path.setAttribute("d", `M${start.x.toFixed(1)} ${start.y.toFixed(1)} Q${midx.toFixed(1)} ${midy.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`);
+        path.setAttribute("class", (a === atlasStep || b === atlasStep) ? "pd19-route-active" : "pd19-route-secondary");
+        path.style.setProperty("--route-delay", `${(a + b) * -0.8}s`);
+        atlasRoutes.append(path);
+      }
+    }
+  }
+  function stopAtlasTour() {
+    if (atlasTourTimer !== null) clearInterval(atlasTourTimer);
+    atlasTourTimer = null;
+    atlasTour?.setAttribute("aria-pressed", "false");
+    if (atlasTour) atlasTour.textContent = t.atlasTour || "▶ RECORRER";
+  }
+  function moveAtlas(delta) {
+    const chapters = t.atlasChapters || [];
+    if (!chapters.length) return;
+    atlasStep = (atlasStep + delta + chapters.length) % chapters.length;
+    renderAtlas();
+  }
+  function selectAtlas(index) {
+    stopAtlasTour();
+    if (!Number.isInteger(index) || index < 0 || index >= (t.atlasChapters?.length || 0)) return;
+    atlasStep = index;
+    renderAtlas();
+  }
 
   function renderAtlas() {
     const chapters = t.atlasChapters || [];
@@ -629,6 +682,10 @@
     textOf("[data-atlas-copy]", chapter[3]);
     textOf("[data-atlas-proof]", chapter[4]);
     if (atlasExplore) atlasExplore.dataset.atlasGo = chapter[5];
+    updateAtlasLines();
+    atlasMode?.setAttribute("aria-pressed", String(atlasFullNetwork));
+    if (atlasMode) atlasMode.textContent = atlasFullNetwork ? (t.atlasFocus || "◎ ENFOCAR") : (t.atlasMode || "◌ RED COMPLETA");
+    if (atlasTour) atlasTour.textContent = atlasTourTimer !== null ? (t.atlasTourPause || "Ⅱ PAUSAR") : (t.atlasTour || "▶ RECORRER");
     document.querySelectorAll("[data-atlas-step]").forEach((button) => {
       const number = Number(button.dataset.atlasStep);
       button.setAttribute("aria-pressed", String(number === atlasStep));
@@ -637,24 +694,41 @@
   }
   atlasStops?.addEventListener("click", (event) => {
     const button = event.target.closest("[data-atlas-step]");
-    if (!button) return;
-    atlasStep = Number(button.dataset.atlasStep);
-    renderAtlas();
+    if (button) selectAtlas(Number(button.dataset.atlasStep));
   });
   document.querySelector(".pd17-atlas-nodes")?.addEventListener("click", (event) => {
     const button = event.target.closest("[data-atlas-step]");
-    if (!button) return;
-    atlasStep = Number(button.dataset.atlasStep);
-    renderAtlas();
+    if (button) selectAtlas(Number(button.dataset.atlasStep));
   });
   atlasStops?.addEventListener("keydown", (event) => {
     if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
     event.preventDefault();
-    const count = t.atlasChapters?.length || 5;
-    atlasStep = event.key === "Home" ? 0 : event.key === "End" ? count - 1 :
+    const count = t.atlasChapters?.length || 6;
+    const next = event.key === "Home" ? 0 : event.key === "End" ? count - 1 :
       (atlasStep + (event.key === "ArrowRight" ? 1 : -1) + count) % count;
+    selectAtlas(next);
+    atlasStops.querySelector(`[data-atlas-step="${next}"]`)?.focus();
+  });
+  atlasNext?.addEventListener("click", () => selectAtlas((atlasStep + 1) % (t.atlasChapters?.length || 6)));
+  atlasPrev?.addEventListener("click", () => selectAtlas((atlasStep - 1 + (t.atlasChapters?.length || 6)) % (t.atlasChapters?.length || 6)));
+  atlasMode?.addEventListener("click", () => {
+    atlasFullNetwork = !atlasFullNetwork;
     renderAtlas();
-    atlasStops.querySelector(`[data-atlas-step="${atlasStep}"]`)?.focus();
+  });
+  atlasTour?.addEventListener("click", () => {
+    if (atlasTourTimer !== null) { stopAtlasTour(); return; }
+    moveAtlas(1);
+    atlasTourTimer = setInterval(() => {
+      if (document.hidden || document.querySelector("#ruta")?.getBoundingClientRect().top > innerHeight / 2) {
+        stopAtlasTour(); return;
+      }
+      moveAtlas(1);
+    }, 3600);
+    renderAtlas();
+    atlasTour.setAttribute("aria-pressed", "true");
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopAtlasTour();
   });
   atlasExplore?.addEventListener("click", () => goTo(atlasExplore.dataset.atlasGo || "experiencia"));
 

@@ -47,6 +47,9 @@ test.describe("Professional Deck smoke", () => {
     await expect(page).toHaveURL(/theme=dark/);
     await expect(page).toHaveURL(/#sistemas$/);
     await expect(page.locator('[data-slide-live]')).toContainText(/Slide 03.*Bodytone/i);
+    await expect(page.locator("#sistemas")).toBeInViewport();
+    await page.waitForTimeout(220);
+    await page.screenshot({ path: "artifacts/v16/bodytone-v19-desktop.png", fullPage: false });
 
     const coverTitleFont = await page.locator(".pd16-name span").evaluate(el =>
       getComputedStyle(el).fontFamily
@@ -112,6 +115,10 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("body")).not.toHaveClass(/presentation-mode/);
     await expect(page.locator("[data-present]")).toHaveAttribute("aria-pressed", "false");
 
+    await page.locator(".main-nav [data-go='contacto']").click();
+    await expect(page.locator("#contacto")).toBeInViewport();
+    await page.screenshot({ path: "artifacts/v16/contact-v19-desktop.png", fullPage: false });
+
     expect(pageErrors, pageErrors.join("\n")).toEqual([]);
     expect(consoleErrors, consoleErrors.join("\n")).toEqual([]);
     expect(localFailures, localFailures.join("\n")).toEqual([]);
@@ -151,6 +158,13 @@ test.describe("Professional Deck smoke", () => {
     expect(dimensions.left).toBeGreaterThanOrEqual(0);
     expect(dimensions.right).toBeLessThanOrEqual(390);
     expect(dimensions.width).toBeLessThanOrEqual(dimensions.viewport + 1);
+    await brief.locator(".dialog-close").click();
+    await expect(brief).not.toBeVisible();
+    await page.locator("#contacto").evaluate(el => el.scrollIntoView({block:"start",behavior:"instant"}));
+    await page.waitForTimeout(180);
+    await page.screenshot({path:"artifacts/v16/contact-v19-mobile.png",fullPage:false});
+    const contactWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+    expect(contactWidth).toBeLessThanOrEqual(390);
     await context.close();
   });
 

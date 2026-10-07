@@ -1,4 +1,4 @@
-# Gracián Baena · Professional Deck V18
+# Gracián Baena · Professional Deck V19
 
 **Customer Success Systems & Data Strategist**  
 Murcia, Spain · Remote · Spanish / English / Italian
@@ -26,6 +26,10 @@ The final narrative is deliberately simple:
 I started close to customers, teams and daily operations. The technical layer came later so I could build the missing system directly instead of stopping at recommendations.
 
 ---
+
+## V19 · Final interactive refinements
+
+V19 is the actual HTML/CSS/JavaScript implementation, not a generated mockup. The Bodytone case now uses the cover's midnight-navy visual language with a workflow strip (customer, Zendesk, data, Academy) and retains only grounded, previously documented metrics. The six-city atlas uses selectable markers and SVG-drawn contextual links; explore cities manually, toggle all connections or play/pause a tour. The map uses actual Natural Earth 1:110m country vector boundaries embedded in the HTML. City pins use actual coordinates. Connecting curves show context, **not measured journeys**. Natural Earth data is public domain; no raster maps or generated images are shipped. The final contact chapter now has real links, CV, agenda, languages and public project references on a bespoke dark interactive-style composition. No stock photographs, fabricated percentages or image generation assets.
 
 ## V18 chapter structure
 
