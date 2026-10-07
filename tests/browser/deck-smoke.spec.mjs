@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mkdirSync } from "node:fs";
 
 test.describe("Professional Deck smoke", () => {
   test("loads cleanly and exposes the recruiter-critical flow", async ({ page }) => {
@@ -19,6 +20,7 @@ test.describe("Professional Deck smoke", () => {
       }
     });
 
+    mkdirSync("artifacts/v16", { recursive: true });
     await page.goto("/", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(250);
 
@@ -51,11 +53,16 @@ test.describe("Professional Deck smoke", () => {
     );
     expect(coverTitleFont).toMatch(/Fraunces/i);
 
+    await page.screenshot({ path: "artifacts/v16/cover-desktop.png", fullPage: false });
+
     await expect(page.locator("#demos .pd16-proof-card")).toHaveCount(3);
     await expect(page.locator("#demos")).toContainText(/RevOps Studio/i);
     await expect(page.locator("#demos")).toContainText(/OHANA/i);
     await expect(page.locator("#demos")).toContainText(/VØRTICE/i);
     await expect(page.locator("#ruta .pd16-model-flow li")).toHaveCount(7);
+    await page.locator('[data-go="ruta"]').click();
+    await page.waitForTimeout(180);
+    await page.screenshot({ path: "artifacts/v16/operating-model.png", fullPage: false });
 
     await page.locator('.nav-recruiter').click();
     const recruiter = page.locator("#recruiter-dialog");
