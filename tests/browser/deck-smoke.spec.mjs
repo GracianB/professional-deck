@@ -66,7 +66,7 @@ test.describe("Professional Deck smoke", () => {
     await page.locator('.main-nav [data-go="ruta"]').click();
     await expect(page.locator("#ruta")).toBeInViewport();
     await expect(page.locator("[data-atlas-stops] button")).toHaveCount(5);
-    await page.locator('[data-atlas-step="3"]').click();
+    await page.locator('[data-atlas-stops] [data-atlas-step="3"]').click();
     await expect(page.locator("[data-atlas-title]")).toContainText(/Convertir|product/i);
     await page.waitForTimeout(220);
     await page.screenshot({ path: "artifacts/v16/operating-model.png", fullPage: false });
