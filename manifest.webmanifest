@@ -1,5 +1,5 @@
 {
-  "name": "Gracián Baena · Professional Deck",
+  "name": "Gracián Baena · Professional Deck V16",
   "short_name": "Gracián Baena",
   "lang": "es",
   "start_url": "./",
@@ -7,7 +7,7 @@
   "display": "standalone",
   "background_color": "#141210",
   "theme_color": "#141210",
-  "description": "Portfolio profesional de Gracián Baena · Customer Success Systems · Data Strategy · AI Operations.",
+  "description": "Professional evidence deck: Customer Success, Operations, Data and AI with real cases and public systems.",
   "icons": [
     {
       "src": "./favicon.svg",
