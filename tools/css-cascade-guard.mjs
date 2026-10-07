@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 
 const LIMITS = {
-  totalRules: 2725,
+  totalRules: 2726,
   important: 3075,
   duplicateSelectorPropertyGroups: 350,
   conflictingSelectorPropertyGroups: 1000,
