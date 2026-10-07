@@ -162,3 +162,14 @@ html[data-theme="light"] .pd18-method-case p {color:#45616a}
 html[data-theme="light"] .pd18-evo-message {background:#dcebf0;color:#173642}
 html[data-theme="light"] .pd18-evo-message strong {color:#173642}
 html[data-theme="light"] .pd18-evo-message span {color:#81583e}
+
+/* The atlas has six real stops. On narrow screens it must scroll rather than
+   hide its second row of controls behind the slide viewport. */
+@media (max-width:640px){
+  #ruta.pd18-atlas {overflow-x:hidden!important;overflow-y:auto!important;justify-content:flex-start!important;overscroll-behavior-y:contain;}
+  #ruta.pd18-atlas .pd17-atlas-shell {margin:0 auto!important;}
+  #ruta.pd18-atlas .pd17-atlas-stage {min-height:195px!important;}
+  #ruta.pd18-atlas .pd17-atlas-map {min-height:235px!important;}
+  #ruta.pd18-atlas .pd17-atlas-stops button {min-height:46px;}
+  #ruta.pd18-atlas .pd17-atlas-side {gap:.4rem;}
+}
