@@ -147,3 +147,18 @@ html[data-theme="light"] .pd18-contact-languages small {color:#213c44}
  .pd18-map-caption {font-size:.53rem}
 }
 @media(prefers-reduced-motion:reduce){.pd18-model-proof a{transition:none}}
+
+/* Explicit light-mode treatment for the new editorial surfaces. */
+html[data-theme="light"] #modelo.pd18-model,
+html[data-theme="light"] #metodo.pd18-method,
+html[data-theme="light"] #trayectoria.pd18-evolution,
+html[data-theme="light"] #capacidades.pd18-capabilities {
+ background:#edf4f6!important;color:#173642!important;
+}
+html[data-theme="light"] .pd18-heading .eyebrow {color:#23758b}
+html[data-theme="light"] .pd18-method-case {background:#dcebf0;border-color:rgba(36,91,106,.25)}
+html[data-theme="light"] .pd18-method-case h3 {color:#173642}
+html[data-theme="light"] .pd18-method-case p {color:#45616a}
+html[data-theme="light"] .pd18-evo-message {background:#dcebf0;color:#173642}
+html[data-theme="light"] .pd18-evo-message strong {color:#173642}
+html[data-theme="light"] .pd18-evo-message span {color:#81583e}
