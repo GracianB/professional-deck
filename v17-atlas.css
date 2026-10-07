@@ -29,8 +29,9 @@
 .pd17-atlas-nodes button[aria-pressed="true"],.pd17-atlas-nodes button:hover,.pd17-atlas-nodes button:focus-visible { border-color:#e3ca9b; background:#c09b66; color:#171613; transform:translate(-50%,-50%) scale(1.1); box-shadow:0 0 0 10px rgba(220,176,118,.13),0 0 40px rgba(218,173,112,.28); }
 .pd17-map-note { position: absolute; z-index: 2; left: 18px; bottom: 56px; max-width: calc(100% - 36px); display: flex; align-items: baseline; gap: .6rem; color: #b7c7c1; font: 500 .69rem/1.5 var(--mono); }
 .pd17-live-dot { flex:0 0 7px; width:7px; height:7px; background: #79deda; border-radius:50%; box-shadow: 0 0 12px rgba(121,222,218,.7); }
-.pd17-atlas-key { position: absolute; z-index: 2; inset: auto 18px 16px; display:flex; gap: .65rem; flex-wrap:wrap; color:#bda98e; font: 700 .55rem/1.2 var(--mono); letter-spacing:.03em; }
-.pd17-atlas-key span { padding:.38rem .55rem; border:1px solid rgba(215,183,130,.2); border-radius:99px; background:rgba(0,0,0,.28); }
+.pd17-atlas-key { position:absolute; z-index:2; inset:auto 20px 17px; display:flex; gap:.45rem; flex-wrap:wrap; align-items:center; color:#d9c4a0; font:700 .6rem/1.3 var(--mono); letter-spacing:.035em; }
+.pd17-atlas-key span { padding:.38rem .7rem; border:1px solid rgba(215,183,130,.3); border-radius:99px; background:rgba(9,15,14,.9); white-space:nowrap; }
+.pd17-atlas-key span::before {content:""; display:inline-block; vertical-align:middle; width:5px; height:5px; margin-right:.5rem; border-radius:50%; background:#a7dbd4; }
 .pd17-atlas-side { display: grid; grid-template-rows: minmax(0,1fr) auto; gap: .65rem; min-width:0; }
 .pd17-atlas-stage { position: relative; overflow:hidden; padding: clamp(1.3rem,2.4vw,2.4rem); display:flex; flex-direction:column; justify-content:flex-end; border:1px solid rgba(207,177,124,.2); border-radius:20px; background:radial-gradient(circle at 88% 2%,rgba(115,201,199,.15),transparent 42%),linear-gradient(155deg,#191815,#100f0e); }
 .pd17-stage-top { position:absolute; top:22px; left:24px; right:24px; display:flex; justify-content:space-between; gap:1rem; font:700 .68rem var(--mono); color:#cbb084; }
@@ -105,7 +106,9 @@ html[data-theme="light"] #ruta .pd17-atlas-head > p { color:#5b554e; }
   .pd17-atlas-map { min-height:250px; }
   .pd17-atlas-map svg { max-height:280px; }
   .pd17-map-note { bottom:43px; font-size:.58rem; }
-  .pd17-atlas-key { font-size:.5rem; }
+  .pd17-atlas-key { font-size:.54rem; bottom:10px; left:12px; right:12px; gap:.25rem; }
+  .pd17-atlas-key span { padding:.26rem .42rem; }
+  .pd17-atlas-key span::before {margin-right:.3rem; width:4px; height:4px; }
   .pd17-atlas-stage { min-height:260px; padding:1.2rem; }
   .pd17-brief-head { align-items:start; }
   .pd17-brief-scene { grid-template-columns:1fr; padding:1.15rem; gap:.5rem; }

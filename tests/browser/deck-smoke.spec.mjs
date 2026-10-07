@@ -66,7 +66,7 @@ test.describe("Professional Deck smoke", () => {
     await page.locator('.main-nav [data-go="ruta"]').click();
     await expect(page.locator("#ruta")).toBeInViewport();
     await expect(page.locator("[data-atlas-stops] button")).toHaveCount(5);
-    await page.locator('[data-atlas-step="3"]').click();
+    await page.locator('[data-atlas-stops] [data-atlas-step="3"]').click();
     await expect(page.locator("[data-atlas-title]")).toContainText(/Convertir|product/i);
     await page.waitForTimeout(220);
     await page.screenshot({ path: "artifacts/v16/operating-model.png", fullPage: false });
@@ -75,6 +75,7 @@ test.describe("Professional Deck smoke", () => {
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();
     await expect(recruiter.locator("[data-brief-chapter]")).toHaveCount(4);
+    await page.screenshot({ path: "artifacts/v16/brief-desktop.png", fullPage: false });
     await expect(recruiter.locator("[data-brief-clock]")).toHaveText("00:00");
     await recruiter.locator("[data-brief-play]").click();
     await expect(recruiter.locator("[data-brief-play]")).toHaveAttribute("aria-pressed", "true");
@@ -114,9 +115,40 @@ test.describe("Professional Deck smoke", () => {
     await page.goto("/?recruiter=1", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(180);
     await expect(page.locator("#recruiter-dialog")).toBeVisible();
-    await expect(page.locator("[data-recruiter-route] .recruiter-route-item")).toHaveCount(7);
+    await expect(page.locator("[data-brief-chapters] [data-brief-chapter]")).toHaveCount(4);
     await page.locator("#recruiter-dialog .dialog-close").click();
     await expect(page.locator("#recruiter-dialog")).not.toBeVisible();
+  });
+
+  test("mobile atlas and brief stay readable without horizontal overflow", async ({ browser }) => {
+    mkdirSync("artifacts/v16", { recursive: true });
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true
+    });
+    const page = await context.newPage();
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.locator("#inicio [data-go='ruta']").click();
+    await expect(page.locator("#ruta")).toBeInViewport();
+    await page.locator("#ruta").evaluate(el => el.scrollIntoView({ block: "start", behavior: "instant" }));
+    await page.waitForTimeout(180);
+    await expect(page.locator("[data-atlas-stops] button")).toHaveCount(5);
+    await page.screenshot({ path: "artifacts/v16/atlas-mobile.png", fullPage: false });
+    await page.locator("[data-atlas-stops] [data-atlas-step='4']").click();
+    await expect(page.locator("[data-atlas-title]")).toBeVisible();
+
+    await page.locator("#inicio [data-open-recruiter]").click();
+    const brief = page.locator("#recruiter-dialog");
+    await expect(brief).toBeVisible();
+    await expect(brief.locator("[data-brief-chapter]")).toHaveCount(4);
+    await page.screenshot({ path: "artifacts/v16/brief-mobile.png", fullPage: false });
+    const dimensions = await brief.evaluate(el => {
+      const rect = el.getBoundingClientRect();
+      return { left: rect.left, right: rect.right, width: document.documentElement.scrollWidth, viewport: innerWidth };
+    });
+    expect(dimensions.left).toBeGreaterThanOrEqual(0);
+    expect(dimensions.right).toBeLessThanOrEqual(390);
+    expect(dimensions.width).toBeLessThanOrEqual(dimensions.viewport + 1);
+    await context.close();
   });
 
   test("exposes the recruiter route in English", async ({ page }) => {
