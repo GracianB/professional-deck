@@ -33,6 +33,7 @@
   let railButtons = [];
   let commandItems = [];
   let commandCursor = 0;
+  let atlasReady = false;
   let atlasStep = 0;
   let briefElapsed = 0;
   let briefPlaying = false;
@@ -179,8 +180,7 @@
     }
 
     // V17 atlas and briefing are rendered from the current language without duplicating markup.
-    renderAtlas();
-    renderBrief();
+    if (atlasReady) { renderAtlas(); renderBrief(); }
 
     // update slide titles for rail
     slides.forEach((slide) => {
@@ -748,6 +748,9 @@
     goTo(target);
   });
   recruiterDialog?.addEventListener("close", () => { stopBrief(); renderBrief(); });
+  atlasReady = true;
+  renderAtlas();
+  renderBrief();
 
   document.addEventListener("keydown", (event) => {
     const tag = event.target?.tagName?.toLowerCase();
