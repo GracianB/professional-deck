@@ -129,6 +129,8 @@ test.describe("Professional Deck smoke", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
     await page.locator("#inicio [data-go='ruta']").click();
     await expect(page.locator("#ruta")).toBeInViewport();
+    await page.locator("#ruta").evaluate(el => el.scrollIntoView({ block: "start", behavior: "instant" }));
+    await page.waitForTimeout(180);
     await expect(page.locator("[data-atlas-stops] button")).toHaveCount(5);
     await page.screenshot({ path: "artifacts/v16/atlas-mobile.png", fullPage: false });
     await page.locator("[data-atlas-stops] [data-atlas-step='4']").click();
