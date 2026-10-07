@@ -27,26 +27,24 @@ I started close to customers, teams and daily operations. The technical layer ca
 
 ---
 
-## V16 structure
+## V17 atlas structure
 
-The deck contains 14 slides.
+The deck now has **10 curated chapters**, with no duplicated narrative slides.
 
 | # | Chapter | Purpose |
 |---|---|---|
-| 00 | Cover | Identity, role, thesis and proof strip |
-| 01 | Edge | Why Customer + Data + Systems belong together |
-| 02 | Bodytone | Real Customer Operations system with public evidence |
-| 03 | Public proof | RevOps Studio, OHANA and VØRTICE |
-| 04 | Operating model | People → Operations → Data → Systems → AI |
-| 05 | Method | From signal to decision, build and adoption |
-| 06 | Career architecture | How the progression explains the profile |
-| 07 | Professional line | Selected career from 2014 to 2026 |
-| 08 | Experience I | Bodytone, Minderest and Majorel |
-| 09 | Experience II | Solaris, El Corte Inglés and Primark |
-| 10 | Capabilities | Customer Success, Data/BI, AI/automation and leadership |
-| 11 | Education | Formal learning and technical specialization |
-| 12 | Languages | Spanish, English and Italian |
-| 13 | Contact | Links, CV, booking and next step |
+| 00 | Cover | Identity, role and immediately clickable proof |
+| 01 | Bodytone | Real Customer Operations system |
+| 02 | Public evidence | RevOps Studio, OHANA and VØRTICE |
+| 03 | Career atlas | Interactive Iberian context and five professional milestones |
+| 04 | Method | How a decision becomes an adopted system |
+| 05 | Career | Five stages from service to AI/data/systems |
+| 06 | Experience I | Bodytone, Minderest and Majorel |
+| 07 | Experience II | Solaris, El Corte Inglés and Primark |
+| 08 | Education | Professional development and practical learning |
+| 09 | Contact | Role fit, languages, CV, LinkedIn and agenda |
+
+The **60-second overview** is now a timed experience, not a scrollable recruiter document: four 15-second chapters, playable/pausable, keyboard-accessible and translated to ES/EN. The atlas distinguishes real geographic context from the conceptual timeline, without treating every employer as a precise location. Legacy URLs with removed slide hashes open the cover instead of pointing at filler pages.
 
 The presentation is bilingual **ES / EN**, supports dark/light themes, keyboard navigation, touch navigation, deep links, command palette and presentation mode.
 
@@ -180,11 +178,11 @@ The pipeline checks:
 - structural validation
 - JavaScript syntax
 - ES / EN runtime
-- 14-slide contract
+- 10-slide curated contract
 - dark / light themes
 - command palette
 - presentation mode
-- recruiter overview
+- timed, accessible 60-second briefing + interactive atlas
 - role dialogs
 - mobile navigation
 - 390 px responsive layout

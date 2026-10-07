@@ -5,7 +5,7 @@ import { spawnSync } from "node:child_process";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const required = [
-  "index.html", "styles.css", "v16-final.css", "main.js", "i18n.js", "case.js",
+  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "main.js", "i18n.js", "case.js",
   "README.md", "favicon.svg", "og-cover.png", "manifest.webmanifest",
   "Gracian_Baena_CV_2026_ES.pdf", "Gracian_Baena_CV_2026_EN.pdf",
   "Gracian_Baena_Carta_Presentacion_ES.pdf", "Gracian_Baena_Cover_Letter_EN.pdf",
@@ -46,6 +46,7 @@ for (const file of required) {
 const index = await readFile(join(root, "index.html"), "utf8");
 const css = await readFile(join(root, "styles.css"), "utf8");
 const v16 = await readFile(join(root, "v16-final.css"), "utf8");
+const v17 = await readFile(join(root, "v17-atlas.css"), "utf8");
 const main = await readFile(join(root, "main.js"), "utf8");
 const i18n = await readFile(join(root, "i18n.js"), "utf8");
 const readme = await readFile(join(root, "README.md"), "utf8");
@@ -53,7 +54,7 @@ const packageJson = JSON.parse(await readFile(join(root, "package.json"), "utf8"
 const publicText = [index, i18n, readme].join("\n");
 
 const slideCount = (index.match(/<section class="slide\b/g) || []).length;
-if (slideCount !== 14) errors.push(`V16 requires exactly 14 slides, found ${slideCount}`);
+if (slideCount !== 10) errors.push(`V17 requires exactly 10 curated slides, found ${slideCount}`);
 
 const ids = [...index.matchAll(/\bid=["']([^"']+)["']/g)].map((match) => match[1]);
 const duplicates = [...new Set(ids.filter((id, pos) => ids.indexOf(id) !== pos))];
@@ -72,14 +73,17 @@ for (const token of [
   'id="sistemas"',
   'id="demos"',
   'id="ruta"',
-  'class="pd16-model-flow"',
+  'class="pd17-atlas-layout"',
+  'data-atlas-stops',
+  'data-brief-progress',
+  'data-brief-chapters',
+  'data-brief-play',
   'id="trayectoria"',
   'class="pd16-career-steps"',
-  'id="linea"',
-  'class="pd16-timeline-track"',
   'id="experiencia"',
   'id="experiencia-2"',
-  'id="idiomas"',
+  'id="formacion"',
+  'id="contacto"',
 ]) {
   requireText(index, token);
 }
@@ -120,6 +124,11 @@ forbid(index, /deck-intro|intro-on/, "blocking intro");
 if (!/\.pd16-cover\s*\{/.test(v16)) errors.push("V16 cover CSS missing");
 if (!/\.pd16-model-flow\s*\{/.test(v16)) errors.push("V16 operating model CSS missing");
 if (!/\.pd16-career-steps\s*\{/.test(v16)) errors.push("V16 career CSS missing");
+if (!/\.pd17-atlas-map\s*\{/.test(v17)) errors.push("V17 atlas CSS missing");
+if (!/function tickBrief\(/.test(main)) errors.push("V17 briefing timer missing");
+for (const retired of ["valor", "linea", "capacidades", "idiomas"]) {
+ if (new RegExp(`<section[^>]+id="${retired}"`).test(index)) errors.push(`Retired filler slide still present: ${retired}`);
+}
 
 const requiredScripts = [
   "validate", "verify", "test:browser",
@@ -149,4 +158,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`OK · V16 FINAL · ${required.length} files · ${slideCount} slides · ES/EN · evidence-first · ready for browser gates`);
+console.log(`OK · V17 ATLAS · ${required.length} files · ${slideCount} slides · ES/EN · evidence-first · ready for browser gates`);

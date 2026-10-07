@@ -78,7 +78,8 @@ const expectedCssOrder = [
   "final-v4.css",
   "portada-extreme.css",
   "deck-fix.css",
-  "v16-final.css"
+  "v16-final.css",
+  "v17-atlas.css"
 ];
 
 if (cssFiles.join("\n") === expectedCssOrder.join("\n")) {

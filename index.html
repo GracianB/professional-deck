@@ -55,6 +55,7 @@
   <link rel="stylesheet" href="./portada-extreme.css?v=deck-v16">
   <link rel="stylesheet" href="./deck-fix.css?v=deck-v16">
   <link rel="stylesheet" href="./v16-final.css?v=deck-v16">
+  <link rel="stylesheet" href="./v17-atlas.css?v=deck-v17">
   <script src="./i18n.js?v=deck-v16" defer></script>
   <script src="./main.js?v=deck-v16" defer></script>
 </head>
@@ -66,7 +67,7 @@
 
   <aside class="os-rail" aria-label="Index">
     <div class="os-rail-brand">
-      <div><b data-i18n="railBrand">PROFILE DECK</b><small data-i18n="railSlides">2026 · 14 slides</small></div>
+      <div><b data-i18n="railBrand">PROFILE DECK</b><small data-i18n="railSlides">2026 · 10 slides</small></div>
     </div>
     <p class="os-rail-status"><span data-i18n="railActive">ACTIVA</span><strong data-rail-status>00 · Portada</strong></p>
     <nav class="os-rail-nav" data-slide-rail></nav>
@@ -84,10 +85,10 @@
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
       <button type="button" data-go="sistemas" data-i18n="navSystems">Sistemas</button>
-      <button type="button" data-go="ruta" data-i18n="navRoute">Modelo</button>
+      <button type="button" data-go="ruta" data-i18n="navRoute">Mapa</button>
       <button type="button" data-go="trayectoria" data-i18n="navCareer">Trayectoria</button>
       <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
-      <button type="button" class="nav-recruiter" data-open-recruiter aria-haspopup="dialog" data-i18n="navRecruiter">RESUMEN</button>
+      <button type="button" class="nav-recruiter" data-open-recruiter aria-haspopup="dialog" data-i18n="navRecruiter">60 SEG</button>
       <button type="button" class="nav-present" data-present data-i18n="navPresent" data-i18n-title="presentToggle" aria-pressed="false" title="Modo presentación">PRESENTAR</button>
       <button type="button" class="nav-cmd" data-open-command title="Ctrl K" aria-label="Abrir buscador (Ctrl K)" aria-haspopup="dialog"><kbd>Ctrl</kbd><kbd>K</kbd></button>
     </nav>
@@ -136,9 +137,9 @@
             <p class="pd16-lead" data-i18n-html="heroLead">Entiendo la operación, convierto señales en criterio y construyo la capa que falta: proceso, datos, automatización, IA o software.</p>
 
             <div class="gb-actions pd16-cover-actions">
-              <button class="button primary" type="button" data-open-recruiter aria-haspopup="dialog" data-i18n="heroCta2">RESUMEN 60 S →</button>
+              <button class="button primary" type="button" data-open-recruiter aria-haspopup="dialog" data-i18n="heroCta2">VIVIR 60 S →</button>
               <button class="button ghost" type="button" data-go="sistemas" data-i18n="heroCta1">VER PRUEBA REAL →</button>
-              <button class="button ghost" type="button" data-go="experiencia" data-i18n="heroCtaExp">VER TRAYECTORIA →</button>
+              <button class="button ghost" type="button" data-go="ruta" data-i18n="heroCtaExp">EXPLORAR MAPA →</button>
             </div>
 
             <div class="pd16-proof-strip" aria-label="Professional proof">
@@ -171,39 +172,7 @@
     </section>
 
     <!-- 01 VALUE — cards ARRIBA, titular ABAJO -->
-    <section class="slide dark fit gb-valor-slide" id="valor" data-title="Diferencial" data-code="01">
-      <div class="gb-panel gb-panel-dark gb-valor-panel">
-        <header class="gb-valor-head gb-title-band">
-          <p class="slide-index light-index"><span>01</span><i></i><span data-i18n="valorIndex">MI DIFERENCIAL</span></p>
-          <p class="eyebrow" data-i18n="valorEyebrow">EDGE · SEÑAL → SISTEMA → DECISIÓN → HÁBITO</p>
-          <h2 data-i18n-html="valorH2">No entrego análisis.<br><em>Entrego capacidad de actuar.</em></h2>
-          <p class="gb-panel-lead" data-i18n="valorP">Mi ventaja está en cruzar las cuatro capas que normalmente viven separadas: cliente, negocio, datos y construcción.</p>
-        </header>
-
-        <div class="gb-loop" data-valor-loop>
-          <article class="gb-loop-card">
-            <span class="gb-loop-num">01</span>
-            <b class="gb-loop-label">CUSTOMER</b><h3 data-i18n="v1t">Entiendo el problema antes de construir</h3><p data-i18n="v1p">Cliente, equipo, contexto y operación en una sola lectura.</p>
-          </article>
-          <article class="gb-loop-card">
-            <span class="gb-loop-num">02</span>
-            <b class="gb-loop-label">BUILD</b><h3 data-i18n="v2t">Convierto decisiones en sistemas</h3><p data-i18n="v2p">Datos, automatización, APIs e IA que aterrizan la decisión.</p>
-          </article>
-          <article class="gb-loop-card">
-            <span class="gb-loop-num">03</span>
-            <b class="gb-loop-label">BUSINESS</b><h3 data-i18n="v3t">Conecto tecnología con negocio</h3><p data-i18n="v3p">KPIs, eficiencia, experiencia y adopción con lógica de negocio.</p>
-          </article>
-          <article class="gb-loop-card is-end">
-            <span class="gb-loop-num">04</span>
-            <b class="gb-loop-label">ACTIVATE</b><h3 data-i18n="v4t">Hago que el sistema se use</h3><p data-i18n="v4p">Formación, comunicación y seguimiento hasta conseguir uso real.</p>
-          </article>
-        </div>
-
-        <footer class="gb-panel-bar">
-          <span>CUSTOMER</span><i>×</i><span>SYSTEM</span><i>×</i><span>DATA</span><i>=</i><strong>BUSINESS VALUE</strong>
-        </footer>
-      </div>
-    </section>
+    
 
     <!-- 02 BODYTONE — estrella: automatización + creación de app -->
     <section class="slide dark systems-slide fit gb-star-slide" id="sistemas" data-title="Bodytone" data-code="02">
@@ -295,30 +264,72 @@
       </div>
     </section>
 
-    <!-- 04 RUTA INTERNACIONAL — OPERATING MAP -->
-    <section class="slide dark fit pd16-operating" id="ruta" data-title="Modelo" data-code="04">
-      <div class="pd16-operating-shell">
-        <header class="gb-title-band pd16-operating-head">
-          <p class="slide-index light-index"><span>04</span><i></i><span data-i18n="routeIndex">MODELO OPERATIVO</span></p>
-          <p class="eyebrow" data-i18n="routeEyebrow">PEOPLE → OPERATIONS → DATA → SYSTEMS → AI</p>
-          <h2 data-i18n-html="routeH2">La tecnología cambia.<br><em>El método no.</em></h2>
-          <p data-i18n="routeP">Antes de automatizar, entiendo la operación. Antes de recomendar, valido la señal. Antes de escalar, compruebo que el sistema puede usarse sin mí.</p>
+    <!-- 03 ATLAS — geographic context + interactive professional journey -->
+    <section class="slide dark fit pd17-atlas-slide" id="ruta" data-title="Mapa" data-code="03">
+      <div class="pd17-atlas-shell">
+        <header class="pd17-atlas-head">
+          <div>
+            <p class="slide-index light-index"><span>03</span><i></i><span data-i18n="atlasIndex">ATLAS PROFESIONAL</span></p>
+            <p class="eyebrow" data-i18n="atlasEyebrow">GEOGRAFÍA · EXPERIENCIA · EVOLUCIÓN</p>
+            <h2 data-i18n-html="atlasTitle">No fue una línea recta.<br><em>Fue conectar mundos.</em></h2>
+          </div>
+          <p data-i18n="atlasLead">De la primera línea a los sistemas que hoy construyo. Explora cada etapa del recorrido.</p>
         </header>
-
-        <ol class="pd16-model-flow">
-          <li><span>01</span><strong data-i18n="model1">Entender</strong><small data-i18n="model1Sub">cliente · objetivo · fricción</small></li>
-          <li><span>02</span><strong data-i18n="model2">Modelar</strong><small data-i18n="model2Sub">reglas · excepciones · señales</small></li>
-          <li><span>03</span><strong data-i18n="model3">Construir</strong><small data-i18n="model3Sub">flujo · sistema · interfaz</small></li>
-          <li><span>04</span><strong data-i18n="model4">Validar</strong><small data-i18n="model4Sub">usuarios · SME · casos</small></li>
-          <li><span>05</span><strong data-i18n="model5">Activar</strong><small data-i18n="model5Sub">adopción · formación · handoff</small></li>
-          <li><span>06</span><strong data-i18n="model6">Medir</strong><small data-i18n="model6Sub">calidad · uso · resultado</small></li>
-          <li><span>07</span><strong data-i18n="model7">Iterar</strong><small data-i18n="model7Sub">evidencia · mejora · escala</small></li>
-        </ol>
-
-        <footer class="pd16-model-footer">
-          <span data-i18n="routeCaption">El objetivo no es automatizar más. Es decidir mejor y dejar una capacidad que permanezca.</span>
-          <b>GB / OPERATING MODEL</b>
-        </footer>
+        <div class="pd17-atlas-layout">
+          <div class="pd17-atlas-map">
+            <div class="pd17-atlas-map-label"><span>GB / ATLAS</span><b>2014 — 2026</b></div>
+            <svg viewBox="0 0 760 480" role="img" aria-labelledby="atlas-svg-title atlas-svg-desc" preserveAspectRatio="xMidYMid meet">
+              <title id="atlas-svg-title">Atlas esquemático de la península ibérica</title>
+              <desc id="atlas-svg-desc">Portugal y Murcia como referencias geográficas; las estaciones numeradas representan etapas profesionales, no ubicaciones de empresas.</desc>
+              <defs>
+                <pattern id="atlas-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#d3b68a" stroke-opacity=".08" stroke-width=".7"/></pattern>
+                <linearGradient id="atlas-land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4c4535"/><stop offset="1" stop-color="#172c2e"/></linearGradient>
+                <linearGradient id="atlas-line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#c9a56c"/><stop offset=".52" stop-color="#75dddf"/><stop offset="1" stop-color="#e2bb7b"/></linearGradient>
+                <radialGradient id="atlas-halo"><stop stop-color="#55d1d9" stop-opacity=".18"/><stop offset="1" stop-color="#55d1d9" stop-opacity="0"/></radialGradient>
+              </defs>
+              <rect width="760" height="480" fill="url(#atlas-grid)"/>
+              <circle cx="492" cy="264" r="230" fill="url(#atlas-halo)"/>
+              <path class="pd17-land" d="M192 118 L283 104 L352 79 L443 91 L506 110 L580 102 L631 137 L639 172 L617 206 L647 238 L621 272 L604 324 L561 337 L540 377 L475 391 L417 376 L363 395 L331 376 L269 380 L232 352 L195 330 L189 281 L168 262 L184 211 L166 172 Z" fill="url(#atlas-land)" stroke="#d8c39d" stroke-opacity=".42" stroke-width="2"/>
+              <path d="M267 117 C255 155 242 172 252 205 S250 262 228 290 S250 339 235 357" fill="none" stroke="#d8c39d" stroke-opacity=".35" stroke-dasharray="5 8" stroke-width="2"/>
+              <path d="M228 290 Q372 160 517 294" fill="none" stroke="url(#atlas-line)" stroke-opacity=".8" stroke-width="2.5" stroke-dasharray="7 10" class="pd17-atlas-arc"/>
+              <path d="M518 294 Q604 185 649 100" fill="none" stroke="#8ce7e4" stroke-opacity=".4" stroke-width="1.5" stroke-dasharray="4 10"/>
+              <circle cx="228" cy="290" r="13" fill="#c9a56c" fill-opacity=".15"/><circle cx="228" cy="290" r="4" fill="#d7b277"/>
+              <circle cx="518" cy="294" r="16" fill="#7de2e6" fill-opacity=".13"/><circle cx="518" cy="294" r="5" fill="#7de2e6"/>
+              <text x="158" y="314" class="pd17-map-name">PORTUGAL</text>
+              <text x="531" y="300" class="pd17-map-name">MURCIA</text>
+              <text x="350" y="232" class="pd17-map-watermark">IBERIA</text>
+              <text x="24" y="455" class="pd17-map-coord">37°59′ N · 1°07′ W / BASE MURCIA</text>
+              <text x="652" y="450" class="pd17-map-coord">N ↑</text>
+            </svg>
+            <div class="pd17-atlas-nodes" aria-label="Etapas seleccionables sobre el mapa">
+              <button type="button" data-atlas-step="0" aria-pressed="true" style="--node-x:26%;--node-y:51%">01</button>
+              <button type="button" data-atlas-step="1" aria-pressed="false" style="--node-x:38%;--node-y:38%">02</button>
+              <button type="button" data-atlas-step="2" aria-pressed="false" style="--node-x:50%;--node-y:32%">03</button>
+              <button type="button" data-atlas-step="3" aria-pressed="false" style="--node-x:60%;--node-y:44%">04</button>
+              <button type="button" data-atlas-step="4" aria-pressed="false" style="--node-x:72%;--node-y:56%">05</button>
+            </div>
+            <div class="pd17-map-note"><span class="pd17-live-dot"></span><span data-i18n="atlasMapNote">Geografía real como contexto. Estaciones como evolución profesional.</span></div>
+            <div class="pd17-atlas-key"><span>● MURCIA</span><span>● PORTUGAL</span><span data-i18n="atlasKey">◌ TRABAJO INTERNACIONAL / REMOTO</span></div>
+          </div>
+          <div class="pd17-atlas-side">
+            <div class="pd17-atlas-stage" data-atlas-stage aria-live="polite" aria-atomic="true">
+              <div class="pd17-stage-top"><small data-atlas-count>01 / 05</small><span data-atlas-year>2014—2016</span></div>
+              <div class="pd17-stage-symbol" aria-hidden="true" data-atlas-symbol>01</div>
+              <p class="pd17-stage-kicker" data-atlas-kicker>PEOPLE</p>
+              <h3 data-atlas-title>El origen: personas.</h3>
+              <p data-atlas-copy>Primera línea, servicio, retail y tecnología. Aprender qué necesita alguien antes de diseñar un sistema.</p>
+              <strong data-atlas-proof>Mooby · Primark · El Corte Inglés</strong>
+              <button type="button" class="pd17-stage-link" data-atlas-go="experiencia-2" data-i18n="atlasOpen">EXPLORAR EXPERIENCIA ↗</button>
+            </div>
+            <nav class="pd17-atlas-stops" data-atlas-stops aria-label="Etapas profesionales">
+              <button type="button" data-atlas-step="0" aria-pressed="true">01 <span>PEOPLE</span></button>
+              <button type="button" data-atlas-step="1" aria-pressed="false">02 <span>OPS</span></button>
+              <button type="button" data-atlas-step="2" aria-pressed="false">03 <span>SAAS</span></button>
+              <button type="button" data-atlas-step="3" aria-pressed="false">04 <span>DATA</span></button>
+              <button type="button" data-atlas-step="4" aria-pressed="false">05 <span>BUILD</span></button>
+            </nav>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -405,27 +416,7 @@
       </div>
     </section>
 
-    <section class="slide dark fit pd16-timeline" id="linea" data-title="Línea" data-code="07">
-      <div class="pd16-timeline-shell">
-        <header class="gb-title-band">
-          <p class="slide-index light-index"><span>07</span><i></i><span data-i18n="lineIndex">LÍNEA PROFESIONAL</span></p>
-          <p class="eyebrow" data-i18n="lineEyebrow">SELECTED CAREER · 2014 → 2026</p>
-          <h2 data-i18n-html="lineH2">Doce años seleccionados.<br><em>Una capa encima de otra.</em></h2>
-          <p data-i18n="lineP">Retail y operaciones construyen la base. Customer Success aporta contexto. Data y software permiten convertirlo en sistema.</p>
-        </header>
-
-        <ol class="pd16-timeline-track">
-          <li><time>2014</time><strong>Mooby</strong><span data-i18n="timeline1">Operaciones · tecnología</span></li>
-          <li><time>2015</time><strong>Primark</strong><span data-i18n="timeline2">Retail · equipo</span></li>
-          <li><time>2015—16</time><strong>El Corte Inglés</strong><span data-i18n="timeline3">Cliente · ventas · operación</span></li>
-          <li><time>2017—20</time><strong>Solaris</strong><span data-i18n="timeline4">Dirección · P&L · training</span></li>
-          <li><time>2020—21</time><strong>Majorel</strong><span data-i18n="timeline5">Google/YouTube · QA · escala</span></li>
-          <li><time>2021—24</time><strong>Minderest</strong><span data-i18n="timeline6">B2B SaaS · CS · pricing</span></li>
-          <li class="is-break"><time>2024—25</time><strong data-i18n="timeline7Title">Especialización</strong><span data-i18n="timeline7">AI · Data · Development</span></li>
-          <li class="is-current"><time>2025—26</time><strong>Bodytone</strong><span data-i18n="timeline8">Data · CS · Customer Ops</span></li>
-        </ol>
-      </div>
-    </section>
+    
 
     <!-- 07 EXPERIENCIA I — sistemas, SaaS, yoga (roles recientes) -->
     <section class="slide dark fit gb-exp-slide pd16-exp" id="experiencia" data-title="Experiencia I" data-code="08">
@@ -502,50 +493,7 @@
     </section>
 
     <!-- 09 CAPABILITIES -->
-    <section class="slide dark fit gb-caps" id="capacidades" data-title="Capacidades" data-code="10">
-      <div class="gb-caps-top gb-title-band">
-        <div class="gb-title-block">
-          <p class="slide-index light-index"><span>10</span><i></i><span data-i18n="capIndex">CAPACIDADES</span></p>
-          <p class="eyebrow" data-i18n="capEyebrow">CAPABILITY MAP · COMPOUND PROFILE</p>
-          <h2 data-i18n-html="capH2">Negocio + construcción.<br><em>En un solo perfil.</em></h2>
-        </div>
-        <p class="gb-caps-lead" data-i18n="capP">Cuatro capas que se refuerzan: cliente, negocio, datos y construcción. Ese cruce es el perfil.</p>
-      </div>
-      <div class="gb-caps-grid" data-caps-board>
-        <article class="gb-cap">
-          <header><span>01</span><b data-i18n="cap1k">STRATEGIC</b><strong>92</strong></header>
-          <h3 data-i18n="cap1t">Customer Success</h3>
-          <p data-i18n="cap1p">SaaS B2B · onboarding · adopción · retención · KPIs</p>
-          <div class="gb-cap-bar"><i style="width:92%"></i></div>
-        </article>
-        <article class="gb-cap">
-          <header><span>02</span><b data-i18n="cap2k">ANALYTICAL</b><strong>88</strong></header>
-          <h3 data-i18n="cap2t">Datos & BI</h3>
-          <p data-i18n="cap2p">Power BI · SQL · Excel · Pandas · storytelling</p>
-          <div class="gb-cap-bar"><i style="width:88%"></i></div>
-        </article>
-        <article class="gb-cap">
-          <header><span>03</span><b data-i18n="cap3k">BUILDER</b><strong>86</strong></header>
-          <h3 data-i18n="cap3t">IA & automatización</h3>
-          <p data-i18n="cap3p">Python · APIs · GenAI · Zendesk · Apps Script</p>
-          <div class="gb-cap-bar"><i style="width:86%"></i></div>
-        </article>
-        <article class="gb-cap is-human">
-          <header><span>04</span><b data-i18n="cap4k">HUMAN</b><strong>94</strong></header>
-          <h3 data-i18n="cap4t">Personas & liderazgo</h3>
-          <p data-i18n="cap4p">Equipos · yoga · facilitación · mindfulness</p>
-          <div class="gb-cap-bar"><i style="width:94%"></i></div>
-        </article>
-      </div>
-      <aside class="gb-academy">
-        <span>AI / 01</span>
-        <div>
-          <p class="eyebrow">BODYTONE ACADEMY</p>
-          <h3 data-i18n="academyH">No solo implanto IA. Enseño al equipo a usarla con criterio.</h3>
-          <p data-i18n="academyP">Primera formación interna de IA aplicada a procesos y decisiones.</p>
-        </div>
-      </aside>
-    </section>
+    
 
     <!-- 10 EDUCATION -->
     <section class="slide dark fit gb-edu-slide" id="formacion" data-title="Formación" data-code="11">
@@ -581,22 +529,7 @@
 
 
     <!-- 12 LANGUAGES -->
-    <section class="slide dark fit gb-langs pd16-langs" id="idiomas" data-title="Idiomas" data-code="12">
-      <div class="gb-langs-top gb-title-band">
-        <div class="gb-title-block">
-          <p class="slide-index light-index"><span>12</span><i></i><span data-i18n="langIndex">IDIOMAS</span></p>
-          <p class="eyebrow" data-i18n="langEyebrow">WORKING LANGUAGES</p>
-          <h2 data-i18n-html="langH2">Tres idiomas.<br><em>Uso profesional real.</em></h2>
-        </div>
-        <p class="gb-langs-lead" data-i18n="langP">Español, inglés e italiano: cliente, equipo, documentación y entornos internacionales.</p>
-      </div>
-      <div class="gb-langs-grid pd16-langs-grid" data-langs-board>
-        <article class="gb-lang-card"><header><span>01</span><b>ES</b></header><h3 data-i18n="langEsName">Español</h3><p class="gb-lang-level" data-i18n="langEsLevel">Nativo</p></article>
-        <article class="gb-lang-card"><header><span>02</span><b>EN</b></header><h3 data-i18n="langEnName">Inglés</h3><p class="gb-lang-level" data-i18n="langEnLevel">Profesional</p></article>
-        <article class="gb-lang-card"><header><span>03</span><b>IT</b></header><h3 data-i18n="langItName">Italiano</h3><p class="gb-lang-level" data-i18n="langItLevel">Profesional</p></article>
-      </div>
-      <footer class="pd16-lang-footer"><span data-i18n="langFooter">ES · EN · IT</span><b>GLOBAL CUSTOMER / OPERATIONS CONTEXT</b></footer>
-    </section>
+    
 
     <!-- 13 CONTACT — corto -->
     <section class="slide dark fit gb-contact" id="contacto" data-title="Hablemos" data-code="13">
@@ -645,7 +578,7 @@
   </main>
 
   <nav class="deck-controls" aria-label="Controls">
-    <span><b data-current>01</b><i>/</i><em data-total>14</em></span>
+    <span><b data-current>01</b><i>/</i><em data-total>10</em></span>
     <button type="button" data-prev>← <small data-i18n="prev">ANT.</small></button>
     <button type="button" data-next><small data-i18n="next">SIG.</small> →</button>
   </nav>
@@ -653,21 +586,37 @@
 
   <p class="sr-only slide-live-region" data-slide-live aria-live="polite" aria-atomic="true"></p>
 
-  <dialog class="recruiter-dialog" id="recruiter-dialog" aria-labelledby="recruiter-title" aria-describedby="recruiter-lead">
+  <dialog class="recruiter-dialog pd17-brief" id="recruiter-dialog" aria-labelledby="recruiter-title" aria-describedby="recruiter-lead">
     <form method="dialog"><button class="dialog-close" data-i18n-aria="dialogClose" aria-label="Cerrar diálogo">×</button></form>
-    <header><p class="eyebrow" data-i18n="recruiterEyebrow">PROFESSIONAL OVERVIEW / 60 S</p></header>
-    <h2 id="recruiter-title" data-i18n-html="recruiterH2">Cliente, operaciones y sistemas.<br><em>En una sola lectura.</em></h2>
-    <p id="recruiter-lead" class="recruiter-lead" data-i18n="recruiterLead">16+ años conectando negocio, cliente y construcción técnica. En 60 segundos: recorrido, prueba y contexto.</p>
-    <div class="recruiter-route-head"><span data-i18n="recruiterRouteTitle">EN 60 SEGUNDOS</span><small data-i18n="recruiterRouteHint">Cada parada abre la prueba correspondiente.</small></div>
-    <nav class="recruiter-route" data-recruiter-route aria-label="Recorrido recruiter"></nav>
-    <div class="recruiter-grid" data-recruiter-grid></div>
-    <div class="recruiter-metrics"><div><strong>16+</strong><span data-i18n="metricYears">años</span></div><div><strong>B2B</strong><span data-i18n="metricCustomer">SaaS · CS</span></div><div><strong>ES · EN · IT</strong><span data-i18n="metricCountries">idiomas</span></div><div><strong>200+</strong><span data-i18n="metricRules">reglas de pricing</span></div></div>
-    <footer>
-      <button type="button" class="button primary recruiter-start" data-recruiter-start data-i18n="recruiterStart">RECORRIDO 60 S →</button>
-      <a class="button primary" href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noopener noreferrer" data-cv-link data-i18n="contactCv">CV ↗</a>
-      <a class="button ghost" href="./Gracian_Baena_Carta_Presentacion_ES.pdf" target="_blank" rel="noopener noreferrer" data-letter-link data-i18n="contactLetter">Carta ↗</a>
-      <a class="button dark-button" href="https://calendar.app.google/n99psBFktwYyoAWi9" target="_blank" rel="noopener noreferrer" data-i18n="contactAgenda">Agendar ↗</a>
+    <header class="pd17-brief-head">
+      <div><p class="eyebrow" data-i18n="briefEyebrow">60 SEGUNDOS / 4 CAPÍTULOS</p><h2 id="recruiter-title" data-i18n-html="briefTitle">Mi recorrido. <em>Sin relleno.</em></h2></div>
+      <div class="pd17-brief-clock" aria-label="Tiempo transcurrido"><span data-brief-clock>00:00</span><small>/ 01:00</small></div>
+    </header>
+    <p id="recruiter-lead" class="pd17-brief-lead" data-i18n="briefLead">De operar con personas a diseñar sistemas que resuelven problemas reales.</p>
+    <div class="pd17-brief-progress" role="progressbar" aria-label="Progreso de los 60 segundos" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0" data-brief-progress><span data-brief-bar></span></div>
+    <nav class="pd17-brief-chapters" data-brief-chapters aria-label="Capítulos de la presentación">
+      <button type="button" data-brief-chapter="0" aria-pressed="true"><span>01</span><small data-i18n="briefNav1">PERSONAS</small></button>
+      <button type="button" data-brief-chapter="1" aria-pressed="false"><span>02</span><small data-i18n="briefNav2">SAAS</small></button>
+      <button type="button" data-brief-chapter="2" aria-pressed="false"><span>03</span><small data-i18n="briefNav3">SISTEMAS</small></button>
+      <button type="button" data-brief-chapter="3" aria-pressed="false"><span>04</span><small data-i18n="briefNav4">PRUEBA</small></button>
+    </nav>
+    <div class="pd17-brief-scene" aria-live="polite" aria-atomic="true">
+      <div class="pd17-brief-orbit" aria-hidden="true"><span>G<span>✦</span>B</span></div>
+      <div class="pd17-brief-story">
+        <p data-brief-period class="pd17-brief-period">2014—2021</p>
+        <h3 data-brief-title>Primero entendí a las personas.</h3>
+        <p data-brief-copy>Cliente, equipos, servicio, operaciones y formación. La realidad antes que el dashboard.</p>
+        <small data-brief-evidence>RETAIL · SOLARIS · MAJOREL</small>
+      </div>
+    </div>
+    <footer class="pd17-brief-footer">
+      <div class="pd17-brief-player">
+        <button class="pd17-play" type="button" data-brief-play aria-pressed="false" data-i18n="briefPlay">▶ EMPEZAR</button>
+        <button class="pd17-restart" type="button" data-brief-restart data-i18n="briefRestart">↺ REINICIAR</button>
+      </div>
+      <button class="pd17-proof" type="button" data-brief-explore data-i18n="briefExplore">VER ESTA ETAPA ↗</button>
     </footer>
+    <div class="pd17-brief-bottom"><span data-i18n="briefHint">15 segundos por capítulo · puedes avanzar manualmente</span><a data-cv-link href="./Gracian_Baena_CV_2026_ES.pdf" target="_blank" rel="noopener noreferrer" data-i18n="contactCv">CV ↗</a></div>
   </dialog>
 
   <dialog class="experience-dialog" id="experience-dialog" aria-labelledby="experience-title">

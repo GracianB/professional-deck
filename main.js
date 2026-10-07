@@ -33,6 +33,13 @@
   let railButtons = [];
   let commandItems = [];
   let commandCursor = 0;
+  let atlasReady = false;
+  let atlasStep = 0;
+  let briefElapsed = 0;
+  let briefPlaying = false;
+  let briefStartElapsed = 0;
+  let briefStartedAt = 0;
+  let briefInterval = null;
 
   const pad = (n) => String(n).padStart(2, "0");
   const modalOpen = () => Boolean(document.querySelector("dialog[open]"));
@@ -172,22 +179,8 @@
       edu.innerHTML = t.eduItems.map((e) => `<li><b>${e[0]}</b><span>${e[1]}</span></li>`).join("");
     }
 
-    const rec = document.querySelector("[data-recruiter-grid]");
-    if (rec && t.recruiterCards) {
-      rec.innerHTML = t.recruiterCards.map((c) =>
-        `<article><span>${c[0]}</span><h3>${c[1]}</h3><p>${c[2]}</p></article>`
-      ).join("");
-    }
-
-    const recruiterRoute = document.querySelector("[data-recruiter-route]");
-    if (recruiterRoute && t.recruiterRoute) {
-      recruiterRoute.innerHTML = t.recruiterRoute.map((item) =>
-        `<button type="button" class="recruiter-route-item" data-recruiter-go="${item[0]}">` +
-        `<span>${item[1]}</span><b>${item[2]}</b><small>${item[3]}</small>` +
-        `</button>`
-      ).join("");
-      recruiterRoute.setAttribute("aria-label", t.recruiterRouteTitle || "Recruiter route");
-    }
+    // V17 atlas and briefing are rendered from the current language without duplicating markup.
+    if (atlasReady) { renderAtlas(); renderBrief(); }
 
     // update slide titles for rail
     slides.forEach((slide) => {
@@ -615,38 +608,157 @@
     });
   });
 
-  const recruiterDialog = document.querySelector("#recruiter-dialog");
-  const recruiterRoute = document.querySelector("[data-recruiter-route]");
-  const recruiterStart = document.querySelector("[data-recruiter-start]");
+  // Career atlas: each stop updates one readable evidence panel; no invented job locations.
+  const atlasStops = document.querySelector("[data-atlas-stops]");
+  const atlasExplore = document.querySelector("[data-atlas-go]");
 
+  function renderAtlas() {
+    const chapters = t.atlasChapters || [];
+    if (!chapters.length) return;
+    atlasStep = Math.max(0, Math.min(chapters.length - 1, atlasStep));
+    const chapter = chapters[atlasStep];
+    const textOf = (selector, value) => {
+      const element = document.querySelector(selector);
+      if (element) element.textContent = value;
+    };
+    textOf("[data-atlas-count]", `${pad(atlasStep + 1)} / ${pad(chapters.length)}`);
+    textOf("[data-atlas-year]", chapter[0]);
+    textOf("[data-atlas-symbol]", pad(atlasStep + 1));
+    textOf("[data-atlas-kicker]", chapter[1]);
+    textOf("[data-atlas-title]", chapter[2]);
+    textOf("[data-atlas-copy]", chapter[3]);
+    textOf("[data-atlas-proof]", chapter[4]);
+    if (atlasExplore) atlasExplore.dataset.atlasGo = chapter[5];
+    document.querySelectorAll("[data-atlas-step]").forEach((button) => {
+      const number = Number(button.dataset.atlasStep);
+      button.setAttribute("aria-pressed", String(number === atlasStep));
+      button.setAttribute("aria-label", `${pad(number + 1)} · ${chapters[number]?.[1] || ""}`);
+    });
+  }
+  atlasStops?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-atlas-step]");
+    if (!button) return;
+    atlasStep = Number(button.dataset.atlasStep);
+    renderAtlas();
+  });
+  document.querySelector(".pd17-atlas-nodes")?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-atlas-step]");
+    if (!button) return;
+    atlasStep = Number(button.dataset.atlasStep);
+    renderAtlas();
+  });
+  atlasStops?.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const count = t.atlasChapters?.length || 5;
+    atlasStep = event.key === "Home" ? 0 : event.key === "End" ? count - 1 :
+      (atlasStep + (event.key === "ArrowRight" ? 1 : -1) + count) % count;
+    renderAtlas();
+    atlasStops.querySelector(`[data-atlas-step="${atlasStep}"]`)?.focus();
+  });
+  atlasExplore?.addEventListener("click", () => goTo(atlasExplore.dataset.atlasGo || "experiencia"));
+
+  // Real 60-second presentation. Four 15-second chapters, monotonic clock,
+  // pause/resume, direct seeking, restart, reduced-motion safe and bilingual.
+  const recruiterDialog = document.querySelector("#recruiter-dialog");
+  const briefPlay = recruiterDialog?.querySelector("[data-brief-play]");
+  const briefRestart = recruiterDialog?.querySelector("[data-brief-restart]");
+  const briefExplore = recruiterDialog?.querySelector("[data-brief-explore]");
+  const briefProgress = recruiterDialog?.querySelector("[data-brief-progress]");
+
+  function renderBrief() {
+    if (!recruiterDialog || !t.briefChapters?.length) return;
+    const step = Math.min(t.briefChapters.length - 1, Math.floor(briefElapsed / 15));
+    const chapter = t.briefChapters[step];
+    const set = (selector, content) => {
+      const el = recruiterDialog.querySelector(selector);
+      if (el) el.textContent = content;
+    };
+    set("[data-brief-period]", chapter[0]);
+    set("[data-brief-title]", chapter[1]);
+    set("[data-brief-copy]", chapter[2]);
+    set("[data-brief-evidence]", chapter[3]);
+    set("[data-brief-clock]", `${pad(Math.floor(briefElapsed / 60))}:${pad(Math.floor(briefElapsed % 60))}`);
+    recruiterDialog.querySelector("[data-brief-bar]")?.style.setProperty("width", `${(briefElapsed / 60) * 100}%`);
+    briefProgress?.setAttribute("aria-valuenow", String(Math.round(briefElapsed)));
+    briefExplore.dataset.briefTarget = chapter[4];
+    recruiterDialog.querySelectorAll("[data-brief-chapter]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(Number(button.dataset.briefChapter) === step));
+    });
+    if (briefPlay) {
+      briefPlay.textContent = briefPlaying ? t.briefPause : briefElapsed >= 60 ? t.briefReplay :
+        briefElapsed > 0 ? t.briefResume : t.briefPlay;
+      briefPlay.setAttribute("aria-pressed", String(briefPlaying));
+    }
+  }
+  function stopBrief() {
+    if (briefInterval !== null) { clearInterval(briefInterval); briefInterval = null; }
+    briefPlaying = false;
+  }
+  function tickBrief() {
+    if (!briefPlaying) return;
+    briefElapsed = Math.min(60, briefStartElapsed + (performance.now() - briefStartedAt) / 1000);
+    if (briefElapsed >= 60) stopBrief();
+    renderBrief();
+  }
+  function startBrief() {
+    if (briefPlaying) return;
+    if (briefElapsed >= 60) briefElapsed = 0;
+    briefStartedAt = performance.now();
+    briefStartElapsed = briefElapsed;
+    briefPlaying = true;
+    if (briefInterval !== null) clearInterval(briefInterval);
+    briefInterval = setInterval(tickBrief, 125);
+    renderBrief();
+  }
+  function seekBrief(chapter) {
+    briefElapsed = Math.max(0, Math.min(45, chapter * 15));
+    if (briefPlaying) { briefStartElapsed = briefElapsed; briefStartedAt = performance.now(); }
+    renderBrief();
+  }
   function openRecruiter(opener = null) {
     if (!recruiterDialog || recruiterDialog.open) return;
+    stopBrief();
+    briefElapsed = 0;
+    renderBrief();
     recruiterDialog._returnFocus = opener instanceof HTMLElement ? opener : null;
     recruiterDialog.showModal();
     document.body.classList.add("dialog-open");
   }
-
   document.querySelectorAll("[data-open-recruiter]").forEach((button) => {
     button.addEventListener("click", () => openRecruiter(button));
   });
-
-  recruiterRoute?.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-recruiter-go]");
-    if (!button) return;
-    const target = button.dataset.recruiterGo;
-    if (!target) return;
+  briefPlay?.addEventListener("click", () => {
+    if (briefPlaying) { tickBrief(); stopBrief(); renderBrief(); }
+    else startBrief();
+  });
+  briefRestart?.addEventListener("click", () => {
+    stopBrief();
+    briefElapsed = 0;
+    renderBrief();
+  });
+  recruiterDialog?.querySelector("[data-brief-chapters]")?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-brief-chapter]");
+    if (button) seekBrief(Number(button.dataset.briefChapter));
+  });
+  recruiterDialog?.querySelector("[data-brief-chapters]")?.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+    event.preventDefault();
+    const step = Math.min(3, Math.floor(briefElapsed / 15));
+    const next = (step + (event.key === "ArrowRight" ? 1 : -1) + 4) % 4;
+    seekBrief(next);
+    recruiterDialog.querySelector(`[data-brief-chapter="${next}"]`)?.focus();
+  });
+  briefExplore?.addEventListener("click", () => {
+    const target = briefExplore.dataset.briefTarget || "sistemas";
+    stopBrief();
     recruiterDialog?.close();
     goTo(target);
   });
-
-  recruiterStart?.addEventListener("click", () => {
-    const target = t.recruiterRoute?.[0]?.[0] || "valor";
-    if (recruiterDialog?.open) recruiterDialog.close();
-    goTo(target, true);
-    window.dispatchEvent(new CustomEvent("gb:recruiter-start", {
-      detail: { slideId: target }
-    }));
-  });
+  recruiterDialog?.addEventListener("close", () => { stopBrief(); renderBrief(); });
+  atlasReady = true;
+  renderAtlas();
+  renderBrief();
 
   document.addEventListener("keydown", (event) => {
     const tag = event.target?.tagName?.toLowerCase();
@@ -1069,9 +1181,6 @@
   });
 
   syncLabels();
-  window.addEventListener("gb:recruiter-start", () => {
-    setPresentation(true, true, true);
-  });
   setPresentation(new URLSearchParams(window.location.search).get("present") === "1", false, false);
 
   new MutationObserver(syncLabels).observe(document.documentElement, {
