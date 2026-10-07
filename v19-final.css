@@ -134,3 +134,15 @@ html[data-theme="light"] #contacto.pd19-contact .pd19-contact-location {color:#4
 @media(max-width:1050px){#contacto.pd19-contact .pd19-contact-wrap{grid-template-columns:minmax(0,1fr) minmax(240px,.67fr);gap:1rem}.pd19-contact-link{grid-template-columns:32px minmax(0,1fr) 10px;gap:.45rem}.pd19-contact-link .pd19-link-symbol{width:32px;height:32px}}
 @media(max-width:800px){#contacto.pd19-contact{overflow-y:auto!important;justify-content:flex-start!important}#contacto.pd19-contact .pd19-contact-wrap{grid-template-columns:1fr;gap:.9rem}.pd19-contact-visual{min-height:180px}.pd19-contact-manifesto{min-height:140px}.pd19-contact-manifesto p{margin:.6rem 0;font-size:2rem}}
 @media(max-width:560px){#contacto.pd19-contact{padding-bottom:calc(var(--chrome-bottom) + 42px)!important}#contacto.pd19-contact .pd19-contact-wrap{margin:0 auto!important}.pd19-contact-grid{gap:.4rem}.pd19-contact-link{grid-template-columns:1fr 12px;min-height:90px;padding:.7rem}.pd19-link-symbol{display:none!important}.pd19-contact-link strong{font-size:.62rem}.pd19-contact-copy{gap:.55rem}#contacto.pd19-contact .pd19-contact-copy h2{font-size:clamp(2.25rem,10vw,3rem)!important}.pd19-contact-visual{min-height:160px;padding:1rem}.pd19-contact-languages{gap:.45rem}.pd19-contact-actions a{min-height:44px;padding:.7rem .9rem}.pd19-contact-manifesto p{font-size:1.7rem}}
+
+/* Three actual atlas children: transport, content and city-selector. */
+@media(min-width:981px) {
+ #ruta.pd18-atlas .pd17-atlas-side {
+   display:grid!important;
+   grid-template-columns:minmax(0,1fr)!important;
+   grid-template-rows:auto minmax(0,1fr) auto!important;
+   min-height:0;
+ }
+ #ruta.pd18-atlas .pd17-atlas-stage {min-height:0}
+ #ruta.pd18-atlas .pd17-atlas-stops {grid-template-columns:repeat(6,minmax(0,1fr))!important}
+}
