@@ -146,3 +146,24 @@ html[data-theme="light"] #contacto.pd19-contact .pd19-contact-location {color:#4
  #ruta.pd18-atlas .pd17-atlas-stage {min-height:0}
  #ruta.pd18-atlas .pd17-atlas-stops {grid-template-columns:repeat(6,minmax(0,1fr))!important}
 }
+
+/* Final mobile fit after real Chromium capture review. Selected city remains
+   labelled; all other pins retain accessible names and can be clicked. */
+@media(max-width:560px){
+ #ruta.pd18-atlas .pd18-city-nodes button span {
+   opacity:0;visibility:hidden;transition:opacity .16s ease;
+ }
+ #ruta.pd18-atlas .pd18-city-nodes button[aria-pressed="true"] span,
+ #ruta.pd18-atlas .pd18-city-nodes button:focus-visible span {
+   opacity:1;visibility:visible;
+ }
+ #contacto.pd19-contact .pd19-contact-visual {
+   min-height:132px!important;height:132px;padding:.7rem 1rem;
+ }
+ #contacto.pd19-contact .pd19-contact-manifesto {min-height:76px}
+ #contacto.pd19-contact .pd19-contact-manifesto p {
+   font-size:clamp(1.25rem,5.8vw,1.65rem);line-height:1.05;margin:.3rem 0;
+ }
+ #contacto.pd19-contact .pd19-contact-manifesto>span{font-size:.66rem}
+ #contacto.pd19-contact .pd19-contact-proof a {padding:.35rem .55rem}
+}
