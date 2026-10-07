@@ -629,11 +629,19 @@
     textOf("[data-atlas-copy]", chapter[3]);
     textOf("[data-atlas-proof]", chapter[4]);
     if (atlasExplore) atlasExplore.dataset.atlasGo = chapter[5];
-    atlasStops?.querySelectorAll("[data-atlas-step]").forEach((button) => {
-      button.setAttribute("aria-pressed", String(Number(button.dataset.atlasStep) === atlasStep));
+    document.querySelectorAll("[data-atlas-step]").forEach((button) => {
+      const number = Number(button.dataset.atlasStep);
+      button.setAttribute("aria-pressed", String(number === atlasStep));
+      button.setAttribute("aria-label", `${pad(number + 1)} · ${chapters[number]?.[1] || ""}`);
     });
   }
   atlasStops?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-atlas-step]");
+    if (!button) return;
+    atlasStep = Number(button.dataset.atlasStep);
+    renderAtlas();
+  });
+  document.querySelector(".pd17-atlas-nodes")?.addEventListener("click", (event) => {
     const button = event.target.closest("[data-atlas-step]");
     if (!button) return;
     atlasStep = Number(button.dataset.atlasStep);
