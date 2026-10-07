@@ -6,7 +6,7 @@ const url = process.env.PD_LIVE_URL || "https://gracianb.github.io/professional-
 
 const response = await fetch(url, {
   redirect: "follow",
-  headers: { "user-agent": "professional-deck-v18-live-smoke" },
+  headers: { "user-agent": "professional-deck-v19-live-smoke" },
 });
 
 assert.equal(response.ok, true, `Live deck returned HTTP ${response.status}`);
@@ -18,6 +18,9 @@ assert.match(html, /pd17-atlas-map/);
 assert.match(html, /data-brief-chapters/);
 assert.match(html, /v17-atlas.css/);
 assert.match(html, /v18-story.css/);
+assert.match(html, /v19-final.css/);
+assert.match(html, /data-atlas-tour/);
+assert.match(html, /pd19-contact-wrap/);
 assert.match(html, /id="modelo"/);
 assert.match(html, /id="capacidades"/);
 assert.match(html, /RevOps Studio/);
@@ -51,6 +54,8 @@ try {
 
     assert.equal(await page.locator(".deck .slide").count(), 12);
     assert.equal(await page.locator("[data-atlas-stops] button").count(), 6);
+    assert.equal(await page.locator("#contacto .pd19-contact-link").count(), 4);
+    assert.equal(await page.locator("[data-atlas-tour]").count(), 1);
     assert.equal(await page.locator("[data-brief-chapter]").count(), 4);
     await page.locator("#inicio [data-open-recruiter]").click();
     assert.equal(await page.locator("[data-brief-clock]").innerText(), "00:00");
@@ -73,7 +78,7 @@ try {
     await context.close();
   }
 
-  console.log("PROFESSIONAL DECK V18 LIVE PASS");
+  console.log("PROFESSIONAL DECK V19 LIVE PASS");
   console.log(`URL: ${response.url}`);
   console.log(`HTTP: ${response.status}`);
 } finally {
