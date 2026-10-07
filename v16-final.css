@@ -305,10 +305,6 @@
   background: linear-gradient(90deg, var(--gold), var(--ice));
 }
 
-.pd16-proof-card .gb-demo-actions {
-  gap: .5rem;
-}
-
 .pd16-proof-card .gb-demo-actions .button {
   min-height: 42px;
   border-radius: 999px;
@@ -321,10 +317,6 @@
 
 .pd16-proof-card .gb-demo-actions .ghost {
   border-color: rgba(122,243,255,.26);
-}
-
-.pd16-proof-foot {
-  border-radius: 10px;
 }
 
 .pd16-proof-foot a {
@@ -679,11 +671,6 @@
   color: #77716b;
   font: 700 8px var(--mono);
   letter-spacing: .08em;
-}
-
-.pd16-lang-footer b {
-  color: var(--ice);
-  font-size: 7px;
 }
 
 /* Action affordance across the final deck */
