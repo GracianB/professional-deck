@@ -74,6 +74,7 @@ test.describe("Professional Deck browser E2E", () => {
   test("V19 atlas draws changing routes, full network and pauses guided tour", async ({ page }) => {
     await page.goto("/?lang=es#ruta", { waitUntil: "domcontentloaded" });
     const paths = page.locator("#ruta [data-atlas-routes] path");
+    await expect(page.locator("#ruta .pd19-real-land path")).toHaveCount(36);
     await expect(paths).toHaveCount(5);
     await expect(page.locator("[data-atlas-title]")).toContainText("Murcia");
     await page.locator("#ruta [data-atlas-next]").click();
