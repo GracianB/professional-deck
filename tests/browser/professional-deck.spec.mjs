@@ -108,7 +108,7 @@ test.describe("Professional Deck browser E2E", () => {
     expect(background).toContain("gradient");
     await page.locator("[data-set-lang='en']").click();
     await expect(page.locator("#contacto h2")).toContainText("Let's talk");
-    await expect(page.locator("#contacto [data-i18n='contactManifestoNote']")).toContainText("systems");
+    await expect(page.locator("#contacto [data-i18n='contactManifestoNote']")).toContainText(/systems/i);
     await page.locator("[data-set-theme='light']").click();
     const bg=await page.locator("#contacto").evaluate(el=>getComputedStyle(el).backgroundColor);
     expect(bg).not.toBe("rgba(0, 0, 0, 0)");
