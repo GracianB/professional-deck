@@ -24,7 +24,7 @@ test.describe("Professional Deck smoke", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(250);
 
-    await expect(page.locator("section.slide")).toHaveCount(14);
+    await expect(page.locator("section.slide")).toHaveCount(10);
     await expect(page.locator(".site-header")).toBeVisible();
     await expect(page.locator('.main-nav [data-go="sistemas"]')).toBeVisible();
     await expect(page.locator('.nav-recruiter')).toBeVisible();
@@ -46,7 +46,7 @@ test.describe("Professional Deck smoke", () => {
     await page.locator('#inicio [data-go="sistemas"]').click();
     await expect(page).toHaveURL(/theme=dark/);
     await expect(page).toHaveURL(/#sistemas$/);
-    await expect(page.locator('[data-slide-live]')).toContainText(/Slide 03.*Bodytone/i);
+    await expect(page.locator('[data-slide-live]')).toContainText(/Slide 02.*Bodytone/i);
 
     const coverTitleFont = await page.locator(".pd16-name span").evaluate(el =>
       getComputedStyle(el).fontFamily
@@ -62,28 +62,28 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("#demos")).toContainText(/RevOps Studio/i);
     await expect(page.locator("#demos")).toContainText(/OHANA/i);
     await expect(page.locator("#demos")).toContainText(/VØRTICE/i);
-    await expect(page.locator("#ruta .pd16-model-flow li")).toHaveCount(7);
+    await expect(page.locator("#ruta .pd17-atlas-map svg")).toHaveCount(1);
     await page.locator('.main-nav [data-go="ruta"]').click();
     await expect(page.locator("#ruta")).toBeInViewport();
+    await expect(page.locator("[data-atlas-stops] button")).toHaveCount(5);
+    await page.locator('[data-atlas-step="3"]').click();
+    await expect(page.locator("[data-atlas-title]")).toContainText(/Convertir|product/i);
     await page.waitForTimeout(220);
     await page.screenshot({ path: "artifacts/v16/operating-model.png", fullPage: false });
 
     await page.locator('.nav-recruiter').click();
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();
-    await expect(recruiter.locator("[data-recruiter-route] .recruiter-route-item")).toHaveCount(7);
-    await expect(recruiter.locator("[data-recruiter-route]")).toContainText(/Bodytone|Proof/i);
-    await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Customer Success/i);
-    await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Projects/i);
-    await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Data/i);
-    await expect(recruiter.locator("[data-recruiter-grid]")).toContainText(/Consult/i);
-    await expect(recruiter.locator(".recruiter-metrics strong")).toHaveCount(4);
-    await recruiter.locator("[data-recruiter-start]").click();
-    await expect(page.locator("#recruiter-dialog")).not.toBeVisible();
-    await expect(page.locator("body")).toHaveClass(/presentation-mode/);
-    await expect(page).toHaveURL(/#valor$/);
-    await page.keyboard.press("Escape");
-    await expect(page.locator("body")).not.toHaveClass(/presentation-mode/);
+    await expect(recruiter.locator("[data-brief-chapter]")).toHaveCount(4);
+    await expect(recruiter.locator("[data-brief-clock]")).toHaveText("00:00");
+    await recruiter.locator("[data-brief-play]").click();
+    await expect(recruiter.locator("[data-brief-play]")).toHaveAttribute("aria-pressed", "true");
+    await recruiter.locator('[data-brief-chapter="3"]').click();
+    await expect(recruiter.locator("[data-brief-clock]")).toContainText("00:45");
+    await recruiter.locator("[data-brief-play]").click();
+    await recruiter.locator("[data-brief-explore]").click();
+    await expect(recruiter).not.toBeVisible();
+    await expect(page).toHaveURL(/#demos$/);
 
     await page.locator('[data-open-command]').click();
     const command = page.locator("#command-dialog");
@@ -124,8 +124,8 @@ test.describe("Professional Deck smoke", () => {
     await page.waitForTimeout(180);
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();
-    await expect(recruiter.locator('[data-i18n="recruiterRouteTitle"]')).toContainText(/IN 60 SECONDS/i);
-    await expect(recruiter.locator("[data-recruiter-start]")).toContainText(/START 60 SEC ROUTE/i);
+    await expect(recruiter.locator('[data-i18n="briefEyebrow"]')).toContainText(/60 SECONDS/i);
+    await expect(recruiter.locator("[data-brief-play]")).toContainText(/PLAY/i);
     await recruiter.locator(".dialog-close").click();
   });
 });
