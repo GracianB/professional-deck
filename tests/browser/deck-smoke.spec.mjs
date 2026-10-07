@@ -114,7 +114,7 @@ test.describe("Professional Deck smoke", () => {
     await page.goto("/?recruiter=1", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(180);
     await expect(page.locator("#recruiter-dialog")).toBeVisible();
-    await expect(page.locator("[data-recruiter-route] .recruiter-route-item")).toHaveCount(7);
+    await expect(page.locator("[data-brief-chapters] [data-brief-chapter]")).toHaveCount(4);
     await page.locator("#recruiter-dialog .dialog-close").click();
     await expect(page.locator("#recruiter-dialog")).not.toBeVisible();
   });
