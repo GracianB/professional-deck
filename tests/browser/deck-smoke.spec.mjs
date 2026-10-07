@@ -53,6 +53,9 @@ test.describe("Professional Deck smoke", () => {
     );
     expect(coverTitleFont).toMatch(/Fraunces/i);
 
+    await page.keyboard.press("Home");
+    await expect(page.locator("#inicio")).toBeInViewport();
+    await page.waitForTimeout(160);
     await page.screenshot({ path: "artifacts/v16/cover-desktop.png", fullPage: false });
 
     await expect(page.locator("#demos .pd16-proof-card")).toHaveCount(3);
