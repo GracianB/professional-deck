@@ -75,6 +75,7 @@ test.describe("Professional Deck smoke", () => {
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();
     await expect(recruiter.locator("[data-brief-chapter]")).toHaveCount(4);
+    await page.screenshot({ path: "artifacts/v16/brief-desktop.png", fullPage: false });
     await expect(recruiter.locator("[data-brief-clock]")).toHaveText("00:00");
     await recruiter.locator("[data-brief-play]").click();
     await expect(recruiter.locator("[data-brief-play]")).toHaveAttribute("aria-pressed", "true");
@@ -117,6 +118,34 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("[data-brief-chapters] [data-brief-chapter]")).toHaveCount(4);
     await page.locator("#recruiter-dialog .dialog-close").click();
     await expect(page.locator("#recruiter-dialog")).not.toBeVisible();
+  });
+
+  test("mobile atlas and brief stay readable without horizontal overflow", async ({ browser }) => {
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true
+    });
+    const page = await context.newPage();
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.locator("#inicio [data-go='ruta']").click();
+    await expect(page.locator("#ruta")).toBeInViewport();
+    await expect(page.locator("[data-atlas-stops] button")).toHaveCount(5);
+    await page.screenshot({ path: "artifacts/v16/atlas-mobile.png", fullPage: false });
+    await page.locator("[data-atlas-stops] [data-atlas-step='4']").click();
+    await expect(page.locator("[data-atlas-title]")).toBeVisible();
+
+    await page.locator("#inicio [data-open-recruiter]").click();
+    const brief = page.locator("#recruiter-dialog");
+    await expect(brief).toBeVisible();
+    await expect(brief.locator("[data-brief-chapter]")).toHaveCount(4);
+    await page.screenshot({ path: "artifacts/v16/brief-mobile.png", fullPage: false });
+    const dimensions = await brief.evaluate(el => {
+      const rect = el.getBoundingClientRect();
+      return { left: rect.left, right: rect.right, width: document.documentElement.scrollWidth, viewport: innerWidth };
+    });
+    expect(dimensions.left).toBeGreaterThanOrEqual(0);
+    expect(dimensions.right).toBeLessThanOrEqual(390);
+    expect(dimensions.width).toBeLessThanOrEqual(dimensions.viewport + 1);
+    await context.close();
   });
 
   test("exposes the recruiter route in English", async ({ page }) => {
