@@ -6,7 +6,7 @@ const url = process.env.PD_LIVE_URL || "https://gracianb.github.io/professional-
 
 const response = await fetch(url, {
   redirect: "follow",
-  headers: { "user-agent": "professional-deck-v16-live-smoke" },
+  headers: { "user-agent": "professional-deck-v17-live-smoke" },
 });
 
 assert.equal(response.ok, true, `Live deck returned HTTP ${response.status}`);
@@ -14,7 +14,9 @@ const html = await response.text();
 
 assert.match(html, /Professional Deck/);
 assert.match(html, /pd16-cover/);
-assert.match(html, /pd16-model-flow/);
+assert.match(html, /pd17-atlas-map/);
+assert.match(html, /data-brief-chapters/);
+assert.match(html, /v17-atlas.css/);
 assert.match(html, /RevOps Studio/);
 assert.match(html, /project-ohana/);
 assert.match(html, /vortex-gilt-xi\.vercel\.app/);
@@ -44,7 +46,14 @@ try {
     await page.goto(url, { waitUntil: "domcontentloaded" });
     await page.locator("#inicio").waitFor();
 
-    assert.equal(await page.locator(".deck .slide").count(), 14);
+    assert.equal(await page.locator(".deck .slide").count(), 10);
+    assert.equal(await page.locator("[data-atlas-stops] button").count(), 5);
+    assert.equal(await page.locator("[data-brief-chapter]").count(), 4);
+    await page.locator("[data-open-recruiter]").first().click();
+    assert.equal(await page.locator("[data-brief-clock]").innerText(), "00:00");
+    await page.locator("[data-brief-chapter=\"2\"]").click();
+    assert.equal(await page.locator("[data-brief-clock]").innerText(), "00:30");
+    await page.locator("#recruiter-dialog .dialog-close").click();
     assert.match(await page.locator(".pd16-name").innerText(), /GRACIÁN[\s\S]*BAENA/);
 
     const overflow = await page.evaluate(
@@ -61,7 +70,7 @@ try {
     await context.close();
   }
 
-  console.log("PROFESSIONAL DECK V16 LIVE PASS");
+  console.log("PROFESSIONAL DECK V17 LIVE PASS");
   console.log(`URL: ${response.url}`);
   console.log(`HTTP: ${response.status}`);
 } finally {
