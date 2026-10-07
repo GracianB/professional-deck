@@ -61,12 +61,30 @@
   <link rel="stylesheet" href="./v20-theme.css?v=deck-v20">
   <script src="./i18n.js?v=deck-v16" defer></script>
   <script src="./main.js?v=deck-v16" defer></script>
+  <script src="./v20-cinema.js?v=deck-v20" defer></script>
 </head>
 <body class="has-os-rail final-deck-v4">
   <noscript><div style="padding:1rem;font-family:system-ui,sans-serif">Este portfolio necesita JavaScript para la navegación interactiva. Puedes consultar el CV desde el enlace de la cabecera.</div></noscript>
 
   <a class="skip-link" href="#deck" data-i18n="skip">Saltar al contenido</a>
   <div class="top-progress" aria-hidden="true"><i data-progress></i></div>
+
+  <!-- V20 cinematic opening: pure DOM/CSS, skippable, once per session, reduced-motion aware. -->
+  <div class="pd20-cinema" id="pd20-cinema" role="region" aria-label="Apertura cinematográfica" data-i18n-aria="cinemaAria" hidden>
+    <div class="pd20-cinema-grid" aria-hidden="true"></div>
+    <div class="pd20-cinema-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="pd20-cinema-core">
+      <div class="pd20-cinema-overline"><span>GB / 2026</span><i></i><span data-i18n="cinemaSeries">PROFESSIONAL DECK</span></div>
+      <div class="pd20-cinema-monogram" aria-hidden="true"><span>G</span><b>✦</b><span>B</span></div>
+      <div class="pd20-cinema-line" aria-hidden="true"></div>
+      <p class="pd20-cinema-pretitle" data-i18n="cinemaPrelude">PERSONAS · SISTEMAS · POSIBILIDADES</p>
+      <h2 class="pd20-cinema-name">GRACIÁN <em>BAENA</em></h2>
+      <p class="pd20-cinema-thesis" data-i18n="cinemaThesis">Del problema humano al sistema que funciona.</p>
+      <div class="pd20-cinema-progress" aria-hidden="true"><span></span></div>
+      <small class="pd20-cinema-index">01 / 01 · <span data-i18n="cinemaEnd">UNA HISTORIA QUE PUEDES COMPROBAR</span></small>
+    </div>
+    <button type="button" class="pd20-cinema-skip" data-cinema-skip data-i18n="cinemaSkip">SALTAR INTRO ↗</button>
+  </div>
 
   <aside class="os-rail" aria-label="Index">
     <div class="os-rail-brand">
@@ -145,6 +163,7 @@
               <button class="button ghost" type="button" data-go="ruta" data-i18n="heroCtaExp">EXPLORAR MAPA →</button>
             </div>
 
+            <button type="button" class="pd20-cinema-replay" data-cinema-replay data-i18n="cinemaReplay" aria-label="Volver a ver la apertura">↻ VOLVER A VER APERTURA</button>
             <div class="pd16-proof-strip" aria-label="Professional proof">
               <span><b>16+</b><small data-i18n="proofYears">años de experiencia</small></span>
               <span><b>B2B</b><small data-i18n="proofSaas">SaaS · Customer Success</small></span>
