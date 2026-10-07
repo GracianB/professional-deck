@@ -47,6 +47,8 @@ test.describe("Professional Deck smoke", () => {
     await expect(page).toHaveURL(/theme=dark/);
     await expect(page).toHaveURL(/#sistemas$/);
     await expect(page.locator('[data-slide-live]')).toContainText(/Slide 03.*Bodytone/i);
+    await expect(page.locator("#sistemas")).toBeInViewport();
+    await page.waitForTimeout(220);
     await page.screenshot({ path: "artifacts/v16/bodytone-v19-desktop.png", fullPage: false });
 
     const coverTitleFont = await page.locator(".pd16-name span").evaluate(el =>
