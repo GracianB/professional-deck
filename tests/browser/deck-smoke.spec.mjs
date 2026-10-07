@@ -32,7 +32,10 @@ test.describe("Professional Deck smoke", () => {
 
     await page.locator('[data-set-lang="en"]').click();
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
-    await expect(page.locator('[data-i18n="heroStatus"]')).toContainText("open to senior roles");
+    await expect(page.locator(".pd16-name")).toContainText("GRACIÁN");
+    await expect(page.locator(".pd16-name")).toContainText("BAENA");
+    await expect(page.locator(".pd16-role")).toContainText(/Customer Success Systems/i);
+    await expect(page.locator(".pd16-proof-strip")).toContainText(/ES · EN · IT/);
 
     await page.locator('[data-set-theme="light"]').click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -43,15 +46,16 @@ test.describe("Professional Deck smoke", () => {
     await expect(page).toHaveURL(/#sistemas$/);
     await expect(page.locator('[data-slide-live]')).toContainText(/Slide 03.*Bodytone/i);
 
-    const coverAccent = await page.locator("#inicio").evaluate(el =>
-      getComputedStyle(el).getPropertyValue("--cover-accent").trim()
-    );
-    expect(coverAccent).toBe("#c4a574");
-
-    const coverTitleFont = await page.locator(".gb-cover-title").evaluate(el =>
+    const coverTitleFont = await page.locator(".pd16-name span").evaluate(el =>
       getComputedStyle(el).fontFamily
     );
     expect(coverTitleFont).toMatch(/Fraunces/i);
+
+    await expect(page.locator("#demos .pd16-proof-card")).toHaveCount(3);
+    await expect(page.locator("#demos")).toContainText(/RevOps Studio/i);
+    await expect(page.locator("#demos")).toContainText(/OHANA/i);
+    await expect(page.locator("#demos")).toContainText(/VØRTICE/i);
+    await expect(page.locator("#ruta .pd16-model-flow li")).toHaveCount(7);
 
     await page.locator('.nav-recruiter').click();
     const recruiter = page.locator("#recruiter-dialog");
@@ -76,6 +80,8 @@ test.describe("Professional Deck smoke", () => {
     await expect(command.locator("[data-command-search]")).toBeVisible();
     await command.locator("[data-command-search]").fill("bodytone");
     await expect(command.locator("[data-command-list]")).toContainText(/Bodytone/i);
+    await command.locator("[data-command-search]").fill("systems lab");
+    await expect(command.locator("[data-command-list]")).toContainText(/Systems Lab/i);
     await command.locator(".dialog-close").click();
     await expect(command).not.toBeVisible();
 
