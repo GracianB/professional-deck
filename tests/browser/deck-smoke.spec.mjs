@@ -121,6 +121,7 @@ test.describe("Professional Deck smoke", () => {
   });
 
   test("mobile atlas and brief stay readable without horizontal overflow", async ({ browser }) => {
+    mkdirSync("artifacts/v16", { recursive: true });
     const context = await browser.newContext({
       viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true
     });
