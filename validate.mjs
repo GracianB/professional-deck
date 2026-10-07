@@ -1,16 +1,20 @@
-﻿import { access, readFile, stat } from "node:fs/promises";
+import { access, readFile, stat } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const required = [
-  "index.html", "styles.css", "main.js", "i18n.js", "case.js", "favicon.svg", "og-cover.png",
-  "Gracian_Baena_CV_2026_ES.pdf", "Gracian_Baena_CV_2026_EN.pdf", "Gracian_Baena_Carta_Presentacion_ES.pdf", "Gracian_Baena_Cover_Letter_EN.pdf",
+  "index.html", "styles.css", "v16-final.css", "main.js", "i18n.js", "case.js",
+  "README.md", "favicon.svg", "og-cover.png", "manifest.webmanifest",
+  "Gracian_Baena_CV_2026_ES.pdf", "Gracian_Baena_CV_2026_EN.pdf",
+  "Gracian_Baena_Carta_Presentacion_ES.pdf", "Gracian_Baena_Cover_Letter_EN.pdf",
   "CV_Gracian_Baena_2026_ES.pdf", "CV_Gracian_Baena_2026_EN.pdf",
   "proyecto-bodytone.html", "proyecto-calculadora.html",
-  "proyecto-linkedin.html", "proyecto-outreach.html", "404.html", "robots.txt", "sitemap.xml"
+  "proyecto-linkedin.html", "proyecto-outreach.html",
+  "404.html", "robots.txt", "sitemap.xml"
 ];
+
 const errors = [];
 
 async function fileExists(file) {
@@ -20,6 +24,14 @@ async function fileExists(file) {
   } catch {
     return false;
   }
+}
+
+function requireText(haystack, needle, label = needle) {
+  if (!haystack.includes(needle)) errors.push(`Missing V16 contract: ${label}`);
+}
+
+function forbid(haystack, pattern, label) {
+  if (pattern.test(haystack)) errors.push(`Forbidden legacy claim: ${label}`);
 }
 
 for (const file of required) {
@@ -33,41 +45,99 @@ for (const file of required) {
 
 const index = await readFile(join(root, "index.html"), "utf8");
 const css = await readFile(join(root, "styles.css"), "utf8");
+const v16 = await readFile(join(root, "v16-final.css"), "utf8");
 const main = await readFile(join(root, "main.js"), "utf8");
 const i18n = await readFile(join(root, "i18n.js"), "utf8");
+const readme = await readFile(join(root, "README.md"), "utf8");
 const packageJson = JSON.parse(await readFile(join(root, "package.json"), "utf8"));
+const publicText = [index, i18n, readme].join("\n");
+
 const slideCount = (index.match(/<section class="slide\b/g) || []).length;
-if (slideCount < 8 || slideCount > 15) errors.push(`Expected 8-15 slides, found ${slideCount}`);
+if (slideCount !== 14) errors.push(`V16 requires exactly 14 slides, found ${slideCount}`);
+
+const ids = [...index.matchAll(/\bid=["']([^"']+)["']/g)].map((match) => match[1]);
+const duplicates = [...new Set(ids.filter((id, pos) => ids.indexOf(id) !== pos))];
+if (duplicates.length) errors.push(`Duplicate HTML ids: ${duplicates.join(", ")}`);
+
 const languageControls = (index.match(/data-set-lang=/g) || []).length;
 if (!index.includes("data-language-gate") || languageControls < 2) errors.push("Language control missing");
 if (!i18n.includes("GB_I18N") || !i18n.includes("en:") || !i18n.includes("es:")) errors.push("i18n dictionary incomplete");
 if (!/scroll-snap-type:\s*y mandatory/.test(css)) errors.push("Missing scroll snap");
 if (!/addEventListener\("wheel"/.test(main)) errors.push("Missing wheel navigation");
 
+for (const token of [
+  'class="slide dark fit pd16-cover"',
+  'class="pd16-name"',
+  'class="pd16-os"',
+  'id="sistemas"',
+  'id="demos"',
+  'id="ruta"',
+  'class="pd16-model-flow"',
+  'id="trayectoria"',
+  'class="pd16-career-steps"',
+  'id="linea"',
+  'class="pd16-timeline-track"',
+  'id="experiencia"',
+  'id="experiencia-2"',
+  'id="idiomas"',
+]) {
+  requireText(index, token);
+}
+
+for (const link of [
+  "https://bodytonehelp.zendesk.com/hc/es",
+  "https://gracianb.github.io/revops-studio/",
+  "https://github.com/GracianB/revops-studio",
+  "https://gracianb.github.io/project-ohana/",
+  "https://github.com/GracianB/project-ohana",
+  "https://vortex-gilt-xi.vercel.app/",
+  "https://github.com/GracianB/vortex",
+  "https://gracianb.github.io/systems-lab/",
+]) {
+  requireText(index, link, `public evidence link ${link}`);
+}
+
+for (const milestone of ["BODYTONE", "MINDEREST", "MAJOREL", "SOLARIS", "EL CORTE INGL", "PRIMARK"]) {
+  if (!publicText.toUpperCase().includes(milestone)) errors.push(`Missing career milestone: ${milestone}`);
+}
+
+for (const roleFit of ["Customer Success", "Account Management", "Projects / Operations", "Data / AI"]) {
+  if (!index.includes(roleFit) && !i18n.includes(roleFit)) errors.push(`Missing role fit: ${roleFit}`);
+}
+
+for (const language of ["Español", "Inglés", "Italiano", "Spanish", "English", "Italian"]) {
+  if (!i18n.includes(language) && !index.includes(language)) errors.push(`Missing working language: ${language}`);
+}
+
+forbid(publicText, /Mood Fitness/i, "Mood Fitness");
+forbid(publicText, /\bPortuguese\b|\bPortuguês\b|\bPortugués\b/i, "Portuguese claim");
+forbid(publicText, /\bFrench\b|\bFrancés\b|\bFrançais\b/i, "French claim");
+forbid(publicText, /\b4 countries\b|\b4 países\b/i, "four-country cover claim");
+forbid(publicText, /\b6 languages\b|\bseis idiomas\b|\bsix languages\b/i, "six-language claim");
+forbid(publicText, /open to senior roles|roles senior/i, "senior-role availability claim");
+forbid(index, /deck-intro|intro-on/, "blocking intro");
+
+if (!/\.pd16-cover\s*\{/.test(v16)) errors.push("V16 cover CSS missing");
+if (!/\.pd16-model-flow\s*\{/.test(v16)) errors.push("V16 operating model CSS missing");
+if (!/\.pd16-career-steps\s*\{/.test(v16)) errors.push("V16 career CSS missing");
+
 const requiredScripts = [
-  "validate",
-  "verify",
-  "test:browser",
-  "audit:production",
-  "audit:performance",
-  "audit:css",
-  "quality"
+  "validate", "verify", "test:browser",
+  "audit:production", "audit:performance", "audit:css", "quality"
 ];
 for (const script of requiredScripts) {
   if (!packageJson.scripts?.[script]) errors.push(`Missing npm script: ${script}`);
 }
-if (!await fileExists(join(root, "playwright.config.mjs"))) errors.push("Missing Playwright config");
-if (!await fileExists(join(root, "tools", "production-audit.mjs"))) errors.push("Missing production audit tool");
-if (!await fileExists(join(root, "tools", "performance-budget.mjs"))) errors.push("Missing performance budget tool");
-if (!await fileExists(join(root, "tools", "css-cascade-guard.mjs"))) errors.push("Missing CSS cascade guard");
-for (const phrase of ["Customer Success", "Account Management", "Proyectos / Operaciones", "Data / IA", "Consultoría"]) {
-  if (!index.includes(phrase) && !i18n.includes(phrase)) errors.push(`Missing recruiter fit: ${phrase}`);
+
+for (const rel of [
+  "playwright.config.mjs",
+  "tools/production-audit.mjs",
+  "tools/performance-budget.mjs",
+  "tools/css-cascade-guard.mjs"
+]) {
+  if (!await fileExists(join(root, rel))) errors.push(`Missing ${rel}`);
 }
-for (const phrase of ["BODYTONE", "MINDEREST", "MOOD FITNESS", "EL CORTE INGL"]) {
-  if (!index.toUpperCase().includes(phrase.toUpperCase()) && !i18n.toUpperCase().includes(phrase.toUpperCase())) {
-    errors.push(`Missing career milestone: ${phrase}`);
-  }
-}
+
 for (const script of ["main.js", "i18n.js", "case.js", "validate.mjs"]) {
   const check = spawnSync(process.execPath, ["--check", join(root, script)], { encoding: "utf8" });
   if (check.status !== 0) errors.push(`${script}: ${check.stderr.trim()}`);
@@ -77,4 +147,5 @@ if (errors.length) {
   console.error(`\nValidation failed (${errors.length})\n- ${errors.join("\n- ")}\n`);
   process.exit(1);
 }
-console.log(`OK ${required.length} files · ${slideCount} slides · ES/EN controls · ready for GitHub Pages`);
+
+console.log(`OK · V16 FINAL · ${required.length} files · ${slideCount} slides · ES/EN · evidence-first · ready for browser gates`);
