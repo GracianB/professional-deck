@@ -31,7 +31,7 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(stops.nth(2)).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("[data-atlas-title]")).toContainText("Madrid");
     await page.locator("[data-atlas-go]").click();
-    await expect(page).toHaveURL(/#experiencia$/);
+    await expect(page).toHaveURL(/#trayectoria$/);
 
     await page.locator("[data-open-recruiter]").first().click();
     const dialog=page.locator("#recruiter-dialog");
