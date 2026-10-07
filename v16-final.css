@@ -65,6 +65,7 @@
   z-index: 2;
   width: min(100%, 1260px);
   margin: 0 auto;
+  padding-top: clamp(.8rem, 1.8vh, 1.35rem);
   display: grid;
   gap: clamp(1.2rem, 2vw, 2rem);
 }
@@ -261,11 +262,14 @@
 }
 
 .pd16-os li strong {
+  display: block;
   color: var(--white);
   font: 500 1rem var(--display);
 }
 
 .pd16-os li small {
+  display: block;
+  margin-top: .15rem;
   color: #77716b;
   font: 600 8px var(--mono);
 }
