@@ -231,16 +231,13 @@
       code: pad(index)
     })).concat([
       { id: "ext-hub", title: "Hub", href: "https://gracianb.github.io/GracianB/", code: "↗" },
-      { id: "ext-play", title: "PLAY", href: "https://gracianb.github.io/systems-lab/", code: "↗" },
-      { id: "ext-ohana", title: "Ohana", href: "https://gracianb.github.io/project-ohana/", code: "↗" },
-      { id: "ext-vortex", title: "Vórtice", href: "https://vortex-gilt-xi.vercel.app/", code: "↗" },
+      { id: "ext-lab", title: "Systems Lab", href: "https://gracianb.github.io/systems-lab/", code: "↗" },
+      { id: "ext-revops", title: "RevOps Studio", href: "https://gracianb.github.io/revops-studio/", code: "↗" },
+      { id: "ext-ohana", title: "OHANA", href: "https://gracianb.github.io/project-ohana/", code: "↗" },
+      { id: "ext-vortex", title: "VØRTICE", href: "https://vortex-gilt-xi.vercel.app/", code: "↗" },
       { id: "ext-hc", title: "Help Center", href: "https://bodytonehelp.zendesk.com/hc/es", code: "↗" }
     ]);
 
-    // Solo cuando el deck ya está listo (evita errores al elegir idioma)
-    if (typeof selectCity === "function") {
-      try { selectCity(document.querySelector(".gb-pin.active")?.dataset.city || "murcia"); } catch (_) {}
-    }
     if (typeof setActive === "function") {
       try { setActive(activeIndex, false); } catch (_) {}
     }
@@ -284,7 +281,6 @@
   function enterApp() {
     try {
       if (typeof setActive === "function") setActive(activeIndex, false);
-      if (typeof selectCity === "function") selectCity("murcia");
     } catch (_) {}
     window.scrollTo(0, 0);
     deck?.focus?.({ preventScroll: true });
@@ -589,55 +585,6 @@
     goTo(keys[event.key]);
   });
 
-  // Cities — query en cada llamada (evita TDZ si se invoca desde applyI18n al inicio)
-  // Murcia primero en el panel: núcleo profesional (CS · Data · AI)
-  const cityOrder = ["murcia", "gran-canaria", "madrid", "varsovia", "bergamo", "lisboa"];
-  const cityShort = {
-    murcia: "Murcia",
-    "gran-canaria": "Canarias",
-    madrid: "Madrid",
-    varsovia: "Varsovia",
-    bergamo: "Bérgamo",
-    lisboa: "Lisboa"
-  };
-
-  function selectCity(key) {
-    const city = t.cities?.[key];
-    const panel = document.querySelector("[data-city-panel]");
-    if (!city || !panel) return;
-    document.querySelectorAll("[data-city]").forEach((button) => {
-      const active = button.dataset.city === key;
-      button.classList.toggle("active", active);
-      button.classList.toggle("is-active", active);
-      if (button.hasAttribute("aria-pressed")) button.setAttribute("aria-pressed", String(active));
-    });
-    panel.classList.remove("is-swapping");
-    void panel.offsetWidth;
-    panel.classList.add("is-swapping");
-    panel.innerHTML =
-      `<header><b>${city.place}</b></header>` +
-      `<div class="gb-city-body"><p class="eyebrow">${city.eyebrow}</p><h3>${city.title}</h3><p>${city.copy}</p>` +
-      `<ul class="gb-city-tags">${(city.tags || []).map((tag) => `<li>${tag}</li>`).join("")}</ul></div>` +
-      `<footer class="gb-city-nav">${cityOrder.map((item) =>
-        `<button type="button" class="${item === key ? "active" : ""}" data-city="${item}">${cityShort[item] || item}</button>`
-      ).join("")}</footer>`;
-
-    // strip under map
-    const strip = document.querySelector("[data-route-strip]");
-    if (strip) {
-      strip.innerHTML = cityOrder.map((item) => {
-        const c = t.cities?.[item];
-        const on = item === key ? " is-on" : "";
-        return `<button type="button" class="gb-strip-item${on}" data-city="${item}"><b>${c?.number || ""}</b><span>${(c?.place || item).split("·")[0].trim()}</span></button>`;
-      }).join("");
-    }
-  }
-
-  document.querySelector(".gb-route-body, .route-explorer, .gb-route")?.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-city]");
-    if (button) selectCity(button.dataset.city);
-  });
-
   // Roles
   const experienceDialog = document.querySelector("#experience-dialog");
   function openExperience(key) {
@@ -733,9 +680,9 @@
   const commandCount = document.querySelector("[data-command-count]");
   commandItems = slides.map((slide, index) => ({ id: slide.id, title: slide.dataset.title, code: pad(index) })).concat([
     { id: "ext-hub", title: "Hub", href: "https://gracianb.github.io/GracianB/", code: "↗" },
-    { id: "ext-play", title: "PLAY", href: "https://gracianb.github.io/systems-lab/", code: "↗" },
+    { id: "ext-lab", title: "Systems Lab", href: "https://gracianb.github.io/systems-lab/", code: "↗" },
     { id: "ext-ohana", title: "Ohana", href: "https://gracianb.github.io/project-ohana/", code: "↗" },
-    { id: "ext-vortex", title: "Vórtice", href: "https://vortex-gilt-xi.vercel.app/", code: "↗" },
+    { id: "ext-vortex", title: "VØRTICE", href: "https://vortex-gilt-xi.vercel.app/", code: "↗" },
     { id: "ext-hc", title: "Help Center", href: "https://bodytonehelp.zendesk.com/hc/es", code: "↗" }
   ]);
 
@@ -886,18 +833,6 @@
   const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   const root = document.documentElement;
   const rAF = window.requestAnimationFrame || ((f) => setTimeout(f, 16));
-
-  /* —— 1 · cinematic boot —— */
-  (function intro() {
-    if (!root.classList.contains("intro-on")) return;
-    try { sessionStorage.setItem("gb-deck-intro-seen", "1"); } catch (_) {}
-    let done = false;
-    const finish = () => { if (done) return; done = true; root.classList.add("intro-done"); };
-    const timer = setTimeout(finish, 2100);
-    const skip = () => { clearTimeout(timer); finish(); };
-    ["pointerdown", "keydown", "wheel", "touchstart"].forEach((ev) =>
-      window.addEventListener(ev, skip, { once: true, passive: true }));
-  })();
 
   /* —— 2 · magnetic hero CTAs (translate property, no conflict with hover transform) —— */
   (function magnetic() {
