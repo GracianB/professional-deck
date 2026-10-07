@@ -44,6 +44,9 @@ jobs:
       - name: CSS Cascade Guard
         run: npm run audit:css
 
+      - name: V16 CSS Guard
+        run: npm run audit:css:v16
+
       - name: Browser E2E
         run: npm run test:browser
 
