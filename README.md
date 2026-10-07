@@ -1,4 +1,4 @@
-# Gracián Baena · Professional Deck V17
+# Gracián Baena · Professional Deck V18
 
 **Customer Success Systems & Data Strategist**  
 Murcia, Spain · Remote · Spanish / English / Italian
@@ -27,22 +27,26 @@ I started close to customers, teams and daily operations. The technical layer ca
 
 ---
 
-## V17 atlas structure
+## V18 chapter structure
 
-The deck now has **10 curated chapters**, with no duplicated narrative slides.
+**12 deliberate chapters**, including the requested return of Model and Capabilities. No separate generic "Differential", duplicated timeline or filler language slide.
 
 | # | Chapter | Purpose |
 |---|---|---|
-| 00 | Cover | Identity, role and immediately clickable proof |
-| 01 | Bodytone | Real Customer Operations system |
-| 02 | Public evidence | RevOps Studio, OHANA and VØRTICE |
-| 03 | Career atlas | Interactive Iberian context and five professional milestones |
-| 04 | Method | How a decision becomes an adopted system |
-| 05 | Career | Five stages from service to AI/data/systems |
-| 06 | Experience I | Bodytone, Minderest and Majorel |
-| 07 | Experience II | Solaris, El Corte Inglés and Primark |
-| 08 | Education | Professional development and practical learning |
-| 09 | Contact | Role fit, languages, CV, LinkedIn and agenda |
+| 00 | Cover | Human-first positioning |
+| 01 | Model | Customer → operations → signal → decision → system → adoption → outcome |
+| 02 | Bodytone | Operational proof |
+| 03 | Public work | RevOps Studio, OHANA and VØRTICE |
+| 04 | Method | Listen, translate, build, activate, prove |
+| 05 | European atlas | Murcia, Gran Canaria, Madrid, Lisbon, Bergamo and Warsaw on a coordinate-based artistic map |
+| 06 | Evolution | A unified five-stage professional narrative |
+| 07 | Experience I | Bodytone, Minderest, Majorel with brand-inspired original artwork |
+| 08 | Experience II | Solaris, El Corte Inglés, Primark with brand-inspired original artwork |
+| 09 | Capabilities | Verifiable CS, AI, data, game/interactive and sound/graphics work |
+| 10 | Education | Retained as designed |
+| 11 | Contact | Working languages, CV and links |
+
+The six map positions are latitude/longitude references on an intentionally simplified basemap. Narrative lines are *not* transport routes, and locations are *not* attributed to specific employers without evidence. The graphic marks are original stylistic illustrations, **not licensed official corporate logos**.
 
 The **60-second overview** is now a timed experience, not a scrollable recruiter document: four 15-second chapters, playable/pausable, keyboard-accessible and translated to ES/EN. The atlas distinguishes real geographic context from the conceptual timeline, without treating every employer as a precise location. Legacy URLs with removed slide hashes open the cover instead of pointing at filler pages.
 
@@ -178,7 +182,7 @@ The pipeline checks:
 - structural validation
 - JavaScript syntax
 - ES / EN runtime
-- 10-slide curated contract
+- 12-slide curated contract
 - dark / light themes
 - command palette
 - presentation mode
