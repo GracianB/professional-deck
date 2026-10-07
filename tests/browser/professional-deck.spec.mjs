@@ -71,6 +71,48 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(page.locator("[data-atlas-title]")).toContainText("Warsaw");
   });
 
+  test("V19 atlas draws changing routes, full network and pauses guided tour", async ({ page }) => {
+    await page.goto("/?lang=es#ruta", { waitUntil: "domcontentloaded" });
+    const paths = page.locator("#ruta [data-atlas-routes] path");
+    await expect(paths).toHaveCount(5);
+    await expect(page.locator("[data-atlas-title]")).toContainText("Murcia");
+    await page.locator("#ruta [data-atlas-next]").click();
+    await expect(page.locator("[data-atlas-title]")).toContainText("Gran Canaria");
+    await expect(paths).toHaveCount(5);
+    await page.locator("#ruta [data-atlas-mode]").click();
+    await expect(page.locator("#ruta [data-atlas-mode]")).toHaveAttribute("aria-pressed", "true");
+    await expect(paths).toHaveCount(15);
+    await page.locator("#ruta [data-atlas-mode]").click();
+    await expect(paths).toHaveCount(5);
+    await page.locator("#ruta [data-atlas-tour]").click();
+    await expect(page.locator("#ruta [data-atlas-tour]")).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("[data-atlas-title]")).toContainText("Madrid");
+    await page.locator("#ruta [data-atlas-tour]").click();
+    await expect(page.locator("#ruta [data-atlas-tour]")).toHaveAttribute("aria-pressed", "false");
+    await page.locator("#ruta [data-atlas-prev]").click();
+    await expect(page.locator("[data-atlas-title]")).toContainText("Gran Canaria");
+    await page.locator("[data-set-lang='en']").click();
+    await expect(page.locator("#ruta [data-atlas-tour]")).toContainText("EXPLORE");
+  });
+
+  test("V19 Bodytone stays navy and final contact offers real working links", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await expect(page.locator("#sistemas .pd19-os-flow>span")).toHaveCount(4);
+    await expect(page.locator("#contacto .pd19-contact-link")).toHaveCount(4);
+    await expect(page.locator('#contacto a[href^="mailto:"]')).toHaveCount(1);
+    await expect(page.locator("#contacto .pd19-contact-languages")).toContainText("ES");
+    await expect(page.locator("#contacto .pd19-contact-languages")).toContainText("EN");
+    await expect(page.locator("#contacto .pd19-contact-languages")).toContainText("IT");
+    const background=await page.locator("#sistemas .gb-star-main").evaluate(el=>getComputedStyle(el).backgroundImage);
+    expect(background).toContain("gradient");
+    await page.locator("[data-set-lang='en']").click();
+    await expect(page.locator("#contacto h2")).toContainText("Let's talk");
+    await expect(page.locator("#contacto [data-i18n='contactManifestoNote']")).toContainText("systems");
+    await page.locator("[data-set-theme='light']").click();
+    const bg=await page.locator("#contacto").evaluate(el=>getComputedStyle(el).backgroundColor);
+    expect(bg).not.toBe("rgba(0, 0, 0, 0)");
+  });
+
   test("header separates navigation and utilities on desktop", async ({ page }) => {
     await page.setViewportSize({width:1440,height:900});
     await page.goto("/", { waitUntil:"domcontentloaded" });
