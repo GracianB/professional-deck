@@ -215,3 +215,11 @@ html[data-theme="light"] .pd18-evo-message span {color:#81583e}
   .site-header .menu-toggle {flex:0 0 42px!important;min-width:42px!important;width:42px!important;height:42px!important;margin:0!important}
   .site-header .brand-mark {flex-shrink:0!important}
 }
+
+/* Touch targets stay >=40px; compact the surrounding chrome, never the hit area. */
+@media(max-width:640px){
+ .site-header>.brand {max-width:120px!important}
+ .site-header .brand-text small {display:none!important}
+ .site-header .header-actions .seg {height:42px!important}
+ .site-header .header-actions .seg-btn {min-width:40px!important;width:40px!important;height:40px!important;padding:0 4px!important}
+}
