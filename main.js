@@ -746,7 +746,6 @@
   applyI18n();
   syncDocLinks();
   syncLangButtons();
-  selectCity("murcia");
   const hashId = location.hash.replace("#", "");
   const initial = slides.findIndex((slide) => slide.id === hashId);
   setActive(initial >= 0 ? initial : 0, false);
