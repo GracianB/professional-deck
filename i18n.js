@@ -438,7 +438,7 @@
     atlasEyebrow: "ESPAÑA · PORTUGAL · ITALIA · POLONIA",
     atlasTitle: "Seis ciudades.<br><em>Una mirada más amplia.</em>",
     atlasLead: "Murcia, Gran Canaria, Madrid, Lisboa, Bérgamo y Varsovia. Geografía real, conexiones y etapas sin inventar ubicaciones laborales.",
-    atlasMapNote: "Coordenadas reales · silueta artística · conexiones narrativas, no rutas",
+    atlasMapNote: "Coordenadas y contornos vectoriales reales · conexiones narrativas, no rutas",
     atlasOpen: "VER EVOLUCIÓN ↗",
     atlasChapters: [
       ["ESPAÑA", "BASE · MURCIA", "Murcia. La base.", "Base actual de los proyectos: operaciones, tecnología y Customer Success.", "MURCIA / 37.9922 N · 1.1307 W", "trayectoria"],
@@ -912,7 +912,7 @@
     atlasEyebrow: "SPAIN · PORTUGAL · ITALY · POLAND",
     atlasTitle: "Six cities.<br><em>A wider perspective.</em>",
     atlasLead: "Murcia, Gran Canaria, Madrid, Lisbon, Bergamo and Warsaw. Real geographic references, without inventing employer locations.",
-    atlasMapNote: "Real coordinates · artistic map outline · narrative connections, not routes",
+    atlasMapNote: "Real coordinates and vector geography · narrative connections, not routes",
     atlasOpen: "EXPLORE EVOLUTION ↗",
     atlasChapters: [
       ["SPAIN", "BASE · MURCIA", "Murcia. My base.", "Current home base connecting operations, technology and Customer Success projects.", "MURCIA / 37.9922 N · 1.1307 W", "trayectoria"],
