@@ -6,7 +6,7 @@ test.describe("Professional Deck browser E2E", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
     await expect(page).toHaveTitle(/Gracián Baena/i);
-    await expect(page.locator(".deck .slide")).toHaveCount(10);
+    await expect(page.locator(".deck .slide")).toHaveCount(12);
 
     await expect(page.locator(".site-header")).toBeVisible();
     await expect(page.locator(".deck-controls")).toBeVisible();
@@ -26,10 +26,10 @@ test.describe("Professional Deck browser E2E", () => {
     await page.locator('.main-nav [data-go="ruta"]').click();
     await expect(page.locator('#ruta')).toBeInViewport();
     const stops=page.locator("[data-atlas-stops] button");
-    await expect(stops).toHaveCount(5);
+    await expect(stops).toHaveCount(6);
     await stops.nth(2).click();
     await expect(stops.nth(2)).toHaveAttribute("aria-pressed", "true");
-    await expect(page.locator("[data-atlas-title]")).toContainText("Escuchar");
+    await expect(page.locator("[data-atlas-title]")).toContainText("Madrid");
     await page.locator("[data-atlas-go]").click();
     await expect(page).toHaveURL(/#experiencia$/);
 
@@ -63,7 +63,7 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(slides.nth(1)).toBeInViewport();
 
     await page.keyboard.press("End");
-    await expect(slides.nth(9)).toBeInViewport();
+    await expect(slides.nth(11)).toBeInViewport();
 
     await page.keyboard.press("Home");
     await expect(slides.nth(0)).toBeInViewport();
@@ -140,11 +140,11 @@ test.describe("Professional Deck browser E2E", () => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
     const railItems = page.locator(".os-rail-item");
-    await expect(railItems).toHaveCount(10);
+    await expect(railItems).toHaveCount(12);
     await expect(railItems.nth(0)).toHaveAttribute("aria-current", "true");
 
     await page.keyboard.press("End");
-    await expect(railItems.nth(9)).toHaveAttribute("aria-current", "true");
+    await expect(railItems.nth(11)).toHaveAttribute("aria-current", "true");
     await expect(railItems.nth(0)).toHaveAttribute("aria-current", "false");
   });
 
