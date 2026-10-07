@@ -1,0 +1,124 @@
+/* Professional Deck V17 · Atlas + the real sixty-second brief.
+   Deliberately isolated components: no additions to the legacy !important pile. */
+#ruta.pd17-atlas-slide {
+  background: radial-gradient(ellipse at 28% 44%, rgba(73,148,150,.08), transparent 54%), #100f0e;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+}
+.pd17-atlas-shell { width: min(100%, 1280px); margin: auto; display: grid; gap: clamp(.9rem,1.8vh,1.4rem); }
+.pd17-atlas-head { display: grid; grid-template-columns: 1.5fr .65fr; align-items: end; gap: 2rem; }
+.pd17-atlas-head .slide-index { margin-bottom: .65rem; }
+.pd17-atlas-head .eyebrow { margin-bottom: .55rem; color: #caa66b; }
+.pd17-atlas-head h2 { margin: 0; font: 500 clamp(2rem,3.6vw,4rem)/.95 var(--display); letter-spacing: -.055em; color: #f4f0ea; }
+.pd17-atlas-head h2 em { color: #b8d6d2; font-style: italic; }
+.pd17-atlas-head > p { margin: 0 0 .2rem; max-width: 34ch; color: #b4aaa0; font: 400 clamp(.79rem,1.12vw,.95rem)/1.65 var(--sans,Inter,sans-serif); }
+.pd17-atlas-layout { display: grid; grid-template-columns: minmax(0,1.45fr) minmax(280px,.85fr); gap: clamp(.7rem,1.8vw,1.5rem); min-height: 0; }
+.pd17-atlas-map { position: relative; display: grid; overflow: hidden; min-height: clamp(310px,50vh,560px); border: 1px solid rgba(207,177,124,.22); border-radius: 20px; background: radial-gradient(circle at 60% 55%, #172b2a 0, #111715 36%,#100f0e 78%); box-shadow: 0 30px 70px rgba(0,0,0,.24); }
+.pd17-atlas-map::before { position: absolute; content: ""; inset: 0; opacity: .3; pointer-events: none; z-index: 1; background: linear-gradient(130deg, transparent 58%, rgba(207,177,124,.14) 65%, transparent 71%); }
+.pd17-atlas-map-label { position: absolute; z-index: 2; inset: 18px 20px auto; display:flex; align-items:center; justify-content:space-between; gap:1rem; color: #d5b980; font: 700 .63rem/1 var(--mono); letter-spacing: .14em; }
+.pd17-atlas-map-label b { color: #83d4d4; }
+.pd17-atlas-map svg { display: block; width: 100%; height: 100%; max-height: min(52vh,540px); align-self: center; }
+.pd17-map-name { fill: #e8ceaa; font: 700 16px var(--mono); letter-spacing: .12em; }
+.pd17-map-watermark { fill: #e4e4d6; fill-opacity: .13; font: 500 52px var(--display); letter-spacing:.23em; }
+.pd17-map-coord { fill: #8ca6a0; font: 9px var(--mono); letter-spacing:.06em; }
+.pd17-atlas-arc { animation: pd17-flow 16s linear infinite; }
+@keyframes pd17-flow { to {stroke-dashoffset:-170} }
+.pd17-map-note { position: absolute; z-index: 2; left: 18px; bottom: 56px; max-width: calc(100% - 36px); display: flex; align-items: baseline; gap: .6rem; color: #b7c7c1; font: 500 .69rem/1.5 var(--mono); }
+.pd17-live-dot { flex:0 0 7px; width:7px; height:7px; background: #79deda; border-radius:50%; box-shadow: 0 0 12px rgba(121,222,218,.7); }
+.pd17-atlas-key { position: absolute; z-index: 2; inset: auto 18px 16px; display:flex; gap: .65rem; flex-wrap:wrap; color:#bda98e; font: 700 .55rem/1.2 var(--mono); letter-spacing:.03em; }
+.pd17-atlas-key span { padding:.38rem .55rem; border:1px solid rgba(215,183,130,.2); border-radius:99px; background:rgba(0,0,0,.28); }
+.pd17-atlas-side { display: grid; grid-template-rows: minmax(0,1fr) auto; gap: .65rem; min-width:0; }
+.pd17-atlas-stage { position: relative; overflow:hidden; padding: clamp(1.3rem,2.4vw,2.4rem); display:flex; flex-direction:column; justify-content:flex-end; border:1px solid rgba(207,177,124,.2); border-radius:20px; background:radial-gradient(circle at 88% 2%,rgba(115,201,199,.15),transparent 42%),linear-gradient(155deg,#191815,#100f0e); }
+.pd17-stage-top { position:absolute; top:22px; left:24px; right:24px; display:flex; justify-content:space-between; gap:1rem; font:700 .68rem var(--mono); color:#cbb084; }
+.pd17-stage-top span { color:#91b9b6; }
+.pd17-stage-symbol { position:absolute; top:18%; left:18px; font: 600 clamp(6rem,15vw,12rem)/1 var(--display); letter-spacing:-.09em; opacity:.065; pointer-events:none; }
+.pd17-stage-kicker { margin:0 0 .7rem; color: #92d8d4; font: 700 .68rem var(--mono); letter-spacing:.16em; }
+.pd17-atlas-stage h3 { margin:0; color:#f5f0e9; font: 500 clamp(1.6rem,2.7vw,2.9rem)/1.05 var(--display); letter-spacing:-.04em; }
+.pd17-atlas-stage p:not(.pd17-stage-kicker) { max-width: 40ch; color:#bcb4a9; font:400 .88rem/1.65 Inter,sans-serif; margin:1.05rem 0; }
+.pd17-atlas-stage > strong { color:#e5bb7c; font: 600 .7rem/1.55 var(--mono); }
+.pd17-stage-link { align-self:flex-start; margin-top:1.4rem; min-height:42px; padding:.75rem 1.1rem; border:1px solid rgba(226,191,139,.46); border-radius:999px; background:rgba(203,165,104,.14); color:#f9e5c4; font:700 .64rem var(--mono); letter-spacing:.08em; cursor:pointer; }
+.pd17-stage-link:hover,.pd17-stage-link:focus-visible { background:#c9a46d; color:#12110f; border-color:#c9a46d; }
+.pd17-atlas-stops { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:5px; }
+.pd17-atlas-stops button { min-width:0; min-height:58px; display:flex; gap:.25rem; flex-direction:column; align-items:center; justify-content:center; border:1px solid rgba(203,169,113,.21); border-radius:10px; color:#d5bc98; background:#181614; font:700 .7rem/1 var(--mono); cursor:pointer; }
+.pd17-atlas-stops span { color:#9baaa5; font:.53rem/1 var(--mono); }
+.pd17-atlas-stops button[aria-pressed="true"],.pd17-atlas-stops button:hover,.pd17-atlas-stops button:focus-visible { border-color:#d6b17b; color:#fff; background:rgba(188,154,105,.22); box-shadow: inset 0 -3px 0 #e0b87b; }
+
+/* Brief: fixed-size view, not seven pseudo-cards and a wall of scrollable copy. */
+#recruiter-dialog.pd17-brief { box-sizing:border-box; width:min(790px,calc(100vw - 24px)); max-width:790px; max-height:calc(100svh - 24px); padding:clamp(18px,2.8vw,34px); overflow-y:auto; overflow-x:hidden; border-radius:24px!important; background: #191714!important; color:#f5f0e8; }
+.pd17-brief .dialog-close { position:absolute; top:8px; right:8px; width:40px; height:40px; border:1px solid rgba(203,174,127,.25); border-radius:50%; background:#29241e; color:#f2e9db; cursor:pointer; }
+.pd17-brief-head { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding-right:2rem; }
+.pd17-brief-head .eyebrow { margin:0; color:#d9b47c; font:700 .67rem var(--mono); letter-spacing:.16em; }
+#recruiter-dialog.pd17-brief h2 { margin:.6rem 0 0; color:#fff8ed; font:500 clamp(1.85rem,3.8vw,3.1rem)/1.02 var(--display); letter-spacing:-.055em; }
+.pd17-brief h2 em { color:#a8d8d3; font-style:italic; }
+.pd17-brief-clock { flex:0 0 auto; display:flex; flex-direction:column; align-items:end; gap:2px; font:700 clamp(1.5rem,3vw,2rem) var(--mono); color:#eed3a3; font-variant-numeric:tabular-nums; }
+.pd17-brief-clock small { color:#8a8b80; font:.65rem var(--mono); }
+.pd17-brief-lead { margin:1rem 0 1.1rem; color:#c9c1b4; font:.85rem/1.6 Inter,sans-serif; }
+.pd17-brief-progress { height:5px; overflow:hidden; border-radius:99px; background:rgba(225,199,148,.16); }
+.pd17-brief-progress span { display:block; width:0; height:100%; border-radius:inherit; background:linear-gradient(90deg,#d6a66a,#a2dedc); transition:width .4s linear; }
+.pd17-brief-chapters { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; margin:1rem 0; }
+.pd17-brief-chapters button { min-height:48px; display:flex; align-items:center; justify-content:center; gap:.65rem; border-radius:9px; border:1px solid rgba(211,184,138,.19); background:#211e19; color:#d9ba88; cursor:pointer; }
+.pd17-brief-chapters button span { font:700 .68rem var(--mono); }
+.pd17-brief-chapters button small { color:#b2aaa0; font:700 .66rem var(--mono); letter-spacing:.02em; }
+.pd17-brief-chapters button[aria-pressed="true"],.pd17-brief-chapters button:hover,.pd17-brief-chapters button:focus-visible { background:#413524; border-color:#c9ad81; }
+.pd17-brief-scene { position:relative; display:grid; grid-template-columns:minmax(120px,.55fr) minmax(0,1.45fr); align-items:center; min-height:225px; gap:1.4rem; overflow:hidden; padding:1.3rem; background:radial-gradient(circle at 18% 50%,rgba(88,172,166,.14),transparent 37%),linear-gradient(125deg,#1b2625,#151514 70%); border:1px solid rgba(170,194,175,.18); border-radius:16px; }
+.pd17-brief-orbit { position:relative; display:grid; place-items:center; justify-self:center; width:min(100%,185px); aspect-ratio:1; border:1px solid rgba(205,171,116,.26); border-radius:50%; box-shadow:0 0 0 15px rgba(202,168,116,.025),0 0 0 32px rgba(135,224,218,.022), inset 0 0 50px rgba(114,204,192,.07); }
+.pd17-brief-orbit::before { content:""; position:absolute; width:72%; height:72%; border-radius:50%; border:1px dashed rgba(142,210,196,.33); animation:pd17-rotate 35s linear infinite; }
+.pd17-brief-orbit > span { color:#d9b47c; font:600 clamp(2.5rem,5vw,4rem) var(--display); letter-spacing:-.08em; }
+.pd17-brief-orbit > span span { color:#a4dcd7; font:500 1.1rem var(--display); vertical-align:middle; }
+@keyframes pd17-rotate {to{transform:rotate(360deg)}}
+.pd17-brief-period { margin:0; color:#c8af87; font:700 .73rem var(--mono); letter-spacing:.14em; }
+.pd17-brief-story h3 { margin:.5rem 0 .8rem; max-width:25ch; color:#fff8eb; font:500 clamp(1.6rem,3.1vw,2.65rem)/1.07 var(--display); letter-spacing:-.04em; }
+.pd17-brief-story p:not(.pd17-brief-period) { margin:0 0 1rem; color:#c3c6bd; font:.9rem/1.6 Inter,sans-serif; }
+.pd17-brief-story small { color:#dfb983; font:700 .64rem/1.4 var(--mono); letter-spacing:.08em; }
+.pd17-brief-footer { display:flex; justify-content:space-between; align-items:center; gap:.8rem; margin-top:1rem; }
+.pd17-brief-player { display:flex; gap:.5rem; }
+.pd17-brief-footer button { min-height:44px; padding:.74rem 1rem; border:1px solid rgba(222,189,138,.4); border-radius:99px; font:700 .72rem var(--mono); cursor:pointer; }
+.pd17-play { color:#161513; background:#e3bd85; }
+.pd17-restart { background:transparent; color:#d9c3a4; }
+.pd17-proof { background:#2a3633; color:#bfe2dc; }
+.pd17-play:hover,.pd17-play:focus-visible { background:#fff1cf; }
+.pd17-restart:hover,.pd17-restart:focus-visible,.pd17-proof:hover,.pd17-proof:focus-visible { border-color:#a4d6d2; background:#34423f; }
+.pd17-brief-bottom { display:flex; justify-content:space-between; align-items:center; gap:.8rem; margin-top:.8rem; font: .68rem/1.4 var(--mono); color:#aaa398; }
+.pd17-brief-bottom a { color:#ead3ac; text-underline-offset:4px; }
+.pd17-brief :focus-visible,.pd17-atlas-slide :focus-visible { outline:2px solid #b1dcd5; outline-offset:3px; }
+html[data-theme="light"] #recruiter-dialog.pd17-brief { color:#f5f0e8; }
+html[data-theme="light"] #ruta .pd17-atlas-head h2 { color:#27241f; }
+html[data-theme="light"] #ruta .pd17-atlas-head h2 em { color:#285b5b; }
+html[data-theme="light"] #ruta .pd17-atlas-head > p { color:#5b554e; }
+@media(max-width:980px) {
+  .pd17-atlas-layout { grid-template-columns:1fr; }
+  .pd17-atlas-map { min-height:250px; }
+  .pd17-atlas-map svg { max-height:280px; }
+  .pd17-atlas-side { grid-template-columns:minmax(0,1fr); }
+  .pd17-atlas-stage { min-height:210px; }
+  .pd17-stage-symbol { top:0; right:3%; left:auto; font-size:7rem; }
+  .pd17-atlas-head { gap:.8rem; }
+}
+@media(max-width:620px) {
+  #ruta.pd17-atlas-slide { overflow:visible; }
+  .pd17-atlas-head { grid-template-columns:1fr; gap:.6rem; }
+  .pd17-atlas-head > p { max-width:50ch; }
+  .pd17-atlas-map { min-height:250px; }
+  .pd17-atlas-map svg { max-height:280px; }
+  .pd17-map-note { bottom:43px; font-size:.58rem; }
+  .pd17-atlas-key { font-size:.5rem; }
+  .pd17-atlas-stage { min-height:260px; padding:1.2rem; }
+  .pd17-brief-head { align-items:start; }
+  .pd17-brief-scene { grid-template-columns:1fr; padding:1.15rem; gap:.5rem; }
+  .pd17-brief-orbit { display:none; }
+  .pd17-brief-footer { flex-wrap:wrap; }
+  .pd17-proof { width:100%; }
+  .pd17-brief-chapters button { gap:.2rem; flex-direction:column; padding:.35rem; }
+  #recruiter-dialog.pd17-brief { border-radius:14px!important; padding:17px; }
+}
+@media (max-height:700px) and (min-width:621px) {
+  .pd17-atlas-head h2 {font-size:2.3rem}
+  .pd17-atlas-map {min-height:260px}
+  .pd17-atlas-stage {padding:1rem}
+  .pd17-brief-scene {min-height:180px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .pd17-atlas-arc,.pd17-brief-orbit::before {animation:none}
+  .pd17-brief-progress span {transition:none}
+}
