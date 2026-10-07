@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   live:
-    name: V18 live contract
+    name: V19 live contract
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
