@@ -49,7 +49,7 @@ try {
     assert.equal(await page.locator(".deck .slide").count(), 10);
     assert.equal(await page.locator("[data-atlas-stops] button").count(), 5);
     assert.equal(await page.locator("[data-brief-chapter]").count(), 4);
-    await page.locator("[data-open-recruiter]").first().click();
+    await page.locator("#inicio [data-open-recruiter]").click();
     assert.equal(await page.locator("[data-brief-clock]").innerText(), "00:00");
     await page.locator("[data-brief-chapter=\"2\"]").click();
     assert.equal(await page.locator("[data-brief-clock]").innerText(), "00:30");
