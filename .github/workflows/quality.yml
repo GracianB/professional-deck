@@ -47,6 +47,15 @@ jobs:
       - name: Browser E2E
         run: npm run test:browser
 
+      - name: Upload V16 visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: professional-deck-v16-${{ github.sha }}
+          path: artifacts/v16
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Production Audit
         run: npm run audit:production
 
