@@ -156,6 +156,8 @@ test.describe("Professional Deck smoke", () => {
     expect(dimensions.left).toBeGreaterThanOrEqual(0);
     expect(dimensions.right).toBeLessThanOrEqual(390);
     expect(dimensions.width).toBeLessThanOrEqual(dimensions.viewport + 1);
+    await brief.locator(".dialog-close").click();
+    await expect(brief).not.toBeVisible();
     await page.locator("#contacto").evaluate(el => el.scrollIntoView({block:"start",behavior:"instant"}));
     await page.waitForTimeout(180);
     await page.screenshot({path:"artifacts/v16/contact-v19-mobile.png",fullPage:false});
