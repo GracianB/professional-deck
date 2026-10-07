@@ -77,7 +77,8 @@ const expectedCssOrder = [
   "final-v3.css",
   "final-v4.css",
   "portada-extreme.css",
-  "deck-fix.css"
+  "deck-fix.css",
+  "v16-final.css"
 ];
 
 if (cssFiles.join("\n") === expectedCssOrder.join("\n")) {
@@ -97,6 +98,7 @@ for (const cssFile of cssFiles) {
 }
 
 const finalCss = cssContents.find(([name]) => name === "deck-fix.css")?.[1] || "";
+const v16Css = cssContents.find(([name]) => name === "v16-final.css")?.[1] || "";
 for (const selector of [
   ".site-header",
   ".deck",
@@ -108,6 +110,11 @@ for (const selector of [
 ]) {
   if (finalCss.includes(selector)) pass(`final CSS contract: ${selector}`);
   else fail(`final CSS contract missing: ${selector}`);
+}
+
+for (const selector of [".pd16-cover", ".pd16-os", ".pd16-model-flow", ".pd16-career-steps", ".pd16-timeline-track"]) {
+  if (v16Css.includes(selector)) pass(`V16 CSS contract: ${selector}`);
+  else fail(`V16 CSS contract missing: ${selector}`);
 }
 
 for (const legacyToken of ["lang-switch", "lang-btn", "lang-gate-card"]) {

@@ -11,7 +11,8 @@
     "audit:production": "node tools/production-audit.mjs",
     "audit:performance": "node tools/performance-budget.mjs",
     "audit:css": "node tools/css-cascade-guard.mjs",
-    "quality": "npm run validate && npm run verify && npm run audit:css && npm run test:browser && npm run audit:production && npm run audit:performance"
+    "quality": "npm run validate && npm run verify && npm run audit:css && npm run audit:css:v16 && npm run test:browser && npm run audit:production && npm run audit:performance",
+    "audit:css:v16": "node tools/v16-css-guard.mjs"
   },
   "engines": {
     "node": ">=20"
