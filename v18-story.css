@@ -184,3 +184,18 @@ html[data-theme="light"] .pd18-evo-message span {color:#81583e}
  #ruta.pd18-atlas .pd17-atlas-map {min-height:225px!important}
  body[data-active-slide="ruta"] .deck-controls {right:8px!important;left:auto!important;transform:none!important}
 }
+
+/* Atlas annotations: Canary Islands label above its pin, coordinates away
+   from bottom-left marker, no clipped footer text. */
+#ruta.pd18-atlas .pd18-city-nodes button[data-atlas-step="1"] span {
+ top:auto!important;bottom:calc(100% + 7px)!important;
+}
+#ruta.pd18-atlas .pd18-map-caption {
+ left:auto!important;right:12px!important;bottom:12px!important;
+ max-width:66%;padding:.4rem .55rem;border-radius:6px;
+ background:rgba(5,20,28,.91);box-shadow:0 3px 14px rgba(0,0,0,.23);
+}
+@media(max-width:640px){
+ #ruta.pd18-atlas .pd18-map-caption {max-width:60%;font-size:.48rem!important}
+ #ruta.pd18-atlas .pd18-city-nodes button[data-atlas-step="1"] span {left:50%;transform:translateX(0)!important}
+}
