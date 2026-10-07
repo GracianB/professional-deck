@@ -123,7 +123,7 @@ if (!/\.pd16-career-steps\s*\{/.test(v16)) errors.push("V16 career CSS missing")
 
 const requiredScripts = [
   "validate", "verify", "test:browser",
-  "audit:production", "audit:performance", "audit:css", "quality"
+  "audit:production", "audit:performance", "audit:css", "audit:css:v16", "quality"
 ];
 for (const script of requiredScripts) {
   if (!packageJson.scripts?.[script]) errors.push(`Missing npm script: ${script}`);
@@ -133,7 +133,8 @@ for (const rel of [
   "playwright.config.mjs",
   "tools/production-audit.mjs",
   "tools/performance-budget.mjs",
-  "tools/css-cascade-guard.mjs"
+  "tools/css-cascade-guard.mjs",
+  "tools/v16-css-guard.mjs"
 ]) {
   if (!await fileExists(join(root, rel))) errors.push(`Missing ${rel}`);
 }
