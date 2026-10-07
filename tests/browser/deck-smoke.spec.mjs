@@ -63,8 +63,9 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("#demos")).toContainText(/OHANA/i);
     await expect(page.locator("#demos")).toContainText(/VØRTICE/i);
     await expect(page.locator("#ruta .pd16-model-flow li")).toHaveCount(7);
-    await page.locator('[data-go="ruta"]').click();
-    await page.waitForTimeout(180);
+    await page.locator('.main-nav [data-go="ruta"]').click();
+    await expect(page.locator("#ruta")).toBeInViewport();
+    await page.waitForTimeout(220);
     await page.screenshot({ path: "artifacts/v16/operating-model.png", fullPage: false });
 
     await page.locator('.nav-recruiter').click();
