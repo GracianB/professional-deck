@@ -24,6 +24,9 @@
 .pd17-map-coord { fill: #8ca6a0; font: 9px var(--mono); letter-spacing:.06em; }
 .pd17-atlas-arc { animation: pd17-flow 16s linear infinite; }
 @keyframes pd17-flow { to {stroke-dashoffset:-170} }
+.pd17-atlas-nodes { position:absolute; z-index:3; inset:0; pointer-events:none; }
+.pd17-atlas-nodes button { position:absolute; left:var(--node-x); top:var(--node-y); transform:translate(-50%,-50%); width:clamp(36px,3.7vw,49px); height:clamp(36px,3.7vw,49px); border:1px solid rgba(222,185,131,.6); border-radius:50%; background:rgba(20,28,27,.94); box-shadow:0 0 0 7px rgba(218,173,112,.06),0 10px 20px rgba(0,0,0,.25); color:#f5d29d; font:700 .73rem var(--mono); cursor:pointer; pointer-events:auto; transition:transform .2s ease, background .2s ease, box-shadow .2s ease; }
+.pd17-atlas-nodes button[aria-pressed="true"],.pd17-atlas-nodes button:hover,.pd17-atlas-nodes button:focus-visible { border-color:#e3ca9b; background:#c09b66; color:#171613; transform:translate(-50%,-50%) scale(1.1); box-shadow:0 0 0 10px rgba(220,176,118,.13),0 0 40px rgba(218,173,112,.28); }
 .pd17-map-note { position: absolute; z-index: 2; left: 18px; bottom: 56px; max-width: calc(100% - 36px); display: flex; align-items: baseline; gap: .6rem; color: #b7c7c1; font: 500 .69rem/1.5 var(--mono); }
 .pd17-live-dot { flex:0 0 7px; width:7px; height:7px; background: #79deda; border-radius:50%; box-shadow: 0 0 12px rgba(121,222,218,.7); }
 .pd17-atlas-key { position: absolute; z-index: 2; inset: auto 18px 16px; display:flex; gap: .65rem; flex-wrap:wrap; color:#bda98e; font: 700 .55rem/1.2 var(--mono); letter-spacing:.03em; }
@@ -120,5 +123,6 @@ html[data-theme="light"] #ruta .pd17-atlas-head > p { color:#5b554e; }
 }
 @media(prefers-reduced-motion:reduce) {
   .pd17-atlas-arc,.pd17-brief-orbit::before {animation:none}
+  .pd17-atlas-nodes button {transition:none}
   .pd17-brief-progress span {transition:none}
 }
