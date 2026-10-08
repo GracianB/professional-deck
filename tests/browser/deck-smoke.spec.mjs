@@ -2,6 +2,12 @@ import { test, expect } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 
 test.describe("Professional Deck smoke", () => {
+  test.beforeEach(async ({page}) => {
+    await page.addInitScript(() => {
+      try { sessionStorage.setItem("gb-professional-deck-v20-opening-seen","1"); } catch (_) {}
+    });
+  });
+
   test("loads cleanly and exposes the recruiter-critical flow", async ({ page }) => {
     const pageErrors = [];
     const consoleErrors = [];
@@ -134,6 +140,9 @@ test.describe("Professional Deck smoke", () => {
     mkdirSync("artifacts/v16", { recursive: true });
     const context = await browser.newContext({
       viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true
+    });
+    await context.addInitScript(() => {
+      try { sessionStorage.setItem("gb-professional-deck-v20-opening-seen","1"); } catch (_) {}
     });
     const page = await context.newPage();
     await page.goto("/", { waitUntil: "domcontentloaded" });
