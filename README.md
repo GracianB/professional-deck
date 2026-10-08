@@ -1,4 +1,4 @@
-# Gracián Baena · Professional Deck V19
+# Gracián Baena · Professional Deck V20
 
 **Customer Success Systems & Data Strategist**  
 Murcia, Spain · Remote · Spanish / English / Italian
@@ -26,6 +26,15 @@ The final narrative is deliberately simple:
 I started close to customers, teams and daily operations. The technical layer came later so I could build the missing system directly instead of stopping at recommendations.
 
 ---
+
+## V20 · Coherent story, light theme and cinematic opening
+
+- Model is now a **balanced seven-step 4+3 journey** with its own outcome sentence and four linked evidence cards.
+- Public evidence, Method and Education use the same slate/mineral palette as Evolution, replacing old sepia/brown cards.
+- The desktop navigation is centred **on the same horizontal row** as the right-side language, theme and CV utilities. Mid-width uses the menu instead of allowing collisions.
+- A final cascade layer audits all **12 chapters in light mode**, plus the rail, header, interactive atlas, dialogs and contact links.
+- The opening film uses typography, gradients and CSS orbits, with skip/Escape, automatic completion, one-time session playback, reduced-motion opt-out and an explicit replay control on the cover. Deep-links bypass it.
+- No video or image assets are required for the film.
 
 ## V19 · Final interactive refinements
 
