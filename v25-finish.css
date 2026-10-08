@@ -91,3 +91,5 @@ html[data-theme="light"] #inicio.pd16-cover .pd16-universe-signature{color:#786c
 @media(max-width:750px){.universe-gateway{grid-template-columns:1fr;gap:0;padding:clamp(1.5rem,5vw,2.5rem);min-height:0}.universe-gateway h2{font-size:clamp(2.2rem,9vw,4rem)}.universe-gateway-art{grid-row:1}.universe-gateway-art svg,.universe-gateway-art img{max-height:190px}.universe-gateway-note{font-size:.68rem}}@media(prefers-reduced-motion:reduce){.universe-gateway-cta,.universe-gateway-art{transition:none}}
 
 #inicio.pd16-cover .universe-gateway{position:absolute;inset:0;z-index:12;margin:0;max-width:none;min-height:100%;border-radius:0;--gate:#d9c6a9;background:radial-gradient(circle at 74% 46%,rgba(215,199,172,.12),transparent 50%),#202426}#inicio.pd16-cover.gateway-entered .universe-gateway{display:none}#inicio.pd16-cover .universe-gateway h2{max-width:15ch}
+/* The gateway is visual, but must not trap underlying recruiter controls or slide navigation. */
+#inicio.pd16-cover .universe-gateway{pointer-events:none}#inicio.pd16-cover .universe-gateway-cta{pointer-events:auto}
