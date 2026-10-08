@@ -414,6 +414,53 @@ html[data-theme="light"] :is(#experience-dialog,#command-dialog) :is(h2,p,small,
  .site-header>.main-nav.open {background:#27313a!important;border-color:#a6a59e!important}
  html[data-theme="light"] .site-header>.main-nav.open {background:#f3ebe0!important;border-color:#b7ac9c!important}
 }
+@media(max-width:560px) {
+ /* Contact chapter: keep editorial manifesto and proof chips from colliding.
+    The old V19 "132px" squeeze could not fit three headline lines. */
+ #contacto.pd19-contact .pd19-contact-visual {
+   min-height:215px!important;
+   height:auto!important;
+   padding:1rem!important;
+   display:flex!important;
+   flex-direction:column!important;
+   justify-content:space-between!important;
+   gap:.75rem!important;
+ }
+ #contacto.pd19-contact .pd19-contact-manifesto {
+   min-height:0!important;
+   height:auto!important;
+   flex:0 0 auto!important;
+   justify-content:flex-start!important;
+ }
+ #contacto.pd19-contact .pd19-contact-manifesto small {font-size:.51rem!important}
+ #contacto.pd19-contact .pd19-contact-manifesto p {
+   font-size:clamp(1.45rem,6.2vw,1.9rem)!important;
+   line-height:1.01!important;
+   margin:.45rem 0 .3rem!important;
+ }
+ #contacto.pd19-contact .pd19-contact-manifesto>span {
+   display:block!important;
+   font-size:.65rem!important;
+   line-height:1.4!important;
+ }
+ #contacto.pd19-contact .pd19-contact-proof {
+   position:relative!important;
+   display:flex!important;
+   flex:0 0 auto!important;
+   margin-top:0!important;
+   align-self:stretch!important;
+   flex-wrap:wrap!important;
+   gap:.3rem!important;
+ }
+ #contacto.pd19-contact .pd19-contact-proof a {
+   min-height:30px!important;
+   display:inline-flex!important;
+   align-items:center!important;
+   padding:.3rem .5rem!important;
+   font-size:.53rem!important;
+ }
+}
+
 @media(max-width:600px) {
  #modelo.pd20-model .pd20-model-track>li {min-height:95px}
  #inicio .pd16-cover-shell {gap:clamp(.75rem,2vh,1.1rem)}
