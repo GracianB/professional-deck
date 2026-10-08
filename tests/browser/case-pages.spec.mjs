@@ -72,6 +72,9 @@ for(const [key,path,title] of pages) {
       }));
       expect(systemLight.surface).toContain("rgb(36, 51, 62)");
       expect(Number(systemLight.heading.match(/[0-9.]+/)[0])).toBeGreaterThan(170);
+      const stepDescription=await page.locator("#case-system .case-flow article p").first().evaluate(el=>getComputedStyle(el).color);
+      const stepRGB=stepDescription.match(/[0-9.]+/g).map(Number);
+      expect(Math.min(...stepRGB.slice(0,3)), "step copy lost contrast on navy: "+stepDescription).toBeGreaterThan(175);
       await page.screenshot({path:`artifacts/v16/cases/${key}-light-${label}.png`,fullPage:true});
       if(width<500 && key==="bodytone"){
         await page.locator("#case-system").scrollIntoViewIfNeeded();
