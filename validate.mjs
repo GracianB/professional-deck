@@ -158,6 +158,9 @@ forbid(publicText, /\b4 countries\b|\b4 países\b/i, "four-country cover claim")
 forbid(publicText, /\b6 languages\b|\bseis idiomas\b|\bsix languages\b/i, "six-language claim");
 forbid(publicText, /open to senior roles|roles senior/i, "senior-role availability claim");
 forbid(index, /deck-intro|intro-on/, "blocking intro");
+// RevOps is unfinished and must not expose a public app or repo entry point.
+forbid(index, /https:\/\/(?:gracianb\.github\.io\/revops-studio\/|github\.com\/GracianB\/revops-studio)/i, "RevOps live links while under construction");
+requireText(index, "EN CONSTRUCCIÓN", "RevOps construction status");
 
 if (!/\.pd16-cover\s*\{/.test(v16)) errors.push("V16 cover CSS missing");
 if (!/\.pd16-model-flow\s*\{/.test(v16)) errors.push("V16 operating model CSS missing");
