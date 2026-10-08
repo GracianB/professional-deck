@@ -99,7 +99,7 @@ test.describe("Professional Deck browser E2E", () => {
 
 
   for (const [size,width,height] of [["desktop",1440,900],["mobile",390,844]]) {
-    test(`V23 60 SEG uses neutral slate and ivory in both themes on ${size}`,async ({page})=>{
+    test(`V26 60 SEG uses graphite silver and ivory in both themes on ${size}`,async ({page})=>{
       await page.setViewportSize({width,height});
       await page.goto("/?lang=es#inicio",{waitUntil:"domcontentloaded"});
       const dialog=page.locator("#recruiter-dialog");
@@ -112,9 +112,9 @@ test.describe("Professional Deck browser E2E", () => {
         selected:getComputedStyle(el.querySelector('[data-brief-chapter="0"]')).backgroundColor,
         title:getComputedStyle(el.querySelector("[data-brief-title]")).color
       }));
-      expect(dark.surface).toBe("rgb(16, 28, 38)");
-      expect(dark.stage).toContain("rgb(33, 53, 66)");
-      expect(dark.selected).toBe("rgb(53, 73, 84)");
+      expect(dark.surface).toBe("rgb(25, 28, 30)");
+      expect(dark.stage).toContain("rgb(52, 54, 56)");
+      expect(dark.selected).toBe("rgb(75, 73, 68)");
       expect(dark.title).toBe("rgb(248, 245, 238)");
       await page.screenshot({path:`artifacts/v16/brief-v23-${size}-dark.png`,fullPage:false});
       await dialog.locator('[data-brief-chapter="2"]').click();
@@ -131,11 +131,11 @@ test.describe("Professional Deck browser E2E", () => {
         title:getComputedStyle(el.querySelector("[data-brief-title]")).color,
         outerWidth:el.getBoundingClientRect().width
       }));
-      expect(light.paper).toContain("rgb(250, 247, 241)");
-      expect(light.stage).toContain("rgb(38, 61, 75)");
-      expect(light.selected).toBe("rgb(41, 69, 82)");
-      expect(light.selectedLabel).toBe("rgb(255, 249, 239)");
-      expect(light.title).toBe("rgb(250, 247, 239)");
+      expect(light.paper).toContain("rgb(251, 247, 239)");
+      expect(light.stage).toContain("rgb(238, 230, 217)");
+      expect(light.selected).toBe("rgb(214, 199, 179)");
+      expect(light.selectedLabel).toBe("rgb(67, 80, 85)");
+      expect(light.title).toBe("rgb(43, 53, 56)");
       expect(light.outerWidth).toBeLessThanOrEqual(width-10);
       await page.screenshot({path:`artifacts/v16/brief-v23-${size}-light.png`,fullPage:false});
       await dialog.locator("[data-brief-play]").click();
