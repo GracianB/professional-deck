@@ -5,7 +5,7 @@ import { spawnSync } from "node:child_process";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const required = [
-  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "v18-story.css", "v19-final.css", "v20-theme.css", "v20-light.css", "v20-cinema.js", "main.js", "i18n.js", "case.js",
+  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "v18-story.css", "v19-final.css", "v20-theme.css", "v20-light.css", "v20-cinema.js", "main.js", "i18n.js", "case.js", "case-pages.css", "case-ui.js",
   "README.md", "favicon.svg", "og-cover.png", "manifest.webmanifest",
   "Gracian_Baena_CV_2026_ES.pdf", "Gracian_Baena_CV_2026_EN.pdf",
   "Gracian_Baena_Carta_Presentacion_ES.pdf", "Gracian_Baena_Cover_Letter_EN.pdf",
@@ -43,6 +43,17 @@ for (const file of required) {
   }
 }
 
+for(const pageName of ["proyecto-bodytone.html","proyecto-calculadora.html","proyecto-linkedin.html","proyecto-outreach.html"]){
+  const page=await readFile(join(root,pageName),"utf8");
+  for(const fragment of ["case-pages.css?v=deck-v21","case-ui.js?v=deck-v21","case.js?v=deck-v21","data-case="]){
+    if(!page.includes(fragment)) errors.push(pageName+" missing shared case contract "+fragment);
+  }
+  if(page.includes("nude-beige")) errors.push(pageName+" still uses deprecated beige stylesheet");
+}
+const caseUI=await readFile(join(root,"case-ui.js"),"utf8");
+if(!caseUI.includes("gb-portfolio-theme") || !caseUI.includes("gb-portfolio-lang")) errors.push("Case UI must share deck storage keys");
+const caseData=await readFile(join(root,"case.js"),"utf8");
+for(const id of ["challenge","system","response","proof"]) if(!caseData.includes('id="case-'+id+'"')) errors.push("Missing case section anchor: "+id);
 const index = await readFile(join(root, "index.html"), "utf8");
 const css = await readFile(join(root, "styles.css"), "utf8");
 const v16 = await readFile(join(root, "v16-final.css"), "utf8");

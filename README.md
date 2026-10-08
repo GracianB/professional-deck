@@ -1,4 +1,4 @@
-# Gracián Baena · Professional Deck V20
+# Gracián Baena · Professional Deck V21
 
 **Customer Success Systems & Data Strategist**  
 Murcia, Spain · Remote · Spanish / English / Italian
@@ -26,6 +26,16 @@ The final narrative is deliberately simple:
 I started close to customers, teams and daily operations. The technical layer came later so I could build the missing system directly instead of stopping at recommendations.
 
 ---
+
+## V21 · Independent case pages receive the same design
+
+All four standalone HTML case studies are now in the same visual family as the main deck:
+
+- [Bodytone Support OS](./proyecto-bodytone.html), [Calculator](./proyecto-calculadora.html), [LinkedIn Finder](./proyecto-linkedin.html), [Outreach GenAI](./proyecto-outreach.html).
+- All use `case-pages.css` after the existing base styles; this replaces the old hard-coded beige/cream page panels with midnight navy, blue-mineral accents and a full cool light theme. The case claims, evidence and IP boundaries remain unchanged.
+- `case-ui.js` uses the same persisted `gb-portfolio-theme` and `gb-portfolio-lang` keys as the main deck, adds accessible ES/EN and light/dark switches and chapter anchors with reading progress.
+- Browser tests verify all four in both themes, both languages and mobile/desktop, including theme persistence when returning to the deck.
+- The 404 redirect fallback also uses navy rather than brown.
 
 ## V20 · Coherent story, light theme and cinematic opening
 
