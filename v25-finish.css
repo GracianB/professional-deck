@@ -58,3 +58,17 @@ html[data-theme="light"] .pd20-cinema-skip {background:#34424a!important;color:#
 @media(prefers-reduced-motion:reduce) {
  #inicio.pd16-cover .pd16-cover-actions .button {transition:none!important}
 }
+
+/* V27 · Quiet editorial signature. Identity belongs to the cover, not every frame. */
+.site-header .brand-text b{font-family:var(--mono)!important;font-size:clamp(.62rem,.74vw,.78rem)!important;letter-spacing:.11em!important;font-weight:700!important}
+.site-header .brand-mark{background:#2d3539!important;color:#e7d6be!important;border-color:#9b9992!important}
+html[data-theme="light"] .site-header .brand-mark{background:#ece3d5!important;color:#35454e!important}
+.pd20-cinema-core{max-width:min(760px,94vw)}
+.pd20-cinema-name{font-family:var(--display)!important;font-size:clamp(2.5rem,6.6vw,6.3rem)!important;line-height:1.06!important;letter-spacing:-.045em!important;text-wrap:balance}
+.pd20-cinema-name em{display:inline-block;font-weight:500!important}
+.pd20-cinema-monogram{opacity:.66!important;filter:grayscale(1)}
+.pd20-cinema-pretitle{letter-spacing:.18em!important}
+.pd20-cinema-thesis{max-width:47ch!important;font-size:clamp(.88rem,1.15vw,1.1rem)!important;line-height:1.58!important;text-wrap:pretty}
+.pd20-cinema-index{letter-spacing:.1em!important}
+@media(max-width:600px){.site-header .brand-text b{font-size:.6rem!important;letter-spacing:.06em!important}.pd20-cinema-name{font-size:clamp(2rem,9.5vw,3.8rem)!important;line-height:1.1!important}.pd20-cinema-thesis{max-width:32ch!important}}
+@media(prefers-reduced-motion:reduce){.pd20-cinema-monogram{animation:none!important}}
