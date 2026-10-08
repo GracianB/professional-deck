@@ -50,6 +50,10 @@ for(const pageName of ["proyecto-bodytone.html","proyecto-calculadora.html","pro
   }
   if(page.includes("nude-beige")) errors.push(pageName+" still uses deprecated beige stylesheet");
 }
+const caseStyles=await readFile(join(root,"case-pages.css"),"utf8");
+for(const token of ["V22 EDITORIAL PALETTE","--case-ivory:#eee5d7","#f5f1e9",".case-section.light .case-section-heading h2"]) {
+  if(!caseStyles.includes(token)) errors.push("V22 case editorial palette missing "+token);
+}
 const caseUI=await readFile(join(root,"case-ui.js"),"utf8");
 if(!caseUI.includes("gb-portfolio-theme") || !caseUI.includes("gb-portfolio-lang")) errors.push("Case UI must share deck storage keys");
 const caseData=await readFile(join(root,"case.js"),"utf8");

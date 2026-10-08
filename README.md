@@ -1,4 +1,4 @@
-# Gracián Baena · Professional Deck V21
+# Gracián Baena · Professional Deck V22
 
 **Customer Success Systems & Data Strategist**  
 Murcia, Spain · Remote · Spanish / English / Italian
@@ -26,6 +26,10 @@ The final narrative is deliberately simple:
 I started close to customers, teams and daily operations. The technical layer came later so I could build the missing system directly instead of stopping at recommendations.
 
 ---
+
+## V22 · Personal editorial palette, not Systems Lab blue
+
+The four independent case pages now combine ink navy with **warm ivory/beige** and restrained mineral accents, expressly avoiding brown/coffee. The challenge/response/evidence chapters switch to pale ivory with dark ink, while the operational system chapter remains deep slate. Light mode has a warm-neutral ivory canvas and a dark system chapter, rather than an all-blue or all-white document. Cover, content, ES/EN and interactions remain intact. Playwright tests check the intended section backgrounds and contrasting headings on desktop and mobile.
 
 ## V21 · Independent case pages receive the same design
 
