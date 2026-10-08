@@ -50,7 +50,8 @@
         store(LANG_KEY,lang);
         const url = new URL(location.href);
         url.searchParams.set("lang",lang);
-        history.replaceState(null,"",url);
+        // Navigate to the new URL. Replacing history first would make
+        // location.assign a same-URL operation and prevent the language reload.
         location.assign(url.href);
       });
       langGroup.append(button);
