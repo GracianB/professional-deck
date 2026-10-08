@@ -201,3 +201,15 @@ html[data-theme="light"] :where(button,a,input):focus-visible {outline:2px solid
 @media(max-width:1180px){
  html[data-theme="light"] .site-header>.main-nav.open {background:#f2f9fb!important;border-color:#b7d1dc!important}
 }
+
+
+/* V21 · MÉTODO — light mode stays in the same cool mineral family. */
+html[data-theme="light"] #metodo.pd18-method .pd18-method-flow > .gb-step {
+  background:linear-gradient(155deg,#ffffff,#eaf3f6)!important;
+  border-color:#bfd5dc!important;
+  box-shadow:0 8px 24px rgba(28,78,94,.055)!important;
+}
+html[data-theme="light"] #metodo.pd18-method .pd18-method-flow > .gb-step.is-final {
+  background:linear-gradient(155deg,#f7fbfc,#deedf2)!important;
+  border-color:#9fc8d4!important;
+}
