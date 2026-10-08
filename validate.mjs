@@ -5,7 +5,7 @@ import { spawnSync } from "node:child_process";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const required = [
-  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "v18-story.css", "v19-final.css", "v20-theme.css", "v20-light.css", "v23-brief.css", "v20-cinema.js", "main.js", "i18n.js", "case.js", "case-pages.css", "case-ui.js",
+  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "v18-story.css", "v19-final.css", "v20-theme.css", "v20-light.css", "v23-brief.css", "v24-universe.css", "v20-cinema.js", "main.js", "i18n.js", "case.js", "case-pages.css", "case-ui.js",
   "README.md", "favicon.svg", "og-cover.png", "manifest.webmanifest",
   "Gracian_Baena_CV_2026_ES.pdf", "Gracian_Baena_CV_2026_EN.pdf",
   "Gracian_Baena_Carta_Presentacion_ES.pdf", "Gracian_Baena_Cover_Letter_EN.pdf",
@@ -45,7 +45,7 @@ for (const file of required) {
 
 for(const pageName of ["proyecto-bodytone.html","proyecto-calculadora.html","proyecto-linkedin.html","proyecto-outreach.html"]){
   const page=await readFile(join(root,pageName),"utf8");
-  for(const fragment of ["case-pages.css?v=deck-v21","case-ui.js?v=deck-v21","case.js?v=deck-v21","data-case="]){
+  for(const fragment of ["case-pages.css?v=deck-v24","case-ui.js?v=deck-v21","case.js?v=deck-v21","data-case="]){
     if(!page.includes(fragment)) errors.push(pageName+" missing shared case contract "+fragment);
   }
   if(page.includes("nude-beige")) errors.push(pageName+" still uses deprecated beige stylesheet");
@@ -66,6 +66,12 @@ const v18 = await readFile(join(root, "v18-story.css"), "utf8");
 const v19 = await readFile(join(root, "v19-final.css"), "utf8");
 const v20 = await readFile(join(root, "v20-theme.css"), "utf8");
 const v20Light = await readFile(join(root, "v20-light.css"), "utf8");
+const v24 = await readFile(join(root,"v24-universe.css"),"utf8");
+for(const token of ["#inicio.pd16-cover","#modelo.pd20-model","#sistemas.pd19-case","#demos .gb-demo-card","#metodo .pd18-method-flow","#ruta.pd18-atlas","#trayectoria .pd18-evo-rail","#experiencia","#experiencia-2","#capacidades .pd18-cap-grid","#formacion .gb-edu-panel","#contacto.pd19-contact",'html[data-theme="light"]',".pd20-cinema","#recruiter-dialog.pd17-brief"]) {
+ if(!v24.includes(token)) errors.push("V24 universal design missing selector "+token);
+}
+if(!index.includes('v24-universe.css?v=deck-v24')) errors.push("V24 stylesheet not loaded");
+
 const v23Brief = await readFile(join(root, "v23-brief.css"), "utf8");
 if (!index.includes("v23-brief.css?v=deck-v23") ||
     !v23Brief.includes("#recruiter-dialog.pd17-brief") ||
