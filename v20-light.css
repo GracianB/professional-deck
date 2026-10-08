@@ -1,0 +1,203 @@
+/* V20 · last-in-cascade light mode audit.
+   Every chapter uses cool pale paper, mineral-blue interactive surfaces and
+   dark readable text. Old sepia/coffee tokens are not permitted here. */
+html[data-theme="light"]{
+ --bg:#edf5f8;--bg2:#e5f0f4;--surface:#fff;--surface2:#f1f8fb;
+ --black:#edf5f8;--black-2:#e7f2f5;--white:#163644;--cream:#163644;
+ --ink:#163644;--paper:#f6fbfc;--paper-2:#e5f0f5;
+ --gold:#1a7388;--gold-2:#348ea2;--gold-glow:rgba(31,121,145,.16);
+ --mark:#1a7388;--yellow:#1a7388;--yellow-2:#348ea2;
+ --line-dark:rgba(37,105,127,.25);--line-light:rgba(37,105,127,.20);
+ --muted-light:#4b6874;--muted-dark:#4b6874;--ice:#166e83;
+ color-scheme:light;
+}
+html[data-theme="light"] body,html[data-theme="light"] .deck{background:#edf5f8!important;color:#163644!important}
+html[data-theme="light"] .site-header {background:rgba(240,249,251,.97)!important;border-bottom:1px solid rgba(33,105,128,.23)!important}
+html[data-theme="light"] .site-header :is(.brand-text b,.brand-mark) {color:#173b4d!important}
+html[data-theme="light"] .site-header .brand-mark {background:#deeff4!important;border-color:#8ebbc8!important}
+html[data-theme="light"] .site-header .brand-text small {color:#3b7483!important}
+html[data-theme="light"] .site-header .main-nav>button {color:#285268!important;background:transparent}
+html[data-theme="light"] .site-header .main-nav>button:hover,
+html[data-theme="light"] .site-header .main-nav>button:focus-visible {color:#083e54!important;background:#d4eaf1!important}
+html[data-theme="light"] .site-header .main-nav>.nav-recruiter,
+html[data-theme="light"] .site-header .main-nav>.nav-present {background:#e4f1f5!important;border:1px solid #a6c9d5!important;color:#17576c!important}
+html[data-theme="light"] .site-header :is(.header-cta,.seg-btn[aria-pressed="true"]) {background:#206e82!important;color:#fff!important;border-color:#206e82!important}
+html[data-theme="light"] .site-header .seg {background:#e7f1f5!important;border-color:#a1c3d1!important}
+html[data-theme="light"] .site-header .seg-btn {color:#285b6d!important}
+html[data-theme="light"] .site-header .seg-btn[aria-pressed="true"] {color:#fff!important}
+html[data-theme="light"] .os-rail {background:#e7f1f5!important;border-right:1px solid #b9d2dd!important}
+html[data-theme="light"] .os-rail :is(.os-rail-status,.os-rail-hint,.os-rail-brand small) {color:#536d79!important}
+html[data-theme="light"] .os-rail :is(.os-rail-brand b,.os-rail-status strong) {color:#165970!important}
+html[data-theme="light"] .os-rail .os-rail-item {color:#3d5c69!important}
+html[data-theme="light"] .os-rail-item[aria-current="true"] {background:#d0e7ee!important;border-color:#70b1c4!important;color:#13576f!important}
+html[data-theme="light"] .deck-controls {background:rgba(239,248,250,.98)!important;border-color:#99c6d2!important;box-shadow:0 5px 20px rgba(30,91,117,.12)!important}
+html[data-theme="light"] .deck-controls :is(button,span) {color:#174c61!important}
+html[data-theme="light"] .deck-controls button {background:#e8f4f8!important;border-color:#b0d1dc!important}
+html[data-theme="light"] .deck-controls button:hover {background:#d5edf3!important}
+html[data-theme="light"] .top-progress i {background:#24849a!important}
+
+/* Chapter canvases. All twelve must be readable without a forced-dark exception. */
+html[data-theme="light"] :is(#inicio,#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto).slide {
+ background:radial-gradient(ellipse at 84% 23%,rgba(62,140,166,.11),transparent 52%),#edf5f8!important;
+ color:#173747!important;
+}
+html[data-theme="light"] :is(#modelo,#demos,#metodo,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#ruta) :is(.slide-index,.eyebrow) {color:#216d82!important}
+html[data-theme="light"] :is(#modelo,#demos,#metodo,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#ruta) :is(h2,h2 em) {color:#173848!important}
+html[data-theme="light"] :is(#modelo,#demos,#metodo,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#ruta) .pd18-heading h2 em {color:#28758a!important}
+html[data-theme="light"] :is(#modelo,#demos,#metodo,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#ruta) :is(.pd18-heading>p:last-child,.gb-panel-lead,.gb-demos-lead) {color:#496b78!important}
+
+/* 00 COVER, preserving its approved typographic arrangement. */
+html[data-theme="light"] #inicio.pd16-cover .pd16-cover-field {opacity:.35}
+html[data-theme="light"] #inicio :is(.pd16-name span,.pd16-role,.pd16-thesis,.pd16-lead,.pd16-cover-top span) {color:#193d4e!important}
+html[data-theme="light"] #inicio .pd16-name strong {color:#2b7489!important}
+html[data-theme="light"] #inicio .pd16-thesis em {color:#347c8b!important}
+html[data-theme="light"] #inicio .pd16-os {background:linear-gradient(135deg,#fff,#e4f1f5)!important;border-color:#a6cad6!important;box-shadow:0 22px 48px rgba(24,92,116,.11)!important}
+html[data-theme="light"] #inicio .pd16-os :is(header,footer,li) {border-color:#c5dce4!important}
+html[data-theme="light"] #inicio .pd16-os :is(span,strong) {color:#214c60!important}
+html[data-theme="light"] #inicio .pd16-os small {color:#526e7b!important}
+html[data-theme="light"] #inicio .pd16-proof-strip {border-color:#b7d5df!important}
+html[data-theme="light"] #inicio .pd16-proof-strip :is(b,small) {color:#24576d!important}
+html[data-theme="light"] #inicio .gb-actions .primary {background:#22758b!important;border-color:#22758b!important;color:#fff!important}
+html[data-theme="light"] #inicio .gb-actions .ghost {background:#fff!important;border:1px solid #87b8ca!important;color:#215d73!important}
+
+/* 01 MODEL: inherited dark gradient cards become deliberate readable paper. */
+html[data-theme="light"] #modelo.pd20-model .pd20-model-track>li,
+html[data-theme="light"] #modelo.pd20-model .pd20-model-track>li:nth-child(n+5),
+html[data-theme="light"] #modelo.pd20-model .pd20-model-track>li:nth-child(4) {background:linear-gradient(135deg,#fff,#e7f2f6)!important;border-color:#b0ceda!important;box-shadow:0 6px 22px rgba(49,115,136,.065)!important}
+html[data-theme="light"] #modelo.pd20-model .pd20-model-track>li:last-child {background:linear-gradient(140deg,#cfebf1,#eaf5f8)!important;border-color:#4c9db2!important}
+html[data-theme="light"] #modelo.pd20-model .pd20-model-track>li>span {color:#1e7086!important}
+html[data-theme="light"] #modelo.pd20-model .pd20-model-track>li>strong {color:#173b4c!important}
+html[data-theme="light"] #modelo.pd20-model .pd20-model-track>li>small {color:#446777!important}
+html[data-theme="light"] #modelo :is(.pd20-model-journey-title,.pd20-model-proof-head) {color:#236e85!important}
+html[data-theme="light"] #modelo .pd20-model-outcome {background:#e0f0f5!important;border-color:#add2dc!important}
+html[data-theme="light"] #modelo .pd20-model-outcome span {color:#246b83!important}
+html[data-theme="light"] #modelo .pd20-model-outcome strong {color:#244b5c!important}
+html[data-theme="light"] #modelo.pd20-model .pd20-model-proof>a {background:linear-gradient(135deg,#fff,#ebf5f8)!important;border-color:#b2d2dc!important}
+html[data-theme="light"] #modelo.pd20-model .pd20-model-proof>a:hover {background:#d8eef4!important}
+html[data-theme="light"] #modelo.pd20-model .pd20-model-proof>a :is(b,em) {color:#1a657b!important}
+html[data-theme="light"] #modelo.pd20-model .pd20-model-proof>a span {color:#496b77!important}
+
+/* 02 CASE */
+html[data-theme="light"] #sistemas.pd19-case .gb-star-main {background:linear-gradient(155deg,#fff,#e9f4f7)!important;border-color:#afd2df!important;color:#193c4c!important}
+html[data-theme="light"] #sistemas :is(.gb-star-head h2,.gb-star-main h3,.gb-star-main h2,.gb-star-metrics strong,.gb-star-main strong) {color:#173949!important}
+html[data-theme="light"] #sistemas :is(.gb-star-head h2 em,.gb-star-lead,.gb-star-main p,.gb-star-points li,.proof-note) {color:#406776!important}
+html[data-theme="light"] #sistemas .gb-star-metrics>div {background:#e2f0f5!important;border-color:#b6d3dd!important}
+html[data-theme="light"] #sistemas .pd19-os-flow {background:#e5f2f6!important;border-color:#b6d4de!important}
+html[data-theme="light"] #sistemas .pd19-os-flow :is(strong,small) {color:#285e74!important}
+html[data-theme="light"] #sistemas .tag-row span {background:#edf7fa!important;border-color:#b2d4de!important;color:#356777!important}
+
+/* 03 PUBLIC WORK (the brown cards being reported). */
+html[data-theme="light"] #demos .gb-demo-card {background:linear-gradient(150deg,#fff,#edf7fa)!important;border:1px solid #b5d2dc!important;box-shadow:0 14px 36px rgba(24,86,108,.09)!important}
+html[data-theme="light"] #demos .gb-demo-card:before {background:linear-gradient(90deg,#398ca5,#9e87b9)!important}
+html[data-theme="light"] #demos .gb-demo-card :is(h3,.gb-demo-code) {color:#194356!important}
+html[data-theme="light"] #demos .gb-demo-card h3 em {color:#337b8b!important}
+html[data-theme="light"] #demos .gb-demo-card p {color:#496976!important}
+html[data-theme="light"] #demos .gb-demo-card :is(.tag-row span,.gb-demo-badge) {background:#e5f2f6!important;border-color:#a9cbd7!important;color:#2a6377!important}
+html[data-theme="light"] #demos .gb-demo-actions .primary {background:#1f7489!important;border-color:#1f7489!important;color:#fff!important}
+html[data-theme="light"] #demos .gb-demo-actions .ghost {background:#fff!important;border:1px solid #91bccc!important;color:#1b6179!important}
+html[data-theme="light"] #demos .gb-demos-foot {color:#456775!important}
+html[data-theme="light"] #demos .gb-demos-foot a {color:#176b83!important;background:#e2f0f6!important;border-color:#bdd5df!important}
+
+/* 04 METHOD */
+html[data-theme="light"] #metodo .pd18-method-flow .gb-step {background:linear-gradient(155deg,#fff,#e8f3f7)!important;border-color:#b4d2dc!important;box-shadow:0 8px 28px rgba(26,83,101,.07)!important}
+html[data-theme="light"] #metodo .pd18-method-flow .gb-step :is(h3,.gb-step-num) {color:#1c6179!important}
+html[data-theme="light"] #metodo .pd18-method-flow .gb-step p {color:#406674!important}
+html[data-theme="light"] #metodo .pd18-method-flow .gb-step b {color:#2f6d88!important}
+html[data-theme="light"] #metodo .pd18-method-case {background:linear-gradient(120deg,#dceef4,#edf7fa)!important;border-color:#a7cdd9!important}
+html[data-theme="light"] #metodo .pd18-method-case :is(h3,p,small) {color:#204b5b!important}
+html[data-theme="light"] #metodo .pd18-case-tags span {color:#245e75!important;border-color:#abcbd5!important;background:#f6fbfc!important}
+html[data-theme="light"] #metodo .pd18-method-case a {color:#195e77!important;border-color:#6da6b7!important;background:#fff!important}
+
+/* 05 ATLAS: country boundaries stay visible on pale cartography. */
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-head :is(h2,p) {color:#234959!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-head h2 em {color:#337e92!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-map {background:linear-gradient(155deg,#d7eaf1,#b9d9e5)!important;border-color:#a4c9d7!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd19-real-land path {fill:#96bfcb!important;stroke:#4f899c!important;stroke-opacity:.88!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd19-map-crosshair {stroke:#376f82!important;opacity:.6}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-map-label {color:#1d6074!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-map-label b {color:#286f88!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-stage {background:linear-gradient(150deg,#fff,#e4f2f6)!important;border-color:#adced9!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-stage :is(h3,.pd17-stage-kicker,.pd17-stage-top strong) {color:#1c5367!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-stage :is(p,strong,small,span) {color:#406778!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-stops button,
+html[data-theme="light"] #ruta.pd18-atlas .pd19-atlas-toolbar button {background:#edf7fa!important;border-color:#96c0cc!important;color:#1b5d74!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-stops button[aria-pressed="true"],
+html[data-theme="light"] #ruta.pd18-atlas .pd19-atlas-toolbar button[aria-pressed="true"] {background:#1d7087!important;border-color:#1d7087!important;color:#fff!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-atlas-stops button[aria-pressed="true"] span {color:#fff!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd18-city-nodes button {background:#246d85!important;border-color:#fff!important;color:#fff!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd18-city-nodes button[aria-pressed="true"] {background:#143e52!important;border-color:#dbf4fa!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd19-map-status,
+html[data-theme="light"] #ruta.pd18-atlas .pd18-map-caption {background:rgba(241,250,252,.94)!important;color:#1b6278!important;border-color:#97bfd0!important}
+html[data-theme="light"] #ruta.pd18-atlas .pd17-stage-link {color:#155d74!important;border-color:#7aafbf!important;background:#e6f5f9!important}
+
+/* 06 EVOLUTION: retain geometry, switch background + text coherently. */
+html[data-theme="light"] #trayectoria .pd18-evo-rail li {background:linear-gradient(155deg,#fff,#e5f2f6)!important;border-color:#b5d2dc!important}
+html[data-theme="light"] #trayectoria .pd18-evo-rail li.is-current {background:linear-gradient(145deg,#d7ecf3,#e9f7fa)!important;border-color:#66a8ba!important}
+html[data-theme="light"] #trayectoria .pd18-evo-rail :is(li>span,strong,small) {color:#1d6781!important}
+html[data-theme="light"] #trayectoria .pd18-evo-rail p {color:#476977!important}
+html[data-theme="light"] #trayectoria .pd18-evo-rail em {color:#655a82!important}
+html[data-theme="light"] #trayectoria .pd18-evo-message {background:#dceef4!important;border-color:#acd1de!important;color:#215668!important}
+html[data-theme="light"] #trayectoria .pd18-evo-message strong {color:#214e5f!important}
+
+/* 07–08 EXPERIENCE: brand artwork preserved; roles become readable light cards. */
+html[data-theme="light"] :is(#experiencia,#experiencia-2) :is(.gb-panel,.gb-exp-panel) {background:linear-gradient(155deg,#fff,#edf6fa)!important;border-color:#b3d0dc!important;color:#1d4455!important}
+html[data-theme="light"] :is(#experiencia,#experiencia-2) .gb-role {background:#f1f8fa!important;border:1px solid #c3dce5!important;color:#1e4659!important}
+html[data-theme="light"] :is(#experiencia,#experiencia-2) .gb-role:hover {background:#dceef3!important;border-color:#6da4b6!important}
+html[data-theme="light"] :is(#experiencia,#experiencia-2) .gb-role :is(.gb-role-co,.gb-role-title,.gb-role-topline) {color:#18495f!important}
+html[data-theme="light"] :is(#experiencia,#experiencia-2) .gb-role :is(.gb-role-sum,.gb-role-dates,.gb-role-tag) {color:#486877!important}
+html[data-theme="light"] :is(#experiencia,#experiencia-2) .gb-panel-bar {background:#348ea2!important}
+
+/* 09 CAPABILITIES */
+html[data-theme="light"] #capacidades .pd18-cap-grid article,
+html[data-theme="light"] #capacidades .pd18-cap-grid article:nth-child(3),
+html[data-theme="light"] #capacidades .pd18-cap-grid article:nth-child(4),
+html[data-theme="light"] #capacidades .pd18-cap-grid article:nth-child(5) {background:linear-gradient(150deg,#fff,#e8f3f7)!important;border-color:#b4d3de!important;box-shadow:0 12px 27px rgba(36,97,118,.06)!important}
+html[data-theme="light"] #capacidades .pd18-cap-grid h3 {color:#1a5369!important}
+html[data-theme="light"] #capacidades .pd18-cap-grid :is(p,small) {color:#476977!important}
+html[data-theme="light"] #capacidades .pd18-cap-grid a {color:#1f667e!important;border-color:#78a9ba!important}
+
+/* 10 EDUCATION, original content unchanged, palette unified */
+html[data-theme="light"] #formacion .gb-edu-panel {background:linear-gradient(150deg,#fff,#e9f4f8)!important;border:1px solid #add1db!important;color:#1e4657!important;box-shadow:0 16px 38px rgba(45,101,123,.08)!important}
+html[data-theme="light"] #formacion .gb-edu-head {background:#e5f3f7!important;border-bottom-color:#b7d4df!important}
+html[data-theme="light"] #formacion .gb-edu-head :is(h2,.gb-panel-lead) {color:#194658!important}
+html[data-theme="light"] #formacion .builder-note {background:#f1f8fb!important;border-color:#bad5de!important}
+html[data-theme="light"] #formacion .builder-note :is(span,li) {color:#345c70!important}
+html[data-theme="light"] #formacion .education-list {background:#f5fafc!important;border-color:#c7dfe6!important}
+html[data-theme="light"] #formacion .education-list :is(.eyebrow,li,li b) {color:#23576d!important}
+html[data-theme="light"] #formacion .education-list li {border-bottom-color:#d1e4eb!important}
+
+/* 11 CONTACT, dark expressive art is replaced with a cool luminous panel */
+html[data-theme="light"] #contacto.pd19-contact {background:#edf5f8!important}
+html[data-theme="light"] #contacto .pd19-contact-copy h2 {color:#173949!important}
+html[data-theme="light"] #contacto .pd19-contact-copy h2 em {color:#2e778a!important}
+html[data-theme="light"] #contacto :is(.pd19-contact-lead,.pd19-contact-location) {color:#496a78!important}
+html[data-theme="light"] #contacto .pd19-contact-link {background:linear-gradient(155deg,#fff,#eaf4f8)!important;border-color:#b5d2df!important;color:#173c4e!important}
+html[data-theme="light"] #contacto .pd19-contact-link:hover {background:#d9edf3!important}
+html[data-theme="light"] #contacto .pd19-link-symbol {background:#d8edf4!important;color:#176b84!important}
+html[data-theme="light"] #contacto .pd19-contact-link :is(small,strong) {color:#24586e!important}
+html[data-theme="light"] #contacto .pd19-contact-languages {background:#e0eff4!important;border-color:#b2d1da!important}
+html[data-theme="light"] #contacto .pd19-contact-languages :is(span,strong,small) {color:#22576a!important}
+html[data-theme="light"] #contacto .pd19-contact-visual {background:radial-gradient(circle at 50% 30%,rgba(83,161,187,.23),transparent 58%),linear-gradient(155deg,#dfedf3,#f8fcfd)!important;border-color:#b1d2df!important}
+html[data-theme="light"] #contacto .pd19-contact-manifesto :is(small,p,span) {color:#245266!important}
+html[data-theme="light"] #contacto .pd19-contact-manifesto p em {color:#306e8c!important}
+html[data-theme="light"] #contacto .pd19-contact-proof a {background:#d9eef4!important;border-color:#a3c8d7!important;color:#185f74!important}
+html[data-theme="light"] #contacto .pd19-contact-secondary {background:#fff!important;border-color:#88b7c6!important;color:#176078!important}
+html[data-theme="light"] #contacto .pd19-contact-primary {background:#1d748a!important;border-color:#1d748a!important;color:#fff!important}
+
+/* The recruiter brief and dialogs are light in light mode too. */
+html[data-theme="light"] #recruiter-dialog.pd17-brief {background:#f5fafc!important;color:#173c4e!important;border:1px solid #aacbd8!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief h2,
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-lead {color:#204b5e!important}
+html[data-theme="light"] #recruiter-dialog .pd17-brief-scene {background:#e0eef4!important;border-color:#b3d2db!important}
+html[data-theme="light"] #recruiter-dialog .pd17-brief-story :is(h3,p) {color:#254d61!important}
+html[data-theme="light"] #recruiter-dialog .pd17-brief-chapters button {background:#e4f1f5!important;border-color:#b8d2dd!important;color:#255c71!important}
+html[data-theme="light"] #recruiter-dialog .pd17-brief-chapters button[aria-pressed="true"] {background:#c4e1eb!important;border-color:#3387a1!important}
+html[data-theme="light"] #recruiter-dialog .pd17-brief-chapters button small {color:#496b77!important}
+html[data-theme="light"] :is(#experience-dialog,#command-dialog) {background:#f5fafc!important;color:#214a5d!important;border:1px solid #9fc4d2!important}
+html[data-theme="light"] :is(#experience-dialog,#command-dialog) :is(h2,p,small,header) {color:#244c60!important}
+
+/* Preserve ≥40px hit areas and keep footer/navigation focus clear. */
+html[data-theme="light"] :where(button,a,input):focus-visible {outline:2px solid #196f89!important;outline-offset:3px}
+@media(max-width:1180px){
+ html[data-theme="light"] .site-header>.main-nav.open {background:#f2f9fb!important;border-color:#b7d1dc!important}
+}

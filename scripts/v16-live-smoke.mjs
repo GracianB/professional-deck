@@ -6,7 +6,7 @@ const url = process.env.PD_LIVE_URL || "https://gracianb.github.io/professional-
 
 const response = await fetch(url, {
   redirect: "follow",
-  headers: { "user-agent": "professional-deck-v19-live-smoke" },
+  headers: { "user-agent": "professional-deck-v20-live-smoke" },
 });
 
 assert.equal(response.ok, true, `Live deck returned HTTP ${response.status}`);
@@ -19,6 +19,10 @@ assert.match(html, /data-brief-chapters/);
 assert.match(html, /v17-atlas.css/);
 assert.match(html, /v18-story.css/);
 assert.match(html, /v19-final.css/);
+assert.match(html, /v20-theme.css/);
+assert.match(html, /v20-light.css/);
+assert.match(html, /v20-cinema.js/);
+assert.match(html, /data-cinema-skip/);
 assert.match(html, /data-atlas-tour/);
 assert.match(html, /pd19-contact-wrap/);
 assert.match(html, /id="modelo"/);
@@ -78,7 +82,7 @@ try {
     await context.close();
   }
 
-  console.log("PROFESSIONAL DECK V19 LIVE PASS");
+  console.log("PROFESSIONAL DECK V20 LIVE PASS");
   console.log(`URL: ${response.url}`);
   console.log(`HTTP: ${response.status}`);
 } finally {
