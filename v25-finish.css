@@ -71,14 +71,6 @@ html[data-theme="light"] #inicio.pd16-cover .pd28-emblem{opacity:.17}
 @media(prefers-reduced-motion:reduce){#inicio.pd16-cover .pd28-emblem{animation:none}}
 
 
-/* V29 · Platinum signature: visible, luminous, but always behind operating content. */
-#inicio.pd16-cover .pd28-emblem{opacity:.36;filter:drop-shadow(0 0 12px rgba(238,228,209,.4)) drop-shadow(0 0 34px rgba(203,198,191,.2))}
-#inicio.pd16-cover .pd28-emblem svg{width:min(98%,465px);filter:drop-shadow(0 0 7px rgba(242,229,207,.45))}
-html[data-theme="light"] #inicio.pd16-cover .pd28-emblem{opacity:.23;filter:drop-shadow(0 0 14px rgba(119,104,82,.25))}
-@media(max-width:760px){#inicio.pd16-cover .pd28-emblem{opacity:.18}}
-@media(prefers-reduced-motion:reduce){#inicio.pd16-cover .pd28-emblem{animation:none}}
-
-
 /* V30 · Cover contract: Identity → Promise → Symbol → Evidence → Action. */
 .site-header .brand-text b{font-size:clamp(.66rem,.7vw,.83rem)!important;letter-spacing:.085em!important}
 #inicio.pd16-cover .pd16-cover-shell{max-width:100%;overflow:hidden}
