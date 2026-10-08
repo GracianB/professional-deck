@@ -1,4 +1,4 @@
-# Gracián Baena · Professional Deck V23
+# Gracián Baena · Professional Deck V24
 
 **Customer Success Systems & Data Strategist**  
 Murcia, Spain · Remote · Spanish / English / Italian
@@ -26,6 +26,12 @@ The final narrative is deliberately simple:
 I started close to customers, teams and daily operations. The technical layer came later so I could build the missing system directly instead of stopping at recommendations.
 
 ---
+
+## V24 · Silver / ivory / beige universe
+
+The V23 60-second recap now anchors the palette for the **entire** profile: twelve curated slides, all common chrome and dialogues, cinematic opening, real vector Atlas and all four independent case-study HTML pages. V24 is an editorial silver-graphite-ivory identity, visually distinct from the blue Systems Lab and green Yoga.
+
+`v24-universe.css` is the **canonical final deck palette** and loads after the historical structural CSS; responsive grid/behavior remains unchanged. The four case pages use a shared V24 block in `case-pages.css` and cache-bust their link. A warm ivory light mode is designed as a first-class theme for all chapters, not a filter over the dark theme. New browser tests capture all twelve sections in both modes and check representative calculated style values, mobile overflow and usable controls. Later GracianB umbrella-site work is explicitly outside this PR.
 
 ## V23 · 60-second briefing gets the final palette
 
