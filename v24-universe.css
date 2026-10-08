@@ -336,6 +336,55 @@ html[data-theme="light"] #contacto.pd19-contact .pd19-contact-proof a {backgroun
 html[data-theme="light"] #contacto.pd19-contact .pd19-contact-primary {background:#34434b!important;border-color:#34434b!important;color:#fff8ee!important}
 html[data-theme="light"] #contacto.pd19-contact .pd19-contact-secondary {background:#fffaf1!important;border-color:#b7ac9d!important;color:#35454e!important}
 
+/* CHIAROSCURO RHYTHM · ivory punctuation across the narrative.
+   These are intentionally selected editorial panels; not every card should be
+   blue, charcoal or beige. In dark mode they provide a warm 'printed paper'
+   counterpoint and guarantee dark-on-light text. */
+html:not([data-theme="light"]) #modelo.pd20-model .pd20-model-proof>a:last-child {
+ background:linear-gradient(145deg,#faf6ee,#e9dfd0)!important;border-color:#e4d0b2!important;
+}
+html:not([data-theme="light"]) #modelo.pd20-model .pd20-model-proof>a:last-child :is(b,em,span) {color:#34434a!important}
+html:not([data-theme="light"]) #sistemas.pd19-case .gb-star-metrics>div:last-child {
+ background:linear-gradient(145deg,#e8dece,#d8cbbb)!important;border-color:#cab99e!important;
+}
+html:not([data-theme="light"]) #sistemas.pd19-case .gb-star-metrics>div:last-child :is(strong,span) {color:#33434a!important}
+html:not([data-theme="light"]) #demos .gb-demo-card:nth-child(2) {
+ background:linear-gradient(145deg,#faf6ec,#e7dece)!important;border-color:#d2bfa5!important;
+}
+html:not([data-theme="light"]) #demos .gb-demo-card:nth-child(2) :is(h3,h3 em,.gb-demo-code,p) {color:#34454c!important}
+html:not([data-theme="light"]) #demos .gb-demo-card:nth-child(2) :is(.tag-row span,.gb-demo-badge) {
+ background:#eee5d8!important;border-color:#c9baa5!important;color:#3e5057!important;
+}
+html:not([data-theme="light"]) #demos .gb-demo-card:nth-child(2) .gb-demo-actions .ghost {
+ background:#fffaf2!important;border-color:#b6a995!important;color:#30444c!important;
+}
+html:not([data-theme="light"]) #metodo .pd18-method-flow .gb-step.is-final {
+ background:linear-gradient(155deg,#e8decd,#d9cab7)!important;border-color:#d1bca0!important;
+}
+html:not([data-theme="light"]) #metodo .pd18-method-flow .gb-step.is-final :is(h3,.gb-step-num,p,b) {color:#33454e!important}
+html:not([data-theme="light"]) #trayectoria .pd18-evo-rail li.is-current {
+ background:linear-gradient(155deg,#f7f1e7,#e5dac8)!important;border-color:#decaab!important;
+}
+html:not([data-theme="light"]) #trayectoria .pd18-evo-rail li.is-current :is(span,small,strong,p,em) {color:#35464d!important}
+html:not([data-theme="light"]) #trayectoria .pd18-evo-rail li.is-current::before {
+ background:linear-gradient(90deg,#6e7676,#c0ada0)!important;
+}
+html:not([data-theme="light"]) #capacidades .pd18-cap-grid article:first-child {
+ background:linear-gradient(145deg,#faf5ed,#e9dfd1)!important;border-color:#d2bca0!important;
+}
+html:not([data-theme="light"]) #capacidades .pd18-cap-grid article:first-child :is(h3,small,p,a) {color:#34464d!important}
+html:not([data-theme="light"]) #formacion .education-list {
+ background:linear-gradient(155deg,#f7f1e6,#e7dccc)!important;border-color:#d4c2a9!important;
+}
+html:not([data-theme="light"]) #formacion .education-list :is(.eyebrow,li,li b,li span) {color:#394b53!important;border-color:#d2c3ad!important}
+html:not([data-theme="light"]) #contacto.pd19-contact .pd19-contact-visual {
+ background:radial-gradient(circle at 45% 20%,rgba(255,255,255,.33),transparent 48%),linear-gradient(155deg,#f2eadc,#ded2bf)!important;
+ border-color:#d2baa0!important;
+}
+html:not([data-theme="light"]) #contacto.pd19-contact .pd19-contact-visual .pd19-contact-manifesto :is(p,span,small) {color:#33434d!important}
+html:not([data-theme="light"]) #contacto.pd19-contact .pd19-contact-visual .pd19-orbit span {border-color:rgba(83,96,100,.31)!important}
+html:not([data-theme="light"]) #contacto.pd19-contact .pd19-contact-visual .pd19-contact-proof a {background:#e9ddce!important;border-color:#ab9f90!important;color:#344751!important}
+
 /* Dialogs and command overlay: all should have the same universe. */
 :is(#experience-dialog,#command-dialog) {background:#242e35!important;color:#f1e9de!important;border:1px solid #818780!important}
 :is(#experience-dialog,#command-dialog) :is(h2,p,small,header) {color:#f0e7d9!important}
