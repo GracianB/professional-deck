@@ -157,6 +157,8 @@ html[data-theme="light"] .case-section {border-color:#b3d1de}
 html[data-theme="light"] .case-section-heading .eyebrow {color:#1c6b83!important}
 html[data-theme="light"] .case-section-heading h2 {color:#1b4659}
 html[data-theme="light"] .case-section-heading p,html[data-theme="light"] .case-section.light .case-section-heading p {color:#486a78}
+html[data-theme="light"] .case-section.dark .case-section-heading p {color:#3b6476}
+html[data-theme="light"] .case-section.dark .case-flow article p {color:#426875}
 html[data-theme="light"] .case-problem-grid article,html[data-theme="light"] .case-decision-grid article,html[data-theme="light"] .case-flow article,
 html[data-theme="light"] .case-section.light article {background:linear-gradient(150deg,#fff,#edf7fa);border-color:#bdd6df;color:#1d485b}
 html[data-theme="light"] .case-problem-grid :is(h3,span),html[data-theme="light"] .case-decision-grid :is(h3,span),
@@ -208,3 +210,5 @@ html[data-theme="light"] body.case-body :focus-visible {outline-color:#155e78}
 @media(prefers-reduced-motion:reduce) {
  .case-reading-progress>span,body.case-body .button {transition:none!important;transform:none!important}
 }
+
+.case-section[id] {scroll-margin-top:clamp(90px,12vh,135px)}
