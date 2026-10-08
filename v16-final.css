@@ -10,7 +10,7 @@
   justify-content: center;
   background:
     radial-gradient(circle at 18% 16%, rgba(196,165,116,.09), transparent 28rem),
-    radial-gradient(circle at 86% 62%, rgba(122,243,255,.055), transparent 32rem),
+    radial-gradient(circle at 86% 62%, rgba(223,219,214,.055), transparent 32rem),
     var(--black);
 }
 
@@ -213,7 +213,7 @@
   border: 1px solid rgba(247,243,236,.14);
   border-radius: 18px;
   background:
-    radial-gradient(circle at 90% 0, rgba(122,243,255,.07), transparent 13rem),
+    radial-gradient(circle at 90% 0, rgba(223,219,214,.07), transparent 13rem),
     rgba(23,21,19,.76);
   box-shadow: 0 32px 80px rgba(0,0,0,.3);
   backdrop-filter: blur(12px);
@@ -295,7 +295,7 @@
   overflow: hidden;
   border-radius: 14px;
   background:
-    linear-gradient(180deg, rgba(122,243,255,.022), transparent 42%),
+    linear-gradient(180deg, rgba(223,219,214,.022), transparent 42%),
     var(--black-2);
 }
 
@@ -320,7 +320,7 @@
 }
 
 .pd16-proof-card .gb-demo-actions .ghost {
-  border-color: rgba(122,243,255,.26);
+  border-color: rgba(223,219,214,.26);
 }
 
 .pd16-proof-foot a {
@@ -328,9 +328,9 @@
   align-items: center;
   min-height: 36px;
   padding: 0 .8rem;
-  border: 1px solid rgba(122,243,255,.28);
+  border: 1px solid rgba(223,219,214,.28);
   border-radius: 999px;
-  background: rgba(122,243,255,.045);
+  background: rgba(223,219,214,.045);
   color: var(--ice);
 }
 
@@ -339,7 +339,7 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 75% 30%, rgba(122,243,255,.05), transparent 26rem),
+    radial-gradient(circle at 75% 30%, rgba(223,219,214,.05), transparent 26rem),
     var(--black);
 }
 
@@ -505,8 +505,8 @@
 
 .pd16-career-steps .is-current {
   background:
-    radial-gradient(circle at 100% 0, rgba(122,243,255,.08), transparent 10rem),
-    rgba(122,243,255,.018);
+    radial-gradient(circle at 100% 0, rgba(223,219,214,.08), transparent 10rem),
+    rgba(223,219,214,.018);
 }
 
 .pd16-career-steps .is-current::after {
@@ -599,7 +599,7 @@
 }
 
 .pd16-timeline-track .is-current {
-  background: rgba(122,243,255,.025);
+  background: rgba(223,219,214,.025);
 }
 
 .pd16-timeline-track .is-current::before {
@@ -643,7 +643,7 @@
 /* Languages */
 .pd16-langs {
   background:
-    radial-gradient(circle at 75% 34%, rgba(122,243,255,.045), transparent 22rem),
+    radial-gradient(circle at 75% 34%, rgba(223,219,214,.045), transparent 22rem),
     var(--black);
 }
 
