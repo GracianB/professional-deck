@@ -130,8 +130,6 @@ for (const token of [
 
 for (const link of [
   "https://bodytonehelp.zendesk.com/hc/es",
-  "https://gracianb.github.io/revops-studio/",
-  "https://github.com/GracianB/revops-studio",
   "https://gracianb.github.io/project-ohana/",
   "https://github.com/GracianB/project-ohana",
   "https://vortex-gilt-xi.vercel.app/",
