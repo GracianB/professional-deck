@@ -83,7 +83,8 @@ const expectedCssOrder = [
   "v18-story.css",
   "v19-final.css",
   "v20-theme.css",
-  "v20-light.css"
+  "v20-light.css",
+  "v23-brief.css"
 ];
 
 if (cssFiles.join("\n") === expectedCssOrder.join("\n")) {
