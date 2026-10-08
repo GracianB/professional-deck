@@ -1,0 +1,60 @@
+/* V25 · final editorial chrome polish. Runs after the proven V24 layer. */
+:root { --v25-line:rgba(222,209,190,.24); --v25-radius:10px; }
+html[data-theme="light"] { --v25-line:rgba(92,88,80,.24); }
+.site-header {box-shadow:0 12px 36px rgba(8,12,15,.12)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.site-header .brand {min-width:0;gap:clamp(.45rem,1vw,.8rem)}
+.site-header .brand-mark {border-radius:9px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.09)}
+.site-header .main-nav>button {transition:background-color .2s,color .2s,border-color .2s;white-space:nowrap}
+.site-header .header-actions {min-width:0}
+.site-header .header-cta {white-space:nowrap}
+.os-rail {box-shadow:inset -1px 0 0 var(--v25-line)!important}
+.os-rail-brand {padding:clamp(.45rem,1vw,.8rem) .35rem .85rem;border-bottom:1px solid var(--v25-line)}
+.os-rail-brand b {font-family:var(--sans);font-size:clamp(.65rem,.8vw,.78rem);font-weight:750;letter-spacing:.12em}
+.os-rail-brand small {display:block;margin-top:.4rem;letter-spacing:.13em}
+.os-rail-status {margin:.55rem .35rem .65rem!important}
+.os-rail-item {border-radius:8px!important;min-height:35px!important;display:flex;align-items:center;gap:.45rem;position:relative}
+.os-rail-item:is(:hover,:focus-visible) {border-color:rgba(222,209,190,.4)!important}
+.os-rail-item[aria-current="true"],.os-rail-item.active {box-shadow:inset 3px 0 0 #dac7ac!important}
+html[data-theme="light"] .os-rail-item[aria-current="true"],html[data-theme="light"] .os-rail-item.active {box-shadow:inset 3px 0 0 #4d5557!important}
+.os-rail-hint {padding:.45rem .25rem;line-height:1.65!important}
+#inicio.pd16-cover .pd16-cover-shell {position:relative;isolation:isolate}
+#inicio.pd16-cover .pd16-cover-top {letter-spacing:.14em}
+#inicio.pd16-cover .pd16-name {letter-spacing:-.055em}
+#inicio.pd16-cover .pd16-lead {max-width:62ch}
+#inicio.pd16-cover .pd16-os {border-radius:12px!important;box-shadow:0 26px 70px rgba(7,13,17,.24)!important}
+#inicio.pd16-cover .pd16-proof-strip {border-top:1px solid var(--v25-line)!important}
+#inicio.pd16-cover .pd16-cover-actions .button {border-radius:7px!important;transition:transform .2s ease,box-shadow .2s ease}
+@media(hover:hover){#inicio.pd16-cover .pd16-cover-actions .button:hover {transform:translateY(-2px)}}
+.pd20-cinema {isolation:isolate}
+.pd20-cinema-core {position:relative;z-index:2}
+.pd20-cinema-grid {opacity:.55!important}
+.pd20-cinema-orbit {opacity:.52!important}
+.pd20-cinema-name {letter-spacing:-.06em}
+.pd20-cinema-thesis {max-width:42ch;margin-left:auto;margin-right:auto;line-height:1.45}
+.pd20-cinema-skip {border-radius:7px!important;min-height:44px}
+html[data-theme="light"] .pd20-cinema {background:radial-gradient(ellipse at 50% 38%,#f9f5ec 0,#e9e2d8 60%,#d9d3ca 100%)!important;color:#283840!important}
+html[data-theme="light"] .pd20-cinema :is(.pd20-cinema-name,.pd20-cinema-monogram) {color:#26343c!important}
+html[data-theme="light"] .pd20-cinema :is(.pd20-cinema-thesis,.pd20-cinema-pretitle,.pd20-cinema-index,.pd20-cinema-overline) {color:#49585d!important}
+html[data-theme="light"] .pd20-cinema-name em,html[data-theme="light"] .pd20-cinema-monogram>b {color:#877664!important}
+html[data-theme="light"] .pd20-cinema-skip {background:#34424a!important;color:#fffaf2!important}
+@media(max-width:1180px) {
+ .site-header {gap:.5rem}
+ .site-header .brand-text small {letter-spacing:.05em}
+}
+@media(max-width:980px) {
+ .os-rail {box-shadow:none!important}
+ .site-header .main-nav.open {max-height:min(75svh,620px);overflow-y:auto;overscroll-behavior:contain}
+}
+@media(max-width:600px) {
+ #inicio.pd16-cover .pd16-name {letter-spacing:-.045em}
+ #inicio.pd16-cover .pd16-os {box-shadow:none!important}
+ #inicio.pd16-cover .pd16-cover-actions {row-gap:.55rem}
+ .site-header .header-actions {gap:clamp(.2rem,1vw,.45rem)}
+ .site-header .header-cta {white-space:nowrap}
+ .pd20-cinema-core {width:min(92vw,480px)}
+ .pd20-cinema-name {font-size:clamp(2.4rem,11vw,4.7rem)}
+ .pd20-cinema-skip {max-width:calc(100vw - 2rem)}
+}
+@media(prefers-reduced-motion:reduce) {
+ #inicio.pd16-cover .pd16-cover-actions .button {transition:none!important}
+}
