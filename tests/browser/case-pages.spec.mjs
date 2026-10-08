@@ -27,9 +27,15 @@ for(const [key,path,title] of pages) {
       await expect(page.locator("[data-case-lang='es']")).toHaveAttribute("aria-pressed","true");
       const css=await page.locator("body.case-body").evaluate(el=>getComputedStyle(el).getPropertyValue("--bg").trim().toLowerCase());
       expect(css).toBe("#091620");
-      const textDark=await page.locator(".case-section.light .case-section-heading h2").first().evaluate(el=>getComputedStyle(el).color);
-      const rgbDark=textDark.match(/[0-9.]+/g).map(Number);
-      expect(rgbDark[0]).toBeGreaterThan(170);
+      // Beige is a deliberately pale editorial surface even in DARK mode.
+      const editorialDark=await page.locator("#case-challenge").evaluate(el=>({
+        surface:getComputedStyle(el).backgroundImage,
+        heading:getComputedStyle(el.querySelector("h2")).color
+      }));
+      expect(editorialDark.surface).toContain("rgb(243, 236, 223)");
+      expect(Number(editorialDark.heading.match(/[0-9.]+/)[0])).toBeLessThan(100);
+      const systemDark=await page.locator("#case-system h2").evaluate(el=>getComputedStyle(el).color);
+      expect(Number(systemDark.match(/[0-9.]+/)[0])).toBeGreaterThan(170);
       const totalWidth=await page.evaluate(()=>document.documentElement.scrollWidth);
       expect(totalWidth).toBeLessThanOrEqual(width+1);
       if(width<500){
@@ -53,10 +59,19 @@ for(const [key,path,title] of pages) {
       await page.locator("[data-case-theme='light']").click();
       await expect(page.locator("html")).toHaveAttribute("data-theme","light");
       const cssLight=await page.locator("body.case-body").evaluate(el=>getComputedStyle(el).getPropertyValue("--bg").trim().toLowerCase());
-      expect(cssLight).toBe("#eef6f8");
-      const textLight=await page.locator(".case-section.light .case-section-heading h2").first().evaluate(el=>getComputedStyle(el).color);
-      const rgbLight=textLight.match(/[0-9.]+/g).map(Number);
-      expect(rgbLight[0]).toBeLessThan(105);
+      expect(cssLight).toBe("#f5f1e9");
+      const editorialLight=await page.locator("#case-challenge").evaluate(el=>({
+        surface:getComputedStyle(el).backgroundImage,
+        heading:getComputedStyle(el.querySelector("h2")).color
+      }));
+      expect(editorialLight.surface).toContain("rgb(238, 228, 212)");
+      expect(Number(editorialLight.heading.match(/[0-9.]+/)[0])).toBeLessThan(105);
+      const systemLight=await page.locator("#case-system").evaluate(el=>({
+        surface:getComputedStyle(el).backgroundImage,
+        heading:getComputedStyle(el.querySelector("h2")).color
+      }));
+      expect(systemLight.surface).toContain("rgb(36, 51, 62)");
+      expect(Number(systemLight.heading.match(/[0-9.]+/)[0])).toBeGreaterThan(170);
       await page.screenshot({path:`artifacts/v16/cases/${key}-light-${label}.png`,fullPage:true});
       if(width<500 && key==="bodytone"){
         await page.locator("#case-system").scrollIntoViewIfNeeded();
