@@ -52,9 +52,9 @@ test.describe("Professional Deck browser E2E", () => {
     expect(pos[4].top).toBeGreaterThan(pos[0].top+50);
     expect(Math.abs(pos[4].top-pos[6].top)).toBeLessThan(5);
     expect(pos[0].left).toBeLessThan(pos[1].left);
-    await expect(page.locator("#modelo .pd20-model-proof>a")).toHaveCount(3);
-    await expect(page.locator("#modelo .pd20-model-proof .pd36-roadmap-link")).toHaveCount(1);
-    await expect(page.locator("#modelo .pd20-model-proof a[href*=\'revops-studio\']")).toHaveCount(0);
+    await expect(page.locator("#modelo .pd20-model-proof>a")).toHaveCount(4);
+    await expect(page.locator("#modelo .pd20-model-proof .pd36-roadmap-link")).toHaveCount(0);
+    await expect(page.locator("#modelo .pd20-model-proof a[href*=\'revops-studio\']")).toHaveCount(1);
     await page.setViewportSize({width:390,height:844});
     const dimensions=await page.evaluate(() => ({
       scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth
