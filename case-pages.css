@@ -382,3 +382,95 @@ html[data-theme="light"] .case-boundary {background:#f1e7d7;border-color:#d1bea4
 html[data-theme="light"] .case-boundary :is(span,a) {color:#344c5a}
 html[data-theme="light"] .case-footer {background:linear-gradient(135deg,#283b47,#152631);border-color:#405362;color:#f6efe4}
 html[data-theme="light"] .case-footer h2 {color:#f7efe4}
+
+/* ===============================================================
+   V24 CASE FAMILY · SILVER + IVORY, no cyan Systems Lab language
+   Complement to the shared deck V24 universe (standalone HTML).
+   =============================================================== */
+body.case-body {
+ --bg:#151c22;--bg2:#1e2931;--surface:#273139;--surface2:#303c43;
+ --case-ivory:#f3eee5;--case-cream:#faf6ef;--case-beige-border:#cbbb9e;
+ --case-ink:#25343b;--case-slate:#202c33;--case-secondary:#c3c6c4;
+ --case-signal:#c3cacc;--accent:#ded0bb;--gold:#ddceb8;
+ --ice:#c5cacc;--yellow:#ddceb8;--mark:#ddceb8;
+ background:radial-gradient(ellipse at 76% 10%,rgba(220,207,188,.105),transparent 42%),#151c22!important;
+ color:#f4eee5!important;
+}
+.case-header {background:rgba(23,30,36,.97)!important;border-color:#777c79!important}
+.case-header .brand-mark {background:#2c353a!important;color:#eee2d0!important;border-color:#a9a9a0!important}
+.case-header .brand-text :is(b,small) {color:#e6dbca!important}
+.case-header nav>a:not(.header-cta) {color:#e3dfd4!important}
+.case-header nav>a:hover {background:#3a4346!important}
+.case-header nav .header-cta {background:#e1d3bf!important;color:#1f2d36!important;border-color:#e1d3bf!important}
+.case-utility-group {background:#313b40!important;border-color:#858c89!important}
+.case-utility-group>button {color:#e9e3d9!important}
+.case-utility-group>button[aria-pressed="true"] {background:#ded1bd!important;color:#25343c!important}
+.case-local-nav {background:#273138!important;border-color:#838782!important}
+.case-local-nav :is(span,a) {color:#e3d8c7!important}
+.case-local-nav a:hover {background:#475053!important;color:#fff8ed!important}
+.case-reading-progress>span {background:linear-gradient(90deg,#bcc4c4,#e5d5bb)!important}
+.case-hero::before {background:radial-gradient(ellipse at center,rgba(221,207,187,.11),transparent 75%)!important}
+.case-hero-copy>.eyebrow {color:#e0d0b8!important}
+.case-hero-copy h1 {color:#f9f4e9!important}
+.case-hero-copy h1 em {color:#d5c6b0!important}
+.case-hero-copy>p:not(.eyebrow) {color:#c5c9c7!important}
+.case-tags span {background:#323d42!important;border-color:#92938b!important;color:#e7dac8!important}
+body.case-body .button.primary {background:#e2d3bd!important;color:#1e2e37!important;border-color:#e2d3bd!important}
+body.case-body .button.ghost {background:#2c3940!important;color:#f3e9dc!important;border-color:#a1a49e!important}
+.case-hero-aside {background:linear-gradient(155deg,#303b41,#202a30)!important;border-color:#848984!important}
+.case-hero-aside header b,.case-hero-aside dt {color:#e3d2bb!important}
+.case-hero-aside dd {color:#f2eee6!important}
+.case-section.light {background:linear-gradient(150deg,#f3ede2,#e7decf)!important;border-color:#c0b09b!important}
+.case-section.light .case-section-heading :is(h2,p,.eyebrow) {color:#344249!important}
+.case-section.light :is(.case-problem-grid,.case-decision-grid) article {background:linear-gradient(150deg,#fffaf2,#f1e8dc)!important;border-color:#cfc0aa!important}
+.case-section.light :is(.case-problem-grid,.case-decision-grid) article :is(h3,span) {color:#344651!important}
+.case-section.light :is(.case-problem-grid,.case-decision-grid) article p {color:#4a5a62!important}
+.case-section.dark {background:linear-gradient(150deg,#303c42,#1b282f)!important;border-color:#92958c!important}
+.case-section.dark .case-section-heading :is(h2,.eyebrow) {color:#f1e8d9!important}
+.case-section.dark .case-section-heading p {color:#c9d0cc!important}
+.case-section.dark .case-flow article {background:#394349!important;border-color:#898f8b!important}
+.case-section.dark .case-flow :is(h3,span) {color:#e9dbc5!important}
+.case-section.dark .case-flow p {color:#d1d5d1!important}
+.case-section.light .case-results-metric {background:linear-gradient(145deg,#e8d9c2,#f4ebdf)!important;border-color:#bcae97!important}
+.case-section.light .case-results-metric :is(small,strong,span) {color:#34434c!important}
+.case-section.light .case-results-copy {background:#354149!important;border-color:#858c89!important}
+.case-section.light .case-results-copy :is(h3,li) {color:#f3eee6!important}
+.case-section.light .case-results-copy b {color:#e6d6bd!important}
+.case-boundary {background:#354047!important;border-color:#818884!important;color:#d5d9d5!important}
+.case-boundary :is(span,a) {color:#e6d8c4!important}
+.case-footer {background:linear-gradient(125deg,#303c43,#202b33)!important;border-color:#979389!important}
+.case-footer h2 {color:#f4eadb!important}
+html[data-theme="light"] body.case-body {
+ --bg:#f4efe6;--bg2:#ebe4d9;--surface:#fffaf2;--surface2:#f1e8dc;
+ --case-ivory:#f6efe5;--case-cream:#fffaf2;--case-beige-border:#c9b9a3;
+ --case-ink:#263640;--case-slate:#2f3940;--case-signal:#727d7d;
+ --accent:#3d4b52;--gold:#566267;--ice:#627174;--yellow:#566267;--mark:#566267;
+ background:radial-gradient(ellipse at 84% 12%,rgba(203,190,174,.23),transparent 55%),#f4efe6!important;
+ color:#2c3941!important;
+}
+html[data-theme="light"] .case-header {background:rgba(251,247,240,.96)!important;border-color:#c8baa7!important}
+html[data-theme="light"] .case-header .brand-mark {background:#e9dfd1!important;color:#34454e!important;border-color:#ada594!important}
+html[data-theme="light"] .case-header .brand-text :is(b,small) {color:#36464e!important}
+html[data-theme="light"] .case-header nav>a:not(.header-cta) {color:#384951!important}
+html[data-theme="light"] .case-header nav .header-cta {background:#35444d!important;color:#fffaf1!important;border-color:#35444d!important}
+html[data-theme="light"] .case-utility-group {background:#eee4d7!important;border-color:#c6bbaa!important}
+html[data-theme="light"] .case-utility-group>button {color:#34444c!important}
+html[data-theme="light"] .case-utility-group>button[aria-pressed="true"] {background:#35454d!important;color:#fffaf1!important}
+html[data-theme="light"] .case-local-nav {background:#eee5da!important;border-color:#cbbb9f!important}
+html[data-theme="light"] .case-local-nav :is(span,a) {color:#3c515a!important}
+html[data-theme="light"] .case-hero-copy>.eyebrow {color:#53626a!important}
+html[data-theme="light"] .case-hero-copy h1 {color:#24343d!important}
+html[data-theme="light"] .case-hero-copy h1 em {color:#7d756d!important}
+html[data-theme="light"] .case-hero-copy>p:not(.eyebrow) {color:#55636a!important}
+html[data-theme="light"] .case-tags span {background:#ede4d7!important;color:#3e4f59!important;border-color:#c8b9a3!important}
+html[data-theme="light"] body.case-body .button.primary {background:#33444d!important;color:#fffaf1!important;border-color:#33444d!important}
+html[data-theme="light"] body.case-body .button.ghost {background:#fffaf1!important;color:#35464e!important;border-color:#b2a99b!important}
+html[data-theme="light"] .case-hero-aside {background:linear-gradient(155deg,#fffaf3,#ebe2d5)!important;border-color:#c4b6a1!important}
+html[data-theme="light"] .case-hero-aside header b,html[data-theme="light"] .case-hero-aside dt,html[data-theme="light"] .case-hero-aside dd {color:#364951!important}
+html[data-theme="light"] .case-section.light {background:linear-gradient(145deg,#eee5d9,#f7f0e5)!important}
+html[data-theme="light"] .case-section.dark {background:linear-gradient(155deg,#343e43,#212d35)!important}
+html[data-theme="light"] .case-section.dark .case-flow article {background:#3e4a50!important;color:#faf3e8!important}
+html[data-theme="light"] .case-boundary {background:#eee4d6!important;color:#4d5d64!important;border-color:#c7b9a2!important}
+html[data-theme="light"] .case-boundary :is(span,a) {color:#394f59!important}
+html[data-theme="light"] .case-footer {background:linear-gradient(155deg,#354148,#222e36)!important;color:#f7f0e5!important}
+html[data-theme="light"] .case-footer h2 {color:#f7efe3!important}

@@ -738,7 +738,7 @@
    ============================================================ */
 
 :root {
-  --timeline-navy: #010510; /* sampled from timeline-horizontal.png edges */
+  --timeline-navy: #020508; /* sampled from timeline-horizontal.png edges */
 }
 
 /* —— 06 CAREER: dual engines fill; descanso chip; no collision —— */
@@ -978,7 +978,7 @@
   object-fit: contain !important;
   object-position: center !important;
   display: block !important;
-  background: #000410 !important;
+  background: #010407 !important;
 }
 
 /* —— 08 / 09 EXPERIENCIA: content fits inside role cards —— */
