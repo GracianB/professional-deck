@@ -75,7 +75,7 @@ test.describe("Professional Deck browser E2E", () => {
       });
     });
     for(const {id,color} of surface) {
-      const values=color.match(/[\\d.]+/g)?.map(Number)||[];
+      const values=color.match(/[0-9.]+/g)?.map(Number)||[];
       expect(values.length, id+" background "+color).toBeGreaterThanOrEqual(3);
       expect(Math.min(...values.slice(0,3)),id+" should be pale").toBeGreaterThan(210);
     }
@@ -90,7 +90,7 @@ test.describe("Professional Deck browser E2E", () => {
     ];
     for(const selector of samples){
       const color=await page.locator(selector).first().evaluate(el=>getComputedStyle(el).color);
-      const rgb=color.match(/[\\d.]+/g)?.map(Number)||[];
+      const rgb=color.match(/[0-9.]+/g)?.map(Number)||[];
       expect(rgb[0],selector+" text not dark: "+color).toBeLessThan(130);
     }
     await page.locator("[data-set-theme='dark']").click();
