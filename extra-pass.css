@@ -305,7 +305,7 @@ a.brand { cursor: pointer; }
 }
 .gb-valor-panel .gb-loop-card.is-end {
   background:
-    linear-gradient(165deg, rgba(125, 202, 165, 0.12), transparent 50%),
+    linear-gradient(165deg, rgba(188,184,179,0.12), transparent 50%),
     rgba(0, 0, 0, 0.22) !important;
 }
 .gb-valor-panel .gb-loop-card:hover,
@@ -773,8 +773,8 @@ html[data-theme="light"] #valor .gb-loop-card {
   border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line-dark-2)) !important;
   background:
     radial-gradient(ellipse 55% 50% at 50% 54%, rgba(196, 165, 116, 0.1), transparent 62%),
-    radial-gradient(ellipse 40% 35% at 78% 22%, rgba(122, 243, 255, 0.08), transparent 60%),
-    radial-gradient(ellipse 35% 30% at 18% 84%, rgba(125, 202, 165, 0.1), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 78% 22%, rgba(223,219,214,0.08), transparent 60%),
+    radial-gradient(ellipse 35% 30% at 18% 84%, rgba(188,184,179,0.1), transparent 55%),
     var(--black-2) !important;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 18px 48px rgba(0, 0, 0, 0.35);
   
@@ -786,8 +786,8 @@ html[data-theme="light"] #valor .gb-loop-card {
   background:
     conic-gradient(from 210deg at 50% 54%,
       rgba(196, 165, 116, 0.07),
-      rgba(122, 243, 255, 0.05),
-      rgba(125, 202, 165, 0.07),
+      rgba(223,219,214,0.05),
+      rgba(188,184,179,0.07),
       rgba(196, 165, 116, 0.07));
   animation: route-spin 28s linear infinite;
   pointer-events: none;
@@ -834,7 +834,7 @@ html[data-theme="light"] #valor .gb-loop-card {
 }
 #ruta .gb-pin i {
   border-color: color-mix(in srgb, var(--ice) 55%, var(--accent)) !important;
-  box-shadow: 0 0 0 3px rgba(122, 243, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(223,219,214,0.08);
   transition: transform 0.2s var(--ease), box-shadow 0.2s, background 0.2s;
 }
 #ruta .gb-pin span {
@@ -846,7 +846,7 @@ html[data-theme="light"] #valor .gb-loop-card {
 #ruta .gb-pin.active i {
   transform: scale(1.15);
   background: var(--ice) !important;
-  box-shadow: 0 0 0 6px rgba(122, 243, 255, 0.16) !important;
+  box-shadow: 0 0 0 6px rgba(223,219,214,0.16) !important;
 }
 #ruta .gb-pin.is-core.active i {
   background: var(--gold) !important;
@@ -927,7 +927,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   
   
   background:
-    linear-gradient(180deg, rgba(196, 165, 116, 0.1), rgba(125, 202, 165, 0.08)) !important;
+    linear-gradient(180deg, rgba(196, 165, 116, 0.1), rgba(188,184,179,0.08)) !important;
 }
 
 
@@ -1099,7 +1099,7 @@ html[data-theme="light"] #valor .gb-loop-card {
 #capacidades .gb-cap.is-human {
   border-color: color-mix(in srgb, var(--sage) 40%, transparent) !important;
   background:
-    linear-gradient(160deg, rgba(125, 202, 165, 0.12), transparent 50%),
+    linear-gradient(160deg, rgba(188,184,179,0.12), transparent 50%),
     var(--black-2) !important;
 }
 #capacidades .gb-cap h3 {
@@ -1227,7 +1227,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   border-radius: 8px !important;
   background:
     radial-gradient(ellipse 70% 55% at 50% 0%, rgba(196, 165, 116, 0.1), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 80% 100%, rgba(122, 243, 255, 0.05), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 80% 100%, rgba(223,219,214,0.05), transparent 55%),
     var(--black-2) !important;
   gap: clamp(10px, 1.6vh, 18px) !important;
 }
@@ -1619,8 +1619,8 @@ html[data-theme="light"] #valor .gb-loop-card {
     0 22px 56px rgba(0, 0, 0, 0.4) !important;
   background:
     radial-gradient(ellipse 58% 52% at 50% 54%, rgba(196, 165, 116, 0.14), transparent 62%),
-    radial-gradient(ellipse 42% 36% at 78% 20%, rgba(122, 243, 255, 0.11), transparent 60%),
-    radial-gradient(ellipse 36% 32% at 16% 86%, rgba(125, 202, 165, 0.12), transparent 55%),
+    radial-gradient(ellipse 42% 36% at 78% 20%, rgba(223,219,214,0.11), transparent 60%),
+    radial-gradient(ellipse 36% 32% at 16% 86%, rgba(188,184,179,0.12), transparent 55%),
     var(--black-2) !important;
 }
 #ruta .gb-route-glow {
@@ -1644,7 +1644,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line-dark)) !important;
   border-radius: 8px !important;
   background:
-    linear-gradient(160deg, rgba(122, 243, 255, 0.06), transparent 45%),
+    linear-gradient(160deg, rgba(223,219,214,0.06), transparent 45%),
     var(--black-2) !important;
 }
 #ruta .gb-route-strip {
@@ -1749,7 +1749,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   border-radius: 10px !important;
   background:
     radial-gradient(ellipse 70% 50% at 50% 0%, rgba(196, 165, 116, 0.11), transparent 58%),
-    radial-gradient(ellipse 45% 40% at 85% 100%, rgba(122, 243, 255, 0.06), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 85% 100%, rgba(223,219,214,0.06), transparent 55%),
     var(--black-2) !important;
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
 }
@@ -1961,7 +1961,7 @@ html[data-theme="light"] #valor .gb-loop-card {
 
 #valor .gb-loop-card.is-end {
   background:
-    linear-gradient(165deg, rgba(125, 202, 165, 0.12), transparent 50%),
+    linear-gradient(165deg, rgba(188,184,179,0.12), transparent 50%),
     rgba(0, 0, 0, 0.22) !important;
 }
 
@@ -2165,10 +2165,10 @@ html[data-theme="light"] #valor .gb-loop-card {
   background: radial-gradient(circle, rgba(196, 165, 116, 0.45), transparent 70%) !important;
 }
 #inicio .gb-hero-orb-b {
-  background: radial-gradient(circle, rgba(122, 243, 255, 0.28), transparent 70%) !important;
+  background: radial-gradient(circle, rgba(223,219,214,0.28), transparent 70%) !important;
 }
 #inicio .gb-hero-orb-c {
-  background: radial-gradient(circle, rgba(125, 202, 165, 0.22), transparent 70%) !important;
+  background: radial-gradient(circle, rgba(188,184,179,0.22), transparent 70%) !important;
 }
 #inicio .gb-hero-stack {
   width: min(100%, var(--max)) !important;
@@ -2231,7 +2231,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   
   background:
     radial-gradient(ellipse 80% 60% at 100% 0%, rgba(196, 165, 116, 0.14), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(122, 243, 255, 0.08), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(223,219,214,0.08), transparent 50%),
     rgba(11, 12, 14, 0.92) !important;
   box-shadow:
     0 28px 64px rgba(0, 0, 0, 0.45),
@@ -2346,7 +2346,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   
   background:
     radial-gradient(ellipse 70% 55% at 0% 0%, rgba(196, 165, 116, 0.1), transparent 58%),
-    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(122, 243, 255, 0.06), transparent 50%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(223,219,214,0.06), transparent 50%),
     var(--black-2) !important;
   
 }
@@ -2502,7 +2502,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   font: 800 12px/1 var(--mono) !important;
   
 }
-#metodo .gb-step.is-final .gb-step-num { color: #3a3200 !important; }
+#metodo .gb-step.is-final .gb-step-num { color: #2d3033 !important; }
 #metodo .gb-step h3 {
   margin: 6px 0 0 !important;
   font: 760 clamp(18px, 1.7vw, 26px)/1.1 var(--display) !important;
@@ -2516,7 +2516,7 @@ html[data-theme="light"] #valor .gb-loop-card {
   
   
 }
-#metodo .gb-step.is-final p { color: #3a3200 !important; }
+#metodo .gb-step.is-final p { color: #2d3033 !important; }
 #metodo .gb-step b {
   font: 800 11px var(--mono) !important;
   letter-spacing: 0.1em !important;
@@ -2543,7 +2543,7 @@ html[data-theme="light"] #valor .gb-loop-card {
 }
 #metodo .gb-formula-card.result {
   background:
-    linear-gradient(160deg, rgba(125, 202, 165, 0.16), transparent 55%),
+    linear-gradient(160deg, rgba(188,184,179,0.16), transparent 55%),
     var(--black-2) !important;
   border-color: color-mix(in srgb, var(--sage) 45%, transparent) !important;
 }
