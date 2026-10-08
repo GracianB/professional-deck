@@ -143,3 +143,45 @@ body.cinema-playing {overflow:hidden!important}
 html[data-theme="light"] .pd20-cinema-replay {color:#17677f}
 @media(max-width:600px){.pd20-cinema-name{font-size:clamp(2.25rem,10vw,3.8rem)}.pd20-cinema-core{width:92vw}.pd20-cinema-skip{right:18px;bottom:18px}.pd20-cinema-index{font-size:.52rem}.pd20-cinema-overline{font-size:.53rem;gap:.5rem}}
 @media(prefers-reduced-motion:reduce){.pd20-cinema *, .pd20-cinema::before {transition:none!important;animation:none!important}.pd20-cinema-replay {display:none}}
+
+
+/* V21 · MÉTODO — cool technical cards, no legacy brown/champagne panels.
+   Gold remains a micro-accent; surfaces belong to the navy/mineral system. */
+html:not([data-theme="light"]) #metodo.pd18-method .pd18-method-flow > .gb-step {
+  background:
+    linear-gradient(155deg,rgba(105,176,197,.085),transparent 52%),
+    #111d24 !important;
+  border-color:rgba(116,188,207,.24)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+  color:#eef7f9!important;
+}
+html:not([data-theme="light"]) #metodo.pd18-method .pd18-method-flow > .gb-step:hover {
+  background:
+    linear-gradient(155deg,rgba(105,176,197,.13),transparent 54%),
+    #14242d !important;
+  border-color:rgba(126,205,224,.38)!important;
+}
+html:not([data-theme="light"]) #metodo.pd18-method .pd18-method-flow > .gb-step .gb-step-num {
+  color:#d9b56f!important;
+}
+html:not([data-theme="light"]) #metodo.pd18-method .pd18-method-flow > .gb-step h3 {
+  color:#f7fbfc!important;
+}
+html:not([data-theme="light"]) #metodo.pd18-method .pd18-method-flow > .gb-step p {
+  color:#bfd0d6!important;
+}
+html:not([data-theme="light"]) #metodo.pd18-method .pd18-method-flow > .gb-step b {
+  color:#d5b8df!important;
+}
+html:not([data-theme="light"]) #metodo.pd18-method .pd18-method-flow > .gb-step.is-final {
+  background:
+    radial-gradient(circle at 86% 18%,rgba(112,205,222,.12),transparent 34%),
+    linear-gradient(155deg,#162b34,#102029)!important;
+  border-color:rgba(126,205,224,.42)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    0 12px 30px rgba(0,0,0,.16)!important;
+}
+html:not([data-theme="light"]) #metodo.pd18-method .pd18-method-flow > .gb-step.is-final .gb-step-num {
+  color:#e3c27e!important;
+}
