@@ -115,3 +115,8 @@ html[data-theme="light"] #inicio.pd16-cover .pd16-os ol{background:transparent}
 @media(max-width:980px){#inicio.pd16-cover{justify-content:flex-start!important;padding-bottom:85px!important}#inicio.pd16-cover .pd16-cover-shell{min-height:0;height:auto;display:grid;gap:1rem}#inicio.pd16-cover .pd16-cover-layout{height:auto;grid-template-columns:1fr;gap:22px}#inicio.pd16-cover .pd16-cover-copy{display:block}#inicio.pd16-cover .pd16-os{width:min(100%,700px);height:auto;max-height:none;justify-self:center;grid-template-rows:200px auto auto auto}#inicio.pd16-cover .pd16-thesis{font-size:clamp(2.3rem,6vw,3.7rem)}#inicio.pd16-cover .pd16-proof-strip{margin-top:20px}}
 @media(max-width:600px){#inicio.pd16-cover .pd16-thesis{font-size:clamp(2rem,8vw,2.85rem)}#inicio.pd16-cover .pd16-os{grid-template-rows:150px auto auto auto;min-height:0}#inicio.pd16-cover .pd16-proof-strip{grid-template-columns:repeat(2,minmax(0,1fr))}#inicio.pd16-cover .pd16-cover-actions .button{width:100%}}
 @media(prefers-reduced-motion:reduce){#inicio.pd16-cover .pd28-emblem{transition:none}}
+
+/* V36: unfinished RevOps evidence remains readable, never an actionable link. */
+.pd36-roadmap-link{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .7rem;min-height:40px;max-width:100%;border:1px dashed rgba(216,206,187,.46);border-radius:9px;color:#d8cebc;cursor:default;text-decoration:none;line-height:1.4}
+.pd36-roadmap-link em{font-size:.75em;font-style:normal;letter-spacing:.04em}
+html[data-theme="light"] .pd36-roadmap-link{color:#64594a;border-color:rgba(92,78,58,.43)}
