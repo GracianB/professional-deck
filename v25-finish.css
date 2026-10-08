@@ -58,3 +58,14 @@ html[data-theme="light"] .pd20-cinema-skip {background:#34424a!important;color:#
 @media(prefers-reduced-motion:reduce) {
  #inicio.pd16-cover .pd16-cover-actions .button {transition:none!important}
 }
+
+/* V28 shared universe cover: professional node-orbit motif, no bitmap dependency. */
+#inicio.pd16-cover .pd16-os{position:relative;isolation:isolate;overflow:hidden}
+#inicio.pd16-cover .pd16-os > :not(.pd28-emblem){position:relative;z-index:2}
+#inicio.pd16-cover .pd28-emblem{position:absolute;z-index:0;inset:4% 0 0;pointer-events:none;display:grid;place-items:center;opacity:.19;filter:drop-shadow(0 0 10px rgba(212,203,187,.15))}
+#inicio.pd16-cover .pd28-emblem svg{width:min(94%,430px);height:auto;max-height:100%}
+html[data-theme="light"] #inicio.pd16-cover .pd28-emblem{opacity:.17}
+#inicio.pd16-cover .pd16-cover-layout{min-width:0}
+#inicio.pd16-cover .pd16-cover-copy{min-width:0}
+@media(max-width:760px){#inicio.pd16-cover .pd28-emblem{opacity:.11}#inicio.pd16-cover .pd16-os{min-width:0}}
+@media(prefers-reduced-motion:reduce){#inicio.pd16-cover .pd28-emblem{animation:none}}
