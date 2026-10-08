@@ -58,3 +58,77 @@ html[data-theme="light"] .pd20-cinema-skip {background:#34424a!important;color:#
 @media(prefers-reduced-motion:reduce) {
  #inicio.pd16-cover .pd16-cover-actions .button {transition:none!important}
 }
+
+/* V26: utilities should never disappear into the legacy header cascade. */
+.site-header>.header-actions {display:flex!important;align-items:center!important;flex-wrap:nowrap!important;flex-shrink:0!important;gap:6px!important;visibility:visible!important;opacity:1!important}
+.site-header>.header-actions>.seg {display:inline-flex!important;align-items:center!important;flex:none!important;visibility:visible!important;opacity:1!important;border:1px solid rgba(222,207,185,.42)!important;border-radius:9px!important;padding:2px!important;min-height:42px!important}
+.site-header>.header-actions>.seg .seg-btn {display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 34px!important;min-width:34px!important;width:34px!important;height:36px!important;visibility:visible!important;opacity:1!important;border-radius:7px!important;font-size:.75rem!important}
+.site-header>.header-actions>.seg .seg-btn[aria-pressed="true"] {font-weight:800!important;box-shadow:0 1px 6px rgba(0,0,0,.16)!important}
+html[data-theme="light"] .site-header {background:#fbf8f2!important;border-bottom:1px solid #c9b9a5!important}
+html[data-theme="light"] .os-rail {background:#eee6db!important;border-right:1px solid #c5b7a7!important}
+html[data-theme="light"] .os-rail-item[aria-current="true"] {background:#d9ccbb!important;color:#263139!important}
+html[data-theme="light"] #inicio.pd16-cover {background:radial-gradient(ellipse at 70% 12%,rgba(222,207,188,.28),transparent 55%),#f6f0e7!important}
+html[data-theme="light"] #inicio.pd16-cover .pd16-os {background:linear-gradient(145deg,#fffdf8,#e8dfd4)!important;border-color:#bfae9a!important}
+html[data-theme="light"] #inicio.pd16-cover .pd16-name strong {color:#85725c!important}
+html[data-theme="light"] #inicio.pd16-cover .pd16-cover-actions .ghost {background:#fdf9f2!important;border-color:#a99d8e!important;color:#29353b!important}
+html[data-theme="light"] .site-header>.header-actions>.seg {background:#ede4d7!important;border-color:#baad9d!important}
+html[data-theme="light"] .site-header>.header-actions>.seg .seg-btn {color:#34424a!important}
+html[data-theme="light"] .site-header>.header-actions>.seg .seg-btn[aria-pressed="true"] {background:#354148!important;color:#fff8ee!important}
+
+/* 60-second presentation: platinum, graphite, ivory, no mineral blue. */
+#recruiter-dialog.pd17-brief {
+ --brief-ink:#171a1c;--brief-raised:#292d30;--brief-card:#34383a;
+ --brief-ivory:#f5efe5;--brief-muted:#c8c6c1;--brief-accent:#d3d5d2;
+ --brief-line:rgba(225,219,209,.28);--brief-warm:#dfcbb0;
+ background:radial-gradient(ellipse at 85% 0%,rgba(219,210,193,.13),transparent 54%),#191c1e!important;
+ color:#f7f0e6!important;border-color:#867e72!important
+}
+#recruiter-dialog.pd17-brief .dialog-close {background:#303335!important;border-color:#8e8980!important;color:#f6eee1!important}
+#recruiter-dialog.pd17-brief .dialog-close:is(:hover,:focus-visible) {background:#494846!important;border-color:#e2d3bd!important}
+#recruiter-dialog.pd17-brief h2 em {color:#dfcdb5!important}
+#recruiter-dialog.pd17-brief .pd17-brief-progress {background:#3c4040!important}
+#recruiter-dialog.pd17-brief .pd17-brief-progress>span {background:linear-gradient(90deg,#c3c7c6,#e0cdb1)!important}
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button {background:#2d3032!important;border-color:#646462!important;color:#f0ece4!important}
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button :is(span,small) {color:#d5d2ca!important}
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button[aria-pressed="true"] {background:#4b4944!important;border-color:#d7c4a9!important;box-shadow:inset 0 -3px 0 #dac8ae!important}
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button:is(:hover,:focus-visible) {background:#454747!important;border-color:#dbd0bd!important}
+#recruiter-dialog.pd17-brief .pd17-brief-scene {background:radial-gradient(circle at 17% 40%,rgba(212,203,187,.11),transparent 45%),linear-gradient(120deg,#343638,#202326 78%)!important;border-color:#77766e!important}
+#recruiter-dialog.pd17-brief .pd17-brief-orbit {border-color:#938f85!important;box-shadow:0 0 0 15px rgba(208,205,199,.045),0 0 0 32px rgba(223,201,171,.04),inset 0 0 48px rgba(218,210,195,.09)!important}
+#recruiter-dialog.pd17-brief .pd17-brief-orbit::before {border-color:#bcb5a9!important}
+#recruiter-dialog.pd17-brief .pd17-brief-orbit>span span {color:#dcc6a8!important}
+#recruiter-dialog.pd17-brief .pd17-brief-story p:not(.pd17-brief-period) {color:#d5d0c8!important}
+#recruiter-dialog.pd17-brief .pd17-brief-story small {color:#d8d1c6!important}
+#recruiter-dialog.pd17-brief .pd17-brief-footer button {border-color:#78766e!important}
+#recruiter-dialog.pd17-brief .pd17-play {background:#e5d3ba!important;color:#282a2a!important;border-color:#e5d3ba!important}
+#recruiter-dialog.pd17-brief .pd17-restart {background:#343639!important;color:#f2e8db!important}
+#recruiter-dialog.pd17-brief .pd17-proof {background:#494843!important;color:#f8f0e3!important}
+#recruiter-dialog.pd17-brief :is(.pd17-restart,.pd17-proof):is(:hover,:focus-visible) {background:#5c5750!important;border-color:#e3ceb0!important}
+#recruiter-dialog.pd17-brief :focus-visible {outline-color:#e4d0b1!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief {background:radial-gradient(ellipse at 90% 0%,rgba(222,206,184,.4),transparent 54%),#fbf7ef!important;border:1px solid #c1b09b!important;color:#2c3336!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief :is(h2,.pd17-brief-story h3) {color:#2b3538!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief h2 em {color:#806f5c!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-scene {background:linear-gradient(130deg,#eee6d9,#ded3c2)!important;border-color:#c1ae97!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button {background:#eee5d9!important;border-color:#c4b5a1!important;color:#394247!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button :is(span,small) {color:#435055!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button[aria-pressed="true"] {background:#d6c7b3!important;border-color:#87745e!important;box-shadow:inset 0 -3px 0 #736352!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button:is(:hover,:focus-visible) {background:#e0d2c0!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-story :is(p,small) {color:#455257!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-orbit {border-color:#a59989!important;box-shadow:0 0 0 15px rgba(142,127,107,.08),inset 0 0 48px rgba(142,127,107,.06)!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-orbit::before {border-color:#b3a28c!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-orbit>span span {color:#806a50!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-progress {background:#d7cfc2!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-progress>span {background:linear-gradient(90deg,#777a78,#b09a79)!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-play {background:#394044!important;color:#fff8ef!important;border-color:#394044!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-restart {background:#e5dacb!important;color:#344146!important}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-proof {background:#d4c4af!important;color:#303b40!important}
+@media(max-width:1180px) {
+ .site-header>.header-actions>.seg {display:inline-flex!important}
+ .site-header>.header-actions>.seg .seg-btn {flex-basis:32px!important;min-width:32px!important;width:32px!important}
+ .site-header>.brand {min-width:0!important}
+}
+@media(max-width:600px) {
+ .site-header>.header-actions {gap:3px!important}
+ .site-header>.header-actions>.seg {padding:1px!important;min-height:38px!important}
+ .site-header>.header-actions>.seg .seg-btn {flex-basis:28px!important;min-width:28px!important;width:28px!important;height:34px!important}
+ .site-header>.brand .brand-text small {display:none!important}
+}
