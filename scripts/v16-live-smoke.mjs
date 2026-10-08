@@ -34,6 +34,14 @@ assert.match(html, /systems-lab/);
 assert.doesNotMatch(html, /Mood Fitness/i);
 assert.doesNotMatch(html, /open to senior roles|roles senior/i);
 
+for(const file of ["proyecto-bodytone.html","proyecto-calculadora.html","proyecto-linkedin.html","proyecto-outreach.html"]) {
+  const response=await fetch(new URL(file,url),{headers:{"user-agent":"professional-deck-v21-case-smoke"}});
+  assert.equal(response.ok,true,file+" HTTP "+response.status);
+  const source=await response.text();
+  assert.match(source,/case-pages\.css\?v=deck-v21/,file+" shared case stylesheet");
+  assert.match(source,/case-ui\.js\?v=deck-v21/,file+" case shell");
+  assert.doesNotMatch(source,/nude-beige/,file+" obsolete sepia styles");
+}
 const browser = await chromium.launch({ headless: true, args: ["--no-sandbox"] });
 try {
   for (const viewport of [
@@ -77,12 +85,22 @@ try {
     assert.equal(await page.locator("html").getAttribute("lang"), "en");
     assert.match(await page.locator(".pd16-proof-strip").innerText(), /ES · EN · IT/);
 
+    for(const file of ["proyecto-bodytone.html","proyecto-calculadora.html","proyecto-linkedin.html","proyecto-outreach.html"]) {
+      await page.goto(new URL(file+"?lang=es",url).href,{waitUntil:"domcontentloaded"});
+      assert.equal(await page.locator(".case-section").count(),4,file+" case chapters");
+      assert.equal(await page.locator(".case-utility-group").count(),2,file+" theme/language controls");
+      await page.locator("[data-case-theme='light']").click();
+      assert.equal(await page.locator("html").getAttribute("data-theme"),"light",file+" theme toggle");
+      const out=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
+      assert.ok(out<=1,file+" responsive width");
+      await page.locator("[data-case-theme='dark']").click();
+    }
     assert.deepEqual(pageErrors, [], `${viewport.name}: page errors`);
     assert.deepEqual(consoleErrors, [], `${viewport.name}: console errors`);
     await context.close();
   }
 
-  console.log("PROFESSIONAL DECK V20 LIVE PASS");
+  console.log("PROFESSIONAL DECK V21 LIVE PASS");
   console.log(`URL: ${response.url}`);
   console.log(`HTTP: ${response.status}`);
 } finally {
