@@ -1,43 +1,43 @@
 /* ============================================================
    GRACIÁN BAENA — PROFILE DECK · v2 extreme
-   Hub family · nude/champagne soft-gold editorial
+   V24 silver / ivory / beige editorial · structural baseline
    Fraunces · Inter · JetBrains Mono · cinematic CS×Data×AI
    ============================================================ */
 
 :root,
 [data-theme="dark"] {
-  /* Hub family — nude/champagne editorial */
-  --bg: #141210;
-  --bg2: #1A1714;
-  --surface: #1C1916;
-  --surface2: #221E1A;
-  --black: #141210;
-  --black-2: #1A1714;
-  --ink: #2A2622;
-  --paper: #FAF7F2;
-  --paper-2: #EFE8DE;
-  --white: #F7F3EC;
-  --accent: #F7F3EC;
-  --accent-ink: #2A2622;
-  --mark: #C4A574;
-  --gold: #C4A574;
-  --gold-glow: rgba(196, 165, 116, 0.22);
-  --yellow: #C4A574;
-  --yellow-2: #D4B896;
-  --yellow-glow: rgba(196, 165, 116, 0.22);
-  --yellow-dim: rgba(196, 165, 116, 0.12);
-  --sage: #7dcaa5;
-  --sage-glow: rgba(125, 202, 165, 0.2);
-  --sage-dim: rgba(125, 202, 165, 0.12);
-  --ice: #7af3ff;
-  --ice-dim: rgba(122, 243, 255, 0.12);
-  --ice-glow: rgba(122, 243, 255, 0.28);
-  --muted-dark: #8A8178;
-  --muted-light: #6F675F;
-  --line-dark: rgba(244, 243, 238, 0.11);
-  --line-dark-2: rgba(244, 243, 238, 0.18);
-  --line-light: rgba(17, 18, 14, 0.12);
-  --line-light-2: rgba(17, 18, 14, 0.20);
+  /* Silver / ivory editorial baseline; V24-universe.css defines final component surfaces. */
+  --bg: #151c22;
+  --bg2: #1d272e;
+  --surface: #263039;
+  --surface2: #303942;
+  --black: #151c22;
+  --black-2: #1d272e;
+  --ink: #f3eee5;
+  --paper: #f3eee5;
+  --paper-2: #dfd1bf;
+  --white: #f7f3ec;
+  --accent: #e6d8c3;
+  --accent-ink: #172229;
+  --mark: #deceb7;
+  --gold: #deceb7;
+  --gold-glow: rgba(221,204,178,.13);
+  --yellow: #deceb7;
+  --yellow-2: #f0e5d5;
+  --yellow-glow: rgba(221,204,178,.13);
+  --yellow-dim: rgba(221,204,178,.08);
+  --sage: #c8cccd;
+  --sage-glow: rgba(196,205,209,.10);
+  --sage-dim: rgba(196,205,209,.07);
+  --ice: #c8cccd;
+  --ice-dim: rgba(196,205,209,.08);
+  --ice-glow: rgba(196,205,209,.11);
+  --muted-dark: #bec4c5;
+  --muted-light: #aeb6b9;
+  --line-dark: rgba(224,217,205,.22);
+  --line-dark-2: rgba(224,217,205,.3);
+  --line-light: rgba(224,217,205,.17);
+  --line-light-2: rgba(224,217,205,.24);
   --pad: clamp(20px, 4.5vw, 72px);
   --header: 64px;
   --rail-w: 176px;
@@ -57,30 +57,30 @@
 }
 
 [data-theme="light"] {
-  --bg2: #EFE8DE;
-  --black: #FAF7F2;
-  --black-2: #EFE8DE;
-  --paper-2: #F3EDE4;
-  --accent: #2A2622;
-  --accent-ink: #FAF7F2;
-  --mark: #C4A574;
-  --gold-glow: rgba(196, 165, 116, 0.18);
-  --yellow: #C4A574;
-  --yellow-2: #D4B896;
-  --yellow-glow: rgba(196, 165, 116, 0.18);
-  --yellow-dim: rgba(196, 165, 116, 0.12);
-  --sage: #2f6b4f;
-  --sage-glow: rgba(47, 107, 79, 0.16);
-  --sage-dim: rgba(47, 107, 79, 0.1);
-  --ice: #0e7c88;
-  --ice-dim: rgba(14, 124, 136, 0.12);
-  --ice-glow: rgba(14, 124, 136, 0.16);
-  --muted-dark: #6F675F;
-  --muted-light: #8A8178;
-  --line-dark: rgba(42, 38, 34, 0.12);
-  --line-dark-2: rgba(42, 38, 34, 0.2);
-  --line-light: rgba(42, 38, 34, 0.12);
-  --line-light-2: rgba(42, 38, 34, 0.2);
+  --bg2: #ebe5da;
+  --black: #f4efe6;
+  --black-2: #ebe4d8;
+  --paper-2: #eee6d9;
+  --accent: #31414a;
+  --accent-ink: #fffaf2;
+  --mark: #4a585c;
+  --gold-glow: rgba(78,76,68,.12);
+  --yellow: #536067;
+  --yellow-2: #788188;
+  --yellow-glow: rgba(78,76,68,.12);
+  --yellow-dim: rgba(78,76,68,.08);
+  --sage: #586a70;
+  --sage-glow: rgba(68,82,87,.1);
+  --sage-dim: rgba(68,82,87,.07);
+  --ice: #586a70;
+  --ice-dim: rgba(68,82,87,.08);
+  --ice-glow: rgba(68,82,87,.1);
+  --muted-dark: #526069;
+  --muted-light: #617077;
+  --line-dark: rgba(56,66,70,.23);
+  --line-dark-2: rgba(56,66,70,.27);
+  --line-light: rgba(56,66,70,.18);
+  --line-light-2: rgba(56,66,70,.24);
   --shadow: 0 22px 50px rgba(42, 38, 34, 0.1);
   --shadow-sm: 0 10px 28px rgba(42, 38, 34, 0.08);
   --shadow-light: 0 22px 50px rgba(42, 38, 34, 0.1);
