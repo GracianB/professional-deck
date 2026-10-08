@@ -1,4 +1,4 @@
-# Gracián Baena · Professional Deck V22
+# Gracián Baena · Professional Deck V23
 
 **Customer Success Systems & Data Strategist**  
 Murcia, Spain · Remote · Spanish / English / Italian
@@ -26,6 +26,10 @@ The final narrative is deliberately simple:
 I started close to customers, teams and daily operations. The technical layer came later so I could build the missing system directly instead of stopping at recommendations.
 
 ---
+
+## V23 · 60-second briefing gets the final palette
+
+The recruiter 60-second dialog now shares the Deck's midnight/slate and ivory editorial styling in both dark and light appearances. The old brown modal, sepia chapter controls, buttons and orbit accents are replaced by slate, ivory and restrained mineral blue. Four timed chapters, navigation, close, restart and CV links stay functional. CSS load order and browser/production tests enforce this visual contract.
 
 ## V22 · Personal editorial palette, not Systems Lab blue
 
