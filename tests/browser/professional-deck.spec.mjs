@@ -1,6 +1,102 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Professional Deck browser E2E", () => {
+  // Existing feature tests begin with the opening marked as seen; the cinematic
+  // lifecycle is exercised explicitly in a separate isolated context below.
+  test.beforeEach(async ({page}) => {
+    await page.addInitScript(() => {
+      try { sessionStorage.setItem("gb-professional-deck-v20-opening-seen", "1"); } catch (_) {}
+    });
+  });
+
+
+  test("V20 cinematic opening is skippable, session-once and replayable", async ({browser}) => {
+    const ctx=await browser.newContext({viewport:{width:1440,height:900}});
+    const page=await ctx.newPage();
+    await page.goto("/",{waitUntil:"domcontentloaded"});
+    const cinema=page.locator("#pd20-cinema");
+    await expect(cinema).toBeVisible();
+    await expect(cinema.locator("[data-cinema-skip]")).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(cinema).toBeHidden();
+    await page.reload({waitUntil:"domcontentloaded"});
+    await expect(cinema).toBeHidden();
+    await page.locator("[data-cinema-replay]").click();
+    await expect(cinema).toBeVisible();
+    await cinema.locator("[data-cinema-skip]").click();
+    await expect(cinema).toBeHidden();
+    await ctx.close();
+
+    const deep=await browser.newContext({viewport:{width:1440,height:900}});
+    const dp=await deep.newPage();
+    await dp.goto("/?lang=es#ruta",{waitUntil:"domcontentloaded"});
+    await expect(dp.locator("#pd20-cinema")).toBeHidden();
+    await deep.close();
+
+    const reduce=await browser.newContext({reducedMotion:"reduce"});
+    const rp=await reduce.newPage();
+    await rp.goto("/",{waitUntil:"domcontentloaded"});
+    await expect(rp.locator("#pd20-cinema")).toBeHidden();
+    await reduce.close();
+  });
+
+  test("V20 model has 4+3 balanced cards on desktop and no mobile overflow", async ({page}) => {
+    await page.setViewportSize({width:1440,height:900});
+    await page.goto("/?lang=es#modelo",{waitUntil:"domcontentloaded"});
+    const steps=page.locator("#modelo .pd20-model-track>li");
+    await expect(steps).toHaveCount(7);
+    const pos=await steps.evaluateAll(nodes=>nodes.map(el=>{
+      const r=el.getBoundingClientRect();return {top:r.top,left:r.left,right:r.right};
+    }));
+    expect(Math.abs(pos[0].top-pos[3].top)).toBeLessThan(5);
+    expect(pos[4].top).toBeGreaterThan(pos[0].top+50);
+    expect(Math.abs(pos[4].top-pos[6].top)).toBeLessThan(5);
+    expect(pos[0].left).toBeLessThan(pos[1].left);
+    await expect(page.locator("#modelo .pd20-model-proof>a")).toHaveCount(4);
+    await page.setViewportSize({width:390,height:844});
+    const dimensions=await page.evaluate(() => ({
+      scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth
+    }));
+    expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.viewport+1);
+    await expect(steps).toHaveCount(7);
+  });
+
+  test("V20 light theme is coherent across all twelve chapters", async ({page}) => {
+    await page.setViewportSize({width:1440,height:900});
+    await page.goto("/",{waitUntil:"domcontentloaded"});
+    await page.locator("[data-set-theme='light']").click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme","light");
+    const surface=await page.evaluate(()=>{
+      const ids=["inicio","modelo","sistemas","demos","metodo","ruta","trayectoria","experiencia","experiencia-2","capacidades","formacion","contacto"];
+      return ids.map(id=>{
+        const el=document.getElementById(id);
+        const color=getComputedStyle(el).backgroundColor;
+        return {id,color};
+      });
+    });
+    for(const {id,color} of surface) {
+      const values=color.match(/[\\d.]+/g)?.map(Number)||[];
+      expect(values.length, id+" background "+color).toBeGreaterThanOrEqual(3);
+      expect(Math.min(...values.slice(0,3)),id+" should be pale").toBeGreaterThan(210);
+    }
+    const samples=[
+      "#modelo .pd20-model-track>li>strong",
+      "#demos .gb-demo-card h3",
+      "#metodo .pd18-method-flow .gb-step h3",
+      "#trayectoria .pd18-evo-rail strong",
+      "#capacidades .pd18-cap-grid h3",
+      "#formacion .gb-edu-head h2",
+      "#contacto .pd19-contact-copy h2"
+    ];
+    for(const selector of samples){
+      const color=await page.locator(selector).first().evaluate(el=>getComputedStyle(el).color);
+      const rgb=color.match(/[\\d.]+/g)?.map(Number)||[];
+      expect(rgb[0],selector+" text not dark: "+color).toBeLessThan(130);
+    }
+    await page.locator("[data-set-theme='dark']").click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme","dark");
+  });
+
 
   test("carga el deck completo", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
@@ -114,16 +210,25 @@ test.describe("Professional Deck browser E2E", () => {
     expect(bg).not.toBe("rgba(0, 0, 0, 0)");
   });
 
-  test("header separates navigation and utilities on desktop", async ({ page }) => {
+  test("V20 header is one centered row alongside right utilities", async ({ page }) => {
     await page.setViewportSize({width:1440,height:900});
-    await page.goto("/", { waitUntil:"domcontentloaded" });
+    await page.goto("/", {waitUntil:"domcontentloaded"});
     const rects=await page.evaluate(() => {
-      const nav=document.querySelector(".site-header .main-nav").getBoundingClientRect();
-      const tools=document.querySelector(".site-header .header-actions").getBoundingClientRect();
-      return {nav:{left:nav.left,top:nav.top,right:nav.right,bottom:nav.bottom},tools:{left:tools.left,top:tools.top,right:tools.right,bottom:tools.bottom}};
+      const b=document.querySelector(".site-header .brand").getBoundingClientRect();
+      const n=document.querySelector(".site-header .main-nav").getBoundingClientRect();
+      const t=document.querySelector(".site-header .header-actions").getBoundingClientRect();
+      return {brand:b.toJSON(),nav:n.toJSON(),tools:t.toJSON()};
     });
-    expect(rects.nav.top).toBeGreaterThanOrEqual(rects.tools.bottom - 2);
-    expect(rects.nav.right).toBeLessThanOrEqual(1440);
+    const cy = rect => (rect.top+rect.bottom)/2;
+    expect(Math.abs(cy(rects.nav)-cy(rects.tools))).toBeLessThan(12);
+    expect(rects.brand.right).toBeLessThanOrEqual(rects.nav.left+2);
+    expect(rects.nav.right).toBeLessThanOrEqual(rects.tools.left+2);
+    expect(Math.abs((rects.nav.left+rects.nav.right)/2-720)).toBeLessThan(120);
+    await page.setViewportSize({width:1080,height:800});
+    await expect(page.locator(".menu-toggle")).toBeVisible();
+    await expect(page.locator(".main-nav")).toBeHidden();
+    await page.locator(".menu-toggle").click();
+    await expect(page.locator(".main-nav")).toBeVisible();
   });
 
   test("navegación entre slides funciona", async ({ page }) => {
