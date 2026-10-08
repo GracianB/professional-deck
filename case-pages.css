@@ -388,6 +388,7 @@ html[data-theme="light"] .case-footer h2 {color:#f7efe4}
    Complement to the shared deck V24 universe (standalone HTML).
    =============================================================== */
 body.case-body {
+ --bg:#151c22;--bg2:#1e2931;--surface:#273139;--surface2:#303c43;
  --case-ivory:#f3eee5;--case-cream:#faf6ef;--case-beige-border:#cbbb9e;
  --case-ink:#25343b;--case-slate:#202c33;--case-secondary:#c3c6c4;
  --case-signal:#c3cacc;--accent:#ded0bb;--gold:#ddceb8;
@@ -440,6 +441,7 @@ body.case-body .button.ghost {background:#2c3940!important;color:#f3e9dc!importa
 .case-footer {background:linear-gradient(125deg,#303c43,#202b33)!important;border-color:#979389!important}
 .case-footer h2 {color:#f4eadb!important}
 html[data-theme="light"] body.case-body {
+ --bg:#f4efe6;--bg2:#ebe4d9;--surface:#fffaf2;--surface2:#f1e8dc;
  --case-ivory:#f6efe5;--case-cream:#fffaf2;--case-beige-border:#c9b9a3;
  --case-ink:#263640;--case-slate:#2f3940;--case-signal:#727d7d;
  --accent:#3d4b52;--gold:#566267;--ice:#627174;--yellow:#566267;--mark:#566267;
