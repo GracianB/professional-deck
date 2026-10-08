@@ -32,8 +32,8 @@ for(const [key,path,title] of pages) {
       expect(rgbDark[0]).toBeGreaterThan(170);
       const totalWidth=await page.evaluate(()=>document.documentElement.scrollWidth);
       expect(totalWidth).toBeLessThanOrEqual(width+1);
-      mkdirSync("artifacts/cases",{recursive:true});
-      if(key==="bodytone")await page.screenshot({path:`artifacts/cases/bodytone-dark-${label}.png`,fullPage:true});
+      mkdirSync("artifacts/v16/cases",{recursive:true});
+      await page.screenshot({path:`artifacts/v16/cases/${key}-dark-${label}.png`,fullPage:true});
       await page.locator("[data-case-theme='light']").click();
       await expect(page.locator("html")).toHaveAttribute("data-theme","light");
       const cssLight=await page.locator("body.case-body").evaluate(el=>getComputedStyle(el).getPropertyValue("--bg").trim().toLowerCase());
@@ -41,7 +41,7 @@ for(const [key,path,title] of pages) {
       const textLight=await page.locator(".case-section.light .case-section-heading h2").first().evaluate(el=>getComputedStyle(el).color);
       const rgbLight=textLight.match(/[0-9.]+/g).map(Number);
       expect(rgbLight[0]).toBeLessThan(105);
-      if(key==="bodytone")await page.screenshot({path:`artifacts/cases/bodytone-light-${label}.png`,fullPage:true});
+      await page.screenshot({path:`artifacts/v16/cases/${key}-light-${label}.png`,fullPage:true});
       await page.locator(".case-local-nav a").nth(1).click();
       await expect(page).toHaveURL(/#case-system$/);
       await page.locator("[data-case-lang='en']").click();
