@@ -109,6 +109,6 @@
     window.addEventListener("resize",request,{passive:true});
     update();
   };
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded",init,{once:true});
+  if (document.readyState !== "complete") document.addEventListener("DOMContentLoaded",init,{once:true});
   else init();
 })();
