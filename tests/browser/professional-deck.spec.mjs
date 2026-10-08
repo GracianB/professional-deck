@@ -98,6 +98,53 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
 
+  for (const [size,width,height] of [["desktop",1440,900],["mobile",390,844]]) {
+    test(`V23 60 SEG uses neutral slate and ivory in both themes on ${size}`,async ({page})=>{
+      await page.setViewportSize({width,height});
+      await page.goto("/?lang=es#inicio",{waitUntil:"domcontentloaded"});
+      const dialog=page.locator("#recruiter-dialog");
+      await page.locator("#inicio [data-open-recruiter]").click();
+      await expect(dialog).toBeVisible();
+      await expect(dialog.locator("[data-brief-chapter]")).toHaveCount(4);
+      const dark=await dialog.evaluate(el=>({
+        surface:getComputedStyle(el).backgroundColor,
+        stage:getComputedStyle(el.querySelector(".pd17-brief-scene")).backgroundImage,
+        selected:getComputedStyle(el.querySelector('[data-brief-chapter="0"]')).backgroundColor,
+        title:getComputedStyle(el.querySelector("[data-brief-title]")).color
+      }));
+      expect(dark.surface).toBe("rgb(16, 28, 38)");
+      expect(dark.stage).toContain("rgb(33, 53, 66)");
+      expect(dark.selected).toBe("rgb(53, 73, 84)");
+      expect(dark.title).toBe("rgb(248, 245, 238)");
+      await page.screenshot({path:`artifacts/v16/brief-v23-${size}-dark.png`,fullPage:false});
+      await dialog.locator('[data-brief-chapter="2"]').click();
+      await expect(dialog.locator("[data-brief-clock]")).toHaveText("00:30");
+      await dialog.locator(".dialog-close").click();
+      await page.locator("[data-set-theme='light']").click();
+      await page.locator("#inicio [data-open-recruiter]").click();
+      await expect(dialog).toBeVisible();
+      const light=await dialog.evaluate(el=>({
+        paper:getComputedStyle(el).backgroundImage,
+        stage:getComputedStyle(el.querySelector(".pd17-brief-scene")).backgroundImage,
+        selected:getComputedStyle(el.querySelector('[data-brief-chapter="0"]')).backgroundColor,
+        selectedLabel:getComputedStyle(el.querySelector('[data-brief-chapter="0"] small')).color,
+        title:getComputedStyle(el.querySelector("[data-brief-title]")).color,
+        outerWidth:el.getBoundingClientRect().width
+      }));
+      expect(light.paper).toContain("rgb(250, 247, 241)");
+      expect(light.stage).toContain("rgb(38, 61, 75)");
+      expect(light.selected).toBe("rgb(41, 69, 82)");
+      expect(light.selectedLabel).toBe("rgb(255, 249, 239)");
+      expect(light.title).toBe("rgb(250, 247, 239)");
+      expect(light.outerWidth).toBeLessThanOrEqual(width-10);
+      await page.screenshot({path:`artifacts/v16/brief-v23-${size}-light.png`,fullPage:false});
+      await dialog.locator("[data-brief-play]").click();
+      await expect(dialog.locator("[data-brief-play]")).toHaveAttribute("aria-pressed","true");
+      await dialog.locator(".dialog-close").click();
+      await expect(dialog).not.toBeVisible();
+    });
+  }
+
   test("carga el deck completo", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 
