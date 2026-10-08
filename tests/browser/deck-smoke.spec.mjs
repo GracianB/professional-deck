@@ -40,8 +40,8 @@ test.describe("Professional Deck smoke", () => {
 
     await page.locator('[data-set-lang="en"]').click();
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
-    await expect(page.locator(".pd16-name")).toContainText("GRACIÁN");
-    await expect(page.locator(".pd16-name")).toContainText("BAENA");
+    await expect(page.locator(".site-header .brand-text")).toContainText("GRACIÁN");
+    await expect(page.locator(".site-header .brand-text")).toContainText("BAENA");
     await expect(page.locator(".pd16-role")).toContainText(/Customer Success Systems/i);
     await expect(page.locator(".pd16-proof-strip")).toContainText(/ES · EN · IT/);
 
@@ -57,7 +57,7 @@ test.describe("Professional Deck smoke", () => {
     await page.waitForTimeout(220);
     await page.screenshot({ path: "artifacts/v16/bodytone-v19-desktop.png", fullPage: false });
 
-    const coverTitleFont = await page.locator(".pd16-name span").evaluate(el =>
+    const coverTitleFont = await page.locator(".pd16-thesis").evaluate(el =>
       getComputedStyle(el).fontFamily
     );
     expect(coverTitleFont).toMatch(/Fraunces/i);
