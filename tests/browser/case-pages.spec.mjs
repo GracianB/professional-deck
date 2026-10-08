@@ -32,8 +32,24 @@ for(const [key,path,title] of pages) {
       expect(rgbDark[0]).toBeGreaterThan(170);
       const totalWidth=await page.evaluate(()=>document.documentElement.scrollWidth);
       expect(totalWidth).toBeLessThanOrEqual(width+1);
+      if(width<500){
+        for(const id of ["challenge","system","response","proof"]){
+          const section=page.locator("#case-"+id);
+          await section.scrollIntoViewIfNeeded();
+          await expect(section).toBeInViewport();
+          const state=await section.evaluate(el=>{
+            const box=el.getBoundingClientRect();
+            const style=getComputedStyle(el);
+            return {height:box.height,width:box.width,display:style.display,visibility:style.visibility};
+          });
+          expect(state.height).toBeGreaterThan(100);
+          expect(state.width).toBeLessThanOrEqual(width+1);
+          expect(state.visibility).toBe("visible");
+        }
+        await page.locator(".case-hero").scrollIntoViewIfNeeded();
+      }
       mkdirSync("artifacts/v16/cases",{recursive:true});
-      await page.screenshot({path:`artifacts/v16/cases/${key}-dark-${label}.png`,fullPage:true});
+      await page.screenshot({path:`artifacts/v16/cases/${key}-dark-${label}.png`,fullPage:width>=500});
       await page.locator("[data-case-theme='light']").click();
       await expect(page.locator("html")).toHaveAttribute("data-theme","light");
       const cssLight=await page.locator("body.case-body").evaluate(el=>getComputedStyle(el).getPropertyValue("--bg").trim().toLowerCase());
@@ -42,6 +58,10 @@ for(const [key,path,title] of pages) {
       const rgbLight=textLight.match(/[0-9.]+/g).map(Number);
       expect(rgbLight[0]).toBeLessThan(105);
       await page.screenshot({path:`artifacts/v16/cases/${key}-light-${label}.png`,fullPage:true});
+      if(width<500 && key==="bodytone"){
+        await page.locator("#case-system").scrollIntoViewIfNeeded();
+        await page.screenshot({path:"artifacts/v16/cases/bodytone-light-mobile-scrolled.png",fullPage:false});
+      }
       await page.locator(".case-local-nav a").nth(1).click();
       await expect(page).toHaveURL(/#case-system$/);
       await page.locator("[data-case-lang='en']").click();
