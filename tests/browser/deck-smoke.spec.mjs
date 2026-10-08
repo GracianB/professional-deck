@@ -57,7 +57,7 @@ test.describe("Professional Deck smoke", () => {
     await page.waitForTimeout(220);
     await page.screenshot({ path: "artifacts/v16/bodytone-v19-desktop.png", fullPage: false });
 
-    const coverTitleFont = await page.locator(".pd16-name span").evaluate(el =>
+    const coverTitleFont = await page.locator(".pd16-thesis").evaluate(el =>
       getComputedStyle(el).fontFamily
     );
     expect(coverTitleFont).toMatch(/Fraunces/i);
