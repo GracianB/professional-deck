@@ -52,7 +52,7 @@ for(const [key,path,title] of pages) {
           expect(state.width).toBeLessThanOrEqual(width+1);
           expect(state.visibility).toBe("visible");
         }
-        await page.locator(".case-hero").scrollIntoViewIfNeeded();
+        await page.evaluate(()=>window.scrollTo({top:0,behavior:"instant"}));
       }
       mkdirSync("artifacts/v16/cases",{recursive:true});
       await page.screenshot({path:`artifacts/v16/cases/${key}-dark-${label}.png`,fullPage:width>=500});
@@ -75,7 +75,7 @@ for(const [key,path,title] of pages) {
       const stepDescription=await page.locator("#case-system .case-flow article p").first().evaluate(el=>getComputedStyle(el).color);
       const stepRGB=stepDescription.match(/[0-9.]+/g).map(Number);
       expect(Math.min(...stepRGB.slice(0,3)), "step copy lost contrast on navy: "+stepDescription).toBeGreaterThan(175);
-      await page.screenshot({path:`artifacts/v16/cases/${key}-light-${label}.png`,fullPage:true});
+      await page.screenshot({path:`artifacts/v16/cases/${key}-light-${label}.png`,fullPage:width>=500});
       if(width<500 && key==="bodytone"){
         await page.locator("#case-system").scrollIntoViewIfNeeded();
         await page.screenshot({path:"artifacts/v16/cases/bodytone-light-mobile-scrolled.png",fullPage:false});
