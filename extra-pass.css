@@ -5,21 +5,21 @@
    ============================================================ */
 
 :root {
-  --bg: #141210;
-  --bg2: #1A1714;
-  --surface: #1C1916;
-  --surface2: #221E1A;
+  --bg: #151c22;
+  --bg2: #1d272e;
+  --surface: #263039;
+  --surface2: #303942;
   --ink-on-dark: #F7F3EC;
   --muted: #8A8178;
   --line: rgba(247, 243, 236, 0.11);
   --line-strong: rgba(247, 243, 236, 0.18);
-  --accent: #F7F3EC;
-  --accent-ink: #2A2622;
-  --yellow: #C4A574;
-  --gold: #C4A574;
-  --mark: #C4A574;
-  --yellow-dim: rgba(196, 165, 116, 0.12);
-  --yellow-glow: rgba(196, 165, 116, 0.22);
+  --accent: #e6d8c3;
+  --accent-ink: #172229;
+  --yellow: #deceb7;
+  --gold: #deceb7;
+  --mark: #deceb7;
+  --yellow-dim: rgba(221,204,178,.08);
+  --yellow-glow: rgba(221,204,178,.13);
   --header: 64px;
    /* controls + ≥12px clearance */
   --slide-pad-top: calc(var(--header) + 10px);
