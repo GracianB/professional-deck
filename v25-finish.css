@@ -89,3 +89,9 @@ html[data-theme="light"] #inicio.pd16-cover .pd16-os ol{background:rgba(252,248,
 @media(max-width:900px){#inicio.pd16-cover .pd16-cover-layout{grid-template-columns:1fr}#inicio.pd16-cover .pd16-os{width:min(100%,620px);justify-self:center;min-height:360px}}
 @media(max-width:600px){#inicio.pd16-cover .pd16-name{font-size:clamp(2.3rem,10vw,4rem)}#inicio.pd16-cover .pd16-os{min-height:340px}#inicio.pd16-cover .pd28-emblem{opacity:.32}}
 @media(prefers-reduced-motion:reduce){#inicio.pd16-cover .pd28-emblem{animation:none}}
+
+/* V31: person credited in header, universe message owns the cover. */
+#inicio.pd16-cover .pd16-universe-signature{font:700 clamp(.72rem,1vw,.92rem)/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#e0cfb5;margin:clamp(1rem,2vw,1.8rem) 0}
+#inicio.pd16-cover .pd16-universe-signature span{color:#aeb2b4;margin-inline:.35rem}
+html[data-theme="light"] #inicio.pd16-cover .pd16-universe-signature{color:#786c5d}
+@media(max-width:600px){#inicio.pd16-cover .pd16-universe-signature{font-size:.72rem;letter-spacing:.045em}}
