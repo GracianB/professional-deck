@@ -868,7 +868,7 @@ html[data-theme="light"] .nav-present {
 }
 html[data-theme="light"] .nav-present:hover,
 html[data-theme="light"] .nav-present:focus-visible {
-  color: #5f431c;
+  color: #434649;
   border-color: rgba(123,88,38,.66);
   background: rgba(196,165,116,.16);
 }
