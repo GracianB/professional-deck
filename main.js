@@ -1262,3 +1262,15 @@
     attributeFilter: ["lang"]
   });
 })();
+
+/* Universe gateway: reveal the original twelve-slide professional story on intent. */
+document.addEventListener("click", (event) => {
+  const entry = event.target instanceof Element ? event.target.closest("[data-gateway-enter]") : null;
+  if (!entry) return;
+  const cover = document.querySelector("#inicio.pd16-cover");
+  if (!cover) return;
+  event.preventDefault();
+  cover.classList.add("gateway-entered");
+  const primary = cover.querySelector(".pd16-cover-actions button");
+  if (primary) primary.focus({ preventScroll: true });
+});
