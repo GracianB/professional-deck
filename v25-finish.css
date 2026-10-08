@@ -132,3 +132,8 @@ html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-proof {background:#d
  .site-header>.header-actions>.seg .seg-btn {flex-basis:28px!important;min-width:28px!important;width:28px!important;height:34px!important}
  .site-header>.brand .brand-text small {display:none!important}
 }
+
+/* Minimum touch target contract for all header language/theme controls */
+.site-header>.header-actions>.seg .seg-btn{flex:0 0 40px!important;min-width:40px!important;width:40px!important;height:40px!important}
+.site-header>.header-actions>.seg{min-height:44px!important}
+@media(max-width:600px){.site-header>.header-actions>.seg .seg-btn{flex:0 0 40px!important;min-width:40px!important;width:40px!important;height:40px!important}.site-header>.header-actions>.seg{min-height:44px!important}}
