@@ -5,7 +5,7 @@ import { spawnSync } from "node:child_process";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const required = [
-  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "v18-story.css", "v19-final.css", "v20-theme.css", "v20-light.css", "v20-cinema.js", "main.js", "i18n.js", "case.js", "case-pages.css", "case-ui.js",
+  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "v18-story.css", "v19-final.css", "v20-theme.css", "v20-light.css", "v23-brief.css", "v20-cinema.js", "main.js", "i18n.js", "case.js", "case-pages.css", "case-ui.js",
   "README.md", "favicon.svg", "og-cover.png", "manifest.webmanifest",
   "Gracian_Baena_CV_2026_ES.pdf", "Gracian_Baena_CV_2026_EN.pdf",
   "Gracian_Baena_Carta_Presentacion_ES.pdf", "Gracian_Baena_Cover_Letter_EN.pdf",
@@ -66,6 +66,11 @@ const v18 = await readFile(join(root, "v18-story.css"), "utf8");
 const v19 = await readFile(join(root, "v19-final.css"), "utf8");
 const v20 = await readFile(join(root, "v20-theme.css"), "utf8");
 const v20Light = await readFile(join(root, "v20-light.css"), "utf8");
+const v23Brief = await readFile(join(root, "v23-brief.css"), "utf8");
+if (!index.includes("v23-brief.css?v=deck-v23") ||
+    !v23Brief.includes("#recruiter-dialog.pd17-brief") ||
+    !v23Brief.includes('html[data-theme="light"] #recruiter-dialog.pd17-brief'))
+  errors.push("V23 60-second brief dark/light contract missing");
 const v20Cinema = await readFile(join(root, "v20-cinema.js"), "utf8");
 const main = await readFile(join(root, "main.js"), "utf8");
 const i18n = await readFile(join(root, "i18n.js"), "utf8");
