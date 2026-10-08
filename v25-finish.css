@@ -71,9 +71,21 @@ html[data-theme="light"] #inicio.pd16-cover .pd28-emblem{opacity:.17}
 @media(prefers-reduced-motion:reduce){#inicio.pd16-cover .pd28-emblem{animation:none}}
 
 
-/* V29 · Platinum signature: visible, luminous, but always behind operating content. */
-#inicio.pd16-cover .pd28-emblem{opacity:.36;filter:drop-shadow(0 0 12px rgba(238,228,209,.4)) drop-shadow(0 0 34px rgba(203,198,191,.2))}
-#inicio.pd16-cover .pd28-emblem svg{width:min(98%,465px);filter:drop-shadow(0 0 7px rgba(242,229,207,.45))}
-html[data-theme="light"] #inicio.pd16-cover .pd28-emblem{opacity:.23;filter:drop-shadow(0 0 14px rgba(119,104,82,.25))}
-@media(max-width:760px){#inicio.pd16-cover .pd28-emblem{opacity:.18}}
+/* V30 · Cover contract: Identity → Promise → Symbol → Evidence → Action. */
+.site-header .brand-text b{font-size:clamp(.66rem,.7vw,.83rem)!important;letter-spacing:.085em!important}
+#inicio.pd16-cover .pd16-cover-shell{max-width:100%;overflow:hidden}
+#inicio.pd16-cover .pd16-cover-layout{min-width:0;grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr);gap:clamp(1rem,3vw,3rem);align-items:center}
+#inicio.pd16-cover .pd16-cover-copy{position:relative;z-index:3}
+#inicio.pd16-cover .pd16-name{font-size:clamp(2.2rem,5vw,5rem);line-height:1}
+#inicio.pd16-cover .pd16-thesis{max-width:18ch;text-wrap:balance}
+#inicio.pd16-cover .pd16-os{position:relative;min-width:0;overflow:hidden;background:radial-gradient(circle at 50% 38%,rgba(226,217,202,.10),transparent 60%),linear-gradient(155deg,#2c3032,#1c2224)}
+#inicio.pd16-cover .pd28-emblem{inset:0;opacity:.54;display:grid;place-items:center}
+#inicio.pd16-cover .pd28-emblem svg{width:min(100%,480px);height:auto;max-height:100%;filter:brightness(1.18) drop-shadow(0 0 17px rgba(230,226,215,.65))}
+#inicio.pd16-cover .pd16-os > :not(.pd28-emblem){position:relative;z-index:2}
+#inicio.pd16-cover .pd16-os ol{background:rgba(24,28,30,.5);border-radius:12px;backdrop-filter:blur(2px)}
+html[data-theme="light"] #inicio.pd16-cover .pd16-os{background:radial-gradient(circle at 50% 40%,rgba(193,174,149,.23),transparent 62%),linear-gradient(155deg,#fbf8f2,#e4ddd1)}
+html[data-theme="light"] #inicio.pd16-cover .pd28-emblem{opacity:.4}
+html[data-theme="light"] #inicio.pd16-cover .pd16-os ol{background:rgba(252,248,240,.58)}
+@media(max-width:900px){#inicio.pd16-cover .pd16-cover-layout{grid-template-columns:1fr}#inicio.pd16-cover .pd16-os{width:min(100%,620px);justify-self:center;min-height:360px}}
+@media(max-width:600px){#inicio.pd16-cover .pd16-name{font-size:clamp(2.3rem,10vw,4rem)}#inicio.pd16-cover .pd16-os{min-height:340px}#inicio.pd16-cover .pd28-emblem{opacity:.32}}
 @media(prefers-reduced-motion:reduce){#inicio.pd16-cover .pd28-emblem{animation:none}}
