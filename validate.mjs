@@ -202,8 +202,8 @@ for (const script of ["main.js", "i18n.js", "case.js", "validate.mjs"]) {
   if (check.status !== 0) errors.push(`${script}: ${check.stderr.trim()}`);
 }
 
-forbid(index, /href="https:\/\/(?:gracianb\.github\.io\/revops-studio\/|github\.com\/GracianB\/revops-studio)"/i, "unfinished RevOps access");
-if (!index.includes("pd36-roadmap-link")) errors.push("RevOps construction label missing");
+if (!index.includes('href="https://gracianb.github.io/revops-studio/demo.html"')) errors.push("Public RevOps demo link missing");
+if (index.includes('aria-disabled="true">REVOPS')) errors.push("Stale RevOps construction placeholder");
 if (errors.length) {
   console.error(`\nValidation failed (${errors.length})\n- ${errors.join("\n- ")}\n`);
   process.exit(1);
