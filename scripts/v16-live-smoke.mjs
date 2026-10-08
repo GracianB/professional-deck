@@ -90,10 +90,10 @@ try {
       assert.equal(await page.locator(".case-section").count(),4,file+" case chapters");
       assert.equal(await page.locator(".case-utility-group").count(),2,file+" theme/language controls");
       const warmDark=await page.locator(".case-section.light").first().evaluate(el=>getComputedStyle(el).backgroundImage);
-      assert.match(warmDark,/rgb\\(243, 236, 223\\)/,file+" beige chapter");
+      assert.ok(warmDark.includes("rgb(243, 236, 223)"),file+" beige chapter: "+warmDark);
       await page.locator("[data-case-theme='light']").click();
       const warmLight=await page.locator(".case-section.light").first().evaluate(el=>getComputedStyle(el).backgroundImage);
-      assert.match(warmLight,/rgb\\(238, 228, 212\\)/,file+" warm light theme");
+      assert.ok(warmLight.includes("rgb(238, 228, 212)"),file+" warm light theme: "+warmLight);
       assert.equal(await page.locator("html").getAttribute("data-theme"),"light",file+" theme toggle");
       const out=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
       assert.ok(out<=1,file+" responsive width");
