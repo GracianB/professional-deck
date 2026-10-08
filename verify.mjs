@@ -81,7 +81,9 @@ const expectedCssOrder = [
   "v16-final.css",
   "v17-atlas.css",
   "v18-story.css",
-  "v19-final.css"
+  "v19-final.css",
+  "v20-theme.css",
+  "v20-light.css"
 ];
 
 if (cssFiles.join("\n") === expectedCssOrder.join("\n")) {
