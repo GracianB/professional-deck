@@ -397,7 +397,7 @@
         </aside>
       </section>
 
-      <section class="case-section light">
+      <section class="case-section light" id="case-challenge">
         <div class="case-section-heading">
           <div><p class="eyebrow">${ui.challenge}</p><h2>${data.challengeTitle}</h2></div>
           <p>${data.challenge}</p>
@@ -407,7 +407,7 @@
         </div>
       </section>
 
-      <section class="case-section dark">
+      <section class="case-section dark" id="case-system">
         <div class="case-section-heading">
           <div><p class="eyebrow">${ui.system}</p><h2>${lang === "en" ? "From human signal<br>to actionable outcome." : "De señal humana<br>a resultado accionable."}</h2></div>
           <p>${ui.systemLead}</p>
@@ -417,7 +417,7 @@
         </div>
       </section>
 
-      <section class="case-section light">
+      <section class="case-section light" id="case-response">
         <div class="case-section-heading">
           <div><p class="eyebrow">${ui.response}</p><h2>${data.responseTitle}</h2></div>
           <p>${data.response}</p>
@@ -427,7 +427,7 @@
         </div>
       </section>
 
-      <section class="case-section light">
+      <section class="case-section light" id="case-proof">
         <div class="case-section-heading">
           <div><p class="eyebrow">${ui.proof}</p><h2>${ui.proofH}</h2></div>
           <p>${ui.proofP}</p>
