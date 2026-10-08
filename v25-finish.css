@@ -84,27 +84,34 @@ html[data-theme="light"] #inicio.pd16-cover .pd16-os ol{background:rgba(252,248,
 html[data-theme="light"] #inicio.pd16-cover .pd16-universe-signature{color:#786c5d}
 @media(max-width:600px){#inicio.pd16-cover .pd16-universe-signature{font-size:.72rem;letter-spacing:.045em}}
 
-/* V33 · Cover must fit within the slide's actual viewport, not overflow behind controls. */
-#inicio.pd16-cover .pd16-cover-shell{width:min(100%,1190px);padding-top:clamp(.35rem,1vh,.7rem);gap:clamp(.6rem,1.3vh,1rem);overflow:visible}
-#inicio.pd16-cover .pd16-cover-layout{grid-template-columns:minmax(0,1.17fr) minmax(290px,.83fr);align-items:start;gap:clamp(1.3rem,3vw,3rem)}
-#inicio.pd16-cover .pd16-cover-copy{padding-top:clamp(.5rem,2vh,1.5rem)}
-#inicio.pd16-cover .pd16-universe-signature{margin:.65rem 0 1rem;line-height:1.45}
-#inicio.pd16-cover .pd16-role{margin:.65rem 0 .55rem}
-#inicio.pd16-cover .pd16-thesis{font-size:clamp(1.9rem,2.75vw,3rem);max-width:22ch;line-height:1.03}
-#inicio.pd16-cover .pd16-lead{margin-top:.7rem;line-height:1.48;font-size:clamp(.85rem,1vw,1rem)}
-#inicio.pd16-cover .pd16-cover-actions{margin-top:.85rem}
-#inicio.pd16-cover .pd16-proof-strip{margin-top:.75rem}
-#inicio.pd16-cover .pd16-proof-strip>span{padding-top:.5rem;padding-bottom:.5rem}
-#inicio.pd16-cover .pd16-os{display:flex;flex-direction:column;min-height:0;max-height:calc(100svh - 215px);border-radius:15px}
-#inicio.pd16-cover .pd28-emblem{position:relative;inset:auto;z-index:1;flex:0 0 clamp(128px,20vh,190px);height:clamp(128px,20vh,190px);width:100%;opacity:.66;display:grid;place-items:center;pointer-events:none;overflow:hidden}
-#inicio.pd16-cover .pd28-emblem svg{height:100%;width:auto;max-width:95%;max-height:100%;filter:drop-shadow(0 0 12px rgba(230,222,204,.25))}
-#inicio.pd16-cover .pd16-os>header{padding:.5rem .8rem}
-#inicio.pd16-cover .pd16-os ol{flex:1;min-height:0;background:transparent;border-radius:0;backdrop-filter:none}
-#inicio.pd16-cover .pd16-os li{padding:.45rem .8rem;grid-template-columns:1.6rem 1fr}
-#inicio.pd16-cover .pd16-os li strong{font-size:clamp(.83rem,1vw,1rem)}
-#inicio.pd16-cover .pd16-os li small{font-size:7.5px}
-#inicio.pd16-cover .pd16-os>footer{padding:.48rem .8rem}
+/* V34 · Editorial cover: use the complete available slide canvas, never overlap navigation. */
+#inicio.pd16-cover{justify-content:center!important;align-items:stretch!important;padding-bottom:clamp(76px,9svh,100px)!important}
+#inicio.pd16-cover .pd16-cover-shell{width:min(100%,1320px);max-width:1320px;min-height:min(680px,calc(100svh - var(--header) - 116px));height:auto;margin:auto;display:grid;grid-template-rows:auto minmax(0,1fr);gap:clamp(18px,2.3vh,30px);padding:0;overflow:visible}
+#inicio.pd16-cover .pd16-cover-top{padding:.3rem 0 .9rem}
+#inicio.pd16-cover .pd16-cover-layout{width:100%;height:100%;display:grid;grid-template-columns:minmax(0,1.24fr) minmax(350px,.82fr);gap:clamp(35px,4vw,76px);align-items:stretch}
+#inicio.pd16-cover .pd16-cover-copy{min-width:0;padding:0;display:flex;flex-direction:column;justify-content:center}
+#inicio.pd16-cover .pd16-universe-signature{display:none}
+#inicio.pd16-cover .eyebrow{margin:0 0 clamp(20px,2.8vh,35px);letter-spacing:.15em}
+#inicio.pd16-cover .pd16-role{margin:0 0 clamp(12px,1.8vh,19px)}
+#inicio.pd16-cover .pd16-thesis{font-size:clamp(2.65rem,3.75vw,4.55rem);line-height:1.02;max-width:21ch;letter-spacing:-.045em;text-wrap:balance}
+#inicio.pd16-cover .pd16-thesis em{display:inline;color:#cfc6b9}
+#inicio.pd16-cover .pd16-lead{font-size:clamp(.98rem,1.15vw,1.12rem);line-height:1.55;max-width:57ch;margin:clamp(14px,2vh,23px) 0 0}
+#inicio.pd16-cover .pd16-cover-actions{margin-top:clamp(21px,2.8vh,31px);gap:.65rem}
+#inicio.pd16-cover .pd16-cover-actions .button{border-radius:11px;min-height:48px}
+#inicio.pd16-cover .pd20-cinema-replay{margin-top:clamp(12px,1.6vh,20px)}
+#inicio.pd16-cover .pd16-proof-strip{margin-top:clamp(21px,3.2vh,36px);width:100%}
+#inicio.pd16-cover .pd16-proof-strip>span{min-height:65px;padding:.65rem .75rem;display:flex;flex-direction:column;justify-content:center;gap:.25rem}
+#inicio.pd16-cover .pd16-os{height:100%;min-height:0;max-height:none;display:grid;grid-template-rows:minmax(180px,1fr) auto minmax(0,auto) auto;overflow:hidden;border-radius:18px}
+#inicio.pd16-cover .pd28-emblem{position:relative;inset:auto;width:100%;height:100%;min-height:0;opacity:.77;display:grid;place-items:center;overflow:hidden;pointer-events:none}
+#inicio.pd16-cover .pd28-emblem svg{width:auto;height:min(100%,330px);max-width:88%;max-height:100%;filter:drop-shadow(0 0 16px rgba(227,213,190,.32))}
+#inicio.pd16-cover .pd16-os>header{padding:.7rem 1rem}
+#inicio.pd16-cover .pd16-os ol{min-height:0;background:transparent;border-radius:0;backdrop-filter:none}
+#inicio.pd16-cover .pd16-os li{padding:clamp(.38rem,.65vh,.58rem) 1rem;grid-template-columns:2rem 1fr}
+#inicio.pd16-cover .pd16-os li strong{font-size:clamp(.92rem,1.1vw,1.05rem)}
+#inicio.pd16-cover .pd16-os li small{font-size:8px}
+#inicio.pd16-cover .pd16-os>footer{padding:.65rem 1rem}
 html[data-theme="light"] #inicio.pd16-cover .pd16-os ol{background:transparent}
-@media(max-height:760px) and (min-width:901px){#inicio.pd16-cover .pd28-emblem{height:105px;flex-basis:105px}#inicio.pd16-cover .pd16-cover-copy{padding-top:0}#inicio.pd16-cover .pd16-thesis{font-size:clamp(1.8rem,2.5vw,2.6rem)}#inicio.pd16-cover .pd16-os li{padding:.32rem .75rem}}
-@media(max-width:900px){#inicio.pd16-cover .pd16-cover-layout{grid-template-columns:1fr}#inicio.pd16-cover .pd16-os{max-height:none;width:min(100%,600px)}#inicio.pd16-cover .pd28-emblem{height:145px;flex-basis:145px}}
-@media(max-width:600px){#inicio.pd16-cover .pd16-cover-copy{padding-top:0}#inicio.pd16-cover .pd16-thesis{font-size:clamp(1.85rem,7vw,2.5rem)}#inicio.pd16-cover .pd16-os{min-height:0}}
+@media(max-height:790px) and (min-width:981px){#inicio.pd16-cover .pd16-cover-shell{min-height:calc(100svh - var(--header) - 105px)}#inicio.pd16-cover .pd16-cover-layout{gap:30px}#inicio.pd16-cover .pd16-thesis{font-size:clamp(2.3rem,3.1vw,3.5rem)}#inicio.pd16-cover .pd16-proof-strip{margin-top:12px}#inicio.pd16-cover .pd16-os li{padding:.3rem .8rem}}
+@media(max-width:980px){#inicio.pd16-cover{justify-content:flex-start!important;padding-bottom:85px!important}#inicio.pd16-cover .pd16-cover-shell{min-height:0;height:auto;display:grid;gap:1rem}#inicio.pd16-cover .pd16-cover-layout{height:auto;grid-template-columns:1fr;gap:22px}#inicio.pd16-cover .pd16-cover-copy{display:block}#inicio.pd16-cover .pd16-os{width:min(100%,700px);height:auto;max-height:none;justify-self:center;grid-template-rows:200px auto auto auto}#inicio.pd16-cover .pd16-thesis{font-size:clamp(2.3rem,6vw,3.7rem)}#inicio.pd16-cover .pd16-proof-strip{margin-top:20px}}
+@media(max-width:600px){#inicio.pd16-cover .pd16-thesis{font-size:clamp(2rem,8vw,2.85rem)}#inicio.pd16-cover .pd16-os{grid-template-rows:150px auto auto auto;min-height:0}#inicio.pd16-cover .pd16-proof-strip{grid-template-columns:repeat(2,minmax(0,1fr))}#inicio.pd16-cover .pd16-cover-actions .button{width:100%}}
+@media(prefers-reduced-motion:reduce){#inicio.pd16-cover .pd28-emblem{transition:none}}
