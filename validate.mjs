@@ -16,6 +16,8 @@ const required = [
 ];
 
 const errors = [];
+// An unfinished project must never acquire a public live link through a future edit.
+
 
 async function fileExists(file) {
   try {
@@ -130,8 +132,6 @@ for (const token of [
 
 for (const link of [
   "https://bodytonehelp.zendesk.com/hc/es",
-  "https://gracianb.github.io/revops-studio/",
-  "https://github.com/GracianB/revops-studio",
   "https://gracianb.github.io/project-ohana/",
   "https://github.com/GracianB/project-ohana",
   "https://vortex-gilt-xi.vercel.app/",
@@ -202,6 +202,8 @@ for (const script of ["main.js", "i18n.js", "case.js", "validate.mjs"]) {
   if (check.status !== 0) errors.push(`${script}: ${check.stderr.trim()}`);
 }
 
+forbid(index, /href="https:\/\/(?:gracianb\.github\.io\/revops-studio\/|github\.com\/GracianB\/revops-studio)"/i, "unfinished RevOps access");
+if (!index.includes("pd36-roadmap-link")) errors.push("RevOps construction label missing");
 if (errors.length) {
   console.error(`\nValidation failed (${errors.length})\n- ${errors.join("\n- ")}\n`);
   process.exit(1);

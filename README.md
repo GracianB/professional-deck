@@ -1,4 +1,4 @@
-# Gracián Baena · Professional Deck V24
+# Professional Deck · Gracián Baena
 
 **Customer Success Systems & Data Strategist**  
 Murcia, Spain · Remote · Spanish / English / Italian
@@ -27,11 +27,11 @@ I started close to customers, teams and daily operations. The technical layer ca
 
 ---
 
-## V24 · Silver / ivory / beige universe
+## Current identity · Silver, graphite, ivory and beige
 
-The V23 60-second recap now anchors the palette for the **entire** profile: twelve curated slides, all common chrome and dialogues, cinematic opening, real vector Atlas and all four independent case-study HTML pages. V24 is an editorial silver-graphite-ivory identity, visually distinct from the blue Systems Lab and green Yoga.
+The twelve-slide presentation, 60-second briefing, vector Atlas, interactive elements and four standalone case-study pages share a silver, graphite, ivory and beige design language. This universe is deliberately distinct from the botanical-green Yoga site, electric-cyan Systems Lab and black-and-white GracianB hub.
 
-`v24-universe.css` is the **canonical final deck palette** and loads after the historical structural CSS; responsive grid/behavior remains unchanged. The four case pages use a shared V24 block in `case-pages.css` and cache-bust their link. A warm ivory light mode is designed as a first-class theme for all chapters, not a filter over the dark theme. New browser tests capture all twelve sections in both modes and check representative calculated style values, mobile overflow and usable controls. Later GracianB umbrella-site work is explicitly outside this PR.
+`v24-universe.css` provides the palette foundation; later finishing styles refine the cover, introduction, controls and layout. The light theme is an intentionally designed ivory experience, not a color inversion. The quality gates cover every chapter and the standalone case pages.
 
 ## V23 · 60-second briefing gets the final palette
 
@@ -73,7 +73,7 @@ V19 is the actual HTML/CSS/JavaScript implementation, not a generated mockup. Th
 | 00 | Cover | Human-first positioning |
 | 01 | Model | Customer → operations → signal → decision → system → adoption → outcome |
 | 02 | Bodytone | Operational proof |
-| 03 | Public work | RevOps Studio, OHANA and VØRTICE |
+| 03 | Public work | RevOps Studio (under construction), OHANA and VØRTICE |
 | 04 | Method | Listen, translate, build, activate, prove |
 | 05 | European atlas | Murcia, Gran Canaria, Madrid, Lisbon, Bergamo and Warsaw on a coordinate-based artistic map |
 | 06 | Evolution | A unified five-stage professional narrative |
@@ -108,12 +108,11 @@ The flagship professional case.
 
 ### RevOps Studio
 
-A local-first decision system for Revenue Operations.
+**Under construction. No live access is advertised.** A local-first decision system for Revenue Operations in development.
 
 It demonstrates data quality, deterministic scoring, forecasting, segmentation, human approval and traceability.
 
-- [Live](https://gracianb.github.io/revops-studio/)
-- [Source](https://github.com/GracianB/revops-studio)
+- Public access: **not available until release and validation**.
 
 ### Project OHANA
 
@@ -124,7 +123,7 @@ It demonstrates state, fixed simulation, behavioural systems, regression, CI and
 - [Play](https://gracianb.github.io/project-ohana/)
 - [Source](https://github.com/GracianB/project-ohana)
 
-### VØRTICE V6
+### VØRTICE
 
 A generative audiovisual WebGL experience.
 
@@ -207,6 +206,20 @@ Yoga documentation remains available as a separate professional track:
 - [CV Yoga · Español](./Gracian_Baena_CV_Yoga_ES.pdf)
 - [CV Yoga · English](./Gracian_Baena_CV_Yoga_EN.pdf)
 - [Yoga Instructor](https://gracianb.github.io/yoga-instructor/)
+
+---
+
+## Narrative and design contract
+
+The deck is a story, not a collection of unrelated screens: **human problem → operating model → Bodytone evidence → public work → method → context and progression → capability → learning → conversation**. Every chapter must answer a distinct question and retain a clear way forward.
+
+- Keep **Gracián Baena** as a discreet signature in the header. The cover introduces the professional proposition, not another full-screen personal-name title.
+- The cinematic intro says **“De la fricción al resultado”** / **“From friction to outcome”**; it must be skippable and respect reduced motion.
+- Keep all **12 original slides**. Do not insert gateway screens before the cover.
+- The palette is **silver / graphite / ivory / beige** in both intentionally designed light and dark themes. Avoid borrowing the hub’s copper, Yoga’s green or Systems Lab’s cyan as a global identity.
+- **RevOps Studio remains under construction**; it is described only as planned or in development, with no live or source CTA.
+- Every public claim should link to actual evidence and every case must respect the limits of what can be demonstrated publicly.
+- ES/EN, keyboard, mobile, screen-reader labels, reduced motion, and browser E2E are release requirements.
 
 ---
 
