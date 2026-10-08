@@ -27,7 +27,7 @@ for(const [key,path,title] of pages) {
       await expect(page.locator("[data-case-lang='es']")).toHaveAttribute("aria-pressed","true");
       const css=await page.locator("body.case-body").evaluate(el=>getComputedStyle(el).getPropertyValue("--bg").trim().toLowerCase());
       expect(css).toBe("#091620");
-      const textDark=await page.locator(".case-section.light .case-section-heading h2").evaluate(el=>getComputedStyle(el).color);
+      const textDark=await page.locator(".case-section.light .case-section-heading h2").first().evaluate(el=>getComputedStyle(el).color);
       const rgbDark=textDark.match(/[0-9.]+/g).map(Number);
       expect(rgbDark[0]).toBeGreaterThan(170);
       const totalWidth=await page.evaluate(()=>document.documentElement.scrollWidth);
@@ -38,7 +38,7 @@ for(const [key,path,title] of pages) {
       await expect(page.locator("html")).toHaveAttribute("data-theme","light");
       const cssLight=await page.locator("body.case-body").evaluate(el=>getComputedStyle(el).getPropertyValue("--bg").trim().toLowerCase());
       expect(cssLight).toBe("#eef6f8");
-      const textLight=await page.locator(".case-section.light .case-section-heading h2").evaluate(el=>getComputedStyle(el).color);
+      const textLight=await page.locator(".case-section.light .case-section-heading h2").first().evaluate(el=>getComputedStyle(el).color);
       const rgbLight=textLight.match(/[0-9.]+/g).map(Number);
       expect(rgbLight[0]).toBeLessThan(105);
       if(key==="bodytone")await page.screenshot({path:`artifacts/cases/bodytone-light-${label}.png`,fullPage:true});
