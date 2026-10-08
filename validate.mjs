@@ -5,7 +5,7 @@ import { spawnSync } from "node:child_process";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const required = [
-  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "v18-story.css", "v19-final.css", "main.js", "i18n.js", "case.js",
+  "index.html", "styles.css", "v16-final.css", "v17-atlas.css", "v18-story.css", "v19-final.css", "v20-theme.css", "v20-light.css", "v20-cinema.js", "main.js", "i18n.js", "case.js",
   "README.md", "favicon.svg", "og-cover.png", "manifest.webmanifest",
   "Gracian_Baena_CV_2026_ES.pdf", "Gracian_Baena_CV_2026_EN.pdf",
   "Gracian_Baena_Carta_Presentacion_ES.pdf", "Gracian_Baena_Cover_Letter_EN.pdf",
@@ -49,6 +49,9 @@ const v16 = await readFile(join(root, "v16-final.css"), "utf8");
 const v17 = await readFile(join(root, "v17-atlas.css"), "utf8");
 const v18 = await readFile(join(root, "v18-story.css"), "utf8");
 const v19 = await readFile(join(root, "v19-final.css"), "utf8");
+const v20 = await readFile(join(root, "v20-theme.css"), "utf8");
+const v20Light = await readFile(join(root, "v20-light.css"), "utf8");
+const v20Cinema = await readFile(join(root, "v20-cinema.js"), "utf8");
 const main = await readFile(join(root, "main.js"), "utf8");
 const i18n = await readFile(join(root, "i18n.js"), "utf8");
 const readme = await readFile(join(root, "README.md"), "utf8");
@@ -139,6 +142,10 @@ if (!/\.pd17-atlas-map\s*\{/.test(v17)) errors.push("V17 atlas CSS missing");
 if (!/function tickBrief\(/.test(main)) errors.push("V17 briefing timer missing");
 if (!/function updateAtlasLines\(/.test(main)) errors.push("V19 SVG atlas engine missing");
 if (!/\.pd19-contact-wrap\s*\{/.test(v19)) errors.push("V19 contact design missing");
+if (!/\.pd20-model-track/.test(v20)) errors.push("V20 Model layout missing");
+if (!/html\[data-theme="light"\]/.test(v20Light)) errors.push("V20 light theme missing");
+if (!/function start\(/.test(v20Cinema) || !/function end\(/.test(v20Cinema)) errors.push("V20 cinematic lifecycle missing");
+for (const key of ["data-cinema-skip", "data-cinema-replay", "pd20-model-journey"]) if (!index.includes(key)) errors.push(`V20 missing ${key}`);
 if (!/\.pd18-model-track\s*\{/.test(v18)) errors.push("V18 model CSS missing");
 if ((index.match(/data-lat=/g)||[]).length !== 6) errors.push("V18 requires six city markers");
 for (const city of ["MURCIA", "GRAN CANARIA", "MADRID", "LISBOA", "BÉRGAMO", "VARSOVIA"]) requireText(index, city, `city marker ${city}`);
@@ -174,4 +181,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`OK · V19 FINAL · ${required.length} files · ${slideCount} slides · ES/EN · evidence-first · ready for browser gates`);
+console.log(`OK · V20 EDITORIAL · ${required.length} files · ${slideCount} slides · ES/EN · evidence-first · ready for browser gates`);
