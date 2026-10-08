@@ -1,0 +1,259 @@
+/* V23: 60-second recruiter brief.
+   Editorial midnight/ivory palette. Removes ALL legacy sepia/brown player
+   surfaces while retaining the existing four-chapter, 60-second behavior.
+   No changes to the main deck slides or standalone cases. */
+
+#recruiter-dialog.pd17-brief {
+  --brief-ink:#111d26;
+  --brief-raised:#1a2b36;
+  --brief-card:#20333f;
+  --brief-ivory:#f1e9dd;
+  --brief-muted:#c0cbd0;
+  --brief-accent:#93c2cb;
+  --brief-line:rgba(180,208,216,.25);
+  --brief-warm:#dcc9af;
+  background:radial-gradient(ellipse at 88% 2%,rgba(128,183,199,.11),transparent 52%),#101c26!important;
+  color:var(--brief-ivory)!important;
+  border:1px solid rgba(171,207,217,.33)!important;
+  box-shadow:0 35px 95px rgba(1,9,16,.48),inset 0 1px 0 rgba(248,250,248,.06);
+}
+#recruiter-dialog.pd17-brief::backdrop {
+  background:rgba(4,12,18,.78);
+  backdrop-filter:blur(7px);
+}
+#recruiter-dialog.pd17-brief .dialog-close {
+  background:#22323e!important;
+  border-color:rgba(200,218,224,.32)!important;
+  color:#f5eee2!important;
+}
+#recruiter-dialog.pd17-brief .dialog-close:hover,
+#recruiter-dialog.pd17-brief .dialog-close:focus-visible {
+  background:#34505d!important;
+  border-color:#a1cbd4!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-head .eyebrow {
+  color:var(--brief-warm)!important;
+}
+#recruiter-dialog.pd17-brief h2 {
+  color:#f8f5ee!important;
+}
+#recruiter-dialog.pd17-brief h2 em {
+  color:#b6d3d8!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-clock {
+  color:#f1e9dd!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-clock small,
+#recruiter-dialog.pd17-brief .pd17-brief-lead {
+  color:var(--brief-muted)!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-progress {
+  background:rgba(190,213,222,.15)!important;
+  height:5px;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-progress>span {
+  background:linear-gradient(90deg,#97c8cf,#dac6b3)!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button {
+  background:#1f303b!important;
+  color:#e7e9e5!important;
+  border:1px solid rgba(176,206,215,.25)!important;
+  transition:background .2s,border-color .2s,box-shadow .2s;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button span {
+  color:#c0dbe1!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button small {
+  color:#d0d9da!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button[aria-pressed="true"] {
+  background:#354954!important;
+  border-color:#a9d5dc!important;
+  box-shadow:inset 0 -3px 0 #a9d5dc;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button:hover,
+#recruiter-dialog.pd17-brief .pd17-brief-chapters button:focus-visible {
+  background:#324853!important;
+  border-color:#bfdde2!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-scene {
+  background:radial-gradient(circle at 14% 48%,rgba(99,149,170,.17),transparent 39%),linear-gradient(120deg,#213542,#13242f 75%)!important;
+  border:1px solid rgba(159,195,206,.29)!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-orbit {
+  border-color:rgba(197,221,223,.4)!important;
+  box-shadow:0 0 0 15px rgba(146,199,209,.045),0 0 0 32px rgba(219,200,175,.035),inset 0 0 48px rgba(138,195,205,.08)!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-orbit::before {
+  border-color:rgba(192,220,224,.49)!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-orbit>span {
+  color:#f3ede3!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-orbit>span span {
+  color:#a9d6dc!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-period {
+  color:#d7c5ae!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-story h3 {
+  color:#f8f5ee!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-story p:not(.pd17-brief-period) {
+  color:#d0dce0!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-story small {
+  color:#d9e1df!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-footer button {
+  border-color:rgba(173,208,216,.36)!important;
+}
+#recruiter-dialog.pd17-brief .pd17-play {
+  background:#e8ded0!important;
+  border-color:#e8ded0!important;
+  color:#162936!important;
+}
+#recruiter-dialog.pd17-brief .pd17-play:hover,
+#recruiter-dialog.pd17-brief .pd17-play:focus-visible {
+  background:#fff8ed!important;
+}
+#recruiter-dialog.pd17-brief .pd17-restart {
+  background:#1b303d!important;
+  color:#d8e5e5!important;
+}
+#recruiter-dialog.pd17-brief .pd17-proof {
+  background:#294553!important;
+  color:#edf8f8!important;
+}
+#recruiter-dialog.pd17-brief :is(.pd17-restart,.pd17-proof):hover,
+#recruiter-dialog.pd17-brief :is(.pd17-restart,.pd17-proof):focus-visible {
+  background:#375767!important;
+  border-color:#b6dce2!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-bottom {
+  color:#bac6cb!important;
+}
+#recruiter-dialog.pd17-brief .pd17-brief-bottom a {
+  color:#e7dac8!important;
+}
+#recruiter-dialog.pd17-brief :focus-visible {
+  outline:2px solid #b8e2e9!important;
+  outline-offset:3px;
+}
+
+/* Light mode: warm paper, dark ink and a single slate story scene.
+   Unlike the old light mode, none of the chapter/player controls stay sepia. */
+html[data-theme="light"] #recruiter-dialog.pd17-brief {
+  --brief-muted:#4b5c66;
+  background:linear-gradient(145deg,#faf7f1,#eee9e0)!important;
+  color:#243845!important;
+  border:1px solid #c3c6c2!important;
+  box-shadow:0 30px 85px rgba(20,38,49,.20);
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .dialog-close {
+  background:#e5eae8!important;
+  border-color:#a7b9bd!important;
+  color:#264351!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-head .eyebrow {
+  color:#4b6c76!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief h2 {
+  color:#233844!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief h2 em {
+  color:#436e77!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-clock {
+  color:#263c49!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-clock small,
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-lead {
+  color:#52636a!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-progress {
+  background:#d9dfdc!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-progress>span {
+  background:linear-gradient(90deg,#347d8f,#223e51)!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button {
+  background:#edeae3!important;
+  border-color:#bdc8c8!important;
+  color:#324a57!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button :is(span,small) {
+  color:#344f5d!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button[aria-pressed="true"] {
+  background:#294552!important;
+  color:#f8f4eb!important;
+  border-color:#294552!important;
+  box-shadow:inset 0 -3px 0 #a6cad2;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button[aria-pressed="true"] :is(span,small) {
+  color:#fff9ef!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button:hover,
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button:focus-visible {
+  background:#d2e1e3!important;
+  border-color:#437c8c!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-chapters button[aria-pressed="true"]:hover {
+  background:#335666!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-scene {
+  background:radial-gradient(circle at 12% 55%,rgba(128,180,195,.13),transparent 40%),linear-gradient(122deg,#263d4b,#172a36 75%)!important;
+  border-color:#607e87!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-orbit {
+  border-color:rgba(214,230,232,.55)!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-period {
+  color:#e4cdb0!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-story :is(h3,p) {
+  color:#faf7ef!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-story small {
+  color:#d1e0e3!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-orbit>span {
+  color:#f7f2e6!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-play {
+  background:#2d4a58!important;
+  border-color:#2d4a58!important;
+  color:#fff9ee!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-play:hover {
+  background:#3e6473!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-restart {
+  background:#f9f7f2!important;
+  border-color:#b1c4c8!important;
+  color:#2e525f!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-proof {
+  background:#dce8e9!important;
+  border-color:#acc1c5!important;
+  color:#234755!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-bottom {
+  color:#53646a!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief .pd17-brief-bottom a {
+  color:#345d6b!important;
+}
+html[data-theme="light"] #recruiter-dialog.pd17-brief :focus-visible {
+  outline-color:#255d70!important;
+}
+
+@media(max-width:620px){
+  #recruiter-dialog.pd17-brief .pd17-brief-chapters button {min-height:51px}
+  #recruiter-dialog.pd17-brief .pd17-brief-scene {min-height:205px}
+}
+@media(prefers-reduced-motion:reduce){
+  #recruiter-dialog.pd17-brief .pd17-brief-chapters button {transition:none}
+  #recruiter-dialog.pd17-brief::backdrop {backdrop-filter:none}
+}

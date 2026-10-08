@@ -21,6 +21,7 @@ assert.match(html, /v18-story.css/);
 assert.match(html, /v19-final.css/);
 assert.match(html, /v20-theme.css/);
 assert.match(html, /v20-light.css/);
+assert.match(html, /v23-brief.css\?v=deck-v23/);
 assert.match(html, /v20-cinema.js/);
 assert.match(html, /data-cinema-skip/);
 assert.match(html, /data-atlas-tour/);
@@ -70,10 +71,25 @@ try {
     assert.equal(await page.locator("[data-atlas-tour]").count(), 1);
     assert.equal(await page.locator("[data-brief-chapter]").count(), 4);
     await page.locator("#inicio [data-open-recruiter]").click();
+    const modal = page.locator("#recruiter-dialog");
+    const darkSurface = await modal.evaluate(el => getComputedStyle(el).backgroundColor);
+    assert.equal(darkSurface, "rgb(16, 28, 38)", viewport.name+" dark brief surface");
+    const activeDark = await modal.locator('[data-brief-chapter="0"]').evaluate(el => getComputedStyle(el).backgroundColor);
+    assert.equal(activeDark, "rgb(53, 73, 84)", viewport.name+" dark selected chapter");
     assert.equal(await page.locator("[data-brief-clock]").innerText(), "00:00");
     await page.locator("[data-brief-chapter=\"2\"]").click();
     assert.equal(await page.locator("[data-brief-clock]").innerText(), "00:30");
     await page.locator("#recruiter-dialog .dialog-close").click();
+    await page.locator("[data-set-theme='light']").click();
+    await page.locator("#inicio [data-open-recruiter]").click();
+    const lightCanvas = await modal.evaluate(el => getComputedStyle(el).backgroundImage);
+    assert.ok(lightCanvas.includes("rgb(250, 247, 241)"),viewport.name+" ivory brief light mode: "+lightCanvas);
+    const slateStage = await modal.locator(".pd17-brief-scene").evaluate(el => getComputedStyle(el).backgroundImage);
+    assert.ok(slateStage.includes("rgb(38, 61, 75)"),viewport.name+" slate stage in light mode: "+slateStage);
+    const lightActive = await modal.locator('[data-brief-chapter="0"]').evaluate(el => getComputedStyle(el).backgroundColor);
+    assert.equal(lightActive,"rgb(41, 69, 82)",viewport.name+" selected chapter in light mode");
+    await modal.locator(".dialog-close").click();
+    await page.locator("[data-set-theme='dark']").click();
     assert.match(await page.locator(".pd16-name").innerText(), /GRACIÁN[\s\S]*BAENA/);
 
     const overflow = await page.evaluate(
@@ -104,7 +120,7 @@ try {
     await context.close();
   }
 
-  console.log("PROFESSIONAL DECK V22 LIVE PASS");
+  console.log("PROFESSIONAL DECK V23 LIVE PASS");
   console.log(`URL: ${response.url}`);
   console.log(`HTTP: ${response.status}`);
 } finally {
