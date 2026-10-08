@@ -58,3 +58,6 @@ html[data-theme="light"] .pd20-cinema-skip {background:#34424a!important;color:#
 @media(prefers-reduced-motion:reduce) {
  #inicio.pd16-cover .pd16-cover-actions .button {transition:none!important}
 }
+/* RevOps is still under construction: show information, never a live destination. */
+.revops-unavailable{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:.6rem .85rem;border:1px dashed rgba(218,203,181,.46);border-radius:9px;color:#d7c5ab;font-size:clamp(.72rem,1vw,.9rem);line-height:1.35;text-align:center;cursor:not-allowed}
+html[data-theme="light"] .revops-unavailable{color:#665747;border-color:#978674}
