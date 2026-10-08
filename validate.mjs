@@ -99,7 +99,7 @@ if (!/addEventListener\("wheel"/.test(main)) errors.push("Missing wheel navigati
 
 for (const token of [
   'class="slide dark fit pd16-cover"',
-  'class="pd16-name"',
+  'class="pd16-universe-signature"',
   'class="pd16-os"',
   'id="modelo"',
   'id="sistemas"',
