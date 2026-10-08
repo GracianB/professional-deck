@@ -83,3 +83,28 @@ html[data-theme="light"] #inicio.pd16-cover .pd16-os ol{background:rgba(252,248,
 #inicio.pd16-cover .pd16-universe-signature span{color:#aeb2b4;margin-inline:.35rem}
 html[data-theme="light"] #inicio.pd16-cover .pd16-universe-signature{color:#786c5d}
 @media(max-width:600px){#inicio.pd16-cover .pd16-universe-signature{font-size:.72rem;letter-spacing:.045em}}
+
+/* V33 · Cover must fit within the slide's actual viewport, not overflow behind controls. */
+#inicio.pd16-cover .pd16-cover-shell{width:min(100%,1190px);padding-top:clamp(.35rem,1vh,.7rem);gap:clamp(.6rem,1.3vh,1rem);overflow:visible}
+#inicio.pd16-cover .pd16-cover-layout{grid-template-columns:minmax(0,1.17fr) minmax(290px,.83fr);align-items:start;gap:clamp(1.3rem,3vw,3rem)}
+#inicio.pd16-cover .pd16-cover-copy{padding-top:clamp(.5rem,2vh,1.5rem)}
+#inicio.pd16-cover .pd16-universe-signature{margin:.65rem 0 1rem;line-height:1.45}
+#inicio.pd16-cover .pd16-role{margin:.65rem 0 .55rem}
+#inicio.pd16-cover .pd16-thesis{font-size:clamp(1.9rem,2.75vw,3rem);max-width:22ch;line-height:1.03}
+#inicio.pd16-cover .pd16-lead{margin-top:.7rem;line-height:1.48;font-size:clamp(.85rem,1vw,1rem)}
+#inicio.pd16-cover .pd16-cover-actions{margin-top:.85rem}
+#inicio.pd16-cover .pd16-proof-strip{margin-top:.75rem}
+#inicio.pd16-cover .pd16-proof-strip>span{padding-top:.5rem;padding-bottom:.5rem}
+#inicio.pd16-cover .pd16-os{display:flex;flex-direction:column;min-height:0;max-height:calc(100svh - 215px);border-radius:15px}
+#inicio.pd16-cover .pd28-emblem{position:relative;inset:auto;z-index:1;flex:0 0 clamp(128px,20vh,190px);height:clamp(128px,20vh,190px);width:100%;opacity:.66;display:grid;place-items:center;pointer-events:none;overflow:hidden}
+#inicio.pd16-cover .pd28-emblem svg{height:100%;width:auto;max-width:95%;max-height:100%;filter:drop-shadow(0 0 12px rgba(230,222,204,.25))}
+#inicio.pd16-cover .pd16-os>header{padding:.5rem .8rem}
+#inicio.pd16-cover .pd16-os ol{flex:1;min-height:0;background:transparent;border-radius:0;backdrop-filter:none}
+#inicio.pd16-cover .pd16-os li{padding:.45rem .8rem;grid-template-columns:1.6rem 1fr}
+#inicio.pd16-cover .pd16-os li strong{font-size:clamp(.83rem,1vw,1rem)}
+#inicio.pd16-cover .pd16-os li small{font-size:7.5px}
+#inicio.pd16-cover .pd16-os>footer{padding:.48rem .8rem}
+html[data-theme="light"] #inicio.pd16-cover .pd16-os ol{background:transparent}
+@media(max-height:760px) and (min-width:901px){#inicio.pd16-cover .pd28-emblem{height:105px;flex-basis:105px}#inicio.pd16-cover .pd16-cover-copy{padding-top:0}#inicio.pd16-cover .pd16-thesis{font-size:clamp(1.8rem,2.5vw,2.6rem)}#inicio.pd16-cover .pd16-os li{padding:.32rem .75rem}}
+@media(max-width:900px){#inicio.pd16-cover .pd16-cover-layout{grid-template-columns:1fr}#inicio.pd16-cover .pd16-os{max-height:none;width:min(100%,600px)}#inicio.pd16-cover .pd28-emblem{height:145px;flex-basis:145px}}
+@media(max-width:600px){#inicio.pd16-cover .pd16-cover-copy{padding-top:0}#inicio.pd16-cover .pd16-thesis{font-size:clamp(1.85rem,7vw,2.5rem)}#inicio.pd16-cover .pd16-os{min-height:0}}
