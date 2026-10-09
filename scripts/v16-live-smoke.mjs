@@ -91,7 +91,18 @@ try {
     assert.equal(lightActive,"rgb(41, 69, 82)",viewport.name+" selected chapter in light mode");
     await modal.locator(".dialog-close").click();
     await page.locator("[data-set-theme='dark']").click();
-    assert.match(await page.locator(".pd16-name").innerText(), /GRACIÁN[\s\S]*BAENA/);
+    // The V36 cover uses the real customer → system thesis. The old
+    // `.pd16-name` identity node was removed intentionally in V36.
+    assert.match(
+      await page.locator("#inicio .pd16-thesis").innerText(),
+      /Conecto cliente, negocio y tecnología/i,
+      viewport.name + ": live cover thesis",
+    );
+    assert.equal(
+      await page.locator("#inicio .pd16-thesis").isVisible(),
+      true,
+      viewport.name + ": cover heading visible",
+    );
 
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
