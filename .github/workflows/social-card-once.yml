@@ -1,0 +1,33 @@
+name: One-time professional social image refresh
+on:
+  push:
+    branches: ['fix/share-preview-platinum-v37']
+    paths: ['.github/workflows/social-card-once.yml']
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Render PNG from professional SVG
+        run: |
+          python3 -m pip install --disable-pip-version-check cairosvg==2.8.2
+          python3 - <<'PY'
+          import struct
+          from cairosvg import svg2png
+          svg2png(url="og-cover.svg", write_to="og-cover.png", output_width=1200, output_height=630)
+          png=open("og-cover.png","rb").read(24)
+          assert png[:8]==bytes.fromhex("89504e470d0a1a0a")
+          assert struct.unpack(">II",png[16:24])==(1200,630)
+          PY
+      - name: Commit regenerated PNG to feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add og-cover.png
+          if ! git diff --cached --quiet; then
+            git commit -m "assets: refresh CV-neutral professional social PNG"
+            git push origin HEAD:fix/share-preview-platinum-v37
+          fi
