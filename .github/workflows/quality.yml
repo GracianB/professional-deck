@@ -62,5 +62,8 @@ jobs:
       - name: Production Audit
         run: npm run audit:production
 
+      - name: Social image identity
+        run: node tools/share-preview-check.mjs
+
       - name: Performance Budget
         run: npm run audit:performance
