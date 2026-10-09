@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+const html=readFileSync("index.html","utf8");
+const svg=readFileSync("og-cover.svg","utf8");
+const png=readFileSync("og-cover.png");
+assert.equal(png.subarray(0,8).toString("hex"),"89504e470d0a1a0a","OG is PNG");
+assert.equal(png.readUInt32BE(16),1200,"1200px OG width");
+assert.equal(png.readUInt32BE(20),630,"630px OG height");
+assert.ok(html.includes("professional-deck/og-cover.png?v=37"),"new image URL");
+assert.ok(svg.includes("#c8cccd") && svg.includes("#f3eee5"),"silver and ivory brand colors");
+assert.ok(!svg.includes("#f2d23c"),"retired yellow brand color forbidden");
+console.log("PROFESSIONAL SOCIAL IDENTITY PASS");
