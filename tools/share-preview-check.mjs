@@ -7,6 +7,14 @@ assert.equal(png.subarray(0,8).toString("hex"),"89504e470d0a1a0a","OG is PNG");
 assert.equal(png.readUInt32BE(16),1200,"1200px OG width");
 assert.equal(png.readUInt32BE(20),630,"630px OG height");
 assert.ok(html.includes("professional-deck/og-cover.png?v=37"),"new image URL");
+assert.ok(
+  html.includes('property="og:title" content="Gracián Baena · Professional Deck · Customer Success · Operations · Data · AI"'),
+  "Share title must describe the professional profile, not the color palette"
+);
+assert.ok(
+  html.includes('property="og:image:alt" content="Gracián Baena · Professional Deck · identidad grafito, plata y marfil"'),
+  "Artwork description belongs in the image alt"
+);
 assert.ok(svg.includes("#c8cccd") && svg.includes("#f3eee5"),"silver and ivory brand colors");
 assert.ok(!svg.includes("#f2d23c"),"retired yellow brand color forbidden");
 console.log("PROFESSIONAL SOCIAL IDENTITY PASS");
