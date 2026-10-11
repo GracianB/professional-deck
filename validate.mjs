@@ -204,6 +204,17 @@ for (const script of ["main.js", "i18n.js", "case.js", "validate.mjs"]) {
 
 forbid(index, /href="https:\/\/(?:gracianb\.github\.io\/revops-studio\/|github\.com\/GracianB\/revops-studio)"/i, "unfinished RevOps access");
 if (!index.includes("pd36-roadmap-link")) errors.push("RevOps construction label missing");
+
+// A roadmap project is not a publicly accessible product.
+const revopsCard = index.match(/<article class="gb-demo-card pd16-proof-card">[\s\S]*?<h3 data-i18n-html="revopsH2">[\s\S]*?<\/article>/)?.[0] ?? "";
+if (!revopsCard || /gb-demo-badge is-live/.test(revopsCard) ||
+    !/data-i18n="constructionShort"/.test(revopsCard)) {
+  errors.push("RevOps must remain explicitly in development, never LIVE");
+}
+if (/RevOps Studio, OHANA (?:y|and) VØRTICE (?:son pruebas públicas|are public proof)/i.test(i18n)) {
+  errors.push("RevOps must not be claimed as public evidence");
+}
+
 if (errors.length) {
   console.error(`\nValidation failed (${errors.length})\n- ${errors.join("\n- ")}\n`);
   process.exit(1);
