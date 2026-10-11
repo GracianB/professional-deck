@@ -146,8 +146,8 @@
     demosIndex: "PRUEBA PÚBLICA",
     demosEyebrow: "LIVE · CÓDIGO · CONTRATOS · SIN PEDIR ACCESO",
     demosH2: "No tienes que creerme.<br><em>Puedes abrirlo.</em>",
-    demosP: "Después del caso Bodytone, tres sistemas públicos enseñan otra parte del perfil: decisiones, ingeniería y tiempo real.",
-    demosFoot: "Bodytone prueba operación real. RevOps, OHANA y VØRTICE prueban cómo construyo.",
+    demosP: "Después de Bodytone, OHANA y VØRTICE ofrecen pruebas públicas. RevOps Studio permanece en desarrollo y sin acceso.",
+    demosFoot: "Bodytone prueba operación real. OHANA y VØRTICE muestran sistemas públicos; RevOps está en desarrollo.",
     liveBadge: "LIVE",
     revopsH2: "RevOps Studio · <em>decisiones</em>",
     revopsP: "Calidad de datos, scoring determinista, forecast, segmentación, aprobación humana y trazabilidad.",
@@ -479,7 +479,7 @@
       ["2014—2021", "Primero entendí a las personas.", "Cliente, equipos, servicio, operaciones y formación. La realidad antes que el dashboard.", "RETAIL · SOLARIS · MAJOREL", "experiencia-2"],
       ["2021—2024", "Después conecté cliente y negocio.", "En B2B SaaS, la adopción y las señales del cliente se convierten en decisiones medibles.", "MINDEREST · CUSTOMER SUCCESS", "experiencia"],
       ["2025—2026", "Aprendí a construir la solución.", "Bodytone: conocimiento, Zendesk, automatización, datos y formación en un mismo sistema.", "BODYTONE · SUPPORT OS", "sistemas"],
-      ["HOY", "No necesitas creerlo. Puedes abrirlo.", "RevOps Studio, OHANA y VØRTICE son pruebas públicas de cómo diseño, desarrollo y valido.", "LIVE · REPOSITORIOS · E2E", "demos"]
+      ["HOY", "No necesitas creerlo. Puedes abrirlo.", "OHANA y VØRTICE son pruebas públicas de cómo diseño y valido; RevOps Studio sigue en desarrollo.", "LIVE · REPOSITORIOS · E2E", "demos"]
     ],
     cmdTitle: "¿A dónde vas?",
     cmdPlaceholder: "Buscar…",
@@ -633,8 +633,8 @@
     demosIndex: "PUBLIC PROOF",
     demosEyebrow: "LIVE · CODE · CONTRACTS · NO ACCESS REQUEST",
     demosH2: "You do not have to believe me.<br><em>You can open it.</em>",
-    demosP: "After the Bodytone case, three public systems show another side of the profile: decisions, engineering and real-time work.",
-    demosFoot: "Bodytone proves real operations. RevOps, OHANA and VØRTICE prove how I build.",
+    demosP: "Beyond Bodytone, OHANA and VØRTICE provide public proof. RevOps Studio remains in development and is not open.",
+    demosFoot: "Bodytone proves real operations. OHANA and VØRTICE are public systems; RevOps is still in development.",
     liveBadge: "LIVE",
     revopsH2: "RevOps Studio · <em>decisions</em>",
     revopsP: "Data quality, deterministic scoring, forecasting, segmentation, human approval and traceability.",
@@ -966,7 +966,7 @@
       ["2014—2021", "First, I learned about people.", "Customers, teams, frontline operations and training. Reality before dashboards.", "RETAIL · SOLARIS · MAJOREL", "experiencia-2"],
       ["2021—2024", "Then I connected customer and business.", "In B2B SaaS, adoption and customer signals become measurable decisions.", "MINDEREST · CUSTOMER SUCCESS", "experiencia"],
       ["2025—2026", "Then I built the solution.", "Bodytone: knowledge, Zendesk, automation, data and training in one operational system.", "BODYTONE · SUPPORT OS", "sistemas"],
-      ["TODAY", "Don't take my word for it. Open the work.", "RevOps Studio, OHANA and VØRTICE are public proof of how I design, build and validate.", "LIVE · REPOSITORIES · E2E", "demos"]
+      ["TODAY", "Don't take my word for it. Open the work.", "OHANA and VØRTICE provide public evidence of my work; RevOps Studio is still in development.", "LIVE · REPOSITORIES · E2E", "demos"]
     ],
     cmdTitle: "Where to?",
     cmdPlaceholder: "Search…",
