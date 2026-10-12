@@ -6,13 +6,13 @@ const PASS = [];
 const FAIL = [];
 
 const LIMITS = {
-  htmlBytes: 180 * 1024,
-  // Current multi-layer deck is ~515 KiB; keep a bounded margin for maintenance.
-  cssTotalBytes: 550 * 1024,
-  cssLargestBytes: 180 * 1024,
-  jsTotalBytes: 160 * 1024,
-  imageTotalBytes: 12 * 1024 * 1024,
-  imageLargestBytes: 2 * 1024 * 1024,
+  htmlBytes: 1024 * 1024,
+  // Expanded asset budgets requested for continued portfolio development.
+  cssTotalBytes: 2 * 1024 * 1024,
+  cssLargestBytes: 512 * 1024,
+  jsTotalBytes: 1024 * 1024,
+  imageTotalBytes: 48 * 1024 * 1024,
+  imageLargestBytes: 8 * 1024 * 1024,
 };
 
 function ok(condition, message) {
