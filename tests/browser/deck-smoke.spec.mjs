@@ -67,7 +67,7 @@ test.describe("Professional Deck smoke", () => {
     await page.waitForTimeout(160);
     await page.screenshot({ path: "artifacts/v16/cover-desktop.png", fullPage: false });
 
-    await expect(page.locator("#demos .pd16-proof-card")).toHaveCount(3);
+    await expect(page.locator("#demos .pd16-proof-card")).toHaveCount(4);
     await expect(page.locator("#demos")).toContainText(/RevOps Studio/i);
     await expect(page.locator("#demos")).toContainText(/OHANA/i);
     await expect(page.locator("#demos")).toContainText(/VØRTICE/i);
