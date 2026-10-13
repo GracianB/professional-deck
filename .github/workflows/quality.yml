@@ -47,6 +47,9 @@ jobs:
       - name: V16 CSS Guard
         run: npm run audit:css:v16
 
+      - name: Application handoff B6
+        run: node tools/application-link-b6.mjs
+
       - name: Browser E2E
         run: npm run test:browser
 
