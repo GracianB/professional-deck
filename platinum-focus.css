@@ -389,3 +389,8 @@ body.deck-focus .site-header .pd41-atlas-nav,body.deck-focus .pd41-brief-btn{dis
 body.deck-full .site-header .pd41-atlas-nav{display:inline-flex!important}
 body.deck-full #inicio .pd41-brief-btn{display:inline-flex!important;align-items:center;border:1px solid var(--pd41-outline);padding:10px 14px;color:var(--pd41-ink);border-radius:8px;font:700 .65rem var(--mono)}
 @media(max-width:980px){body.deck-full .site-header>.main-nav .pd41-atlas-nav{display:flex!important}}
+
+/* P41 no snap trap. One long career should behave as ordinary scrollable content. */
+body.deck-full .deck{scroll-snap-type:none!important;scroll-behavior:auto!important}
+body.deck-full .deck>.slide{scroll-snap-align:none!important}
+body.deck-full #experiencia.pd41-experience{scroll-snap-align:none!important}

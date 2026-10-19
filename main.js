@@ -540,6 +540,8 @@
   }
 
   deck.addEventListener("wheel", (event) => {
+    // P41: vertical reading is natural; never snap past an expanded career entry.
+    if (document.body.classList.contains("deck-full") || event.target.closest("#experiencia")) return;
     if (!wheelMode.matches || modalOpen() || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
     event.preventDefault();
     if (wheelBusy) return;
@@ -569,6 +571,7 @@
     touchY = t.clientY; touchX = t.clientX; touchT = Date.now();
   }, { passive: true });
   deck.addEventListener("touchend", (event) => {
+    if (document.body.classList.contains("deck-full") || event.target.closest("#experiencia")) return;
     if (modalOpen()) return;
     const t = event.changedTouches[0];
     const dy = t.clientY - touchY;

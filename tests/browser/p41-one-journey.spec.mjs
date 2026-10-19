@@ -23,6 +23,10 @@ test("P41 · eight useful sections, five-stop overview, no old SVG career art",a
  await page.locator("[data-set-lang='en']").click();
  await expect(page.locator("#experiencia [data-career='minderest'] [data-career-meta]")).toContainText("Remote");
  await expect(page.locator("#experiencia [data-career='minderest'] summary")).toContainText("MINDEREST");
+ await page.locator("#experiencia [data-career='primark'] summary").scrollIntoViewIfNeeded();
+ const isVisible=await page.locator("#experiencia [data-career='primark']").isVisible();
+ expect(isVisible).toBe(true);
+
 });
 test("P41 · updated document links share one canonical source, language menu updates",async({page})=>{
  await page.goto("/?lang=es",{waitUntil:"domcontentloaded"});
