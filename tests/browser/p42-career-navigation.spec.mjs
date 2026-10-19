@@ -78,3 +78,14 @@ test("P42 · keyboard + expand controls stay readable on mobile, light and dark"
     await expect(page.locator("#experiencia details").last()).toBeVisible();
   }
 });
+
+test("P42 · navigation location follows the section actually being read",async({page})=>{
+  await page.goto("/?view=full&lang=es#inicio",{waitUntil:"domcontentloaded"});
+  await page.locator('.main-nav [data-go="experiencia"]').click();
+  await expect(page.locator('.main-nav [data-go="experiencia"]')).toHaveAttribute("aria-current","location");
+  await page.locator("#experiencia [data-career='primark'] summary").scrollIntoViewIfNeeded();
+  await expect(page.locator('.main-nav [data-go="experiencia"]')).toHaveAttribute("aria-current","location");
+  await page.locator('.main-nav [data-go="demos"]').click();
+  await expect(page.locator('.main-nav [data-go="demos"]')).toHaveAttribute("aria-current","location");
+  await expect(page.locator('.main-nav [data-go="experiencia"]')).not.toHaveAttribute("aria-current","location");
+});

@@ -437,6 +437,10 @@
       button.setAttribute("aria-current", active ? "true" : "false");
     });
     const slide = slides[next];
+    document.querySelectorAll(".site-header .main-nav [data-go]").forEach((button) => {
+      if (button.dataset.go === slide?.id) button.setAttribute("aria-current", "location");
+      else button.removeAttribute("aria-current");
+    });
     if (currentLabel) currentLabel.textContent = pad(next + 1);
     if (railStatus) railStatus.textContent = `${pad(next)} · ${slide.dataset.title || ""}`;
     if (progress) progress.style.transform = `scaleX(${(next + 1) / slides.length})`;
@@ -563,6 +567,25 @@
       });
     }, { passive: true });
   }
+
+  // Intersection ratio cannot exceed 0.55 for a very tall expanded career.
+  // Use the point of actual reading within the deck to keep the current
+  // chapter state and navigation accurate on a naturally scrollable page.
+  let readingFrame = 0;
+  deck.addEventListener("scroll", () => {
+    if (readingFrame) return;
+    readingFrame = requestAnimationFrame(() => {
+      readingFrame = 0;
+      const bounds = deck.getBoundingClientRect();
+      const readingLine = bounds.top + bounds.height * .4;
+      const next = slides.findIndex((section) => {
+        if (getComputedStyle(section).display === "none") return false;
+        const rect = section.getBoundingClientRect();
+        return rect.top <= readingLine && rect.bottom >= readingLine;
+      });
+      if (next >= 0 && next !== activeIndex) setActive(next, false);
+    });
+  }, {passive:true});
 
   deck.addEventListener("wheel", (event) => {
     // P41: vertical reading is natural; never snap past an expanded career entry.

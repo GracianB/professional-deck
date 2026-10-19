@@ -468,3 +468,7 @@ html[data-theme="light"] .pd42-career-tools>span{color:#4f6477}
 html[data-theme="light"] .pd41-career-item>summary:hover{background:#edf3f8}
 @media(max-width:600px){.pd42-career-tools [data-career-toggle]{width:100%}.pd42-career-tools>span{font-size:.76rem}}
 @media(prefers-reduced-motion:reduce){.pd42-career-tools [data-career-toggle]{transition:none}}
+
+/* P42 · Nonintrusive location indicator, accurately updated during long-page scrolling. */
+.site-header .main-nav>button[data-go][aria-current="location"]{color:#e5f2fb!important;background:rgba(185,210,232,.10)!important}
+html[data-theme="light"] .site-header .main-nav>button[data-go][aria-current="location"]{color:#172c3e!important;background:#e2eaf2!important}
