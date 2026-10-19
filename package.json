@@ -7,11 +7,12 @@
     "test": "node validate.mjs",
     "validate": "node validate.mjs",
     "verify": "node verify.mjs",
-    "test:browser": "playwright test --config=playwright.config.mjs",
+    "test:browser": "playwright test --config=playwright.config.mjs --project=chromium",
+    "test:crossbrowser": "playwright test tests/browser/p40-crossbrowser.spec.mjs --config=playwright.config.mjs --project=firefox --project=webkit",
     "audit:production": "node tools/production-audit.mjs",
     "audit:performance": "node tools/performance-budget.mjs",
     "audit:css": "node tools/css-cascade-guard.mjs",
-    "quality": "npm run validate && npm run verify && npm run audit:css && npm run audit:css:v16 && npm run test:browser && npm run audit:production && npm run audit:performance",
+    "quality": "npm run validate && npm run verify && npm run audit:css && npm run audit:css:v16 && npm run test:browser && npm run test:crossbrowser && npm run audit:production && npm run audit:performance",
     "audit:css:v16": "node tools/v16-css-guard.mjs"
   },
   "engines": {
