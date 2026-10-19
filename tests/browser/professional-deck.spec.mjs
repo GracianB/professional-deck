@@ -10,7 +10,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
 
-  test("V20 cinematic opening is skippable, session-once and replayable", async ({browser}) => {
+  test("P41 opening is opt-in, skippable and never forced on returning users", async ({browser}) => {
     const ctx=await browser.newContext({viewport:{width:1440,height:900}});
     const page=await ctx.newPage();
     await page.goto("/?view=full&intro=1",{waitUntil:"domcontentloaded"});
@@ -21,10 +21,8 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(cinema).toBeHidden();
     await page.reload({waitUntil:"domcontentloaded"});
     await expect(cinema).toBeHidden();
-    await page.locator("[data-cinema-replay]").click();
-    await expect(cinema).toBeVisible();
-    await cinema.locator("[data-cinema-skip]").click();
-    await expect(cinema).toBeHidden();
+    // The opener is deliberately opt-in now, so the old replay CTA is retired.
+    await expect(page.locator("[data-cinema-replay]")).toHaveCount(0);
     await ctx.close();
 
     const deep=await browser.newContext({viewport:{width:1440,height:900}});
@@ -63,13 +61,13 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(steps).toHaveCount(7);
   });
 
-  test("V20 light theme is coherent across all twelve chapters", async ({page}) => {
+  test("P41 light theme is coherent across the eight useful sections", async ({page}) => {
     await page.setViewportSize({width:1440,height:900});
     await page.goto("/?view=full",{waitUntil:"domcontentloaded"});
     await page.locator("[data-set-theme='light']").click();
     await expect(page.locator("html")).toHaveAttribute("data-theme","light");
     const surface=await page.evaluate(()=>{
-      const ids=["inicio","modelo","sistemas","demos","metodo","ruta","trayectoria","experiencia","experiencia-2","capacidades","formacion","contacto"];
+      const ids=["inicio","modelo","sistemas","demos","ruta","experiencia","formacion","contacto"];
       return ids.map(id=>{
         const el=document.getElementById(id);
         const color=getComputedStyle(el).backgroundColor;
@@ -84,9 +82,7 @@ test.describe("Professional Deck browser E2E", () => {
     const samples=[
       "#modelo .pd20-model-track>li>strong",
       "#demos .gb-demo-card h3",
-      "#metodo .pd18-method-flow .gb-step h3",
-      "#trayectoria .pd18-evo-rail strong",
-      "#capacidades .pd18-cap-grid h3",
+      "#experiencia .pd41-career-identity strong",
       "#formacion .gb-edu-head h2",
       "#contacto .pd19-contact-copy h2"
     ];
@@ -151,10 +147,10 @@ test.describe("Professional Deck browser E2E", () => {
     await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     await expect(page).toHaveTitle(/Gracián Baena/i);
-    await expect(page.locator(".deck .slide")).toHaveCount(12);
+    await expect(page.locator(".deck .slide")).toHaveCount(8);
 
     await expect(page.locator(".site-header")).toBeVisible();
-    await expect(page.locator(".deck-controls")).toBeVisible();
+    await expect(page.locator(".deck-controls")).toBeHidden();
 
     await expect(page.locator("[data-set-lang='es']")).toHaveCount(1);
     await expect(page.locator("[data-set-lang='en']")).toHaveCount(1);
@@ -176,9 +172,9 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(stops.nth(2)).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("[data-atlas-title]")).toContainText("Madrid");
     await page.locator("[data-atlas-go]").click();
-    await expect(page).toHaveURL(/#trayectoria$/);
+    await expect(page).toHaveURL(/#experiencia$/);
 
-    await page.locator("[data-open-recruiter]").first().click();
+    await page.locator("#inicio .pd41-brief-btn").click();
     const dialog=page.locator("#recruiter-dialog");
     await expect(dialog).toBeVisible();
     await expect(dialog.locator("[data-brief-chapter]")).toHaveCount(4);
@@ -200,11 +196,9 @@ test.describe("Professional Deck browser E2E", () => {
   test("V18 tiene seis ciudades reales y evidencia visual en experiencia", async ({ page }) => {
     await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#modelo .pd18-model-track li")).toHaveCount(7);
-    await expect(page.locator("#metodo [data-method-steps] .gb-step")).toHaveCount(5);
-    await expect(page.locator("#trayectoria .pd18-evo-rail li")).toHaveCount(5);
-    await expect(page.locator("#capacidades .pd18-cap-grid article")).toHaveCount(5);
-    await expect(page.locator("#experiencia .pd18-brand-art")).toHaveCount(3);
-    await expect(page.locator("#experiencia-2 .pd18-brand-art")).toHaveCount(3);
+    await expect(page.locator("#experiencia .pd41-career-item")).toHaveCount(6);
+    await expect(page.locator("#experiencia .pd41-career-item[open]")).toHaveCount(1);
+    await expect(page.locator("#metodo,#trayectoria,#capacidades,#experiencia-2")).toHaveCount(0);
     const cities = await page.locator("#ruta .pd18-city-nodes button").evaluateAll(nodes =>
       nodes.map(node => ({lat:Number(node.dataset.lat),lon:Number(node.dataset.lon)}))
     );
@@ -244,8 +238,8 @@ test.describe("Professional Deck browser E2E", () => {
   test("V19 Bodytone stays navy and final contact offers real working links", async ({ page }) => {
     await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#sistemas .pd19-os-flow>span")).toHaveCount(4);
-    await expect(page.locator("#contacto .pd19-contact-link")).toHaveCount(4);
-    await expect(page.locator('#contacto a[href^="mailto:"]')).toHaveCount(1);
+    await expect(page.locator("#contacto .pd19-contact-link")).toHaveCount(7);
+    await expect(page.locator('#contacto a[href^="mailto:"]')).toHaveCount(2);
     await expect(page.locator("#contacto .pd19-contact-languages")).toContainText("ES");
     await expect(page.locator("#contacto .pd19-contact-languages")).toContainText("EN");
     await expect(page.locator("#contacto .pd19-contact-languages")).toContainText("IT");
@@ -291,7 +285,7 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(slides.nth(1)).toBeInViewport();
 
     await page.keyboard.press("End");
-    await expect(slides.nth(11)).toBeInViewport();
+    await expect(slides.nth(7)).toBeInViewport();
 
     await page.keyboard.press("Home");
     await expect(slides.nth(0)).toBeInViewport();
@@ -368,11 +362,11 @@ test.describe("Professional Deck browser E2E", () => {
     await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const railItems = page.locator(".os-rail-item");
-    await expect(railItems).toHaveCount(12);
+    await expect(railItems).toHaveCount(8);
     await expect(railItems.nth(0)).toHaveAttribute("aria-current", "true");
 
     await page.keyboard.press("End");
-    await expect(railItems.nth(11)).toHaveAttribute("aria-current", "true");
+    await expect(railItems.nth(7)).toHaveAttribute("aria-current", "true");
     await expect(railItems.nth(0)).toHaveAttribute("aria-current", "false");
   });
 
@@ -461,7 +455,7 @@ test.describe("Professional Deck browser E2E", () => {
       "[data-set-lang='en']",
       "[data-set-theme='dark']",
       "[data-set-theme='light']",
-      ".deck-controls button"
+      "#inicio .pd41-doc"
     ];
 
     for (const selector of selectors) {
@@ -490,7 +484,7 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(page.locator("#recruiter-title")).toHaveCount(1);
     await expect(page.locator("#recruiter-lead")).toHaveCount(1);
 
-    await page.locator("[data-open-recruiter]").first().click();
+    await page.locator("#inicio .pd41-brief-btn").click();
     await expect(recruiter).toBeVisible();
     await expect(recruiter.locator(".dialog-close")).toBeVisible();
     await recruiter.locator(".dialog-close").press("Enter");
@@ -528,7 +522,7 @@ test.describe("Professional Deck browser E2E", () => {
   test("los diálogos restauran el foco al control que los abrió", async ({ page }) => {
     await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
-    const recruiterTrigger = page.locator("[data-open-recruiter]").first();
+    const recruiterTrigger = page.locator("#inicio .pd41-brief-btn");
     await recruiterTrigger.focus();
     await recruiterTrigger.click();
     await expect(page.locator("#recruiter-dialog")).toBeVisible();
@@ -537,13 +531,10 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(page.locator("#recruiter-dialog")).not.toBeVisible();
     await expect(recruiterTrigger).toBeFocused();
 
-    const roleTrigger = page.locator("[data-role]").first();
+    const roleTrigger = page.locator("#experiencia [data-career='minderest'] summary");
     await roleTrigger.focus();
     await roleTrigger.press("Enter");
-    await expect(page.locator("#experience-dialog")).toBeVisible();
-
-    await page.keyboard.press("Escape");
-    await expect(page.locator("#experience-dialog")).not.toBeVisible();
+    await expect(page.locator("#experiencia [data-career='minderest']")).toHaveAttribute("open","");
     await expect(roleTrigger).toBeFocused();
   });
 
@@ -641,7 +632,7 @@ test.describe("Professional Deck production hardening", () => {
     await expect(page.locator("[data-set-lang='en']")).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("[data-cv-link]").first()).toHaveAttribute(
       "href",
-      "./Gracian_Baena_CV_2026_EN.pdf"
+      "https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_EN.pdf"
     );
 
     await page.locator("[data-set-lang='es']").click();
@@ -674,14 +665,14 @@ test.describe("Professional Deck production hardening", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page.locator("[data-cv-link]").first()).toHaveAttribute(
       "href",
-      "./Gracian_Baena_CV_2026_EN.pdf"
+      "https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_EN.pdf"
     );
 
     await page.locator("[data-set-lang='es']").click();
     await expect(page.locator("html")).toHaveAttribute("lang", "es");
     await expect(page.locator("[data-cv-link]").first()).toHaveAttribute(
       "href",
-      "./Gracian_Baena_CV_2026_ES.pdf"
+      "https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_ES.pdf"
     );
   });
 

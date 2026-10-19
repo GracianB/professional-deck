@@ -4,7 +4,10 @@
   const body = document.body;
   const deck = document.getElementById("deck");
   if (!deck) return;
-  const focusIds = new Set(["inicio","sistemas","demos","trayectoria","contacto"]);
+  const focusIds = new Set(["inicio","sistemas","demos","experiencia","contacto"]);
+  const redirects={trayectoria:"experiencia","experiencia-2":"experiencia",metodo:"sistemas",capacidades:"demos"};
+  const incoming=decodeURIComponent(location.hash.slice(1));
+  if(redirects[incoming])history.replaceState(null,"",location.pathname+location.search+"#"+redirects[incoming]);
   const hash = decodeURIComponent(location.hash.slice(1));
   const query = new URLSearchParams(location.search);
   let full = query.get("view")==="full" || query.get("present")==="1" ||
@@ -46,7 +49,9 @@
     event.stopImmediatePropagation();
   },true);
   window.addEventListener("hashchange",()=>{
-    const id=decodeURIComponent(location.hash.slice(1));
+    const raw=decodeURIComponent(location.hash.slice(1));
+    const id=redirects[raw]||raw;
+    if(id!==raw)history.replaceState(null,"",location.pathname+location.search+"#"+id);
     if(id&&!focusIds.has(id)&&document.getElementById(id))setFull(true,false);
   });
   new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});

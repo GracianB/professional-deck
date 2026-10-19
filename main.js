@@ -218,6 +218,25 @@
       });
     }
 
+    document.querySelectorAll("[data-career]").forEach((item)=>{
+      const role=t.roles?.[item.dataset.career];
+      if(!role)return;
+      const fill=(key,value)=>{const el=item.querySelector(key);if(el)el.textContent=value||"";};
+      fill("[data-career-company]",role.company);
+      fill("[data-career-title]",role.title);
+      fill("[data-career-period]",role.period);
+      fill("[data-career-meta]",role.meta);
+      fill("[data-career-summary]",role.summary);
+      const paragraphs=item.querySelector("[data-career-copy]");
+      if(paragraphs){
+        paragraphs.replaceChildren(...(Array.isArray(role.copy)?role.copy:[role.copy||""]).filter(Boolean).map(copy=>{const p=document.createElement("p");p.textContent=copy;return p;}));
+      }
+      const skills=item.querySelector("[data-career-skills]");
+      if(skills){
+        skills.replaceChildren(...(role.skills||[]).map(value=>{const li=document.createElement("li");li.textContent=value;return li;}));
+      }
+    });
+
     commandItems = slides.map((slide, index) => ({
       id: slide.id,
       title: slide.dataset.title,
@@ -257,14 +276,14 @@
 
   function syncDocLinks() {
     const cv = lang === "en"
-      ? "./Gracian_Baena_CV_2026_EN.pdf"
-      : "./Gracian_Baena_CV_2026_ES.pdf";
+      ? "https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_EN.pdf"
+      : "https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_ES.pdf";
     const letter = lang === "en"
-      ? "./Gracian_Baena_Cover_Letter_EN.pdf"
-      : "./Gracian_Baena_Carta_Presentacion_ES.pdf";
+      ? "https://gracianb.github.io/GracianB/Gracian_Baena_Cover_Letter_EN.pdf"
+      : "https://gracianb.github.io/GracianB/Gracian_Baena_Carta_Presentacion_ES.pdf";
     document.querySelectorAll("[data-cv-link]").forEach((a) => {
       a.setAttribute("href", cv);
-      a.setAttribute("download", "");
+      a.removeAttribute("download");
     });
     document.querySelectorAll("[data-letter-link]").forEach((a) => {
       a.setAttribute("href", letter);
@@ -521,6 +540,8 @@
   }
 
   deck.addEventListener("wheel", (event) => {
+    // P41: vertical reading is natural; never snap past an expanded career entry.
+    if (document.body.classList.contains("deck-full") || event.target.closest("#experiencia")) return;
     if (!wheelMode.matches || modalOpen() || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
     event.preventDefault();
     if (wheelBusy) return;
@@ -550,6 +571,7 @@
     touchY = t.clientY; touchX = t.clientX; touchT = Date.now();
   }, { passive: true });
   deck.addEventListener("touchend", (event) => {
+    if (document.body.classList.contains("deck-full") || event.target.closest("#experiencia")) return;
     if (modalOpen()) return;
     const t = event.changedTouches[0];
     const dy = t.clientY - touchY;
@@ -730,7 +752,7 @@
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stopAtlasTour();
   });
-  atlasExplore?.addEventListener("click", () => goTo(atlasExplore.dataset.atlasGo || "experiencia"));
+  atlasExplore?.addEventListener("click", () => goTo("experiencia"));
 
   // Real 60-second presentation. Four 15-second chapters, monotonic clock,
   // pause/resume, direct seeking, restart, reduced-motion safe and bilingual.

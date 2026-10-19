@@ -1,3 +1,19 @@
+## P41 · One professional journey · October 2026
+
+The professional portfolio is deliberately **not a 12-slide deck** anymore. This commit removes Method (04), Evolution (06) and Capabilities (09) from the actual document and merges Experience I + II into a single accessible six-role timeline (native `details/summary`, chronological, naturally scrollable and populated from the same ES/EN professional role model). Roles are text-based and legible rather than illustrated with obscure employer placeholders.
+
+**Navigation:** eight real sections: `inicio`, `modelo`, `sistemas`, `demos`, `ruta`, `experiencia`, `formacion` and `contacto`. The first visit displays five useful destinations; Full detail exposes the remaining background and atlas. Retired hash URLs redirect to live equivalent content. The lateral 12-slide rail is not displayed.
+
+**Design:** genuinely new platinum/graphite landing page, compact three-route explorer, responsive grayscale typography, geometrical background rendered in CSS, permanently visible GB identity at the top-left, natural wheel/touch scrolling for the full career, a dark-mode-aware closing contact panel, and four explicit professional document entries.
+
+**Single source of truth:** the current documents are published by `GracianB/GracianB` and linked rather than copied. They are:
+- `https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_ES.pdf`
+- `https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_EN.pdf`
+- `https://gracianb.github.io/GracianB/Gracian_Baena_Carta_Presentacion_ES.pdf`
+- `https://gracianb.github.io/GracianB/Gracian_Baena_Cover_Letter_EN.pdf`
+
+The repository still includes old binary CV duplicates for historical asset contracts. Do not use them in new links. The hub owns the authoritative updates.
+
 # Professional Deck · Gracián Baena
 
 **Customer Success Systems & Data Strategist**  

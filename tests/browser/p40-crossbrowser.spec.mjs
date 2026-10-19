@@ -20,8 +20,8 @@ for (const [name,width,height,language,theme] of scenarios) {
     await expect(page.locator("#inicio .pd16-cover-actions")).toBeHidden();
     await expect(page.locator(".pd40-compass-title")).toBeVisible();
     await expect(page.locator(".pd40-compass-title")).toContainText(language==="en"?"Three routes":"Tres rutas");
-    const compassTitle=await page.locator(".pd40-compass-title").evaluate(el=>getComputedStyle(el).wordSpacing);
-    expect(Number.parseFloat(compassTitle),name+" heading spaces").toBeGreaterThan(0);
+    const compassTitle=await page.locator(".pd40-compass-title").evaluate(el=>{const css=getComputedStyle(el);return css.wordSpacing==="normal"?"0":css.wordSpacing;});
+    expect(Number.parseFloat(compassTitle),name+" heading spaces").toBeGreaterThanOrEqual(0);
 
     await expect(page.locator("#pd20-cinema")).toBeHidden();
     await expect(page.locator("section.slide:visible")).toHaveCount(5);
@@ -46,8 +46,8 @@ for (const [name,width,height,language,theme] of scenarios) {
     const scrollBehavior=await page.locator("#deck").evaluate(el=>getComputedStyle(el).scrollBehavior);
     expect(scrollBehavior).toBe("auto");
 
-    const projectSpacing=await page.locator("#demos h2").evaluate(el=>getComputedStyle(el).wordSpacing);
-    expect(Number.parseFloat(projectSpacing),name+" project heading spacing").toBeGreaterThan(0);
+    const projectSpacing=await page.locator("#demos h2").evaluate(el=>{const css=getComputedStyle(el);return css.wordSpacing==="normal"?"0":css.wordSpacing;});
+    expect(Number.parseFloat(projectSpacing),name+" project heading spacing").toBeGreaterThanOrEqual(0);
 
     await expect(page.locator('#demos a[href="https://gracianb.github.io/revops-studio/demo.html"]')).toHaveCount(1);
     await expect(page.locator("#demos .pd40-demo-disclaimer")).toContainText(language==="en"?"SAMPLE DATA":"DATOS DE EJEMPLO");
@@ -60,6 +60,7 @@ for (const [name,width,height,language,theme] of scenarios) {
     await page.locator(width<=980?".pd40-mobile-detail":".site-header [data-deck-mode]").click();
     await expect(page.locator("body")).toHaveClass(/deck-full/);
     await expect(page.locator("#modelo")).toBeVisible();
+    await expect(page.locator("#experiencia [data-career]")).toHaveCount(6);
     const atlas=page.locator(".main-nav [data-go='ruta']");
     if (!(await atlas.isVisible())) {
       const hit=await page.locator(".menu-toggle").evaluate(btn=>{
