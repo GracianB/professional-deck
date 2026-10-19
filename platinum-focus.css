@@ -452,3 +452,23 @@ html:not([data-theme="light"]),html:not([data-theme="light"]) body,
 html:not([data-theme="light"]) body .deck{background-color:#0b1219!important}
 body .deck .slide-index>span:first-child{color:#b8cbdc!important}
 html[data-theme="light"] body .deck .slide-index>span:first-child{color:#566c80!important}
+
+/* P42 · Functional career controls. No parallel modal and no artificial page jump. */
+.pd42-career-tools{display:flex;justify-content:space-between;align-items:center;gap:13px;flex-wrap:wrap;margin:22px 0 0}
+.pd42-career-tools [data-career-toggle]{appearance:none;display:inline-flex;align-items:center;justify-content:center;
+ padding:12px 16px;min-height:46px;background:#dce7f0;color:#1a2d3e;border:1px solid #dce7f0;border-radius:8px;
+ font:700 .70rem/1.4 var(--sans);letter-spacing:.04em;cursor:pointer;transition:background-color .16s,border-color .16s}
+.pd42-career-tools [data-career-toggle]:hover{background:#f0f6fb;border-color:#f0f6fb}
+.pd42-career-tools>span{font:400 .82rem/1.5 var(--sans);color:#bdcbd8;max-width:41ch}
+html[data-theme="light"] .pd42-career-tools [data-career-toggle]{background:#24394a;border-color:#24394a;color:#fff}
+html[data-theme="light"] .pd42-career-tools [data-career-toggle]:hover{background:#38536a;border-color:#38536a}
+html[data-theme="light"] .pd42-career-tools>span{color:#4f6477}
+.pd41-career-item>summary{scroll-margin-top:calc(var(--header) + 24px)}
+.pd41-career-item>summary:hover{background:rgba(190,213,235,.055)}
+html[data-theme="light"] .pd41-career-item>summary:hover{background:#edf3f8}
+@media(max-width:600px){.pd42-career-tools [data-career-toggle]{width:100%}.pd42-career-tools>span{font-size:.76rem}}
+@media(prefers-reduced-motion:reduce){.pd42-career-tools [data-career-toggle]{transition:none}}
+
+/* P42 · Nonintrusive location indicator, accurately updated during long-page scrolling. */
+.site-header .main-nav>button[data-go][aria-current="location"]{color:#e5f2fb!important;background:rgba(185,210,232,.10)!important}
+html[data-theme="light"] .site-header .main-nav>button[data-go][aria-current="location"]{color:#172c3e!important;background:#e2eaf2!important}

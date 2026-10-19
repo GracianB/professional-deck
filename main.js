@@ -237,6 +237,8 @@
       }
     });
 
+    refreshCareerControls();
+
     commandItems = slides.map((slide, index) => ({
       id: slide.id,
       title: slide.dataset.title,
@@ -254,6 +256,25 @@
       try { setActive(activeIndex, false); } catch (_) {}
     }
   }
+
+  // Native details preserve keyboard access and ordinary page scrolling.
+  // A single unobtrusive action exposes all six jobs without adding another slide.
+  const careerItems = [...document.querySelectorAll("#experiencia [data-career]")];
+  const careerToggle = document.querySelector("[data-career-toggle]");
+  function refreshCareerControls() {
+    if (!careerToggle || !careerItems.length) return;
+    const allExpanded = careerItems.every((el) => el.open);
+    careerToggle.setAttribute("aria-pressed", String(allExpanded));
+    careerToggle.textContent = allExpanded
+      ? (t.careerCloseAll || "RECOGER LAS ETAPAS ↑")
+      : (t.careerOpenAll || "DESPLEGAR LAS SEIS ETAPAS ↓");
+  }
+  careerToggle?.addEventListener("click", () => {
+    const shouldOpen = !careerItems.every(el => el.open);
+    careerItems.forEach(el => { el.open = shouldOpen; });
+    refreshCareerControls();
+  });
+  careerItems.forEach(el => el.addEventListener("toggle", refreshCareerControls));
 
   function syncLangButtons() {
     document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
@@ -416,6 +437,10 @@
       button.setAttribute("aria-current", active ? "true" : "false");
     });
     const slide = slides[next];
+    document.querySelectorAll(".site-header .main-nav [data-go]").forEach((button) => {
+      if (button.dataset.go === slide?.id) button.setAttribute("aria-current", "location");
+      else button.removeAttribute("aria-current");
+    });
     if (currentLabel) currentLabel.textContent = pad(next + 1);
     if (railStatus) railStatus.textContent = `${pad(next)} · ${slide.dataset.title || ""}`;
     if (progress) progress.style.transform = `scaleX(${(next + 1) / slides.length})`;
@@ -439,6 +464,10 @@
   function goTo(target, instant = false) {
     const index = typeof target === "number" ? target : slides.findIndex((s) => s.id === target);
     if (index < 0) return;
+    // Command palette, keyboard and recruiter links must also reveal deep chapters.
+    if (getComputedStyle(slides[index]).display === "none") {
+      window.GB_DECK_VIEW?.showAll();
+    }
     setActive(index, true);
     slides[index].scrollIntoView({
       behavior: instant || reducedMotion.matches || document.body.classList.contains("deck-focus") ? "auto" : "smooth",
@@ -539,6 +568,25 @@
     }, { passive: true });
   }
 
+  // Intersection ratio cannot exceed 0.55 for a very tall expanded career.
+  // Use the point of actual reading within the deck to keep the current
+  // chapter state and navigation accurate on a naturally scrollable page.
+  let readingFrame = 0;
+  deck.addEventListener("scroll", () => {
+    if (readingFrame) return;
+    readingFrame = requestAnimationFrame(() => {
+      readingFrame = 0;
+      const bounds = deck.getBoundingClientRect();
+      const readingLine = bounds.top + bounds.height * .4;
+      const next = slides.findIndex((section) => {
+        if (getComputedStyle(section).display === "none") return false;
+        const rect = section.getBoundingClientRect();
+        return rect.top <= readingLine && rect.bottom >= readingLine;
+      });
+      if (next >= 0 && next !== activeIndex) setActive(next, false);
+    });
+  }, {passive:true});
+
   deck.addEventListener("wheel", (event) => {
     // P41: vertical reading is natural; never snap past an expanded career entry.
     if (document.body.classList.contains("deck-full") || event.target.closest("#experiencia")) return;
@@ -588,6 +636,13 @@
 
   document.addEventListener("keydown", (event) => {
     if (modalOpen() && event.key !== "Escape") return;
+    if (document.body.classList.contains("deck-full")) {
+      const box = document.getElementById("experiencia")?.getBoundingClientRect();
+      const view = deck.getBoundingClientRect();
+      // Inside the long professional timeline, PageDown and arrows scroll normally.
+      if (box && view && box.top <= view.top + view.height * .48
+        && box.bottom >= view.top + view.height * .48) return;
+    }
     const tag = event.target?.tagName?.toLowerCase();
     if (["input", "textarea", "select"].includes(tag) || event.target?.isContentEditable) return;
     const keys = {

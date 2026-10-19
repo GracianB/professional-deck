@@ -1,4 +1,4 @@
-/* P40 · five meaningful chapters first; twelve original chapters remain intact. */
+/* P42 · five direct destinations, eight real chapters, reversible progressive disclosure. */
 (() => {
   "use strict";
   const body = document.body;
@@ -33,6 +33,9 @@
     history.replaceState(null,"",url.pathname+url.search+url.hash);
     if(!full)document.getElementById("inicio")?.scrollIntoView({block:"start",behavior:"instant"});
   }
+  window.GB_DECK_VIEW = Object.freeze({
+    showAll: () => setFull(true)
+  });
   toggles.forEach(toggle=>toggle.addEventListener("click",()=>setFull(!full)));
   document.addEventListener("click",event=>{
     if(full)return;
