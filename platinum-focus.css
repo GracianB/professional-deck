@@ -21,8 +21,8 @@ html:not([data-theme="light"]) .deck>.slide{
 html[data-theme="light"] .deck>.slide{
   background:radial-gradient(ellipse at 80% 16%,rgba(188,200,213,.17),transparent 50%),#f1f3f6!important;
 }
-.site-header{background:rgba(12,17,23,.97)!important;border-color:rgba(195,205,217,.24)!important}
-html[data-theme="light"] .site-header{background:rgba(249,250,251,.98)!important;border-color:#c9d0d9!important}
+.site-header{background:var(--v1-deep)!important;border-color:var(--v1-line)!important}
+html[data-theme="light"] .site-header{background:var(--v1-panel)!important;border-color:var(--v1-line)!important}
 #inicio.pd16-cover .pd16-os{background:linear-gradient(145deg,#252f3a,#111820)!important;border-color:#6a7683!important}
 html[data-theme="light"] #inicio.pd16-cover .pd16-os{background:linear-gradient(145deg,#fff,#e7ebf0)!important;border-color:#b5c0cc!important}
 #inicio.pd16-cover .pd16-os svg{filter:grayscale(1)}
@@ -186,7 +186,7 @@ body .site-header{
  backdrop-filter:blur(18px);
 }
 .site-header>.brand{flex:0 1 auto!important;min-width:160px;overflow:visible}
-.site-header .brand-mark{border:1px solid #8293a4!important;background:#151f29!important;color:#e2eaf3!important;border-radius:8px!important;box-shadow:none!important;letter-spacing:.08em}
+.site-header .brand-mark{border:1px solid var(--v1-line)!important;background:var(--v1-panel)!important;color:var(--v1-ink)!important;border-radius:8px!important;box-shadow:none!important;letter-spacing:.08em}
 html[data-theme="light"] .site-header .brand-mark{background:#e1e7ee!important;color:#1f303d!important}
 .site-header .brand-text b{font-size:clamp(.65rem,.85vw,.82rem)!important;letter-spacing:.09em!important}
 .site-header .brand-text small{font-size:.56rem!important;letter-spacing:.055em!important}
