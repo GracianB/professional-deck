@@ -443,3 +443,12 @@ body.deck-focus #inicio.pd16-cover .pd41-compass-title,
 body.deck-full #inicio.pd16-cover .pd41-compass-title{
  letter-spacing:-.015em!important;word-spacing:.17em!important;line-height:1.19!important;
 }
+
+/* Final screenshot audit: the canvas after the final card is also cold-neutral,
+   never the previous beige body background (visible under mobile contact). */
+html[data-theme="light"],html[data-theme="light"] body,
+html[data-theme="light"] body .deck{background-color:#edf1f5!important}
+html:not([data-theme="light"]),html:not([data-theme="light"]) body,
+html:not([data-theme="light"]) body .deck{background-color:#0b1219!important}
+body .deck .slide-index>span:first-child{color:#b8cbdc!important}
+html[data-theme="light"] body .deck .slide-index>span:first-child{color:#566c80!important}
