@@ -22,12 +22,12 @@
 #sistemas.pd19-case .gb-star-actions .ghost {border-color:rgba(212,208,203,.4)!important;background:#1d2023!important;color:#f4f0eb!important}
 #sistemas.pd19-case .gb-star-actions .ghost:hover {background:#303336!important}
 #sistemas.pd19-case .tag-row>span {background:rgba(30,33,36,.87)!important;border-color:rgba(194,190,185,.21)!important;color:#cfcbc6!important}
-#sistemas.pd19-case .gb-star-points li::marker {color:#c8c4bf!important}
+#sistemas.pd19-case .gb-star-points li::marker {color:var(--v1-sub)!important}
 .pd19-os-flow {width:100%;margin:-.15rem 0 .1rem;display:grid;grid-template-columns:repeat(7,auto);align-items:stretch;justify-content:stretch;gap:clamp(.2rem,.65vw,.8rem);background:linear-gradient(95deg,rgba(79,80,81,.25),rgba(24,27,30,.13));border:1px solid var(--pd19-line);padding:.55rem clamp(.5rem,1.3vw,1rem);border-radius:10px}
-.pd19-os-flow>span {min-width:0;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;color:var(--pd19-cyan);font:700 .53rem/1.4 var(--mono)}
+.pd19-os-flow>span {min-width:0;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;color:var(--v1-ink);font:700 .53rem/1.4 var(--mono)}
 .pd19-os-flow strong {white-space:nowrap;font-size:clamp(.56rem,.73vw,.72rem);letter-spacing:.035em;color:#fbf7f2}
-.pd19-os-flow small {font-size:.48rem;color:#c1bdb8;flex:1 1 100%;margin-left:1.3rem}
-.pd19-os-flow i {align-self:center;font:700 1rem var(--sans);font-style:normal;color:#aeaaa5}
+.pd19-os-flow small {font-size:.48rem;color:var(--v1-sub);flex:1 1 100%;margin-left:1.3rem}
+.pd19-os-flow i {align-self:center;font:700 1rem var(--sans);font-style:normal;color:var(--v1-sub)}
 @media(max-width:900px){.pd19-os-flow{grid-template-columns:repeat(4,minmax(0,1fr));gap:.45rem}.pd19-os-flow>i{display:none}.pd19-os-flow>span{display:flex;flex-wrap:wrap}.pd19-os-flow small{margin-left:0}}
 
 /* Atlas: high-contrast vector cartography, exploration & route animation. */
