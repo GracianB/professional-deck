@@ -178,3 +178,23 @@ html[data-theme="light"] body #sistemas.pd19-case .gb-star-metrics>div:last-chil
 html[data-theme="light"] body #demos .gb-demo-card:nth-child(2) :is(.tag-row span,.gb-demo-badge){
  background:#e8f0f7!important;color:#40586d!important;border-color:#b4c7d6!important
 }
+
+/* V1 continuity: the advanced-only Atlas and Training were still warm in V24. */
+html:not([data-theme="light"]) body #formacion :is(.gb-edu-panel,.gb-edu-head,.builder-note,.education-list){
+ background:#12202b!important;border-color:#55728b!important;color:#e1edf6!important
+}
+html:not([data-theme="light"]) body #formacion :is(.gb-edu-head h2,.gb-panel-lead,.builder-note li,.education-list li,.builder-note>span,.education-list .eyebrow,.education-list li b){
+ color:#d5e6f3!important;border-color:#4c6a83!important
+}
+html[data-theme="light"] body #formacion :is(.gb-edu-panel,.gb-edu-head,.builder-note,.education-list){
+ background:#fff!important;border-color:#bacbd8!important;color:#2c4559!important
+}
+html[data-theme="light"] body #formacion :is(.gb-edu-head h2,.gb-panel-lead,.builder-note li,.education-list li,.builder-note>span,.education-list .eyebrow,.education-list li b){
+ color:#355169!important;border-color:#b8c9d7!important
+}
+html[data-theme="light"] body #ruta.pd18-atlas :is(.pd17-atlas-stops button,.pd19-atlas-toolbar button,.pd17-stage-link,.pd18-map-caption,.pd19-map-status){
+ background:#e4edf5!important;border-color:#b4c7d7!important;color:#29455c!important
+}
+html[data-theme="light"] body #ruta.pd18-atlas :is(.pd17-atlas-stops button[aria-pressed="true"],.pd19-atlas-toolbar button[aria-pressed="true"]){
+ background:#243f54!important;border-color:#243f54!important;color:#fff!important
+}
