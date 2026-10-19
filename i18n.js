@@ -1,5 +1,8 @@
 ﻿window.GB_I18N = {
   es: {
+    orbitSystems: "Ver Sistemas",
+    orbitExperience: "Ver Experiencia",
+    orbitProjects: "Ver Proyectos",
     careerOpenAll: "DESPLEGAR LAS SEIS ETAPAS ↓",
     careerCloseAll: "RECOGER LAS SEIS ETAPAS ↑",
     careerToolHint: "Abre un empleo para leerlo, o despliega los seis.",
@@ -522,6 +525,9 @@
     open: "ABRIR →"
   },
   en: {
+    orbitSystems: "Open Systems",
+    orbitExperience: "Open Experience",
+    orbitProjects: "Open Projects",
     careerOpenAll: "EXPAND ALL SIX ROLES ↓",
     careerCloseAll: "COLLAPSE ALL SIX ROLES ↑",
     careerToolHint: "Open any role for context, or expand all six.",

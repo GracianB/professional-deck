@@ -65,8 +65,8 @@ html[data-theme="light"] body .deck>#inicio.pd41-cover{background:#e9f0f6!import
  outline:2px solid #ecf7ff;outline-offset:4px;
 }
 @keyframes v1-orbit-travel{
- from{transform:rotate(var(--orbit-start)) translateX(var(--v1-orbit-radius)) rotate(calc(-1 * var(--orbit-start)))}
- to{transform:rotate(calc(var(--orbit-start) + 360deg)) translateX(var(--v1-orbit-radius)) rotate(calc(-1 * (var(--orbit-start) + 360deg)))}
+ from{transform:rotate(var(--orbit-start)) translateX(var(--v1-orbit-radius)) rotate(var(--orbit-inverse))}
+ to{transform:rotate(calc(var(--orbit-start) + 360deg)) translateX(var(--v1-orbit-radius)) rotate(calc(var(--orbit-inverse) - 360deg))}
 }
 html[data-theme="light"] .v1-orbit-node{
  background:radial-gradient(circle at 32% 24%,#fff,#bacfdf 33%,#627e95 72%,#355268 100%);
@@ -152,3 +152,6 @@ html[data-theme="light"] :where(.v1-orbit-node,.pd41-doc,.pd40-route,.pd41-caree
  body #inicio .pd41-route-grid .pd40-route,body #demos .gb-demo-card,
  body #contacto .pd19-contact-link,.pd41-career-item,.site-header .main-nav>button[data-go]{transition:none!important}
 }
+
+/* Pause all nodes as the pointer enters the ring; targets never dodge a click. */
+.pd41-orbit:is(:hover,:focus-within) .v1-orbit-node{animation-play-state:paused}
