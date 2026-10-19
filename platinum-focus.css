@@ -383,3 +383,9 @@ html[data-theme="light"] .pd41-contact-note p em{color:#576d82!important}
 @media(prefers-reduced-motion:reduce){
  .pd41-doc,.pd41-career-plus{transition:none!important}
 }
+
+/* Full detail retains optional atlas and 60s evidence, never on the first screen. */
+body.deck-focus .site-header .pd41-atlas-nav,body.deck-focus .pd41-brief-btn{display:none!important}
+body.deck-full .site-header .pd41-atlas-nav{display:inline-flex!important}
+body.deck-full #inicio .pd41-brief-btn{display:inline-flex!important;align-items:center;border:1px solid var(--pd41-outline);padding:10px 14px;color:var(--pd41-ink);border-radius:8px;font:700 .65rem var(--mono)}
+@media(max-width:980px){body.deck-full .site-header>.main-nav .pd41-atlas-nav{display:flex!important}}

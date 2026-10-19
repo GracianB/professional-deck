@@ -87,8 +87,17 @@ const readme = await readFile(join(root, "README.md"), "utf8");
 const packageJson = JSON.parse(await readFile(join(root, "package.json"), "utf8"));
 const publicText = [index, i18n, readme].join("\n");
 
+const canonicalDocs="https://gracianb.github.io/GracianB/";
+for(const name of ["Gracian_Baena_CV_2026_ES.pdf","Gracian_Baena_CV_2026_EN.pdf","Gracian_Baena_Carta_Presentacion_ES.pdf","Gracian_Baena_Cover_Letter_EN.pdf"]){
+ if(!index.includes(canonicalDocs+name)) errors.push("P41 canonical document missing: "+name);
+}
+for(const oldId of ["metodo","trayectoria","capacidades","experiencia-2"]){
+ if(new RegExp('<section[^>]*id="'+oldId+'"').test(index))errors.push("P41 obsolete slide still exists: "+oldId);
+}
+if((index.match(/data-career="/g)||[]).length!==6)errors.push("P41 one career view must expose six expandable roles");
+if(index.includes("pd18-brand-art"))errors.push("P41 confusing decorative employment illustrations still present");
 const slideCount = (index.match(/<section class="slide\b/g) || []).length;
-if (slideCount !== 12) errors.push(`V18 requires exactly 12 curated slides, found ${slideCount}`);
+if (slideCount !== 8) errors.push(`P41 requires eight non-duplicated sections, found ${slideCount}`);
 
 const ids = [...index.matchAll(/\bid=["']([^"']+)["']/g)].map((match) => match[1]);
 const duplicates = [...new Set(ids.filter((id, pos) => ids.indexOf(id) !== pos))];
@@ -101,9 +110,9 @@ if (!/scroll-snap-type:\s*y mandatory/.test(css)) errors.push("Missing scroll sn
 if (!/addEventListener\("wheel"/.test(main)) errors.push("Missing wheel navigation");
 
 for (const token of [
-  'class="slide dark fit pd16-cover"',
-  'class="pd16-universe-signature"',
-  'class="pd16-os"',
+  'class="slide dark fit pd16-cover pd41-cover"',
+  'class="pd41-cover-inner"',
+  'class="pd41-route-grid"',
   'id="modelo"',
   'id="sistemas"',
   'id="demos"',
@@ -118,13 +127,7 @@ for (const token of [
   'data-brief-progress',
   'data-brief-chapters',
   'data-brief-play',
-  'id="trayectoria"',
-  'class="pd18-evo-rail"',
-  'class="pd18-method-flow"',
-  'class="pd18-cap-grid"',
   'id="experiencia"',
-  'id="experiencia-2"',
-  'id="capacidades"',
   'id="formacion"',
   'id="contacto"',
 ]) {
@@ -172,11 +175,11 @@ if (!/\.pd19-contact-wrap\s*\{/.test(v19)) errors.push("V19 contact design missi
 if (!/\.pd20-model-track/.test(v20)) errors.push("V20 Model layout missing");
 if (!/html\[data-theme="light"\]/.test(v20Light)) errors.push("V20 light theme missing");
 if (!/function start\(/.test(v20Cinema) || !/function end\(/.test(v20Cinema)) errors.push("V20 cinematic lifecycle missing");
-for (const key of ["data-cinema-skip", "data-cinema-replay", "pd20-model-journey"]) if (!index.includes(key)) errors.push(`V20 missing ${key}`);
+for (const key of ["data-cinema-skip", "pd20-model-journey"]) if (!index.includes(key)) errors.push(`V20 missing ${key}`);
 if (!/\.pd18-model-track\s*\{/.test(v18)) errors.push("V18 model CSS missing");
 if ((index.match(/data-lat=/g)||[]).length !== 6) errors.push("V18 requires six city markers");
 for (const city of ["MURCIA", "GRAN CANARIA", "MADRID", "LISBOA", "BÉRGAMO", "VARSOVIA"]) requireText(index, city, `city marker ${city}`);
-for (const retired of ["valor", "linea", "idiomas"]) {
+for (const retired of ["valor", "linea", "idiomas", "metodo", "trayectoria", "capacidades", "experiencia-2"]) {
  if (new RegExp(`<section[^>]+id="${retired}"`).test(index)) errors.push(`Retired filler slide still present: ${retired}`);
 }
 
@@ -221,4 +224,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`OK · V20 EDITORIAL · ${required.length} files · ${slideCount} slides · ES/EN · evidence-first · ready for browser gates`);
+console.log(`OK · P41 ONE JOURNEY · ${required.length} files · ${slideCount} slides · ES/EN · evidence-first · ready for browser gates`);

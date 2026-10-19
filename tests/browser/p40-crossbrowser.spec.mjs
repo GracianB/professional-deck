@@ -60,6 +60,7 @@ for (const [name,width,height,language,theme] of scenarios) {
     await page.locator(width<=980?".pd40-mobile-detail":".site-header [data-deck-mode]").click();
     await expect(page.locator("body")).toHaveClass(/deck-full/);
     await expect(page.locator("#modelo")).toBeVisible();
+    await expect(page.locator("#experiencia [data-career]")).toHaveCount(6);
     const atlas=page.locator(".main-nav [data-go='ruta']");
     if (!(await atlas.isVisible())) {
       const hit=await page.locator(".menu-toggle").evaluate(btn=>{
