@@ -29,7 +29,7 @@ I started close to customers, teams and daily operations. The technical layer ca
 
 ## P40 · Platinum Focus (October 2026)
 
-The default visitor journey now uses five stops: a compact cover with three direct evidence routes, Bodytone operations, public work, professional evolution, and contact. The twelve original chapters remain accessible through **Full detail / Quick view** and old deep links expand automatically. The 60-second briefing remains. The cinematic opening is opt-in through `?intro=1` or replay, not autoplay.
+The default visitor journey now uses five stops: a compact cover with three direct evidence routes, Bodytone operations, public work, professional evolution, and contact. Redundant hero action buttons, cover counters, duplicate role lines and introductory index labels are hidden in quick view; the full historical deck remains recoverable. The twelve original chapters remain accessible through **Full detail / Quick view** and old deep links expand automatically. The 60-second briefing remains. The cinematic opening is opt-in through `?intro=1` or replay, not autoplay.
 
 Visual direction: platinum, silver, graphite and strong cold-neutral contrast in both themes. The Deck remains the professional evidence world alongside the GracianB hub, Yoga Instructor and Systems Lab.
 

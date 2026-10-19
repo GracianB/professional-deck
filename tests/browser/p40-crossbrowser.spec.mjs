@@ -17,6 +17,8 @@ for (const [name,width,height,language,theme] of scenarios) {
     await expect(page.locator("html")).toHaveAttribute("data-theme",theme);
     await expect(page.locator("html")).toHaveAttribute("lang",language);
     await expect(page.locator(".pd40-compass")).toBeVisible();
+    await expect(page.locator("#inicio .pd16-cover-actions")).toBeHidden();
+    await expect(page.locator(".pd40-compass-title")).toBeVisible();
     await expect(page.locator("#pd20-cinema")).toBeHidden();
     await expect(page.locator("section.slide:visible")).toHaveCount(5);
     const layout=await page.evaluate(()=>({
