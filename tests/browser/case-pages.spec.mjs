@@ -15,7 +15,7 @@ for(const [key,path,title] of pages) {
       const page=await context.newPage();
       const errors=[];
       page.on("pageerror",error=>errors.push(error.message));
-      await page.goto("/?view=full"+path+"?lang=es",{waitUntil:"domcontentloaded"});
+      await page.goto("/"+path+"?lang=es",{waitUntil:"domcontentloaded"});
       await expect(page.locator("body.case-body")).toBeVisible();
       await expect(page.locator(".case-hero h1")).toContainText(new RegExp(title,"i"));
       await expect(page.locator(".case-hero-aside dl>div")).toHaveCount(4);

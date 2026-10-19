@@ -49,7 +49,7 @@ test.describe("Professional Deck smoke", () => {
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
     await page.locator('[data-set-theme="dark"]').click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-    await page.locator('#inicio [data-go="sistemas"]').click();
+    await page.locator('#inicio .pd16-cover-actions [data-go="sistemas"]').click();
     await expect(page).toHaveURL(/theme=dark/);
     await expect(page).toHaveURL(/#sistemas$/);
     await expect(page.locator('[data-slide-live]')).toContainText(/Slide 03.*Bodytone/i);
@@ -109,7 +109,7 @@ test.describe("Professional Deck smoke", () => {
     await command.locator(".dialog-close").click();
     await expect(command).not.toBeVisible();
 
-    await page.locator('#inicio [data-go="sistemas"]').click();
+    await page.locator('#inicio .pd16-cover-actions [data-go="sistemas"]').click();
     await expect(page.locator('[data-rail-status]')).toContainText(/Bodytone/i);
 
     await page.keyboard.press("p");
