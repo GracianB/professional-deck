@@ -237,6 +237,8 @@
       }
     });
 
+    refreshCareerControls();
+
     commandItems = slides.map((slide, index) => ({
       id: slide.id,
       title: slide.dataset.title,
@@ -254,6 +256,25 @@
       try { setActive(activeIndex, false); } catch (_) {}
     }
   }
+
+  // Native details preserve keyboard access and ordinary page scrolling.
+  // A single unobtrusive action exposes all six jobs without adding another slide.
+  const careerItems = [...document.querySelectorAll("#experiencia [data-career]")];
+  const careerToggle = document.querySelector("[data-career-toggle]");
+  function refreshCareerControls() {
+    if (!careerToggle || !careerItems.length) return;
+    const allExpanded = careerItems.every((el) => el.open);
+    careerToggle.setAttribute("aria-pressed", String(allExpanded));
+    careerToggle.textContent = allExpanded
+      ? (t.careerCloseAll || "RECOGER LAS ETAPAS ↑")
+      : (t.careerOpenAll || "DESPLEGAR LAS SEIS ETAPAS ↓");
+  }
+  careerToggle?.addEventListener("click", () => {
+    const shouldOpen = !careerItems.every(el => el.open);
+    careerItems.forEach(el => { el.open = shouldOpen; });
+    refreshCareerControls();
+  });
+  careerItems.forEach(el => el.addEventListener("toggle", refreshCareerControls));
 
   function syncLangButtons() {
     document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
@@ -439,6 +460,10 @@
   function goTo(target, instant = false) {
     const index = typeof target === "number" ? target : slides.findIndex((s) => s.id === target);
     if (index < 0) return;
+    // Command palette, keyboard and recruiter links must also reveal deep chapters.
+    if (getComputedStyle(slides[index]).display === "none") {
+      window.GB_DECK_VIEW?.showAll();
+    }
     setActive(index, true);
     slides[index].scrollIntoView({
       behavior: instant || reducedMotion.matches || document.body.classList.contains("deck-focus") ? "auto" : "smooth",
@@ -588,6 +613,13 @@
 
   document.addEventListener("keydown", (event) => {
     if (modalOpen() && event.key !== "Escape") return;
+    if (document.body.classList.contains("deck-full")) {
+      const box = document.getElementById("experiencia")?.getBoundingClientRect();
+      const view = deck.getBoundingClientRect();
+      // Inside the long professional timeline, PageDown and arrows scroll normally.
+      if (box && view && box.top <= view.top + view.height * .48
+        && box.bottom >= view.top + view.height * .48) return;
+    }
     const tag = event.target?.tagName?.toLowerCase();
     if (["input", "textarea", "select"].includes(tag) || event.target?.isContentEditable) return;
     const keys = {

@@ -1,5 +1,9 @@
 ﻿window.GB_I18N = {
   es: {
+    careerOpenAll: "DESPLEGAR LAS SEIS ETAPAS ↓",
+    careerCloseAll: "RECOGER LAS SEIS ETAPAS ↑",
+    careerToolHint: "Abre un empleo para leerlo, o despliega los seis.",
+    careerListAria: "Seis experiencias profesionales con detalles ampliables",
     newNavExperience: "Experiencia",
     newNavProjects: "Proyectos",
     newCoverLabel: "PORTFOLIO / CUSTOMER SYSTEMS",
@@ -485,12 +489,12 @@
     atlasMapNote: "Coordenadas y contornos vectoriales reales · conexiones narrativas, no rutas",
     atlasOpen: "VER EVOLUCIÓN ↗",
     atlasChapters: [
-      ["ESPAÑA", "BASE · MURCIA", "Murcia. La base.", "Base actual de los proyectos: operaciones, tecnología y Customer Success.", "MURCIA / 37.9922 N · 1.1307 W", "trayectoria"],
-      ["ESPAÑA", "CANARIAS", "Gran Canaria.", "Una de las referencias de mi recorrido. El mapa recoge esa conexión sin atribuirle una empresa concreta.", "GRAN CANARIA / 28.1235 N · 15.4363 W", "trayectoria"],
-      ["ESPAÑA", "RED NACIONAL", "Madrid.", "Otro punto en mi geografía profesional y red de conexiones.", "MADRID / 40.4168 N · 3.7038 W", "trayectoria"],
+      ["ESPAÑA", "BASE · MURCIA", "Murcia. La base.", "Base actual de los proyectos: operaciones, tecnología y Customer Success.", "MURCIA / 37.9922 N · 1.1307 W", "experiencia"],
+      ["ESPAÑA", "CANARIAS", "Gran Canaria.", "Una de las referencias de mi recorrido. El mapa recoge esa conexión sin atribuirle una empresa concreta.", "GRAN CANARIA / 28.1235 N · 15.4363 W", "experiencia"],
+      ["ESPAÑA", "RED NACIONAL", "Madrid.", "Otro punto en mi geografía profesional y red de conexiones.", "MADRID / 40.4168 N · 3.7038 W", "experiencia"],
       ["PORTUGAL", "ETAPA INTERNACIONAL", "Lisboa.", "La dimensión internacional y las experiencias vinculadas a Portugal forman parte de mi trayectoria.", "LISBOA / 38.7223 N · 9.1393 W", "experiencia"],
-      ["ITALIA", "CONEXIÓN EUROPEA", "Bérgamo.", "Referencia italiana dentro de una trayectoria abierta a otros mercados y culturas.", "BÉRGAMO / 45.6983 N · 9.6773 E", "trayectoria"],
-      ["POLONIA", "EUROPA", "Varsovia.", "Punto de conexión internacional y ecosistema profesional europeo.", "VARSOVIA / 52.2297 N · 21.0122 E", "trayectoria"]
+      ["ITALIA", "CONEXIÓN EUROPEA", "Bérgamo.", "Referencia italiana dentro de una trayectoria abierta a otros mercados y culturas.", "BÉRGAMO / 45.6983 N · 9.6773 E", "experiencia"],
+      ["POLONIA", "EUROPA", "Varsovia.", "Punto de conexión internacional y ecosistema profesional europeo.", "VARSOVIA / 52.2297 N · 21.0122 E", "experiencia"]
     ],
     briefEyebrow: "60 SEGUNDOS / 4 CAPÍTULOS",
     briefTitle: "Mi recorrido.<br><em>Sin relleno.</em>",
@@ -507,7 +511,7 @@
     briefExplore: "VER ESTA ETAPA ↗",
     briefHint: "15 segundos por capítulo · puedes avanzar manualmente",
     briefChapters: [
-      ["2014—2021", "Primero entendí a las personas.", "Cliente, equipos, servicio, operaciones y formación. La realidad antes que el dashboard.", "RETAIL · SOLARIS · MAJOREL", "experiencia-2"],
+      ["2014—2021", "Primero entendí a las personas.", "Cliente, equipos, servicio, operaciones y formación. La realidad antes que el dashboard.", "RETAIL · SOLARIS · MAJOREL", "experiencia"],
       ["2021—2024", "Después conecté cliente y negocio.", "En B2B SaaS, la adopción y las señales del cliente se convierten en decisiones medibles.", "MINDEREST · CUSTOMER SUCCESS", "experiencia"],
       ["2025—2026", "Aprendí a construir la solución.", "Bodytone: conocimiento, Zendesk, automatización, datos y formación en un mismo sistema.", "BODYTONE · SUPPORT OS", "sistemas"],
       ["HOY", "No necesitas creerlo. Puedes abrirlo.", "OHANA y VØRTICE son pruebas públicas de cómo diseño y valido; RevOps Studio sigue en desarrollo.", "LIVE · REPOSITORIOS · E2E", "demos"]
@@ -518,6 +522,10 @@
     open: "ABRIR →"
   },
   en: {
+    careerOpenAll: "EXPAND ALL SIX ROLES ↓",
+    careerCloseAll: "COLLAPSE ALL SIX ROLES ↑",
+    careerToolHint: "Open any role for context, or expand all six.",
+    careerListAria: "Six professional experiences with expandable details",
     newNavExperience: "Experience",
     newNavProjects: "Projects",
     newCoverLabel: "PORTFOLIO / CUSTOMER SYSTEMS",
@@ -1003,12 +1011,12 @@
     atlasMapNote: "Real coordinates and vector geography · narrative connections, not routes",
     atlasOpen: "EXPLORE EVOLUTION ↗",
     atlasChapters: [
-      ["SPAIN", "BASE · MURCIA", "Murcia. My base.", "Current home base connecting operations, technology and Customer Success projects.", "MURCIA / 37.9922 N · 1.1307 W", "trayectoria"],
-      ["SPAIN", "CANARY ISLANDS", "Gran Canaria.", "A geographic reference in my journey. This map does not assign a specific employer to it.", "GRAN CANARIA / 28.1235 N · 15.4363 W", "trayectoria"],
-      ["SPAIN", "NATIONAL NETWORK", "Madrid.", "Another reference in my professional geography and connections.", "MADRID / 40.4168 N · 3.7038 W", "trayectoria"],
+      ["SPAIN", "BASE · MURCIA", "Murcia. My base.", "Current home base connecting operations, technology and Customer Success projects.", "MURCIA / 37.9922 N · 1.1307 W", "experiencia"],
+      ["SPAIN", "CANARY ISLANDS", "Gran Canaria.", "A geographic reference in my journey. This map does not assign a specific employer to it.", "GRAN CANARIA / 28.1235 N · 15.4363 W", "experiencia"],
+      ["SPAIN", "NATIONAL NETWORK", "Madrid.", "Another reference in my professional geography and connections.", "MADRID / 40.4168 N · 3.7038 W", "experiencia"],
       ["PORTUGAL", "INTERNATIONAL", "Lisbon.", "An international professional connection with the Portugal stage of my journey.", "LISBON / 38.7223 N · 9.1393 W", "experiencia"],
-      ["ITALY", "EUROPEAN NETWORK", "Bergamo.", "An Italian reference in a career shaped by international contexts.", "BERGAMO / 45.6983 N · 9.6773 E", "trayectoria"],
-      ["POLAND", "EUROPE", "Warsaw.", "An international point of connection and a European professional ecosystem.", "WARSAW / 52.2297 N · 21.0122 E", "trayectoria"]
+      ["ITALY", "EUROPEAN NETWORK", "Bergamo.", "An Italian reference in a career shaped by international contexts.", "BERGAMO / 45.6983 N · 9.6773 E", "experiencia"],
+      ["POLAND", "EUROPE", "Warsaw.", "An international point of connection and a European professional ecosystem.", "WARSAW / 52.2297 N · 21.0122 E", "experiencia"]
     ],
     briefEyebrow: "60 SECONDS / 4 CHAPTERS",
     briefTitle: "My story.<br><em>No filler.</em>",
@@ -1025,7 +1033,7 @@
     briefExplore: "EXPLORE THIS CHAPTER ↗",
     briefHint: "15 seconds per chapter · jump freely",
     briefChapters: [
-      ["2014—2021", "First, I learned about people.", "Customers, teams, frontline operations and training. Reality before dashboards.", "RETAIL · SOLARIS · MAJOREL", "experiencia-2"],
+      ["2014—2021", "First, I learned about people.", "Customers, teams, frontline operations and training. Reality before dashboards.", "RETAIL · SOLARIS · MAJOREL", "experiencia"],
       ["2021—2024", "Then I connected customer and business.", "In B2B SaaS, adoption and customer signals become measurable decisions.", "MINDEREST · CUSTOMER SUCCESS", "experiencia"],
       ["2025—2026", "Then I built the solution.", "Bodytone: knowledge, Zendesk, automation, data and training in one operational system.", "BODYTONE · SUPPORT OS", "sistemas"],
       ["TODAY", "Don't take my word for it. Open the work.", "OHANA and VØRTICE provide public evidence of my work; RevOps Studio is still in development.", "LIVE · REPOSITORIES · E2E", "demos"]
