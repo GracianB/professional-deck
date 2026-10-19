@@ -126,3 +126,24 @@ body.deck-focus.has-os-rail .site-header{
  }
  .site-header .menu-toggle{flex:0 0 44px!important;min-width:44px!important;width:44px!important}
 }
+
+/* P40 visual QA: do not compress natural spaces out of the serif headings. */
+body.deck-focus .deck>.slide h2{
+ letter-spacing:-.015em!important;word-spacing:.16em!important;line-height:1.13!important;
+}
+body.deck-focus .deck>.slide h2 em{
+ letter-spacing:0!important;word-spacing:.15em!important;
+}
+body.deck-focus #inicio.pd16-cover .pd40-compass-title{
+ font-size:clamp(1.75rem,2.7vw,2.6rem)!important;
+ letter-spacing:-.015em!important;word-spacing:.16em!important;line-height:1.16!important;
+ margin:15px 0 10px!important;
+}
+body.deck-focus #inicio.pd16-cover .pd40-compass-lead{margin:0 0 14px!important;max-width:40ch!important}
+@media(max-width:600px){
+ body.deck-focus #inicio.pd16-cover .pd40-compass-title{font-size:clamp(1.7rem,7.3vw,2.05rem)!important}
+ body.deck-focus #inicio.pd16-cover .pd40-route{min-height:68px!important}
+ body.deck-focus #inicio.pd16-cover .pd40-cv{margin-top:16px!important}
+ body.deck-focus :is(#demos,#trayectoria,#sistemas,#contacto) h2{font-size:clamp(1.9rem,7.5vw,2.55rem)!important}
+ body.deck-focus .site-header .brand-text{display:none!important}
+}

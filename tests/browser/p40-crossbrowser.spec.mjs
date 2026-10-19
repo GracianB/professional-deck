@@ -19,6 +19,10 @@ for (const [name,width,height,language,theme] of scenarios) {
     await expect(page.locator(".pd40-compass")).toBeVisible();
     await expect(page.locator("#inicio .pd16-cover-actions")).toBeHidden();
     await expect(page.locator(".pd40-compass-title")).toBeVisible();
+    await expect(page.locator(".pd40-compass-title")).toContainText(language==="en"?"Three routes":"Tres rutas");
+    const compassTitle=await page.locator(".pd40-compass-title").evaluate(el=>getComputedStyle(el).wordSpacing);
+    expect(Number.parseFloat(compassTitle),name+" heading spaces").toBeGreaterThan(0);
+
     await expect(page.locator("#pd20-cinema")).toBeHidden();
     await expect(page.locator("section.slide:visible")).toHaveCount(5);
     const layout=await page.evaluate(()=>({
@@ -37,6 +41,9 @@ for (const [name,width,height,language,theme] of scenarios) {
     const route=page.locator('.pd40-compass .pd40-route[data-go="demos"]');
     await route.click();
     await expect(page.locator("#demos")).toBeInViewport();
+    const projectSpacing=await page.locator("#demos h2").evaluate(el=>getComputedStyle(el).wordSpacing);
+    expect(Number.parseFloat(projectSpacing),name+" project heading spacing").toBeGreaterThan(0);
+
     await expect(page.locator('#demos a[href="https://gracianb.github.io/revops-studio/demo.html"]')).toHaveCount(1);
     await expect(page.locator("#demos .pd40-demo-disclaimer")).toContainText(language==="en"?"SAMPLE DATA":"DATOS DE EJEMPLO");
     if(browserName==="chromium"){

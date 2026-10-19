@@ -422,7 +422,7 @@
     if (index < 0) return;
     setActive(index, true);
     slides[index].scrollIntoView({
-      behavior: instant || reducedMotion.matches ? "auto" : "smooth",
+      behavior: instant || reducedMotion.matches || document.body.classList.contains("deck-focus") ? "auto" : "smooth",
       block: "start"
     });
     menu?.classList.remove("open");
