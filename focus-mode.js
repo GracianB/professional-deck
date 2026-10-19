@@ -9,12 +9,12 @@
   const query = new URLSearchParams(location.search);
   let full = query.get("view")==="full" || query.get("present")==="1" ||
     (Boolean(hash) && Boolean(document.getElementById(hash)) && !focusIds.has(hash));
-  const toggle = document.querySelector("[data-deck-mode]");
+  const toggles = [...document.querySelectorAll("[data-deck-mode]")];
   function render() {
     body.classList.toggle("deck-focus",!full);
     body.classList.toggle("deck-full",full);
-    if (toggle) {
-      const en = document.documentElement.lang==="en";
+    const en = document.documentElement.lang==="en";
+    for (const toggle of toggles) {
       toggle.textContent=full?(en?"QUICK VIEW":"VISTA BREVE"):(en?"FULL DETAIL":"VER TODO");
       toggle.setAttribute("aria-pressed",String(full));
       toggle.setAttribute("aria-label",full?(en?"Return to quick view":"Volver a vista breve"):(en?"Show all chapters":"Mostrar todos los capítulos"));
@@ -30,7 +30,7 @@
     history.replaceState(null,"",url.pathname+url.search+url.hash);
     if(!full)document.getElementById("inicio")?.scrollIntoView({block:"start",behavior:"instant"});
   }
-  toggle?.addEventListener("click",()=>setFull(!full));
+  toggles.forEach(toggle=>toggle.addEventListener("click",()=>setFull(!full)));
   document.addEventListener("click",event=>{
     if(full)return;
     const link=event.target.closest("[data-go],a[href^='#']");

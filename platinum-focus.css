@@ -84,3 +84,9 @@ body.deck-focus #trayectoria .slide-index::before{content:"03"}
 body.deck-focus #contacto .slide-index::before{content:"04"}
 body.deck-focus .slide-index::before{font:inherit;color:inherit}
 body.deck-focus .site-header .nav-recruiter{border-color:rgba(188,202,216,.4)!important}
+
+/* Mobile full detail access stays beside the three focus routes. */
+.pd40-mobile-detail{display:none;border:1px solid rgba(194,208,222,.45);border-radius:7px;color:#e5ebf3;min-height:44px;width:100%;margin-top:11px;padding:10px 14px;font:700 .72rem var(--mono);text-align:center;letter-spacing:.04em}
+body.deck-focus .pd40-mobile-detail:is(:hover,:focus-visible){background:rgba(211,222,234,.12)}
+html[data-theme="light"] .pd40-mobile-detail{color:#23303e;border-color:#95a1ae}
+@media(max-width:980px){body.deck-focus .pd40-mobile-detail{display:block}}

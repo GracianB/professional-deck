@@ -5,10 +5,10 @@ test("P40 five-stop quick view is reversible and keyboard-safe",async({page})=>{
   await expect(page.locator(".pd40-compass")).toBeVisible();
   await expect(page.locator("section.slide:visible")).toHaveCount(5);
   await expect(page.locator("#modelo")).toBeHidden();
-  await page.locator("[data-deck-mode]").click();
+  await page.locator(".site-header [data-deck-mode]").click();
   await expect(page.locator("body")).toHaveClass(/deck-full/);
   await expect(page.locator("#modelo")).toBeVisible();
-  await page.locator("[data-deck-mode]").click();
+  await page.locator(".site-header [data-deck-mode]").click();
   await expect(page.locator("body")).toHaveClass(/deck-focus/);
 });
 test("P40 legacy chapter deep links expand; intro never autoplays",async({page})=>{

@@ -40,10 +40,12 @@ for (const [name,width,height,language,theme] of scenarios) {
     if(browserName==="chromium"){
       await page.screenshot({path:"artifacts/p40/"+name+"-projects.png",animations:"disabled"});
     }
-    await page.locator("[data-deck-mode]").click();
+    await page.locator(width<=980?".pd40-mobile-detail":".site-header [data-deck-mode]").click();
     await expect(page.locator("body")).toHaveClass(/deck-full/);
     await expect(page.locator("#modelo")).toBeVisible();
-    await page.locator(".main-nav [data-go='ruta']").click();
+    const atlas=page.locator(".main-nav [data-go='ruta']");
+    if (!(await atlas.isVisible())) await page.locator(".menu-toggle").click();
+    await atlas.click();
     await expect(page.locator("#ruta")).toBeInViewport();
     expect(errors).toEqual([]);
   });
