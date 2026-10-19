@@ -50,7 +50,7 @@ test("P41 · real dark and light contact and brand on left",async({page})=>{
   });
   expect(colors.headerLeft).toBeLessThanOrEqual(1);
   expect(colors.brandLeft).toBeLessThan(80);
-  const parse=rgb=>(rgb.match(/[\\d.]+/g)||[]).slice(0,3).map(Number);
+  const parse=rgb=>(rgb.match(/[\d.]+/g)||[]).slice(0,3).map(Number);
   const avg=a=>a.reduce((x,y)=>x+y,0)/a.length;
   const c=parse(colors.contact),v=parse(colors.visual);
   if(theme==="dark"){expect(avg(c)).toBeLessThan(50);expect(avg(v)).toBeLessThan(90);}
