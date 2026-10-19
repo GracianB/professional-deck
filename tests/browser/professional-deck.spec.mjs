@@ -281,12 +281,13 @@ test.describe("Professional Deck browser E2E", () => {
 
     await expect(slides.nth(0)).toBeInViewport();
 
+    // V1 uses real document scrolling, not forced one-slide jumps.
+    await page.locator("#deck").focus();
+    const start = await page.locator("#deck").evaluate(el=>el.scrollTop);
     await page.keyboard.press("ArrowDown");
-    await expect(slides.nth(1)).toBeInViewport();
-
+    await expect.poll(()=>page.locator("#deck").evaluate(el=>el.scrollTop)).toBeGreaterThan(start);
     await page.keyboard.press("End");
     await expect(slides.nth(7)).toBeInViewport();
-
     await page.keyboard.press("Home");
     await expect(slides.nth(0)).toBeInViewport();
   });
@@ -547,7 +548,8 @@ test.describe("Professional Deck browser E2E", () => {
     const page = await context.newPage();
 
     await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
-
+    // Native keyboard scrolling needs its own scroll container focused.
+    await page.locator("#deck").focus();
     await page.keyboard.press("End");
     await expect(page.locator("#contacto")).toBeInViewport();
 
