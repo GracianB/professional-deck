@@ -327,7 +327,7 @@
   function applyTheme() {
     document.documentElement.setAttribute("data-theme", theme);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "light" ? "#FAF7F2" : "#141210");
+    if (meta) meta.setAttribute("content", theme === "light" ? "#f1f3f6" : "#0b0f13");
     document.querySelectorAll("[data-set-theme]").forEach((btn) => {
       const on = btn.getAttribute("data-set-theme") === theme;
       btn.classList.toggle("is-active", on);
@@ -1040,7 +1040,7 @@
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
     const hero = document.getElementById("inicio");
-    const PAL = [[196,165,116],[122,243,255],[125,202,165],[247,243,236]];
+    const PAL = [[187,195,204],[235,239,243],[120,130,143],[250,251,252]];
     let w = 0, h = 0, dpr = 1, parts = [], visible = true, running = false;
     const mouse = { x: -9999, y: -9999, active: false };
 

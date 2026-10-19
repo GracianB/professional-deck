@@ -46,7 +46,7 @@
     function start({forced = false} = {}) {
       if (playing) return;
       if (reduce) { markSeen(); return; }
-      if (!forced && (!["", "#inicio"].includes(window.location.hash) || alreadySeen())) return;
+      if (!forced && (new URLSearchParams(location.search).get("intro") !== "1" || !["", "#inicio"].includes(window.location.hash) || alreadySeen())) return;
       if (document.querySelector("dialog[open]")) return;
       if (document.visibilityState === "hidden") return;
       cancelTimers();

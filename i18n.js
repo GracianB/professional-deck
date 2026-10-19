@@ -1,5 +1,11 @@
 ﻿window.GB_I18N = {
   es: {
+    focusTitle: "Tres caminos. Pruebas concretas.",
+    focusLead: "Elige qué quieres comprobar, sin recorrer doce diapositivas.",
+    focusCase: "Impacto operativo real",
+    focusBuild: "Sistemas que puedes probar",
+    focusHistory: "De las personas a los sistemas",
+    focusCv: "Abrir CV completo",
     htmlLang: "es",
     metaDescription: "Customer Success + Data + AI Operations. Conecto cliente, negocio y construcción técnica para convertir problemas reales en sistemas utilizables.",
     title: "Gracián Baena — Customer Success Systems & Data Strategy",
@@ -490,6 +496,12 @@
     open: "ABRIR →"
   },
   en: {
+    focusTitle: "Three paths. Verifiable work.",
+    focusLead: "Explore the evidence without a twelve-slide tour.",
+    focusCase: "Real operational impact",
+    focusBuild: "Systems you can try",
+    focusHistory: "From people to systems",
+    focusCv: "Open full CV",
     htmlLang: "en",
     metaDescription: "Customer Success + Data + AI Operations. I connect customers, business and technical build to turn real problems into usable systems.",
     title: "Gracián Baena — Customer Success Systems & Data Strategy",
