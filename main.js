@@ -752,7 +752,7 @@
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stopAtlasTour();
   });
-  atlasExplore?.addEventListener("click", () => goTo(atlasExplore.dataset.atlasGo || "experiencia"));
+  atlasExplore?.addEventListener("click", () => goTo("experiencia"));
 
   // Real 60-second presentation. Four 15-second chapters, monotonic clock,
   // pause/resume, direct seeking, restart, reduced-motion safe and bilingual.

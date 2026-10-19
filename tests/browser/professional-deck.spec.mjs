@@ -10,7 +10,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
 
-  test("V20 cinematic opening is skippable, session-once and replayable", async ({browser}) => {
+  test("P41 opening is opt-in, skippable and never forced on returning users", async ({browser}) => {
     const ctx=await browser.newContext({viewport:{width:1440,height:900}});
     const page=await ctx.newPage();
     await page.goto("/?view=full&intro=1",{waitUntil:"domcontentloaded"});
@@ -21,10 +21,8 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(cinema).toBeHidden();
     await page.reload({waitUntil:"domcontentloaded"});
     await expect(cinema).toBeHidden();
-    await page.locator("[data-cinema-replay]").click();
-    await expect(cinema).toBeVisible();
-    await cinema.locator("[data-cinema-skip]").click();
-    await expect(cinema).toBeHidden();
+    // The opener is deliberately opt-in now, so the old replay CTA is retired.
+    await expect(page.locator("[data-cinema-replay]")).toHaveCount(0);
     await ctx.close();
 
     const deep=await browser.newContext({viewport:{width:1440,height:900}});
@@ -152,7 +150,7 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(page.locator(".deck .slide")).toHaveCount(8);
 
     await expect(page.locator(".site-header")).toBeVisible();
-    await expect(page.locator(".deck-controls")).toBeVisible();
+    await expect(page.locator(".deck-controls")).toBeHidden();
 
     await expect(page.locator("[data-set-lang='es']")).toHaveCount(1);
     await expect(page.locator("[data-set-lang='en']")).toHaveCount(1);
@@ -176,7 +174,7 @@ test.describe("Professional Deck browser E2E", () => {
     await page.locator("[data-atlas-go]").click();
     await expect(page).toHaveURL(/#experiencia$/);
 
-    await page.locator("[data-open-recruiter]").first().click();
+    await page.locator("#inicio .pd41-brief-btn").click();
     const dialog=page.locator("#recruiter-dialog");
     await expect(dialog).toBeVisible();
     await expect(dialog.locator("[data-brief-chapter]")).toHaveCount(4);
@@ -241,7 +239,7 @@ test.describe("Professional Deck browser E2E", () => {
     await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#sistemas .pd19-os-flow>span")).toHaveCount(4);
     await expect(page.locator("#contacto .pd19-contact-link")).toHaveCount(7);
-    await expect(page.locator('#contacto a[href^="mailto:"]')).toHaveCount(1);
+    await expect(page.locator('#contacto a[href^="mailto:"]')).toHaveCount(2);
     await expect(page.locator("#contacto .pd19-contact-languages")).toContainText("ES");
     await expect(page.locator("#contacto .pd19-contact-languages")).toContainText("EN");
     await expect(page.locator("#contacto .pd19-contact-languages")).toContainText("IT");
@@ -457,7 +455,7 @@ test.describe("Professional Deck browser E2E", () => {
       "[data-set-lang='en']",
       "[data-set-theme='dark']",
       "[data-set-theme='light']",
-      ".deck-controls button"
+      "#inicio .pd41-doc"
     ];
 
     for (const selector of selectors) {
@@ -486,7 +484,7 @@ test.describe("Professional Deck browser E2E", () => {
     await expect(page.locator("#recruiter-title")).toHaveCount(1);
     await expect(page.locator("#recruiter-lead")).toHaveCount(1);
 
-    await page.locator("[data-open-recruiter]").first().click();
+    await page.locator("#inicio .pd41-brief-btn").click();
     await expect(recruiter).toBeVisible();
     await expect(recruiter.locator(".dialog-close")).toBeVisible();
     await recruiter.locator(".dialog-close").press("Enter");
@@ -524,7 +522,7 @@ test.describe("Professional Deck browser E2E", () => {
   test("los diálogos restauran el foco al control que los abrió", async ({ page }) => {
     await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
-    const recruiterTrigger = page.locator("[data-open-recruiter]").first();
+    const recruiterTrigger = page.locator("#inicio .pd41-brief-btn");
     await recruiterTrigger.focus();
     await recruiterTrigger.click();
     await expect(page.locator("#recruiter-dialog")).toBeVisible();
@@ -667,14 +665,14 @@ test.describe("Professional Deck production hardening", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page.locator("[data-cv-link]").first()).toHaveAttribute(
       "href",
-      "./Gracian_Baena_CV_2026_EN.pdf"
+      "https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_EN.pdf"
     );
 
     await page.locator("[data-set-lang='es']").click();
     await expect(page.locator("html")).toHaveAttribute("lang", "es");
     await expect(page.locator("[data-cv-link]").first()).toHaveAttribute(
       "href",
-      "./Gracian_Baena_CV_2026_ES.pdf"
+      "https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_ES.pdf"
     );
   });
 
