@@ -548,7 +548,8 @@ test.describe("Professional Deck browser E2E", () => {
     const page = await context.newPage();
 
     await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
-
+    // Native keyboard scrolling needs its own scroll container focused.
+    await page.locator("#deck").focus();
     await page.keyboard.press("End");
     await expect(page.locator("#contacto")).toBeInViewport();
 
