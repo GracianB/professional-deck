@@ -198,7 +198,7 @@ for (const rel of [
   if (!await fileExists(join(root, rel))) errors.push(`Missing ${rel}`);
 }
 
-for (const script of ["main.js", "i18n.js", "case.js", "validate.mjs"]) {
+for (const script of ["main.js", "i18n.js", "case.js", "scripts/v16-live-smoke.mjs", "validate.mjs"]) {
   const check = spawnSync(process.execPath, ["--check", join(root, script)], { encoding: "utf8" });
   if (check.status !== 0) errors.push(`${script}: ${check.stderr.trim()}`);
 }

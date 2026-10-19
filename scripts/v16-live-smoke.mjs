@@ -3,6 +3,14 @@ import assert from "node:assert/strict";
 import { chromium } from "@playwright/test";
 
 const url = process.env.PD_LIVE_URL || "https://gracianb.github.io/professional-deck/";
+function assertNeutralPaint(paint,label) {
+  const channels=[...String(paint).matchAll(/rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)/g)].map(match=>match.slice(1).map(Number));
+  assert.ok(channels.length>0,label+" exposes CSS colors");
+  for(const [r,g,b] of channels) {
+    assert.ok(r<=g+1 && g<=b+1 && Math.max(r,g,b)-Math.min(r,g,b)<=18,
+      label+" must use cool grayscale, got "+paint);
+  }
+}
 
 const response = await fetch(url, {
   redirect: "follow",
@@ -23,6 +31,8 @@ assert.match(html, /v20-theme.css/);
 assert.match(html, /v20-light.css/);
 assert.match(html, /v23-brief.css\?v=deck-v23/);
 assert.match(html, /v24-universe.css\?v=deck-v24/);
+assert.match(html, /platinum-focus.css\?v=deck-p40/);
+assert.match(html, /focus-mode.js\?v=deck-p40/);
 assert.match(html, /v20-cinema.js/);
 assert.match(html, /data-cinema-skip/);
 assert.match(html, /data-atlas-tour/);
@@ -64,6 +74,16 @@ try {
     page.on("pageerror", (error) => pageErrors.push(String(error?.message || error)));
 
     await page.goto(url, { waitUntil: "domcontentloaded" });
+    await page.locator("#inicio").waitFor();
+    assert.equal(await page.locator("body").evaluate(el=>el.classList.contains("deck-focus")),
+      true, viewport.name+": compact experience is the default");
+    assert.equal(await page.locator(".pd40-compass").isVisible(),true,
+      viewport.name+": direct proof explorer visible");
+    assert.equal(await page.locator("section.slide:visible").count(),5,
+      viewport.name+": only five chapters visible initially");
+    assert.equal(await page.locator("#pd20-cinema").isVisible(),false,
+      viewport.name+": opening never blocks visitor");
+    await page.goto(new URL("?view=full&lang=es",url).href, {waitUntil:"domcontentloaded"});
     await page.locator("#inicio").waitFor();
 
     assert.equal(await page.locator(".deck .slide").count(), 12);
@@ -117,11 +137,11 @@ try {
       await page.goto(new URL(file+"?lang=es",url).href,{waitUntil:"domcontentloaded"});
       assert.equal(await page.locator(".case-section").count(),4,file+" case chapters");
       assert.equal(await page.locator(".case-utility-group").count(),2,file+" theme/language controls");
-      const warmDark=await page.locator(".case-section.light").first().evaluate(el=>getComputedStyle(el).backgroundImage);
-      assert.ok(warmDark.includes("rgb(243, 237, 226)"),file+" beige chapter: "+warmDark);
+      const coolDark=await page.locator(".case-section.light").first().evaluate(el=>getComputedStyle(el).backgroundImage);
+      assertNeutralPaint(coolDark,file+" case chapter, dark theme");
       await page.locator("[data-case-theme='light']").click();
-      const warmLight=await page.locator(".case-section.light").first().evaluate(el=>getComputedStyle(el).backgroundImage);
-      assert.ok(warmLight.includes("rgb(238, 229, 217)"),file+" warm light theme: "+warmLight);
+      const coolLight=await page.locator(".case-section.light").first().evaluate(el=>getComputedStyle(el).backgroundImage);
+      assertNeutralPaint(coolLight,file+" case chapter, light theme");
       assert.equal(await page.locator("html").getAttribute("data-theme"),"light",file+" theme toggle");
       const out=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
       assert.ok(out<=1,file+" responsive width");
@@ -132,7 +152,7 @@ try {
     await context.close();
   }
 
-  console.log("PROFESSIONAL DECK V24 LIVE PASS");
+  console.log("PROFESSIONAL DECK P40 LIVE PASS · five-stop default / full legacy / cool-neutral cases");
   console.log(`URL: ${response.url}`);
   console.log(`HTTP: ${response.status}`);
 } finally {
