@@ -437,3 +437,9 @@ html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-copy .eyebrow
  body .site-header .brand-text{display:none!important}
  body .site-header .brand-mark{flex-shrink:0!important}
 }
+
+/* WebKit text metric parity: explicit, non-normal inter-word spacing. */
+body.deck-focus #inicio.pd16-cover .pd41-compass-title,
+body.deck-full #inicio.pd16-cover .pd41-compass-title{
+ letter-spacing:-.015em!important;word-spacing:.17em!important;line-height:1.19!important;
+}
