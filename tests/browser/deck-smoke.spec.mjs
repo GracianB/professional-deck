@@ -27,7 +27,7 @@ test.describe("Professional Deck smoke", () => {
     });
 
     mkdirSync("artifacts/v16", { recursive: true });
-    await page.goto("/?view=full, { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(250);
 
     await expect(page.locator("section.slide")).toHaveCount(12);
@@ -145,7 +145,7 @@ test.describe("Professional Deck smoke", () => {
       try { sessionStorage.setItem("gb-professional-deck-v20-opening-seen","1"); } catch (_) {}
     });
     const page = await context.newPage();
-    await page.goto("/?view=full, { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
     await page.locator("#inicio [data-go='ruta']").click();
     await expect(page.locator("#ruta")).toBeInViewport();
     await page.locator("#ruta").evaluate(el => el.scrollIntoView({ block: "start", behavior: "instant" }));
