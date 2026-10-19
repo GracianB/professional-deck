@@ -1,61 +1,52 @@
-/* PROFESSIONAL DECK V24 · SILVER / IVORY / BEIGE
-   One canonical final color layer, shared with the case studies.
-   Keeps the proven layout and functionality from V20–V23.
-   Color hierarchy: graphite ~ silver ~ ivory ~ beige; NO saturated blue.
-*/
-:root,
-html[data-theme="dark"] {
-  --v24-ink:#151c22;--v24-navy:#1e2931;--v24-deep:#0e151b;
-  --v24-card:#27313a;--v24-elevated:#303b43;
-  --v24-silver:#c8cccd;--v24-silver-dark:#abb4b7;
-  --v24-ivory:#f3eee5;--v24-beige:#deceb7;
-  --v24-muted:#bec4c5;--v24-border:rgba(217,212,201,.26);
-  --v24-paper:#f6f1e8;--v24-paper-card:#fffbf4;--v24-paper-ink:#253037;
-  --bg:#151c22;--bg2:#1d272e;--surface:#263039;--surface2:#303942;
-  --black:#151c22;--black-2:#1d272e;--ink:#f3eee5;
-  --paper:#f3eee5;--paper-2:#dfd1bf;--white:#f7f3ec;
-  --cream:#f7f3ec;--accent:#e6d8c3;--accent-ink:#172229;
-  --gold:#deceb7;--gold-2:#f0e5d5;--mark:#d5c8b6;
-  --yellow:#deceb7;--yellow-2:#f0e5d5;
-  --ice:#c8cccd;--sage:#c8cccd;
-  --gold-glow:rgba(221,204,178,.13);--yellow-glow:rgba(221,204,178,.13);
-  --yellow-dim:rgba(221,204,178,.08);--ice-dim:rgba(196,205,209,.08);
-  --ice-glow:rgba(196,205,209,.11);--sage-glow:rgba(196,205,209,.10);
-  --sage-dim:rgba(196,205,209,.07);
-  --muted-dark:#bec4c5;--muted-light:#aeb6b9;
-  --line-dark:rgba(224,217,205,.22);--line-light:rgba(224,217,205,.17);
+/* Legacy V24 compatibility layer · one authoritative V1 petroleum palette.
+   Existing components retain their names but receive the same cold-navy values. */
+:root,html[data-theme="dark"]{
+  --v24-ink:var(--v1-bg);--v24-navy:var(--v1-panel);--v24-deep:var(--v1-deep);
+  --v24-card:var(--v1-panel);--v24-elevated:var(--v1-panel-hover);
+  --v24-silver:var(--v1-ink);--v24-silver-dark:var(--v1-sub);
+  --v24-ivory:var(--v1-ink);--v24-beige:var(--v1-sub);
+  --v24-muted:var(--v1-sub);--v24-border:var(--v1-line);
+  --v24-paper:var(--v1-panel);--v24-paper-card:var(--v1-panel-hover);--v24-paper-ink:var(--v1-ink);
+  --bg:var(--v1-bg);--bg2:var(--v1-deep);--surface:var(--v1-panel);--surface2:var(--v1-panel-hover);
+  --black:var(--v1-bg);--black-2:var(--v1-deep);--ink:var(--v1-ink);
+  --paper:var(--v1-panel);--paper-2:var(--v1-panel-hover);--white:var(--v1-ink);
+  --cream:var(--v1-ink);--accent:var(--v1-ink);--accent-ink:var(--v1-bg);
+  --gold:var(--v1-ink);--gold-2:var(--v1-sub);--mark:var(--v1-sub);
+  --yellow:var(--v1-ink);--yellow-2:var(--v1-sub);--ice:var(--v1-ink);--sage:var(--v1-sub);
+  --gold-glow:var(--v1-glow);--yellow-glow:var(--v1-glow);
+  --yellow-dim:rgba(147,203,255,.08);--ice-dim:rgba(147,203,255,.08);
+  --ice-glow:var(--v1-glow);--sage-glow:var(--v1-glow);--sage-dim:rgba(147,203,255,.08);
+  --muted-dark:var(--v1-sub);--muted-light:var(--v1-sub);
+  --line-dark:var(--v1-line);--line-light:var(--v1-line);
   color-scheme:dark;
 }
-html[data-theme="light"] {
-  --bg:#f4efe6;--bg2:#ebe5da;--surface:#fffaf2;--surface2:#f4ebdd;
-  --black:#f4efe6;--black-2:#ebe4d8;--white:#27343b;--cream:#27343b;
-  --ink:#27343b;--paper:#fbf7f0;--paper-2:#eee6d9;
-  --accent:#31414a;--accent-ink:#fffaf2;--mark:#4a585c;
-  --gold:#536067;--gold-2:#788188;--yellow:#536067;--yellow-2:#788188;
-  --ice:#586a70;--sage:#586a70;
-  --gold-glow:rgba(78,76,68,.12);--yellow-glow:rgba(78,76,68,.12);
-  --yellow-dim:rgba(78,76,68,.08);--ice-dim:rgba(68,82,87,.08);
-  --ice-glow:rgba(68,82,87,.10);--sage-dim:rgba(68,82,87,.07);
-  --muted-dark:#526069;--muted-light:#617077;
-  --line-dark:rgba(56,66,70,.23);--line-light:rgba(56,66,70,.18);
+html[data-theme="light"]{
+  --bg:var(--v1-bg);--bg2:var(--v1-deep);--surface:var(--v1-panel);--surface2:var(--v1-panel-hover);
+  --black:var(--v1-bg);--black-2:var(--v1-deep);--white:var(--v1-ink);--cream:var(--v1-ink);
+  --ink:var(--v1-ink);--paper:var(--v1-panel);--paper-2:var(--v1-panel-hover);
+  --accent:var(--v1-ink);--accent-ink:var(--v1-panel);--mark:var(--v1-sub);
+  --gold:var(--v1-ink);--gold-2:var(--v1-sub);--yellow:var(--v1-ink);--yellow-2:var(--v1-sub);
+  --ice:var(--v1-sub);--sage:var(--v1-sub);
+  --gold-glow:var(--v1-glow);--yellow-glow:var(--v1-glow);
+  --yellow-dim:rgba(56,108,152,.08);--ice-dim:rgba(56,108,152,.08);
+  --ice-glow:var(--v1-glow);--sage-dim:rgba(56,108,152,.08);
+  --muted-dark:var(--v1-sub);--muted-light:var(--v1-sub);
+  --line-dark:var(--v1-line);--line-light:var(--v1-line);
   color-scheme:light;
 }
-/* Grounding: twelve chapters and platform surfaces are visually one system. */
-html:not([data-theme="light"]) :is(#inicio,#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto).slide {
- background:radial-gradient(ellipse at 78% 24%,rgba(204,200,191,.085),transparent 53%),
- radial-gradient(ellipse at 8% 92%,rgba(223,208,181,.04),transparent 54%),#151c22!important;
- color:#f4eee5!important;
+/* Both themes and all visible chapters share V1 surface and text roles. */
+html:not([data-theme="light"]) :is(#inicio,#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto).slide{
+ background:var(--v1-bg)!important;color:var(--v1-ink)!important;
 }
-html[data-theme="light"] :is(#inicio,#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto).slide {
- background:radial-gradient(ellipse at 84% 15%,rgba(203,191,175,.24),transparent 50%),#f4efe6!important;
- color:#26343c!important;
+html[data-theme="light"] :is(#inicio,#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto).slide{
+ background:var(--v1-bg)!important;color:var(--v1-ink)!important;
 }
-html:not([data-theme="light"]) :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) :is(.eyebrow,.slide-index) {color:#e4d3ba!important}
-html:not([data-theme="light"]) :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) :is(h2,h2 em) {color:#f8f3ea!important}
-html:not([data-theme="light"]) :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) .pd18-heading>p:last-child {color:#c3c6c5!important}
-html[data-theme="light"] :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) :is(.eyebrow,.slide-index) {color:#505b61!important}
-html[data-theme="light"] :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) :is(h2,h2 em) {color:#25343d!important}
-html[data-theme="light"] :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) .pd18-heading>p:last-child {color:#536168!important}
+html:not([data-theme="light"]) :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) :is(.eyebrow,.slide-index){color:var(--v1-sub)!important}
+html:not([data-theme="light"]) :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) :is(h2,h2 em){color:var(--v1-ink)!important}
+html:not([data-theme="light"]) :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) .pd18-heading>p:last-child{color:var(--v1-sub)!important}
+html[data-theme="light"] :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) :is(.eyebrow,.slide-index){color:var(--v1-sub)!important}
+html[data-theme="light"] :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) :is(h2,h2 em){color:var(--v1-ink)!important}
+html[data-theme="light"] :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria,#experiencia,#experiencia-2,#capacidades,#formacion,#contacto) .pd18-heading>p:last-child{color:var(--v1-sub)!important}
 
 /* Site chrome: no cyan or green interface primitives. */
 .site-header {background:var(--v1-panel)!important;border-color:var(--v1-line)!important}
@@ -79,7 +70,7 @@ html[data-theme="light"] :is(#modelo,#sistemas,#demos,#metodo,#ruta,#trayectoria
 .deck-controls button {background:var(--v1-panel)!important;border-color:var(--v1-line)!important}
 .deck-controls button:hover {background:var(--v1-panel)!important}
 .top-progress i {background:var(--v1-panel)!important}
-:where(.deck button,.site-header button,.deck a,.os-rail button,.deck-controls button):focus-visible {outline:2px solid #ddceb8!important;outline-offset:3px}
+:where(.deck button,.site-header button,.deck a,.os-rail button,.deck-controls button):focus-visible {outline:2px solid var(--v1-ink)!important;outline-offset:3px}
 html[data-theme="light"] .site-header {background:var(--v1-panel)!important;border-color:var(--v1-line)!important}
 html[data-theme="light"] .site-header :is(.brand-mark,.brand-text b,.brand-text small) {color:var(--v1-ink)!important}
 html[data-theme="light"] .site-header .brand-mark {background:var(--v1-panel)!important;border-color:var(--v1-line)!important}
