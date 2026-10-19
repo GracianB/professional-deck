@@ -1,5 +1,6 @@
 ﻿window.GB_I18N = {
   es: {
+    proofCount: "04 / CASOS",
     demoStatus: "DEMO PÚBLICA",
     demoCta: "PROBAR DEMO ↗",
     demoDisclaimer: "DATOS DE EJEMPLO · NO PRODUCCIÓN",
@@ -153,7 +154,7 @@
     sysLiveLink: "Ver live ↗",
     sysDemo: "Solicitar demo ↗",
     demosIndex: "PRUEBA PÚBLICA",
-    demosEyebrow: "LIVE · CÓDIGO · CONTRATOS · SIN PEDIR ACCESO",
+    demosEyebrow: "PRUEBAS PÚBLICAS · EXPERIENCIAS · DEMOS",
     demosH2: "No tienes que creerme.<br><em>Puedes abrirlo.</em>",
     aigoritmoStatus: "APP LOCAL",
     aigoritmoP: "Llama, Qwen, Arcana y Arcano. Cuatro personajes para conversar, crear y explorar, con modelos y voz locales.",
@@ -499,6 +500,7 @@
     open: "ABRIR →"
   },
   en: {
+    proofCount: "04 / CASES",
     demoStatus: "PUBLIC DEMO",
     demoCta: "TRY DEMO ↗",
     demoDisclaimer: "SAMPLE DATA · NOT PRODUCTION",
@@ -652,7 +654,7 @@
     sysLiveLink: "View live ↗",
     sysDemo: "Request demo ↗",
     demosIndex: "PUBLIC PROOF",
-    demosEyebrow: "LIVE · CODE · CONTRACTS · NO ACCESS REQUEST",
+    demosEyebrow: "PUBLIC PROOF · EXPERIENCES · DEMOS",
     demosH2: "You do not have to believe me.<br><em>You can open it.</em>",
     aigoritmoStatus: "LOCAL APP",
     aigoritmoP: "Llama, Qwen, Arcana and Arcano. Four characters for conversation, creation and exploration, with local models and voice.",
