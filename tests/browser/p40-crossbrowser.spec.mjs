@@ -47,13 +47,16 @@ for (const [name,width,height,language,theme] of scenarios) {
     await expect(page.locator("#modelo")).toBeVisible();
     const atlas=page.locator(".main-nav [data-go='ruta']");
     if (!(await atlas.isVisible())) {
-      const geometry=await page.evaluate(()=>{
-        const btn=document.querySelector(".menu-toggle"),bar=document.querySelector(".site-header");
-        const r=btn.getBoundingClientRect(),h=bar.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
-        const active=document.elementFromPoint(x,y);
-        return {rect:{x:r.x,y:r.y,width:r.width,height:r.height},header:{x:h.x,y:h.y,height:h.height,z:getComputedStyle(bar).zIndex,position:getComputedStyle(bar).position,pointer:getComputedStyle(bar).pointerEvents},hit:active?.tagName,hitClass:active?.className,hitPointer:active?getComputedStyle(active).pointerEvents:null,scroll:{html:document.documentElement.scrollTop,body:document.body.scrollTop,deck:document.querySelector(".deck").scrollTop},viewport:{width:innerWidth,height:innerHeight}};
+      const hit=await page.locator(".menu-toggle").evaluate(btn=>{
+        const r=btn.getBoundingClientRect();
+        const el=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);
+        const header=document.querySelector(".site-header").getBoundingClientRect();
+        return {touchable:btn===el || btn.contains(el),right:r.right,headerX:header.x};
       });
-      console.log("P40_HEADER_HIT",name,browserName,JSON.stringify(geometry));
+      expect(hit.headerX,name+" fixed header aligned").toBeGreaterThanOrEqual(-1);
+      expect(hit.headerX,name+" fixed header aligned").toBeLessThanOrEqual(1);
+      expect(hit.right,name+" entire menu target in viewport").toBeLessThanOrEqual(width+1);
+      expect(hit.touchable,name+" menu hit testing").toBe(true);
       await page.locator(".menu-toggle").click();
     }
     await atlas.click();

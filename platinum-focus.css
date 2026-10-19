@@ -114,3 +114,15 @@ html[data-theme="light"] body.deck-focus #inicio.pd16-cover .pd40-route b{color:
  body.deck-focus #inicio.pd16-cover .pd16-cover-copy{padding-top:16px}
  body.deck-focus #inicio.pd16-cover .pd16-os{box-shadow:none!important}
 }
+
+/* P40 structural fix: hidden rail must not push a fixed header off screen.
+   Legacy 176px left offset was clipping the mobile menu hitbox. */
+body.deck-focus.has-os-rail .site-header{
+ left:0!important;right:0!important;width:100%!important;max-width:100%!important;
+}
+@media(max-width:980px){
+ body.deck-full.has-os-rail .site-header{
+  left:0!important;right:0!important;width:100%!important;max-width:100%!important;
+ }
+ .site-header .menu-toggle{flex:0 0 44px!important;min-width:44px!important;width:44px!important}
+}
