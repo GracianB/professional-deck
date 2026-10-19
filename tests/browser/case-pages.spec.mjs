@@ -2,7 +2,7 @@ import {test,expect} from "@playwright/test";
 import {mkdirSync} from "node:fs";
 /* Color contract: no warm brown or beige channel dominance in CSS paints. */
 function assertCoolPaint(paint,label){
-  const triplets=[...String(paint).matchAll(/rgba?\\(\\s*(\\d+)[,\\s]+(\\d+)[,\\s]+(\\d+)/g)].map(m=>m.slice(1).map(Number));
+  const triplets=[...String(paint).matchAll(/rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)/g)].map(m=>m.slice(1).map(Number));
   expect(triplets.length,label+" has readable computed colors").toBeGreaterThan(0);
   for(const [r,g,b] of triplets) {
     expect(g+1,label+" neutral green channel").toBeGreaterThanOrEqual(r);
