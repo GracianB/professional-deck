@@ -152,3 +152,18 @@ body.deck-focus #inicio.pd16-cover .pd40-compass-lead{margin:0 0 14px!important;
 body.deck-focus .deck,body.deck-focus .deck>.slide{
  scroll-behavior:auto!important;scroll-snap-type:none!important;
 }
+
+/* Public RevOps demo: a quiet disclosure, not a second billboard-sized CTA. */
+#demos .pd40-demo-disclaimer{
+ display:block!important;
+ flex:1 0 100%!important;
+ width:100%!important;
+ font:700 .57rem/1.45 var(--mono)!important;
+ letter-spacing:.045em!important;
+ color:#bac3ce!important;
+ padding:0!important;
+ margin:3px 0 0!important;
+ text-align:left!important;
+ white-space:normal!important;
+}
+html[data-theme="light"] #demos .pd40-demo-disclaimer{color:#52606e!important}

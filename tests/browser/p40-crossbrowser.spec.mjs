@@ -51,6 +51,9 @@ for (const [name,width,height,language,theme] of scenarios) {
 
     await expect(page.locator('#demos a[href="https://gracianb.github.io/revops-studio/demo.html"]')).toHaveCount(1);
     await expect(page.locator("#demos .pd40-demo-disclaimer")).toContainText(language==="en"?"SAMPLE DATA":"DATOS DE EJEMPLO");
+    const disclosureFont=await page.locator("#demos .pd40-demo-disclaimer").evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
+    expect(disclosureFont,name+" restrained demo disclosure").toBeLessThanOrEqual(11);
+
     if(browserName==="chromium"){
       await page.screenshot({path:"artifacts/p40/"+name+"-projects.png",animations:"disabled"});
     }
