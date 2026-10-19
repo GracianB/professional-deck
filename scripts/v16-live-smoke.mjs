@@ -40,7 +40,7 @@ assert.match(html, /pd19-contact-wrap/);
 assert.match(html, /id="modelo"/);
 assert.doesNotMatch(html, /<section[^>]+id="(?:capacidades|trayectoria|metodo|experiencia-2)"/);
 assert.match(html, /id="experiencia"/);
-assert.equal((html.match(/<section class="slide\\b/g)||[]).length,8);
+assert.equal((html.match(/<section class="slide /g)||[]).length,8);
 assert.match(html, /RevOps Studio/);
 assert.match(html, /project-ohana/);
 assert.match(html, /vortex-gilt-xi\.vercel\.app/);
