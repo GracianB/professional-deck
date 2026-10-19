@@ -1,5 +1,24 @@
 import {test,expect} from "@playwright/test";
 import {mkdirSync} from "node:fs";
+/* Color contract: no warm brown or beige channel dominance in CSS paints. */
+function assertCoolPaint(paint,label){
+  const triplets=[...String(paint).matchAll(/rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)/g)].map(m=>m.slice(1).map(Number));
+  expect(triplets.length,label+" has readable computed colors").toBeGreaterThan(0);
+  for(const [r,g,b] of triplets) {
+    expect(g+1,label+" neutral green channel").toBeGreaterThanOrEqual(r);
+    expect(b+1,label+" neutral blue channel").toBeGreaterThanOrEqual(g);
+    expect(Math.max(r,g,b)-Math.min(r,g,b),label+" no saturated warm color").toBeLessThanOrEqual(17);
+  }
+}
+function assertCoolHex(value,label){
+ const v=value.match(/^#([a-f0-9]{6})$/i)?.[1];
+ expect(v,label+" hex color").toBeTruthy();
+ const [r,g,b]=[0,2,4].map(i=>parseInt(v.slice(i,i+2),16));
+ expect(g+1,label+" neutral green channel").toBeGreaterThanOrEqual(r);
+ expect(b+1,label+" neutral blue channel").toBeGreaterThanOrEqual(g);
+ expect(Math.max(r,g,b)-Math.min(r,g,b),label+" no saturated warm color").toBeLessThanOrEqual(17);
+}
+
 
 const pages=[
   ["bodytone","proyecto-bodytone.html","Bodytone"],
@@ -17,6 +36,15 @@ for(const [key,path,title] of pages) {
       page.on("pageerror",error=>errors.push(error.message));
       await page.goto("/"+path+"?lang=es",{waitUntil:"domcontentloaded"});
       await expect(page.locator("body.case-body")).toBeVisible();
+      if(width<500){
+        const compact=await page.locator(".case-header").evaluate(el=>{
+          const r=el.getBoundingClientRect();
+          return {height:r.height,width:r.width,viewport:innerWidth};
+        });
+        expect(compact.height,key+" compact mobile case chrome").toBeLessThanOrEqual(125);
+        expect(compact.width,key+" no header overflow").toBeLessThanOrEqual(compact.viewport+1);
+      }
+
       await expect(page.locator(".case-hero h1")).toContainText(new RegExp(title,"i"));
       await expect(page.locator(".case-hero-aside dl>div")).toHaveCount(4);
       await expect(page.locator(".case-section")).toHaveCount(4);
@@ -26,13 +54,13 @@ for(const [key,path,title] of pages) {
       await expect(page.locator("[data-case-theme='dark']")).toHaveAttribute("aria-pressed","true");
       await expect(page.locator("[data-case-lang='es']")).toHaveAttribute("aria-pressed","true");
       const css=await page.locator("body.case-body").evaluate(el=>getComputedStyle(el).getPropertyValue("--bg").trim().toLowerCase());
-      expect(css).toBe("#151c22");
+      assertCoolHex(css,"dark page");
       // Beige is a deliberately pale editorial surface even in DARK mode.
       const editorialDark=await page.locator("#case-challenge").evaluate(el=>({
         surface:getComputedStyle(el).backgroundImage,
         heading:getComputedStyle(el.querySelector("h2")).color
       }));
-      expect(editorialDark.surface).toContain("rgb(243, 237, 226)");
+      assertCoolPaint(editorialDark.surface,"dark light-panel");
       expect(Number(editorialDark.heading.match(/[0-9.]+/)[0])).toBeLessThan(100);
       const systemDark=await page.locator("#case-system h2").evaluate(el=>getComputedStyle(el).color);
       expect(Number(systemDark.match(/[0-9.]+/)[0])).toBeGreaterThan(170);
@@ -59,18 +87,18 @@ for(const [key,path,title] of pages) {
       await page.locator("[data-case-theme='light']").click();
       await expect(page.locator("html")).toHaveAttribute("data-theme","light");
       const cssLight=await page.locator("body.case-body").evaluate(el=>getComputedStyle(el).getPropertyValue("--bg").trim().toLowerCase());
-      expect(cssLight).toBe("#f4efe6");
+      assertCoolHex(cssLight,"light page");
       const editorialLight=await page.locator("#case-challenge").evaluate(el=>({
         surface:getComputedStyle(el).backgroundImage,
         heading:getComputedStyle(el.querySelector("h2")).color
       }));
-      expect(editorialLight.surface).toContain("rgb(238, 229, 217)");
+      assertCoolPaint(editorialLight.surface,"light panel");
       expect(Number(editorialLight.heading.match(/[0-9.]+/)[0])).toBeLessThan(105);
       const systemLight=await page.locator("#case-system").evaluate(el=>({
         surface:getComputedStyle(el).backgroundImage,
         heading:getComputedStyle(el.querySelector("h2")).color
       }));
-      expect(systemLight.surface).toContain("rgb(52, 62, 67)");
+      assertCoolPaint(systemLight.surface,"light-theme dark system");
       expect(Number(systemLight.heading.match(/[0-9.]+/)[0])).toBeGreaterThan(170);
       const stepDescription=await page.locator("#case-system .case-flow article p").first().evaluate(el=>getComputedStyle(el).color);
       const stepRGB=stepDescription.match(/[0-9.]+/g).map(Number);
@@ -101,6 +129,6 @@ test("V24 shared theme persists when navigating between independent pages and de
   await page.locator("[data-case-theme='light']").click();
   await page.goto("/proyecto-calculadora.html");
   await expect(page.locator("html")).toHaveAttribute("data-theme","light");
-  await page.goto("/index.html?lang=es#inicio");
+  await page.goto("/index.html?view=full&lang=es#inicio");
   await expect(page.locator("html")).toHaveAttribute("data-theme","light");
 });

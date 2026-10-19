@@ -1,0 +1,169 @@
+/* P40 · Platinum / obsidian. Final visual layer after V25, no beige or gold. */
+:root,html[data-theme="dark"]{
+  --bg:#0c1117;--bg2:#171e26;--surface:#252e38;--surface2:#303a46;
+  --black:#0c1117;--black-2:#171e26;--ink:#f5f7fa;--white:#f5f7fa;
+  --paper:#f1f3f6;--paper-2:#cfd5de;--cream:#f5f7fa;
+  --accent:#dce2e9;--accent-ink:#101820;--mark:#bac4ce;
+  --gold:#cbd3dc;--yellow:#cbd3dc;--ice:#cbd3dc;--sage:#cbd3dc;
+  --muted-dark:#bac4cf;--muted-light:#a2aeba;--v25-line:rgba(206,216,226,.24);
+}
+html[data-theme="light"]{
+  --bg:#f1f3f6;--bg2:#e7ebf0;--surface:#fff;--surface2:#e6ebf0;
+  --black:#f1f3f6;--black-2:#e6eaef;--white:#202933;--ink:#202933;
+  --paper:#fff;--paper-2:#e5e9ee;--cream:#202933;
+  --accent:#242f3a;--accent-ink:#fff;--gold:#596571;--yellow:#596571;--mark:#596571;
+}
+.deck>.slide,.site-header,.os-rail,.deck-controls,.pd20-cinema,
+#recruiter-dialog,#experience-dialog,#command-dialog{filter:grayscale(1)}
+html:not([data-theme="light"]) .deck>.slide{
+  background:radial-gradient(ellipse at 78% 16%,rgba(179,191,204,.09),transparent 51%),#0c1117!important;
+}
+html[data-theme="light"] .deck>.slide{
+  background:radial-gradient(ellipse at 80% 16%,rgba(188,200,213,.17),transparent 50%),#f1f3f6!important;
+}
+.site-header{background:rgba(12,17,23,.97)!important;border-color:rgba(195,205,217,.24)!important}
+html[data-theme="light"] .site-header{background:rgba(249,250,251,.98)!important;border-color:#c9d0d9!important}
+#inicio.pd16-cover .pd16-os{background:linear-gradient(145deg,#252f3a,#111820)!important;border-color:#6a7683!important}
+html[data-theme="light"] #inicio.pd16-cover .pd16-os{background:linear-gradient(145deg,#fff,#e7ebf0)!important;border-color:#b5c0cc!important}
+#inicio.pd16-cover .pd16-os svg{filter:grayscale(1)}
+#inicio.pd16-cover .pd16-thesis em{color:#d7dfe8!important}
+#inicio.pd16-cover .pd16-cover-actions .primary{background:#e0e6ed!important;color:#0d1721!important;border-color:#e0e6ed!important}
+.pd40-mode{min-height:42px;padding:8px 11px;border-radius:7px;border:1px solid #83909d;color:#e6edf5!important;font:700 .65rem var(--mono);white-space:nowrap}
+html[data-theme="light"] .pd40-mode{color:#26333f!important;border-color:#778694}
+.pd40-mode[aria-pressed="true"]{box-shadow:inset 0 0 0 1px #b2bfcc}
+.pd40-compass{display:none}
+.pd40-compass-head{display:flex;justify-content:space-between;color:#aebdcc;font:700 .65rem var(--mono);letter-spacing:.09em}
+.pd40-compass-title{font:500 clamp(1.8rem,2.7vw,2.8rem)/1.1 var(--display);letter-spacing:-.045em;color:#f5f7fa;margin:clamp(20px,3vh,34px) 0 10px}
+.pd40-compass-lead{color:#bcc7d3;font:.95rem/1.5 var(--sans);margin:0 0 20px;max-width:38ch}
+.pd40-route{display:grid;grid-template-columns:28px minmax(0,1fr) 24px;gap:13px;align-items:center;text-align:left;width:100%;min-height:74px;padding:12px 5px;border-top:1px solid rgba(205,219,231,.24);color:#f1f5f9;transition:background .2s,padding .2s}
+.pd40-route:last-of-type{border-bottom:1px solid rgba(205,219,231,.24)}
+.pd40-route i{font:700 .73rem var(--mono);color:#a4b3c3;font-style:normal}
+.pd40-route strong{display:block;font:700 1rem/1.4 var(--sans)}
+.pd40-route small{display:block;margin-top:4px;color:#a8b8c6;font:400 .7rem var(--mono);letter-spacing:.03em}
+.pd40-route>b{font-size:1.1rem;font-weight:400}
+.pd40-route:is(:hover,:focus-visible){padding-left:12px;background:rgba(220,232,246,.09)}
+.pd40-cv{display:flex;justify-content:space-between;margin-top:23px;padding:13px 15px;border:1px solid #9cabb9;border-radius:8px;color:#e6edf4;font:700 .75rem var(--sans)}
+html[data-theme="light"] :is(.pd40-compass-title,.pd40-route,.pd40-cv){color:#1d2834!important}
+html[data-theme="light"] :is(.pd40-compass-lead,.pd40-compass-head,.pd40-route i,.pd40-route small){color:#5c6978!important}
+html[data-theme="light"] :is(.pd40-route,.pd40-cv){border-color:rgba(51,62,74,.25)!important}
+body.deck-focus .os-rail,body.deck-focus .deck-controls,body.deck-focus .deck-hint,
+body.deck-focus .top-progress,body.deck-focus [data-present]{display:none!important}
+body.deck-focus.has-os-rail .deck{margin-left:0!important;width:100%!important;scroll-snap-type:none!important}
+body.deck-focus .deck>.slide:not(#inicio):not(#sistemas):not(#demos):not(#trayectoria):not(#contacto){display:none!important}
+body.deck-focus .deck>.slide{height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;scroll-snap-align:none!important}
+body.deck-focus .deck>.slide::after{display:none}
+body.deck-focus #inicio.pd16-cover{min-height:100svh!important;padding:calc(var(--header) + 24px) clamp(20px,4vw,68px) 45px!important}
+body.deck-focus #inicio.pd16-cover .pd16-cover-shell{min-height:0!important;width:min(100%,1250px);margin:auto}
+body.deck-focus #inicio.pd16-cover .pd16-cover-layout{grid-template-columns:minmax(0,1fr) minmax(300px,.84fr);gap:clamp(22px,4vw,68px)}
+body.deck-focus #inicio.pd16-cover .pd16-os{height:auto!important;max-height:none!important;min-height:430px!important;display:block!important;padding:clamp(22px,2.3vw,34px)!important}
+body.deck-focus #inicio.pd16-cover .pd16-os>*:not(.pd40-compass){display:none!important}
+body.deck-focus #inicio.pd16-cover .pd40-compass{display:block}
+body.deck-focus #inicio.pd16-cover :is(.pd16-proof-strip,.pd20-cinema-replay,[data-go="ruta"]){display:none!important}
+body.deck-focus #inicio.pd16-cover .pd16-thesis{font-size:clamp(2.5rem,4.25vw,4.6rem);max-width:18ch}
+body.deck-focus #sistemas,body.deck-focus #demos,body.deck-focus #trayectoria,body.deck-focus #contacto{
+  min-height:clamp(680px,90svh,1100px)!important;padding-top:clamp(95px,11vh,130px)!important;padding-bottom:clamp(75px,9vh,110px)!important;
+}
+body.deck-focus #demos .gb-demos-grid{overflow:visible!important}
+body.deck-focus #contacto .pd19-contact-visual{display:none!important}
+body.deck-focus #contacto .pd19-contact-wrap{grid-template-columns:minmax(0,1fr)!important;max-width:950px;margin:auto}
+@media(max-width:1100px){body.deck-focus #inicio.pd16-cover .pd16-cover-layout{grid-template-columns:1fr}body.deck-focus #inicio.pd16-cover .pd16-os{min-height:0!important}}
+@media(max-width:980px){body.deck-focus #inicio.pd16-cover{padding-top:calc(var(--header) + 22px)!important}body.deck-focus #inicio.pd16-cover .pd16-cover-shell{display:block}}
+@media(max-width:600px){body.deck-focus #inicio.pd16-cover .pd16-thesis{font-size:clamp(2.2rem,8vw,3.1rem)}body.deck-focus #inicio.pd16-cover .pd16-os{padding:20px!important}body.deck-focus #sistemas,body.deck-focus #demos,body.deck-focus #trayectoria,body.deck-focus #contacto{min-height:0!important;padding:90px 18px 60px!important}.pd40-mode{min-height:44px}}
+@media(prefers-reduced-motion:reduce){.pd40-route{transition:none!important}}
+
+/* P40 progressive hierarchy: legacy navigation remains accessible in full detail. */
+body.deck-focus .site-header .main-nav [data-go="ruta"],
+body.deck-focus .site-header .nav-cmd{display:none!important}
+body.deck-focus #sistemas .slide-index>span:first-child,
+body.deck-focus #demos .slide-index>span:first-child,
+body.deck-focus #trayectoria .slide-index>span:first-child,
+body.deck-focus #contacto .slide-index>span:first-child{display:none}
+body.deck-focus #sistemas .slide-index::before{content:"01"}
+body.deck-focus #demos .slide-index::before{content:"02"}
+body.deck-focus #trayectoria .slide-index::before{content:"03"}
+body.deck-focus #contacto .slide-index::before{content:"04"}
+body.deck-focus .slide-index::before{font:inherit;color:inherit}
+body.deck-focus .site-header .nav-recruiter{border-color:rgba(188,202,216,.4)!important}
+
+/* Mobile full detail access stays beside the three focus routes. */
+.pd40-mobile-detail{display:none;border:1px solid rgba(194,208,222,.45);border-radius:7px;color:#e5ebf3;min-height:44px;width:100%;margin-top:11px;padding:10px 14px;font:700 .72rem var(--mono);text-align:center;letter-spacing:.04em}
+body.deck-focus .pd40-mobile-detail:is(:hover,:focus-visible){background:rgba(211,222,234,.12)}
+html[data-theme="light"] .pd40-mobile-detail{color:#23303e;border-color:#95a1ae}
+@media(max-width:980px){body.deck-focus .pd40-mobile-detail{display:block}}
+
+/* P40 editorial restraint. The three-path compass replaces duplicated hero CTAs. */
+body.deck-focus #inicio.pd16-cover :is(.pd16-cover-top,.pd16-role,.pd16-cover-actions){display:none!important}
+body.deck-focus #inicio.pd16-cover .pd16-cover-shell{grid-template-rows:minmax(0,1fr)!important;gap:0!important}
+body.deck-focus #inicio.pd16-cover .eyebrow{color:#bac6d2!important;margin-bottom:clamp(17px,2.5vh,27px)!important}
+body.deck-focus #inicio.pd16-cover .pd16-lead{line-height:1.62!important;margin-top:clamp(18px,2.4vh,28px)!important;max-width:49ch!important}
+body.deck-focus #inicio.pd16-cover .pd16-os{box-shadow:0 26px 76px rgba(0,0,0,.28)!important}
+body.deck-focus #inicio.pd16-cover .pd40-compass-title{text-wrap:balance}
+body.deck-focus #inicio.pd16-cover .pd40-route b{color:#dce6f0}
+html[data-theme="light"] body.deck-focus #inicio.pd16-cover .pd16-thesis em{color:#3f4b57!important}
+html[data-theme="light"] body.deck-focus #inicio.pd16-cover .eyebrow{color:#576473!important}
+html[data-theme="light"] body.deck-focus #inicio.pd16-cover .pd16-os{box-shadow:0 24px 76px rgba(38,51,64,.11)!important}
+html[data-theme="light"] body.deck-focus #inicio.pd16-cover .pd40-route b{color:#384757}
+@media(max-width:980px){
+ body.deck-focus #inicio.pd16-cover .pd16-cover-copy{padding-top:clamp(18px,4vh,44px)}
+ body.deck-focus #inicio.pd16-cover .pd16-cover-layout{gap:clamp(24px,5vh,42px)}
+}
+@media(max-width:600px){
+ body.deck-focus #inicio.pd16-cover{padding-bottom:44px!important}
+ body.deck-focus #inicio.pd16-cover .pd16-thesis{font-size:clamp(2.25rem,9.1vw,3rem);letter-spacing:-.055em}
+ body.deck-focus #inicio.pd16-cover .pd16-lead{font-size:.93rem;line-height:1.55!important}
+ body.deck-focus #inicio.pd16-cover .pd16-cover-copy{padding-top:16px}
+ body.deck-focus #inicio.pd16-cover .pd16-os{box-shadow:none!important}
+}
+
+/* P40 structural fix: hidden rail must not push a fixed header off screen.
+   Legacy 176px left offset was clipping the mobile menu hitbox. */
+body.deck-focus.has-os-rail .site-header{
+ left:0!important;right:0!important;width:100%!important;max-width:100%!important;
+}
+@media(max-width:980px){
+ body.deck-full.has-os-rail .site-header{
+  left:0!important;right:0!important;width:100%!important;max-width:100%!important;
+ }
+ .site-header .menu-toggle{flex:0 0 44px!important;min-width:44px!important;width:44px!important}
+}
+
+/* P40 visual QA: do not compress natural spaces out of the serif headings. */
+body.deck-focus .deck>.slide h2{
+ letter-spacing:-.015em!important;word-spacing:.16em!important;line-height:1.13!important;
+}
+body.deck-focus .deck>.slide h2 em{
+ letter-spacing:0!important;word-spacing:.15em!important;
+}
+body.deck-focus #inicio.pd16-cover .pd40-compass-title{
+ font-size:clamp(1.75rem,2.7vw,2.6rem)!important;
+ letter-spacing:-.015em!important;word-spacing:.16em!important;line-height:1.16!important;
+ margin:15px 0 10px!important;
+}
+body.deck-focus #inicio.pd16-cover .pd40-compass-lead{margin:0 0 14px!important;max-width:40ch!important}
+@media(max-width:600px){
+ body.deck-focus #inicio.pd16-cover .pd40-compass-title{font-size:clamp(1.7rem,7.3vw,2.05rem)!important}
+ body.deck-focus #inicio.pd16-cover .pd40-route{min-height:68px!important}
+ body.deck-focus #inicio.pd16-cover .pd40-cv{margin-top:16px!important}
+ body.deck-focus :is(#demos,#trayectoria,#sistemas,#contacto) h2{font-size:clamp(1.9rem,7.5vw,2.55rem)!important}
+ body.deck-focus .site-header .brand-text{display:none!important}
+}
+
+/* Quick-view navigation is immediate: 'auto' must not inherit legacy smooth snapping. */
+body.deck-focus .deck,body.deck-focus .deck>.slide{
+ scroll-behavior:auto!important;scroll-snap-type:none!important;
+}
+
+/* Public RevOps demo: a quiet disclosure, not a second billboard-sized CTA. */
+#demos .pd40-demo-disclaimer{
+ display:block!important;
+ flex:1 0 100%!important;
+ width:100%!important;
+ font:700 .57rem/1.45 var(--mono)!important;
+ letter-spacing:.045em!important;
+ color:#bac3ce!important;
+ padding:0!important;
+ margin:3px 0 0!important;
+ text-align:left!important;
+ white-space:normal!important;
+}
+html[data-theme="light"] #demos .pd40-demo-disclaimer{color:#52606e!important}

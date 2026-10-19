@@ -27,7 +27,15 @@ I started close to customers, teams and daily operations. The technical layer ca
 
 ---
 
-## Current identity · Silver, graphite, ivory and beige
+## P40 · Platinum Focus (October 2026)
+
+The visually inspected entry uses short, naturally spaced titles and immediate quick-view navigation. The default visitor journey now uses five stops: a compact cover with three direct evidence routes, Bodytone operations, public work, professional evolution, and contact. Redundant hero action buttons, cover counters, duplicate role lines and introductory index labels are hidden in quick view; the full historical deck remains recoverable. The twelve original chapters remain accessible through **Full detail / Quick view** and old deep links expand automatically. The 60-second briefing remains. The cinematic opening is opt-in through `?intro=1` or replay, not autoplay.
+
+Visual direction: platinum, silver, graphite and strong cold-neutral contrast in both themes. The Deck remains the professional evidence world alongside the GracianB hub, Yoga Instructor and Systems Lab.
+
+RevOps Studio is a **sample-data public browser demo**, not a deployed customer system; labels now distinguish public cases, demos and real operational work without generic LIVE claims. Independent case pages receive the same cold-neutral platinum treatment.
+
+## Legacy identity · V24 to V37
 
 The twelve-slide presentation, 60-second briefing, vector Atlas, interactive elements and four standalone case-study pages share a silver, graphite, ivory and beige design language. This universe is deliberately distinct from the botanical-green Yoga site, electric-cyan Systems Lab and black-and-white GracianB hub.
 

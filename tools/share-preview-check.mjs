@@ -12,7 +12,7 @@ assert.ok(
   "Share title must describe the professional profile, not the color palette"
 );
 assert.ok(
-  html.includes('property="og:image:alt" content="Gracián Baena · Professional Deck · identidad grafito, plata y marfil"'),
+  html.includes('property="og:image:alt" content="Gracián Baena · Professional Deck · identidad platino, plata y grafito"'),
   "Artwork description belongs in the image alt"
 );
 assert.ok(svg.includes("#c8cccd") && svg.includes("#f3eee5"),"silver and ivory brand colors");

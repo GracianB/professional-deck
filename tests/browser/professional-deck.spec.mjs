@@ -13,7 +13,7 @@ test.describe("Professional Deck browser E2E", () => {
   test("V20 cinematic opening is skippable, session-once and replayable", async ({browser}) => {
     const ctx=await browser.newContext({viewport:{width:1440,height:900}});
     const page=await ctx.newPage();
-    await page.goto("/",{waitUntil:"domcontentloaded"});
+    await page.goto("/?view=full&intro=1",{waitUntil:"domcontentloaded"});
     const cinema=page.locator("#pd20-cinema");
     await expect(cinema).toBeVisible();
     await expect(cinema.locator("[data-cinema-skip]")).toBeFocused();
@@ -29,20 +29,20 @@ test.describe("Professional Deck browser E2E", () => {
 
     const deep=await browser.newContext({viewport:{width:1440,height:900}});
     const dp=await deep.newPage();
-    await dp.goto("/?lang=es#ruta",{waitUntil:"domcontentloaded"});
+    await dp.goto("/?view=full&lang=es#ruta",{waitUntil:"domcontentloaded"});
     await expect(dp.locator("#pd20-cinema")).toBeHidden();
     await deep.close();
 
     const reduce=await browser.newContext({reducedMotion:"reduce"});
     const rp=await reduce.newPage();
-    await rp.goto("/",{waitUntil:"domcontentloaded"});
+    await rp.goto("/?view=full",{waitUntil:"domcontentloaded"});
     await expect(rp.locator("#pd20-cinema")).toBeHidden();
     await reduce.close();
   });
 
   test("V20 model has 4+3 balanced cards on desktop and no mobile overflow", async ({page}) => {
     await page.setViewportSize({width:1440,height:900});
-    await page.goto("/?lang=es#modelo",{waitUntil:"domcontentloaded"});
+    await page.goto("/?view=full&lang=es#modelo",{waitUntil:"domcontentloaded"});
     const steps=page.locator("#modelo .pd20-model-track>li");
     await expect(steps).toHaveCount(7);
     const pos=await steps.evaluateAll(nodes=>nodes.map(el=>{
@@ -52,9 +52,9 @@ test.describe("Professional Deck browser E2E", () => {
     expect(pos[4].top).toBeGreaterThan(pos[0].top+50);
     expect(Math.abs(pos[4].top-pos[6].top)).toBeLessThan(5);
     expect(pos[0].left).toBeLessThan(pos[1].left);
-    await expect(page.locator("#modelo .pd20-model-proof>a")).toHaveCount(3);
-    await expect(page.locator("#modelo .pd20-model-proof .pd36-roadmap-link")).toHaveCount(1);
-    await expect(page.locator("#modelo .pd20-model-proof a[href*=\'revops-studio\']")).toHaveCount(0);
+    await expect(page.locator("#modelo .pd20-model-proof>a")).toHaveCount(4);
+    await expect(page.locator("#modelo .pd20-model-proof .pd40-revops-demo")).toHaveCount(1);
+    await expect(page.locator("#modelo .pd20-model-proof a[href*=\'revops-studio/demo.html\']")).toHaveCount(1);
     await page.setViewportSize({width:390,height:844});
     const dimensions=await page.evaluate(() => ({
       scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth
@@ -65,7 +65,7 @@ test.describe("Professional Deck browser E2E", () => {
 
   test("V20 light theme is coherent across all twelve chapters", async ({page}) => {
     await page.setViewportSize({width:1440,height:900});
-    await page.goto("/",{waitUntil:"domcontentloaded"});
+    await page.goto("/?view=full",{waitUntil:"domcontentloaded"});
     await page.locator("[data-set-theme='light']").click();
     await expect(page.locator("html")).toHaveAttribute("data-theme","light");
     const surface=await page.evaluate(()=>{
@@ -103,7 +103,7 @@ test.describe("Professional Deck browser E2E", () => {
   for (const [size,width,height] of [["desktop",1440,900],["mobile",390,844]]) {
     test(`V23 60 SEG uses neutral slate and ivory in both themes on ${size}`,async ({page})=>{
       await page.setViewportSize({width,height});
-      await page.goto("/?lang=es#inicio",{waitUntil:"domcontentloaded"});
+      await page.goto("/?view=full&lang=es#inicio",{waitUntil:"domcontentloaded"});
       const dialog=page.locator("#recruiter-dialog");
       await page.locator("#inicio [data-open-recruiter]").click();
       await expect(dialog).toBeVisible();
@@ -148,7 +148,7 @@ test.describe("Professional Deck browser E2E", () => {
   }
 
   test("carga el deck completo", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     await expect(page).toHaveTitle(/Gracián Baena/i);
     await expect(page.locator(".deck .slide")).toHaveCount(12);
@@ -167,7 +167,7 @@ test.describe("Professional Deck browser E2E", () => {
 
 
   test("atlas interactivo y resumen de 60 segundos sin scroll interminable", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
     await page.locator('.main-nav [data-go="ruta"]').click();
     await expect(page.locator('#ruta')).toBeInViewport();
     const stops=page.locator("[data-atlas-stops] button");
@@ -198,7 +198,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("V18 tiene seis ciudades reales y evidencia visual en experiencia", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#modelo .pd18-model-track li")).toHaveCount(7);
     await expect(page.locator("#metodo [data-method-steps] .gb-step")).toHaveCount(5);
     await expect(page.locator("#trayectoria .pd18-evo-rail li")).toHaveCount(5);
@@ -217,7 +217,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("V19 atlas draws changing routes, full network and pauses guided tour", async ({ page }) => {
-    await page.goto("/?lang=es#ruta", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full&lang=es#ruta", { waitUntil: "domcontentloaded" });
     const paths = page.locator("#ruta [data-atlas-routes] path");
     await expect(page.locator("#ruta .pd19-real-land path")).toHaveCount(36);
     await expect(paths).toHaveCount(5);
@@ -242,7 +242,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("V19 Bodytone stays navy and final contact offers real working links", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#sistemas .pd19-os-flow>span")).toHaveCount(4);
     await expect(page.locator("#contacto .pd19-contact-link")).toHaveCount(4);
     await expect(page.locator('#contacto a[href^="mailto:"]')).toHaveCount(1);
@@ -261,7 +261,7 @@ test.describe("Professional Deck browser E2E", () => {
 
   test("V20 header is one centered row alongside right utilities", async ({ page }) => {
     await page.setViewportSize({width:1440,height:900});
-    await page.goto("/", {waitUntil:"domcontentloaded"});
+    await page.goto("/?view=full", {waitUntil:"domcontentloaded"});
     const rects=await page.evaluate(() => {
       const b=document.querySelector(".site-header .brand").getBoundingClientRect();
       const n=document.querySelector(".site-header .main-nav").getBoundingClientRect();
@@ -281,7 +281,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("navegación entre slides funciona", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const slides = page.locator(".deck .slide");
 
@@ -298,7 +298,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("selector ES/EN funciona", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const es = page.locator("[data-set-lang='es']");
     const en = page.locator("[data-set-lang='en']");
@@ -322,7 +322,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("tema oscuro/claro funciona", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const dark = page.locator("[data-set-theme='dark']");
     const light = page.locator("[data-set-theme='light']");
@@ -340,7 +340,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("navegación principal apunta a slides reales", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const targets = await page.locator(".main-nav [data-go]").evaluateAll(
       buttons => buttons.map(button => button.dataset.go)
@@ -354,7 +354,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("skip link lleva el foco al contenido principal", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const skip = page.locator(".skip-link");
     await skip.focus();
@@ -365,7 +365,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("el rail refleja la slide activa", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const railItems = page.locator(".os-rail-item");
     await expect(railItems).toHaveCount(12);
@@ -377,7 +377,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("command palette abre con Ctrl+K", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const dialog = page.locator("#command-dialog");
     const search = page.locator("[data-command-search]");
@@ -404,7 +404,7 @@ test.describe("Professional Deck browser E2E", () => {
     });
     page.on("pageerror", (error) => pageErrors.push(error.message));
 
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(250);
 
     expect(consoleErrors, "Errores de consola: " + consoleErrors.join(" | ")).toEqual([]);
@@ -419,7 +419,7 @@ test.describe("Professional Deck browser E2E", () => {
     });
     const page = await context.newPage();
 
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const viewport = await page.evaluate(() => ({
       innerWidth: window.innerWidth,
@@ -453,7 +453,7 @@ test.describe("Professional Deck browser E2E", () => {
     });
     const page = await context.newPage();
 
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const selectors = [
       ".menu-toggle",
@@ -482,7 +482,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("diálogos tienen nombre accesible y gestión de foco", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toHaveAttribute("aria-labelledby", "recruiter-title");
@@ -508,7 +508,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("los grupos de idioma y tema y sus títulos se localizan", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const languageGroup = page.locator("[data-language-gate='header']");
     const themeGroup = page.locator(".header-actions .seg").nth(1);
@@ -526,7 +526,7 @@ test.describe("Professional Deck browser E2E", () => {
   });
 
   test("los diálogos restauran el foco al control que los abrió", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const recruiterTrigger = page.locator("[data-open-recruiter]").first();
     await recruiterTrigger.focus();
@@ -555,7 +555,7 @@ test.describe("Professional Deck browser E2E", () => {
     });
     const page = await context.newPage();
 
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     await page.keyboard.press("End");
     await expect(page.locator("#contacto")).toBeInViewport();
@@ -586,7 +586,7 @@ test.describe("Professional Deck browser E2E", () => {
 
 test.describe("Professional Deck production hardening", () => {
   test("SEO and document contract are present", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     await expect(page).toHaveTitle(/Gracián Baena/i);
     await expect(page.locator('meta[name="description"]')).toHaveCount(1);
@@ -612,12 +612,12 @@ test.describe("Professional Deck production hardening", () => {
   });
 
   test("deep link por hash aterriza en la slide correcta", async ({ page }) => {
-    await page.goto("/#contacto", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full#contacto", { waitUntil: "domcontentloaded" });
     await expect(page.locator("#contacto")).toBeInViewport();
   });
 
   test("el tema persiste tras recargar la página", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     await page.locator("[data-set-theme='light']").click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -631,7 +631,7 @@ test.describe("Professional Deck production hardening", () => {
   });
 
   test("el idioma persiste tras recargar la página", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     await page.locator("[data-set-lang='en']").click();
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
@@ -654,7 +654,7 @@ test.describe("Professional Deck production hardening", () => {
     });
     const page = await context.newPage();
 
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const state = await page.evaluate(() => ({
       introOn: document.documentElement.classList.contains("intro-on"),
@@ -668,7 +668,7 @@ test.describe("Professional Deck production hardening", () => {
   });
 
   test("language switch updates document language and CV target", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     await page.locator("[data-set-lang='en']").click();
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
@@ -693,7 +693,7 @@ test.describe("Professional Deck production hardening", () => {
     });
     const page = await context.newPage();
 
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     await page.locator(".menu-toggle").click();
     await expect(page.locator(".main-nav")).toHaveClass(/open/);
@@ -713,7 +713,7 @@ test.describe("Professional Deck production hardening", () => {
     });
     const page = await context.newPage();
 
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full", { waitUntil: "domcontentloaded" });
 
     const menuToggle = page.locator(".menu-toggle");
     const closeButtons = page.locator(".dialog-close");

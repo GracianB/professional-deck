@@ -62,7 +62,7 @@ for(const [screen,width,height] of [["desktop",1440,900],["mobile",390,844]]) {
 
 test("V24 mobile contact text and evidence links do not overlap",async({page})=>{
   await page.setViewportSize({width:390,height:844});
-  await page.goto("/?lang=es&theme=light#contacto",{waitUntil:"domcontentloaded"});
+  await page.goto("/?view=full&lang=es&theme=light#contacto",{waitUntil:"domcontentloaded"});
   const visual=page.locator("#contacto .pd19-contact-visual");
   await visual.scrollIntoViewIfNeeded();
   const layout=await visual.evaluate(el=>{
@@ -77,7 +77,7 @@ test("V24 mobile contact text and evidence links do not overlap",async({page})=>
 });
 
 test("V24 chrome, progress, cinema and briefing share neutral silver family",async({page})=>{
-  await page.goto("/?lang=es&theme=dark#inicio",{waitUntil:"domcontentloaded"});
+  await page.goto("/?view=full&lang=es&theme=dark#inicio",{waitUntil:"domcontentloaded"});
   const chrome=await page.evaluate(()=>({
     header:getComputedStyle(document.querySelector(".site-header")).backgroundColor,
     rail:getComputedStyle(document.querySelector(".os-rail")).backgroundColor,

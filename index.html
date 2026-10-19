@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#141210">
+  <meta name="theme-color" content="#0b0f13">
   <meta name="color-scheme" content="dark light">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="author" content="Gracián Baena">
@@ -19,7 +19,7 @@
   <meta property="og:description" content="Experiencia profesional, casos reales y sistemas verificables. Customer Success · Operations · Data · AI.">
   <meta property="og:url" content="https://gracianb.github.io/professional-deck/">
   <meta property="og:image" content="https://gracianb.github.io/professional-deck/og-cover.png?v=37">
-  <meta property="og:image:alt" content="Gracián Baena · Professional Deck · identidad grafito, plata y marfil">
+  <meta property="og:image:alt" content="Gracián Baena · Professional Deck · identidad platino, plata y grafito">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://gracianb.github.io/professional-deck/">
   <meta property="og:image:type" content="image/png">
@@ -63,8 +63,10 @@
   <link rel="stylesheet" href="./v23-brief.css?v=deck-v23">
   <link rel="stylesheet" href="./v24-universe.css?v=deck-v24">
   <link rel="stylesheet" href="./v25-finish.css?v=deck-v36">
+  <link rel="stylesheet" href="./platinum-focus.css?v=deck-p40">
   <script src="./i18n.js?v=deck-v36" defer></script>
   <script src="./main.js?v=deck-v16" defer></script>
+  <script src="./focus-mode.js?v=deck-p40" defer></script>
   <script src="./v20-cinema.js?v=deck-v20" defer></script>
 </head>
 <body class="has-os-rail final-deck-v4">
@@ -115,6 +117,7 @@
       <button type="button" data-go="contacto" data-i18n="navContact">Hablemos</button>
       <button type="button" class="nav-recruiter" data-open-recruiter aria-haspopup="dialog" data-i18n="navRecruiter">60 SEG</button>
       <button type="button" class="nav-present" data-present data-i18n="navPresent" data-i18n-title="presentToggle" aria-pressed="false" title="Modo presentación">PRESENTAR</button>
+      <button type="button" class="pd40-mode" data-deck-mode aria-pressed="false" aria-label="Ver todos los capítulos">VER TODO</button>
       <button type="button" class="nav-cmd" data-open-command title="Ctrl K" aria-label="Abrir buscador (Ctrl K)" aria-haspopup="dialog"><kbd>Ctrl</kbd><kbd>K</kbd></button>
     </nav>
     <div class="header-actions">
@@ -174,7 +177,18 @@
             </div>
           </div>
 
-          <aside class="pd16-os" aria-label="Modelo profesional"><div class="pd28-emblem" aria-hidden="true"><svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><linearGradient id="pd-metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eee5d7"/><stop offset=".5" stop-color="#b7bbc0"/><stop offset="1" stop-color="#bba58a"/></linearGradient></defs><g fill="none" stroke="url(#pd-metal)" stroke-width="1.5" opacity=".7"><circle cx="240" cy="235" r="149"/><circle cx="240" cy="235" r="106" stroke-dasharray="3 8"/><ellipse cx="240" cy="235" rx="188" ry="68" transform="rotate(-34 240 235)"/><ellipse cx="240" cy="235" rx="188" ry="68" transform="rotate(34 240 235)"/><path d="M240 36V439" stroke-dasharray="3 12"/></g><g fill="#262c30" stroke="#dacebc" stroke-width="2"><circle cx="240" cy="91" r="29"/><circle cx="93" cy="239" r="29"/><circle cx="387" cy="239" r="29"/><circle cx="240" cy="383" r="29"/></g><g fill="none" stroke="#e1d4c0" stroke-width="4" stroke-linecap="round"><circle cx="240" cy="84" r="7"/><path d="M225 104Q240 90 255 104M81 250v-13m10 13v-28m10 28v-19M375 251l24-24m-25 2 2 23 23-2M227 370h26m-26 10h26m-26 10h26"/></g><path d="M240 172Q254 220 303 235Q254 250 240 298Q226 250 177 235Q226 220 240 172Z" fill="#e1cfb5" opacity=".86"/><circle cx="240" cy="235" r="20" fill="#fff7e9" opacity=".9"/><circle cx="240" cy="235" r="9" fill="#806d59"/><g fill="none" stroke="#cec4b5" opacity=".45"><ellipse cx="240" cy="441" rx="114" ry="18"/><ellipse cx="240" cy="441" rx="166" ry="29"/></g></svg></div>
+          <aside class="pd16-os" aria-label="Modelo profesional">
+            <nav class="pd40-compass" aria-label="Explorar experiencia profesional">
+              <div class="pd40-compass-head"><span>GB / EVIDENCE INDEX</span><span>✦ 03</span></div>
+              <h2 class="pd40-compass-title" data-i18n="focusTitle">Tres rutas.</h2>
+              <p class="pd40-compass-lead" data-i18n="focusLead">Resultados reales, sistemas públicos y trayectoria. Entra directamente.</p>
+              <button type="button" class="pd40-route" data-go="sistemas"><i>01</i><span><strong data-i18n="focusCase">Impacto real</strong><small>BODYTONE · OPERATIONS</small></span><b>↗</b></button>
+              <button type="button" class="pd40-route" data-go="demos"><i>02</i><span><strong data-i18n="focusBuild">Sistemas que puedes probar</strong><small>REVOPS · OHANA · VØRTICE</small></span><b>↗</b></button>
+              <button type="button" class="pd40-route" data-go="trayectoria"><i>03</i><span><strong data-i18n="focusHistory">Trayectoria profesional</strong><small>CUSTOMER SUCCESS · SYSTEMS</small></span><b>↗</b></button>
+              <a href="./Gracian_Baena_CV_2026_ES.pdf" data-cv-link target="_blank" rel="noopener noreferrer" class="pd40-cv"><span data-i18n="focusCv">Abrir CV completo</span> ↗</a>
+              <button type="button" class="pd40-mobile-detail" data-deck-mode aria-pressed="false" aria-label="Ver todos los capítulos">VER TODO ↗</button>
+            </nav>
+            <div class="pd28-emblem" aria-hidden="true"><svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><linearGradient id="pd-metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7ebf1"/><stop offset=".5" stop-color="#b8c1cb"/><stop offset="1" stop-color="#8a97a7"/></linearGradient></defs><g fill="none" stroke="url(#pd-metal)" stroke-width="1.5" opacity=".7"><circle cx="240" cy="235" r="149"/><circle cx="240" cy="235" r="106" stroke-dasharray="3 8"/><ellipse cx="240" cy="235" rx="188" ry="68" transform="rotate(-34 240 235)"/><ellipse cx="240" cy="235" rx="188" ry="68" transform="rotate(34 240 235)"/><path d="M240 36V439" stroke-dasharray="3 12"/></g><g fill="#262c30" stroke="#b5bfcb" stroke-width="2"><circle cx="240" cy="91" r="29"/><circle cx="93" cy="239" r="29"/><circle cx="387" cy="239" r="29"/><circle cx="240" cy="383" r="29"/></g><g fill="none" stroke="#bec9d5" stroke-width="4" stroke-linecap="round"><circle cx="240" cy="84" r="7"/><path d="M225 104Q240 90 255 104M81 250v-13m10 13v-28m10 28v-19M375 251l24-24m-25 2 2 23 23-2M227 370h26m-26 10h26m-26 10h26"/></g><path d="M240 172Q254 220 303 235Q254 250 240 298Q226 250 177 235Q226 220 240 172Z" fill="#bfc9d6" opacity=".86"/><circle cx="240" cy="235" r="20" fill="#f2f6fb" opacity=".9"/><circle cx="240" cy="235" r="9" fill="#596b7d"/><g fill="none" stroke="#aebcc9" opacity=".45"><ellipse cx="240" cy="441" rx="114" ry="18"/><ellipse cx="240" cy="441" rx="166" ry="29"/></g></svg></div>
             <header>
               <span>GB / PROFESSIONAL OS</span>
               <b>05 LAYERS</b>
@@ -225,9 +239,9 @@
             </div>
           </div>
           <aside class="pd18-model-proof pd20-model-proof">
-            <div class="pd20-model-proof-head"><span data-i18n="modelProof">EL MODELO EN ACCIÓN</span><small>04 / LIVE</small></div>
+            <div class="pd20-model-proof-head"><span data-i18n="modelProof">EL MODELO EN ACCIÓN</span><small data-i18n="proofCount">04 / CASOS</small></div>
             <a href="./proyecto-bodytone.html"><b>BODYTONE</b><span data-i18n="modelProof1">Soporte, Zendesk y formación</span><em>↗</em></a>
-            <span class="pd36-roadmap-link" aria-disabled="true"><b>REVOPS STUDIO</b><span data-i18n="modelProof2">Decisión trazable y scoring</span><em data-i18n="constructionShort">EN CONSTRUCCIÓN</em></span>
+            <a class="pd40-revops-demo" href="https://gracianb.github.io/revops-studio/demo.html" target="_blank" rel="noopener noreferrer"><b>REVOPS STUDIO</b><span data-i18n="modelProof2">Decisiones trazables y scoring</span><em data-i18n="demoStatus">DEMO ↗</em></a>
             <a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noopener noreferrer"><b>OHANA</b><span data-i18n="modelProof3">Estados, juego y simulación</span><em>↗</em></a>
             <a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noopener noreferrer"><b>VØRTICE</b><span data-i18n="modelProof4">WebGL, sonido y visuales</span><em>↗</em></a>
           </aside>
@@ -279,20 +293,20 @@
       <div class="gb-demos">
         <header class="gb-demos-head gb-title-band">
           <p class="slide-index light-index"><span>03</span><i></i><span data-i18n="demosIndex">PRUEBA PÚBLICA</span></p>
-          <p class="eyebrow" data-i18n="demosEyebrow">LIVE · CÓDIGO · CONTRATOS · SIN PEDIR ACCESO</p>
+          <p class="eyebrow" data-i18n="demosEyebrow">PRUEBAS PÚBLICAS · EXPERIENCIAS · DEMOS</p>
           <h2 data-i18n-html="demosH2">No tienes que creerme.<br><em>Puedes abrirlo.</em></h2>
-          <p class="gb-demos-lead" data-i18n="demosP">OHANA y VØRTICE tienen experiencias públicas; Aigoritmo presenta una app local. RevOps sigue en desarrollo.</p>
+          <p class="gb-demos-lead" data-i18n="demosP">OHANA y VØRTICE ofrecen experiencias públicas; RevOps dispone de una demo con datos de ejemplo y Aigoritmo es una aplicación local.</p>
         </header>
 
         <div class="gb-demos-grid">
           <article class="gb-demo-card pd16-proof-card">
-            <header><span class="gb-demo-code">01</span><span class="gb-demo-badge" data-i18n="constructionShort">EN CONSTRUCCIÓN</span></header>
+            <header><span class="gb-demo-code">01</span><span class="gb-demo-badge" data-i18n="demoStatus">DEMO PÚBLICA</span></header>
             <h3 data-i18n-html="revopsH2">RevOps Studio · <em>decisiones</em></h3>
             <p data-i18n="revopsP">Calidad de datos, scoring determinista, forecast, segmentación, aprobación humana y trazabilidad.</p>
             <div class="tag-row"><span>RevOps</span><span>Decision Trace</span><span>Human-in-loop</span></div>
             <div class="gb-demo-actions">
-              <span class="pd36-roadmap-link" aria-disabled="true"><span data-i18n="constructionShort">EN CONSTRUCCIÓN</span></span>
-              <span class="pd36-roadmap-link" aria-disabled="true"><span data-i18n="notAvailable">NO DISPONIBLE</span></span>
+              <a class="button primary" href="https://gracianb.github.io/revops-studio/demo.html" target="_blank" rel="noopener noreferrer" data-i18n="demoCta">PROBAR DEMO ↗</a>
+              <span class="pd40-demo-disclaimer" data-i18n="demoDisclaimer">DATOS DE EJEMPLO · NO PRODUCCIÓN</span>
             </div>
           </article>
 
@@ -327,7 +341,7 @@
         </div>
 
         <footer class="gb-demos-foot pd16-proof-foot">
-          <span data-i18n="demosFoot">Bodytone prueba operación real. Aigoritmo tiene un caso público y una app local; RevOps sigue en desarrollo.</span>
+          <span data-i18n="demosFoot">Bodytone documenta operación real. RevOps es una demo de muestra, no un sistema de clientes en producción.</span>
           <a href="https://gracianb.github.io/systems-lab/" target="_blank" rel="noopener noreferrer" data-i18n="labCta">Explorar Systems Lab ↗</a>
         </footer>
       </div>
@@ -499,7 +513,7 @@
       <div class="pd18-shell"><header class="pd18-heading"><p class="slide-index light-index"><span>09</span><i></i><span data-i18n="capIndex">CAPACIDADES</span></p><p class="eyebrow" data-i18n="capEyebrow">PRUEBAS, NO PORCENTAJES INVENTADOS</p><h2 data-i18n-html="capH2">Lo que sé hacer.<br><em>Lo que puedes abrir.</em></h2><p data-i18n="capP">Del negocio al software: cada especialidad enlaza con una prueba real.</p></header>
         <div class="pd18-cap-grid">
           <article><small>01 / CUSTOMER SYSTEMS</small><h3 data-i18n="cap18Title1">OPERACIONES Y ADOPCIÓN</h3><p data-i18n="cap18Text1">CS · Zendesk · documentación · procesos · formación · KPIs</p><a href="https://bodytonehelp.zendesk.com/hc/es" target="_blank" rel="noopener noreferrer">BODYTONE SUPPORT OS ↗</a></article>
-          <article><small>02 / DATA &amp; AUTOMATION</small><h3 data-i18n="cap18Title2">DATOS Y AUTOMATIZACIÓN</h3><p data-i18n="cap18Text2">Python · Power BI · APIs · Apps Script · scoring · trazabilidad</p><span class="pd36-roadmap-link" aria-disabled="true">REVOPS · <span data-i18n="constructionShort">EN CONSTRUCCIÓN</span></span></article>
+          <article><small>02 / DATA &amp; AUTOMATION</small><h3 data-i18n="cap18Title2">DATOS Y AUTOMATIZACIÓN</h3><p data-i18n="cap18Text2">Python · Power BI · APIs · Apps Script · scoring · trazabilidad</p><a href="https://gracianb.github.io/revops-studio/demo.html" target="_blank" rel="noopener noreferrer">REVOPS · DEMO ↗</a></article>
           <article><small>03 / GAME SYSTEMS</small><h3 data-i18n="cap18Title3">JUEGOS E INTERACTIVIDAD</h3><p data-i18n="cap18Text3">OHANA: personajes, simulación, habilidades, estados, CI y E2E</p><a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noopener noreferrer">PROJECT OHANA ↗</a></article>
           <article><small>04 / CREATIVE CODE</small><h3 data-i18n="cap18Title4">SONIDO Y VISUALES</h3><p data-i18n="cap18Text4">VØRTICE: audio-reactividad, WebGL, gráficos y rendimiento</p><a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noopener noreferrer">VØRTICE ↗</a></article>
           <article><small>05 / AI SYSTEMS</small><h3 data-i18n="cap18Title5">CHATBOTS Y GENAI</h3><p data-i18n="cap18Text5">LLMs · asistentes · interfaces conversacionales · automatizaciones</p><a href="https://gracianb.github.io/systems-lab/" target="_blank" rel="noopener noreferrer">SYSTEMS LAB ↗</a></article>
@@ -571,7 +585,7 @@
         <p data-i18n-html="contactManifesto">PERSONAS<br>PROCESOS<br><em>TECNOLOGÍA.</em></p>
         <span data-i18n="contactManifestoNote">Una misma dirección. Soluciones que funcionan.</span>
       </div>
-      <div class="pd19-contact-proof"><span class="pd36-roadmap-link" aria-disabled="true">REVOPS · <span data-i18n="constructionShort">EN CONSTRUCCIÓN</span></span><a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noopener noreferrer">OHANA ↗</a><a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noopener noreferrer">VØRTICE ↗</a></div>
+      <div class="pd19-contact-proof"><a href="https://gracianb.github.io/revops-studio/demo.html" target="_blank" rel="noopener noreferrer">REVOPS · DEMO ↗</a><a href="https://gracianb.github.io/project-ohana/" target="_blank" rel="noopener noreferrer">OHANA ↗</a><a href="https://vortex-gilt-xi.vercel.app/" target="_blank" rel="noopener noreferrer">VØRTICE ↗</a></div>
     </div>
   </div>
 </section>

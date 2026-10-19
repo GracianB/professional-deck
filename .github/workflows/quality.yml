@@ -26,8 +26,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+      - name: Install Chromium, Firefox and WebKit
+        run: npx playwright install --with-deps chromium firefox webkit
 
       - name: Validate
         run: npm run validate
@@ -53,12 +53,25 @@ jobs:
       - name: Browser E2E
         run: npm run test:browser
 
-      - name: Upload V16 visual evidence
+      - name: P40 cross-browser checks
+        run: npm run test:crossbrowser
+
+      - name: P40 publication contract against local production files
+        run: |
+          node tools/static-server.mjs > /tmp/p40-local-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          sleep 1
+          PD_LIVE_URL=http://127.0.0.1:4173/ node scripts/v16-live-smoke.mjs
+
+      - name: Upload P40 and legacy visual evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: professional-deck-v16-${{ github.sha }}
-          path: artifacts/v16
+          path: |
+            artifacts/v16
+            artifacts/p40
           if-no-files-found: warn
           retention-days: 14
 
