@@ -1,5 +1,4 @@
 import {test,expect} from "@playwright/test";
-import {mkdirSync} from "node:fs";
 
 const selectors=[
   "#sistemas.pd19-case .pd19-os-flow",
@@ -12,10 +11,20 @@ const selectors=[
   "#contacto .pd19-contact-link"
 ];
 test("V1 petroleum · visible flow, metrics, badges and other chapters belong to one theme",async({page})=>{
-  mkdirSync("artifacts/v1-petroleum",{recursive:true});
   for(const theme of ["dark","light"]){
     await page.setViewportSize({width:1440,height:900});
     await page.goto("/?view=full&theme="+theme+"&lang=es#sistemas",{waitUntil:"domcontentloaded"});
+    await expect(page.locator("html")).toHaveAttribute("data-theme",theme);
+    // Theme changes animate some badge backgrounds for 200 ms; wait for their
+    // final computed style, never assert against a transient start frame.
+    await expect.poll(()=>page.evaluate(()=>{
+      const read=selector=>getComputedStyle(document.querySelector(selector)).backgroundColor;
+      const tag=read("#sistemas.pd19-case .gb-star-main .tag-row>span");
+      const flow=read("#sistemas.pd19-case .pd19-os-flow");
+      const contact=read("#contacto .pd19-contact-link");
+      const c=(contact.match(/[0-9.]+/g)||[]).slice(0,3).map(Number);
+      return tag===flow && (document.documentElement.dataset.theme!=="light"||Math.min(...c)>215);
+    }),{timeout:6000}).toBe(true);
     const data=await page.evaluate((selectors)=>({
       theme:getComputedStyle(document.documentElement).getPropertyValue("--v1-panel-hover").trim(),
       base:getComputedStyle(document.documentElement).getPropertyValue("--v1-bg").trim(),
@@ -29,31 +38,6 @@ test("V1 petroleum · visible flow, metrics, badges and other chapters belong to
       header:getComputedStyle(document.querySelector(".site-header")).backgroundColor,
       action:getComputedStyle(document.querySelector("#sistemas .project-actions .primary")).backgroundColor
     }),selectors);
-    await expect(page.locator("html")).toHaveAttribute("data-theme",theme);
-    console.log("PALETTE-DIAGNOSTIC",theme,JSON.stringify(data));
-    if(theme==="light"){
-      const cascade=await page.evaluate(()=>{
-        const query=["#sistemas.pd19-case .gb-star-main .tag-row>span","#contacto .pd19-contact-link"];
-        return query.map(selector=>{
-          const el=document.querySelector(selector),rules=[];
-          for(const sheet of [...document.styleSheets]){
-            let entries;try{entries=sheet.cssRules;}catch{continue;}
-            for(const rule of entries){
-              if(!rule.selectorText||!rule.style)continue;
-              try{
-                if(!el.matches(rule.selectorText))continue;
-                const back=rule.style.getPropertyValue("background");
-                const color=rule.style.getPropertyValue("background-color");
-                if(back||color)rules.push({sheet:sheet.href?.split("/").pop(),selector:rule.selectorText,
-                  background:back||color,priority:rule.style.getPropertyPriority("background")||rule.style.getPropertyPriority("background-color")});
-              }catch{}
-            }
-          }
-          return {selector,rules:rules.slice(-25),computed:getComputedStyle(el).backgroundColor};
-        });
-      });
-      console.log("PALETTE-CASCADE",JSON.stringify(cascade));
-    }
     for(const item of data.results){
       expect(item.missing,item.selector+" exists").not.toBe(true);
       expect(item.rgb.length,item.selector+" has opaque themed surface").toBe(3);
@@ -74,8 +58,6 @@ test("V1 petroleum · visible flow, metrics, badges and other chapters belong to
     expect(hc.length).toBe(3);
     if(theme==="dark"){expect(Math.max(...hc)).toBeLessThan(38);}
     else expect(Math.min(...hc)).toBeGreaterThan(225);
-    await page.locator("#sistemas").scrollIntoViewIfNeeded();
-    await page.screenshot({path:"artifacts/v1-petroleum/bodytone-"+theme+".png",animations:"disabled"});
   }
 });
 test("V1 petroleum · no ivory accents in displayed showcase gradient surfaces",async({page})=>{
