@@ -33,6 +33,8 @@ The default visitor journey now uses five stops: a compact cover with three dire
 
 Visual direction: platinum, silver, graphite and strong cold-neutral contrast in both themes. The Deck remains the professional evidence world alongside the GracianB hub, Yoga Instructor and Systems Lab.
 
+RevOps Studio is a **sample-data public browser demo**, not a deployed customer system. Independent case pages receive the same cold-neutral platinum treatment.
+
 ## Legacy identity · V24 to V37
 
 The twelve-slide presentation, 60-second briefing, vector Atlas, interactive elements and four standalone case-study pages share a silver, graphite, ivory and beige design language. This universe is deliberately distinct from the botanical-green Yoga site, electric-cyan Systems Lab and black-and-white GracianB hub.

@@ -13,7 +13,7 @@ test.describe("Professional Deck browser E2E", () => {
   test("V20 cinematic opening is skippable, session-once and replayable", async ({browser}) => {
     const ctx=await browser.newContext({viewport:{width:1440,height:900}});
     const page=await ctx.newPage();
-    await page.goto("/",{waitUntil:"domcontentloaded"});
+    await page.goto("/?intro=1",{waitUntil:"domcontentloaded"});
     const cinema=page.locator("#pd20-cinema");
     await expect(cinema).toBeVisible();
     await expect(cinema.locator("[data-cinema-skip]")).toBeFocused();
@@ -53,8 +53,8 @@ test.describe("Professional Deck browser E2E", () => {
     expect(Math.abs(pos[4].top-pos[6].top)).toBeLessThan(5);
     expect(pos[0].left).toBeLessThan(pos[1].left);
     await expect(page.locator("#modelo .pd20-model-proof>a")).toHaveCount(3);
-    await expect(page.locator("#modelo .pd20-model-proof .pd36-roadmap-link")).toHaveCount(1);
-    await expect(page.locator("#modelo .pd20-model-proof a[href*=\'revops-studio\']")).toHaveCount(0);
+    await expect(page.locator("#modelo .pd20-model-proof .pd40-revops-demo")).toHaveCount(1);
+    await expect(page.locator("#modelo .pd20-model-proof a[href*=\'revops-studio/demo.html\']")).toHaveCount(1);
     await page.setViewportSize({width:390,height:844});
     const dimensions=await page.evaluate(() => ({
       scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth

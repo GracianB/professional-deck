@@ -73,6 +73,7 @@ for(const token of ["#inicio.pd16-cover","#modelo.pd20-model","#sistemas.pd19-ca
  if(!v24.includes(token)) errors.push("V24 universal design missing selector "+token);
 }
 if(!index.includes('v24-universe.css?v=deck-v24')) errors.push("V24 stylesheet not loaded");
+if(!index.includes("platinum-focus.css?v=deck-p40") || !index.includes("focus-mode.js?v=deck-p40")) errors.push("P40 focus layers missing");
 
 const v23Brief = await readFile(join(root, "v23-brief.css"), "utf8");
 if (!index.includes("v23-brief.css?v=deck-v23") ||
@@ -203,13 +204,13 @@ for (const script of ["main.js", "i18n.js", "case.js", "validate.mjs"]) {
 }
 
 forbid(index, /href="https:\/\/(?:gracianb\.github\.io\/revops-studio\/|github\.com\/GracianB\/revops-studio)"/i, "unfinished RevOps access");
-if (!index.includes("pd36-roadmap-link")) errors.push("RevOps construction label missing");
+if (!index.includes("https://gracianb.github.io/revops-studio/demo.html")) errors.push("RevOps sample-data demo link missing");
 
 // A roadmap project is not a publicly accessible product.
 const revopsCard = index.match(/<article class="gb-demo-card pd16-proof-card">[\s\S]*?<h3 data-i18n-html="revopsH2">[\s\S]*?<\/article>/)?.[0] ?? "";
 if (!revopsCard || /gb-demo-badge is-live/.test(revopsCard) ||
-    !/data-i18n="constructionShort"/.test(revopsCard)) {
-  errors.push("RevOps must remain explicitly in development, never LIVE");
+    !/data-i18n="demoStatus"/.test(revopsCard) || !/data-i18n="demoDisclaimer"/.test(revopsCard) || !revopsCard.includes("revops-studio/demo.html")) {
+  errors.push("RevOps must be a sample-data public demo, never a production LIVE claim");
 }
 if (/RevOps Studio, OHANA (?:y|and) VØRTICE (?:son pruebas públicas|are public proof)/i.test(i18n)) {
   errors.push("RevOps must not be claimed as public evidence");

@@ -474,3 +474,8 @@ html[data-theme="light"] .case-boundary {background:#eee4d6!important;color:#4d5
 html[data-theme="light"] .case-boundary :is(span,a) {color:#394f59!important}
 html[data-theme="light"] .case-footer {background:linear-gradient(155deg,#354148,#222e36)!important;color:#f7f0e5!important}
 html[data-theme="light"] .case-footer h2 {color:#f7efe3!important}
+
+/* P40 · Neutral case appearance, same design universe. */
+body.case-body{background:#0c1117!important}
+html[data-theme="light"] body.case-body{background:#f1f3f6!important}
+body.case-body :is(.case-header,.case-hero,.case-local-nav,.case-section,.case-boundary,.case-footer,.case-reading-progress){filter:grayscale(1)}

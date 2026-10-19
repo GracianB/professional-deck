@@ -1,5 +1,8 @@
 ﻿window.GB_I18N = {
   es: {
+    demoStatus: "DEMO PÚBLICA",
+    demoCta: "PROBAR DEMO ↗",
+    demoDisclaimer: "DATOS DE EJEMPLO · NO PRODUCCIÓN",
     focusTitle: "Tres caminos. Pruebas concretas.",
     focusLead: "Elige qué quieres comprobar, sin recorrer doce diapositivas.",
     focusCase: "Impacto operativo real",
@@ -155,8 +158,8 @@
     aigoritmoStatus: "APP LOCAL",
     aigoritmoP: "Llama, Qwen, Arcana y Arcano. Cuatro personajes para conversar, crear y explorar, con modelos y voz locales.",
     aigoritmoCase: "VER CASO ↗",
-    demosP: "OHANA y VØRTICE tienen experiencias públicas; Aigoritmo presenta una app local. RevOps sigue en desarrollo.",
-    demosFoot: "Bodytone prueba operación real. Aigoritmo tiene un caso público y una app local; RevOps sigue en desarrollo.",
+    demosP: "OHANA y VØRTICE tienen experiencias públicas; RevOps ofrece una demo con datos de ejemplo y Aigoritmo es una aplicación local.",
+    demosFoot: "Bodytone documenta operación real. RevOps ofrece una demo de muestra, no un sistema de clientes en producción.",
     liveBadge: "LIVE",
     revopsH2: "RevOps Studio · <em>decisiones</em>",
     revopsP: "Calidad de datos, scoring determinista, forecast, segmentación, aprobación humana y trazabilidad.",
@@ -496,6 +499,9 @@
     open: "ABRIR →"
   },
   en: {
+    demoStatus: "PUBLIC DEMO",
+    demoCta: "TRY DEMO ↗",
+    demoDisclaimer: "SAMPLE DATA · NOT PRODUCTION",
     focusTitle: "Three paths. Verifiable work.",
     focusLead: "Explore the evidence without a twelve-slide tour.",
     focusCase: "Real operational impact",
@@ -651,8 +657,8 @@
     aigoritmoStatus: "LOCAL APP",
     aigoritmoP: "Llama, Qwen, Arcana and Arcano. Four characters for conversation, creation and exploration, with local models and voice.",
     aigoritmoCase: "VIEW CASE ↗",
-    demosP: "OHANA and VØRTICE offer public experiences; Aigoritmo showcases a local app. RevOps remains in development.",
-    demosFoot: "Bodytone proves real operations. Aigoritmo has a public case and a local app; RevOps remains in development.",
+    demosP: "OHANA and VØRTICE offer public experiences; RevOps has a sample-data browser demo and Aigoritmo remains a local app.",
+    demosFoot: "Bodytone documents real operational work. RevOps is a sample-data demo, not a production customer system.",
     liveBadge: "LIVE",
     revopsH2: "RevOps Studio · <em>decisions</em>",
     revopsP: "Data quality, deterministic scoring, forecasting, segmentation, human approval and traceability.",
