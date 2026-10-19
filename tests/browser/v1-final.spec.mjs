@@ -6,7 +6,7 @@ test("V1 · orbiting GB has three genuinely interactive destinations", async({pa
  const nodes=orbit.locator(".v1-orbit-node");
  await expect(nodes).toHaveCount(3);
  for(const [id,route] of [["sistemas","Ver Sistemas"],["experiencia","Ver Experiencia"],["demos","Ver Proyectos"]]){
-  const node=nodes.locator('[data-go="'+id+'"]');
+  const node=orbit.locator('.v1-orbit-node[data-go="'+id+'"]');
   await expect(node).toHaveAttribute("aria-label",route);
   await expect(node).toHaveCSS("animation-name","v1-orbit-travel");
  }
@@ -16,11 +16,11 @@ test("V1 · orbiting GB has three genuinely interactive destinations", async({pa
  expect(second).not.toBe(first);
  await orbit.hover();
  await expect(nodes.first()).toHaveCSS("animation-play-state","paused");
- await nodes.locator('[data-go="experiencia"]').click();
+ await orbit.locator('.v1-orbit-node[data-go="experiencia"]').click();
  await expect(page).toHaveURL(/#experiencia$/);
  await expect(page.locator("#experiencia")).toBeInViewport();
  await page.locator('[data-set-lang="en"]').click();
- await expect(nodes.locator('[data-go="sistemas"]')).toHaveAttribute("aria-label","Open Systems");
+ await expect(orbit.locator('.v1-orbit-node[data-go="sistemas"]')).toHaveAttribute("aria-label","Open Systems");
 });
 
 test("V1 · motion reduction preserves orbit as three static, keyboard-accessible controls",async({page})=>{
