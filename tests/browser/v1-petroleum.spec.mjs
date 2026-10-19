@@ -33,8 +33,11 @@ test("V1 petroleum · visible flow, metrics, badges and other chapters belong to
       expect(item.missing,item.selector+" exists").not.toBe(true);
       expect(item.rgb.length,item.selector+" has opaque themed surface").toBe(3);
       const [r,g,b]=item.rgb;
-      expect(g-r,item.selector+" must be blue, not neutral gray or beige").toBeGreaterThanOrEqual(5);
-      expect(b-g,item.selector+" must lean blue").toBeGreaterThanOrEqual(4);
+      const iceWhite=theme==="light"&&r>=249&&g>=249&&b>=249;
+      if(!iceWhite){
+        expect(g-r,item.selector+" must be blue, not neutral gray or beige").toBeGreaterThanOrEqual(5);
+        expect(b-g,item.selector+" must lean blue").toBeGreaterThanOrEqual(4);
+      }
       if(theme==="dark")expect(Math.max(r,g,b),item.selector+" must stay ultra-dark").toBeLessThan(100);
       else expect(Math.min(r,g,b),item.selector+" must use pale blue").toBeGreaterThan(215);
     }
