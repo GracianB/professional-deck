@@ -147,3 +147,8 @@ body.deck-focus #inicio.pd16-cover .pd40-compass-lead{margin:0 0 14px!important;
  body.deck-focus :is(#demos,#trayectoria,#sistemas,#contacto) h2{font-size:clamp(1.9rem,7.5vw,2.55rem)!important}
  body.deck-focus .site-header .brand-text{display:none!important}
 }
+
+/* Quick-view navigation is immediate: 'auto' must not inherit legacy smooth snapping. */
+body.deck-focus .deck,body.deck-focus .deck>.slide{
+ scroll-behavior:auto!important;scroll-snap-type:none!important;
+}

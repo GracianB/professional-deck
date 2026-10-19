@@ -41,6 +41,11 @@ for (const [name,width,height,language,theme] of scenarios) {
     const route=page.locator('.pd40-compass .pd40-route[data-go="demos"]');
     await route.click();
     await expect(page.locator("#demos")).toBeInViewport();
+    const demoTop=await page.locator("#demos").evaluate(el=>el.getBoundingClientRect().top);
+    expect(Math.abs(demoTop),name+" direct section arrival").toBeLessThanOrEqual(100);
+    const scrollBehavior=await page.locator("#deck").evaluate(el=>getComputedStyle(el).scrollBehavior);
+    expect(scrollBehavior).toBe("auto");
+
     const projectSpacing=await page.locator("#demos h2").evaluate(el=>getComputedStyle(el).wordSpacing);
     expect(Number.parseFloat(projectSpacing),name+" project heading spacing").toBeGreaterThan(0);
 
