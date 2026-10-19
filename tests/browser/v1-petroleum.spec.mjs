@@ -29,6 +29,8 @@ test("V1 petroleum · visible flow, metrics, badges and other chapters belong to
       header:getComputedStyle(document.querySelector(".site-header")).backgroundColor,
       action:getComputedStyle(document.querySelector("#sistemas .project-actions .primary")).backgroundColor
     }),selectors);
+    await expect(page.locator("html")).toHaveAttribute("data-theme",theme);
+    console.log("PALETTE-DIAGNOSTIC",theme,JSON.stringify(data));
     for(const item of data.results){
       expect(item.missing,item.selector+" exists").not.toBe(true);
       expect(item.rgb.length,item.selector+" has opaque themed surface").toBe(3);
