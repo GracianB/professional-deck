@@ -65,3 +65,16 @@ test("P41 · previous chapter links resolve into current sections",async({page})
   await expect(page.locator("#"+next)).toBeVisible();
  }
 });
+
+test("P41 · mobile document cards are not clipped in contact",async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.goto("/?view=full&lang=es&theme=dark#contacto",{waitUntil:"domcontentloaded"});
+ await expect(page.locator("#contacto [data-doc]")).toHaveCount(4);
+ for(const key of Object.keys(DOCUMENTS)) {
+  const item=page.locator('#contacto [data-doc="'+key+'"]');
+  await item.scrollIntoViewIfNeeded();
+  await expect(item).toBeInViewport();
+ }
+ const dims=await page.evaluate(()=>({document:document.documentElement.scrollWidth,window:innerWidth}));
+ expect(dims.document).toBeLessThanOrEqual(dims.window+2);
+});
