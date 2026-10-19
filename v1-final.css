@@ -155,3 +155,26 @@ html[data-theme="light"] :where(.v1-orbit-node,.pd41-doc,.pd40-route,.pd41-caree
 
 /* Pause all nodes as the pointer enters the ring; targets never dodge a click. */
 .pd41-orbit:is(:hover,:focus-within) .v1-orbit-node{animation-play-state:paused}
+
+/* Critical V1 override: the old V24 ivory punctuation used stronger :nth-child
+   selectors. Remove the final warm surfaces at their original specificity. */
+html:not([data-theme="light"]) body #demos .gb-demo-card:nth-child(2),
+html:not([data-theme="light"]) body #modelo.pd20-model .pd20-model-proof>a:last-child,
+html:not([data-theme="light"]) body #sistemas.pd19-case .gb-star-metrics>div:last-child{
+ background:linear-gradient(148deg,#182735,#0d1823)!important;
+ border-color:#6886a1!important;color:#e5f0f8!important
+}
+html:not([data-theme="light"]) body #demos .gb-demo-card:nth-child(2) :is(.tag-row span,.gb-demo-badge){
+ background:#1c2d3d!important;color:#d4e5f3!important;border-color:#57748d!important
+}
+html:not([data-theme="light"]) body #sistemas.pd19-case .gb-star-metrics>div:last-child :is(strong,span){
+ color:#e2effa!important
+}
+html[data-theme="light"] body #demos .gb-demo-card:nth-child(2),
+html[data-theme="light"] body #modelo.pd20-model .pd20-model-proof>a:last-child,
+html[data-theme="light"] body #sistemas.pd19-case .gb-star-metrics>div:last-child{
+ background:#f8fbfe!important;border-color:#bac9d6!important;color:#23394c!important
+}
+html[data-theme="light"] body #demos .gb-demo-card:nth-child(2) :is(.tag-row span,.gb-demo-badge){
+ background:#e8f0f7!important;color:#40586d!important;border-color:#b4c7d6!important
+}
