@@ -70,3 +70,17 @@ body.deck-focus #contacto .pd19-contact-wrap{grid-template-columns:minmax(0,1fr)
 @media(max-width:980px){body.deck-focus #inicio.pd16-cover{padding-top:calc(var(--header) + 22px)!important}body.deck-focus #inicio.pd16-cover .pd16-cover-shell{display:block}}
 @media(max-width:600px){body.deck-focus #inicio.pd16-cover .pd16-thesis{font-size:clamp(2.2rem,8vw,3.1rem)}body.deck-focus #inicio.pd16-cover .pd16-os{padding:20px!important}body.deck-focus #sistemas,body.deck-focus #demos,body.deck-focus #trayectoria,body.deck-focus #contacto{min-height:0!important;padding:90px 18px 60px!important}.pd40-mode{min-height:44px}}
 @media(prefers-reduced-motion:reduce){.pd40-route{transition:none!important}}
+
+/* P40 progressive hierarchy: legacy navigation remains accessible in full detail. */
+body.deck-focus .site-header .main-nav [data-go="ruta"],
+body.deck-focus .site-header .nav-cmd{display:none!important}
+body.deck-focus #sistemas .slide-index>span:first-child,
+body.deck-focus #demos .slide-index>span:first-child,
+body.deck-focus #trayectoria .slide-index>span:first-child,
+body.deck-focus #contacto .slide-index>span:first-child{display:none}
+body.deck-focus #sistemas .slide-index::before{content:"01"}
+body.deck-focus #demos .slide-index::before{content:"02"}
+body.deck-focus #trayectoria .slide-index::before{content:"03"}
+body.deck-focus #contacto .slide-index::before{content:"04"}
+body.deck-focus .slide-index::before{font:inherit;color:inherit}
+body.deck-focus .site-header .nav-recruiter{border-color:rgba(188,202,216,.4)!important}

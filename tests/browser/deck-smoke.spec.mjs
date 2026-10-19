@@ -27,7 +27,7 @@ test.describe("Professional Deck smoke", () => {
     });
 
     mkdirSync("artifacts/v16", { recursive: true });
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full, { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(250);
 
     await expect(page.locator("section.slide")).toHaveCount(12);
@@ -128,7 +128,7 @@ test.describe("Professional Deck smoke", () => {
     expect(pageErrors, pageErrors.join("\n")).toEqual([]);
     expect(consoleErrors, consoleErrors.join("\n")).toEqual([]);
     expect(localFailures, localFailures.join("\n")).toEqual([]);
-    await page.goto("/?recruiter=1", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full&recruiter=1", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(180);
     await expect(page.locator("#recruiter-dialog")).toBeVisible();
     await expect(page.locator("[data-brief-chapters] [data-brief-chapter]")).toHaveCount(4);
@@ -145,7 +145,7 @@ test.describe("Professional Deck smoke", () => {
       try { sessionStorage.setItem("gb-professional-deck-v20-opening-seen","1"); } catch (_) {}
     });
     const page = await context.newPage();
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full, { waitUntil: "domcontentloaded" });
     await page.locator("#inicio [data-go='ruta']").click();
     await expect(page.locator("#ruta")).toBeInViewport();
     await page.locator("#ruta").evaluate(el => el.scrollIntoView({ block: "start", behavior: "instant" }));
@@ -178,7 +178,7 @@ test.describe("Professional Deck smoke", () => {
   });
 
   test("exposes the recruiter route in English", async ({ page }) => {
-    await page.goto("/?lang=en&recruiter=1", { waitUntil: "domcontentloaded" });
+    await page.goto("/?view=full&lang=en&recruiter=1", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(180);
     const recruiter = page.locator("#recruiter-dialog");
     await expect(recruiter).toBeVisible();

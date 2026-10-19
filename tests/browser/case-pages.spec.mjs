@@ -15,7 +15,7 @@ for(const [key,path,title] of pages) {
       const page=await context.newPage();
       const errors=[];
       page.on("pageerror",error=>errors.push(error.message));
-      await page.goto("/"+path+"?lang=es",{waitUntil:"domcontentloaded"});
+      await page.goto("/?view=full+path+"?lang=es",{waitUntil:"domcontentloaded"});
       await expect(page.locator("body.case-body")).toBeVisible();
       await expect(page.locator(".case-hero h1")).toContainText(new RegExp(title,"i"));
       await expect(page.locator(".case-hero-aside dl>div")).toHaveCount(4);
@@ -101,6 +101,6 @@ test("V24 shared theme persists when navigating between independent pages and de
   await page.locator("[data-case-theme='light']").click();
   await page.goto("/proyecto-calculadora.html");
   await expect(page.locator("html")).toHaveAttribute("data-theme","light");
-  await page.goto("/index.html?lang=es#inicio");
+  await page.goto("/index.html?view=full&lang=es#inicio");
   await expect(page.locator("html")).toHaveAttribute("data-theme","light");
 });
