@@ -403,3 +403,7 @@ body.deck-full #experiencia.pd41-experience{scroll-snap-align:none!important}
  body.deck-full #experiencia.pd41-experience{height:auto!important;max-height:none!important;overflow:visible!important}
 }
 body.deck-focus #contacto.pd19-contact{min-height:0!important;height:auto!important;max-height:none!important;overflow:visible!important}
+
+/* Explicit painted fallback for contact in both modes (gradients alone have transparent computed backgrounds). */
+body #contacto .pd41-contact-note{background-color:#172633!important}
+html[data-theme="light"] body #contacto .pd41-contact-note{background-color:#f8fafc!important}
