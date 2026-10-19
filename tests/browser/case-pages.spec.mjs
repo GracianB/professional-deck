@@ -36,6 +36,15 @@ for(const [key,path,title] of pages) {
       page.on("pageerror",error=>errors.push(error.message));
       await page.goto("/"+path+"?lang=es",{waitUntil:"domcontentloaded"});
       await expect(page.locator("body.case-body")).toBeVisible();
+      if(width<500){
+        const compact=await page.locator(".case-header").evaluate(el=>{
+          const r=el.getBoundingClientRect();
+          return {height:r.height,width:r.width,viewport:innerWidth};
+        });
+        expect(compact.height,key+" compact mobile case chrome").toBeLessThanOrEqual(125);
+        expect(compact.width,key+" no header overflow").toBeLessThanOrEqual(compact.viewport+1);
+      }
+
       await expect(page.locator(".case-hero h1")).toContainText(new RegExp(title,"i"));
       await expect(page.locator(".case-hero-aside dl>div")).toHaveCount(4);
       await expect(page.locator(".case-section")).toHaveCount(4);

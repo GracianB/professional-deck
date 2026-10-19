@@ -479,3 +479,38 @@ html[data-theme="light"] .case-footer h2 {color:#ecf0f8!important}
 body.case-body{background:#0c1018!important}
 html[data-theme="light"] body.case-body{background:#eff3fb!important}
 /* P40 chrome now uses genuine cool-neutral color tokens; no grayscale composite layer. */
+
+/* P40 visual review: two calm rows on narrow case pages, not three bulky bands. */
+@media(max-width:480px){
+ body.case-body .case-header{
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;
+  gap:4px!important;padding:8px 12px!important;min-height:0!important;
+ }
+ body.case-body .case-header .brand{
+  width:100%!important;min-height:36px!important;justify-content:flex-start!important;
+  gap:8px!important;
+ }
+ body.case-body .case-header .brand-mark{
+  width:36px!important;height:36px!important;flex:0 0 36px!important;
+ }
+ body.case-body .case-header .brand-text b{
+  font-size:.62rem!important;letter-spacing:.065em!important;white-space:nowrap!important;
+ }
+ body.case-body .case-header nav{
+  display:flex!important;justify-content:space-between!important;align-items:center!important;
+  width:100%!important;gap:4px!important;flex-wrap:nowrap!important;
+ }
+ body.case-body .case-header nav>a:not(.header-cta){
+  padding:8px 4px!important;min-height:40px!important;font-size:.56rem!important;white-space:nowrap!important;
+ }
+ body.case-body .case-header nav .header-cta{display:none!important}
+ body.case-body .case-utilities{
+  width:auto!important;display:flex!important;justify-content:flex-end!important;
+  flex:0 0 auto!important;margin:0!important;gap:4px!important;
+ }
+ body.case-body .case-utility-group{padding:1px!important;gap:1px!important}
+ body.case-body .case-utility-group>button{
+  min-width:38px!important;width:38px!important;height:38px!important;
+  min-height:38px!important;padding:0 2px!important;
+ }
+}
