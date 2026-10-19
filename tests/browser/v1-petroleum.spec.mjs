@@ -31,6 +31,29 @@ test("V1 petroleum · visible flow, metrics, badges and other chapters belong to
     }),selectors);
     await expect(page.locator("html")).toHaveAttribute("data-theme",theme);
     console.log("PALETTE-DIAGNOSTIC",theme,JSON.stringify(data));
+    if(theme==="light"){
+      const cascade=await page.evaluate(()=>{
+        const query=["#sistemas.pd19-case .gb-star-main .tag-row>span","#contacto .pd19-contact-link"];
+        return query.map(selector=>{
+          const el=document.querySelector(selector),rules=[];
+          for(const sheet of [...document.styleSheets]){
+            let entries;try{entries=sheet.cssRules;}catch{continue;}
+            for(const rule of entries){
+              if(!rule.selectorText||!rule.style)continue;
+              try{
+                if(!el.matches(rule.selectorText))continue;
+                const back=rule.style.getPropertyValue("background");
+                const color=rule.style.getPropertyValue("background-color");
+                if(back||color)rules.push({sheet:sheet.href?.split("/").pop(),selector:rule.selectorText,
+                  background:back||color,priority:rule.style.getPropertyPriority("background")||rule.style.getPropertyPriority("background-color")});
+              }catch{}
+            }
+          }
+          return {selector,rules:rules.slice(-25),computed:getComputedStyle(el).backgroundColor};
+        });
+      });
+      console.log("PALETTE-CASCADE",JSON.stringify(cascade));
+    }
     for(const item of data.results){
       expect(item.missing,item.selector+" exists").not.toBe(true);
       expect(item.rgb.length,item.selector+" has opaque themed surface").toBe(3);
