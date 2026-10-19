@@ -21,7 +21,7 @@ assert.equal(response.ok, true, `Live deck returned HTTP ${response.status}`);
 const html = await response.text();
 
 assert.match(html, /Professional Deck/);
-assert.match(html, /pd16-cover/);
+assert.match(html, /pd41-cover/);
 assert.match(html, /pd17-atlas-map/);
 assert.match(html, /data-brief-chapters/);
 assert.match(html, /v17-atlas.css/);
@@ -38,7 +38,9 @@ assert.match(html, /data-cinema-skip/);
 assert.match(html, /data-atlas-tour/);
 assert.match(html, /pd19-contact-wrap/);
 assert.match(html, /id="modelo"/);
-assert.match(html, /id="capacidades"/);
+assert.doesNotMatch(html, /<section[^>]+id="(?:capacidades|trayectoria|metodo|experiencia-2)"/);
+assert.match(html, /id="experiencia"/);
+assert.equal((html.match(/<section class="slide\\b/g)||[]).length,8);
 assert.match(html, /RevOps Studio/);
 assert.match(html, /project-ohana/);
 assert.match(html, /vortex-gilt-xi\.vercel\.app/);
@@ -86,12 +88,12 @@ try {
     await page.goto(new URL("?view=full&lang=es",url).href, {waitUntil:"domcontentloaded"});
     await page.locator("#inicio").waitFor();
 
-    assert.equal(await page.locator(".deck .slide").count(), 12);
+    assert.equal(await page.locator(".deck .slide").count(), 8);
     assert.equal(await page.locator("[data-atlas-stops] button").count(), 6);
-    assert.equal(await page.locator("#contacto .pd19-contact-link").count(), 4);
+    assert.equal(await page.locator("#contacto .pd19-contact-link").count(), 7);
     assert.equal(await page.locator("[data-atlas-tour]").count(), 1);
     assert.equal(await page.locator("[data-brief-chapter]").count(), 4);
-    await page.locator("#inicio [data-open-recruiter]").click();
+    await page.locator("#inicio .pd41-brief-btn").click();
     const modal = page.locator("#recruiter-dialog");
     const darkSurface = await modal.evaluate(el => getComputedStyle(el).backgroundColor);
     assert.equal(darkSurface, "rgb(16, 28, 38)", viewport.name+" dark brief surface");
@@ -102,7 +104,7 @@ try {
     assert.equal(await page.locator("[data-brief-clock]").innerText(), "00:30");
     await page.locator("#recruiter-dialog .dialog-close").click();
     await page.locator("[data-set-theme='light']").click();
-    await page.locator("#inicio [data-open-recruiter]").click();
+    await page.locator("#inicio .pd41-brief-btn").click();
     const lightCanvas = await modal.evaluate(el => getComputedStyle(el).backgroundImage);
     assert.ok(lightCanvas.includes("rgb(250, 247, 241)"),viewport.name+" ivory brief light mode: "+lightCanvas);
     const slateStage = await modal.locator(".pd17-brief-scene").evaluate(el => getComputedStyle(el).backgroundImage);
@@ -115,7 +117,7 @@ try {
     // `.pd16-name` identity node was removed intentionally in V36.
     assert.match(
       await page.locator("#inicio .pd16-thesis").innerText(),
-      /Conecto cliente, negocio y tecnología/i,
+      /Operaciones que se entienden/i,
       viewport.name + ": live cover thesis",
     );
     assert.equal(
@@ -131,7 +133,7 @@ try {
 
     await page.locator("[data-set-lang='en']").click();
     assert.equal(await page.locator("html").getAttribute("lang"), "en");
-    assert.match(await page.locator(".pd16-proof-strip").innerText(), /ES · EN · IT/);
+    assert.equal(await page.locator("#inicio [data-doc]").count(),4);
 
     for(const file of ["proyecto-bodytone.html","proyecto-calculadora.html","proyecto-linkedin.html","proyecto-outreach.html"]) {
       await page.goto(new URL(file+"?lang=es",url).href,{waitUntil:"domcontentloaded"});
@@ -152,7 +154,7 @@ try {
     await context.close();
   }
 
-  console.log("PROFESSIONAL DECK P40 LIVE PASS · five-stop default / full legacy / cool-neutral cases");
+  console.log("PROFESSIONAL DECK P41 LIVE PASS · eight real chapters / canonical documents / cool-neutral cases");
   console.log(`URL: ${response.url}`);
   console.log(`HTTP: ${response.status}`);
 } finally {

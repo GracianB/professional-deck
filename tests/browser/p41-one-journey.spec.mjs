@@ -55,6 +55,17 @@ test("P41 · real dark and light contact and brand on left",async({page})=>{
   const c=parse(colors.contact),v=parse(colors.visual);
   if(theme==="dark"){expect(avg(c)).toBeLessThan(50);expect(avg(v)).toBeLessThan(90);}
   else{expect(avg(c)).toBeGreaterThan(180);expect(avg(v)).toBeGreaterThan(180);}
+  const paint=await page.evaluate(()=>{
+    const selectors=["#contacto .pd19-contact-link","#contacto .pd19-contact-languages",
+      "#contacto .pd19-contact-primary","#contacto .pd19-contact-secondary"];
+    return selectors.map(selector=>({selector,value:getComputedStyle(document.querySelector(selector)).backgroundColor}));
+  });
+  for(const {selector,value} of paint){
+    const rgb=(value.match(/[0-9.]+/g)||[]).slice(0,3).map(Number);
+    expect(rgb.length,selector+" opaque fill").toBe(3);
+    expect(rgb[1]+1,selector+" cool green>=red in "+theme).toBeGreaterThanOrEqual(rgb[0]);
+    expect(rgb[2]+1,selector+" cool blue>=green in "+theme).toBeGreaterThanOrEqual(rgb[1]);
+  }
   expect(colors.visualVisible).toBe(true);
  }
 });

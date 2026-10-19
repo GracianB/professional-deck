@@ -407,3 +407,33 @@ body.deck-focus #contacto.pd19-contact{min-height:0!important;height:auto!import
 /* Explicit painted fallback for contact in both modes (gradients alone have transparent computed backgrounds). */
 body #contacto .pd41-contact-note{background-color:#172633!important}
 html[data-theme="light"] body #contacto .pd41-contact-note{background-color:#f8fafc!important}
+
+/* P41 visual proof: overrule legacy warm v19/v24 rules with genuine cool metallic paints.
+   Add #contacto.pd19-contact to beat the old !important specificity, not grayscale filters. */
+body #contacto.pd19-contact .pd19-contact-link{
+ background:#192733!important;background-image:none!important;border-color:#71879a!important;color:#e4edf6!important;
+}
+body #contacto.pd19-contact .pd19-contact-link :is(small,strong,b){color:#dbe7f1!important}
+body #contacto.pd19-contact .pd19-contact-languages{background:#1c2c3b!important;background-image:none!important;border-color:#536d83!important}
+body #contacto.pd19-contact .pd19-contact-languages :is(span,strong,small){color:#d4e2ed!important}
+body #contacto.pd19-contact .pd19-contact-primary{background:#d8e3ed!important;background-image:none!important;color:#16293b!important;border-color:#d8e3ed!important}
+body #contacto.pd19-contact .pd19-contact-secondary{background:#1b2e3e!important;background-image:none!important;color:#e1ecf6!important;border-color:#7f99af!important}
+body #contacto.pd19-contact .pd19-contact-copy h2{color:#f3f7fa!important}
+body #contacto.pd19-contact .pd19-contact-copy h2 em{color:#bfcee0!important}
+body #contacto.pd19-contact .pd19-contact-copy .eyebrow{color:#c0d0df!important}
+html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-link{
+ background:#fff!important;background-image:none!important;border-color:#bccad6!important;color:#25394b!important;
+}
+html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-link :is(small,strong,b){color:#2c4356!important}
+html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-languages{background:#e5ecf2!important;background-image:none!important;border-color:#b2c3d2!important}
+html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-languages :is(span,strong,small){color:#354d61!important}
+html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-primary{background:#253a4c!important;background-image:none!important;color:#fff!important;border-color:#253a4c!important}
+html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-secondary{background:#f9fbfd!important;background-image:none!important;color:#2e4960!important;border-color:#a6b9c9!important}
+html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-copy h2{color:#233548!important}
+html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-copy h2 em{color:#51697f!important}
+html[data-theme="light"] body #contacto.pd19-contact .pd19-contact-copy .eyebrow{color:#576c80!important}
+@media(max-width:530px){
+ body .site-header>.brand{min-width:0!important;flex:0 0 auto!important;max-width:max-content!important}
+ body .site-header .brand-text{display:none!important}
+ body .site-header .brand-mark{flex-shrink:0!important}
+}
