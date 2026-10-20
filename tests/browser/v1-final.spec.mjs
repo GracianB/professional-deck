@@ -1,41 +1,53 @@
 import {test,expect} from "@playwright/test";
 
-test("V1 · orbiting GB has three genuinely interactive destinations", async({page})=>{
+test("P43 · the cover is a live operational instrument, not an orbit",async({page})=>{
  await page.goto("/?lang=es&theme=dark",{waitUntil:"domcontentloaded"});
- const orbit=page.locator("#inicio [data-orbit]");
- const nodes=orbit.locator(".v1-orbit-node");
- await expect(nodes).toHaveCount(3);
- for(const [id,route] of [["sistemas","Ver Sistemas"],["experiencia","Ver Experiencia"],["demos","Ver Proyectos"]]){
-  const node=orbit.locator('.v1-orbit-node[data-go="'+id+'"]');
-  await expect(node).toHaveAttribute("aria-label",route);
-  await expect(node).toHaveCSS("animation-name","v1-orbit-travel");
+ const panel=page.locator("#inicio [data-deck-engine]");
+ const steps=panel.locator(".pd43-system-step");
+ await expect(panel).toBeVisible();
+ await expect(steps).toHaveCount(3);
+ for(const [id,label] of [["sistemas","Ver Sistemas"],["experiencia","Ver Experiencia"],["demos","Ver Proyectos"]]){
+   await expect(panel.locator('.pd43-system-step[data-go="'+id+'"]')).toHaveAttribute("aria-label",label);
  }
- const first=await nodes.first().evaluate(el=>getComputedStyle(el).transform);
- await page.waitForTimeout(400);
- const second=await nodes.first().evaluate(el=>getComputedStyle(el).transform);
- expect(second).not.toBe(first);
- await orbit.hover();
- await expect(nodes.first()).toHaveCSS("animation-play-state","paused");
- await orbit.locator('.v1-orbit-node[data-go="experiencia"]').click();
+ await expect(page.locator("#inicio .pd41-orbit")).toHaveCount(0);
+ await expect(page.locator(".pd20-cinema-orbit")).toHaveCount(0);
+ await expect(page.locator(".pd17-brief-orbit")).toHaveCount(0);
+ const beam=panel.locator(".pd43-signal-beam");
+ await expect(beam).toHaveCSS("animation-name","pd43-signal-run");
+ await expect.poll(async()=>beam.evaluate(el=>getComputedStyle(el).transform),{intervals:[180,300],timeout:3000}).not.toBe("none");
+ await panel.hover();
+ await expect(beam).toHaveCSS("animation-play-state","paused");
+ await panel.locator('.pd43-system-step[data-go="experiencia"]').click();
  await expect(page).toHaveURL(/#experiencia$/);
  await expect(page.locator("#experiencia")).toBeInViewport();
  await page.locator('[data-set-lang="en"]').click();
- await expect(orbit.locator('.v1-orbit-node[data-go="sistemas"]')).toHaveAttribute("aria-label","Open Systems");
+ await expect(panel).toHaveAttribute("aria-label","Interactive operating panel: open systems, experience or projects");
+ await expect(panel.locator('.pd43-system-step[data-go="sistemas"]')).toHaveAttribute("aria-label","Open Systems");
 });
 
-test("V1 · motion reduction preserves orbit as three static, keyboard-accessible controls",async({page})=>{
+test("P43 · reduced motion freezes signal data, not keyboard navigation",async({page})=>{
  await page.emulateMedia({reducedMotion:"reduce"});
  await page.goto("/?lang=en&theme=dark",{waitUntil:"domcontentloaded"});
- const orbit=page.locator("[data-orbit]");
- const nodes=orbit.locator(".v1-orbit-node");
- await expect(nodes).toHaveCount(3);
- for(const node of await nodes.all()){
-  await expect(node).toHaveCSS("animation-name","none");
- }
- await nodes.first().focus();
- await expect(nodes.first()).toBeFocused();
+ const panel=page.locator("[data-deck-engine]");
+ const steps=panel.locator(".pd43-system-step");
+ await expect(steps).toHaveCount(3);
+ await expect(panel.locator(".pd43-signal-beam")).toHaveCSS("animation-name","none");
+ await expect(panel.locator(".pd43-step-pulse i").first()).toHaveCSS("animation-name","none");
+ await steps.first().focus();
+ await expect(steps.first()).toBeFocused();
  await page.keyboard.press("Enter");
  await expect(page).toHaveURL(/#sistemas$/);
+});
+
+test("P43 · mobile uses a compact rectilinear instrument in light and dark",async({page})=>{
+ await page.setViewportSize({width:375,height:780});
+ for(const theme of ["light","dark"]){
+   await page.goto("/?theme="+theme+"&lang=es",{waitUntil:"domcontentloaded"});
+   await expect(page.locator("#inicio .pd43-system")).toBeVisible();
+   await expect(page.locator("#inicio .pd43-system-display")).toBeHidden();
+   await expect(page.locator("#inicio .pd43-system-step")).toHaveCount(3);
+   await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+ }
 });
 
 test("V1 · switching brief/full preserves the reading anchor in the unified timeline",async({page})=>{
