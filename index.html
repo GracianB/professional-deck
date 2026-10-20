@@ -65,6 +65,7 @@
   <link rel="stylesheet" href="./v25-finish.css?v=deck-v36">
   <link rel="stylesheet" href="./platinum-focus.css?v=deck-p40">
   <link rel="stylesheet" href="./v1-final.css?v=deck-v1">
+  <link rel="stylesheet" href="./p43-signal-engine.css?v=deck-p43">
   <script src="./i18n.js?v=deck-v36" defer></script>
   <script src="./main.js?v=deck-v16" defer></script>
   <script src="./focus-mode.js?v=deck-p40" defer></script>
@@ -79,10 +80,10 @@
   <!-- Editorial opening: pure DOM/CSS, skippable, once per session, reduced-motion aware. -->
   <div class="pd20-cinema" id="pd20-cinema" role="region" aria-label="Apertura cinematográfica" data-i18n-aria="cinemaAria" hidden>
     <div class="pd20-cinema-grid" aria-hidden="true"></div>
-    <div class="pd20-cinema-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="pd43-cinema-ledger" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
     <div class="pd20-cinema-core">
       <div class="pd20-cinema-overline"><span>01 / 2026</span><i></i><span data-i18n="cinemaSeries">PROFESSIONAL DECK</span></div>
-      <div class="pd20-cinema-monogram" aria-hidden="true"><span>·</span><b>✦</b><span>·</span></div>
+      <div class="pd20-cinema-monogram pd43-cinema-wordmark" aria-hidden="true"><span>GB</span><b>/</b><span>OPS</span></div>
       <div class="pd20-cinema-line" aria-hidden="true"></div>
       <p class="pd20-cinema-pretitle" data-i18n="cinemaPrelude">PERSONAS · SISTEMAS · POSIBILIDADES</p>
       <h2 class="pd20-cinema-name" data-i18n-html="cinemaTitle">DE LA FRICCIÓN <em>AL RESULTADO</em></h2>
@@ -152,15 +153,44 @@
         <a class="pd41-doc" data-doc="letter-en" href="https://gracianb.github.io/GracianB/Gracian_Baena_Cover_Letter_EN.pdf" target="_blank" rel="noopener noreferrer" data-i18n="newLetterEn">CARTA EN ↗</a>
       </div>
     </div>
-    <div class="pd41-cover-aside">
-      <div class="pd41-orbit" role="group" data-orbit aria-label="Explorar las tres rutas del portfolio">
-        <span class="pd41-orbit-core" aria-hidden="true">GB</span>
-        <button class="v1-orbit-node" type="button" data-go="sistemas" style="--orbit-start:-90deg;--orbit-inverse:90deg;--orbit-duration:24s" data-i18n-aria="orbitSystems" aria-label="Ver Sistemas" title="Sistemas"><span aria-hidden="true">01</span></button>
-        <button class="v1-orbit-node" type="button" data-go="experiencia" style="--orbit-start:30deg;--orbit-inverse:-30deg;--orbit-duration:32s" data-i18n-aria="orbitExperience" aria-label="Ver Experiencia" title="Experiencia"><span aria-hidden="true">02</span></button>
-        <button class="v1-orbit-node" type="button" data-go="demos" style="--orbit-start:150deg;--orbit-inverse:-150deg;--orbit-duration:39s" data-i18n-aria="orbitProjects" aria-label="Ver Proyectos" title="Proyectos"><span aria-hidden="true">03</span></button>
+    <div class="pd41-cover-aside pd43-cover-aside">
+      <div class="pd43-system" data-deck-engine role="group" data-i18n-aria="engineAria" aria-label="Explorar las rutas profesionales mediante el panel operativo">
+        <header class="pd43-system-head">
+          <span>OPS / DECISION ENGINE</span>
+          <span class="pd43-system-live"><i aria-hidden="true"></i><span data-i18n="engineActive">SISTEMA ACTIVO</span></span>
+        </header>
+        <div class="pd43-system-display" aria-hidden="true">
+          <div class="pd43-system-readout"><span>INPUT <b>→</b> OUTPUT</span><strong>03<span>/03</span></strong></div>
+          <div class="pd43-signal-track">
+            <span class="pd43-signal-track-line"></span>
+            <span class="pd43-signal-beam"></span>
+            <span class="pd43-signal-gate"></span>
+            <div class="pd43-signal-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <p>READ SIGNAL / DESIGN SYSTEM / MEASURE OUTCOME</p>
+        </div>
+        <div class="pd43-system-list">
+          <button class="pd43-system-step" type="button" data-go="sistemas" data-i18n-aria="orbitSystems" aria-label="Ver Sistemas">
+            <span class="pd43-step-index">01</span>
+            <span class="pd43-step-copy"><strong data-i18n="engineSystems">Diagnóstico</strong><small>SUPPORT OS / OPERATIONS</small></span>
+            <span class="pd43-step-pulse" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="pd43-step-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="pd43-system-step" type="button" data-go="experiencia" data-i18n-aria="orbitExperience" aria-label="Ver Experiencia">
+            <span class="pd43-step-index">02</span>
+            <span class="pd43-step-copy"><strong data-i18n="engineExperience">Trayectoria</strong><small>CUSTOMER / SaaS / TEAMS</small></span>
+            <span class="pd43-step-pulse" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="pd43-step-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="pd43-system-step" type="button" data-go="demos" data-i18n-aria="orbitProjects" aria-label="Ver Proyectos">
+            <span class="pd43-step-index">03</span>
+            <span class="pd43-step-copy"><strong data-i18n="engineProjects">Laboratorio</strong><small>DATA / AUTOMATION / AI</small></span>
+            <span class="pd43-step-pulse" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="pd43-step-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <footer class="pd43-system-foot"><span>DESIGN / BUILD / VERIFY</span><span>GB <b>·</b> 2026</span></footer>
       </div>
-      <span class="pd41-orbit-label">CUSTOMER × SYSTEMS × DATA</span>
-      <div class="pd41-orbit-foot"><span>01 / LISTEN</span><span>02 / BUILD</span><span>03 / MEASURE</span></div>
     </div>
     <nav class="pd40-compass pd41-compass" aria-label="Explorar el portfolio">
       <h2 class="pd40-compass-title pd41-compass-title" data-i18n="focusTitle">Tres rutas.</h2>
@@ -512,7 +542,7 @@
       <button type="button" data-brief-chapter="3" aria-pressed="false"><span>04</span><small data-i18n="briefNav4">PRUEBA</small></button>
     </nav>
     <div class="pd17-brief-scene" aria-live="polite" aria-atomic="true">
-      <div class="pd17-brief-orbit" aria-hidden="true"><span>G<span>✦</span>B</span></div>
+      <div class="pd43-brief-readout" aria-hidden="true"><span>PROFILE / 04</span><strong>GB<span>_</span></strong><div class="pd43-brief-bars"><i></i><i></i><i></i><i></i><i></i></div><small>EXPERIENCE → SYSTEMS</small></div>
       <div class="pd17-brief-story">
         <p data-brief-period class="pd17-brief-period">2014—2021</p>
         <h3 data-brief-title>Primero entendí a las personas.</h3>
