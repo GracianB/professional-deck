@@ -1,303 +1,88 @@
-## P41 · One professional journey · October 2026
-
-The professional portfolio is deliberately **not a 12-slide deck** anymore. This commit removes Method (04), Evolution (06) and Capabilities (09) from the actual document and merges Experience I + II into a single accessible six-role timeline (native `details/summary`, chronological, naturally scrollable and populated from the same ES/EN professional role model). Roles are text-based and legible rather than illustrated with obscure employer placeholders.
-
-**Navigation:** eight real sections: `inicio`, `modelo`, `sistemas`, `demos`, `ruta`, `experiencia`, `formacion` and `contacto`. The first visit displays five useful destinations; Full detail exposes the remaining background and atlas. Retired hash URLs redirect to live equivalent content. The lateral 12-slide rail is not displayed.
-
-**Design:** genuinely new platinum/graphite landing page, compact three-route explorer, responsive grayscale typography, geometrical background rendered in CSS, permanently visible GB identity at the top-left, natural wheel/touch scrolling for the full career, a dark-mode-aware closing contact panel, and four explicit professional document entries.
-
-**Single source of truth:** the current documents are published by `GracianB/GracianB` and linked rather than copied. They are:
-- `https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_ES.pdf`
-- `https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_EN.pdf`
-- `https://gracianb.github.io/GracianB/Gracian_Baena_Carta_Presentacion_ES.pdf`
-- `https://gracianb.github.io/GracianB/Gracian_Baena_Cover_Letter_EN.pdf`
-
-The repository still includes old binary CV duplicates for historical asset contracts. Do not use them in new links. The hub owns the authoritative updates.
+<div align="center">
 
 # Professional Deck · Gracián Baena
 
-**Customer Success Systems & Data Strategist**  
-Murcia, Spain · Remote · Spanish / English / Italian
+**Customer Success × Customer Operations × Data × AI × Automation**
 
-[Open the deck](https://gracianb.github.io/professional-deck/) · [Professional Hub](https://gracianb.github.io/GracianB/) · [LinkedIn](https://www.linkedin.com/in/gracianbaena) · [Systems Lab](https://gracianb.github.io/systems-lab/)
+Una trayectoria explicada con casos, sistemas y evidencia. No una presentación interminable ni una lista de herramientas.
 
----
+[**Explorar el portfolio ↗**](https://gracianb.github.io/professional-deck/) · [**CV y candidaturas ↗**](https://gracianb.github.io/GracianB/apply.html?track=professional) · [**Hub personal ↗**](https://gracianb.github.io/GracianB/) · [**Systems Lab ↗**](https://gracianb.github.io/systems-lab/)
 
-## What this repository is
-
-This is the **professional evidence layer** of my public portfolio.
-
-The main hub answers:
-
-> Who is Gracián and which world do I want to enter?
-
-This deck answers:
-
-> What has he done, how does he work, and where is the proof?
-
-The final narrative is deliberately simple:
-
-**customer → operations → data → system → adoption → outcome**
-
-I started close to customers, teams and daily operations. The technical layer came later so I could build the missing system directly instead of stopping at recommendations.
+</div>
 
 ---
 
-## P40 · Platinum Focus (October 2026)
+## Estado público · V1 Petroleum & Platinum
 
-The visually inspected entry uses short, naturally spaced titles and immediate quick-view navigation. The default visitor journey now uses five stops: a compact cover with three direct evidence routes, Bodytone operations, public work, professional evolution, and contact. Redundant hero action buttons, cover counters, duplicate role lines and introductory index labels are hidden in quick view; the full historical deck remains recoverable. The twelve original chapters remain accessible through **Full detail / Quick view** and old deep links expand automatically. The 60-second briefing remains. The cinematic opening is opt-in through `?intro=1` or replay, not autoplay.
+La **V1 publicada** utiliza una paleta unificada **azul petróleo profundo y platino**, tanto en claro como en oscuro. Sustituye la acumulación de doce diapositivas y colores históricos por una experiencia profesional más breve y legible.
 
-Visual direction: platinum, silver, graphite and strong cold-neutral contrast in both themes. The Deck remains the professional evidence world alongside the GracianB hub, Yoga Instructor and Systems Lab.
+- **Entrada compacta:** portada, rutas de evidencia y destinos relevantes para quien selecciona talento.
+- **Vista rápida / detallada:** navegación reversible sin perder el contexto de scroll; los enlaces profundos a capítulos antiguos tienen equivalencias.
+- **Trayectoria laboral:** seis funciones en una cronología legible y expandible, sin duplicar «Experiencia I / II».
+- **Identidad GB interactiva:** controles orbitales con acceso por teclado y vínculos reales a secciones.
+- **Casos técnicos y profesionales:** Bodytone Support OS, RevOps Studio (demo), Project OHANA, Vórtice y Systems Lab.
+- **Introducción y briefing de 60 segundos:** opcionales, nunca necesarios para leer la trayectoria.
+- **Responsive, ES/EN, temas claro/oscuro, teclado y reducción de movimiento** como parte del contrato de lanzamiento.
 
-RevOps Studio is a **sample-data public browser demo**, not a deployed customer system; labels now distinguish public cases, demos and real operational work without generic LIVE claims. Independent case pages receive the same cold-neutral platinum treatment.
+**Última versión verificada:** [commit `d4dc5d1`](https://github.com/GracianB/professional-deck/commit/d4dc5d1412b2cb51fbfa54e02bef5b06dcfc4293) · [Quality aprobada](https://github.com/GracianB/professional-deck/actions/runs/39272126720) · [GitHub Pages aprobada](https://github.com/GracianB/professional-deck/actions/runs/39272125196) · [Production Smoke aprobado](https://github.com/GracianB/professional-deck/actions/runs/39272303223).
 
-## Legacy identity · V24 to V37
+La terminología histórica «P40», «P41», «12 slides», «beige» y «RevOps no publicado» corresponde a iteraciones anteriores y **no es la especificación actual**. Sus decisiones permanecen en el historial de Git, no como instrucciones contradictorias en la portada del repositorio.
 
-The twelve-slide presentation, 60-second briefing, vector Atlas, interactive elements and four standalone case-study pages share a silver, graphite, ivory and beige design language. This universe is deliberately distinct from the botanical-green Yoga site, electric-cyan Systems Lab and black-and-white GracianB hub.
+## Qué demuestra
 
-`v24-universe.css` provides the palette foundation; later finishing styles refine the cover, introduction, controls and layout. The light theme is an intentionally designed ivory experience, not a color inversion. The quality gates cover every chapter and the standalone case pages.
+El recorrido integra experiencia humana y ejecución técnica:
 
-## V23 · 60-second briefing gets the final palette
+`cliente → operaciones → datos → decisiones → sistema → adopción → resultado`
 
-The recruiter 60-second dialog now shares the Deck's midnight/slate and ivory editorial styling in both dark and light appearances. The old brown modal, sepia chapter controls, buttons and orbit accents are replaced by slate, ivory and restrained mineral blue. Four timed chapters, navigation, close, restart and CV links stay functional. CSS load order and browser/production tests enforce this visual contract.
+| Evidencia | Qué demuestra | Estado del acceso |
+| --- | --- | --- |
+| [Bodytone Support OS ↗](https://gracianb.github.io/professional-deck/proyecto-bodytone.html) | Operaciones de soporte, Zendesk, automatización, reporting y adopción | Caso público; [Help Center](https://bodytonehelp.zendesk.com/hc/es) |
+| [RevOps Studio ↗](https://gracianb.github.io/revops-studio/demo.html) | Diagnóstico, reglas, trazabilidad y decisiones operativas | **Demo pública con datos ficticios**, no sistema de clientes |
+| [Project OHANA ↗](https://gracianb.github.io/project-ohana/) | Simulación, estados, ingeniería de sistemas, Canvas, regresión | Juego público; el contenido depende del último despliegue correcto |
+| [Vórtice ↗](https://vortex-gilt-xi.vercel.app/) | WebGL, interacción, animación y rendimiento adaptable | Experiencia pública |
+| [Systems Lab ↗](https://gracianb.github.io/systems-lab/) | Integración de software, IA aplicada, prototipos y pruebas | Escaparate público; algunas apps siguen privadas/locales |
 
-## V22 · Personal editorial palette, not Systems Lab blue
+Los casos diferenciados están también en [Calculadora](./proyecto-calculadora.html), [LinkedIn Finder](./proyecto-linkedin.html) y [Outreach GenAI](./proyecto-outreach.html). La existencia de una demo **no** implica despliegue comercial, datos reales, adopción externa ni autorización para reutilizar información de antiguos clientes.
 
-The four independent case pages now combine ink navy with **warm ivory/beige** and restrained mineral accents, expressly avoiding brown/coffee. The challenge/response/evidence chapters switch to pale ivory with dark ink, while the operational system chapter remains deep slate. Light mode has a warm-neutral ivory canvas and a dark system chapter, rather than an all-blue or all-white document. Cover, content, ES/EN and interactions remain intact. Playwright tests check the intended section backgrounds and contrasting headings on desktop and mobile.
+## Trayectoria y narrativa
 
-## V21 · Independent case pages receive the same design
+Experiencia acumulada en servicio al cliente, operaciones, comercio, dirección de equipos, SaaS B2B, coordinación técnica y automatización. La presentación diferencia empleadores reales de proyectos personales y periodos de especialización. Yoga mantiene su [portfolio independiente](https://gracianb.github.io/yoga-instructor/) y no se convierte artificialmente en un puesto de Customer Success.
 
-All four standalone HTML case studies are now in the same visual family as the main deck:
+**Dos niveles de lectura:**
+1. **Vista rápida:** recorrido breve, pruebas relevantes y contacto.
+2. **Vista detallada:** modelo operativo, sistemas, demos, contexto geográfico, experiencia, formación y documentación.
 
-- [Bodytone Support OS](./proyecto-bodytone.html), [Calculator](./proyecto-calculadora.html), [LinkedIn Finder](./proyecto-linkedin.html), [Outreach GenAI](./proyecto-outreach.html).
-- All use `case-pages.css` after the existing base styles; this replaces the old hard-coded beige/cream page panels with midnight navy, blue-mineral accents and a full cool light theme. The case claims, evidence and IP boundaries remain unchanged.
-- `case-ui.js` uses the same persisted `gb-portfolio-theme` and `gb-portfolio-lang` keys as the main deck, adds accessible ES/EN and light/dark switches and chapter anchors with reading progress.
-- Browser tests verify all four in both themes, both languages and mobile/desktop, including theme persistence when returning to the deck.
-- The 404 redirect fallback also uses navy rather than brown.
+El atlas de ciudades ofrece contexto narrativo, no atribuciones laborales deducidas de posiciones en el mapa.
 
-## V20 · Coherent story, light theme and cinematic opening
+## CV y cartas · fuente canónica única
 
-- Model is now a **balanced seven-step 4+3 journey** with its own outcome sentence and four linked evidence cards.
-- Public evidence, Method and Education use the same slate/mineral palette as Evolution, replacing old sepia/brown cards.
-- The desktop navigation is centred **on the same horizontal row** as the right-side language, theme and CV utilities. Mid-width uses the menu instead of allowing collisions.
-- A final cascade layer audits all **12 chapters in light mode**, plus the rail, header, interactive atlas, dialogs and contact links.
-- The opening film uses typography, gradients and CSS orbits, with skip/Escape, automatic completion, one-time session playback, reduced-motion opt-out and an explicit replay control on the cover. Deep-links bypass it.
-- No video or image assets are required for the film.
+Los **cuatro documentos profesionales vigentes** están publicados en el repositorio del hub, no en las copias binarias históricas de este proyecto:
 
-## V19 · Final interactive refinements
+| Documento | Español | English |
+| --- | --- | --- |
+| CV profesional | [Abrir PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_ES.pdf) | [Open PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_EN.pdf) |
+| Carta de presentación | [Abrir PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_Carta_Presentacion_ES.pdf) | [Open PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_Cover_Letter_EN.pdf) |
 
-V19 is the actual HTML/CSS/JavaScript implementation, not a generated mockup. The Bodytone case now uses the cover's midnight-navy visual language with a workflow strip (customer, Zendesk, data, Academy) and retains only grounded, previously documented metrics. The six-city atlas uses selectable markers and SVG-drawn contextual links; explore cities manually, toggle all connections or play/pause a tour. The map uses actual Natural Earth 1:110m country vector boundaries embedded in the HTML. City pins use actual coordinates. Connecting curves show context, **not measured journeys**. Natural Earth data is public domain; no raster maps or generated images are shipped. The final contact chapter now has real links, CV, agenda, languages and public project references on a bespoke dark interactive-style composition. No stock photographs, fabricated percentages or image generation assets.
+[**Centro de candidaturas ↗**](https://gracianb.github.io/GracianB/apply.html?track=professional) · [**LinkedIn ↗**](https://www.linkedin.com/in/gracianbaena/)
 
-## V18 chapter structure
+Este repositorio conserva algunos PDF antiguos por compatibilidad histórica. No enlazarlos desde nuevas candidaturas ni tratarlos como la versión oficial. La documentación Yoga y Cabin Crew dispone de sus propias rutas en el hub.
 
-**12 deliberate chapters**, including the requested return of Model and Capabilities. No separate generic "Differential", duplicated timeline or filler language slide.
+## Arquitectura y comprobaciones
 
-| # | Chapter | Purpose |
-|---|---|---|
-| 00 | Cover | Human-first positioning |
-| 01 | Model | Customer → operations → signal → decision → system → adoption → outcome |
-| 02 | Bodytone | Operational proof |
-| 03 | Public work | RevOps Studio (under construction), OHANA and VØRTICE |
-| 04 | Method | Listen, translate, build, activate, prove |
-| 05 | European atlas | Murcia, Gran Canaria, Madrid, Lisbon, Bergamo and Warsaw on a coordinate-based artistic map |
-| 06 | Evolution | A unified five-stage professional narrative |
-| 07 | Experience I | Bodytone, Minderest, Majorel with brand-inspired original artwork |
-| 08 | Experience II | Solaris, El Corte Inglés, Primark with brand-inspired original artwork |
-| 09 | Capabilities | Verifiable CS, AI, data, game/interactive and sound/graphics work |
-| 10 | Education | Retained as designed |
-| 11 | Contact | Working languages, CV and links |
-
-The six map positions are latitude/longitude references on an intentionally simplified basemap. Narrative lines are *not* transport routes, and locations are *not* attributed to specific employers without evidence. The graphic marks are original stylistic illustrations, **not licensed official corporate logos**.
-
-The **60-second overview** is now a timed experience, not a scrollable recruiter document: four 15-second chapters, playable/pausable, keyboard-accessible and translated to ES/EN. The atlas distinguishes real geographic context from the conceptual timeline, without treating every employer as a precise location. Legacy URLs with removed slide hashes open the cover instead of pointing at filler pages.
-
-The presentation is bilingual **ES / EN**, supports dark/light themes, keyboard navigation, touch navigation, deep links, command palette and presentation mode.
-
----
-
-## Public evidence
-
-### Bodytone Support OS
-
-The flagship professional case.
-
-**Problem:** support knowledge, routing, visibility and adoption were fragmented.
-
-**System:** Help Center + Zendesk routing + automation + reporting + internal enablement.
-
-**Proof:** the public Help Center and the documented case.
-
-- [Public Help Center](https://bodytonehelp.zendesk.com/hc/es)
-- [Bodytone case](https://gracianb.github.io/professional-deck/proyecto-bodytone.html)
-
-### RevOps Studio
-
-**Under construction. No live access is advertised.** A local-first decision system for Revenue Operations in development.
-
-It demonstrates data quality, deterministic scoring, forecasting, segmentation, human approval and traceability.
-
-- Public access: **not available until release and validation**.
-
-### Project OHANA
-
-A browser game used as a systems-engineering laboratory.
-
-It demonstrates state, fixed simulation, behavioural systems, regression, CI and browser E2E.
-
-- [Play](https://gracianb.github.io/project-ohana/)
-- [Source](https://github.com/GracianB/project-ohana)
-
-### VØRTICE
-
-A generative audiovisual WebGL experience.
-
-It demonstrates real-time interaction, adaptive rendering, Web Audio integration, performance budgets, accessibility and Chromium E2E.
-
-- [Experience](https://vortex-gilt-xi.vercel.app/)
-- [Source](https://github.com/GracianB/vortex)
-
-### Systems Lab
-
-The technical world where experiments and public builds live.
-
-- [Open Systems Lab](https://gracianb.github.io/systems-lab/)
-
----
-
-## Career progression
-
-The deck does not present the career as unrelated jobs.
-
-It presents the layers that accumulated:
-
-**service / retail → operations / training → B2B SaaS Customer Success → AI / data / development specialization → Customer Operations / Data**
-
-Selected organizations shown in the professional timeline:
-
-- Mooby
-- Primark
-- El Corte Inglés
-- Solaris
-- Majorel · Google / YouTube environment
-- Minderest
-- Bodytone
-
-The 2024–2025 period is presented as a **specialization stage** in applied AI, data/development and yoga/mindfulness, not as a fabricated employer.
-
-Yoga remains a real professional track, but it is not inserted into the professional employer timeline as if it were a Customer Success role.
-
----
-
-## Operating model
-
-The final deck uses the same working logic across business and technical cases:
-
-```text
-Understand
-   ↓
-Model
-   ↓
-Build
-   ↓
-Validate
-   ↓
-Activate
-   ↓
-Measure
-   ↓
-Iterate
-```
-
-The objective is not “more automation”.
-
-The objective is **better decisions and a capability that remains after handoff**.
-
----
-
-## Documents
-
-### Professional
-
-- [CV 2026 · Español](./Gracian_Baena_CV_2026_ES.pdf)
-- [CV 2026 · English](./Gracian_Baena_CV_2026_EN.pdf)
-- [Carta de presentación · Español](./Gracian_Baena_Carta_Presentacion_ES.pdf)
-- [Cover Letter · English](./Gracian_Baena_Cover_Letter_EN.pdf)
-
-### Yoga
-
-Yoga documentation remains available as a separate professional track:
-
-- [CV Yoga · Español](./Gracian_Baena_CV_Yoga_ES.pdf)
-- [CV Yoga · English](./Gracian_Baena_CV_Yoga_EN.pdf)
-- [Yoga Instructor](https://gracianb.github.io/yoga-instructor/)
-
----
-
-## Narrative and design contract
-
-The deck is a story, not a collection of unrelated screens: **human problem → operating model → Bodytone evidence → public work → method → context and progression → capability → learning → conversation**. Every chapter must answer a distinct question and retain a clear way forward.
-
-- Keep **Gracián Baena** as a discreet signature in the header. The cover introduces the professional proposition, not another full-screen personal-name title.
-- The cinematic intro says **“De la fricción al resultado”** / **“From friction to outcome”**; it must be skippable and respect reduced motion.
-- Keep all **12 original slides**. Do not insert gateway screens before the cover.
-- The palette is **silver / graphite / ivory / beige** in both intentionally designed light and dark themes. Avoid borrowing the hub’s copper, Yoga’s green or Systems Lab’s cyan as a global identity.
-- **RevOps Studio remains under construction**; it is described only as planned or in development, with no live or source CTA.
-- Every public claim should link to actual evidence and every case must respect the limits of what can be demonstrated publicly.
-- ES/EN, keyboard, mobile, screen-reader labels, reduced motion, and browser E2E are release requirements.
-
----
-
-## Quality contract
-
-The repository is not considered releasable because it merely looks correct.
-
-The pipeline checks:
-
-- structural validation
-- JavaScript syntax
-- ES / EN runtime
-- 12-slide curated contract
-- dark / light themes
-- command palette
-- presentation mode
-- timed, accessible 60-second briefing + interactive atlas
-- role dialogs
-- mobile navigation
-- 390 px responsive layout
-- no horizontal overflow
-- reduced motion
-- console / page errors
-- SEO and canonical metadata
-- local asset integrity
-- production audit
-- performance budgets
-- CSS cascade budgets
-- Playwright browser E2E
-
-Run locally:
+- HTML, CSS y JavaScript; sitios y páginas de casos estáticos.
+- Integraciones mediante enlaces a fuentes y demos reales.
+- Diseño bilingüe, navegación por teclado, temas persistidos y controles accesibles.
+- Quality Gate: Node 24, tests de regresión, contratos, comprobaciones de CSS, Playwright Chromium/Firefox/WebKit y smoke de publicación.
 
 ```bash
 npm ci
 npm run quality
 ```
 
----
+Los detalles de evolución P18–P42 están disponibles en el historial de commits y PR. No se deben restaurar capítulos eliminados ni paletas obsoletas tomando versiones antiguas del README como una instrucción vigente.
 
-## Public ecosystem
+## Ecosistema
 
-| World | Destination |
-|---|---|
-| Professional hub | https://gracianb.github.io/GracianB/ |
-| Professional Deck | https://gracianb.github.io/professional-deck/ |
-| Systems Lab | https://gracianb.github.io/systems-lab/ |
-| Yoga | https://gracianb.github.io/yoga-instructor/ |
+[GracianB](https://gracianb.github.io/GracianB/) · [Yoga Instructor](https://gracianb.github.io/yoga-instructor/) · [Systems Lab](https://gracianb.github.io/systems-lab/) · [LinkedIn](https://www.linkedin.com/in/gracianbaena/)
 
-The deck is intentionally not the whole portfolio. It is the **professional evidence** inside that ecosystem.
-
----
-
-## Contact
-
-[LinkedIn](https://www.linkedin.com/in/gracianbaena) · [Email](mailto:gracianbaenagonzalez@gmail.com) · [Book 30 min](https://calendar.app.google/n99psBFktwYyoAWi9)
-
-**Gracián Baena · Murcia, Spain · 2026**
+**Professional Deck · V1 · 20 de octubre de 2026.**
