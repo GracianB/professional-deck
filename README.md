@@ -12,22 +12,22 @@ Una trayectoria explicada con casos, sistemas y evidencia. No una presentación 
 
 ---
 
-## V1 pública · identidad Petroleum & Platinum / P43 en revisión
+## V1.1 pública · Petroleum & Platinum / P43 Operational Signal
 
 La **V1 publicada** utiliza una paleta unificada **azul petróleo profundo y platino**, tanto en claro como en oscuro. Sustituye la acumulación de doce diapositivas y colores históricos por una experiencia profesional más breve y legible.
 
 - **Entrada compacta:** portada, rutas de evidencia y destinos relevantes para quien selecciona talento.
 - **Vista rápida / detallada:** navegación reversible sin perder el contexto de scroll; los enlaces profundos a capítulos antiguos tienen equivalencias.
 - **Trayectoria laboral:** seis funciones en una cronología legible y expandible, sin duplicar «Experiencia I / II».
-- **Portada operacional P43 (PR de rediseño):** reemplaza por completo las órbitas GB por un panel de señales y decisiones, con tres rutas accesibles y animaciones de barras/escaneo.
+- **Portada operacional P43:** sustituye las órbitas GB por un panel de señales y decisiones, con tres rutas accesibles, indicadores cinéticos y escaneo lineal.
 - **Identidad diferenciada del hub:** sin constelaciones, planetas ni círculos orbitantes; recursos editoriales rectilíneos también en la introducción y el briefing de 60 segundos.
 - **Casos técnicos y profesionales:** Bodytone Support OS, RevOps Studio (demo), Project OHANA, Vórtice y Systems Lab.
 - **Introducción y briefing de 60 segundos:** opcionales, nunca necesarios para leer la trayectoria.
 - **Responsive, ES/EN, temas claro/oscuro, teclado y reducción de movimiento** como parte del contrato de lanzamiento.
 
-**Importante:** la P43 es el rediseño de la rama de esta PR, no debe anunciarse como publicada hasta que los controles y el despliegue final se confirmen. El modo de movimiento reducido mantiene la interfaz sin animaciones, y las rutas conservan clic y teclado.
+**P43 publicada:** [PR #75 fusionada](https://github.com/GracianB/professional-deck/pull/75) en el commit [`791f6e89`](https://github.com/GracianB/professional-deck/commit/791f6e89854053d8b512ac5aec434171edc4431e). [Quality de la PR: PASS](https://github.com/GracianB/professional-deck/actions/runs/39466864060) · [Quality de `main`: PASS](https://github.com/GracianB/professional-deck/actions/runs/39467291559) · [Pages: PASS](https://github.com/GracianB/professional-deck/actions/runs/39467291092) · [Smoke público: PASS](https://github.com/GracianB/professional-deck/actions/runs/39467407975). La animación se desactiva con la preferencia de movimiento reducido, sin perder navegación por teclado.
 
-**Última versión verificada:** [commit `d4dc5d1`](https://github.com/GracianB/professional-deck/commit/d4dc5d1412b2cb51fbfa54e02bef5b06dcfc4293) · [Quality aprobada](https://github.com/GracianB/professional-deck/actions/runs/39272126720) · [GitHub Pages aprobada](https://github.com/GracianB/professional-deck/actions/runs/39272125196) · [Production Smoke aprobado](https://github.com/GracianB/professional-deck/actions/runs/39272303223).
+**Referencia de la V1 anterior:** [commit `d4dc5d1`](https://github.com/GracianB/professional-deck/commit/d4dc5d1412b2cb51fbfa54e02bef5b06dcfc4293) · [Quality aprobada](https://github.com/GracianB/professional-deck/actions/runs/39272126720) · [GitHub Pages aprobada](https://github.com/GracianB/professional-deck/actions/runs/39272125196) · [Production Smoke aprobado](https://github.com/GracianB/professional-deck/actions/runs/39272303223).
 
 La terminología histórica «P40», «P41», «12 slides», «beige» y «RevOps no publicado» corresponde a iteraciones anteriores y **no es la especificación actual**. Sus decisiones permanecen en el historial de Git, no como instrucciones contradictorias en la portada del repositorio.
 
@@ -88,4 +88,4 @@ Los detalles de evolución P18–P42 están disponibles en el historial de commi
 
 [GracianB](https://gracianb.github.io/GracianB/) · [Yoga Instructor](https://gracianb.github.io/yoga-instructor/) · [Systems Lab](https://gracianb.github.io/systems-lab/) · [LinkedIn](https://www.linkedin.com/in/gracianbaena/)
 
-**Professional Deck · V1 · 20 de octubre de 2026.**
+**Professional Deck · V1.1 / P43 · 20 de octubre de 2026.**
