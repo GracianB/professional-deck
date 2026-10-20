@@ -14,7 +14,7 @@ test("P43 · optional intro is a typographic scan, not a cosmic orbit",async({pa
 
 test("P43 · briefing replaces the orbital badge with a compact diagnostic plate",async({page})=>{
  await page.goto("/?view=full&theme=dark&lang=es",{waitUntil:"domcontentloaded"});
- await page.locator(".site-header [data-open-recruiter]").click();
+ await page.locator("#inicio .pd41-brief-btn").click();
  const dialog=page.locator("#recruiter-dialog");
  await expect(dialog).toBeVisible();
  await expect(dialog.locator(".pd43-brief-readout")).toBeVisible();
