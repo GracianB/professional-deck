@@ -1,5 +1,10 @@
 ﻿window.GB_I18N = {
   es: {
+    engineAria: "Panel operativo interactivo: acceso a sistemas, experiencia y proyectos",
+    engineActive: "SEÑAL ACTIVA",
+    engineSystems: "Sistemas",
+    engineExperience: "Trayectoria",
+    engineProjects: "Laboratorio",
     orbitSystems: "Ver Sistemas",
     orbitExperience: "Ver Experiencia",
     orbitProjects: "Ver Proyectos",
@@ -525,6 +530,11 @@
     open: "ABRIR →"
   },
   en: {
+    engineAria: "Interactive operating panel: open systems, experience or projects",
+    engineActive: "SIGNAL ACTIVE",
+    engineSystems: "Systems",
+    engineExperience: "Career",
+    engineProjects: "Lab",
     orbitSystems: "Open Systems",
     orbitExperience: "Open Experience",
     orbitProjects: "Open Projects",
