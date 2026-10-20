@@ -12,17 +12,20 @@ Una trayectoria explicada con casos, sistemas y evidencia. No una presentación 
 
 ---
 
-## Estado público · V1 Petroleum & Platinum
+## V1 pública · identidad Petroleum & Platinum / P43 en revisión
 
 La **V1 publicada** utiliza una paleta unificada **azul petróleo profundo y platino**, tanto en claro como en oscuro. Sustituye la acumulación de doce diapositivas y colores históricos por una experiencia profesional más breve y legible.
 
 - **Entrada compacta:** portada, rutas de evidencia y destinos relevantes para quien selecciona talento.
 - **Vista rápida / detallada:** navegación reversible sin perder el contexto de scroll; los enlaces profundos a capítulos antiguos tienen equivalencias.
 - **Trayectoria laboral:** seis funciones en una cronología legible y expandible, sin duplicar «Experiencia I / II».
-- **Identidad GB interactiva:** controles orbitales con acceso por teclado y vínculos reales a secciones.
+- **Portada operacional P43 (PR de rediseño):** reemplaza por completo las órbitas GB por un panel de señales y decisiones, con tres rutas accesibles y animaciones de barras/escaneo.
+- **Identidad diferenciada del hub:** sin constelaciones, planetas ni círculos orbitantes; recursos editoriales rectilíneos también en la introducción y el briefing de 60 segundos.
 - **Casos técnicos y profesionales:** Bodytone Support OS, RevOps Studio (demo), Project OHANA, Vórtice y Systems Lab.
 - **Introducción y briefing de 60 segundos:** opcionales, nunca necesarios para leer la trayectoria.
 - **Responsive, ES/EN, temas claro/oscuro, teclado y reducción de movimiento** como parte del contrato de lanzamiento.
+
+**Importante:** la P43 es el rediseño de la rama de esta PR, no debe anunciarse como publicada hasta que los controles y el despliegue final se confirmen. El modo de movimiento reducido mantiene la interfaz sin animaciones, y las rutas conservan clic y teclado.
 
 **Última versión verificada:** [commit `d4dc5d1`](https://github.com/GracianB/professional-deck/commit/d4dc5d1412b2cb51fbfa54e02bef5b06dcfc4293) · [Quality aprobada](https://github.com/GracianB/professional-deck/actions/runs/39272126720) · [GitHub Pages aprobada](https://github.com/GracianB/professional-deck/actions/runs/39272125196) · [Production Smoke aprobado](https://github.com/GracianB/professional-deck/actions/runs/39272303223).
 
