@@ -59,6 +59,12 @@
   function scrollToAnchor(id,anchor){
     const section=document.getElementById(id);
     if(!section)return;
+    // A hidden chapter maps to another section. Start unambiguously at the
+    // target, rather than on the predecessor boundary before switching again.
+    if(id!==anchor.id){
+      section.scrollIntoView({block:"start",behavior:"instant"});
+      return;
+    }
     const deckBounds=deck.getBoundingClientRect();
     const line=deckBounds.top+Math.min(deckBounds.height*.42,310);
     let delta;
