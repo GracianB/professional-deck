@@ -18,6 +18,7 @@
   let full=currentQuery.get("view")==="full" || currentQuery.get("present")==="1" ||
     (Boolean(initial)&&Boolean(document.getElementById(initial))&&!focusIds.has(initial));
   let scrollFrame=0;
+  let preservedFullReading=null;
   const visible=id=>{
     const node=document.getElementById(id);
     return Boolean(node&&node.matches("section.slide")&&getComputedStyle(node).display!=="none");
@@ -58,6 +59,12 @@
   function scrollToAnchor(id,anchor){
     const section=document.getElementById(id);
     if(!section)return;
+    // A hidden chapter maps to another section. Start unambiguously at the
+    // target, rather than on the predecessor boundary before switching again.
+    if(id!==anchor.id){
+      section.scrollIntoView({block:"start",behavior:"instant"});
+      return;
+    }
     const deckBounds=deck.getBoundingClientRect();
     const line=deckBounds.top+Math.min(deckBounds.height*.42,310);
     let delta;
@@ -74,8 +81,16 @@
     deck.scrollTop=top;
   }
   function setFull(next,writeUrl=true,destination=null){
-    const anchor=readingAnchor();
-    const newMode=Boolean(next);
+    const wasFull=full;
+    const nextMode=Boolean(next);
+    const currentReading=readingAnchor();
+    // A full → brief → full cycle must restore the original detailed reading
+    // landmark, not reinterpret a compressed quick-view section as a new spot.
+    const anchor=!wasFull&&nextMode&&preservedFullReading?.id===currentReading.id
+      ?preservedFullReading : currentReading;
+    if(wasFull&&!nextMode) preservedFullReading=currentReading;
+    if(nextMode||destination) preservedFullReading=null;
+    const newMode=nextMode;
     const unchanged=full===newMode;
     full=newMode;
     render();

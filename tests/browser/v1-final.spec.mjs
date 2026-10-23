@@ -68,6 +68,29 @@ test("V1 · switching brief/full preserves the reading anchor in the unified tim
  expect(Math.abs(after.y-before.y)).toBeLessThan(100);
 });
 
+test("V1 regression · full → brief → full keeps the exact career landmark across cycles",async({page})=>{
+  await page.setViewportSize({width:1366,height:768});
+  await page.goto("/?view=full&lang=es&theme=dark#experiencia",{waitUntil:"domcontentloaded"});
+  const item=page.locator('#experiencia [data-career="primark"] summary');
+  await item.scrollIntoViewIfNeeded();
+  const deck=page.locator("#deck");
+  for(let cycle=0;cycle<3;cycle++){
+    const before=await item.boundingBox();
+    const pos=await deck.evaluate(el=>el.scrollTop);
+    await page.locator(".site-header [data-deck-mode]").click();
+    await expect(page.locator("body")).toHaveClass(/deck-focus/);
+    await page.locator(".site-header [data-deck-mode]").click();
+    await expect(page.locator("body")).toHaveClass(/deck-full/);
+    await expect(item).toBeInViewport();
+    await expect.poll(async()=>{
+      const after=await item.boundingBox();
+      return Math.abs(after.y-before.y);
+    },{timeout:2500}).toBeLessThan(90);
+    const afterPos=await deck.evaluate(el=>el.scrollTop);
+    expect(Math.abs(afterPos-pos)).toBeLessThan(160);
+  }
+});
+
 test("V1 · hiding a full-only chapter lands in closest meaningful quick-view section",async({page})=>{
  await page.goto("/?view=full&lang=es&theme=dark#ruta",{waitUntil:"domcontentloaded"});
  await expect(page.locator("#ruta")).toBeInViewport();
@@ -78,6 +101,7 @@ test("V1 · hiding a full-only chapter lands in closest meaningful quick-view se
  await expect(page.locator("#experiencia")).toBeInViewport();
  await page.locator(".site-header [data-deck-mode]").click();
  await expect(page.locator("body")).toHaveClass(/deck-full/);
+ await expect(page).toHaveURL(/#experiencia$/);
  await expect(page.locator("#experiencia")).toBeInViewport();
 });
 
