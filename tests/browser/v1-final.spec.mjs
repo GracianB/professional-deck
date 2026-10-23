@@ -101,6 +101,7 @@ test("V1 · hiding a full-only chapter lands in closest meaningful quick-view se
  await expect(page.locator("#experiencia")).toBeInViewport();
  await page.locator(".site-header [data-deck-mode]").click();
  await expect(page.locator("body")).toHaveClass(/deck-full/);
+ await expect(page).toHaveURL(/#experiencia$/);
  await expect(page.locator("#experiencia")).toBeInViewport();
 });
 
