@@ -1,0 +1,35 @@
+name: Maria encrypted preview · live smoke
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'maria-romera/**'
+      - '.github/workflows/maria-preview-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-preview:
+    name: Confirm published encrypted preview (HTTP 200)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Pages URL and encrypted password gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          url='https://gracianb.github.io/professional-deck/maria-romera/'
+          for i in {1..12}; do
+            code=$(curl --location --silent --show-error --output /tmp/maria-live.html --write-out '%{http_code}' "$url")
+            echo "Attempt $i: HTTP $code"
+            if [ "$code" = 200 ] && grep -q 'const PAYLOAD=' /tmp/maria-live.html && grep -q 'Contraseña de acceso' /tmp/maria-live.html; then
+              if grep -q 'Senior Supply Planning Analyst' /tmp/maria-live.html; then
+                echo 'ERROR: plaintext private content leaked' >&2; exit 1
+              fi
+              echo 'LIVE URL VERIFIED: encrypted preview, password gate, no plaintext'
+              exit 0
+            fi
+            sleep 8
+          done
+          echo "Encrypted portfolio is not live at $url" >&2
+          exit 1
