@@ -1,0 +1,105 @@
+/* María Romera · editorial accessibility layer
+   Loaded only after successful client-side decryption. Never affects the password gate. */
+:root { --mr-ink:#102b33; --mr-cream:#faf7f0; --mr-gold:#efbd81; --mr-mist:#d6ebe7; }
+html { scroll-behavior:smooth; scroll-padding-top:100px; }
+body.maria-polished { -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-wrap:break-word; }
+body.maria-polished :where(button,a,input,select,textarea):focus-visible { outline:3px solid #f4ae68!important; outline-offset:4px!important; }
+body.maria-polished :where(p,li) { line-height:1.65; }
+body.maria-polished :where(a,button) { touch-action:manipulation; }
+body.maria-polished :where(img,svg,video,iframe) { max-width:100%; }
+body.maria-polished :where(h1,h2,h3) { text-wrap:balance; }
+body.maria-polished .maria-cv-section {
+  --mr-section-foreground:#f6f3e9;
+  --mr-section-subdued:#d5e6e6;
+  position:relative;
+  isolation:isolate;
+  min-height:unset!important;
+  overflow:visible!important;
+}
+body.maria-polished .maria-cv-section :where(h1,h2,h3,.maria-cv-heading) {
+  color:var(--mr-section-foreground)!important;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:none!important;
+  text-shadow:none!important;
+  -webkit-text-fill-color:currentColor!important;
+  line-height:1.12!important;
+  letter-spacing:-.035em!important;
+  max-width:16ch;
+  overflow:visible!important;
+}
+body.maria-polished .maria-cv-section .maria-cv-heading {
+  font-size:clamp(2.7rem,5vw,5.6rem)!important;
+  text-wrap:balance;
+}
+body.maria-polished .maria-cv-section .maria-cv-heading :where(span,strong,b,i) {
+  opacity:1!important;
+  visibility:visible!important;
+  filter:none!important;
+  -webkit-text-fill-color:currentColor!important;
+}
+body.maria-polished .maria-cv-section .maria-cv-heading :where(em) {
+  color:var(--mr-gold)!important;
+  -webkit-text-fill-color:var(--mr-gold)!important;
+}
+body.maria-polished .maria-cv-section .maria-cv-heading *:not(em) {
+  color:inherit!important;
+}
+body.maria-polished .maria-cv-section :where(p,.maria-cv-copy) {
+  color:var(--mr-section-subdued)!important;
+  opacity:1!important;
+  font-size:clamp(1rem,1.1vw,1.125rem)!important;
+  line-height:1.75!important;
+  max-width:62ch;
+}
+body.maria-polished .maria-cv-section :where(a,button) {
+  min-height:44px;
+}
+body.maria-polished .maria-cv-section :where(a):focus-visible {
+  outline-offset:5px;
+}
+body.maria-polished .maria-cv-section .maria-cv-heading,
+body.maria-polished .maria-cv-section .maria-cv-heading * {
+  transform:none!important;
+  clip-path:none!important;
+  mix-blend-mode:normal!important;
+}
+body.maria-polished .maria-cv-section [data-maria-cv-preview] {
+  transform:rotate(-1.5deg)!important;
+  transform-origin:center;
+  max-width:min(100%,390px)!important;
+  box-shadow:0 28px 70px #00191c50;
+}
+body.maria-polished .maria-cv-section [data-maria-cv-preview]:hover {
+  transform:rotate(0deg) translateY(-4px)!important;
+}
+@media (max-width:800px) {
+  html { scroll-padding-top:74px; }
+  body.maria-polished .maria-cv-section {
+    min-height:unset!important;
+  }
+  body.maria-polished .maria-cv-section .maria-cv-heading {
+    max-width:100%;
+    font-size:clamp(2.4rem,9vw,4rem)!important;
+  }
+  body.maria-polished .maria-cv-section [data-maria-cv-preview] {
+    transform:none!important;
+    margin-inline:auto;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  body.maria-polished .maria-cv-section *,
+  body.maria-polished .maria-cv-section *::before,
+  body.maria-polished .maria-cv-section *::after {
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+  }
+}
+@media print {
+  body.maria-polished .maria-cv-section { break-inside:avoid; }
+  body.maria-polished .maria-cv-section :where(h1,h2,h3,.maria-cv-heading) {
+    color:#102b33!important;
+    -webkit-text-fill-color:#102b33!important;
+  }
+}
