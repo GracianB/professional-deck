@@ -7,7 +7,7 @@
     document.body.classList.add('maria-polished');
     const headings = [...document.querySelectorAll('h1,h2,h3,h4,[class*="title"],[class*="heading"]')];
     const heading = headings.find(el => {
-      const t=(el.textContent||'').replace(/\\s+/g,' ').trim().toLocaleLowerCase('es');
+      const t=(el.textContent||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('es');
       return t.includes('trayectoria') && t.length < 180 && !el.querySelector('h1,h2,h3,h4');
     });
     if (!heading) return;
@@ -20,7 +20,7 @@
     const preview=possiblePreview.find(el=>!el.matches('iframe,object,embed') && !el.querySelector('iframe,object,embed'));
     if (preview) preview.setAttribute('data-maria-cv-preview','');
     const text=heading.textContent?.trim();
-    if(text) heading.setAttribute('aria-label',text.replace(/\\s+/g,' '));
+    if(text) heading.setAttribute('aria-label',text.replace(/\s+/g,' '));
   }
   if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',enhance,{once:true});
   else enhance();
