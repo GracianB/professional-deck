@@ -61,8 +61,8 @@ document.getElementById("unlock").addEventListener("submit",async(event)=>{
     const html=new TextDecoder().decode(expanded);
     // Append accessible editorial styling only to the decrypted document.
     // The encrypted payload and the password-protected entry remain untouched.
-    const enhancements='<link rel="stylesheet" href="./maria-polish.css"><script defer src="./maria-polish.js"><\\/script>';
-    const enhancedHtml=/<\\/head>/i.test(html) ? html.replace(/<\\/head>/i,enhancements+'</head>') : enhancements+html;
+    const enhancements='<link rel="stylesheet" href="./maria-polish.css"><script defer src="./maria-polish.js"></'+'script>';
+    const enhancedHtml=/<\/head>/i.test(html) ? html.replace(/<\/head>/i,enhancements+'</head>') : enhancements+html;
     document.open();document.write(enhancedHtml);document.close();
     document.activeElement?.blur?.();
     window.scrollTo(0,0);
