@@ -1,125 +1,99 @@
 <div align="center">
 
-<a href="https://gracianb.github.io/professional-deck/">
-  <img src="./assets/readme-cover.svg" alt="Professional Deck by Gracián Baena — People. Operations. Systems that work." width="100%">
-</a>
+# Professional Deck
 
-### CUSTOMER SUCCESS · CUSTOMER OPERATIONS · DATA · AI
+### Gracián Baena · Customer Success × Customer Operations × Data × AI × Automation
 
-**A professional story told through real work, clear decisions, and evidence you can explore.**
+<p>
+  <a href="https://gracianb.github.io/professional-deck/">Explore the deck</a> ·
+  <a href="https://gracianb.github.io/GracianB/apply.html?track=professional">Application hub</a> ·
+  <a href="https://gracianb.github.io/GracianB/">Personal hub</a>
+</p>
 
-[**Explore the live portfolio ↗**](https://gracianb.github.io/professional-deck/) &nbsp;·&nbsp;
-[**Open the Bodytone case ↗**](https://gracianb.github.io/professional-deck/proyecto-bodytone.html) &nbsp;·&nbsp;
-[**View the application desk ↗**](https://gracianb.github.io/GracianB/apply.html?track=professional)
-
-[**LinkedIn**](https://www.linkedin.com/in/gracianbaena/) &nbsp;·&nbsp;
-[**Personal hub**](https://gracianb.github.io/GracianB/) &nbsp;·&nbsp;
-[**Systems Lab**](https://gracianb.github.io/systems-lab/)
+**A career explained through cases, systems and evidence — not a wall of tools and buzzwords.**
 
 </div>
 
 ---
 
-## The work behind the profile
+## Why this portfolio exists
 
-I work at the intersection of **customer experience, operations, data, and technology**. My background spans 16+ years across customer-facing work, teams, and operations; more recently, I have built practical tools and workflows with platforms including Zendesk, Power BI, Python, JavaScript, and automation.
+This repository is a public professional narrative built around real operational context and evidence, not a generic CV template.
 
-The through-line is simple:
+- It shows how customer operations, service quality, data, automation and decision systems connect in practice.
+- It presents selected public proof instead of hiding the story behind long lists of responsibilities.
+- It leads to the canonical application materials hosted in the main hub repository, keeping the source of truth clear.
 
-<div align="center">
+> The deck is evidence-first: how work actually moved, what decisions were made, and what systems were built to improve them.
 
-**CUSTOMER → OPERATIONS → DATA → SYSTEM → ADOPTION → OUTCOME**
+---
 
-</div>
+## The signal in one minute
 
-This portfolio is the evidence layer of my professional profile. It is designed to help a reader understand **what I have worked on, how I approach problems, and where public examples can be inspected**—without confusing prototypes with production systems or demos with measured results.
+`client → operations → data → decisions → systems → adoption → outcome`
 
-## Start with a case
+This is the trajectory behind the portfolio:
 
-<table>
-  <tr>
-    <td width="58%" valign="top">
-      <strong>01 / CUSTOMER OPERATIONS</strong><br><br>
-      <a href="https://gracianb.github.io/professional-deck/proyecto-bodytone.html"><strong>Bodytone Support OS ↗</strong></a><br>
-      A public case study about support operations, Zendesk workflows, knowledge, automation, reporting, and team adoption.
-      <br><br>
-      <a href="https://bodytonehelp.zendesk.com/hc/es">Open the public Help Center ↗</a>
-    </td>
-    <td width="42%" valign="top">
-      <strong>02 / DECISION SYSTEMS</strong><br><br>
-      <a href="https://gracianb.github.io/revops-studio/demo.html"><strong>RevOps Studio demo ↗</strong></a><br>
-      Explore a decision workflow using sample data. It is a public demonstration—not a live customer system.
-    </td>
-  </tr>
-  <tr>
-    <td width="58%" valign="top">
-      <strong>03 / ENGINEERING & INTERACTION</strong><br><br>
-      <a href="https://gracianb.github.io/project-ohana/"><strong>Project OHANA ↗</strong></a> ·
-      <a href="https://github.com/GracianB/project-ohana">source ↗</a><br>
-      A browser game and systems project involving simulation, state, behaviour, regression, and browser testing.
-    </td>
-    <td width="42%" valign="top">
-      <strong>04 / CREATIVE TECHNOLOGY</strong><br><br>
-      <a href="https://vortex-gilt-xi.vercel.app/"><strong>VØRTICE ↗</strong></a> ·
-      <a href="https://github.com/GracianB/vortex">source ↗</a><br>
-      An interactive WebGL audiovisual experience. Availability of the live experience is maintained separately from this repository.
-    </td>
-  </tr>
-</table>
+- Support operations and customer experience
+- Service workflows, reporting and information quality
+- Automation, data structure and decision support
+- Systems thinking applied to growth and operational resilience
 
-**More to explore:** [Systems Lab ↗](https://gracianb.github.io/systems-lab/) brings together technical experiments, public showcases, and projects with clearly stated access boundaries. Aigoritmo is a local/private application; its public page is a showcase, not a public chat service.
+The result is a story that connects daily work to measurable outcomes, without pretending every demo is a production system.
 
-## A portfolio built for two reading speeds
+---
 
-The live deck offers a **quick overview** as well as a more detailed route through the work. Start with the key case, jump to career experience, or explore the demonstrations directly.
+## Public proof, clearly framed
 
-- **Evidence first:** public cases and interactive examples are easy to reach.
-- **A clear operating model:** customer context, operational friction, data, decisions, systems, and adoption are connected in one narrative.
-- **Career context:** six expandable experience chapters provide a deeper view without making the first read feel like an endless CV.
-- **60-second recruiter brief:** a concise, optional overview with links to the relevant evidence.
-- **Interactive navigation:** presentation mode, keyboard navigation, and a searchable command palette.
-- **Bilingual experience:** English and Spanish, with dark and light themes.
-- **Responsive and accessible by design:** mobile layouts, visible focus, and reduced-motion support are part of the project’s quality checks.
-
-[**Open the full interactive deck ↗**](https://gracianb.github.io/professional-deck/)
-
-## What the public examples show
-
-| Example | Explore | Scope and status |
+| Evidence | What it demonstrates | Access |
 | --- | --- | --- |
-| **Bodytone Support OS** | [Case study](https://gracianb.github.io/professional-deck/proyecto-bodytone.html) · [Help Center](https://bodytonehelp.zendesk.com/hc/es) | Publicly accessible case and Help Center. No private customer data or internal credentials are published here. |
-| **RevOps Studio** | [Sample-data demo](https://gracianb.github.io/revops-studio/demo.html) | Demonstration with sample data; not a production customer system. |
-| **Project OHANA** | [Play](https://gracianb.github.io/project-ohana/) · [Source](https://github.com/GracianB/project-ohana) | Public browser experience and source repository. |
-| **VØRTICE** | [Experience](https://vortex-gilt-xi.vercel.app/) · [Source](https://github.com/GracianB/vortex) | Public creative-technology project; its deployment is managed separately. |
-| **Systems Lab** | [Explore](https://gracianb.github.io/systems-lab/) | Public technical showcase. Some work shown there remains private or local. |
+| [Bodytone Support OS](https://gracianb.github.io/professional-deck/proyecto-bodytone.html) | Support operations, Zendesk workflows, automation and adoption | Public case + [Help Center](https://bodytonehelp.zendesk.com/hc/es) |
+| [RevOps Studio](https://gracianb.github.io/revops-studio/demo.html) | Operational logic, rules, tracing and decision flows | Demo with fictional data |
+| [Project OHANA](https://gracianb.github.io/project-ohana/) | Simulation, states, systems engineering and experimentation | Public project |
+| [Vórtice](https://vortex-gilt-xi.vercel.app/) | WebGL, interaction, animation and adaptive performance | Public experience |
+| [Systems Lab](https://gracianb.github.io/systems-lab/) | Applied software, AI prototypes and public experiments | Public showcase |
 
-Additional case pages: [Calculator](./proyecto-calculadora.html), [LinkedIn Finder](./proyecto-linkedin.html), and [Outreach GenAI](./proyecto-outreach.html). Availability and scope belong to each linked project; a listing here is not a claim that every tool is a public or production service.
+Additional case contexts are also available in the deck and linked from the navigation, but the portfolio keeps the focus on work that is explainable and traceable.
 
-## Explore the experience
+---
 
-The deck is a static, bilingual web portfolio published on GitHub Pages. It uses HTML, CSS, and JavaScript, with interactive slide navigation, a geographic context atlas, expandable career details, and optional recruiter and presentation modes.
+## Career narrative
 
-**Languages:** Spanish · English · Italian
+This portfolio combines:
 
-**Selected tools and platforms:** Zendesk · Power BI · Python · JavaScript · APIs · Google Apps Script · automation · applied AI
+- customer-facing work and service operations
+- process, reporting and support systems
+- operational data and decision support
+- automation and AI-assisted tooling
+- cross-functional communication in changing environments
 
-[**Open the live experience ↗**](https://gracianb.github.io/professional-deck/) &nbsp;·&nbsp;
-[**Explore the Bodytone case ↗**](https://gracianb.github.io/professional-deck/proyecto-bodytone.html)
+The reading experience is deliberately designed to support two modes:
 
-## Résumés and application documents
+1. Quick scan: public proof, relevant projects and how the work connects.
+2. Deeper read: operational model, case context, geography, experience and decision-making.
 
-The canonical public application documents live in the [GracianB hub repository](https://github.com/GracianB/GracianB). Use those current files rather than older PDFs retained here for historical compatibility.
+The city atlas and chapter structure are narrative context, not deductions from a map of job titles.
+
+---
+
+## Application documents and source of truth
+
+The current professional documents live in the [GracianB hub repository](https://github.com/GracianB/GracianB), not in historical copies retained here for compatibility.
 
 | Document | English | Español |
 | --- | --- | --- |
-| **Professional résumé** | [Open PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_EN.pdf) | [Abrir PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_ES.pdf) |
-| **Cover letter** | [Open PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_Cover_Letter_EN.pdf) | [Abrir PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_Carta_Presentacion_ES.pdf) |
+| CV | [Open PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_EN.pdf) | [Abrir PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_CV_2026_ES.pdf) |
+| Cover letter | [Open PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_Cover_Letter_EN.pdf) | [Abrir PDF ↗](https://gracianb.github.io/GracianB/Gracian_Baena_Carta_Presentacion_ES.pdf) |
 
-[**Choose a language and application focus ↗**](https://gracianb.github.io/GracianB/apply.html?track=professional)
+[**Open the professional application hub ↗**](https://gracianb.github.io/GracianB/apply.html?track=professional)
 
-## Project quality
+This repository keeps older PDF files only for historical continuity. New applications should always link to the canonical hub files.
 
-This repository includes checks for source structure, local assets, CSS rules, browser behaviour, responsive layouts, and production routes. To run the core validation locally:
+---
+
+## Quality and validation
+
+This repo includes checks for structure, local references, CSS guards, browser behavior and production routes.
 
 ```bash
 npm ci
@@ -127,34 +101,34 @@ npm run validate
 npm run verify
 ```
 
-The full `npm run quality` gate also includes browser and cross-browser checks, CSS audits, performance checks, and production smoke tests. It requires the project’s supported Node.js version and installed browser tooling; see [`package.json`](./package.json) for the current scripts.
+The full `npm run quality` gate includes browser and cross-browser verification, CSS audits and production smoke tests. It validates the state of the repository at that revision and does not claim business outcomes or guarantee external third-party demos remain available forever.
 
-A passing repository check validates the checks that ran for that revision. It does not independently prove availability of third-party demos or measure business outcomes.
+---
 
 ## Repository map
 
 | Path | Purpose |
 | --- | --- |
 | `index.html` | Interactive bilingual portfolio deck |
-| `i18n.js`, `main.js`, `focus-mode.js` | Language content, navigation, and focus interactions |
+| `i18n.js`, `main.js`, `focus-mode.js` | Language content, navigation and focus interactions |
 | `styles.css`, `v*-*.css`, `p43-signal-engine.css` | Visual system and responsive presentation layers |
-| `proyecto-*.html`, `case-*.js`, `case-*.css` | Focused project case pages |
+| `proyecto-*.html`, `case-*.js`, `case-*.css` | Project/case pages |
 | `assets/` | Portfolio artwork and visual resources |
 | `tests/`, `tools/`, `validate.mjs`, `verify.mjs` | Validation and quality tooling |
 | `RELEASE_V16.md` | Historical release and evidence-boundary reference |
 
+---
+
 ## Connect
 
-[**LinkedIn**](https://www.linkedin.com/in/gracianbaena/) &nbsp;·&nbsp;
-[**Email**](mailto:gracianbaenagonzalez@gmail.com) &nbsp;·&nbsp;
-[**Book a conversation**](https://calendar.app.google/n99psBFktwYyoAWi9)
+[LinkedIn](https://www.linkedin.com/in/gracianbaena/) · [Email](mailto:gracianbaenagonzalez@gmail.com) · [Book a conversation](https://calendar.app.google/n99psBFktwYyoAWi9)
 
 ---
 
 <div align="center">
 
-**Professional Deck** · Professional evidence, in context.
+<strong>Professional Deck</strong> · Evidence in context.
 
-[Portfolio](https://gracianb.github.io/professional-deck/) · [Personal hub](https://gracianb.github.io/GracianB/) · [Systems Lab](https://gracianb.github.io/systems-lab/)
+[Portfolio](https://gracianb.github.io/professional-deck/) · [Hub](https://gracianb.github.io/GracianB/) · [Systems Lab](https://gracianb.github.io/systems-lab/)
 
 </div>
