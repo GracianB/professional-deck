@@ -18,6 +18,8 @@
   let full=currentQuery.get("view")==="full" || currentQuery.get("present")==="1" ||
     (Boolean(initial)&&Boolean(document.getElementById(initial))&&!focusIds.has(initial));
   let scrollFrame=0;
+  // Preserve a deliberate full-only -> quick-view redirect for the next mode switch.
+  let lastFallbackTarget=null;
   const visible=id=>{
     const node=document.getElementById(id);
     return Boolean(node&&node.matches("section.slide")&&getComputedStyle(node).display!=="none");
@@ -80,7 +82,16 @@
     full=newMode;
     render();
     let target=destination||anchor.id;
-    if(!full&&!focusIds.has(target))target=fallback[target]||"inicio";
+    if(!full&&!focusIds.has(target)){
+      target=fallback[target]||"inicio";
+      lastFallbackTarget=target;
+    }else if(full&&!destination&&lastFallbackTarget&&
+      decodeURIComponent(location.hash.slice(1))===lastFallbackTarget){
+      // The address points to the closest quick-view chapter. Keep that chapter
+      // visible when expanding, even if layout changes shifted the reading line.
+      target=lastFallbackTarget;
+      lastFallbackTarget=null;
+    }
     if(!visible(target))target="inicio";
     if(writeUrl){
       const url=new URL(location.href);
