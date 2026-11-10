@@ -1,20 +1,17 @@
-<div align="center">
+<p align="center">
+  <a href="https://gracianb.github.io/professional-deck/"><img src="./og-cover.png" alt="Gracián Baena — Professional Deck: Customer Success, Operations, Data and applied technology" width="100%"></a>
+</p>
 
-<a href="https://gracianb.github.io/professional-deck/">
-  <img src="./og-cover.png" width="100%" alt="Gracián Baena — Professional Deck: Customer Success, Operations, Data and applied technology">
-</a>
+<h1 align="center">Gracián Baena · Professional Deck</h1>
 
-# Gracián Baena · Professional Deck
+<h3 align="center">Customer Success · Customer Operations · Data · Applied AI</h3>
 
-### Customer Success · Customer Operations · Data · Applied AI
+<p align="center"><strong>I turn operational friction into systems people can understand, adopt and use.</strong></p>
 
-**I turn operational friction into systems people can understand, adopt and use.**
+<p align="center"><em>Murcia, Spain · Remote &amp; international collaboration · Spanish / English / Italian</em></p>
 
-*Murcia, Spain · Remote & international collaboration · Spanish / English / Italian*
+<p align="center"><a href="https://gracianb.github.io/professional-deck/"><strong>Explore the portfolio</strong></a> &nbsp;·&nbsp; <a href="https://gracianb.github.io/professional-deck/proyecto-bodytone.html"><strong>See a real case</strong></a> &nbsp;·&nbsp; <a href="https://gracianb.github.io/GracianB/apply.html?track=professional&amp;focus=customer-success"><strong>Resume &amp; applications</strong></a></p>
 
-[**Explore the portfolio**](https://gracianb.github.io/professional-deck/) &nbsp; · &nbsp; [**See a real case**](https://gracianb.github.io/professional-deck/proyecto-bodytone.html) &nbsp; · &nbsp; [**Resume & applications**](https://gracianb.github.io/GracianB/apply.html?track=professional&focus=customer-success)
-
-</div>
 
 ---
 
@@ -93,10 +90,7 @@ I am interested in meaningful challenges involving **Customer Success, Customer 
 
 [**LinkedIn**](https://www.linkedin.com/in/gracianbaena/) · [**Email**](mailto:gracianbaenagonzalez@gmail.com) · [**Book a conversation**](https://calendar.app.google/n99psBFktwYyoAWi9)
 
-<div align="center">
+<p align="center"><strong>People first. Evidence over hype. Systems worth using.</strong></p>
 
-*People first. Evidence over hype. Systems worth using.*
+<p align="center"><a href="https://gracianb.github.io/GracianB/"><strong>The personal hub</strong></a> &nbsp;·&nbsp; <a href="https://gracianb.github.io/yoga-instructor/"><strong>Yoga Instructor</strong></a> &nbsp;·&nbsp; <a href="https://gracianb.github.io/systems-lab/"><strong>Systems Lab</strong></a></p>
 
-[The personal hub](https://gracianb.github.io/GracianB/) · [Yoga Instructor](https://gracianb.github.io/yoga-instructor/) · [Systems Lab](https://gracianb.github.io/systems-lab/)
-
-</div>
