@@ -132,6 +132,12 @@
     if(event.ctrlKey||event.metaKey||event.altKey||document.querySelector("dialog[open]"))return;
     if(!["ArrowDown","ArrowUp","ArrowLeft","ArrowRight","PageDown","PageUp","Home","End"].includes(event.key))return;
     if(event.target.closest("button,a,input,textarea,select,summary,[contenteditable]"))return;
+    if(event.target===deck && (event.key==="Home" || event.key==="End")){
+      // Touch-emulated browsers do not always dispatch native Home/End scrolling
+      // to the focused overflow pane. Give those keys a deterministic target.
+      event.preventDefault();
+      deck.scrollTop=event.key==="Home"?0:deck.scrollHeight;
+    }
     event.stopImmediatePropagation();
   },true);
   window.addEventListener("hashchange",()=>{
