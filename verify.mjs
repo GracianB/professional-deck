@@ -89,7 +89,8 @@ const expectedCssOrder = [
   "v25-finish.css",
   "platinum-focus.css",
   "v1-final.css",
-  "p43-signal-engine.css"
+  "p43-signal-engine.css",
+  "p44-professional-signal.css"
 ];
 
 if (cssFiles.join("\n") === expectedCssOrder.join("\n")) {

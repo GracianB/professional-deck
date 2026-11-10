@@ -84,6 +84,21 @@ const v20Cinema = await readFile(join(root, "v20-cinema.js"), "utf8");
 const main = await readFile(join(root, "main.js"), "utf8");
 const i18n = await readFile(join(root, "i18n.js"), "utf8");
 const readme = await readFile(join(root, "README.md"), "utf8");
+
+const professionalSignalCss = await readFile(join(root,"p44-professional-signal.css"),"utf8");
+for (const [label,match] of [
+  ["P44 proof route",/class="pd26-evidence-route"/],
+  ["P44 Bodytone link",/href="\.\/proyecto-bodytone\.html"/],
+  ["P44 professional application",/apply\.html\?track=professional&amp;focus=customer-success/],
+  ["P44 CSS link",/p44-professional-signal\.css\?v=p44-1/],
+]) if (!match.test(index)) errors.push("Missing professional signal: "+label);
+for (const key of ["pd26EvidenceLabel","pd26CaseTitle","pd26CaseSubtitle","pd26Apply","pd26Disclosure","pd26EvidenceAria"]) {
+  const hits=[...i18n.matchAll(new RegExp("\\b"+key+":","g"))].length;
+  if (hits!==2) errors.push("P44 missing bilingual content: "+key);
+}
+if (!/prefers-reduced-motion/.test(professionalSignalCss)) errors.push("P44 must honor reduced motion");
+if (!/og-cover\.png/.test(readme) || !/Systems Lab/.test(readme)) errors.push("README should showcase the work and the wider universe");
+
 const packageJson = JSON.parse(await readFile(join(root, "package.json"), "utf8"));
 const publicText = [index, i18n, readme].join("\n");
 
