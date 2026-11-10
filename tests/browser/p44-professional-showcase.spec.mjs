@@ -10,6 +10,13 @@ for (const [language,theme,width,height] of [
     await page.goto(`/?lang=${language}&theme=${theme}`,{waitUntil:"domcontentloaded"});
     const signal=page.locator("#inicio .pd26-evidence-route");
     await expect(signal).toBeVisible();
+    await expect(signal).toHaveCSS("background-image",/linear-gradient/);
+    await expect(signal).toHaveCSS("border-radius",/^[1-9][0-9]*px$/);
+    await expect(signal.locator(".pd26-evidence-primary")).toHaveCSS("display","flex");
+    const stylesheets=await page.evaluate(()=>[...document.styleSheets]
+      .map(s=>s.href||"").filter(s=>s.includes("p44-professional-signal.css")));
+    expect(stylesheets.length).toBe(1);
+
     await expect(signal.locator(".pd26-evidence-label")).toContainText(language==="en"?"EVIDENCE":"COMPROBAR");
     await expect(signal.locator(".pd26-evidence-links a")).toHaveCount(2);
     await expect(signal.locator('a[href="./proyecto-bodytone.html"]')).toHaveCount(1);

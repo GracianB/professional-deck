@@ -158,6 +158,12 @@ try {
   errors.push("validate.mjs failed");
 }
 
+const showroomReadme = fs.readFileSync(path.join(root, "README.md"), "utf8");
+if (/<div align="center">/.test(showroomReadme)) fail("Markdown cannot be nested inside HTML div showroom containers");
+else pass("GitHub README uses valid block-level HTML");
+if (!/<h1 align="center">Gracián Baena/.test(showroomReadme)) fail("GitHub README styled heading missing");
+else pass("GitHub README has a centered HTML headline");
+
 if (errors.length) {
   console.error(`\nVerification failed (${errors.length})\n`);
   process.exit(1);
