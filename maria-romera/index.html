@@ -59,7 +59,11 @@ document.getElementById("unlock").addEventListener("submit",async(event)=>{
     const decrypted=await crypto.subtle.decrypt({name:"AES-GCM",iv:bytes(IV)},key,bytes(PAYLOAD));
     const expanded=await new Response(new Blob([decrypted]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
     const html=new TextDecoder().decode(expanded);
-    document.open();document.write(html);document.close();
+    // Append accessible editorial styling only to the decrypted document.
+    // The encrypted payload and the password-protected entry remain untouched.
+    const enhancements='<link rel="stylesheet" href="./maria-polish.css"><script defer src="./maria-polish.js"></'+'script>';
+    const enhancedHtml=/<\/head>/i.test(html) ? html.replace(/<\/head>/i,enhancements+'</head>') : enhancements+html;
+    document.open();document.write(enhancedHtml);document.close();
     document.activeElement?.blur?.();
     window.scrollTo(0,0);
   }catch(e){
